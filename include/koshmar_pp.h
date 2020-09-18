@@ -1,5 +1,5 @@
-#ifndef KOSHMAR_H
-#define KOSHMAR_H
+#ifndef KOSHMAR_PP_H
+#define KOSHMAR_PP_H
 
 #include "koshmar/call_macro.h"
 #include "koshmar/cat.h"
@@ -9,4 +9,4 @@
 #include "koshmar/stringify.h"
 #include "koshmar/variadics.h"
 
-#endif // KOSHMAR_H
+#endif // KOSHMAR_PP_H

@@ -1,6 +1,0 @@
-#ifndef KOSHMAR_CALL_MACRO_H
-#define KOSHMAR_CALL_MACRO_H
-
-#define KOSHMAR_CALL_MACRO(op, ...) op(__VA_ARGS__)
-
-#endif // KOSHMAR_CALL_MACRO_H

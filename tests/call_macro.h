@@ -1,4 +1,4 @@
-#include "../include/koshmar/call_macro.h"
+#include "../include/koshmar_pp/call_macro.h"
 
 #include <string.h>
 
@@ -12,7 +12,7 @@
 #define ARGS "Bring", "It", "On", "Home"
 
     // X(ARGS) doesn't work because ARGS is treated as a single argument.
-    KOSHMAR_CALL_MACRO(X, ARGS)
+    KOSHMAR_PP_CALL_MACRO(X, ARGS)
 
 #undef X
 #undef ARGS
