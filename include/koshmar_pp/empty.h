@@ -1,0 +1,6 @@
+#ifndef KOSHMAR_PP_EMPTY_H
+#define KOSHMAR_PP_EMPTY_H
+
+#define KOSHMAR_PP_EMPTY()
+
+#endif // KOSHMAR_PP_EMPTY_H

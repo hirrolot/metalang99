@@ -2,17 +2,17 @@
 #define KOSHMAR_PP_REC_H
 
 #include "cat.h"
-#include "emptiness.h"
+#include "empty.h"
 #include "expand.h"
 #include "variadics/get.h"
 
 #define KOSHMAR_PP_REC_CALL(op, ...)                                                               \
-    KOSHMAR_PP_REC_CALL_INDIRECT_0 KOSHMAR_PP_EMPTINESS()(op, __VA_ARGS__)
+    KOSHMAR_PP_REC_CALL_INDIRECT_0 KOSHMAR_PP_EMPTY()(op, __VA_ARGS__)
 #define KOSHMAR_PP_REC_CALL_INDIRECT_0(op, ...)                                                    \
-    KOSHMAR_PP_REC_CALL_INDIRECT_1 KOSHMAR_PP_EMPTINESS()(op, __VA_ARGS__)
+    KOSHMAR_PP_REC_CALL_INDIRECT_1 KOSHMAR_PP_EMPTY()(op, __VA_ARGS__)
 #define KOSHMAR_PP_REC_CALL_INDIRECT_1(op, ...)                                                    \
-    KOSHMAR_PP_REC_CALL_INDIRECT_2 KOSHMAR_PP_EMPTINESS()(op, __VA_ARGS__)
-#define KOSHMAR_PP_REC_CALL_INDIRECT_2(op, ...) op KOSHMAR_PP_EMPTINESS()(__VA_ARGS__)
+    KOSHMAR_PP_REC_CALL_INDIRECT_2 KOSHMAR_PP_EMPTY()(op, __VA_ARGS__)
+#define KOSHMAR_PP_REC_CALL_INDIRECT_2(op, ...) op KOSHMAR_PP_EMPTY()(__VA_ARGS__)
 
 #define KOSHMAR_PP_REC KOSHMAR_PP_REC_0
 
