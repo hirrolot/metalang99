@@ -3,6 +3,7 @@
 
 int main(void) {
 #include "aux.h"
+#include "bool.h"
 #include "if_then_else.h"
 #include "overload.h"
 #include "rec.h"
