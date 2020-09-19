@@ -1,7 +1,7 @@
 #ifndef KOSHMAR_PP_IF_THEN_ELSE_H
 #define KOSHMAR_PP_IF_THEN_ELSE_H
 
-#include "cat.h"
+#include "aux.h"
 
 #define KOSHMAR_PP_IF(cond, x, y) KOSHMAR_PP_CAT(KOSHMAR_PP_PRIVATE_IF_, cond)(x, y)
 

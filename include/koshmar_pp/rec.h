@@ -1,9 +1,7 @@
 #ifndef KOSHMAR_PP_REC_H
 #define KOSHMAR_PP_REC_H
 
-#include "cat.h"
-#include "empty.h"
-#include "expand.h"
+#include "aux.h"
 #include "variadics/get.h"
 
 #define KOSHMAR_PP_REC_CALL(op, ...)                                                               \
