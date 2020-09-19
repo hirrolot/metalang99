@@ -1,0 +1,6 @@
+#ifndef KOSHMAR_PP_COMMA_H
+#define KOSHMAR_PP_COMMA_H
+
+#define KOSHMAR_PP_COMMA ,
+
+#endif // KOSHMAR_PP_COMMA_H
