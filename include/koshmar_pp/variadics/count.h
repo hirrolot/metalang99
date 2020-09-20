@@ -3,8 +3,8 @@
 
 #define KOSHMAR_PP_VARIADICS_COUNT(...)                                                            \
     /*                                                                                             \
-     * Proposition: the length of __VA_ARGS__ is x (see KOSHMAR_PP_PRIVATE_VARIADICS_COUNT_AUX     \
-     * below).                                                                                     \
+     * Let's see why it works. The count of passed arguments will eventually be x (see             \
+     * KOSHMAR_PP_PRIVATE_VARIADICS_COUNT_AUX below).                                              \
      *                                                                                             \
      * Proof:                                                                                      \
      *  1) Let N be the length of __VA_ARGS__.                                                     \
