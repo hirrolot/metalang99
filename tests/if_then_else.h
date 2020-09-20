@@ -1,15 +1,9 @@
+#include "test.h"
+
 #include "../include/koshmar_pp/if_then_else.h"
 
-{
-#define FIRST_COND  1
-#define SECOND_COND 0
+TEST(KOSHMAR_PP_IF(1, 24, 848) == 24);
+TEST(KOSHMAR_PP_IF(1, 1549, 1678) == 1549);
 
-    int number = KOSHMAR_PP_IF(FIRST_COND, 24, "ABC");
-    (void)number;
-
-    const char *string = KOSHMAR_PP_IF(SECOND_COND, 24, "ABC");
-    (void)string;
-
-#undef FIRST_COND
-#undef SECOND_COND
-}
+TEST(KOSHMAR_PP_IF(0, 516, 115) == 115);
+TEST(KOSHMAR_PP_IF(0, 10, 6) == 6);
