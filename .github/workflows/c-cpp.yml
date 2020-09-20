@@ -17,5 +17,8 @@ jobs:
     - name: Update Git submodules
       run: git submodule update --init --recursive
 
+    - name: Tests
+      run: cd tests && ./run.sh
+
     - name: Check code formatting
       run: ./check-fmt.sh
