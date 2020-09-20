@@ -1,6 +1,6 @@
 #include "test.h"
 
-#include "../include/koshmar_pp/bool.h"
+#include "../include/koshmar_pp/logical.h"
 
 TEST(KOSHMAR_PP_NOT(0) == 1);
 TEST(KOSHMAR_PP_NOT(1) == 0);

@@ -2,8 +2,8 @@
 #define KOSHMAR_PP_H
 
 #include "koshmar_pp/aux.h"
-#include "koshmar_pp/bool.h"
 #include "koshmar_pp/if_then_else.h"
+#include "koshmar_pp/logical.h"
 #include "koshmar_pp/overload.h"
 #include "koshmar_pp/rec.h"
 #include "koshmar_pp/variadics.h"
