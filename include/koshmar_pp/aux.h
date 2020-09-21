@@ -15,4 +15,6 @@
 
 #define KOSHMAR_PP_EXPAND(...) __VA_ARGS__
 
+#define KOSHMAR_PP_DEFER(op) op KOSHMAR_PP_EMPTY()
+
 #endif // KOSHMAR_PP_AUX_H
