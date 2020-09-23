@@ -1,5 +1,9 @@
 [![C/C++ CI](https://github.com/Hirrolot/koshmar-pp/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/koshmar-pp/actions)
 
+## Linked materials
+
+ - [_C Preprocessor Metaprogramming: The Complete Guide_](https://github.com/Hirrolot/koshmar-pp-book) (in progress).
+
 ## FAQ
 
 Q: What "koshmar-pp" means?
