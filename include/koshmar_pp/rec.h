@@ -1,8 +1,6 @@
 #ifndef KOSHMAR_PP_REC_H
 #define KOSHMAR_PP_REC_H
 
-#define KOSHMAR_PP_REC_LIMIT 1024
-
 #define KOSHMAR_PP_REC_CALL(op, ...)                                                               \
     CONTINUE,                                                                                      \
         KOSHMAR_PP_PRIVATE_REC_CALL_DEFER_0(KOSHMAR_PP_PRIVATE_REC_CALL_DEFER_1)(op)(__VA_ARGS__)
