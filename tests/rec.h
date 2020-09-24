@@ -5,7 +5,7 @@
 
 #define TEST_REC_LIMIT 17
 
-#define TEST_REC(x) KOSHMAR_PP_REC_EXPAND(TEST_REC_AUX(x, _))
+#define TEST_REC(x) KOSHMAR_PP_REC(TEST_REC_AUX(x, _))
 
 #define TEST_REC_AUX(x, _)                                                                         \
     KOSHMAR_PP_REC_IF(KOSHMAR_PP_UINT_EQ(x, TEST_REC_LIMIT),                                       \
