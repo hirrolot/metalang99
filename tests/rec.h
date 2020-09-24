@@ -9,8 +9,7 @@
 #define TEST_REC_INDIRECT_0(x)                                                                     \
     KOSHMAR_PP_IF(KOSHMAR_PP_UINT_EQ(x, 3), IF_EQ_3, IF_NOT_EQ_3)(TEST_REC_INDIRECT_1, x)
 
-#define TEST_REC_INDIRECT_1(x)                                                                     \
-    KOSHMAR_PP_IF(KOSHMAR_PP_UINT_EQ(x, 3), IF_EQ_3, IF_NOT_EQ_3)(TEST_REC_INDIRECT_0, x)
+#define TEST_REC_INDIRECT_1() TEST_REC_INDIRECT_0
 
 #define IF_EQ_3(_indirect_op, x)    KOSHMAR_PP_REC_STOP(x)
 #define IF_NOT_EQ_3(indirect_op, x) KOSHMAR_PP_REC_CALL(indirect_op, KOSHMAR_PP_UINT_INC(x))

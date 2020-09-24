@@ -13,9 +13,7 @@
     KOSHMAR_PP_PRIVATE_FOR_AUX(                                                                    \
         KOSHMAR_PP_PRIVATE_FOR_INDIRECT_1, acc, current, predicate, step, op, context)
 
-#define KOSHMAR_PP_PRIVATE_FOR_INDIRECT_1(acc, current, predicate, step, op, context)              \
-    KOSHMAR_PP_PRIVATE_FOR_AUX(                                                                    \
-        KOSHMAR_PP_PRIVATE_FOR_INDIRECT_0, acc, current, predicate, step, op, context)
+#define KOSHMAR_PP_PRIVATE_FOR_INDIRECT_1() KOSHMAR_PP_PRIVATE_FOR_INDIRECT_0
 
 #define KOSHMAR_PP_PRIVATE_FOR_AUX(indirect_op, acc, current, predicate, step, op, context)        \
     KOSHMAR_PP_IF(                                                                                 \

@@ -2,8 +2,8 @@
 #define KOSHMAR_PP_REC_H
 
 #define KOSHMAR_PP_REC_CALL(op, ...)                                                               \
-    CONTINUE,                                                                                      \
-        KOSHMAR_PP_PRIVATE_REC_CALL_DEFER_0(KOSHMAR_PP_PRIVATE_REC_CALL_DEFER_1)(op)(__VA_ARGS__)
+    CONTINUE, KOSHMAR_PP_PRIVATE_REC_CALL_DEFER_0(KOSHMAR_PP_PRIVATE_REC_CALL_DEFER_1)(op)()(      \
+                  __VA_ARGS__)
 #define KOSHMAR_PP_PRIVATE_REC_CALL_EMPTY_0()
 #define KOSHMAR_PP_PRIVATE_REC_CALL_DEFER_0(op) op KOSHMAR_PP_PRIVATE_REC_CALL_EMPTY_0()
 #define KOSHMAR_PP_PRIVATE_REC_CALL_EMPTY_1()
