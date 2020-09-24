@@ -1,7 +1,7 @@
 #ifndef KOSHMAR_PP_REC_H
 #define KOSHMAR_PP_REC_H
 
-#define KOSHMAR_PP_REC(cond, stop, continue)                                                       \
+#define KOSHMAR_PP_REC_IF(cond, stop, continue)                                                    \
     KOSHMAR_PP_PRIVATE_REC_IF(                                                                     \
         cond, KOSHMAR_PP_PRIVATE_REC_IF_STOP, KOSHMAR_PP_PRIVATE_REC_IF_CONTINUE)                  \
     (stop, continue)
