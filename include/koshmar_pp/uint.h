@@ -8,5 +8,6 @@
 #include "uint/inc.h"
 #include "uint/lesser.h"
 #include "uint/lesser_equal.h"
+#include "uint/neq.h"
 
 #endif // KOSHMAR_PP_UINT_H
