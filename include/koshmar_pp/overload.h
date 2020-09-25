@@ -6,8 +6,12 @@
 #ifndef KOSHMAR_PP_OVERLOAD_H
 #define KOSHMAR_PP_OVERLOAD_H
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "aux.h"
 #include "variadics/count.h"
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
 
 #define KOSHMAR_PP_OVERLOAD(op, ...) KOSHMAR_PP_PRIVATE_OVERLOAD(op, __VA_ARGS__)
 

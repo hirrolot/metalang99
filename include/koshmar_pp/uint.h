@@ -6,6 +6,8 @@
 #ifndef KOSHMAR_PP_UINT_H
 #define KOSHMAR_PP_UINT_H
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "uint/dec.h"
 #include "uint/eq.h"
 #include "uint/greater.h"
@@ -14,6 +16,8 @@
 #include "uint/lesser.h"
 #include "uint/lesser_equal.h"
 #include "uint/neq.h"
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
 
 #define KOSHMAR_PP_UINT_DEC(x) KOSHMAR_PP_PRIVATE_UINT_DEC(x)
 #define KOSHMAR_PP_UINT_INC(x) KOSHMAR_PP_PRIVATE_UINT_INC(x)

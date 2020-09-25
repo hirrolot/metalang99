@@ -6,7 +6,11 @@
 #ifndef KOSHMAR_PP_IF_THEN_ELSE_H
 #define KOSHMAR_PP_IF_THEN_ELSE_H
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "aux.h"
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
 
 #define KOSHMAR_PP_IF(cond, x, y) KOSHMAR_PP_PRIVATE_IF(cond, x, y)
 

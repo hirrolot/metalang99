@@ -6,7 +6,11 @@
 #ifndef KOSHMAR_PP_BOOL_H
 #define KOSHMAR_PP_BOOL_H
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
 #include "aux.h"
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
 
 #define KOSHMAR_PP_NOT(x)    KOSHMAR_PP_PRIVATE_NOT(x)
 #define KOSHMAR_PP_AND(x, y) KOSHMAR_PP_PRIVATE_AND(x, y)
