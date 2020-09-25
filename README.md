@@ -3,6 +3,9 @@
   <a href="https://github.com/Hirrolot/koshmar-pp/actions">
     <img src="https://github.com/Hirrolot/koshmar-pp/workflows/C/C++%20CI/badge.svg">
   </a>
+  <a href="https://hirrolot.github.io/koshmar-pp/">
+    <img src="https://img.shields.io/badge/docs-Doxygen-blue">
+  </a>
  
  koshmar-pp is a set of macros empowering you to write complex [metaprograms] directly in C, without third-party code generators. It's standard-compliant, starting from [C99].
 </div>
