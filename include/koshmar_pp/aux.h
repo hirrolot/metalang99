@@ -14,6 +14,6 @@
 #define KOSHMAR_PP_ID(x)       x
 #define KOSHMAR_PP_EXPAND(...) __VA_ARGS__
 #define KOSHMAR_PP_DEFER(op)   op KOSHMAR_PP_EMPTY()
-#define KOSHMAR_PP_IGNORE(...)
+#define KOSHMAR_PP_CONSUME(...)
 
 #endif // KOSHMAR_PP_AUX_H
