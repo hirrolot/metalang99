@@ -4,7 +4,8 @@
 #include "aux.h"
 
 #define KOSHMAR_PP_IF(cond, x, y)                                                                  \
-    KOSHMAR_PP_PRIVATE_IF_EXTRACT KOSHMAR_PP_CAT(KOSHMAR_PP_PRIVATE_IF_, cond)((x), (y))
+    KOSHMAR_PP_EXPAND(                                                                             \
+        KOSHMAR_PP_PRIVATE_IF_EXTRACT KOSHMAR_PP_CAT(KOSHMAR_PP_PRIVATE_IF_, cond)((x), (y)))
 
 #define KOSHMAR_PP_PRIVATE_IF_0(_x, y) y
 #define KOSHMAR_PP_PRIVATE_IF_1(x, _y) x

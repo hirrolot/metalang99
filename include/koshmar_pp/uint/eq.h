@@ -5,11 +5,11 @@
 
 #define KOSHMAR_PP_UINT_EQ(x, y)                                                                   \
     KOSHMAR_PP_CALL_MACRO(                                                                         \
-        KOSHMAR_PP_PRIVATE_UINT_AUX, KOSHMAR_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y), 0, ~)
+        KOSHMAR_PP_PRIVATE_UINT_AUX, KOSHMAR_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)(), 0, ~)
 
 #define KOSHMAR_PP_PRIVATE_UINT_AUX(a, b, ...) b
 #define KOSHMAR_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)                                                  \
-    KOSHMAR_PP_CAT(KOSHMAR_PP_PRIVATE_UINT_EQ_, KOSHMAR_PP_CAT(x, KOSHMAR_PP_CAT(_, y)))()
+    KOSHMAR_PP_CAT(KOSHMAR_PP_PRIVATE_UINT_EQ_, KOSHMAR_PP_CAT(x, KOSHMAR_PP_CAT(_, y)))
 
 #define KOSHMAR_PP_PRIVATE_UINT_EQ_0_0()       ~, 1
 #define KOSHMAR_PP_PRIVATE_UINT_EQ_1_1()       ~, 1
