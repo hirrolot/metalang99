@@ -1,6 +1,6 @@
 #include "../test.h"
 
-#include "../../include/koshmar_pp/variadics/count.h"
+#include "../../include/koshmar_pp/variadics.h"
 
 TEST(KOSHMAR_PP_VARIADICS_COUNT(~) == 1);
 TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~) == 2);

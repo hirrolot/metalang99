@@ -6,7 +6,7 @@
 #include "../logical.h"
 #include "eq.h"
 
-#define KOSHMAR_PP_UINT_LESSER(x, y) KOSHMAR_PP_PRIVATE_UINT_LESSER_OVERLOAD(y)(x)
+#define KOSHMAR_PP_PRIVATE_UINT_LESSER(x, y) KOSHMAR_PP_PRIVATE_UINT_LESSER_OVERLOAD(y)(x)
 
 #define KOSHMAR_PP_PRIVATE_UINT_LESSER_OVERLOAD(y)                                                 \
     KOSHMAR_PP_CAT(KOSHMAR_PP_PRIVATE_UINT_LESSER_, y)

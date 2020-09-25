@@ -1,15 +1,28 @@
+/**
+ * @file
+ * @brief Support for recursion.
+ */
+
 #ifndef KOSHMAR_PP_REC_H
 #define KOSHMAR_PP_REC_H
 
-#define KOSHMAR_PP_REC_IF(cond, stop, continue)                                                    \
-    KOSHMAR_PP_PRIVATE_REC_IF(                                                                     \
+#define KOSHMAR_PP_REC KOSHMAR_PP_PRIVATE_REC
+
+#define KOSHMAR_PP_REC_IF(cond, stop, continue) KOSHMAR_PP_PRIVATE_REC_IF(cond, stop, continue)
+#define KOSHMAR_PP_REC_STOP                     KOSHMAR_PP_PRIVATE_REC_STOP
+#define KOSHMAR_PP_REC_CONTINUE                 KOSHMAR_PP_PRIVATE_REC_CONTINUE
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
+#define KOSHMAR_PP_PRIVATE_REC_IF(cond, stop, continue)                                            \
+    KOSHMAR_PP_PRIVATE_REC_IF_AUX(                                                                 \
         cond, KOSHMAR_PP_PRIVATE_REC_IF_STOP, KOSHMAR_PP_PRIVATE_REC_IF_CONTINUE)                  \
     (stop, continue)
 
-#define KOSHMAR_PP_REC_STOP(...)                 (__VA_ARGS__)
+#define KOSHMAR_PP_PRIVATE_REC_STOP(...)         (__VA_ARGS__)
 #define KOSHMAR_PP_PRIVATE_REC_EXTRACT_STOP(...) __VA_ARGS__
 
-#define KOSHMAR_PP_REC_CONTINUE(indirect_op, ...)                             (indirect_op, __VA_ARGS__)
+#define KOSHMAR_PP_PRIVATE_REC_CONTINUE(indirect_op, ...)                     (indirect_op, __VA_ARGS__)
 #define KOSHMAR_PP_PRIVATE_REC_EXTRACT_CONTINUE_INDIRECT_OP(indirect_op, ...) indirect_op
 #define KOSHMAR_PP_PRIVATE_REC_EXTRACT_CONTINUE_ARGS(_indirect_op, ...)       __VA_ARGS__
 
@@ -20,7 +33,7 @@
                   KOSHMAR_PP_PRIVATE_REC_EXTRACT_CONTINUE_INDIRECT_OP continue)()(                 \
                   KOSHMAR_PP_PRIVATE_REC_EXTRACT_CONTINUE_ARGS continue)
 
-#define KOSHMAR_PP_PRIVATE_REC_IF(cond, x, y)                                                      \
+#define KOSHMAR_PP_PRIVATE_REC_IF_AUX(cond, x, y)                                                  \
     KOSHMAR_PP_PRIVATE_REC_CAT(KOSHMAR_PP_PRIVATE_REC_IF_, cond)(x, y)
 
 #define KOSHMAR_PP_PRIVATE_REC_CAT(x, y)           KOSHMAR_PP_PRIVATE_REC_CAT_PRIMITIVE(x, y)
@@ -34,7 +47,7 @@
 #define KOSHMAR_PP_PRIVATE_REC_EMPTY_1()
 #define KOSHMAR_PP_PRIVATE_REC_DEFER_1(op) op KOSHMAR_PP_PRIVATE_REC_EMPTY_1()
 
-#define KOSHMAR_PP_REC KOSHMAR_PP_PRIVATE_REC_0
+#define KOSHMAR_PP_PRIVATE_REC KOSHMAR_PP_PRIVATE_REC_0
 
 #define KOSHMAR_PP_PRIVATE_REC_0(...)                                                              \
     KOSHMAR_PP_PRIVATE_REC_0_OVERLOAD(KOSHMAR_PP_PRIVATE_REC_0_GET_CHOICE(__VA_ARGS__))            \
@@ -11299,5 +11312,7 @@
 #define KOSHMAR_PP_PRIVATE_REC_1023_OVERLOAD_PRIMITIVE(choice) KOSHMAR_PP_PRIVATE_REC_1023_##choice
 #define KOSHMAR_PP_PRIVATE_REC_1023_CONTINUE                   KOSHMAR_PP_PRIVATE_REC_1024_LIMIT_REACHED
 #define KOSHMAR_PP_PRIVATE_REC_1023_STOP(...)                  __VA_ARGS__
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
 
 #endif // KOSHMAR_PP_REC_H

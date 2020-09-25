@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief Auxiliary macro utilities.
+ */
+
 #ifndef KOSHMAR_PP_AUX_H
 #define KOSHMAR_PP_AUX_H
 

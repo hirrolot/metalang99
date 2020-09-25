@@ -3,7 +3,7 @@
 
 #include "../aux.h"
 
-#define KOSHMAR_PP_UINT_EQ(x, y)                                                                   \
+#define KOSHMAR_PP_PRIVATE_UINT_EQ(x, y)                                                           \
     KOSHMAR_PP_CALL_MACRO(                                                                         \
         KOSHMAR_PP_PRIVATE_UINT_AUX, KOSHMAR_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)(), 0, ~)
 

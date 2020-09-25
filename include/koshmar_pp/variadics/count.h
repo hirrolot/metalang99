@@ -1,7 +1,7 @@
 #ifndef KOSHMAR_PP_VARIADICS_COUNT_H
 #define KOSHMAR_PP_VARIADICS_COUNT_H
 
-#define KOSHMAR_PP_VARIADICS_COUNT(...)                                                            \
+#define KOSHMAR_PP_PRIVATE_VARIADICS_COUNT(...)                                                    \
     /*                                                                                             \
      * Let's see why it works. The count of passed arguments will eventually be x (see             \
      * KOSHMAR_PP_PRIVATE_VARIADICS_COUNT_AUX below).                                              \

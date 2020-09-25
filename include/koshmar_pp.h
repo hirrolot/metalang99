@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief Provides all the koshmar-pp stuff.
+ */
+
 #ifndef KOSHMAR_PP_H
 #define KOSHMAR_PP_H
 
