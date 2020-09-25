@@ -1,4 +1,14 @@
-[![C/C++ CI](https://github.com/Hirrolot/koshmar-pp/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/koshmar-pp/actions)
+<div align="center">
+  <h1>koshmar-pp</h1>
+  <a href="https://github.com/Hirrolot/koshmar-pp/actions">
+    <img src="https://github.com/Hirrolot/koshmar-pp/workflows/C/C++%20CI/badge.svg">
+  </a>
+ 
+ koshmar-pp is a set of macros empowering you to write complex [metaprograms] directly in C, without third-party code generators. It's standard-compliant, starting from [C99].
+</div>
+
+[metaprograms]: https://en.wikipedia.org/wiki/Metaprogramming
+[C99]: https://en.wikipedia.org/wiki/C99
 
 ## Linked materials
 
