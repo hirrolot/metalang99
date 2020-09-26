@@ -8,6 +8,7 @@ var aux_8h =
     [ "KOSHMAR_PP_DEFER_2_TIMES", "aux_8h.html#a50895bb9bca11c826dd9d9a9b00a0cba", null ],
     [ "KOSHMAR_PP_EMPTY", "aux_8h.html#ae8cc29cc51fec04301113b7f1045429f", null ],
     [ "KOSHMAR_PP_EXPAND", "aux_8h.html#a39c727ca1d2d53ad70be8f8fd63636ba", null ],
+    [ "KOSHMAR_PP_EXPAND_2_TIMES", "aux_8h.html#a956e9eb32669af3a0ea70c508efbf727", null ],
     [ "KOSHMAR_PP_ID", "aux_8h.html#abdb4b529a78d0ca13f592f3c707a3487", null ],
     [ "KOSHMAR_PP_PARENTHESISE", "aux_8h.html#a05cba416e6225c015418a1bd422d9e09", null ],
     [ "KOSHMAR_PP_PRIMITIVE_CAT", "aux_8h.html#a2442ea24a5ecad1a779ace8b11542649", null ],

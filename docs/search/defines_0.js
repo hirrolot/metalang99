@@ -9,6 +9,7 @@ var searchData=
   ['koshmar_5fpp_5fdefer_5f2_5ftimes',['KOSHMAR_PP_DEFER_2_TIMES',['../aux_8h.html#a50895bb9bca11c826dd9d9a9b00a0cba',1,'aux.h']]],
   ['koshmar_5fpp_5fempty',['KOSHMAR_PP_EMPTY',['../aux_8h.html#ae8cc29cc51fec04301113b7f1045429f',1,'aux.h']]],
   ['koshmar_5fpp_5fexpand',['KOSHMAR_PP_EXPAND',['../aux_8h.html#a39c727ca1d2d53ad70be8f8fd63636ba',1,'aux.h']]],
+  ['koshmar_5fpp_5fexpand_5f2_5ftimes',['KOSHMAR_PP_EXPAND_2_TIMES',['../aux_8h.html#a956e9eb32669af3a0ea70c508efbf727',1,'aux.h']]],
   ['koshmar_5fpp_5fid',['KOSHMAR_PP_ID',['../aux_8h.html#abdb4b529a78d0ca13f592f3c707a3487',1,'aux.h']]],
   ['koshmar_5fpp_5fif',['KOSHMAR_PP_IF',['../if__then__else_8h.html#ae98a06da2d762be1b862abe7126e8d97',1,'if_then_else.h']]],
   ['koshmar_5fpp_5fnot',['KOSHMAR_PP_NOT',['../logical_8h.html#a544aea34be34783081d339468f476314',1,'logical.h']]],
