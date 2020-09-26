@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/badge/docs-Doxygen-blue">
   </a>
  
- koshmar-pp is a set of macros empowering you to write complex [metaprograms] directly in C, without third-party code generators. It's standard-compliant, starting from [C99].
+ koshmar-pp is a set of macros empowering you to write both small and complex [metaprograms] directly in C, without third-party code generators. It's standard-compliant, starting from [C99].
 </div>
 
 [metaprograms]: https://en.wikipedia.org/wiki/Metaprogramming
