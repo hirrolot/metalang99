@@ -52,6 +52,11 @@
 #define KOSHMAR_PP_EXPAND(...) __VA_ARGS__
 
 /**
+ * @brief Expands to the provided arguments, forcing two preprocessor scans.
+ */
+#define KOSHMAR_PP_EXPAND_2_TIMES(...) KOSHMAR_PP_EXPAND(KOSHMAR_PP_EXPAND(__VA_ARGS__))
+
+/**
  * @brief Defers @p op for one preprocessor scan.
  */
 #define KOSHMAR_PP_DEFER(op) op KOSHMAR_PP_EMPTY()

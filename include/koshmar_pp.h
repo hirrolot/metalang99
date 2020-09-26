@@ -20,6 +20,7 @@
  *   - #KOSHMAR_PP_EMPTY()
  *   - #KOSHMAR_PP_ID(x)
  *   - #KOSHMAR_PP_EXPAND(...)
+ *   - #KOSHMAR_PP_EXPAND_2_TIMES(...)
  *   - #KOSHMAR_PP_DEFER(op)
  *   - #KOSHMAR_PP_DEFER_2_TIMES(op)
  *   - #KOSHMAR_PP_CONSUME(...)
