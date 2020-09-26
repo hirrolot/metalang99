@@ -38,5 +38,6 @@ var searchData=
   ['koshmar_5fpp_5fvariadics_5fhead',['KOSHMAR_PP_VARIADICS_HEAD',['../variadics_8h.html#ac799f81a7e330db857211638687cbea7',1,'variadics.h']]],
   ['koshmar_5fpp_5fvariadics_5ftail',['KOSHMAR_PP_VARIADICS_TAIL',['../variadics_8h.html#a336ffe9ce2cc7c62f3e4aa8c9c141069',1,'variadics.h']]],
   ['koshmar_5fpp_5fwhile',['KOSHMAR_PP_WHILE',['../control_8h.html#ab6d71b2f9bb9ea360e86bb6277369e2b',1,'control.h']]],
+  ['koshmar_5fpp_5fwhile_5flimit',['KOSHMAR_PP_WHILE_LIMIT',['../limits_8h.html#a1fb5d9efb98659d0a068fac6de2b16a5',1,'limits.h']]],
   ['koshmar_5fpp_5fxor',['KOSHMAR_PP_XOR',['../logical_8h.html#a06beafbe2dc2c27fb796e2ca9b3ca64c',1,'logical.h']]]
 ];

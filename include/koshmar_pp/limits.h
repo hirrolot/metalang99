@@ -16,4 +16,9 @@
  */
 #define KOSHMAR_PP_REC_LIMIT 1024
 
+/**
+ * @brief How many times an operation can be called in #KOSHMAR_PP_WHILE.
+ */
+#define KOSHMAR_PP_WHILE_LIMIT KOSHMAR_PP_REC_LIMIT
+
 #endif // KOSHMAR_PP_LIMITS_H

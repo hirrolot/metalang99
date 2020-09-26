@@ -42,6 +42,7 @@
  *
  *   - #KOSHMAR_PP_UINT_MAX
  *   - #KOSHMAR_PP_REC_LIMIT
+ *   - #KOSHMAR_PP_WHILE_LIMIT
  *
  * @subsection _4 Boolean algebra
  * @code
