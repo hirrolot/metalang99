@@ -34,25 +34,20 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define KOSHMAR_PP_PRIVATE_REC_IF(cond, stop, continue)                                            \
-    KOSHMAR_PP_CALL_MACRO(                                                                         \
-        KOSHMAR_PP_IF(cond, KOSHMAR_PP_PRIVATE_REC_IF_STOP, KOSHMAR_PP_PRIVATE_REC_IF_CONTINUE),   \
-        stop,                                                                                      \
-        KOSHMAR_PP_UNPARENTHESISE(continue))
-
+#define KOSHMAR_PP_PRIVATE_REC          KOSHMAR_PP_PRIVATE_REC_0
 #define KOSHMAR_PP_PRIVATE_REC_STOP     KOSHMAR_PP_PARENTHESISE
 #define KOSHMAR_PP_PRIVATE_REC_CONTINUE KOSHMAR_PP_PARENTHESISE
 
-#define KOSHMAR_PP_PRIVATE_REC_IF_STOP(stop, _hook, ...) STOP, KOSHMAR_PP_UNPARENTHESISE(stop)
-#define KOSHMAR_PP_PRIVATE_REC_IF_CONTINUE(_stop, hook, ...)                                       \
-    CONTINUE, KOSHMAR_PP_PRIVATE_REC_DEFER_0(KOSHMAR_PP_PRIVATE_REC_DEFER_1)(hook)()(__VA_ARGS__)
+#define KOSHMAR_PP_PRIVATE_REC_IF(cond, stop, continue)                                            \
+    KOSHMAR_PP_CALL_MACRO(KOSHMAR_PP_IF(cond,                                                      \
+                                        KOSHMAR_PP_PRIVATE_REC_FORCE_STOP,                         \
+                                        KOSHMAR_PP_PRIVATE_REC_FORCE_CONTINUE),                    \
+                          stop,                                                                    \
+                          KOSHMAR_PP_UNPARENTHESISE(continue))
 
-#define KOSHMAR_PP_PRIVATE_REC_EMPTY_0()
-#define KOSHMAR_PP_PRIVATE_REC_DEFER_0(op) op KOSHMAR_PP_PRIVATE_REC_EMPTY_0()
-#define KOSHMAR_PP_PRIVATE_REC_EMPTY_1()
-#define KOSHMAR_PP_PRIVATE_REC_DEFER_1(op) op KOSHMAR_PP_PRIVATE_REC_EMPTY_1()
-
-#define KOSHMAR_PP_PRIVATE_REC KOSHMAR_PP_PRIVATE_REC_0
+#define KOSHMAR_PP_PRIVATE_REC_FORCE_STOP(stop, _hook, ...) STOP, KOSHMAR_PP_UNPARENTHESISE(stop)
+#define KOSHMAR_PP_PRIVATE_REC_FORCE_CONTINUE(_stop, hook, ...)                                    \
+    CONTINUE, KOSHMAR_PP_DEFER_2_TIMES(hook)()(__VA_ARGS__)
 
 #define KOSHMAR_PP_PRIVATE_REC_0(...)                                                              \
     KOSHMAR_PP_PRIVATE_REC_0_OVERLOAD(KOSHMAR_PP_PRIVATE_REC_0_GET_CHOICE(__VA_ARGS__))            \
