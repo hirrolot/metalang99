@@ -57,6 +57,11 @@
 #define KOSHMAR_PP_DEFER(op) op KOSHMAR_PP_EMPTY()
 
 /**
+ * @brief Defers @p op for two preprocessor scans.
+ */
+#define KOSHMAR_PP_DEFER_2_TIMES(op) KOSHMAR_PP_PRIVATE_DEFER_2_TIMES(op)
+
+/**
  * @brief Expands to nothing, consuming all the provided arguments.
  */
 #define KOSHMAR_PP_CONSUME(...)
@@ -72,6 +77,11 @@
 #define KOSHMAR_PP_UNPARENTHESISE(x) KOSHMAR_PP_PRIVATE_UNPARENTHESISE(x)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
+
+#define KOSHMAR_PP_PRIVATE_DEFER_2_TIMES(op)                                                       \
+    KOSHMAR_PP_PRIVATE_DEFER_2_TIMES_0(KOSHMAR_PP_PRIVATE_DEFER_2_TIMES_1)(op)
+#define KOSHMAR_PP_PRIVATE_DEFER_2_TIMES_0(op) op KOSHMAR_PP_EMPTY()
+#define KOSHMAR_PP_PRIVATE_DEFER_2_TIMES_1(op) op KOSHMAR_PP_EMPTY()
 
 #define KOSHMAR_PP_PRIVATE_UNPARENTHESISE(x) KOSHMAR_PP_EXPAND(KOSHMAR_PP_EXPAND x)
 
