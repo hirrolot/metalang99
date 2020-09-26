@@ -6,6 +6,12 @@
 #ifndef KOSHMAR_PP_REC_H
 #define KOSHMAR_PP_REC_H
 
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
+#include "aux.h"
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
+
 /**
  * @brief Starts recursion
  */
@@ -24,38 +30,22 @@
 /**
  * @brief Continues recursion with the provided arguments.
  */
-#define KOSHMAR_PP_REC_CONTINUE(indirect_op, ...)                                                  \
-    KOSHMAR_PP_PRIVATE_REC_CONTINUE(indirect_op, __VA_ARGS__)
+#define KOSHMAR_PP_REC_CONTINUE(hook, ...) KOSHMAR_PP_PRIVATE_REC_CONTINUE(hook, __VA_ARGS__)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #define KOSHMAR_PP_PRIVATE_REC_IF(cond, stop, continue)                                            \
-    KOSHMAR_PP_PRIVATE_REC_IF_AUX(                                                                 \
-        cond, KOSHMAR_PP_PRIVATE_REC_IF_STOP, KOSHMAR_PP_PRIVATE_REC_IF_CONTINUE)                  \
-    (stop, continue)
+    KOSHMAR_PP_CALL_MACRO(                                                                         \
+        KOSHMAR_PP_IF(cond, KOSHMAR_PP_PRIVATE_REC_IF_STOP, KOSHMAR_PP_PRIVATE_REC_IF_CONTINUE),   \
+        stop,                                                                                      \
+        KOSHMAR_PP_UNPARENTHESISE(continue))
 
-#define KOSHMAR_PP_PRIVATE_REC_STOP(...)         (__VA_ARGS__)
-#define KOSHMAR_PP_PRIVATE_REC_EXTRACT_STOP(...) __VA_ARGS__
+#define KOSHMAR_PP_PRIVATE_REC_STOP     KOSHMAR_PP_PARENTHESISE
+#define KOSHMAR_PP_PRIVATE_REC_CONTINUE KOSHMAR_PP_PARENTHESISE
 
-#define KOSHMAR_PP_PRIVATE_REC_CONTINUE(indirect_op, ...)                     (indirect_op, __VA_ARGS__)
-#define KOSHMAR_PP_PRIVATE_REC_EXTRACT_CONTINUE_INDIRECT_OP(indirect_op, ...) indirect_op
-#define KOSHMAR_PP_PRIVATE_REC_EXTRACT_CONTINUE_ARGS(_indirect_op, ...)       __VA_ARGS__
-
-#define KOSHMAR_PP_PRIVATE_REC_IF_STOP(stop, _continue)                                            \
-    STOP, KOSHMAR_PP_PRIVATE_REC_EXTRACT_STOP stop
-#define KOSHMAR_PP_PRIVATE_REC_IF_CONTINUE(_stop, continue)                                        \
-    CONTINUE, KOSHMAR_PP_PRIVATE_REC_DEFER_0(KOSHMAR_PP_PRIVATE_REC_DEFER_1)(                      \
-                  KOSHMAR_PP_PRIVATE_REC_EXTRACT_CONTINUE_INDIRECT_OP continue)()(                 \
-                  KOSHMAR_PP_PRIVATE_REC_EXTRACT_CONTINUE_ARGS continue)
-
-#define KOSHMAR_PP_PRIVATE_REC_IF_AUX(cond, x, y)                                                  \
-    KOSHMAR_PP_PRIVATE_REC_CAT(KOSHMAR_PP_PRIVATE_REC_IF_, cond)(x, y)
-
-#define KOSHMAR_PP_PRIVATE_REC_CAT(x, y)           KOSHMAR_PP_PRIVATE_REC_CAT_PRIMITIVE(x, y)
-#define KOSHMAR_PP_PRIVATE_REC_CAT_PRIMITIVE(x, y) x##y
-
-#define KOSHMAR_PP_PRIVATE_REC_IF_0(_x, y) y
-#define KOSHMAR_PP_PRIVATE_REC_IF_1(x, _y) x
+#define KOSHMAR_PP_PRIVATE_REC_IF_STOP(stop, _hook, ...) STOP, KOSHMAR_PP_UNPARENTHESISE(stop)
+#define KOSHMAR_PP_PRIVATE_REC_IF_CONTINUE(_stop, hook, ...)                                       \
+    CONTINUE, KOSHMAR_PP_PRIVATE_REC_DEFER_0(KOSHMAR_PP_PRIVATE_REC_DEFER_1)(hook)()(__VA_ARGS__)
 
 #define KOSHMAR_PP_PRIVATE_REC_EMPTY_0()
 #define KOSHMAR_PP_PRIVATE_REC_DEFER_0(op) op KOSHMAR_PP_PRIVATE_REC_EMPTY_0()
