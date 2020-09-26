@@ -1,5 +1,5 @@
 #include "aux.h"
-#include "if_then_else.h"
+#include "control.h"
 #include "logical.h"
 #include "overload.h"
 #include "rec.h"

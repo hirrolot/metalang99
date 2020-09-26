@@ -27,12 +27,13 @@
  *   - #KOSHMAR_PP_PARENTHESISE(...)
  *   - #KOSHMAR_PP_UNPARENTHESISE(x)
  *
- * @subsection _2 Conditional expressions
+ * @subsection _2 Control expressions
  * @code
- * #include <koshmar_pp/if_then_else.h>
+ * #include <koshmar_pp/control.h>
  * @endcode
  *
  *   - #KOSHMAR_PP_IF(cond, x, y)
+ *   - #KOSHMAR_PP_WHILE(predicate, op, context)
  *
  * @subsection _3 Implementation limits
  * @code
@@ -48,7 +49,7 @@
  * @endcode
  *
  *   - #KOSHMAR_PP_NOT(x)
- *   - #KOSHMAR_PP_AND(x)
+ *   - #KOSHMAR_PP_AND(x, y)
  *   - #KOSHMAR_PP_OR(x, y)
  *   - #KOSHMAR_PP_XOR(x, y)
  *
@@ -97,7 +98,7 @@
 #define KOSHMAR_PP_H
 
 #include "koshmar_pp/aux.h"
-#include "koshmar_pp/if_then_else.h"
+#include "koshmar_pp/control.h"
 #include "koshmar_pp/limits.h"
 #include "koshmar_pp/logical.h"
 #include "koshmar_pp/overload.h"

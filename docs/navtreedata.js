@@ -4,7 +4,7 @@ var NAVTREE =
     [ "Introduction", "index.html", [
       [ "Summary", "index.html#Summary", [
         [ "Auxiliary macros", "index.html#_1", null ],
-        [ "Conditional expressions", "index.html#_2", null ],
+        [ "Control expressions", "index.html#_2", null ],
         [ "Implementation limits", "index.html#_3", null ],
         [ "Boolean algebra", "index.html#_4", null ],
         [ "Overloading on a number of arguments", "index.html#_5", null ],

@@ -11,7 +11,7 @@ var searchData=
   ['koshmar_5fpp_5fexpand',['KOSHMAR_PP_EXPAND',['../aux_8h.html#a39c727ca1d2d53ad70be8f8fd63636ba',1,'aux.h']]],
   ['koshmar_5fpp_5fexpand_5f2_5ftimes',['KOSHMAR_PP_EXPAND_2_TIMES',['../aux_8h.html#a956e9eb32669af3a0ea70c508efbf727',1,'aux.h']]],
   ['koshmar_5fpp_5fid',['KOSHMAR_PP_ID',['../aux_8h.html#abdb4b529a78d0ca13f592f3c707a3487',1,'aux.h']]],
-  ['koshmar_5fpp_5fif',['KOSHMAR_PP_IF',['../if__then__else_8h.html#ae98a06da2d762be1b862abe7126e8d97',1,'if_then_else.h']]],
+  ['koshmar_5fpp_5fif',['KOSHMAR_PP_IF',['../control_8h.html#ae98a06da2d762be1b862abe7126e8d97',1,'control.h']]],
   ['koshmar_5fpp_5fnot',['KOSHMAR_PP_NOT',['../logical_8h.html#a544aea34be34783081d339468f476314',1,'logical.h']]],
   ['koshmar_5fpp_5for',['KOSHMAR_PP_OR',['../logical_8h.html#a68b4271604fe59b9bd25704c58376d0b',1,'logical.h']]],
   ['koshmar_5fpp_5foverload',['KOSHMAR_PP_OVERLOAD',['../overload_8h.html#afb776786637e1d43a54753301828e516',1,'overload.h']]],
@@ -37,5 +37,6 @@ var searchData=
   ['koshmar_5fpp_5fvariadics_5fcount',['KOSHMAR_PP_VARIADICS_COUNT',['../variadics_8h.html#ad179bcafd52c071b34a5f95ca134bf25',1,'variadics.h']]],
   ['koshmar_5fpp_5fvariadics_5fhead',['KOSHMAR_PP_VARIADICS_HEAD',['../variadics_8h.html#ac799f81a7e330db857211638687cbea7',1,'variadics.h']]],
   ['koshmar_5fpp_5fvariadics_5ftail',['KOSHMAR_PP_VARIADICS_TAIL',['../variadics_8h.html#a336ffe9ce2cc7c62f3e4aa8c9c141069',1,'variadics.h']]],
+  ['koshmar_5fpp_5fwhile',['KOSHMAR_PP_WHILE',['../control_8h.html#ab6d71b2f9bb9ea360e86bb6277369e2b',1,'control.h']]],
   ['koshmar_5fpp_5fxor',['KOSHMAR_PP_XOR',['../logical_8h.html#a06beafbe2dc2c27fb796e2ca9b3ca64c',1,'logical.h']]]
 ];

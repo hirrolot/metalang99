@@ -1,6 +1,6 @@
-#include "test.h"
+#include "../test.h"
 
-#include "../include/koshmar_pp/if_then_else.h"
+#include "../../include/koshmar_pp/control.h"
 
 TEST(KOSHMAR_PP_IF(1, 24, 848) == 24);
 TEST(KOSHMAR_PP_IF(1, 1549, 1678) == 1549);

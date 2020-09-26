@@ -2,7 +2,7 @@
 #define KOSHMAR_PP_UINT_GREATER_EQUAL_H
 
 #include "../aux.h"
-#include "../if_then_else.h"
+#include "../control.h"
 #include "../logical.h"
 #include "eq.h"
 #include "greater.h"

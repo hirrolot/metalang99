@@ -107,9 +107,10 @@ Auxiliary macros</h2>
 <li><a class="el" href="aux_8h.html#a54de2500494f7c7f5e1548169e0e7ca6" title="Removes parentheses around x. ">KOSHMAR_PP_UNPARENTHESISE(x)</a></li>
 </ul>
 <h2><a class="anchor" id="_2"></a>
-Conditional expressions</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="if__then__else_8h.html">koshmar_pp/if_then_else.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="if__then__else_8h.html#ae98a06da2d762be1b862abe7126e8d97" title="x if cond expands to 1, otherwise y. ">KOSHMAR_PP_IF(cond, x, y)</a></li>
+Control expressions</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="control_8h.html">koshmar_pp/control.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="control_8h.html#ae98a06da2d762be1b862abe7126e8d97" title="x if cond expands to 1, otherwise y. ">KOSHMAR_PP_IF(cond, x, y)</a></li>
+<li><a class="el" href="control_8h.html#ab6d71b2f9bb9ea360e86bb6277369e2b" title="Executes op as long as predicate holds for context. ">KOSHMAR_PP_WHILE(predicate, op, context)</a></li>
 </ul>
 <h2><a class="anchor" id="_3"></a>
 Implementation limits</h2>
@@ -121,7 +122,7 @@ Implementation limits</h2>
 Boolean algebra</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="logical_8h.html">koshmar_pp/logical.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="logical_8h.html#a544aea34be34783081d339468f476314" title="Negates x. ">KOSHMAR_PP_NOT(x)</a></li>
-<li><a class="el" href="logical_8h.html#ac2a8a5abcefcc7c052b4eb398d53e3ef" title="Performs logical conjunction on and y. ">KOSHMAR_PP_AND(x)</a></li>
+<li><a class="el" href="logical_8h.html#ac2a8a5abcefcc7c052b4eb398d53e3ef" title="Performs logical conjunction on and y. ">KOSHMAR_PP_AND(x, y)</a></li>
 <li><a class="el" href="logical_8h.html#a68b4271604fe59b9bd25704c58376d0b" title="Performs inclusive OR on and y. ">KOSHMAR_PP_OR(x, y)</a></li>
 <li><a class="el" href="logical_8h.html#a06beafbe2dc2c27fb796e2ca9b3ca64c" title="Performs exclusive OR on and y. ">KOSHMAR_PP_XOR(x, y)</a></li>
 </ul>
