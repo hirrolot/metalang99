@@ -62,7 +62,7 @@
 #define KOSHMAR_PP_CONSUME(...)
 
 /**
- * @brief Puts @p x into parentheses.
+ * @brief Puts the specified arguments into parentheses.
  */
 #define KOSHMAR_PP_PARENTHESISE(...) (__VA_ARGS__)
 
