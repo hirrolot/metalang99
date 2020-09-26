@@ -61,4 +61,23 @@
  */
 #define KOSHMAR_PP_CONSUME(...)
 
+/**
+ * @brief Puts @p x into parentheses.
+ */
+#define KOSHMAR_PP_PARENTHESISE(...) (__VA_ARGS__)
+
+/**
+ * @brief Removes parentheses around @p x.
+ */
+#define KOSHMAR_PP_UNPARENTHESISE(x) KOSHMAR_PP_PRIVATE_UNPARENTHESISE(x)
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
+#define KOSHMAR_PP_PRIVATE_UNPARENTHESISE(x)                                                       \
+    KOSHMAR_PP_PRIVATE_UNPARENTHESISE_EXPAND_0(KOSHMAR_PP_PRIVATE_UNPARENTHESISE_EXPAND_0 x)
+#define KOSHMAR_PP_PRIVATE_UNPARENTHESISE_EXPAND_0(...) __VA_ARGS__
+#define KOSHMAR_PP_PRIVATE_UNPARENTHESISE_EXPAND_1(...) __VA_ARGS__
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
+
 #endif // KOSHMAR_PP_AUX_H
