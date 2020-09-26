@@ -21,6 +21,7 @@
  *   - #KOSHMAR_PP_ID(x)
  *   - #KOSHMAR_PP_EXPAND(...)
  *   - #KOSHMAR_PP_DEFER(op)
+ *   - #KOSHMAR_PP_DEFER_2_TIMES(op)
  *   - #KOSHMAR_PP_CONSUME(...)
  *   - #KOSHMAR_PP_PARENTHESISE(...)
  *   - #KOSHMAR_PP_UNPARENTHESISE(x)
