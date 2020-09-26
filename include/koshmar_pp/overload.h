@@ -13,6 +13,9 @@
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
+/**
+ * @brief Overload @p op on a number of arguments.
+ */
 #define KOSHMAR_PP_OVERLOAD(op, ...) KOSHMAR_PP_PRIVATE_OVERLOAD(op, __VA_ARGS__)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS

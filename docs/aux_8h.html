@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('aux_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Auxiliary macro utilities.  
+<p>Auxiliary macros.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -104,41 +104,52 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a8e80899ba60e3074c5502404801709bf"><td class="memItemLeft" align="right" valign="top"><a id="a8e80899ba60e3074c5502404801709bf"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_CAT</b>(x,  y)&#160;&#160;&#160;KOSHMAR_PP_PRIMITIVE_CAT(x, y)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a8e80899ba60e3074c5502404801709bf">KOSHMAR_PP_CAT</a>(x,  y)&#160;&#160;&#160;<a class="el" href="aux_8h.html#a2442ea24a5ecad1a779ace8b11542649">KOSHMAR_PP_PRIMITIVE_CAT</a>(x, y)</td></tr>
+<tr class="memdesc:a8e80899ba60e3074c5502404801709bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates <code>x</code> and <code>y</code>, performing at least one preprocessor scan for both. <br /></td></tr>
 <tr class="separator:a8e80899ba60e3074c5502404801709bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2442ea24a5ecad1a779ace8b11542649"><td class="memItemLeft" align="right" valign="top"><a id="a2442ea24a5ecad1a779ace8b11542649"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_PRIMITIVE_CAT</b>(x,  y)&#160;&#160;&#160;x##y</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a2442ea24a5ecad1a779ace8b11542649">KOSHMAR_PP_PRIMITIVE_CAT</a>(x,  y)&#160;&#160;&#160;x##y</td></tr>
+<tr class="memdesc:a2442ea24a5ecad1a779ace8b11542649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates <code>x</code> and <code>y</code>, performing no preprocessor scans for both. <br /></td></tr>
 <tr class="separator:a2442ea24a5ecad1a779ace8b11542649"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad2e253f3d70bf42b3f8094b4ced3a56"><td class="memItemLeft" align="right" valign="top"><a id="aad2e253f3d70bf42b3f8094b4ced3a56"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_STRINGIFY</b>(x)&#160;&#160;&#160;KOSHMAR_PP_PRIMITIVE_STRINGIFY(x)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#aad2e253f3d70bf42b3f8094b4ced3a56">KOSHMAR_PP_STRINGIFY</a>(x)&#160;&#160;&#160;<a class="el" href="aux_8h.html#ae913543464366389aa71c0f0ea2113e5">KOSHMAR_PP_PRIMITIVE_STRINGIFY</a>(x)</td></tr>
+<tr class="memdesc:aad2e253f3d70bf42b3f8094b4ced3a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringifies <code>x</code>, performing at least one preprocessor scan. <br /></td></tr>
 <tr class="separator:aad2e253f3d70bf42b3f8094b4ced3a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae913543464366389aa71c0f0ea2113e5"><td class="memItemLeft" align="right" valign="top"><a id="ae913543464366389aa71c0f0ea2113e5"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_PRIMITIVE_STRINGIFY</b>(x)&#160;&#160;&#160;#x</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#ae913543464366389aa71c0f0ea2113e5">KOSHMAR_PP_PRIMITIVE_STRINGIFY</a>(x)&#160;&#160;&#160;#x</td></tr>
+<tr class="memdesc:ae913543464366389aa71c0f0ea2113e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringifies <code>x</code>, performing no preprocessor scans. <br /></td></tr>
 <tr class="separator:ae913543464366389aa71c0f0ea2113e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a510e04a51946e557b8a9466b5c9f6a67"><td class="memItemLeft" align="right" valign="top"><a id="a510e04a51946e557b8a9466b5c9f6a67"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_CALL_MACRO</b>(op, ...)&#160;&#160;&#160;op(__VA_ARGS__)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a510e04a51946e557b8a9466b5c9f6a67">KOSHMAR_PP_CALL_MACRO</a>(op, ...)&#160;&#160;&#160;op(__VA_ARGS__)</td></tr>
+<tr class="memdesc:a510e04a51946e557b8a9466b5c9f6a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code>op</code> with the specified arguments. <br /></td></tr>
 <tr class="separator:a510e04a51946e557b8a9466b5c9f6a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a105df0ba8a70cd08cd78df923ddaafed"><td class="memItemLeft" align="right" valign="top"><a id="a105df0ba8a70cd08cd78df923ddaafed"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_COMMA</b>()&#160;&#160;&#160;,</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a105df0ba8a70cd08cd78df923ddaafed">KOSHMAR_PP_COMMA</a>()&#160;&#160;&#160;,</td></tr>
+<tr class="memdesc:a105df0ba8a70cd08cd78df923ddaafed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to the comma sign. <br /></td></tr>
 <tr class="separator:a105df0ba8a70cd08cd78df923ddaafed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8cc29cc51fec04301113b7f1045429f"><td class="memItemLeft" align="right" valign="top"><a id="ae8cc29cc51fec04301113b7f1045429f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_EMPTY</b>()</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#ae8cc29cc51fec04301113b7f1045429f">KOSHMAR_PP_EMPTY</a>()</td></tr>
+<tr class="memdesc:ae8cc29cc51fec04301113b7f1045429f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to nothing. <br /></td></tr>
 <tr class="separator:ae8cc29cc51fec04301113b7f1045429f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdb4b529a78d0ca13f592f3c707a3487"><td class="memItemLeft" align="right" valign="top"><a id="abdb4b529a78d0ca13f592f3c707a3487"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_ID</b>(x)&#160;&#160;&#160;x</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#abdb4b529a78d0ca13f592f3c707a3487">KOSHMAR_PP_ID</a>(x)&#160;&#160;&#160;x</td></tr>
+<tr class="memdesc:abdb4b529a78d0ca13f592f3c707a3487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to <code>x</code>. <br /></td></tr>
 <tr class="separator:abdb4b529a78d0ca13f592f3c707a3487"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39c727ca1d2d53ad70be8f8fd63636ba"><td class="memItemLeft" align="right" valign="top"><a id="a39c727ca1d2d53ad70be8f8fd63636ba"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_EXPAND</b>(...)&#160;&#160;&#160;__VA_ARGS__</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a39c727ca1d2d53ad70be8f8fd63636ba">KOSHMAR_PP_EXPAND</a>(...)&#160;&#160;&#160;__VA_ARGS__</td></tr>
+<tr class="memdesc:a39c727ca1d2d53ad70be8f8fd63636ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to the provided arguments. <br /></td></tr>
 <tr class="separator:a39c727ca1d2d53ad70be8f8fd63636ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b11d4c649984cfcc0d1958ba83051eb"><td class="memItemLeft" align="right" valign="top"><a id="a7b11d4c649984cfcc0d1958ba83051eb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_DEFER</b>(op)&#160;&#160;&#160;op KOSHMAR_PP_EMPTY()</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a7b11d4c649984cfcc0d1958ba83051eb">KOSHMAR_PP_DEFER</a>(op)&#160;&#160;&#160;op <a class="el" href="aux_8h.html#ae8cc29cc51fec04301113b7f1045429f">KOSHMAR_PP_EMPTY</a>()</td></tr>
+<tr class="memdesc:a7b11d4c649984cfcc0d1958ba83051eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defers <code>op</code> for one preprocessor scan. <br /></td></tr>
 <tr class="separator:a7b11d4c649984cfcc0d1958ba83051eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad029a4a5b27b1e25bfda96ef935e16"><td class="memItemLeft" align="right" valign="top"><a id="a7ad029a4a5b27b1e25bfda96ef935e16"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>KOSHMAR_PP_CONSUME</b>(...)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a7ad029a4a5b27b1e25bfda96ef935e16">KOSHMAR_PP_CONSUME</a>(...)</td></tr>
+<tr class="memdesc:a7ad029a4a5b27b1e25bfda96ef935e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to nothing, consuming all the provided arguments. <br /></td></tr>
 <tr class="separator:a7ad029a4a5b27b1e25bfda96ef935e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Auxiliary macro utilities. </p>
+<div class="textblock"><p>Auxiliary macros. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

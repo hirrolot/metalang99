@@ -12,9 +12,24 @@
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
-#define KOSHMAR_PP_NOT(x)    KOSHMAR_PP_PRIVATE_NOT(x)
+/**
+ * @brief Negates @p x.
+ */
+#define KOSHMAR_PP_NOT(x) KOSHMAR_PP_PRIVATE_NOT(x)
+
+/**
+ * @brief Performs logical conjunction on @p and @p y.
+ */
 #define KOSHMAR_PP_AND(x, y) KOSHMAR_PP_PRIVATE_AND(x, y)
-#define KOSHMAR_PP_OR(x, y)  KOSHMAR_PP_PRIVATE_OR(x, y)
+
+/**
+ * @brief Performs inclusive OR on @p and @p y.
+ */
+#define KOSHMAR_PP_OR(x, y) KOSHMAR_PP_PRIVATE_OR(x, y)
+
+/**
+ * @brief Performs exclusive OR on @p and @p y.
+ */
 #define KOSHMAR_PP_XOR(x, y) KOSHMAR_PP_PRIVATE_XOR(x, y)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS

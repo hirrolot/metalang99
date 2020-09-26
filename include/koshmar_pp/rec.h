@@ -6,11 +6,26 @@
 #ifndef KOSHMAR_PP_REC_H
 #define KOSHMAR_PP_REC_H
 
+/**
+ * @brief Starts recursion
+ */
 #define KOSHMAR_PP_REC KOSHMAR_PP_PRIVATE_REC
 
+/**
+ * @brief Checks a termination condition during recursion.
+ */
 #define KOSHMAR_PP_REC_IF(cond, stop, continue) KOSHMAR_PP_PRIVATE_REC_IF(cond, stop, continue)
-#define KOSHMAR_PP_REC_STOP                     KOSHMAR_PP_PRIVATE_REC_STOP
-#define KOSHMAR_PP_REC_CONTINUE                 KOSHMAR_PP_PRIVATE_REC_CONTINUE
+
+/**
+ * @brief Stops recursion with the provided output.
+ */
+#define KOSHMAR_PP_REC_STOP(...) KOSHMAR_PP_PRIVATE_REC_STOP(__VA_ARGS__)
+
+/**
+ * @brief Continues recursion with the provided arguments.
+ */
+#define KOSHMAR_PP_REC_CONTINUE(indirect_op, ...)                                                  \
+    KOSHMAR_PP_PRIVATE_REC_CONTINUE(indirect_op, __VA_ARGS__)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 

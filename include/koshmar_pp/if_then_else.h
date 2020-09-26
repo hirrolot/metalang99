@@ -12,6 +12,9 @@
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
+/**
+ * @brief If @p cond expands to 1, expands to @p x, otherwise -- @p y.
+ */
 #define KOSHMAR_PP_IF(cond, x, y) KOSHMAR_PP_PRIVATE_IF(cond, x, y)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
