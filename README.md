@@ -13,10 +13,6 @@
 [metaprograms]: https://en.wikipedia.org/wiki/Metaprogramming
 [C99]: https://en.wikipedia.org/wiki/C99
 
-## Linked materials
-
- - [_C Preprocessor Metaprogramming: The Complete Guide_](https://github.com/Hirrolot/koshmar-pp-book) (in progress).
-
 ## FAQ
 
 Q: What "koshmar-pp" means?
