@@ -5,7 +5,10 @@
 
 #define KOSHMAR_PP_PRIVATE_UINT_EQ(x, y)                                                           \
     KOSHMAR_PP_CALL_MACRO(                                                                         \
-        KOSHMAR_PP_PRIVATE_UINT_AUX, KOSHMAR_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)(), 0, ~)
+        KOSHMAR_PP_PRIVATE_UINT_AUX,                                                               \
+        KOSHMAR_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)(),                                               \
+        0,                                                                                         \
+        ~)
 
 #define KOSHMAR_PP_PRIVATE_UINT_AUX(a, b, ...) b
 #define KOSHMAR_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)                                                  \

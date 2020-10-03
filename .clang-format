@@ -5,7 +5,10 @@ ColumnLimit: 100
 AlignConsecutiveMacros: true
 AlwaysBreakBeforeMultilineStrings: true
 AlignConsecutiveDeclarations: false
-AllowAllArgumentsOnNextLine: true
+AllowAllArgumentsOnNextLine: false
 AllowAllParametersOfDeclarationOnNextLine: true
 AllowShortFunctionsOnASingleLine: Empty
 BinPackArguments: false
+BinPackParameters: false
+AlignAfterOpenBracket: AlwaysBreak
+ContinuationIndentWidth: 4

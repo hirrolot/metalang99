@@ -1,57 +1,18 @@
-/**
- * @file
- * @brief Support for recursion.
- */
-
-#ifndef KOSHMAR_PP_REC_H
-#define KOSHMAR_PP_REC_H
-
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
+#ifndef KOSHMAR_PP_PRIVATE_REC_H
+#define KOSHMAR_PP_PRIVATE_REC_H
 
 #include "aux.h"
-#include "variadics.h"
 
-#endif // DOXYGEN_SHOULD_SKIP_THIS
+#define KOSHMAR_PP_PRIVATE_REC_UNROLL KOSHMAR_PP_PRIVATE_REC_0
 
-/**
- * @brief Starts recursion
- */
-#define KOSHMAR_PP_REC KOSHMAR_PP_PRIVATE_REC
+#define KOSHMAR_PP_PRIVATE_REC_STOP(_k_cx, ...) STOP, __VA_ARGS__
+#define KOSHMAR_PP_PRIVATE_REC_CONTINUE(hook, ...)                                                 \
+    CONTINUE, KOSHMAR_PP_PRIVATE_REC_DEFER_2_TIMES(hook)()(__VA_ARGS__)
 
-/**
- * @brief Checks a termination condition during recursion.
- */
-#define KOSHMAR_PP_REC_IF(cond, stop, continue) KOSHMAR_PP_PRIVATE_REC_IF(cond, stop, continue)
-
-/**
- * @brief Stops recursion with the provided output.
- */
-#define KOSHMAR_PP_REC_STOP(...) KOSHMAR_PP_PRIVATE_REC_STOP(__VA_ARGS__)
-
-/**
- * @brief Continues recursion with the provided arguments.
- */
-#define KOSHMAR_PP_REC_CONTINUE(hook, ...) KOSHMAR_PP_PRIVATE_REC_CONTINUE(hook, __VA_ARGS__)
-
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
-#define KOSHMAR_PP_PRIVATE_REC          KOSHMAR_PP_PRIVATE_REC_0
-#define KOSHMAR_PP_PRIVATE_REC_STOP     KOSHMAR_PP_PARENTHESISE
-#define KOSHMAR_PP_PRIVATE_REC_CONTINUE KOSHMAR_PP_PARENTHESISE
-
-#define KOSHMAR_PP_PRIVATE_REC_IF(cond, stop, continue)                                            \
-    KOSHMAR_PP_IF(cond, KOSHMAR_PP_PRIVATE_REC_FORCE_STOP, KOSHMAR_PP_PRIVATE_REC_FORCE_CONTINUE)  \
-    (stop, continue)
-
-#define KOSHMAR_PP_PRIVATE_REC_FORCE_STOP(stop, _continue) STOP, KOSHMAR_PP_UNPARENTHESISE(stop)
-#define KOSHMAR_PP_PRIVATE_REC_FORCE_CONTINUE(_stop, continue)                                     \
-    CONTINUE, KOSHMAR_PP_DEFER_2_TIMES(KOSHMAR_PP_PRIVATE_REC_EXTRACT_HOOK(continue))()(           \
-                  KOSHMAR_PP_PRIVATE_REC_EXTRACT_ARGS(continue))
-
-#define KOSHMAR_PP_PRIVATE_REC_EXTRACT_HOOK(continue)                                              \
-    KOSHMAR_PP_VARIADICS_HEAD(KOSHMAR_PP_UNPARENTHESISE(continue))
-#define KOSHMAR_PP_PRIVATE_REC_EXTRACT_ARGS(continue)                                              \
-    KOSHMAR_PP_VARIADICS_TAIL(KOSHMAR_PP_UNPARENTHESISE(continue))
+#define KOSHMAR_PP_PRIVATE_REC_DEFER_2_TIMES(op)                                                   \
+    KOSHMAR_PP_PRIVATE_REC_DEFER_0(KOSHMAR_PP_PRIVATE_REC_DEFER_1)(op)
+#define KOSHMAR_PP_PRIVATE_REC_DEFER_0(op) op KOSHMAR_PP_PRIVATE_EMPTY()
+#define KOSHMAR_PP_PRIVATE_REC_DEFER_1(op) op KOSHMAR_PP_PRIVATE_EMPTY()
 
 #define KOSHMAR_PP_PRIVATE_REC_0(...)                                                              \
     KOSHMAR_PP_PRIVATE_REC_0_OVERLOAD(KOSHMAR_PP_PRIVATE_REC_0_GET_CHOICE(__VA_ARGS__))            \
@@ -11317,6 +11278,4 @@
 #define KOSHMAR_PP_PRIVATE_REC_1023_CONTINUE                   KOSHMAR_PP_PRIVATE_REC_1024_LIMIT_REACHED
 #define KOSHMAR_PP_PRIVATE_REC_1023_STOP(...)                  __VA_ARGS__
 
-#endif // DOXYGEN_SHOULD_SKIP_THIS
-
-#endif // KOSHMAR_PP_REC_H
+#endif // KOSHMAR_PP_PRIVATE_REC_H

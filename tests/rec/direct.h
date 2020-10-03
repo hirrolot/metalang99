@@ -8,9 +8,10 @@
 #define TEST_REC(x) KOSHMAR_PP_REC(TEST_REC_AUX(x, _))
 
 #define TEST_REC_AUX(x, _)                                                                         \
-    KOSHMAR_PP_REC_IF(KOSHMAR_PP_UINT_EQ(x, TEST_REC_LIMIT),                                       \
-                      KOSHMAR_PP_REC_STOP(x),                                                      \
-                      KOSHMAR_PP_REC_CONTINUE(TEST_REC_HOOK, KOSHMAR_PP_UINT_INC(x), _))
+    KOSHMAR_PP_REC_IF(                                                                             \
+        KOSHMAR_PP_UINT_EQ(x, TEST_REC_LIMIT),                                                     \
+        KOSHMAR_PP_REC_STOP(x),                                                                    \
+        KOSHMAR_PP_REC_CONTINUE(TEST_REC_HOOK, KOSHMAR_PP_UINT_INC(x), _))
 
 #define TEST_REC_HOOK() TEST_REC_AUX
 

@@ -1,0 +1,21 @@
+#ifndef KOSHMAR_PP_EVAL_H
+#define KOSHMAR_PP_EVAL_H
+
+#ifndef DOXYGEN_SHOULD_IGNORE_THIS
+
+#include "eval/eval.h"
+#include "private/aux.h"
+
+#endif // DOXYGEN_SHOULD_IGNORE_THIS
+
+#define KOSHMAR_PP_EVAL(...) KOSHMAR_PP_PRIVATE_EVAL(__VA_ARGS__)
+
+#define KOSHMAR_PP_ARG(name) KOSHMAR_PP_PRIVATE_ARG(name)
+
+#ifndef DOXYGEN_SHOULD_IGNORE_THIS
+
+#define KOSHMAR_PP_PRIVATE_ARG(name) KOSHMAR_PP_PRIVATE_UNPARENTHESISE(name)
+
+#endif // DOXYGEN_SHOULD_IGNORE_THIS
+
+#endif // KOSHMAR_PP_EVAL_H
