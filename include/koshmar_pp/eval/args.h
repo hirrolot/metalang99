@@ -90,13 +90,6 @@
         KOSHMAR_PP_PRIVATE_CALL_MACRO(outer_op, KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_acc))      \
             KOSHMAR_PP_PRIVATE_UNPARENTHESISE(outer_tail))
 
-#define KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)                                               \
-    KOSHMAR_PP_PRIVATE_IF(                                                                         \
-        KOSHMAR_PP_PRIVATE_EVAL_TERM_IS_END(                                                       \
-            KOSHMAR_PP_PRIVATE_HEAD(KOSHMAR_PP_PRIVATE_UNPARENTHESISE(tail))),                     \
-        KOSHMAR_PP_PRIVATE_EMPTY(),                                                                \
-        KOSHMAR_PP_PRIVATE_COMMA())
-
 #define KOSHMAR_PP_PRIVATE_EVAL_CALL_AS_ARG(cx, evaluated_call)                                    \
     KOSHMAR_PP_PRIVATE_CALL_MACRO(                                                                 \
         KOSHMAR_PP_PRIVATE_EVAL_CALL_AS_ARG_AUX,                                                   \
@@ -122,5 +115,12 @@
         (KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_acc)(evaluated_call)                              \
              KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(inner_tail)),                                  \
         KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_tail))
+
+#define KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)                                               \
+    KOSHMAR_PP_PRIVATE_IF(                                                                         \
+        KOSHMAR_PP_PRIVATE_EVAL_TERM_IS_END(                                                       \
+            KOSHMAR_PP_PRIVATE_HEAD(KOSHMAR_PP_PRIVATE_UNPARENTHESISE(tail))),                     \
+        KOSHMAR_PP_PRIVATE_EMPTY(),                                                                \
+        KOSHMAR_PP_PRIVATE_COMMA())
 
 #endif // KOSHMAR_PP_EVAL_ARGS_H
