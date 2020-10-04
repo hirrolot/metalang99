@@ -4,6 +4,7 @@
 #include "../private/aux.h"
 #include "../private/rec/control.h"
 
+#include "hooks.h"
 #include "term.h"
 
 #define KOSHMAR_PP_PRIVATE_EVAL_ARGS(k, k_cx, outer_acc, outer_op, outer_tail, ...)                \
@@ -15,8 +16,6 @@
         outer_tail,                                                                                \
         KOSHMAR_PP_PRIVATE_EMPTY_ACC(),                                                            \
         __VA_ARGS__ KOSHMAR_PP_PRIVATE_FINISH_TERMS())
-
-#define KOSHMAR_PP_PRIVATE_EVAL_ARGS_HOOK() KOSHMAR_PP_PRIVATE_EVAL_ARGS
 
 #define KOSHMAR_PP_PRIVATE_EVAL_ARGS_AUX(                                                          \
     k,                                                                                             \
@@ -37,8 +36,6 @@
         outer_tail,                                                                                \
         inner_acc,                                                                                 \
         (__VA_ARGS__))
-
-#define KOSHMAR_PP_PRIVATE_EVAL_ARGS_AUX_HOOK() KOSHMAR_PP_PRIVATE_EVAL_ARGS_AUX
 
 #define KOSHMAR_PP_PRIVATE_EVAL_ARGS_AUX_c(                                                        \
     k,                                                                                             \

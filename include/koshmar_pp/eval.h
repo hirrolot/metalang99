@@ -7,6 +7,7 @@
 #include "private/rec.h"
 
 #include "eval/args.h"
+#include "eval/hooks.h"
 #include "eval/term.h"
 
 #endif // DOXYGEN_SHOULD_IGNORE_THIS
@@ -26,8 +27,6 @@
         KOSHMAR_PP_PRIVATE_EMPTY_ACC(),                                                            \
         __VA_ARGS__ KOSHMAR_PP_PRIVATE_FINISH_TERMS())
 
-#define KOSHMAR_PP_PRIVATE_EVAL_AUX_HOOK() KOSHMAR_PP_PRIVATE_EVAL_AUX
-
 #define KOSHMAR_PP_PRIVATE_EVAL_MATCH(k, k_cx, acc, head, ...)                                     \
     KOSHMAR_PP_PRIVATE_EVAL_TERM_MATCH(                                                            \
         KOSHMAR_PP_PRIVATE_EVAL_MATCH_,                                                            \
@@ -36,8 +35,6 @@
         k_cx,                                                                                      \
         acc,                                                                                       \
         (__VA_ARGS__))
-
-#define KOSHMAR_PP_PRIVATE_EVAL_MATCH_HOOK() KOSHMAR_PP_PRIVATE_EVAL_MATCH
 
 #define KOSHMAR_PP_PRIVATE_EVAL_MATCH_c(k, k_cx, acc, tail, op, ...)                               \
     KOSHMAR_PP_PRIVATE_REC_CONTINUE(                                                               \
