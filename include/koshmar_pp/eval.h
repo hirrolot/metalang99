@@ -23,7 +23,7 @@
     KOSHMAR_PP_PRIVATE_EVAL_MATCH(                                                                 \
         k,                                                                                         \
         k_cx,                                                                                      \
-        (KOSHMAR_PP_PRIVATE_EMPTY()),                                                              \
+        KOSHMAR_PP_PRIVATE_EMPTY_ACC(),                                                            \
         __VA_ARGS__ KOSHMAR_PP_PRIVATE_EVAL_TERM_END(),                                            \
         KOSHMAR_PP_PRIVATE_EVAL_TERM_END())
 

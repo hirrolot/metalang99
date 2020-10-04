@@ -13,7 +13,7 @@
         outer_acc,                                                                                 \
         outer_op,                                                                                  \
         outer_tail,                                                                                \
-        (KOSHMAR_PP_PRIVATE_EMPTY()),                                                              \
+        KOSHMAR_PP_PRIVATE_EMPTY_ACC(),                                                            \
         __VA_ARGS__ KOSHMAR_PP_PRIVATE_EVAL_TERM_END(),                                            \
         KOSHMAR_PP_PRIVATE_EVAL_TERM_END())
 
