@@ -69,8 +69,9 @@
         outer_acc,                                                                                 \
         outer_op,                                                                                  \
         outer_tail,                                                                                \
-        (KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_acc)(__VA_ARGS__)                                 \
-             KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(inner_tail)),                                  \
+        KOSHMAR_PP_PRIVATE_EXTEND_ACC(                                                             \
+            inner_acc,                                                                             \
+            (__VA_ARGS__)KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(inner_tail)),                      \
         KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_tail))
 
 #define KOSHMAR_PP_PRIVATE_EVAL_ARGS_AUX_end(                                                      \
@@ -112,8 +113,9 @@
         outer_acc,                                                                                 \
         outer_op,                                                                                  \
         outer_tail,                                                                                \
-        (KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_acc)(evaluated_call)                              \
-             KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(inner_tail)),                                  \
+        KOSHMAR_PP_PRIVATE_EXTEND_ACC(                                                             \
+            inner_acc,                                                                             \
+            (evaluated_call)KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(inner_tail)),                   \
         KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_tail))
 
 #define KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)                                               \

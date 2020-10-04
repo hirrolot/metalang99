@@ -20,7 +20,8 @@
 #define KOSHMAR_PP_PRIVATE_TAIL(...)        KOSHMAR_PP_PRIVATE_TAIL_AUX(__VA_ARGS__)
 #define KOSHMAR_PP_PRIVATE_TAIL_AUX(x, ...) __VA_ARGS__
 
-#define KOSHMAR_PP_PRIVATE_EMPTY_ACC() (KOSHMAR_PP_PRIVATE_EMPTY())
+#define KOSHMAR_PP_PRIVATE_EMPTY_ACC()          (KOSHMAR_PP_PRIVATE_EMPTY())
+#define KOSHMAR_PP_PRIVATE_EXTEND_ACC(acc, ...) (KOSHMAR_PP_PRIVATE_UNPARENTHESISE(acc) __VA_ARGS__)
 
 #define KOSHMAR_PP_PRIVATE_IF(cond, x, y)                                                          \
     KOSHMAR_PP_PRIVATE_MATCH(KOSHMAR_PP_PRIVATE_IF_, cond)((x), (y))
