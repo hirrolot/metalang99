@@ -91,7 +91,7 @@
         k,                                                                                         \
         k_cx,                                                                                      \
         outer_acc,                                                                                 \
-        outer_op(KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_acc))                                     \
+        KOSHMAR_PP_PRIVATE_CALL_MACRO(outer_op, KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_acc))      \
             KOSHMAR_PP_PRIVATE_UNPARENTHESISE(outer_tail))
 
 #define KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)                                               \

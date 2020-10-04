@@ -8,16 +8,6 @@
 #include "variadics.h"
 */
 
-#include "test.h"
+#include "eval.h"
 
 int main(void) {}
-
-#include "../include/koshmar_pp/eval.h"
-
-#define FOO(x) v((arg(x) + 1))
-#define BAR(x) v((arg(x) * 3))
-
-#define FOO_REAL(x) (x + 1)
-#define BAR_REAL(x) (x * 3)
-
-TEST(KOSHMAR_PP_EVAL(c(FOO, c(BAR, v(123)))) == FOO_REAL(BAR_REAL(123)));
