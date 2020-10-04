@@ -9,11 +9,3 @@
 
 <value> ::= "v(" { <pp-token> }* ")" ;
 ```
-
-## Reduction rules
-
-```
-reduce =
-    c(op, arg1 ... argN) ---> reduce(op(reduce(arg1), ..., reduce(argN)))
-    v(x1, ..., xN)        ---> x1, ..., xN
-```
