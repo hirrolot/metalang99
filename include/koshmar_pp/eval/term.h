@@ -5,6 +5,7 @@
 
 #define c(op, ...) (c, op, __VA_ARGS__),
 #define v(...)     (v, __VA_ARGS__),
+#define arg(name)  KOSHMAR_PP_PRIVATE_UNPARENTHESISE(name)
 
 #define KOSHMAR_PP_PRIVATE_EVAL_TERM_END() (end, ~)
 

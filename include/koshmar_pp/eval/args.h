@@ -2,7 +2,7 @@
 #define KOSHMAR_PP_EVAL_ARGS_H
 
 #include "../private/aux.h"
-#include "../private/rec.h"
+#include "../private/rec/control.h"
 
 #include "term.h"
 
@@ -88,9 +88,9 @@
     _)                                                                                             \
     KOSHMAR_PP_PRIVATE_REC_CONTINUE(                                                               \
         KOSHMAR_PP_PRIVATE_EVAL_MATCH_HOOK,                                                        \
-        outer_acc,                                                                                 \
         k,                                                                                         \
         k_cx,                                                                                      \
+        outer_acc,                                                                                 \
         outer_op(KOSHMAR_PP_PRIVATE_UNPARENTHESISE(inner_acc))                                     \
             KOSHMAR_PP_PRIVATE_UNPARENTHESISE(outer_tail))
 

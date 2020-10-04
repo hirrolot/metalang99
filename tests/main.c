@@ -14,8 +14,8 @@ int main(void) {}
 
 #include "../include/koshmar_pp/eval.h"
 
-#define FOO(x) v((KOSHMAR_PP_ARG(x) + 1))
-#define BAR(x) v((KOSHMAR_PP_ARG(x) * 3))
+#define FOO(x) v((arg(x) + 1))
+#define BAR(x) v((arg(x) * 3))
 
 #define FOO_REAL(x) (x + 1)
 #define BAR_REAL(x) (x * 3)
