@@ -14,7 +14,8 @@
         outer_op,                                                                                  \
         outer_tail,                                                                                \
         KOSHMAR_PP_PRIVATE_EVAL_AUX_EMPTY_ACC(),                                                   \
-        __VA_ARGS__ KOSHMAR_PP_PRIVATE_EVAL_TERM_FINISH_TERMS())
+        __VA_ARGS__ KOSHMAR_PP_PRIVATE_EVAL_TERM_END(),                                            \
+        KOSHMAR_PP_PRIVATE_EVAL_TERM_END())
 
 #define KOSHMAR_PP_PRIVATE_EVAL_ARGS_AUX(                                                          \
     k,                                                                                             \

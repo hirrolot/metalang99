@@ -11,3 +11,9 @@ TEST(KOSHMAR_PP_EVAL(c(FOO, c(BAR, v(123)))) == (123 * 3) + 1);
 
 #undef FOO
 #undef BAR
+
+#define FOO() v(123)
+
+TEST(KOSHMAR_PP_EVAL(c(FOO, )) == 123);
+
+#undef FOO
