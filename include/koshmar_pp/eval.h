@@ -24,8 +24,7 @@
         k,                                                                                         \
         k_cx,                                                                                      \
         KOSHMAR_PP_PRIVATE_EMPTY_ACC(),                                                            \
-        __VA_ARGS__ KOSHMAR_PP_PRIVATE_EVAL_TERM_END(),                                            \
-        KOSHMAR_PP_PRIVATE_EVAL_TERM_END())
+        __VA_ARGS__ KOSHMAR_PP_PRIVATE_FINISH_TERMS())
 
 #define KOSHMAR_PP_PRIVATE_EVAL_AUX_HOOK() KOSHMAR_PP_PRIVATE_EVAL_AUX
 
