@@ -3,10 +3,10 @@
 
 #include "../aux.h"
 
-#define KOSHMAR_PP_PRIVATE_IF(cond, x, y)                                                          \
-    KOSHMAR_PP_UNPARENTHESISE(KOSHMAR_PP_CAT(KOSHMAR_PP_PRIVATE_IF_, cond)((x), (y)))
+#define KOSHMAR_PP_PRIVATE_EVAL_AUX_IF(cond, x, y)                                                 \
+    KOSHMAR_PP_UNPARENTHESISE(KOSHMAR_PP_CAT(KOSHMAR_PP_PRIVATE_EVAL_AUX_IF_, cond)((x), (y)))
 
-#define KOSHMAR_PP_PRIVATE_IF_0(_x, y) y
-#define KOSHMAR_PP_PRIVATE_IF_1(x, _y) x
+#define KOSHMAR_PP_PRIVATE_EVAL_AUX_IF_0(_x, y) y
+#define KOSHMAR_PP_PRIVATE_EVAL_AUX_IF_1(x, _y) x
 
 #endif // KOSHMAR_PP_CONTROL_IF_H

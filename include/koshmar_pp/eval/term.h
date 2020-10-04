@@ -1,23 +1,23 @@
 #ifndef KOSHMAR_PP_EVAL_TERM_H
 #define KOSHMAR_PP_EVAL_TERM_H
 
-#include "../private/aux.h"
+#include "aux.h"
 
 #define c(op, ...) (c, op, __VA_ARGS__),
 #define v(...)     (v, __VA_ARGS__),
-#define arg(name)  KOSHMAR_PP_PRIVATE_UNPARENTHESISE(name)
+#define arg(name)  KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(name)
 
 #define KOSHMAR_PP_PRIVATE_EVAL_TERM_END() (end, ~)
 
 #define KOSHMAR_PP_PRIVATE_EVAL_TERM_KIND(term)                                                    \
-    KOSHMAR_PP_PRIVATE_HEAD(KOSHMAR_PP_PRIVATE_UNPARENTHESISE(term))
+    KOSHMAR_PP_PRIVATE_EVAL_AUX_HEAD(KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(term))
 
 #define KOSHMAR_PP_PRIVATE_EVAL_TERM_DATA(term)                                                    \
-    KOSHMAR_PP_PRIVATE_TAIL(KOSHMAR_PP_PRIVATE_UNPARENTHESISE(term))
+    KOSHMAR_PP_PRIVATE_EVAL_AUX_TAIL(KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(term))
 
 #define KOSHMAR_PP_PRIVATE_EVAL_TERM_MATCH(op, term, ...)                                          \
     KOSHMAR_PP_PRIVATE_EVAL_TERM_MATCH_AUX(                                                        \
-        KOSHMAR_PP_PRIVATE_MATCH(op, KOSHMAR_PP_PRIVATE_EVAL_TERM_KIND(term)),                     \
+        KOSHMAR_PP_PRIVATE_EVAL_AUX_MATCH(op, KOSHMAR_PP_PRIVATE_EVAL_TERM_KIND(term)),            \
         __VA_ARGS__,                                                                               \
         KOSHMAR_PP_PRIVATE_EVAL_TERM_DATA(term))
 
@@ -31,7 +31,7 @@
 
 #define KOSHMAR_PP_PRIVATE_EVAL_TERM_IS_END_MATCH(op, term, ...)                                   \
     KOSHMAR_PP_PRIVATE_EVAL_TERM_IS_END_MATCH_AUX(                                                 \
-        KOSHMAR_PP_PRIVATE_MATCH(op, KOSHMAR_PP_PRIVATE_EVAL_TERM_KIND(term)),                     \
+        KOSHMAR_PP_PRIVATE_EVAL_AUX_MATCH(op, KOSHMAR_PP_PRIVATE_EVAL_TERM_KIND(term)),            \
         __VA_ARGS__,                                                                               \
         KOSHMAR_PP_PRIVATE_EVAL_TERM_DATA(term))
 
