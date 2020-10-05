@@ -32,7 +32,7 @@
 
 #define KOSHMAR_PP_PRIVATE_EVAL_ARGS_AUX_v(k, k_cx, acc, tail, ...)                                \
     KOSHMAR_PP_PRIVATE_EVAL_REC_CONTINUE(                                                          \
-        KOSHMAR_PP_PRIVATE_EVAL_HOOKS_ARGS_AUX,                                                    \
+        KOSHMAR_PP_PRIVATE_EVAL_HOOKS_EVAL_ARGS_AUX,                                               \
         k,                                                                                         \
         k_cx,                                                                                      \
         KOSHMAR_PP_PRIVATE_EVAL_AUX_EXTEND_ACC(                                                    \
@@ -51,7 +51,7 @@
 
 #define KOSHMAR_PP_PRIVATE_EVAL_CALL_AS_ARG_AUX(k, k_cx, acc, tail, evaluated_call)                \
     KOSHMAR_PP_PRIVATE_EVAL_REC_CONTINUE(                                                          \
-        KOSHMAR_PP_PRIVATE_EVAL_HOOKS_ARGS_AUX,                                                    \
+        KOSHMAR_PP_PRIVATE_EVAL_HOOKS_EVAL_ARGS_AUX,                                               \
         k,                                                                                         \
         k_cx,                                                                                      \
         KOSHMAR_PP_PRIVATE_EVAL_AUX_EXTEND_ACC(                                                    \
