@@ -37,4 +37,8 @@
 
 #define KOSHMAR_PP_PRIVATE_EVAL_TERM_IS_END_MATCH_AUX(op, ...) op(__VA_ARGS__)
 
+#define KOSHMAR_PP_PRIVATE_EVAL_IS_EMPTY_TAIL(tail)                                                \
+    KOSHMAR_PP_PRIVATE_EVAL_TERM_IS_END(                                                           \
+        KOSHMAR_PP_PRIVATE_EVAL_AUX_HEAD(KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail)))
+
 #endif // KOSHMAR_PP_EVAL_TERM_H

@@ -39,11 +39,8 @@
 #define KOSHMAR_PP_PRIVATE_EVAL_MATCH_c(k, k_cx, acc, tail, op, ...)                               \
     KOSHMAR_PP_PRIVATE_EVAL_REC_CONTINUE(                                                          \
         KOSHMAR_PP_PRIVATE_EVAL_HOOKS_EVAL_ARGS,                                                   \
-        k,                                                                                         \
-        k_cx,                                                                                      \
-        acc,                                                                                       \
-        op,                                                                                        \
-        tail,                                                                                      \
+        KOSHMAR_PP_PRIVATE_EVAL_HOOKS_CALL_OP,                                                     \
+        (k, k_cx, acc, tail, op),                                                                  \
         __VA_ARGS__)
 
 #define KOSHMAR_PP_PRIVATE_EVAL_MATCH_v(k, k_cx, acc, tail, ...)                                   \
@@ -56,6 +53,20 @@
 
 #define KOSHMAR_PP_PRIVATE_EVAL_MATCH_end(k, k_cx, acc, _tail, _)                                  \
     k(k_cx, KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(acc))
+
+#define KOSHMAR_PP_PRIVATE_EVAL_CALL_OP(cx, ...)                                                   \
+    KOSHMAR_PP_PRIVATE_EVAL_AUX_CALL_MACRO(                                                        \
+        KOSHMAR_PP_PRIVATE_EVAL_CALL_OP_AUX,                                                       \
+        KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(cx),                                            \
+        __VA_ARGS__)
+
+#define KOSHMAR_PP_PRIVATE_EVAL_CALL_OP_AUX(k, k_cx, acc, tail, op, ...)                           \
+    KOSHMAR_PP_PRIVATE_EVAL_REC_CONTINUE(                                                          \
+        KOSHMAR_PP_PRIVATE_EVAL_HOOKS_EVAL_MATCH,                                                  \
+        k,                                                                                         \
+        k_cx,                                                                                      \
+        acc,                                                                                       \
+        op(__VA_ARGS__) KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
 
 #endif // DOXYGEN_SHOULD_IGNORE_THIS
 
