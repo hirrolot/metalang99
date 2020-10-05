@@ -37,7 +37,7 @@
         k_cx,                                                                                      \
         KOSHMAR_PP_PRIVATE_EVAL_AUX_EXTEND_ACC(                                                    \
             acc,                                                                                   \
-            (__VA_ARGS__)KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)),                            \
+            __VA_ARGS__ KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)),                             \
         KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
 
 #define KOSHMAR_PP_PRIVATE_EVAL_ARGS_AUX_end(k, k_cx, acc, _tail, _)                               \
@@ -56,7 +56,7 @@
         k_cx,                                                                                      \
         KOSHMAR_PP_PRIVATE_EVAL_AUX_EXTEND_ACC(                                                    \
             acc,                                                                                   \
-            (evaluated_call)KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)),                         \
+            evaluated_call KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)),                          \
         KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
 
 #define KOSHMAR_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)                                               \
