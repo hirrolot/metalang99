@@ -17,4 +17,7 @@
 
 Q: What "koshmar-pp" means?
 
-A: "koshmar" translates to Russian as "nightmare", because bare preprocessor metaprogramming is complete nightmare; "pp" stands for **p**re**p**rocessor.
+A:
+
+ - "koshmar" translates to Russian as "nightmare", because koshmar-pp's aim is to provide useful abstractions to manage the nightmare of preprocessor metaprogramming.
+ - "pp" stands for **p**re**p**rocessor.
