@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="logo.png" width="450px">
   <h1>koshmar-pp</h1>
   <a href="https://github.com/Hirrolot/koshmar-pp/actions">
     <img src="https://github.com/Hirrolot/koshmar-pp/workflows/C/C++%20CI/badge.svg">
@@ -6,12 +7,15 @@
   <a href="https://hirrolot.github.io/koshmar-pp/">
     <img src="https://img.shields.io/badge/docs-Doxygen-blue">
   </a>
- 
- koshmar-pp is a set of macros empowering you to write both small and complex [metaprograms] directly in C, without third-party code generators. It's standard-compliant, starting from [C99].
+
+  Macros provide the means to abstract frequently occurring syntactical constructs to let us concentrate on what really matters, eliminating all distracting details. Even more, every macro can be considered as an [embedded domain-specific language] able to disallow invalid behavior, hence reducing risks of introducing new bugs in comparison with overly liberal mechanisms of a host programming language.
+
+  However, metaprogramming in C is quite castrated: preprocessor control expressions don't exist at all, [recursion is blocked], no support for arithmetic, collections, et cetera. koshmar-pp is a [metalanguage] addressing all of the aforementioned problems, and furthermore, is implemented as a set of standard-compliant macros, thus avoiding the need for third-party code generators.
 </div>
 
-[metaprograms]: https://en.wikipedia.org/wiki/Metaprogramming
-[C99]: https://en.wikipedia.org/wiki/C99
+[embedded domain-specific language]: https://en.wikipedia.org/wiki/Domain-specific_language
+[recursion is blocked]: https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms#recursion
+[metalanguage]: https://en.wikipedia.org/wiki/Metalanguage
 
 ## FAQ
 
