@@ -5,9 +5,9 @@
 #include "rec/control.h"
 #include "term.h"
 
-#define AGONY_PP_PRIVATE_EVAL_HOOKS_EVAL_ARGS()     AGONY_PP_PRIVATE_EVAL_ARGS
-#define AGONY_PP_PRIVATE_EVAL_HOOKS_EVAL_ARGS_AUX() AGONY_PP_PRIVATE_EVAL_ARGS_AUX
-#define AGONY_PP_PRIVATE_EVAL_HOOKS_CALL_AS_ARG()   AGONY_PP_PRIVATE_EVAL_CALL_AS_ARG
+#define AGONY_PP_PRIVATE_EVAL_ARGS_HOOK()        AGONY_PP_PRIVATE_EVAL_ARGS
+#define AGONY_PP_PRIVATE_EVAL_ARGS_AUX_HOOK()    AGONY_PP_PRIVATE_EVAL_ARGS_AUX
+#define AGONY_PP_PRIVATE_EVAL_CALL_AS_ARG_HOOK() AGONY_PP_PRIVATE_EVAL_CALL_AS_ARG
 
 #define AGONY_PP_PRIVATE_EVAL_ARGS(k, k_cx, ...)                                                   \
     AGONY_PP_PRIVATE_EVAL_ARGS_AUX(                                                                \
@@ -28,13 +28,13 @@
 
 #define AGONY_PP_PRIVATE_EVAL_ARGS_AUX_c(k, k_cx, acc, tail, op, ...)                              \
     AGONY_PP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
-        AGONY_PP_PRIVATE_EVAL_HOOKS_EVAL_AUX,                                                      \
-        (AGONY_PP_PRIVATE_EVAL_HOOKS_CALL_AS_ARG, (k, k_cx, acc, tail)),                           \
+        AGONY_PP_PRIVATE_EVAL_AUX_HOOK,                                                            \
+        (AGONY_PP_PRIVATE_EVAL_CALL_AS_ARG_HOOK, (k, k_cx, acc, tail)),                            \
         c(op, __VA_ARGS__))
 
 #define AGONY_PP_PRIVATE_EVAL_ARGS_AUX_v(k, k_cx, acc, tail, ...)                                  \
     AGONY_PP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
-        AGONY_PP_PRIVATE_EVAL_HOOKS_EVAL_ARGS_AUX,                                                 \
+        AGONY_PP_PRIVATE_EVAL_ARGS_AUX_HOOK,                                                       \
         (k, k_cx),                                                                                 \
         AGONY_PP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(                                            \
             acc,                                                                                   \
@@ -46,7 +46,7 @@
 
 #define AGONY_PP_PRIVATE_EVAL_CALL_AS_ARG(k, k_cx, acc, tail, evaluated_call)                      \
     AGONY_PP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
-        AGONY_PP_PRIVATE_EVAL_HOOKS_EVAL_ARGS_AUX,                                                 \
+        AGONY_PP_PRIVATE_EVAL_ARGS_AUX_HOOK,                                                       \
         (k, k_cx),                                                                                 \
         AGONY_PP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(                                            \
             acc,                                                                                   \
