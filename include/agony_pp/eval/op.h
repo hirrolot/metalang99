@@ -2,9 +2,10 @@
 #define AGONY_PP_EVAL_OP_H
 
 #include "aux.h"
-#include "hooks.h"
 #include "rec/control.h"
 #include "term.h"
+
+#define AGONY_PP_PRIVATE_EVAL_HOOKS_EVAL_OP() AGONY_PP_PRIVATE_EVAL_OP
 
 #define AGONY_PP_PRIVATE_EVAL_OP(k, k_cx, op)                                                      \
     AGONY_PP_PRIVATE_EVAL_AUX_IF(                                                                  \

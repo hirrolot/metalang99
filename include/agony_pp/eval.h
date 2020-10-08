@@ -5,10 +5,14 @@
 
 #include "eval/args.h"
 #include "eval/aux.h"
-#include "eval/hooks.h"
 #include "eval/op.h"
 #include "eval/rec.h"
 #include "eval/term.h"
+
+#define AGONY_PP_PRIVATE_EVAL_HOOKS_EVAL_AUX()          AGONY_PP_PRIVATE_EVAL_AUX
+#define AGONY_PP_PRIVATE_EVAL_HOOKS_EVAL_MATCH()        AGONY_PP_PRIVATE_EVAL_MATCH
+#define AGONY_PP_PRIVATE_EVAL_HOOKS_MATCH_c_EVAL_ARGS() AGONY_PP_PRIVATE_EVAL_MATCH_c_EVAL_ARGS
+#define AGONY_PP_PRIVATE_EVAL_HOOKS_MATCH_c_CALL_OP()   AGONY_PP_PRIVATE_EVAL_MATCH_c_CALL_OP
 
 #endif // DOXYGEN_SHOULD_IGNORE_THIS
 
@@ -55,9 +59,6 @@
         (k, k_cx),                                                                                 \
         acc,                                                                                       \
         evaluated_op(__VA_ARGS__) AGONY_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
-
-#define AGONY_PP_PRIVATE_EVAL_HOOKS_MATCH_c_EVAL_ARGS() AGONY_PP_PRIVATE_EVAL_MATCH_c_EVAL_ARGS
-#define AGONY_PP_PRIVATE_EVAL_HOOKS_MATCH_c_CALL_OP()   AGONY_PP_PRIVATE_EVAL_MATCH_c_CALL_OP
 
 #define AGONY_PP_PRIVATE_EVAL_MATCH_v(k, k_cx, acc, tail, ...)                                     \
     AGONY_PP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
