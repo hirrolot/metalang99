@@ -22,7 +22,7 @@
 #define KOSHMAR_PP_PRIVATE_EVAL_AUX_TAIL_AUX(x, ...) __VA_ARGS__
 
 #define KOSHMAR_PP_PRIVATE_EVAL_AUX_EMPTY_ACC() (KOSHMAR_PP_PRIVATE_EVAL_AUX_EMPTY())
-#define KOSHMAR_PP_PRIVATE_EVAL_AUX_EXTEND_ACC(acc, ...)                                           \
+#define KOSHMAR_PP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(acc, ...)                                 \
     (KOSHMAR_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(acc) __VA_ARGS__)
 
 #define KOSHMAR_PP_PRIVATE_EVAL_AUX_IF(cond, x, y)                                                 \
