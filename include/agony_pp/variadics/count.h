@@ -1,25 +1,26 @@
 #ifndef AGONY_PP_VARIADICS_COUNT_H
 #define AGONY_PP_VARIADICS_COUNT_H
 
+/*
+ * Proposition: The count of arguments of `AGONY_PP_PRIVATE_VARIADICS_COUNT` is `x`, which is
+ * returned from `AGONY_PP_PRIVATE_VARIADICS_COUNT_AUX`.
+ *
+ * Proof:
+ *  1) Let N be the length of __VA_ARGS__.
+ *  2) Let (args...) ---> (params...) mean that (params...) are initialised by (args...).
+ *
+ * Then
+ * (~, {~ N times}, {1023, ..., 1}, ~) ---> (_, {_1, ..., _1023}, x, ...)
+ * ({~ N times}, {1023, ..., 1}, ~)    ---> ({_1, ..., _1023}, x, ...)
+ *
+ * And since N belongs to [1; 1023]:
+ * ({1023, ..., 1}, ~)                 ---> ({_(N + 1), ..., _1023}, x, ...)
+ *
+ * (N, ..., 1, ~)                      ---> (x, ...)
+ * (N)                                 ---> (x)
+ */
+
 #define AGONY_PP_PRIVATE_VARIADICS_COUNT(...)                                                      \
-    /*                                                                                             \
-     * Let's see why it works. The count of passed arguments will eventually be x (see             \
-     * AGONY_PP_PRIVATE_VARIADICS_COUNT_AUX below).                                                \
-     *                                                                                             \
-     * Proof:                                                                                      \
-     *  1) Let N be the length of __VA_ARGS__.                                                     \
-     *  2) Let (args...) ---> (params...) mean that (params...) are initialised by (args...).      \
-     *                                                                                             \
-     * Then                                                                                        \
-     * (~, {~ N times}, {1023, ..., 1}, ~) ---> (_, {_1, ..., _1023}, x, ...)                      \
-     * ({~ N times}, {1023, ..., 1}, ~)    ---> ({_1, ..., _1023}, x, ...)                         \
-     *                                                                                             \
-     * And since N belongs to [1; 1023]:                                                           \
-     * ({1023, ..., 1}, ~)                 ---> ({_(N + 1), ..., _1023}, x, ...)                   \
-     *                                                                                             \
-     * (N, ..., 1, ~)                      ---> (x, ...)                                           \
-     * (N)                                 ---> (x)                                                \
-     */                                                                                            \
     AGONY_PP_PRIVATE_VARIADICS_COUNT_AUX(                                                          \
         ~,                                                                                         \
         __VA_ARGS__,                                                                               \
