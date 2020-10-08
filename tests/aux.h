@@ -16,7 +16,7 @@
 static const char stringified[] = AGONY_PP_EVAL(c(AGONY_PP_STRINGIFY, v(hello)));
 
 // I'm not sure that the stringified version won't contain any whitespaces, so for now just check
-// that it contains at least six characters.
+// that it contains _at least_ six characters.
 TEST(sizeof(stringified) >= 5 + 1);
 
 // AGONY_PP_CAT
