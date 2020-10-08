@@ -12,17 +12,10 @@
  * @endcode
  *
  *   - #AGONY_PP_CAT(x, y)
- *   - #AGONY_PP_PRIMITIVE_CAT(x, y)
  *   - #AGONY_PP_STRINGIFY(x)
- *   - #AGONY_PP_PRIMITIVE_STRINGIFY(x)
- *   - #AGONY_PP_CALL_MACRO(op, ...)
- *   - #AGONY_PP_COMMA()
  *   - #AGONY_PP_EMPTY()
  *   - #AGONY_PP_ID(x)
  *   - #AGONY_PP_EXPAND(...)
- *   - #AGONY_PP_EXPAND_2_TIMES(...)
- *   - #AGONY_PP_DEFER(op)
- *   - #AGONY_PP_DEFER_2_TIMES(op)
  *   - #AGONY_PP_CONSUME(...)
  *   - #AGONY_PP_PARENTHESISE(...)
  *   - #AGONY_PP_UNPARENTHESISE(x)
@@ -99,12 +92,5 @@
 #define AGONY_PP_H
 
 #include "agony_pp/aux.h"
-#include "agony_pp/control.h"
-#include "agony_pp/limits.h"
-#include "agony_pp/logical.h"
-#include "agony_pp/overload.h"
-#include "agony_pp/rec.h"
-#include "agony_pp/uint.h"
-#include "agony_pp/variadics.h"
 
 #endif // AGONY_PP_H
