@@ -27,8 +27,12 @@ AGONY_PP_EVAL(TEST_PARENTHESISE AGONY_PP_EVAL(c(AGONY_PP_PARENTHESISE, v(1) v(2)
 enum {
     AGONY_PP_EVAL(
         c(AGONY_PP_UNPARENTHESISE,
-          v((CheckUnparenthesiseA, CheckUnparenthesiseB, CheckUnparenthesiseC))))
+          v((CheckUnparenthesiseA = 9, CheckUnparenthesiseB = 4, CheckUnparenthesiseC = 18))))
 };
+
+TEST(CheckUnparenthesiseA == 9);
+TEST(CheckUnparenthesiseB == 4);
+TEST(CheckUnparenthesiseC == 18);
 
 #define EMPTY AGONY_PP_EVAL(c(AGONY_PP_UNPARENTHESISE, c(AGONY_PP_PARENTHESISE, )))
 
