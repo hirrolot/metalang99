@@ -1,20 +1,20 @@
 #include "../test.h"
 
-#include "../../include/koshmar_pp/variadics.h"
+#include "../../include/agony_pp/variadics.h"
 
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~) == 1);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~) == 2);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~) == 3);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~, ~) == 4);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~, ~, ~) == 5);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~) == 6);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~) == 7);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~, ~) == 8);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~, ~, ~) == 9);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~, ~, ~, ~) == 10);
-TEST(KOSHMAR_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~, ~, ~, ~, ~) == 11);
+TEST(AGONY_PP_VARIADICS_COUNT(~) == 1);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~) == 2);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~) == 3);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~, ~) == 4);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~, ~, ~) == 5);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~) == 6);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~) == 7);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~, ~) == 8);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~, ~, ~) == 9);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~, ~, ~, ~) == 10);
+TEST(AGONY_PP_VARIADICS_COUNT(~, ~, ~, ~, ~, ~, ~, ~, ~, ~, ~) == 11);
 TEST(
-    KOSHMAR_PP_VARIADICS_COUNT(
+    AGONY_PP_VARIADICS_COUNT(
         ~,
         ~,
         ~,
@@ -101,7 +101,7 @@ TEST(
         ~,
         ~) == 85);
 TEST(
-    KOSHMAR_PP_VARIADICS_COUNT(
+    AGONY_PP_VARIADICS_COUNT(
         ~,
         ~,
         ~,
@@ -189,7 +189,7 @@ TEST(
         ~,
         ~) == 86);
 TEST(
-    KOSHMAR_PP_VARIADICS_COUNT(
+    AGONY_PP_VARIADICS_COUNT(
         ~,
         ~,
         ~,
@@ -279,7 +279,7 @@ TEST(
         ~) == 87);
 
 TEST(
-    KOSHMAR_PP_VARIADICS_COUNT(
+    AGONY_PP_VARIADICS_COUNT(
         ~,
         ~,
         ~,
@@ -418,7 +418,7 @@ TEST(
         ~,
         ~) == 137);
 TEST(
-    KOSHMAR_PP_VARIADICS_COUNT(
+    AGONY_PP_VARIADICS_COUNT(
         ~,
         ~,
         ~,
@@ -559,7 +559,7 @@ TEST(
         ~,
         ~) == 139);
 TEST(
-    KOSHMAR_PP_VARIADICS_COUNT(
+    AGONY_PP_VARIADICS_COUNT(
         ~,
         ~,
         ~,
@@ -1582,7 +1582,7 @@ TEST(
         ~,
         ~) == 1021);
 TEST(
-    KOSHMAR_PP_VARIADICS_COUNT(
+    AGONY_PP_VARIADICS_COUNT(
         ~,
         ~,
         ~,
@@ -2606,7 +2606,7 @@ TEST(
         ~,
         ~) == 1022);
 TEST(
-    KOSHMAR_PP_VARIADICS_COUNT(
+    AGONY_PP_VARIADICS_COUNT(
         ~,
         ~,
         ~,

@@ -1,8 +1,8 @@
 #include "test.h"
 
-#include "../include/koshmar_pp/overload.h"
+#include "../include/agony_pp/overload.h"
 
-#define X(...) KOSHMAR_PP_OVERLOAD(X_, __VA_ARGS__)(__VA_ARGS__)
+#define X(...) AGONY_PP_OVERLOAD(X_, __VA_ARGS__)(__VA_ARGS__)
 #define X_1(a) TEST(a == 123);
 #define X_2(a, b)                                                                                  \
     TEST(a == 93145);                                                                              \
@@ -22,7 +22,7 @@ X(1516, 1, 9, 111, 119, 677, 62)
 
 // An argument consisting of an empty token list is also an argument, so the line below is
 // equivalent to X_1(123).
-KOSHMAR_PP_OVERLOAD(X_, )(123)
+AGONY_PP_OVERLOAD(X_, )(123)
 
 #undef X
 #undef X_1

@@ -1,9 +1,9 @@
 #include "../test.h"
 
-#include "../../include/koshmar_pp/control.h"
+#include "../../include/agony_pp/control.h"
 
-TEST(KOSHMAR_PP_IF(1, 24, 848) == 24);
-TEST(KOSHMAR_PP_IF(1, 1549, 1678) == 1549);
+TEST(AGONY_PP_IF(1, 24, 848) == 24);
+TEST(AGONY_PP_IF(1, 1549, 1678) == 1549);
 
-TEST(KOSHMAR_PP_IF(0, 516, 115) == 115);
-TEST(KOSHMAR_PP_IF(0, 10, 6) == 6);
+TEST(AGONY_PP_IF(0, 516, 115) == 115);
+TEST(AGONY_PP_IF(0, 10, 6) == 6);

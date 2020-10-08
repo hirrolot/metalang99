@@ -1,17 +1,17 @@
 #include "../test.h"
 
-#include "../../include/koshmar_pp/rec.h"
-#include "../../include/koshmar_pp/uint.h"
+#include "../../include/agony_pp/rec.h"
+#include "../../include/agony_pp/uint.h"
 
 #define TEST_REC_LIMIT 17
 
-#define TEST_REC(x) KOSHMAR_PP_REC(TEST_REC_AUX(x, _))
+#define TEST_REC(x) AGONY_PP_REC(TEST_REC_AUX(x, _))
 
 #define TEST_REC_AUX(x, _)                                                                         \
-    KOSHMAR_PP_REC_IF(                                                                             \
-        KOSHMAR_PP_UINT_EQ(x, TEST_REC_LIMIT),                                                     \
-        KOSHMAR_PP_REC_STOP(x),                                                                    \
-        KOSHMAR_PP_REC_CONTINUE(TEST_REC_HOOK, KOSHMAR_PP_UINT_INC(x), _))
+    AGONY_PP_REC_IF(                                                                               \
+        AGONY_PP_UINT_EQ(x, TEST_REC_LIMIT),                                                       \
+        AGONY_PP_REC_STOP(x),                                                                      \
+        AGONY_PP_REC_CONTINUE(TEST_REC_HOOK, AGONY_PP_UINT_INC(x), _))
 
 #define TEST_REC_HOOK() TEST_REC_AUX
 

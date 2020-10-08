@@ -1,13 +1,13 @@
 #include "../test.h"
 
-#include "../../include/koshmar_pp/eval.h"
+#include "../../include/agony_pp/eval.h"
 
 // Recursion might arise from a higher-order macro, if `op` invokes `FOO`.
 #define FOO(op) c(op, v(123))
 #define OP(x)   c(FOO, v(ID))
 #define ID(x)   v(x)
 
-TEST(KOSHMAR_PP_EVAL(c(FOO, v(OP))) == 123);
+TEST(AGONY_PP_EVAL(c(FOO, v(OP))) == 123);
 
 #undef FOO
 #undef OP

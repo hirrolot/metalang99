@@ -1,0 +1,8 @@
+#ifndef AGONY_PP_UINT_GREATER_H
+#define AGONY_PP_UINT_GREATER_H
+
+#include "lesser.h"
+
+#define AGONY_PP_PRIVATE_UINT_GREATER(x, y) AGONY_PP_PRIVATE_UINT_LESSER(y, x)
+
+#endif // AGONY_PP_UINT_GREATER_H
