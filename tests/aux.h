@@ -2,9 +2,19 @@
 
 #include "../include/agony_pp/aux.h"
 
+#define CHECK_EMPTY(unique_fn_id, empty)                                                           \
+    inline empty static empty void empty test_empty_##unique_fn_id empty(empty void empty) empty { \
+        empty const empty char empty c empty = empty 'A' empty;                                    \
+        empty(empty void empty) empty c empty;                                                     \
+        empty(empty void empty) empty test_empty_##unique_fn_id empty;                             \
+        empty                                                                                      \
+    }                                                                                              \
+    empty
+
 // AGONY_PP_STRINGIFY
 
 static const char stringified[] = AGONY_PP_EVAL(c(AGONY_PP_STRINGIFY, v(hello)));
+
 // I'm not sure that the stringified version won't contain any whitespaces, so for now just check
 // that it contains at least six characters.
 TEST(sizeof(stringified) >= 5 + 1);
@@ -16,6 +26,10 @@ inline static void test_cat(void) {
     int AGONY_PP_EVAL(c(AGONY_PP_CAT, v(ab) v(c))) = 7;
     abc++;
 }
+
+#define EMPTY AGONY_PP_EVAL(c(AGONY_PP_CAT, v() v()))
+CHECK_EMPTY(0, EMPTY)
+#undef EMPTY
 
 // AGONY_PP_CONSUME
 
@@ -40,14 +54,9 @@ TEST(CheckUnparenthesiseB == 4);
 TEST(CheckUnparenthesiseC == 18);
 
 #define EMPTY AGONY_PP_EVAL(c(AGONY_PP_UNPARENTHESISE, c(AGONY_PP_PARENTHESISE, )))
-
-EMPTY inline EMPTY static EMPTY void EMPTY test_empty EMPTY(EMPTY void EMPTY) EMPTY {
-    EMPTY const EMPTY char EMPTY c EMPTY = EMPTY 'A' EMPTY;
-    EMPTY(EMPTY void EMPTY) EMPTY c EMPTY;
-    EMPTY(EMPTY void EMPTY) EMPTY test_empty EMPTY;
-    EMPTY
-}
-EMPTY
+CHECK_EMPTY(1, EMPTY)
+#undef EMPTY
 
 #undef TEST_PARENTHESISE
-#undef EMPTY
+
+#undef CHECK_EMPTY
