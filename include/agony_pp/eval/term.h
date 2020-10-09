@@ -52,12 +52,13 @@
         AGONY_PP_PRIVATE_EVAL_AUX_HEAD(AGONY_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail)))
 
 #define AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP(op)                                               \
-    AGONY_PP_PRIVATE_EVAL_AUX_CALL_MACRO(                                                          \
-        AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX,                                              \
-        AGONY_PP_PRIVATE_EVAL_AUX_MATCH(AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_, op),            \
-        1)
-#define AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX(x, y)  y
-#define AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_c(op, ...) ~, 0
-#define AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_v(...)     ~, 0
+    AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX(                                                  \
+        AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_NO op,                                            \
+        1,                                                                                         \
+        ~)
+#define AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX(...)                                          \
+    AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX_AUX(__VA_ARGS__)
+#define AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX_AUX(x, y, ...) y
+#define AGONY_PP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_NO(...)            ~, 0
 
 #endif // AGONY_PP_EVAL_TERM_H
