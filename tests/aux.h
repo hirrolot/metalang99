@@ -1,5 +1,8 @@
 #include "test.h"
 
+#include "../include/agony_pp/eval.h"
+#include "../include/agony_pp/lang.h"
+
 #include "../include/agony_pp/aux.h"
 
 #define CHECK_EMPTY(unique_fn_id, empty)                                                           \

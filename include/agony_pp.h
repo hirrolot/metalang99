@@ -92,5 +92,6 @@
 #define AGONY_PP_H
 
 #include "agony_pp/aux.h"
+#include "agony_pp/lang.h"
 
 #endif // AGONY_PP_H

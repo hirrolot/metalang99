@@ -6,7 +6,7 @@
 #ifndef AGONY_PP_AUX_H
 #define AGONY_PP_AUX_H
 
-#include "eval.h"
+#include "lang.h"
 
 /**
  * @brief Concatenates @p x and @p y.

@@ -1,8 +1,9 @@
 #include "test.h"
 
-#include "../include/agony_pp/eval.h"
-
 #include "eval/rec.h"
+
+#include "../include/agony_pp/eval.h"
+#include "../include/agony_pp/lang.h"
 
 #define FOO(x) v((x + 1))
 #define BAR(x) v((x * 3))

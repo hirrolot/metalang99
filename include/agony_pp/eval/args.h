@@ -1,6 +1,7 @@
 #ifndef AGONY_PP_EVAL_ARGS_H
 #define AGONY_PP_EVAL_ARGS_H
 
+#include "../lang.h"
 #include "aux.h"
 #include "rec/control.h"
 #include "term.h"

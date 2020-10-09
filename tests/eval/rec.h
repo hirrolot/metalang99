@@ -1,6 +1,7 @@
 #include "../test.h"
 
 #include "../../include/agony_pp/eval.h"
+#include "../../include/agony_pp/lang.h"
 
 // Recursion might arise from a higher-order macro, if `op` invokes `FOO`.
 #define FOO(op) c(op, v(123))
