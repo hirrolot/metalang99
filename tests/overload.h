@@ -5,7 +5,9 @@
 
 #include "../include/agony_pp/overload.h"
 
-#define X(...)    c(c(AGONY_PP_OVERLOAD, v(X_) v(__VA_ARGS__)), v(__VA_ARGS__))
+// AGONY_PP_OVERLOAD_CALL
+
+#define X(...)    c(AGONY_PP_OVERLOAD_CALL, v(X_) v(__VA_ARGS__))
 #define X_1(a)    v(TEST(a == 123);)
 #define X_2(a, b) v(TEST(a == 93145); TEST(b == 456);)
 #define X_7(a, b, c, d, e, f, g)                                                                   \
@@ -16,11 +18,32 @@ AGONY_PP_EVAL(c(X, v(123)))
 AGONY_PP_EVAL(c(X, v(93145) v(456)))
 AGONY_PP_EVAL(c(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
 
-// An argument consisting of the empty token list is also an argument, so the line below is
-// equivalent to `c(X, v(123))`.
-AGONY_PP_EVAL(c(c(AGONY_PP_OVERLOAD, v(X_) v()), v(123)))
-
 #undef X
 #undef X_1
 #undef X_2
 #undef X_7
+
+// AGONY_PP_OVERLOAD
+
+#define X(...) c(AGONY_PP_OVERLOAD, v(X_) v(__VA_ARGS__))
+#define X_1    27
+#define X_2    12
+#define X_3    0
+#define X_8    7
+
+TEST(AGONY_PP_EVAL(c(X, v(~))) == 27);
+TEST(AGONY_PP_EVAL(c(X, v(~) v(~))) == 12);
+TEST(AGONY_PP_EVAL(c(X, v(~) v(~) v(~))) == 0);
+TEST(AGONY_PP_EVAL(c(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~))) == 7);
+
+// An empty token list is also an argument.
+TEST(AGONY_PP_EVAL(c(X, v())) == 27);
+TEST(AGONY_PP_EVAL(c(X, v() v())) == 12);
+TEST(AGONY_PP_EVAL(c(X, v() v() v())) == 0);
+TEST(AGONY_PP_EVAL(c(X, v() v() v() v() v() v() v() v())) == 7);
+
+#undef X
+#undef X_1
+#undef X_2
+#undef X_3
+#undef X_8
