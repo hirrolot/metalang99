@@ -32,8 +32,6 @@
  * @endcode
  *
  *   - #AGONY_PP_UINT_MAX
- *   - #AGONY_PP_REC_LIMIT
- *   - #AGONY_PP_WHILE_LIMIT
  *
  * @subsection _4 Boolean algebra
  * @code
@@ -91,6 +89,7 @@
 
 #include "agony_pp/aux.h"
 #include "agony_pp/lang.h"
+#include "agony_pp/limits.h"
 #include "agony_pp/uint.h"
 
 #endif // AGONY_PP_H
