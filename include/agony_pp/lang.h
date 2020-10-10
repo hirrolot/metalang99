@@ -1,5 +1,5 @@
-#ifndef KOSHMAR_PP_LANG_H
-#define KOSHMAR_PP_LANG_H
+#ifndef AGONY_PP_LANG_H
+#define AGONY_PP_LANG_H
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
@@ -21,4 +21,4 @@
 #define AGONY_PP_PRIVATE_EVAL_TERM_TRANSFORM_NON_TRIVIAL_OP_CALL(op, _emptiness, ...)              \
     (c, op, __VA_ARGS__)
 
-#endif // KOSHMAR_PP_LANG_H
+#endif // AGONY_PP_LANG_H
