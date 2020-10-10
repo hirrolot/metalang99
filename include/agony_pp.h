@@ -6,6 +6,14 @@
  *
  * @section Summary
  *
+ * @subsection _0 Metalanguage syntax
+ * @code
+ * #include <agony_pp/lang.h>
+ * @endcode
+ *
+ *  - #c(op, ...)
+ *  - #v(...)
+ *
  * @subsection _1 Auxiliary macros
  * @code
  * #include <agony_pp/aux.h>
@@ -51,16 +59,7 @@
  * @endcode
  *
  *   - #AGONY_PP_OVERLOAD(op, ...)
- *
- * @subsection _6 Support for recursion
- * @code
- * #include <agony_pp/rec.h>
- * @endcode
- *
- *   - #AGONY_PP_REC
- *   - #AGONY_PP_REC_IF(cond, stop, continue)
- *   - #AGONY_PP_REC_STOP(...)
- *   - #AGONY_PP_REC_CONTINUE(indirect_op, ...)
+ *   - #AGONY_PP_OVERLOAD_CALL(op, ...)
  *
  * @subsection _7 Unsigned integers
  * @code
