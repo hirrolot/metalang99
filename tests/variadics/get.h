@@ -1,20 +1,16 @@
 #include "../test.h"
 
-#include "../../include/agony_pp/aux.h"
+#include "../../include/agony_pp/eval.h"
+#include "../../include/agony_pp/lang.h"
+
 #include "../../include/agony_pp/variadics.h"
 
-#include <string.h>
+TEST(AGONY_PP_EVAL(c(AGONY_PP_VARIADICS_HEAD, v(51) v(21) v(1) v(7378))) == 51);
+TEST(AGONY_PP_EVAL(c(AGONY_PP_VARIADICS_HEAD, v(51) v(21) v(1) v(7378))) == 51);
 
-TEST(AGONY_PP_VARIADICS_HEAD(51, 21, 1, 7378) == 51);
-TEST(AGONY_PP_VARIADICS_HEAD(981, ) == 981);
+#define CHECK_TAIL(a, b, c, d) v(TEST(a == 51); TEST(b == 21); TEST(c == 1); TEST(d == 7378);)
 
-#define CHECK_TAIL(a, b, c, d)                                                                     \
-    TEST(a == 51);                                                                                 \
-    TEST(b == 21);                                                                                 \
-    TEST(c == 1);                                                                                  \
-    TEST(d == 7378);
-
-TEST(AGONY_PP_VARIADICS_TAIL(120, 19801) == 19801);
-AGONY_PP_CALL_MACRO(CHECK_TAIL, AGONY_PP_VARIADICS_TAIL(9191, 51, 21, 1, 7378))
+TEST(AGONY_PP_EVAL(c(AGONY_PP_VARIADICS_TAIL, v(120) v(19801))) == 19801);
+// AGONY_PP_EVAL(c(CHECK_TAIL, c(AGONY_PP_VARIADICS_TAIL, v(9191) v(51) v(21) v(7378))))
 
 #undef CHECK_TAIL

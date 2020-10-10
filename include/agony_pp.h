@@ -91,5 +91,6 @@
 #include "agony_pp/lang.h"
 #include "agony_pp/limits.h"
 #include "agony_pp/uint.h"
+#include "agony_pp/variadics.h"
 
 #endif // AGONY_PP_H

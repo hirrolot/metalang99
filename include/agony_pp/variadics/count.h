@@ -21,6 +21,7 @@
  */
 
 #define AGONY_PP_PRIVATE_VARIADICS_COUNT(...)                                                      \
+    /* All the arguments are skipped, so we don't care about blueprinting at all. */               \
     AGONY_PP_PRIVATE_VARIADICS_COUNT_AUX(                                                          \
         ~,                                                                                         \
         __VA_ARGS__,                                                                               \
@@ -2076,6 +2077,6 @@
     _1023,                                                                                         \
     x,                                                                                             \
     ...)                                                                                           \
-    x
+    v(x)
 
 #endif // AGONY_PP_VARIADICS_COUNT_H
