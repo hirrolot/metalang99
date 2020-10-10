@@ -10,15 +10,11 @@
 
 #include "uint/dec.h"
 #include "uint/eq.h"
-#include "uint/inc.h"
-#include "uint/lesser.h"
-
-/*
 #include "uint/greater.h"
 #include "uint/greater_equal.h"
+#include "uint/inc.h"
+#include "uint/lesser.h"
 #include "uint/lesser_equal.h"
-*/
-
 #include "uint/neq.h"
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS

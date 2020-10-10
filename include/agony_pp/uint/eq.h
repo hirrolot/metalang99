@@ -3,9 +3,13 @@
 
 #include "../lang.h"
 
-#define AGONY_PP_PRIVATE_UINT_EQ(x, y)                                                             \
-    /* Blueprinting cannot occur here, obviously. */                                               \
-    v(AGONY_PP_PRIVATE_UINT_AUX(AGONY_PP_PRIVATE_UINT_EQ_##x##_##y(), 0, ~))
+// Blueprinting cannot occur here, obviously.
+
+#define AGONY_PP_PRIVATE_UINT_EQ(x, y) v(AGONY_PP_PRIVATE_UINT_EQ_AUX(x, y))
+
+#define AGONY_PP_PRIVATE_UINT_EQ_AUX(x, y)                                                         \
+    AGONY_PP_PRIVATE_UINT_AUX(AGONY_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)(), 0, ~)
+#define AGONY_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y) AGONY_PP_PRIVATE_UINT_EQ_##x##_##y
 
 #define AGONY_PP_PRIVATE_UINT_AUX(...)            AGONY_PP_PRIVATE_UINT_AUX_AUX(__VA_ARGS__)
 #define AGONY_PP_PRIVATE_UINT_AUX_AUX(_a, b, ...) b
