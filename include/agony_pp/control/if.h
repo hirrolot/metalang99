@@ -1,12 +1,11 @@
 #ifndef AGONY_PP_CONTROL_IF_H
 #define AGONY_PP_CONTROL_IF_H
 
-#include "../aux.h"
+#include "../lang.h"
 
-#define AGONY_PP_PRIVATE_EVAL_AUX_IF(cond, x, y)                                                   \
-    AGONY_PP_UNPARENTHESISE(AGONY_PP_CAT(AGONY_PP_PRIVATE_EVAL_AUX_IF_, cond)((x), (y)))
+#define AGONY_PP_PRIVATE_IF(cond, x, y) c(AGONY_PP_PRIVATE_IF_##cond, v(x) v(y))
 
-#define AGONY_PP_PRIVATE_EVAL_AUX_IF_0(_x, y) y
-#define AGONY_PP_PRIVATE_EVAL_AUX_IF_1(x, _y) x
+#define AGONY_PP_PRIVATE_IF_0(_x, y) v(y)
+#define AGONY_PP_PRIVATE_IF_1(x, _y) v(x)
 
 #endif // AGONY_PP_CONTROL_IF_H

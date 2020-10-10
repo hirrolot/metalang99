@@ -3,6 +3,7 @@
 
 #include "../aux.h"
 #include "../control.h"
+#include "../lang.h"
 #include "../logical.h"
 #include "eq.h"
 #include "greater.h"

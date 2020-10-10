@@ -1,14 +1,14 @@
 #ifndef AGONY_PP_UINT_EQ_H
 #define AGONY_PP_UINT_EQ_H
 
-#include "../aux.h"
+#include "../lang.h"
 
 #define AGONY_PP_PRIVATE_UINT_EQ(x, y)                                                             \
-    AGONY_PP_CALL_MACRO(AGONY_PP_PRIVATE_UINT_AUX, AGONY_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)(), 0, ~)
+    /* Blueprinting cannot occur here, obviously. */                                               \
+    v(AGONY_PP_PRIVATE_UINT_AUX(AGONY_PP_PRIVATE_UINT_EQ_##x##_##y(), 0, ~))
 
-#define AGONY_PP_PRIVATE_UINT_AUX(a, b, ...) b
-#define AGONY_PP_PRIVATE_UINT_EQ_OVERLOAD(x, y)                                                    \
-    AGONY_PP_CAT(AGONY_PP_PRIVATE_UINT_EQ_, AGONY_PP_CAT(x, AGONY_PP_CAT(_, y)))
+#define AGONY_PP_PRIVATE_UINT_AUX(...)            AGONY_PP_PRIVATE_UINT_AUX_AUX(__VA_ARGS__)
+#define AGONY_PP_PRIVATE_UINT_AUX_AUX(_a, b, ...) b
 
 #define AGONY_PP_PRIVATE_UINT_EQ_0_0()       ~, 1
 #define AGONY_PP_PRIVATE_UINT_EQ_1_1()       ~, 1
