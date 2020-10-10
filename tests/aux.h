@@ -14,6 +14,26 @@
     }                                                                                              \
     empty
 
+// AGONY_PP_STRINGIFY
+
+static const char stringified[] = AGONY_PP_EVAL(c(AGONY_PP_STRINGIFY, v(hello)));
+
+// I'm not sure that the stringified version won't contain any whitespaces, so for now just check
+// that it contains _at least_ six characters.
+TEST(sizeof(stringified) >= 5 + 1);
+
+// AGONY_PP_CAT
+
+inline static void test_cat(void) {
+    (void)test_cat;
+    int AGONY_PP_EVAL(c(AGONY_PP_CAT, v(ab) v(c))) = 7;
+    abc++;
+}
+
+#define EMPTY AGONY_PP_EVAL(c(AGONY_PP_CAT, v() v()))
+CHECK_EMPTY(0, EMPTY)
+#undef EMPTY
+
 // AGONY_PP_CONSUME
 
 AGONY_PP_EVAL(c(AGONY_PP_CONSUME, v(a) v(b) v(c)))
