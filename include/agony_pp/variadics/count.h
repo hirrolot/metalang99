@@ -1,6 +1,8 @@
 #ifndef AGONY_PP_VARIADICS_COUNT_H
 #define AGONY_PP_VARIADICS_COUNT_H
 
+#include "../lang.h"
+
 /*
  * Proposition: The count of arguments of `AGONY_PP_PRIVATE_VARIADICS_COUNT` is `x`, which is
  * returned from `AGONY_PP_PRIVATE_VARIADICS_COUNT_AUX`.

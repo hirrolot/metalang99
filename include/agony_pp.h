@@ -11,6 +11,8 @@
  * #include <agony_pp/aux.h>
  * @endcode
  *
+ *   - #AGONY_PP_CAT()
+ *   - #AGONY_PP_STRINGIFY()
  *   - #AGONY_PP_EMPTY()
  *   - #AGONY_PP_ID(x)
  *   - #AGONY_PP_EXPAND(...)
@@ -90,6 +92,7 @@
 #include "agony_pp/aux.h"
 #include "agony_pp/lang.h"
 #include "agony_pp/limits.h"
+#include "agony_pp/overload.h"
 #include "agony_pp/uint.h"
 #include "agony_pp/variadics.h"
 

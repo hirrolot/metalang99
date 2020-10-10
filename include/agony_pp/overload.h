@@ -13,15 +13,17 @@
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
+#include "lang.h"
+
 /**
  * @brief Overload @p op on a number of arguments.
  */
-#define AGONY_PP_OVERLOAD(op, ...) AGONY_PP_PRIVATE_OVERLOAD(op, __VA_ARGS__)
+#define AGONY_PP_OVERLOAD(op, ...) c(AGONY_PP_PRIVATE_OVERLOAD, v(op) v(__VA_ARGS__))
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #define AGONY_PP_PRIVATE_OVERLOAD(op, ...)                                                         \
-    AGONY_PP_CAT(op, AGONY_PP_PRIVATE_VARIADICS_COUNT(__VA_ARGS__))
+    c(AGONY_PP_CAT, v(op) c(AGONY_PP_PRIVATE_VARIADICS_COUNT, v(__VA_ARGS__)))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
