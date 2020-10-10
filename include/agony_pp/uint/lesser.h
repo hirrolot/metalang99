@@ -3,6 +3,11 @@
 
 #include "eq.h"
 
+// An ordinary macro implementation is used because using our metalanguage eats too much recursion
+// steps. I guess binary search might be appropriate here.
+//
+// And, since `x` and `y` are just numbers, blueprinting cannot occur.
+
 #define AGONY_PP_PRIVATE_UINT_LESSER(x, y) v(AGONY_PP_PRIVATE_UINT_LESSER_##y(x))
 
 #define AGONY_PP_PRIVATE_UINT_LESSER_0(_x) 0
