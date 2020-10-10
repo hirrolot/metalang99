@@ -1,4 +1,5 @@
 #include "aux.h"
+#include "control.h"
 #include "eval.h"
 #include "logical.h"
 #include "overload.h"
