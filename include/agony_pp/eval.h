@@ -1,7 +1,12 @@
+/**
+ * @file
+ * @brief Evaluation of metaprograms.
+ */
+
 #ifndef AGONY_PP_EVAL_H
 #define AGONY_PP_EVAL_H
 
-#ifndef DOXYGEN_SHOULD_IGNORE_THIS
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include "eval/args.h"
 #include "eval/aux.h"
@@ -15,11 +20,14 @@
 #define AGONY_PP_PRIVATE_EVAL_MATCH_c_EVAL_ARGS_HOOK() AGONY_PP_PRIVATE_EVAL_MATCH_c_EVAL_ARGS
 #define AGONY_PP_PRIVATE_EVAL_MATCH_c_CALL_OP_HOOK()   AGONY_PP_PRIVATE_EVAL_MATCH_c_CALL_OP
 
-#endif // DOXYGEN_SHOULD_IGNORE_THIS
+#endif // DOXYGEN_SHOULD_SKIP_THIS
 
+/**
+ * @brief Evaluates a metaprogram.
+ */
 #define AGONY_PP_EVAL(...) AGONY_PP_PRIVATE_EVAL(__VA_ARGS__)
 
-#ifndef DOXYGEN_SHOULD_IGNORE_THIS
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #define AGONY_PP_PRIVATE_EVAL(...)                                                                 \
     AGONY_PP_PRIVATE_EVAL_REC_UNROLL(                                                              \
@@ -71,6 +79,6 @@
 #define AGONY_PP_PRIVATE_EVAL_MATCH_end(k, k_cx, acc, _tail, _)                                    \
     AGONY_PP_PRIVATE_EVAL_REC_CONTINUE(k, k_cx, AGONY_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(acc))
 
-#endif // DOXYGEN_SHOULD_IGNORE_THIS
+#endif // DOXYGEN_SHOULD_SKIP_THIS
 
 #endif // AGONY_PP_EVAL_H

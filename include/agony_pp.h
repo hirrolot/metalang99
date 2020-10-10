@@ -14,7 +14,14 @@
  *  - #c(op, ...)
  *  - #v(...)
  *
- * @subsection _1 Auxiliary macros
+ * @subsection _1 Evaluation of metaprograms
+ * @code
+ * #include <agony_pp/eval.h>
+ * @endcode
+ *
+ *  - #AGONY_PP_EVAL(...)
+ *
+ * @subsection _2 Auxiliary macros
  * @code
  * #include <agony_pp/aux.h>
  * @endcode
@@ -28,7 +35,7 @@
  *   - #AGONY_PP_PARENTHESISE(...)
  *   - #AGONY_PP_UNPARENTHESISE(x)
  *
- * @subsection _2 Control expressions
+ * @subsection _3 Control expressions
  * @code
  * #include <agony_pp/control.h>
  * @endcode
@@ -36,14 +43,14 @@
  *   - #AGONY_PP_IF(cond, x, y)
  *   - #AGONY_PP_WHILE(predicate, op, context)
  *
- * @subsection _3 Implementation limits
+ * @subsection _4 Implementation limits
  * @code
  * #include <agony_pp/limits.h>
  * @endcode
  *
  *   - #AGONY_PP_UINT_MAX
  *
- * @subsection _4 Boolean algebra
+ * @subsection _5 Boolean algebra
  * @code
  * #include <agony_pp/logical.h>
  * @endcode
@@ -53,7 +60,7 @@
  *   - #AGONY_PP_OR(x, y)
  *   - #AGONY_PP_XOR(x, y)
  *
- * @subsection _5 Overloading on a number of arguments
+ * @subsection _6 Overloading on a number of arguments
  * @code
  * #include <agony_pp/overload.h>
  * @endcode
@@ -89,6 +96,7 @@
 #define AGONY_PP_H
 
 #include "agony_pp/aux.h"
+#include "agony_pp/eval.h"
 #include "agony_pp/lang.h"
 #include "agony_pp/limits.h"
 #include "agony_pp/overload.h"

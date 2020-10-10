@@ -94,6 +94,11 @@ Metalanguage syntax</h2>
 <li><a class="el" href="lang_8h.html#accda83681bf7cf367504a2fd1e31b651" title="Expands to the provided arguments as-is. ">v</a>(...)</li>
 </ul>
 <h2><a class="anchor" id="_1"></a>
+Evaluation of metaprograms</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="eval_8h.html">agony_pp/eval.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="eval_8h.html#ad0143ad14584832b2b9f37053a9cdabb" title="Evaluates a metaprogram. ">AGONY_PP_EVAL</a>(...)</li>
+</ul>
+<h2><a class="anchor" id="_2"></a>
 Auxiliary macros</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="aux_8h.html">agony_pp/aux.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="aux_8h.html#a99fa998b950c48ff506094a284db8c2e" title="Concatenates x and y. ">AGONY_PP_CAT()</a></li>
@@ -105,18 +110,18 @@ Auxiliary macros</h2>
 <li><a class="el" href="aux_8h.html#af465383debb67a3ab9c0f12b3d748f3b" title="Puts the specified arguments into parentheses. ">AGONY_PP_PARENTHESISE</a>(...)</li>
 <li><a class="el" href="aux_8h.html#ae2db4d05d98837e4f3ec6af43421387f" title="Removes parentheses around x. ">AGONY_PP_UNPARENTHESISE(x)</a></li>
 </ul>
-<h2><a class="anchor" id="_2"></a>
+<h2><a class="anchor" id="_3"></a>
 Control expressions</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="control_8h.html">agony_pp/control.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="control_8h.html#a17d567f5eb7494646dbcc751d687d343" title="x if cond expands to 1, otherwise y. ">AGONY_PP_IF(cond, x, y)</a></li>
 <li><a class="el" href="control_8h.html#a1f1dfde1eea4c22bf4dc2482ab1d1bec" title="Executes op as long as predicate holds for context. ">AGONY_PP_WHILE(predicate, op, context)</a></li>
 </ul>
-<h2><a class="anchor" id="_3"></a>
+<h2><a class="anchor" id="_4"></a>
 Implementation limits</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="limits_8h.html">agony_pp/limits.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="limits_8h.html#a893fbc49e32ff90304379ffe318559a4" title="The maximum supported unsigned integer. ">AGONY_PP_UINT_MAX</a></li>
 </ul>
-<h2><a class="anchor" id="_4"></a>
+<h2><a class="anchor" id="_5"></a>
 Boolean algebra</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="logical_8h.html">agony_pp/logical.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="logical_8h.html#a502f8c67002e377bf502b6b1d042ceb8" title="Negates x. ">AGONY_PP_NOT(x)</a></li>
@@ -124,7 +129,7 @@ Boolean algebra</h2>
 <li><a class="el" href="logical_8h.html#a2e0d03b08dc0d1f0897f6b3a1b1255f6" title="Performs inclusive OR on and y. ">AGONY_PP_OR(x, y)</a></li>
 <li><a class="el" href="logical_8h.html#adeb414e4e5f3c70b0557d0c12e307310" title="Performs exclusive OR on and y. ">AGONY_PP_XOR(x, y)</a></li>
 </ul>
-<h2><a class="anchor" id="_5"></a>
+<h2><a class="anchor" id="_6"></a>
 Overloading on a number of arguments</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="overload_8h.html">agony_pp/overload.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="overload_8h.html#a96f917ff6588fc3e98f61c58f4a58ed7" title="Overload op on a number of arguments. ">AGONY_PP_OVERLOAD</a>(op, ...)</li>
