@@ -26,7 +26,8 @@ TEST(AGONY_PP_EVAL(c(c(FOO, v(B) v(A) v(R)), v(6) v(11))) == 6 + 11);
 #undef FOO
 #undef BAR
 
-// Recursion might arise from a higher-order macro, if `op` invokes `FOO`.
+// Recursion might arise from a higher-order macro, if `op` invokes `FOO`, but nonetheless the
+// second call to `FOO` must be performed as expected.
 #define FOO(op) c(op, v(123))
 #define OP(x)   c(FOO, v(ID))
 #define ID(x)   v(x)
