@@ -9,16 +9,6 @@
 #include "lang.h"
 
 /**
- * @brief Concatenates @p x and @p y.
- */
-#define AGONY_PP_CAT(x, y) c(AGONY_PP_PRIVATE_CAT, v(x) v(y))
-
-/**
- * @brief Stringifies @p x.
- */
-#define AGONY_PP_STRINGIFY(x) c(AGONY_PP_PRIVATE_STRINGIFY, v(x))
-
-/**
  * @brief Expands to nothing.
  */
 #define AGONY_PP_EMPTY() v()
@@ -49,9 +39,6 @@
 #define AGONY_PP_UNPARENTHESISE(x) c(AGONY_PP_PRIVATE_UNPARENTHESISE, v(x))
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
-
-#define AGONY_PP_PRIVATE_CAT(x, y)    v(x##y)
-#define AGONY_PP_PRIVATE_STRINGIFY(x) v(#x)
 
 #define AGONY_PP_PRIVATE_UNPARENTHESISE(x) c(AGONY_PP_EXPAND, AGONY_PP_EXPAND x)
 

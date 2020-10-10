@@ -11,8 +11,6 @@
  * #include <agony_pp/aux.h>
  * @endcode
  *
- *   - #AGONY_PP_CAT(x, y)
- *   - #AGONY_PP_STRINGIFY(x)
  *   - #AGONY_PP_EMPTY()
  *   - #AGONY_PP_ID(x)
  *   - #AGONY_PP_EXPAND(...)
