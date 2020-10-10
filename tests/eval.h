@@ -1,7 +1,5 @@
 #include "test.h"
 
-#include "eval/rec.h"
-
 #include "../include/agony_pp/eval.h"
 #include "../include/agony_pp/lang.h"
 
@@ -27,3 +25,14 @@ TEST(AGONY_PP_EVAL(c(c(FOO, v(B) v(A) v(R)), v(6) v(11))) == 6 + 11);
 
 #undef FOO
 #undef BAR
+
+// Recursion might arise from a higher-order macro, if `op` invokes `FOO`.
+#define FOO(op) c(op, v(123))
+#define OP(x)   c(FOO, v(ID))
+#define ID(x)   v(x)
+
+TEST(AGONY_PP_EVAL(c(FOO, v(OP))) == 123);
+
+#undef FOO
+#undef OP
+#undef ID
