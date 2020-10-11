@@ -96,6 +96,7 @@
 #define AGONY_PP_H
 
 #include "agony_pp/aux.h"
+#include "agony_pp/control.h"
 #include "agony_pp/eval.h"
 #include "agony_pp/lang.h"
 #include "agony_pp/limits.h"

@@ -45,13 +45,13 @@
 #define AGONY_PP_PRIVATE_EVAL_ARGS_AUX_end(k, k_cx, acc, _tail, _)                                 \
     AGONY_PP_PRIVATE_EVAL_REC_CONTINUE(k, k_cx, AGONY_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(acc))
 
-#define AGONY_PP_PRIVATE_EVAL_CALL_AS_ARG(k, k_cx, acc, tail, evaluated_call)                      \
+#define AGONY_PP_PRIVATE_EVAL_CALL_AS_ARG(k, k_cx, acc, tail, ...)                                 \
     AGONY_PP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
         AGONY_PP_PRIVATE_EVAL_ARGS_AUX_HOOK,                                                       \
         (k, k_cx),                                                                                 \
         AGONY_PP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(                                            \
             acc,                                                                                   \
-            evaluated_call AGONY_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)),                            \
+            __VA_ARGS__ AGONY_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)),                               \
         AGONY_PP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
 
 #define AGONY_PP_PRIVATE_EVAL_COMMA_OR_EMPTY(tail)                                                 \
