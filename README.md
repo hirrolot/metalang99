@@ -9,6 +9,6 @@
 
 ## Highlights
  - C99-compliant.
- - Embedded: agony-pp is merely a set of C macros. `#include <agony_pp.h>` and use it directly in your sources, without third-party tools.
+ - Embedded: just `#include <agony_pp.h>` and use it directly in your sources, without third-party tools.
  - No dependencies. Even the standard library.
  - Precise [documentation](https://hirrolot.github.io/agony-pp/).
