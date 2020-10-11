@@ -16,11 +16,11 @@
 /**
  * @brief @p x if @p cond expands to 1, otherwise @p y.
  */
-#define AGONY_PP_IF(cond, x, y) c(AGONY_PP_PRIVATE_IF, v(cond) v(x) v(y))
+#define AGONY_PP_IF(cond, x, y) c(AGONY_PP_IF_REAL, cond x y)
 
 /**
  * @brief Executes @p op as long as @p predicate holds for @p state.
  */
-#define AGONY_PP_WHILE(predicate, op, state) c(AGONY_PP_PRIVATE_WHILE, v(predicate) v(op) v(state))
+#define AGONY_PP_WHILE(predicate, op, state) c(AGONY_PP_WHILE_REAL, predicate op state)
 
 #endif // AGONY_PP_CONTROL_H

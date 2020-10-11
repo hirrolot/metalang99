@@ -4,6 +4,6 @@
 #include "../lang.h"
 #include "lesser.h"
 
-#define AGONY_PP_PRIVATE_UINT_GREATER(x, y) c(AGONY_PP_PRIVATE_UINT_LESSER, v(y) v(x))
+#define AGONY_PP_UINT_GREATER_REAL(x, y) c(AGONY_PP_UINT_LESSER_REAL, v(y) v(x))
 
 #endif // AGONY_PP_UINT_GREATER_H

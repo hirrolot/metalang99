@@ -18,16 +18,16 @@
 /**
  * @brief Computes a count of the provided arguments.
  */
-#define AGONY_PP_VARIADICS_COUNT(...) c(AGONY_PP_PRIVATE_VARIADICS_COUNT, v(__VA_ARGS__))
+#define AGONY_PP_VARIADICS_COUNT(...) c(AGONY_PP_VARIADICS_COUNT_REAL, __VA_ARGS__)
 
 /**
  * @brief Extracts a head of the provided arguments.
  */
-#define AGONY_PP_VARIADICS_HEAD(...) c(AGONY_PP_PRIVATE_VARIADICS_HEAD, v(__VA_ARGS__))
+#define AGONY_PP_VARIADICS_HEAD(...) c(AGONY_PP_VARIADICS_HEAD_REAL, __VA_ARGS__)
 
 /**
  * @brief Extracts a tail of the provided arguments.
  */
-#define AGONY_PP_VARIADICS_TAIL(...) c(AGONY_PP_PRIVATE_VARIADICS_TAIL, v(__VA_ARGS__))
+#define AGONY_PP_VARIADICS_TAIL(...) c(AGONY_PP_VARIADICS_TAIL_REAL, __VA_ARGS__)
 
 #endif // AGONY_PP_VARIADICS_H

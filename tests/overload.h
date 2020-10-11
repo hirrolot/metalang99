@@ -7,7 +7,7 @@
 
 // AGONY_PP_OVERLOAD_CALL
 
-#define X(...)    c(AGONY_PP_OVERLOAD_CALL, v(X_) v(__VA_ARGS__))
+#define X(...)    AGONY_PP_OVERLOAD_CALL(v(X_), v(__VA_ARGS__))
 #define X_1(a)    v(TEST(a == 123);)
 #define X_2(a, b) v(TEST(a == 93145); TEST(b == 456);)
 #define X_7(a, b, c, d, e, f, g)                                                                   \
@@ -25,7 +25,7 @@ AGONY_PP_EVAL(c(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
 
 // AGONY_PP_OVERLOAD
 
-#define X(...) c(AGONY_PP_OVERLOAD, v(X_) v(__VA_ARGS__))
+#define X(...) AGONY_PP_OVERLOAD(v(X_), v(__VA_ARGS__))
 #define X_1    27
 #define X_2    12
 #define X_3    0

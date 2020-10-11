@@ -18,20 +18,20 @@
 /**
  * @brief Overload @p op on a number of arguments.
  */
-#define AGONY_PP_OVERLOAD(op, ...) c(AGONY_PP_PRIVATE_OVERLOAD, v(op) v(__VA_ARGS__))
+#define AGONY_PP_OVERLOAD(op, ...) c(AGONY_PP_OVERLOAD_REAL, op __VA_ARGS__)
 
 /**
  * @brief Overloads @p op on a number of arguments an immediately calls it.
  */
-#define AGONY_PP_OVERLOAD_CALL(op, ...) c(AGONY_PP_PRIVATE_OVERLOAD_CALL, v(op) v(__VA_ARGS__))
+#define AGONY_PP_OVERLOAD_CALL(op, ...) c(AGONY_PP_OVERLOAD_REAL_CALL, op __VA_ARGS__)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define AGONY_PP_PRIVATE_OVERLOAD(op, ...)                                                         \
-    c(AGONY_PP_CAT, v(op) c(AGONY_PP_PRIVATE_VARIADICS_COUNT, v(__VA_ARGS__)))
+#define AGONY_PP_OVERLOAD_REAL(op, ...)                                                            \
+    c(AGONY_PP_CAT_REAL, v(op) c(AGONY_PP_VARIADICS_COUNT_REAL, v(__VA_ARGS__)))
 
-#define AGONY_PP_PRIVATE_OVERLOAD_CALL(op, ...)                                                    \
-    c(c(AGONY_PP_OVERLOAD, v(op) v(__VA_ARGS__)), v(__VA_ARGS__))
+#define AGONY_PP_OVERLOAD_REAL_CALL(op, ...)                                                       \
+    c(c(AGONY_PP_OVERLOAD_REAL, v(op) v(__VA_ARGS__)), v(__VA_ARGS__))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 

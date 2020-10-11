@@ -4,8 +4,8 @@
 #include "../lang.h"
 
 /*
- * Proposition: The count of arguments of `AGONY_PP_PRIVATE_VARIADICS_COUNT` is `x`, which is
- * returned from `AGONY_PP_PRIVATE_VARIADICS_COUNT_AUX`.
+ * Proposition: The count of arguments of `AGONY_PP_VARIADICS_COUNT_REAL` is `x`, which is
+ * returned from `AGONY_PP_VARIADICS_COUNT_REAL_AUX`.
  *
  * Proof:
  *  1) Let N be the length of __VA_ARGS__.
@@ -22,9 +22,9 @@
  * (N)                                 ---> (x)
  */
 
-#define AGONY_PP_PRIVATE_VARIADICS_COUNT(...)                                                      \
+#define AGONY_PP_VARIADICS_COUNT_REAL(...)                                                         \
     /* All the arguments are skipped, so we don't care about blueprinting at all. */               \
-    AGONY_PP_PRIVATE_VARIADICS_COUNT_AUX(                                                          \
+    AGONY_PP_VARIADICS_COUNT_REAL_AUX(                                                             \
         ~,                                                                                         \
         __VA_ARGS__,                                                                               \
         1023,                                                                                      \
@@ -1052,7 +1052,7 @@
         1,                                                                                         \
         ~)
 
-#define AGONY_PP_PRIVATE_VARIADICS_COUNT_AUX(                                                      \
+#define AGONY_PP_VARIADICS_COUNT_REAL_AUX(                                                         \
     _,                                                                                             \
     _1,                                                                                            \
     _2,                                                                                            \

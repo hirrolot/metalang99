@@ -5,6 +5,6 @@
 #include "../logical.h"
 #include "eq.h"
 
-#define AGONY_PP_PRIVATE_UINT_NEQ(x, y) c(AGONY_PP_NOT, c(AGONY_PP_PRIVATE_UINT_EQ, v(x) v(y)))
+#define AGONY_PP_UINT_NEQ_REAL(x, y) c(AGONY_PP_NOT_REAL, c(AGONY_PP_UINT_EQ_REAL, v(x) v(y)))
 
 #endif // AGONY_PP_UINT_NEQ_H
