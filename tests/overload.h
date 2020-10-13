@@ -2,17 +2,21 @@
 
 #include "../include/agony_pp/eval.h"
 #include "../include/agony_pp/lang.h"
-
 #include "../include/agony_pp/overload.h"
+
+#include <assert.h>
 
 // AGONY_PP_OVERLOAD_CALL
 
 #define X(...)    AGONY_PP_OVERLOAD_CALL(v(X_), v(__VA_ARGS__))
-#define X_1(a)    v(TEST(a == 123);)
-#define X_2(a, b) v(TEST(a == 93145); TEST(b == 456);)
+#define X_1(a)    v(static_assert(a == 123, "");)
+#define X_2(a, b) v(static_assert(a == 93145, ""); static_assert(b == 456, "");)
 #define X_7(a, b, c, d, e, f, g)                                                                   \
-    v(TEST(a == 1516); TEST(b == 1); TEST(c == 9); TEST(d == 111); TEST(e == 119); TEST(f == 677); \
-      TEST(g == 62);)
+    v(static_assert(a == 1516, ""); static_assert(b == 1, ""); static_assert(c == 9, "");          \
+      static_assert(d == 111, "");                                                                 \
+      static_assert(e == 119, "");                                                                 \
+      static_assert(f == 677, "");                                                                 \
+      static_assert(g == 62, "");)
 
 AGONY_PP_EVAL(c(X, v(123)))
 AGONY_PP_EVAL(c(X, v(93145) v(456)))
@@ -31,16 +35,16 @@ AGONY_PP_EVAL(c(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
 #define X_3    0
 #define X_8    7
 
-TEST(AGONY_PP_EVAL(c(X, v(~))) == 27);
-TEST(AGONY_PP_EVAL(c(X, v(~) v(~))) == 12);
-TEST(AGONY_PP_EVAL(c(X, v(~) v(~) v(~))) == 0);
-TEST(AGONY_PP_EVAL(c(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~))) == 7);
+TEST_EQ(c(X, v(~)), v(27));
+TEST_EQ(c(X, v(~) v(~)), v(12));
+TEST_EQ(c(X, v(~) v(~) v(~)), v(0));
+TEST_EQ(c(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
 
 // An empty token list is also an argument.
-TEST(AGONY_PP_EVAL(c(X, v())) == 27);
-TEST(AGONY_PP_EVAL(c(X, v() v())) == 12);
-TEST(AGONY_PP_EVAL(c(X, v() v() v())) == 0);
-TEST(AGONY_PP_EVAL(c(X, v() v() v() v() v() v() v() v())) == 7);
+TEST_EQ(c(X, v()), v(27));
+TEST_EQ(c(X, v() v()), v(12));
+TEST_EQ(c(X, v() v() v()), v(0));
+TEST_EQ(c(X, v() v() v() v() v() v() v() v()), v(7));
 
 #undef X
 #undef X_1

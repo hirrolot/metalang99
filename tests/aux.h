@@ -1,9 +1,10 @@
 #include "test.h"
 
+#include "../include/agony_pp/aux.h"
 #include "../include/agony_pp/eval.h"
 #include "../include/agony_pp/lang.h"
 
-#include "../include/agony_pp/aux.h"
+#include <assert.h>
 
 #define CHECK_EMPTY(unique_fn_id, empty)                                                           \
     inline empty static empty void empty test_empty_##unique_fn_id empty(empty void empty) empty { \
@@ -20,7 +21,7 @@ static const char stringified[] = AGONY_PP_EVAL(AGONY_PP_STRINGIFY(v(hello)));
 
 // I'm not sure that the stringified version won't contain any whitespaces, so for now just check
 // that it contains _at least_ six characters.
-TEST(sizeof(stringified) >= 5 + 1);
+static_assert(sizeof(stringified) >= 5 + 1, "");
 
 // AGONY_PP_CAT
 

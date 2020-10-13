@@ -2,7 +2,6 @@
 
 #include "../../include/agony_pp/aux.h"
 #include "../../include/agony_pp/control.h"
-#include "../../include/agony_pp/eval.h"
 #include "../../include/agony_pp/lang.h"
 #include "../../include/agony_pp/uint.h"
 
@@ -18,7 +17,7 @@
 #define STATE_FINALISER(state)      c(STATE_FINALISER_AUX, AGONY_PP_UNPARENTHESISE(v(state)))
 #define STATE_FINALISER_AUX(acc, i) v(acc)
 
-TEST(AGONY_PP_EVAL(c(STATE_FINALISER, AGONY_PP_WHILE(v(PREDICATE), v(OP), v((v(0, 1)))))) == SUM);
+TEST_EQ(c(STATE_FINALISER, AGONY_PP_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
 
 #undef PREDICATE
 #undef PREDICATE_AUX
