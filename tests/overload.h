@@ -1,4 +1,4 @@
-#include "test.h"
+#include "assert.h"
 
 #include "../include/agony_pp/eval.h"
 #include "../include/agony_pp/lang.h"
@@ -35,16 +35,16 @@ AGONY_PP_EVAL(c(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
 #define X_3    0
 #define X_8    7
 
-TEST_EQ(c(X, v(~)), v(27));
-TEST_EQ(c(X, v(~) v(~)), v(12));
-TEST_EQ(c(X, v(~) v(~) v(~)), v(0));
-TEST_EQ(c(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
+ASSERT_EQ(c(X, v(~)), v(27));
+ASSERT_EQ(c(X, v(~) v(~)), v(12));
+ASSERT_EQ(c(X, v(~) v(~) v(~)), v(0));
+ASSERT_EQ(c(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
 
 // An empty token list is also an argument.
-TEST_EQ(c(X, v()), v(27));
-TEST_EQ(c(X, v() v()), v(12));
-TEST_EQ(c(X, v() v() v()), v(0));
-TEST_EQ(c(X, v() v() v() v() v() v() v() v()), v(7));
+ASSERT_EQ(c(X, v()), v(27));
+ASSERT_EQ(c(X, v() v()), v(12));
+ASSERT_EQ(c(X, v() v() v()), v(0));
+ASSERT_EQ(c(X, v() v() v() v() v() v() v() v()), v(7));
 
 #undef X
 #undef X_1

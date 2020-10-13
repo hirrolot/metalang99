@@ -1,4 +1,4 @@
-#include "test.h"
+#include "assert.h"
 
 #include "../include/agony_pp/aux.h"
 #include "../include/agony_pp/eval.h"
@@ -43,9 +43,9 @@ AGONY_PP_EVAL(AGONY_PP_CONSUME())
 
 // AGONY_PP_PARENTHESISE, AGONY_PP_UNPARENTHESISE
 /*
-#define TEST_PARENTHESISE(a, b, c) v(TEST(a == 1); TEST(b == 2); TEST(c == 3);)
+#define ASSERT_PARENTHESISE(a, b, c) v(ASSERT(a == 1); ASSERT(b == 2); ASSERT(c == 3);)
 
-AGONY_PP_EVAL(TEST_PARENTHESISE AGONY_PP_EVAL(c(AGONY_PP_PARENTHESISE, v(1) v(2) v(3))))
+AGONY_PP_EVAL(ASSERT_PARENTHESISE AGONY_PP_EVAL(c(AGONY_PP_PARENTHESISE, v(1) v(2) v(3))))
 
 enum {
     AGONY_PP_EVAL(
@@ -53,15 +53,15 @@ enum {
           v((CheckUnparenthesiseA = 9, CheckUnparenthesiseB = 4, CheckUnparenthesiseC = 18))))
 };
 
-TEST(CheckUnparenthesiseA == 9);
-TEST(CheckUnparenthesiseB == 4);
-TEST(CheckUnparenthesiseC == 18);
+ASSERT(CheckUnparenthesiseA == 9);
+ASSERT(CheckUnparenthesiseB == 4);
+ASSERT(CheckUnparenthesiseC == 18);
 
 #define EMPTY AGONY_PP_EVAL(c(AGONY_PP_UNPARENTHESISE, c(AGONY_PP_PARENTHESISE, )))
 CHECK_EMPTY(1, EMPTY)
 #undef EMPTY
 
-#undef TEST_PARENTHESISE
+#undef ASSERT_PARENTHESISE
 
 #undef CHECK_EMPTY
 */

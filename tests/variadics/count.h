@@ -1,21 +1,21 @@
-#include "../test.h"
+#include "../assert.h"
 
 #include "../../include/agony_pp/lang.h"
 #include "../../include/agony_pp/variadics.h"
 
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(), v(1));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~)), v(1));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~)), v(2));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~)), v(3));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~)), v(4));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~)), v(5));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~)), v(6));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(8));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(9));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(10));
-TEST_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(11));
-TEST_EQ(
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(), v(1));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~)), v(1));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~)), v(2));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~)), v(3));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~)), v(4));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~)), v(5));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~)), v(6));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(8));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(9));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(10));
+ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(11));
+ASSERT_EQ(
     AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                  v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                      v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
@@ -26,7 +26,7 @@ TEST_EQ(
                                                          v(~) v(~) v(~) v(~)),
     v(85));
 
-TEST_EQ(
+ASSERT_EQ(
     AGONY_PP_VARIADICS_COUNT(
         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
             v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
@@ -40,7 +40,7 @@ TEST_EQ(
                                             v(~) v(~)),
     v(137));
 
-TEST_EQ(
+ASSERT_EQ(
     AGONY_PP_VARIADICS_COUNT(
         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
             v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
@@ -203,7 +203,7 @@ TEST_EQ(
                                                                                                                                                                                                                                                                                                                                                                                                                                                     ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)),
     v(589));
 
-TEST_EQ(
+ASSERT_EQ(
     AGONY_PP_VARIADICS_COUNT(
         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
             v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)

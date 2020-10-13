@@ -1,4 +1,4 @@
-#include "../test.h"
+#include "../assert.h"
 
 #include "../../include/agony_pp/aux.h"
 #include "../../include/agony_pp/control.h"
@@ -17,7 +17,7 @@
 #define STATE_FINALISER(state)      c(STATE_FINALISER_AUX, AGONY_PP_UNPARENTHESISE(v(state)))
 #define STATE_FINALISER_AUX(acc, i) v(acc)
 
-TEST_EQ(c(STATE_FINALISER, AGONY_PP_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
+ASSERT_EQ(c(STATE_FINALISER, AGONY_PP_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
 
 #undef PREDICATE
 #undef PREDICATE_AUX
