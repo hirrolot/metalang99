@@ -1,3 +1,5 @@
+> WARNING: still under v0.1.0 active development.
+
 # agony-pp
 [![CI](https://github.com/Hirrolot/agony-pp/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/agony-pp/actions)
 
