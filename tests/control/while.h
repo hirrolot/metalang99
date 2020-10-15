@@ -8,10 +8,12 @@
 #define LIMIT 10
 #define SUM   ((LIMIT + 1) * (LIMIT / 2))
 
-#define PREDICATE(state)       c(PREDICATE_AUX, AGONY_PP_UNPARENTHESISE(v(state)))
+#define PREDICATE(state)       c(PREDICATE_REAL, state)
+#define PREDICATE_REAL(state)  c(PREDICATE_AUX, AGONY_PP_UNPARENTHESISE(v(state)))
 #define PREDICATE_AUX(_acc, i) AGONY_PP_UINT_NEQ(v(i), AGONY_PP_UINT_INC(v(LIMIT)))
 
-#define OP(state)      c(OP_AUX, AGONY_PP_UNPARENTHESISE(v(state)))
+#define OP(state)      c(OP_REAL, state)
+#define OP_REAL(state) c(OP_AUX, AGONY_PP_UNPARENTHESISE(v(state)))
 #define OP_AUX(acc, i) v((v(acc + i) AGONY_PP_UINT_INC(v(i))))
 
 #define STATE_FINALISER(state)      c(STATE_FINALISER_AUX, AGONY_PP_UNPARENTHESISE(v(state)))

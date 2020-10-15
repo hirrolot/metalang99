@@ -6,12 +6,12 @@
 
 #define AGONY_PP_WHILE_REAL(predicate, op, state)                                                  \
     c(c(AGONY_PP_IF_REAL,                                                                          \
-        c(predicate, v(state)) v(AGONY_PP_PRIVATE_CONTROL_WHILE_CONTINUE)                          \
+        predicate(v(state)) v(AGONY_PP_PRIVATE_CONTROL_WHILE_CONTINUE)                             \
             v(AGONY_PP_PRIVATE_CONTROL_WHILE_STOP)),                                               \
       v(predicate) v(op) v(state))
 
 #define AGONY_PP_PRIVATE_CONTROL_WHILE_CONTINUE(predicate, op, state)                              \
-    c(AGONY_PP_WHILE_REAL, v(predicate) v(op) c(op, v(state)))
+    c(AGONY_PP_WHILE_REAL, v(predicate) v(op) op(v(state)))
 
 #define AGONY_PP_PRIVATE_CONTROL_WHILE_STOP(_predicate, _op, state) v(state)
 
