@@ -44,7 +44,7 @@
 #define INSULT_PRIVATE_EVAL_MATCH(k, k_cx, acc, head, ...)                                         \
     INSULT_PRIVATE_EVAL_TERM_MATCH(INSULT_PRIVATE_EVAL_MATCH_, head, k, k_cx, acc, (__VA_ARGS__))
 
-#define INSULT_PRIVATE_EVAL_MATCH_c(k, k_cx, acc, tail, op, ...)                                   \
+#define INSULT_PRIVATE_EVAL_MATCH_call(k, k_cx, acc, tail, op, ...)                                \
     INSULT_PRIVATE_EVAL_REC_CONTINUE(                                                              \
         INSULT_PRIVATE_EVAL_OP_HOOK,                                                               \
         (INSULT_PRIVATE_EVAL_MATCH_c_EVAL_ARGS_HOOK, (k, k_cx, acc, tail, (__VA_ARGS__))),         \

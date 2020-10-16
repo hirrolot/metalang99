@@ -21,9 +21,9 @@
 
 #define INSULT_PRIVATE_EVAL_TERM_IS_END(term)                                                      \
     INSULT_PRIVATE_EVAL_TERM_IS_END_MATCH(INSULT_PRIVATE_EVAL_TERM_IS_END_, term, ~)
-#define INSULT_PRIVATE_EVAL_TERM_IS_END_c(_, op, ...) 0
-#define INSULT_PRIVATE_EVAL_TERM_IS_END_v(_, ...)     0
-#define INSULT_PRIVATE_EVAL_TERM_IS_END_end(_, __)    1
+#define INSULT_PRIVATE_EVAL_TERM_IS_END_call(_, op, ...) 0
+#define INSULT_PRIVATE_EVAL_TERM_IS_END_v(_, ...)        0
+#define INSULT_PRIVATE_EVAL_TERM_IS_END_end(_, __)       1
 
 #define INSULT_PRIVATE_EVAL_TERM_IS_END_MATCH(op, term, ...)                                       \
     INSULT_PRIVATE_EVAL_TERM_IS_END_MATCH_AUX(                                                     \

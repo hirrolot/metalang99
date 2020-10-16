@@ -8,18 +8,18 @@
 #define LIMIT 10
 #define SUM   ((LIMIT + 1) * (LIMIT / 2))
 
-#define PREDICATE(state)       c(PREDICATE_REAL, state)
-#define PREDICATE_REAL(state)  c(PREDICATE_AUX, INSULT_UNPARENTHESISE(v(state)))
+#define PREDICATE(state)       call(PREDICATE_REAL, state)
+#define PREDICATE_REAL(state)  call(PREDICATE_AUX, INSULT_UNPARENTHESISE(v(state)))
 #define PREDICATE_AUX(_acc, i) INSULT_UINT_NEQ(v(i), INSULT_UINT_INC(v(LIMIT)))
 
-#define OP(state)      c(OP_REAL, state)
-#define OP_REAL(state) c(OP_AUX, INSULT_UNPARENTHESISE(v(state)))
+#define OP(state)      call(OP_REAL, state)
+#define OP_REAL(state) call(OP_AUX, INSULT_UNPARENTHESISE(v(state)))
 #define OP_AUX(acc, i) v((v(acc + i) INSULT_UINT_INC(v(i))))
 
-#define STATE_FINALISER(state)      c(STATE_FINALISER_AUX, INSULT_UNPARENTHESISE(v(state)))
+#define STATE_FINALISER(state)      call(STATE_FINALISER_AUX, INSULT_UNPARENTHESISE(v(state)))
 #define STATE_FINALISER_AUX(acc, i) v(acc)
 
-ASSERT_EQ(c(STATE_FINALISER, INSULT_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
+ASSERT_EQ(call(STATE_FINALISER, INSULT_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
 
 #undef PREDICATE
 #undef PREDICATE_AUX

@@ -45,11 +45,11 @@ INSULT_EVAL(INSULT_CONSUME())
 /*
 #define ASSERT_PARENTHESISE(a, b, c) v(ASSERT(a == 1); ASSERT(b == 2); ASSERT(c == 3);)
 
-INSULT_EVAL(ASSERT_PARENTHESISE INSULT_EVAL(c(INSULT_PARENTHESISE, v(1) v(2) v(3))))
+INSULT_EVAL(ASSERT_PARENTHESISE INSULT_EVAL(call(INSULT_PARENTHESISE, v(1) v(2) v(3))))
 
 enum {
     INSULT_EVAL(
-        c(INSULT_UNPARENTHESISE,
+        call(INSULT_UNPARENTHESISE,
           v((CheckUnparenthesiseA = 9, CheckUnparenthesiseB = 4, CheckUnparenthesiseC = 18))))
 };
 
@@ -57,7 +57,7 @@ ASSERT(CheckUnparenthesiseA == 9);
 ASSERT(CheckUnparenthesiseB == 4);
 ASSERT(CheckUnparenthesiseC == 18);
 
-#define EMPTY INSULT_EVAL(c(INSULT_UNPARENTHESISE, c(INSULT_PARENTHESISE, )))
+#define EMPTY INSULT_EVAL(call(INSULT_UNPARENTHESISE, call(INSULT_PARENTHESISE, )))
 CHECK_EMPTY(1, EMPTY)
 #undef EMPTY
 

@@ -18,9 +18,9 @@
       static_assert(f == 677, "");                                                                 \
       static_assert(g == 62, "");)
 
-INSULT_EVAL(c(X, v(123)))
-INSULT_EVAL(c(X, v(93145) v(456)))
-INSULT_EVAL(c(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
+INSULT_EVAL(call(X, v(123)))
+INSULT_EVAL(call(X, v(93145) v(456)))
+INSULT_EVAL(call(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
 
 #undef X
 #undef X_1
@@ -35,16 +35,16 @@ INSULT_EVAL(c(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
 #define X_3    0
 #define X_8    7
 
-ASSERT_EQ(c(X, v(~)), v(27));
-ASSERT_EQ(c(X, v(~) v(~)), v(12));
-ASSERT_EQ(c(X, v(~) v(~) v(~)), v(0));
-ASSERT_EQ(c(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
+ASSERT_EQ(call(X, v(~)), v(27));
+ASSERT_EQ(call(X, v(~) v(~)), v(12));
+ASSERT_EQ(call(X, v(~) v(~) v(~)), v(0));
+ASSERT_EQ(call(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
 
 // An empty token list is also an argument.
-ASSERT_EQ(c(X, v()), v(27));
-ASSERT_EQ(c(X, v() v()), v(12));
-ASSERT_EQ(c(X, v() v() v()), v(0));
-ASSERT_EQ(c(X, v() v() v() v() v() v() v() v()), v(7));
+ASSERT_EQ(call(X, v()), v(27));
+ASSERT_EQ(call(X, v() v()), v(12));
+ASSERT_EQ(call(X, v() v() v()), v(0));
+ASSERT_EQ(call(X, v() v() v() v() v() v() v() v()), v(7));
 
 #undef X
 #undef X_1

@@ -11,7 +11,7 @@
  * #include <insult/lang.h>
  * @endcode
  *
- *  - #c(op, ...)
+ *  - #call(op, ...)
  *  - #v(...)
  *
  * @subsection _1 Evaluation of metaprograms

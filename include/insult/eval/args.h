@@ -21,11 +21,11 @@
 #define INSULT_PRIVATE_EVAL_ARGS_AUX(k, k_cx, acc, head, ...)                                      \
     INSULT_PRIVATE_EVAL_TERM_MATCH(INSULT_PRIVATE_EVAL_ARGS_AUX_, head, k, k_cx, acc, (__VA_ARGS__))
 
-#define INSULT_PRIVATE_EVAL_ARGS_AUX_c(k, k_cx, acc, tail, op, ...)                                \
+#define INSULT_PRIVATE_EVAL_ARGS_AUX_call(k, k_cx, acc, tail, op, ...)                             \
     INSULT_PRIVATE_EVAL_REC_CONTINUE(                                                              \
         INSULT_PRIVATE_EVAL_AUX_HOOK,                                                              \
         (INSULT_PRIVATE_EVAL_CALL_AS_ARG_HOOK, (k, k_cx, acc, tail)),                              \
-        c(op, __VA_ARGS__))
+        call(op, __VA_ARGS__))
 
 #define INSULT_PRIVATE_EVAL_ARGS_AUX_v(k, k_cx, acc, tail, ...)                                    \
     INSULT_PRIVATE_EVAL_REC_CONTINUE(                                                              \

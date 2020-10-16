@@ -18,16 +18,16 @@
 /**
  * @brief Computes a count of the provided arguments.
  */
-#define INSULT_VARIADICS_COUNT(...) c(INSULT_VARIADICS_COUNT_REAL, __VA_ARGS__)
+#define INSULT_VARIADICS_COUNT(...) call(INSULT_VARIADICS_COUNT_REAL, __VA_ARGS__)
 
 /**
  * @brief Extracts a head of the provided arguments.
  */
-#define INSULT_VARIADICS_HEAD(...) c(INSULT_VARIADICS_HEAD_REAL, __VA_ARGS__)
+#define INSULT_VARIADICS_HEAD(...) call(INSULT_VARIADICS_HEAD_REAL, __VA_ARGS__)
 
 /**
  * @brief Extracts a tail of the provided arguments.
  */
-#define INSULT_VARIADICS_TAIL(...) c(INSULT_VARIADICS_TAIL_REAL, __VA_ARGS__)
+#define INSULT_VARIADICS_TAIL(...) call(INSULT_VARIADICS_TAIL_REAL, __VA_ARGS__)
 
 #endif // INSULT_VARIADICS_H

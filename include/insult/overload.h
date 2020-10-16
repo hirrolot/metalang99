@@ -18,19 +18,20 @@
 /**
  * @brief Overload @p op on a number of arguments.
  */
-#define INSULT_OVERLOAD(op, ...) c(INSULT_OVERLOAD_REAL, op __VA_ARGS__)
+#define INSULT_OVERLOAD(op, ...) call(INSULT_OVERLOAD_REAL, op __VA_ARGS__)
 
 /**
  * @brief Overloads @p op on a number of arguments an immediately calls it.
  */
-#define INSULT_OVERLOAD_CALL(op, ...) c(INSULT_OVERLOAD_REAL_CALL, op __VA_ARGS__)
+#define INSULT_OVERLOAD_CALL(op, ...) call(INSULT_OVERLOAD_REAL_CALL, op __VA_ARGS__)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #define INSULT_OVERLOAD_REAL(op, ...)                                                              \
-    INSULT_CAT(v(op), c(INSULT_VARIADICS_COUNT_REAL, v(__VA_ARGS__)))
+    INSULT_CAT(v(op), call(INSULT_VARIADICS_COUNT_REAL, v(__VA_ARGS__)))
 
-#define INSULT_OVERLOAD_REAL_CALL(op, ...) c(INSULT_OVERLOAD(v(op), v(__VA_ARGS__)), v(__VA_ARGS__))
+#define INSULT_OVERLOAD_REAL_CALL(op, ...)                                                         \
+    call(INSULT_OVERLOAD(v(op), v(__VA_ARGS__)), v(__VA_ARGS__))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 

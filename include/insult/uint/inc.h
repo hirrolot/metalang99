@@ -3,7 +3,7 @@
 
 #include "../lang.h"
 
-#define INSULT_UINT_INC_REAL(x) c(INSULT_UINT_INC_REAL_##x, )
+#define INSULT_UINT_INC_REAL(x) call(INSULT_UINT_INC_REAL_##x, )
 
 #define INSULT_UINT_INC_REAL_0()    v(1)
 #define INSULT_UINT_INC_REAL_1()    v(2)
