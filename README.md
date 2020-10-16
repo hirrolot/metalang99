@@ -1,7 +1,7 @@
 > WARNING: still under v0.1.0 active development.
 
-# agony-pp
-[![CI](https://github.com/Hirrolot/agony-pp/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/agony-pp/actions)
+# insult
+[![CI](https://github.com/Hirrolot/insult/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/insult/actions)
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp;&emsp;<b>-- Darth Sidious</b>
 
@@ -11,6 +11,6 @@
 
 ## Highlights
  - C99-compliant.
- - Embedded: just `#include <agony_pp.h>` and use it directly in your sources, without third-party tools.
+ - Embedded: just `#include <insult.h>` and use it directly in your sources, without third-party tools.
  - No dependencies. Even the standard library.
- - Precise [documentation](https://hirrolot.github.io/agony-pp/).
+ - Precise [documentation](https://hirrolot.github.io/insult/).

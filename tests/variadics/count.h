@@ -1,33 +1,33 @@
 #include "../assert.h"
 
-#include "../../include/agony_pp/lang.h"
-#include "../../include/agony_pp/variadics.h"
+#include "../../include/insult/lang.h"
+#include "../../include/insult/variadics.h"
 
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(), v(1));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~)), v(1));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~)), v(2));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~)), v(3));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~)), v(4));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~)), v(5));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~)), v(6));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(8));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(9));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(10));
-ASSERT_EQ(AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(11));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(), v(1));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~)), v(1));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~)), v(2));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~)), v(3));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~)), v(4));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~)), v(5));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~)), v(6));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(8));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(9));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(10));
+ASSERT_EQ(INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(11));
 ASSERT_EQ(
-    AGONY_PP_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                                 v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                                     v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                                         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                                             v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                                                 v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                                                     v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                                                         v(~) v(~) v(~) v(~)),
+    INSULT_VARIADICS_COUNT(v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                               v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                                   v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                                       v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                                           v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                                               v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                                                   v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                                                       v(~)),
     v(85));
 
 ASSERT_EQ(
-    AGONY_PP_VARIADICS_COUNT(
+    INSULT_VARIADICS_COUNT(
         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
             v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                 v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
@@ -41,14 +41,14 @@ ASSERT_EQ(
     v(137));
 
 ASSERT_EQ(
-    AGONY_PP_VARIADICS_COUNT(
+    INSULT_VARIADICS_COUNT(
         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
             v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(
-                    ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                     v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                            v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                            v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(
+                                ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                 v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                     v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
@@ -200,18 +200,19 @@ ASSERT_EQ(
                                                                                                                                                                                                                                                                                                                                                                                                                                         v(~) v(~) v(~)
                                                                                                                                                                                                                                                                                                                                                                                                                                             v(~)
                                                                                                                                                                                                                                                                                                                                                                                                                                                 v(
-                                                                                                                                                                                                                                                                                                                                                                                                                                                    ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)),
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    v(~)),
     v(589));
 
 ASSERT_EQ(
-    AGONY_PP_VARIADICS_COUNT(
+    INSULT_VARIADICS_COUNT(
         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
             v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(
-                    ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                     v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                            v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
+                            v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(
+                                ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                 v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                     v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                         v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
@@ -500,8 +501,6 @@ ASSERT_EQ(
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ~)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            v(~) v(
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ~)),
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ~) v(~) v(~)),
     v(1023));
