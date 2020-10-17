@@ -7,7 +7,7 @@
 #define MACROLOP_PRIVATE_EVAL_AUX_CALL_MACRO(op, ...) op(__VA_ARGS__)
 
 #define MACROLOP_PRIVATE_EVAL_AUX_PARENTHESISE(...) (__VA_ARGS__)
-#define MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(x)                                                  \
+#define MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(x)                                                \
     MACROLOP_PRIVATE_EVAL_AUX_EXPAND(MACROLOP_PRIVATE_EVAL_AUX_EXPAND x)
 
 #define MACROLOP_PRIVATE_EVAL_AUX_CAT(x, y)           MACROLOP_PRIVATE_EVAL_AUX_PRIMITIVE_CAT(x, y)
@@ -22,10 +22,10 @@
 #define MACROLOP_PRIVATE_EVAL_AUX_TAIL_AUX(x, ...) __VA_ARGS__
 
 #define MACROLOP_PRIVATE_EVAL_AUX_EMPTY_ACC() (MACROLOP_PRIVATE_EVAL_AUX_EMPTY())
-#define MACROLOP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(acc, ...)                                     \
+#define MACROLOP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(acc, ...)                                   \
     (MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(acc) __VA_ARGS__)
 
-#define MACROLOP_PRIVATE_EVAL_AUX_IF(cond, x, y)                                                     \
+#define MACROLOP_PRIVATE_EVAL_AUX_IF(cond, x, y)                                                   \
     MACROLOP_PRIVATE_EVAL_AUX_MATCH(MACROLOP_PRIVATE_EVAL_AUX_IF_, cond)((x), (y))
 #define MACROLOP_PRIVATE_EVAL_AUX_IF_0(_x, y) MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(y)
 #define MACROLOP_PRIVATE_EVAL_AUX_IF_1(x, _y) MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(x)

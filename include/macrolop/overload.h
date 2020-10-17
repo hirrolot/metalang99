@@ -27,10 +27,10 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define MACROLOP_OVERLOAD_REAL(op, ...)                                                              \
+#define MACROLOP_OVERLOAD_REAL(op, ...)                                                            \
     MACROLOP_CAT(v(op), call(MACROLOP_VARIADICS_COUNT_REAL, v(__VA_ARGS__)))
 
-#define MACROLOP_OVERLOAD_REAL_CALL(op, ...)                                                         \
+#define MACROLOP_OVERLOAD_REAL_CALL(op, ...)                                                       \
     call(MACROLOP_OVERLOAD(v(op), v(__VA_ARGS__)), v(__VA_ARGS__))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS

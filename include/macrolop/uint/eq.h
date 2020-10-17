@@ -7,7 +7,7 @@
 
 #define MACROLOP_UINT_EQ_REAL(x, y) v(MACROLOP_UINT_EQ_REAL_AUX(x, y))
 
-#define MACROLOP_UINT_EQ_REAL_AUX(x, y)                                                              \
+#define MACROLOP_UINT_EQ_REAL_AUX(x, y)                                                            \
     MACROLOP_PRIVATE_UINT_AUX(MACROLOP_UINT_EQ_REAL_OVERLOAD(x, y)(), 0, ~)
 #define MACROLOP_UINT_EQ_REAL_OVERLOAD(x, y) MACROLOP_UINT_EQ_REAL_##x##_##y
 

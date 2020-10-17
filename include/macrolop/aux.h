@@ -61,7 +61,7 @@
 
 #define MACROLOP_PARENTHESISE_REAL(...) v((__VA_ARGS__))
 
-#define MACROLOP_UNPARENTHESISE_REAL(x)                                                              \
+#define MACROLOP_UNPARENTHESISE_REAL(x)                                                            \
     call(MACROLOP_UNPARENTHESISE_REAL_EXPAND_1, MACROLOP_UNPARENTHESISE_REAL_EXPAND_0 x)
 #define MACROLOP_UNPARENTHESISE_REAL_EXPAND_0(...) __VA_ARGS__
 #define MACROLOP_UNPARENTHESISE_REAL_EXPAND_1(...) v(__VA_ARGS__)

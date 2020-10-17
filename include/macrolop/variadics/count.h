@@ -22,9 +22,9 @@
  * (N)                                 ---> (x)
  */
 
-#define MACROLOP_VARIADICS_COUNT_REAL(...)                                                           \
+#define MACROLOP_VARIADICS_COUNT_REAL(...)                                                         \
     /* All the arguments are skipped, so we don't care about blueprinting at all. */               \
-    MACROLOP_VARIADICS_COUNT_REAL_AUX(                                                               \
+    MACROLOP_VARIADICS_COUNT_REAL_AUX(                                                             \
         ~,                                                                                         \
         __VA_ARGS__,                                                                               \
         1023,                                                                                      \
@@ -1052,7 +1052,7 @@
         1,                                                                                         \
         ~)
 
-#define MACROLOP_VARIADICS_COUNT_REAL_AUX(                                                           \
+#define MACROLOP_VARIADICS_COUNT_REAL_AUX(                                                         \
     _,                                                                                             \
     _1,                                                                                            \
     _2,                                                                                            \
