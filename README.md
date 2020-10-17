@@ -1,13 +1,13 @@
 > WARNING: still under v0.1.0 active development.
 
-# macrolop
+# Macrolop
 [![CI](https://github.com/Hirrolot/macrolop/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/macrolop/actions)
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp;&emsp;<b>-- Darth Sidious</b>
 
 TODO: the main example (https://github.com/Hirrolot/macrolop/issues/1).
 
-Insult is an embedded [metalanguage] that facilitates [language-oriented programming] in plain C -- instead of solving problems using overly liberal mechanisms of C, solve them via your own [domain-specific languages]. Insult accomplishes its goal by extending the standard preprocessor with high-level programming constructs to let us deal with [metaprogramming] on a large scale.
+Macrolop is a [metalanguage] on top of the C99 preprocessor aimed at [language-oriented programming]. In Macrolop, programmers express their intention in terms of [domain-specific languages] provided as ordinary C libraries. No external tooling is required.
 
 [domain-specific languages]: https://en.wikipedia.org/wiki/Domain-specific_language
 [recursion is blocked]: https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms#recursion
