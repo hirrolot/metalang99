@@ -1,15 +1,15 @@
-#ifndef INSULT_TESTS_ASSERT_H
-#define INSULT_TESTS_ASSERT_H
+#ifndef MACROLOP_TESTS_ASSERT_H
+#define MACROLOP_TESTS_ASSERT_H
 
-#include "../include/insult/aux.h"
-#include "../include/insult/eval.h"
+#include "../include/macrolop/aux.h"
+#include "../include/macrolop/eval.h"
 
 #include <assert.h>
 #include <stdbool.h>
 
 #define ASSERT_EQ(left_expr, right_expr)                                                           \
-    static_assert(INSULT_EVAL(left_expr) == INSULT_EVAL(right_expr), "")
+    static_assert(MACROLOP_EVAL(left_expr) == MACROLOP_EVAL(right_expr), "")
 
-#define ASSERT(expr) ASSERT_EQ(INSULT_EXPAND(expr), v(true))
+#define ASSERT(expr) ASSERT_EQ(MACROLOP_EXPAND(expr), v(true))
 
-#endif // INSULT_TESTS_ASSERT_H
+#endif // MACROLOP_TESTS_ASSERT_H

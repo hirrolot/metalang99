@@ -1,7 +1,7 @@
 #include "assert.h"
 
-#include "../include/insult/eval.h"
-#include "../include/insult/lang.h"
+#include "../include/macrolop/eval.h"
+#include "../include/macrolop/lang.h"
 
 #define FOO(x) v((x + 1))
 #define BAR(x) v((x * 3))
