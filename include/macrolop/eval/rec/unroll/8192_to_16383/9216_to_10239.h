@@ -1,5 +1,5 @@
 #ifndef MACROLOP_EVAL_REC_UNROLL_9216_TO_10239_H
-#undef MACROLOP_EVAL_REC_UNROLL_9216_TO_10239_H
+#define MACROLOP_EVAL_REC_UNROLL_9216_TO_10239_H
 
 #define MACROLOP_PRIVATE_EVAL_REC_9216(...)                                                        \
     MACROLOP_PRIVATE_EVAL_REC_9216_OVERLOAD(                                                       \
