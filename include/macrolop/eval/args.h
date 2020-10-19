@@ -27,6 +27,14 @@
         acc,                                                                                       \
         (__VA_ARGS__))
 
+// TODO: evaluate operations in non-trivial calls.
+
+#define MACROLOP_PRIVATE_EVAL_ARGS_AUX_trivial_call(k, k_cx, acc, tail, op, ...)                   \
+    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
+        MACROLOP_PRIVATE_EVAL_AUX_HOOK,                                                            \
+        (MACROLOP_PRIVATE_EVAL_CALL_AS_ARG_HOOK, (k, k_cx, acc, tail)),                            \
+        call(op, __VA_ARGS__))
+
 #define MACROLOP_PRIVATE_EVAL_ARGS_AUX_call(k, k_cx, acc, tail, op, ...)                           \
     MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
         MACROLOP_PRIVATE_EVAL_AUX_HOOK,                                                            \

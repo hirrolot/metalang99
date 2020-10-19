@@ -10,15 +10,16 @@
 
 #include "eval/args.h"
 #include "eval/aux.h"
-#include "eval/op.h"
-#include "eval/rec.h"
+#include "eval/rec/control.h"
+#include "eval/rec/unroll.h"
 #include "eval/term.h"
 
 #define MACROLOP_PRIVATE_EVAL_AUX_HOOK()   MACROLOP_PRIVATE_EVAL_AUX
 #define MACROLOP_PRIVATE_EVAL_MATCH_HOOK() MACROLOP_PRIVATE_EVAL_MATCH
 
-#define MACROLOP_PRIVATE_EVAL_MATCH_c_EVAL_ARGS_HOOK() MACROLOP_PRIVATE_EVAL_MATCH_c_EVAL_ARGS
-#define MACROLOP_PRIVATE_EVAL_MATCH_c_CALL_OP_HOOK()   MACROLOP_PRIVATE_EVAL_MATCH_c_CALL_OP
+#define MACROLOP_PRIVATE_EVAL_MATCH_REORDER_TRIVIAL_CALL_ARGS_HOOK()                               \
+    MACROLOP_PRIVATE_EVAL_MATCH_REORDER_TRIVIAL_CALL_ARGS
+#define MACROLOP_PRIVATE_EVAL_MATCH_CALL_OP_HOOK() MACROLOP_PRIVATE_EVAL_MATCH_CALL_OP
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
@@ -50,19 +51,36 @@
         acc,                                                                                       \
         (__VA_ARGS__))
 
-#define MACROLOP_PRIVATE_EVAL_MATCH_call(k, k_cx, acc, tail, op, ...)                              \
-    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
-        MACROLOP_PRIVATE_EVAL_OP_HOOK,                                                             \
-        (MACROLOP_PRIVATE_EVAL_MATCH_c_EVAL_ARGS_HOOK, (k, k_cx, acc, tail, (__VA_ARGS__))),       \
-        op)
-
-#define MACROLOP_PRIVATE_EVAL_MATCH_c_EVAL_ARGS(k, k_cx, acc, tail, args, evaluated_op)            \
+#define MACROLOP_PRIVATE_EVAL_MATCH_trivial_call(k, k_cx, acc, tail, op, ...)                      \
     MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
         MACROLOP_PRIVATE_EVAL_ARGS_HOOK,                                                           \
-        (MACROLOP_PRIVATE_EVAL_MATCH_c_CALL_OP_HOOK, (k, k_cx, acc, tail, evaluated_op)),          \
+        (MACROLOP_PRIVATE_EVAL_MATCH_CALL_OP_HOOK, (k, k_cx, acc, tail, op)),                      \
+        __VA_ARGS__)
+
+#define MACROLOP_PRIVATE_EVAL_MATCH_call(k, k_cx, acc, tail, op, ...)                              \
+    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
+        MACROLOP_PRIVATE_EVAL_AUX_HOOK,                                                            \
+        (MACROLOP_PRIVATE_EVAL_MATCH_REORDER_TRIVIAL_CALL_ARGS_HOOK,                               \
+         (k, k_cx, acc, tail, (__VA_ARGS__))),                                                     \
+        op,                                                                                        \
+        MACROLOP_PRIVATE_EVAL_AUX_EMPTY())
+
+#define MACROLOP_PRIVATE_EVAL_MATCH_REORDER_TRIVIAL_CALL_ARGS(                                     \
+    k,                                                                                             \
+    k_cx,                                                                                          \
+    acc,                                                                                           \
+    tail,                                                                                          \
+    args,                                                                                          \
+    evaluated_op)                                                                                  \
+    MACROLOP_PRIVATE_EVAL_MATCH_trivial_call(                                                      \
+        k,                                                                                         \
+        k_cx,                                                                                      \
+        acc,                                                                                       \
+        tail,                                                                                      \
+        evaluated_op,                                                                              \
         MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(args))
 
-#define MACROLOP_PRIVATE_EVAL_MATCH_c_CALL_OP(k, k_cx, acc, tail, evaluated_op, ...)               \
+#define MACROLOP_PRIVATE_EVAL_MATCH_CALL_OP(k, k_cx, acc, tail, evaluated_op, ...)                 \
     MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
         MACROLOP_PRIVATE_EVAL_MATCH_HOOK,                                                          \
         (k, k_cx),                                                                                 \

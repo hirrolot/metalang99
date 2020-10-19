@@ -21,9 +21,10 @@
 
 #define MACROLOP_PRIVATE_EVAL_TERM_IS_END(term)                                                    \
     MACROLOP_PRIVATE_EVAL_TERM_IS_END_MATCH(MACROLOP_PRIVATE_EVAL_TERM_IS_END_, term, ~)
-#define MACROLOP_PRIVATE_EVAL_TERM_IS_END_call(_, op, ...) 0
-#define MACROLOP_PRIVATE_EVAL_TERM_IS_END_v(_, ...)        0
-#define MACROLOP_PRIVATE_EVAL_TERM_IS_END_end(_, __)       1
+#define MACROLOP_PRIVATE_EVAL_TERM_IS_END_trivial_call(_, op, ...) 0
+#define MACROLOP_PRIVATE_EVAL_TERM_IS_END_call(_, op, ...)         0
+#define MACROLOP_PRIVATE_EVAL_TERM_IS_END_v(_, ...)                0
+#define MACROLOP_PRIVATE_EVAL_TERM_IS_END_end(_, __)               1
 
 #define MACROLOP_PRIVATE_EVAL_TERM_IS_END_MATCH(op, term, ...)                                     \
     MACROLOP_PRIVATE_EVAL_TERM_IS_END_MATCH_AUX(                                                   \
@@ -36,15 +37,5 @@
 #define MACROLOP_PRIVATE_EVAL_IS_EMPTY_TAIL(tail)                                                  \
     MACROLOP_PRIVATE_EVAL_TERM_IS_END(                                                             \
         MACROLOP_PRIVATE_EVAL_AUX_HEAD(MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail)))
-
-#define MACROLOP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP(op)                                               \
-    MACROLOP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX(                                                  \
-        MACROLOP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_NO op,                                            \
-        1,                                                                                         \
-        ~)
-#define MACROLOP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX(...)                                          \
-    MACROLOP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX_AUX(__VA_ARGS__)
-#define MACROLOP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_AUX_AUX(x, y, ...) y
-#define MACROLOP_PRIVATE_EVAL_TERM_IS_TRIVIAL_OP_NO(...)            ~, 0
 
 #endif // MACROLOP_EVAL_TERM_H
