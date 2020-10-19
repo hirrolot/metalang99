@@ -13,9 +13,7 @@
 #define X_2(a, b) v(static_assert(a == 93145, ""); static_assert(b == 456, "");)
 #define X_7(a, b, c, d, e, f, g)                                                                   \
     v(static_assert(a == 1516, ""); static_assert(b == 1, ""); static_assert(c == 9, "");          \
-      static_assert(d == 111, "");                                                                 \
-      static_assert(e == 119, "");                                                                 \
-      static_assert(f == 677, "");                                                                 \
+      static_assert(d == 111, ""); static_assert(e == 119, ""); static_assert(f == 677, "");       \
       static_assert(g == 62, "");)
 
 MACROLOP_EVAL(call(X, v(123)))

@@ -7,9 +7,8 @@
 #define MACROLOP_WHILE_REAL(predicate, op, state)                                                  \
     call(                                                                                          \
         call(                                                                                      \
-            MACROLOP_IF_REAL,                                                                      \
-            predicate(v(state)) v(MACROLOP_PRIVATE_CONTROL_WHILE_CONTINUE)                         \
-                v(MACROLOP_PRIVATE_CONTROL_WHILE_STOP)),                                           \
+            MACROLOP_IF_REAL, predicate(v(state)) v(MACROLOP_PRIVATE_CONTROL_WHILE_CONTINUE)       \
+                                  v(MACROLOP_PRIVATE_CONTROL_WHILE_STOP)),                         \
         v(predicate) v(op) v(state))
 
 #define MACROLOP_PRIVATE_CONTROL_WHILE_CONTINUE(predicate, op, state)                              \

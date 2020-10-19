@@ -13,8 +13,7 @@
 
 #define MACROLOP_PRIVATE_EVAL_TERM_MATCH(op, term, ...)                                            \
     MACROLOP_PRIVATE_EVAL_TERM_MATCH_AUX(                                                          \
-        MACROLOP_PRIVATE_EVAL_AUX_MATCH(op, MACROLOP_PRIVATE_EVAL_TERM_KIND(term)),                \
-        __VA_ARGS__,                                                                               \
+        MACROLOP_PRIVATE_EVAL_AUX_MATCH(op, MACROLOP_PRIVATE_EVAL_TERM_KIND(term)), __VA_ARGS__,   \
         MACROLOP_PRIVATE_EVAL_TERM_DATA(term))
 
 #define MACROLOP_PRIVATE_EVAL_TERM_MATCH_AUX(op, ...) op(__VA_ARGS__)
@@ -28,8 +27,7 @@
 
 #define MACROLOP_PRIVATE_EVAL_TERM_IS_END_MATCH(op, term, ...)                                     \
     MACROLOP_PRIVATE_EVAL_TERM_IS_END_MATCH_AUX(                                                   \
-        MACROLOP_PRIVATE_EVAL_AUX_MATCH(op, MACROLOP_PRIVATE_EVAL_TERM_KIND(term)),                \
-        __VA_ARGS__,                                                                               \
+        MACROLOP_PRIVATE_EVAL_AUX_MATCH(op, MACROLOP_PRIVATE_EVAL_TERM_KIND(term)), __VA_ARGS__,   \
         MACROLOP_PRIVATE_EVAL_TERM_DATA(term))
 
 #define MACROLOP_PRIVATE_EVAL_TERM_IS_END_MATCH_AUX(op, ...) op(__VA_ARGS__)

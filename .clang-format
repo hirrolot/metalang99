@@ -4,11 +4,6 @@ IndentWidth: 4
 ColumnLimit: 100
 AlignConsecutiveMacros: true
 AlwaysBreakBeforeMultilineStrings: true
-AlignConsecutiveDeclarations: false
-AllowAllArgumentsOnNextLine: false
-AllowAllParametersOfDeclarationOnNextLine: true
 AllowShortFunctionsOnASingleLine: Empty
-BinPackArguments: false
-BinPackParameters: false
 AlignAfterOpenBracket: AlwaysBreak
 ContinuationIndentWidth: 4
