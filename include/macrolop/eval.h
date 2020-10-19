@@ -65,6 +65,16 @@
         op,                                                                                        \
         MACROLOP_PRIVATE_EVAL_AUX_EMPTY())
 
+#define MACROLOP_PRIVATE_EVAL_MATCH_v(k, k_cx, acc, tail, ...)                                     \
+    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
+        MACROLOP_PRIVATE_EVAL_MATCH_HOOK,                                                          \
+        (k, k_cx),                                                                                 \
+        MACROLOP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(acc, __VA_ARGS__),                          \
+        MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
+
+#define MACROLOP_PRIVATE_EVAL_MATCH_end(k, k_cx, acc, _tail, _)                                    \
+    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(k, k_cx, MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(acc))
+
 #define MACROLOP_PRIVATE_EVAL_MATCH_REORDER_TRIVIAL_CALL_ARGS(                                     \
     k,                                                                                             \
     k_cx,                                                                                          \
@@ -86,16 +96,6 @@
         (k, k_cx),                                                                                 \
         acc,                                                                                       \
         evaluated_op(__VA_ARGS__) MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
-
-#define MACROLOP_PRIVATE_EVAL_MATCH_v(k, k_cx, acc, tail, ...)                                     \
-    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
-        MACROLOP_PRIVATE_EVAL_MATCH_HOOK,                                                          \
-        (k, k_cx),                                                                                 \
-        MACROLOP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(acc, __VA_ARGS__),                          \
-        MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
-
-#define MACROLOP_PRIVATE_EVAL_MATCH_end(k, k_cx, acc, _tail, _)                                    \
-    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(k, k_cx, MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(acc))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
