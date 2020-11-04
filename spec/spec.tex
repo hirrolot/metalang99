@@ -1,5 +1,7 @@
 \documentclass[a4paper, 12pt]{article}
 
+
+\usepackage{hyperref}
 \usepackage{syntax}
 \usepackage{bussproofs}
 \usepackage{float}
@@ -33,6 +35,21 @@
     \end{grammar}
 \end{figure}
 
+A metaprogram in Macrolop consists of a (possibly empty) sequence of terms, each of which
+is either a macro call or just a value.
+
+Note that a macro call accepts arguments without a separator. This is intentional: the
+absence of separators lets you don't care about the position of an argument (if they're
+generated programmatically), whereas the presence of separators necessitates logic to
+detect whether a generated argument is the last one or not, and if so, avoid putting a
+comma after it.
+
+Note that the given syntax holds for metaprograms already expanded by the C preprocessor,
+except for the macros \texttt{MACROLOP_EVAL}, \texttt{call}, and \texttt{v}. So a
+syntactically well-formed metaprogram in Macrolop is a C metaprogram that expands to a
+sequence of preprocessor tokens (again except for the aforementioned cases) matching
+the given grammar.
+
 \section{Operational Semantics}
 
 \begin{figure}[h]
@@ -60,5 +77,25 @@
         \TrinaryInfC{$MACROLOP\_EVAL(term_{1} \ldots term_{n}) \rightarrow tokens_{1} \ldots tokens_{n}$}
     \end{prooftree}
 \end{figure}
+
+These computational rules say that:
+
+\begin{itemize}
+    \item (final) \texttt{v} merely reduces to its arguments.
+    
+    \item (macro-call) \texttt{call} implements
+    \href{https://en.wikipedia.org/wiki/Evaluation_strategy#Applicative_order}
+    {applicative evaluation strategy}, meaning that firstly its arguments are evaluated,
+    then an ordinary call to \texttt{macro} is produced, which is then expanded by the C
+    preprocessor resulting in yet another Macrolop metaprogram to be evaluated further.
+
+    \item (eval) \texttt{MACROLOP_EVAL} evaluates a possibly empty sequence of terms
+    according to the given computational rules. A Macrolop metaprogram will have no effect
+    unless it or another Macrolop metaprogram that called it was passed into
+    \texttt{MACROLOP_EVAL}.
+\end{itemize}
+
+Note that a body of a macro called using \texttt{call} must follow the grammar of
+Macrolop, otherwise it might result in a compilation error.
 
 \end{document}
