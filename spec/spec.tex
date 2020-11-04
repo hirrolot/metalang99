@@ -1,0 +1,64 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{syntax}
+\usepackage{bussproofs}
+\usepackage{float}
+
+\floatstyle{boxed}
+\restylefloat{figure}
+
+\begin{document}
+
+\title{Macrolop Specification}
+\date{\today}
+\author{Temirkhan Myrzamadi (a.k.a. Hirrolot)}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{EBNF Grammar}
+
+\begin{figure}[h]
+    \caption{Grammar rules}
+
+    \begin{grammar}
+        <evaluate> ::= "MACROLOP_EVAL(" \{ <term> \}* ")"
+
+        <term> ::= "call(" <macro> "," \{ <term> \}* ")"
+            \alt "v(" <tokens> ")"
+
+        <macro> ::= <ident>
+    \end{grammar}
+\end{figure}
+
+\section{Operational Semantics}
+
+\begin{figure}[h]
+    \caption{Computational rules}
+
+    \begin{prooftree}
+        \AxiomC{}
+        \RightLabel{(final)}
+        \UnaryInfC{$v(tokens) \rightarrow tokens$}
+    \end{prooftree}
+
+    \begin{prooftree}
+        \AxiomC{$arg_{1} \rightarrow arg_{1}'$}
+        \AxiomC{$\ldots$}
+        \AxiomC{$arg_{n} \rightarrow arg_{n}'$}
+        \RightLabel{(macro-call)}
+        \TrinaryInfC{$call(macro, arg_{1} \ldots arg_{n}) \rightarrow macro(arg_{1}', \ldots, arg_{n}')$}
+    \end{prooftree}
+
+    \begin{prooftree}
+        \AxiomC{$term_{1} \rightarrow tokens_{1}$}
+        \AxiomC{$\ldots$}
+        \AxiomC{$term_{n} \rightarrow tokens_{n}$}
+        \RightLabel{(eval)}
+        \TrinaryInfC{$MACROLOP\_EVAL(term_{1} \ldots term_{n}) \rightarrow tokens_{1} \ldots tokens_{n})$}
+    \end{prooftree}
+\end{figure}
+
+\end{document}
