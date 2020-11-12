@@ -1,10 +1,9 @@
 \documentclass[a4paper, 12pt]{article}
 
-
 \usepackage{hyperref}
-\usepackage{syntax}
-\usepackage{bussproofs}
 \usepackage{float}
+\usepackage{bussproofs}
+\usepackage{minted}
 
 \floatstyle{boxed}
 \restylefloat{figure}
@@ -25,75 +24,115 @@
 \begin{figure}[h]
     \caption{Grammar rules}
 
-    \begin{grammar}
-        <evaluate> ::= "MACROLOP_EVAL(" \{ <term> \}* ")"
+\begin{minted}{bnf}
+<eval> ::= "MACROLOP_EVAL(" { <term> }* ")" ;
 
-        <term> ::= "call(" <macro> "," \{ <term> \}* ")"
-            \alt "v(" <tokens> ")"
+<term> ::= "call(" <op> "," { <term> }* ")"
+         | "v(" <preprocessor-token-list> ")" ;
 
-        <macro> ::= <ident>
-    \end{grammar}
+<op>   ::= <ident> | <term> ;
+\end{minted}
+
 \end{figure}
 
 A metaprogram in Macrolop consists of a (possibly empty) sequence of terms, each of which
 is either a macro call or just a value.
 
-Note that a macro call accepts arguments without a separator. This is intentional: the
-absence of separators lets you don't care about the position of an argument (if they're
-generated programmatically), whereas the presence of separators necessitates logic to
-detect whether a generated argument is the last one or not, and if so, avoid putting a
-comma after it.
+Note that a macro call accepts arguments without a separator because otherwise there must
+be logic to avoid putting a comma after the last argument (if they're generated
+programmatically). However, this design decision tends to break IDE support (code
+formatting, macro parameters hightlighting, ...). The common workaround is to write a
+\texttt{*\_REAL} macro (the actual implementation) and a C-style wrapper:
+
+\begin{minted}{c}
+#define FOO(a, b, c) FOO_REAL(a b c)
+#define FOO_REAL(a, b, c) // Implementation...
+\end{minted}
+
+Then \texttt{FOO} can be called as \texttt{FOO(a, b, c)}, where \texttt{a}, \texttt{b},
+and \texttt{c} stand for the actual arguments.
 
 Note that the given syntax holds for metaprograms already expanded by the C preprocessor,
-except for the macros \texttt{MACROLOP_EVAL}, \texttt{call}, and \texttt{v}. So a
+except for the macros \texttt{MACROLOP\_EVAL}, \texttt{call}, and \texttt{v}. So a
 syntactically well-formed metaprogram in Macrolop is a C metaprogram that expands to a
 sequence of preprocessor tokens (again except for the aforementioned cases) matching
 the given grammar.
 
+Also note that \texttt{call} accepts \texttt{op} either as an identifier or as
+a term that computes to an identifier. For instance, you can write both
+\texttt{call(FOO, ...)}, \texttt{call(v(FOO), ...)}, and even
+\texttt{call(call(BAR, ...), ...)} as long as \texttt{call(BAR, ...)} reduces to an
+identifier.
+
 \section{Operational Semantics}
+
+We define
+\href{https://en.wikipedia.org/wiki/Operational_semantics#Small-step_semantics}
+{small-step operational semantics} for Macrolop. Take into consideration the following notations:
+
+\begin{center}
+    \begin{tabular}{ |c|c| }
+        \hline
+        $\rightarrow_1$ & a single step of computation \\
+        $term$ & \texttt{<term>} \\
+        $a$ & \texttt{<term>} used as a macro argument \\
+        $tok$ & \texttt{<preprocessor-token>} \\
+        $x \ldots$ & a possibly empty sequence $x_1, \ldots, x_n$ \\
+        $empty$ & an empty sequence \\
+        $\langle acc; x \rangle$ & $x$ with the accumulator $acc$ \\
+        $op(...)$ & a C-style macro call \\
+        $ident$ & a C identifier (\texttt{foo}, \texttt{bar}, ...) \\
+        \hline
+    \end{tabular}
+\end{center}
 
 \begin{figure}[h]
     \caption{Computational rules}
 
     \begin{prooftree}
         \AxiomC{}
-        \RightLabel{(final)}
-        \UnaryInfC{$v(tokens) \rightarrow tokens$}
+        \LeftLabel{(v)}
+        \UnaryInfC{$\langle \sigma; v(tok \ldots) \ term \ldots \rangle
+            \rightarrow_1 \langle \sigma \ tok \ldots; term \ldots \rangle$}
     \end{prooftree}
 
     \begin{prooftree}
-        \AxiomC{$arg_{1} \rightarrow arg_{1}'$}
-        \AxiomC{$\ldots$}
-        \AxiomC{$arg_{n} \rightarrow arg_{n}'$}
-        \RightLabel{(macro-call)}
-        \TrinaryInfC{$call(macro, arg_{1} \ldots arg_{n}) \rightarrow macro(arg_{1}', \ldots, arg_{n}')$}
+        \AxiomC{$call(op, a \ldots) \rightarrow_1 term \ldots$}
+        \LeftLabel{(call)}
+        \UnaryInfC{$\langle \sigma; call(op, a \ldots) \ term' \ldots \rangle
+            \rightarrow_1 \langle \sigma; term \ldots \ term' \ldots \rangle$}
     \end{prooftree}
 
     \begin{prooftree}
-        \AxiomC{$term_{1} \rightarrow tokens_{1}$}
-        \AxiomC{$\ldots$}
-        \AxiomC{$term_{n} \rightarrow tokens_{n}$}
-        \RightLabel{(eval)}
-        \TrinaryInfC{$MACROLOP\_EVAL(term_{1} \ldots term_{n}) \rightarrow tokens_{1} \ldots tokens_{n}$}
+        \AxiomC{$term \rightarrow_1 term'$}
+        \LeftLabel{(eval-op-step)}
+        \UnaryInfC{$call(term \ldots, a \ldots)
+            \rightarrow_1 call(term' \ldots, a \ldots)$}
+    \end{prooftree}
+
+    \begin{prooftree}
+        \AxiomC{$term \rightarrow_1 ident$}
+        \LeftLabel{(eval-op)}
+        \UnaryInfC{$call(term, term' \ldots)
+            \rightarrow_1 call(ident, term' \ldots)$}
+    \end{prooftree}
+
+    \begin{prooftree}
+        \AxiomC{$\langle \sigma; term \ldots \rangle
+            \rightarrow_1 \langle \sigma \ tok \ldots; term' term'' \ldots \rangle$}
+        \LeftLabel{(arg-call)}
+        \UnaryInfC{$\langle \sigma; call(ident, term \ldots) \rangle
+            \rightarrow_1 \langle \sigma \ tok \ldots; call(ident, term' term'' \ldots) \rangle$}
+    \end{prooftree}
+
+    \begin{prooftree}
+        \AxiomC{$\langle \sigma; term \rangle
+            \rightarrow_1 \langle \sigma \ tok \ldots; empty \rangle$}
+        \LeftLabel{(arg-call)}
+        \UnaryInfC{$\langle \sigma; call(ident, term) \rangle
+            \rightarrow_1 \langle empty; ident(\sigma \ tok \ldots) \rangle$}
     \end{prooftree}
 \end{figure}
-
-These computational rules say that:
-
-\begin{itemize}
-    \item (final) \texttt{v} merely reduces to its arguments.
-    
-    \item (macro-call) \texttt{call} implements
-    \href{https://en.wikipedia.org/wiki/Evaluation_strategy#Applicative_order}
-    {applicative evaluation strategy}, meaning that firstly its arguments are evaluated,
-    then an ordinary call to \texttt{macro} is produced, which is then expanded by the C
-    preprocessor resulting in yet another Macrolop metaprogram to be evaluated further.
-
-    \item (eval) \texttt{MACROLOP_EVAL} evaluates a possibly empty sequence of terms
-    according to the given computational rules. A Macrolop metaprogram will have no effect
-    unless it or another Macrolop metaprogram that called it was passed into
-    \texttt{MACROLOP_EVAL}.
-\end{itemize}
 
 Note that a body of a macro called using \texttt{call} must follow the grammar of
 Macrolop, otherwise it might result in a compilation error.
