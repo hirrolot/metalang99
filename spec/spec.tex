@@ -1,9 +1,20 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{bussproofs}
 \usepackage{minted}
+\usepackage{amsmath}
+\usepackage{ntheorem}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{tabularx}
+\usepackage[english]{babel}
+
+\theoremstyle{break}
+\newtheorem{notation}{Notation}
+
+\addbibresource{references.bib}
 
 \floatstyle{boxed}
 \restylefloat{figure}
@@ -15,126 +26,138 @@
 \author{Temirkhan Myrzamadi (a.k.a. Hirrolot)}
 \maketitle
 
+\begin{abstract}
+This paper is the official specification of Macrolop, a metalanguage aimed at language-oriented
+programming in C. In it, both the syntax and reduction semantics are defined formally. See the
+official repository \cite{Macrolop} for the user-friendly overview and the official documentation
+\cite{MacrolopDocs} for the accompanied standard library.
+\end{abstract}
+
 \tableofcontents
 
 \newpage
 
 \section{EBNF Grammar}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \caption{Grammar rules}
 
 \begin{minted}{bnf}
-<eval> ::= "MACROLOP_EVAL(" { <term> }* ")" ;
+<eval> ::= "MACROLOP_EVAL(" { <term> }+ ")" ;
 
 <term> ::= "call(" <op> "," { <term> }* ")"
          | "v(" <preprocessor-token-list> ")" ;
 
-<op>   ::= <ident> | <term> ;
+<op>   ::= <ident> | { <term> }+ ;
 \end{minted}
 
 \end{figure}
 
-A metaprogram in Macrolop consists of a (possibly empty) sequence of terms, each of which
+A metaprogram in Macrolop consists of a non-empty sequence of terms, each of which
 is either a macro call or just a value.
 
-Note that a macro call accepts arguments without a separator because otherwise there must
-be logic to avoid putting a comma after the last argument (if they're generated
-programmatically). However, this design decision tends to break IDE support (code
-formatting, macro parameters hightlighting, ...). The common workaround is to write a
-\texttt{*\_REAL} macro (the actual implementation) and a C-style wrapper:
+Notes:
 
-\begin{minted}{c}
-#define FOO(a, b, c) FOO_REAL(a b c)
-#define FOO_REAL(a, b, c) // Implementation...
-\end{minted}
+\begin{itemize}
+    \item The grammar above describes metaprograms already expanded by the C preprocessor,
+    except for \texttt{MACROLOP\_EVAL}, \texttt{call}, and \texttt{v}.
+    \item \texttt{call} accepts \texttt{op} either as an identifier or as a non-empty
+    sequence of terms that reduces to an identifier.
+    \item \texttt{call} accepts arguments without a separator.
+\end{itemize}
 
-Then \texttt{FOO} can be called as \texttt{FOO(a, b, c)}, where \texttt{a}, \texttt{b},
-and \texttt{c} stand for the actual arguments.
+\section{Reduction Semantics}
 
-Note that the given syntax holds for metaprograms already expanded by the C preprocessor,
-except for the macros \texttt{MACROLOP\_EVAL}, \texttt{call}, and \texttt{v}. So a
-syntactically well-formed metaprogram in Macrolop is a C metaprogram that expands to a
-sequence of preprocessor tokens (again except for the aforementioned cases) matching
-the given grammar.
+We define reduction semantics for Macrolop. The abstract machine executes configurations
+of the form $\langle K; A; C \rangle$:
 
-Also note that \texttt{call} accepts \texttt{op} either as an identifier or as
-a term that computes to an identifier. For instance, you can write both
-\texttt{call(FOO, ...)}, \texttt{call(v(FOO), ...)}, and even
-\texttt{call(call(BAR, ...), ...)} as long as \texttt{call(BAR, ...)} reduces to an
-identifier.
+\begin{itemize}
+    \item $K$ is a continuation of the form $\langle K; A; C \rangle$, where
+    $C$ include the $?$ sign, which will be substituted with a result after a
+    continuation is called. For example: let $K = \langle K'; (1, 2, 3); v(abc) \ ? \rangle$,
+    then $K(v(ghi))$ is $\langle K'; (1, 2, 3); v(abc) \ v(ghi) \rangle$. A special
+    continuation $halt$ terminates the abstract machine with provided result.
 
-\section{Operational Semantics}
+    \item $A$ is an accumulator, a sequence \ref{SequencesNotation} of already computed
+    results.
 
-We define
-\href{https://en.wikipedia.org/wiki/Operational_semantics#Small-step_semantics}
-{small-step operational semantics} for Macrolop. Take into consideration the following notations:
+    \item $C$ (control) is a concrete sequence \ref{ConcreteSequenceNotation} of terms
+    upon which the abstract machine is operating right now. For example:
+    \texttt{call(FOO, v(123) \\ v(456)) v(w 8) v(blah)}.
+\end{itemize}
 
-\begin{center}
-    \begin{tabular}{ |c|c| }
-        \hline
-        $\rightarrow_1$ & a single step of computation \\
-        $term$ & \texttt{<term>} \\
-        $a$ & \texttt{<term>} used as a macro argument \\
-        $tok$ & \texttt{<preprocessor-token>} \\
-        $x \ldots$ & a possibly empty sequence $x_1, \ldots, x_n$ \\
-        $empty$ & an empty sequence \\
-        $\langle acc; x \rangle$ & $x$ with the accumulator $acc$ \\
-        $op(...)$ & a C-style macro call \\
-        $ident$ & a C identifier (\texttt{foo}, \texttt{bar}, ...) \\
-        \hline
-    \end{tabular}
-\end{center}
+And here are the computational rules:
 
-\begin{figure}[h]
+\begin{figure}[H]
     \caption{Computational rules}
 
-    \begin{prooftree}
-        \AxiomC{}
-        \LeftLabel{(v)}
-        \UnaryInfC{$\langle \sigma; v(tok \ldots) \ term \ldots \rangle
-            \rightarrow_1 \langle \sigma \ tok \ldots; term \ldots \rangle$}
-    \end{prooftree}
-
-    \begin{prooftree}
-        \AxiomC{$call(op, a \ldots) \rightarrow_1 term \ldots$}
-        \LeftLabel{(call)}
-        \UnaryInfC{$\langle \sigma; call(op, a \ldots) \ term' \ldots \rangle
-            \rightarrow_1 \langle \sigma; term \ldots \ term' \ldots \rangle$}
-    \end{prooftree}
-
-    \begin{prooftree}
-        \AxiomC{$term \rightarrow_1 term'$}
-        \LeftLabel{(eval-op-step)}
-        \UnaryInfC{$call(term \ldots, a \ldots)
-            \rightarrow_1 call(term' \ldots, a \ldots)$}
-    \end{prooftree}
-
-    \begin{prooftree}
-        \AxiomC{$term \rightarrow_1 ident$}
-        \LeftLabel{(eval-op)}
-        \UnaryInfC{$call(term, term' \ldots)
-            \rightarrow_1 call(ident, term' \ldots)$}
-    \end{prooftree}
-
-    \begin{prooftree}
-        \AxiomC{$\langle \sigma; term \ldots \rangle
-            \rightarrow_1 \langle \sigma \ tok \ldots; term' term'' \ldots \rangle$}
-        \LeftLabel{(arg-call)}
-        \UnaryInfC{$\langle \sigma; call(ident, term \ldots) \rangle
-            \rightarrow_1 \langle \sigma \ tok \ldots; call(ident, term' term'' \ldots) \rangle$}
-    \end{prooftree}
-
-    \begin{prooftree}
-        \AxiomC{$\langle \sigma; term \rangle
-            \rightarrow_1 \langle \sigma \ tok \ldots; empty \rangle$}
-        \LeftLabel{(arg-call)}
-        \UnaryInfC{$\langle \sigma; call(ident, term) \rangle
-            \rightarrow_1 \langle empty; ident(\sigma \ tok \ldots) \rangle$}
-    \end{prooftree}
+    \begin{align*}
+        (v): \ & \langle K; A; v(\overline{tok}) \ t \ \overline{t'} \rangle & \to_1 &
+            \langle K; A, \ \overline{tok}; t \ \overline{t'} \rangle \\
+        (v\mbox{-}end): \ & \langle K; A; v(\overline{tok}) \rangle & \to_1 &
+            K(unseq(A, \overline{tok})) \\
+        (op): \ & \langle K; A; call(\overline{t}, \overline{a}) \ \overline{t'} \rangle & \to_1 &
+            \langle \langle K; A; call(?, \overline{a}) \ \overline{t'} \rangle; (); \overline{t} \rangle \\
+        (args): \ & \langle K; A; call(ident, \overline{a}) \ \overline{t} \rangle & \to_1 \\
+            & \langle \langle K; A; ident(unseq\mbox{-}cs(?)) \ \overline{t} \rangle; (); \overline{a} \rangle \\
+        (start): \ & MACROLOP\_EVAL(t \ \overline{t'}) & \to_1 &
+            \langle halt; (); t \ \overline{t'} \rangle
+    \end{align*}
 \end{figure}
 
-Note that a body of a macro called using \texttt{call} must follow the grammar of
-Macrolop, otherwise it might result in a compilation error.
+\begin{notation}[Sequences]
+    \label{SequencesNotation}
+    \begin{enumerate}
+        \item A sequence has the form $(x_1, \ldots, x_n)$.
+        \item $()$ denotes the empty sequence.
+        \item An element can be appended by comma: if $a = (1, 2, 3)$ and $b = 4$, then $a, b = (1, 2, 3, 4)$.
+        \item \texttt{unseq} extracts elements from a sequence without a separator: \\
+        \texttt{unseq((a, b, c)) = a b c}.
+        \item \texttt{unseq-cs} extracts elements from a sequence separated by comma: \\
+        \texttt{unseq-cs((a, b, c)) = a, b, c}.
+    \end{enumerate}
+\end{notation}
+
+\begin{notation}[Reduction step]
+    $\to_1$ denotes a single step of reduction (computation).
+\end{notation}
+
+\begin{notation}[Concrete sequence]
+    \label{ConcreteSequenceNotation}
+    $\overline{x}$ denotes a concrete sequence $x_1 \ldots x_n$. For example:
+    \texttt{v(abc) call(FOO, v(123)) v(u 8 9)}.
+\end{notation}
+
+\begin{notation}[Meta-variables]
+    \ \\
+    \begin{tabular}{|c|c|}
+        \hline
+        \texttt{tok} & C preprocessor token \\
+        \texttt{ident} & C preprocessor identifier \\
+        \texttt{t} & Macrolop term \\
+        \texttt{a} & Macrolop term used as an argument \\
+        \hline
+    \end{tabular}
+\end{notation}
+
+The rules are fairly simple: a concrete sequence of terms provided into
+\texttt{MACROLOP\_EVAL} is evaluated sequentially till the end; a function's arguments
+are evaluated before the function is applied, e.g. Macrolop follows applicative
+evaluation strategy. When there's no more terms to evaluate, the result is pasted
+where \texttt{MACROLOP\_EVAL} has been invoked.
+
+Notes:
+
+\begin{itemize}
+    \item Look at $(args)$. Macrolop generates a usual C-style macro invocation with
+    fully evaluated arguments, which will be then expanded by the C preprocessor, resulting
+    in yet another concrete sequence of Macrolop terms to be evaluated by the computational
+    rules. \par Therefore, an expansion of $call(\overline{t}, \overline{a})$
+    must match the Macrolop grammar, otherwise it might result in a compilation error.
+    \item With the current implementation, at most $2^{14}$ reduction steps are
+    possible. After exceeding this limit, compilation will likely fail.
+\end{itemize}
+
+\printbibliography
 
 \end{document}
