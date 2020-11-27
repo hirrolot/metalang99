@@ -37,7 +37,7 @@
 #define MACROLOP_PRIVATE_EVAL_AUX(k, k_cx, ...)                                                    \
     MACROLOP_PRIVATE_EVAL_MATCH(                                                                   \
         k, k_cx, MACROLOP_PRIVATE_EVAL_AUX_EMPTY_ACC(),                                            \
-        __VA_ARGS__ MACROLOP_PRIVATE_EVAL_TERM_END(), MACROLOP_PRIVATE_EVAL_TERM_END())
+        __VA_ARGS__ MACROLOP_PRIVATE_EVAL_TERM_END(), MACROLOP_PRIVATE_EVAL_AUX_EMPTY())
 
 #define MACROLOP_PRIVATE_EVAL_MATCH(k, k_cx, acc, head, ...)                                       \
     MACROLOP_PRIVATE_EVAL_TERM_MATCH(                                                              \
