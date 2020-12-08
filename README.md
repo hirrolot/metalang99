@@ -20,3 +20,9 @@ Macrolop is a [metalanguage] on top of the C99 preprocessor aimed at [language-o
  - No dependencies. Even the standard library.
  - Precise [documentation](https://hirrolot.github.io/macrolop/).
  - [Specification](spec/spec.pdf) with formally defined syntax and semantics.
+
+## FAQ
+
+Q: **What "Macrolop" means?**
+
+A: "Macrolop" = **M**acro + **l**anguage-**o**riented **p**rogramming.
