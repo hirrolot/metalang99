@@ -8,6 +8,7 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
+#include "eval/acc.h"
 #include "eval/args.h"
 #include "eval/aux.h"
 #include "eval/rec/control.h"
@@ -36,8 +37,8 @@
 
 #define MACROLOP_PRIVATE_EVAL_AUX(k, k_cx, ...)                                                    \
     MACROLOP_PRIVATE_EVAL_MATCH(                                                                   \
-        k, k_cx, MACROLOP_PRIVATE_EVAL_AUX_EMPTY_ACC(),                                            \
-        __VA_ARGS__ MACROLOP_PRIVATE_EVAL_TERM_END(), MACROLOP_PRIVATE_EVAL_AUX_EMPTY())
+        k, k_cx, MACROLOP_PRIVATE_EVAL_ACC_EMPTY(), __VA_ARGS__ MACROLOP_PRIVATE_EVAL_TERM_END(),  \
+        ~)
 
 #define MACROLOP_PRIVATE_EVAL_MATCH(k, k_cx, acc, head, ...)                                       \
     MACROLOP_PRIVATE_EVAL_TERM_MATCH(                                                              \
@@ -56,13 +57,12 @@
         op, MACROLOP_PRIVATE_EVAL_AUX_EMPTY())
 
 #define MACROLOP_PRIVATE_EVAL_MATCH_v(k, k_cx, acc, tail, ...)                                     \
-    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(                                                            \
-        MACROLOP_PRIVATE_EVAL_MATCH_HOOK, (k, k_cx),                                               \
-        MACROLOP_PRIVATE_EVAL_AUX_EXTEND_PARENTHESISED(acc, __VA_ARGS__),                          \
-        MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(tail))
+    MACROLOP_PRIVATE_EVAL_ACC_CONTINUE(                                                            \
+        MACROLOP_PRIVATE_EVAL_MATCH_HOOK, k, k_cx,                                                 \
+        MACROLOP_PRIVATE_EVAL_ACC_EXTEND(acc, __VA_ARGS__), tail)
 
 #define MACROLOP_PRIVATE_EVAL_MATCH_end(k, k_cx, acc, _tail, _)                                    \
-    MACROLOP_PRIVATE_EVAL_REC_CONTINUE(k, k_cx, MACROLOP_PRIVATE_EVAL_AUX_UNPARENTHESISE(acc))
+    MACROLOP_PRIVATE_EVAL_ACC_END(k, k_cx, acc)
 
 #define MACROLOP_PRIVATE_EVAL_MATCH_REORDER_TRIVIAL_CALL_ARGS(                                     \
     k, k_cx, acc, tail, args, evaluated_op)                                                        \
