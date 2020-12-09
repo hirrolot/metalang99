@@ -8,11 +8,11 @@
 #define MACROLOP_UINT_EQ_REAL(x, y) v(MACROLOP_UINT_EQ_REAL_AUX(x, y))
 
 #define MACROLOP_UINT_EQ_REAL_AUX(x, y)                                                            \
-    MACROLOP_PRIVATE_UINT_AUX(MACROLOP_UINT_EQ_REAL_OVERLOAD(x, y)(), 0, ~)
+    MACROLOP_PRIV_UINT_AUX(MACROLOP_UINT_EQ_REAL_OVERLOAD(x, y)(), 0, ~)
 #define MACROLOP_UINT_EQ_REAL_OVERLOAD(x, y) MACROLOP_UINT_EQ_REAL_##x##_##y
 
-#define MACROLOP_PRIVATE_UINT_AUX(...)            MACROLOP_PRIVATE_UINT_AUX_AUX(__VA_ARGS__)
-#define MACROLOP_PRIVATE_UINT_AUX_AUX(_a, b, ...) b
+#define MACROLOP_PRIV_UINT_AUX(...)            MACROLOP_PRIV_UINT_AUX_AUX(__VA_ARGS__)
+#define MACROLOP_PRIV_UINT_AUX_AUX(_a, b, ...) b
 
 #define MACROLOP_UINT_EQ_REAL_0_0()       ~, 1
 #define MACROLOP_UINT_EQ_REAL_1_1()       ~, 1
