@@ -32,8 +32,4 @@
 
 #define MACROLOP_PRIV_EVAL_TERM_IS_END_MATCH_AUX(op, ...) op(__VA_ARGS__)
 
-#define MACROLOP_PRIV_EVAL_IS_EMPTY_TAIL(tail)                                                     \
-    MACROLOP_PRIV_EVAL_TERM_IS_END(                                                                \
-        MACROLOP_PRIV_EVAL_AUX_HEAD(MACROLOP_PRIV_EVAL_AUX_UNPARENTHESISE(tail)))
-
 #endif // MACROLOP_EVAL_TERM_H

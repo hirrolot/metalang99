@@ -4,6 +4,7 @@
 #include "../lang.h"
 #include "acc.h"
 #include "aux.h"
+#include "control.h"
 #include "rec/control.h"
 #include "term.h"
 
@@ -41,7 +42,7 @@
 
 #define MACROLOP_PRIV_EVAL_ARGS_COMMA_OR_EMPTY(tail)                                               \
     MACROLOP_PRIV_EVAL_AUX_IF(                                                                     \
-        MACROLOP_PRIV_EVAL_IS_EMPTY_TAIL(tail), MACROLOP_PRIV_EVAL_AUX_EMPTY(),                    \
+        MACROLOP_PRIV_EVAL_CONTROL_IS_EMPTY(tail), MACROLOP_PRIV_EVAL_AUX_EMPTY(),                 \
         MACROLOP_PRIV_EVAL_AUX_COMMA())
 
 #endif // MACROLOP_EVAL_ARGS_H
