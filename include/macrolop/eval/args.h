@@ -5,6 +5,7 @@
 #include "acc.h"
 #include "aux.h"
 #include "control.h"
+#include "machine.h"
 #include "rec/control.h"
 #include "term.h"
 
@@ -25,7 +26,7 @@
 #define MACROLOP_PRIV_EVAL_ARGS_AUX_v            MACROLOP_PRIV_EVAL_ARGS_CONTINUE_WITH_EXTENDED_ACC
 
 #define MACROLOP_PRIV_EVAL_ARGS_AUX_end(k, k_cx, acc, _tail, _)                                    \
-    MACROLOP_PRIV_EVAL_ACC_END(k, k_cx, acc)
+    MACROLOP_PRIV_EVAL_MACHINE_OP_STOP(k, k_cx, acc)
 
 #define MACROLOP_PRIV_EVAL_ARGS_AUX_CALL(k, k_cx, acc, tail, op, ...)                              \
     MACROLOP_PRIV_EVAL_REC_CONTINUE(                                                               \
@@ -34,13 +35,12 @@
         call(op, __VA_ARGS__))
 
 #define MACROLOP_PRIV_EVAL_ARGS_CONTINUE_WITH_EXTENDED_ACC(k, k_cx, acc, tail, ...)                \
-    MACROLOP_PRIV_EVAL_ACC_CONTINUE(                                                               \
+    MACROLOP_PRIV_EVAL_MACHINE_OP_CONTINUE(                                                        \
         MACROLOP_PRIV_EVAL_ARGS_AUX_HOOK, k, k_cx,                                                 \
-        MACROLOP_PRIV_EVAL_ACC_EXTEND(                                                             \
-            acc, __VA_ARGS__ MACROLOP_PRIV_EVAL_ARGS_COMMA_OR_EMPTY(tail)),                        \
+        MACROLOP_PRIV_EVAL_ACC_EXTEND(acc, __VA_ARGS__ MACROLOP_PRIV_EVAL_ARGS_SEPARATOR(tail)),   \
         tail)
 
-#define MACROLOP_PRIV_EVAL_ARGS_COMMA_OR_EMPTY(tail)                                               \
+#define MACROLOP_PRIV_EVAL_ARGS_SEPARATOR(tail)                                                    \
     MACROLOP_PRIV_EVAL_AUX_IF(                                                                     \
         MACROLOP_PRIV_EVAL_CONTROL_IS_EMPTY(tail), MACROLOP_PRIV_EVAL_AUX_EMPTY(),                 \
         MACROLOP_PRIV_EVAL_AUX_COMMA())
