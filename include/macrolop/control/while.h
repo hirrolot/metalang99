@@ -1,8 +1,8 @@
 #ifndef MACROLOP_CONTROL_WHILE_H
 #define MACROLOP_CONTROL_WHILE_H
 
-#include "../lang.h"
-#include "if.h"
+#include <macrolop/control/if.h>
+#include <macrolop/lang.h>
 
 #define MACROLOP_WHILE_REAL(predicate, op, state)                                                  \
     call(                                                                                          \

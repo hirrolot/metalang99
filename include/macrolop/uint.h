@@ -8,11 +8,11 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include "priv/uint.h"
+#include <macrolop/priv/uint.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
-#include "lang.h"
+#include <macrolop/lang.h>
 
 /**
  * @brief Increments @p x.

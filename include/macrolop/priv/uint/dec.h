@@ -1,7 +1,7 @@
 #ifndef MACROLOP_PRIV_UINT_DEC_H
 #define MACROLOP_PRIV_UINT_DEC_H
 
-#include "../aux.h"
+#include <macrolop/priv/aux.h>
 
 #define MACROLOP_PRIV_UINT_DEC(x) MACROLOP_PRIV_AUX_CAT(MACROLOP_PRIV_UINT_DEC_, x)()
 

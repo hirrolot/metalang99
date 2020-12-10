@@ -8,8 +8,8 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include "control/if.h"
-#include "control/while.h"
+#include <macrolop/control/if.h>
+#include <macrolop/control/while.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 

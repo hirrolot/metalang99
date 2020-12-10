@@ -18,10 +18,10 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include "eval/aux.h"
+#include <macrolop/priv/aux.h>
 
 #define MACROLOP_PRIV_call(op, ...)                                                                \
-    MACROLOP_PRIV_EVAL_AUX_IF(                                                                     \
+    MACROLOP_PRIV_AUX_IF(                                                                          \
         MACROLOP_PRIV_LANG_IS_TRIVIAL_OP(op), MACROLOP_PRIV_EVAL_TERM_TRANSFORM_TRIVIAL_OP_CALL,   \
         MACROLOP_PRIV_EVAL_TERM_TRANSFORM_NON_TRIVIAL_OP_CALL)                                     \
     (op, __VA_ARGS__),

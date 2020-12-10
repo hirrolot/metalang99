@@ -6,7 +6,7 @@
 #ifndef MACROLOP_AUX_H
 #define MACROLOP_AUX_H
 
-#include "lang.h"
+#include <macrolop/lang.h>
 
 /**
  * @brief Concatenates @p x and @p y.

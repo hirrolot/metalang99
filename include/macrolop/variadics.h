@@ -8,11 +8,11 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include "priv/variadics/count.h"
+#include <macrolop/priv/variadics/count.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
-#include "lang.h"
+#include <macrolop/lang.h>
 
 /**
  * @brief Computes a count of the provided arguments.

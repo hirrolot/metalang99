@@ -1,9 +1,9 @@
 #ifndef MACROLOP_PRIV_UINT_GREATER_EQUAL_H
 #define MACROLOP_PRIV_UINT_GREATER_EQUAL_H
 
-#include "../aux.h"
-#include "eq.h"
-#include "greater.h"
+#include <macrolop/priv/aux.h>
+#include <macrolop/priv/uint/eq.h>
+#include <macrolop/priv/uint/greater.h>
 
 #define MACROLOP_PRIV_UINT_GREATER_EQUAL(x, y)                                                     \
     MACROLOP_PRIV_AUX_IF(                                                                          \

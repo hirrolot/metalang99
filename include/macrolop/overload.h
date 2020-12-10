@@ -8,12 +8,12 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include "aux.h"
-#include "variadics.h"
+#include <macrolop/aux.h>
+#include <macrolop/variadics.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
-#include "lang.h"
+#include <macrolop/lang.h>
 
 /**
  * @brief Overload @p op on a number of arguments.

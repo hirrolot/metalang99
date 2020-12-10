@@ -1,7 +1,7 @@
 #ifndef MACROLOP_EVAL_REC_CONTROL_H
 #define MACROLOP_EVAL_REC_CONTROL_H
 
-#include "aux.h"
+#include <macrolop/eval/rec/aux.h>
 
 #define MACROLOP_PRIV_EVAL_REC_STOP()               MACROLOP_PRIV_EVAL_REC_STOP_AUX
 #define MACROLOP_PRIV_EVAL_REC_STOP_AUX(_k_cx, ...) STOP, __VA_ARGS__

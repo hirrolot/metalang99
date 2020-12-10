@@ -1,7 +1,7 @@
 #ifndef MACROLOP_CONTROL_IF_H
 #define MACROLOP_CONTROL_IF_H
 
-#include "../lang.h"
+#include <macrolop/lang.h>
 
 #define MACROLOP_IF_REAL(cond, x, y) call(MACROLOP_PRIV_CONTROL_IF_##cond, v(x) v(y))
 

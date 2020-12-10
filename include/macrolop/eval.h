@@ -8,13 +8,13 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include "eval/acc.h"
-#include "eval/aux.h"
-#include "eval/machine.h"
-#include "eval/patch_with_commas.h"
-#include "eval/rec/control.h"
-#include "eval/rec/unroll.h"
-#include "eval/term.h"
+#include <macrolop/eval/acc.h>
+#include <macrolop/eval/machine.h>
+#include <macrolop/eval/patch_with_commas.h>
+#include <macrolop/eval/rec/control.h>
+#include <macrolop/eval/rec/unroll.h>
+#include <macrolop/eval/term.h>
+#include <macrolop/priv/aux.h>
 
 #define MACROLOP_PRIV_EVAL_AUX_HOOK()   MACROLOP_PRIV_EVAL_AUX
 #define MACROLOP_PRIV_EVAL_MATCH_HOOK() MACROLOP_PRIV_EVAL_MATCH
@@ -53,12 +53,11 @@
     MACROLOP_PRIV_EVAL_REC_CONTINUE(                                                               \
         MACROLOP_PRIV_EVAL_AUX_HOOK,                                                               \
         (MACROLOP_PRIV_EVAL_MATCH_TRIVIAL_CALL_HOOK, (k, k_cx, acc, tail, (__VA_ARGS__))), op,     \
-        MACROLOP_PRIV_EVAL_AUX_EMPTY())
+        MACROLOP_PRIV_AUX_EMPTY())
 
 #define MACROLOP_PRIV_EVAL_MATCH_v(k, k_cx, acc, tail, ...)                                        \
     MACROLOP_PRIV_EVAL_MACHINE_OP_CONTINUE(                                                        \
-        MACROLOP_PRIV_EVAL_MATCH_HOOK, k, k_cx, MACROLOP_PRIV_EVAL_ACC_EXTEND(acc, __VA_ARGS__),   \
-        tail)
+        k, k_cx, MACROLOP_PRIV_EVAL_ACC_EXTEND(acc, __VA_ARGS__), tail)
 
 #define MACROLOP_PRIV_EVAL_MATCH_end(k, k_cx, acc, _tail, _)                                       \
     MACROLOP_PRIV_EVAL_MACHINE_OP_STOP(k, k_cx, acc)
@@ -66,13 +65,12 @@
 #define MACROLOP_PRIV_EVAL_MATCH_TRIVIAL_CALL(k, k_cx, acc, tail, args, evaluated_op)              \
     MACROLOP_PRIV_EVAL_MATCH(                                                                      \
         k, k_cx, acc,                                                                              \
-        call(evaluated_op, MACROLOP_PRIV_EVAL_AUX_UNPARENTHESISE(args))                            \
+        call(evaluated_op, MACROLOP_PRIV_AUX_UNPARENTHESISE(args))                                 \
             MACROLOP_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
 #define MACROLOP_PRIV_EVAL_MATCH_CALL_OP(k, k_cx, acc, tail, evaluated_op, ...)                    \
     MACROLOP_PRIV_EVAL_MACHINE_OP_CONTINUE(                                                        \
-        MACROLOP_PRIV_EVAL_MATCH_HOOK, k, k_cx, acc,                                               \
-        (evaluated_op(__VA_ARGS__) MACROLOP_PRIV_EVAL_CONTROL_UNWRAP(tail)))
+        k, k_cx, acc, (evaluated_op(__VA_ARGS__) MACROLOP_PRIV_EVAL_CONTROL_UNWRAP(tail)))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 

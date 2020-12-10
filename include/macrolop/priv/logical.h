@@ -1,7 +1,7 @@
 #ifndef MACROLOP_PRIV_LOGICAL_H
 #define MACROLOP_PRIV_LOGICAL_H
 
-#include "aux.h"
+#include <macrolop/priv/aux.h>
 
 #define MACROLOP_PRIV_NOT(x)  MACROLOP_PRIV_AUX_CAT(MACROLOP_PRIV_NOT_, x)()
 #define MACROLOP_PRIV_NOT_0() 1

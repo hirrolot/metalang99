@@ -1,11 +1,11 @@
 #ifndef MACROLOP_EVAL_PATCH_WITH_COMMAS_H
 #define MACROLOP_EVAL_PATCH_WITH_COMMAS_H
 
-#include "../priv/aux.h"
-#include "../priv/uint/eq.h"
-#include "../priv/variadics/count.h"
-#include "control.h"
-#include "term.h"
+#include <macrolop/eval/control.h>
+#include <macrolop/eval/term.h>
+#include <macrolop/priv/aux.h>
+#include <macrolop/priv/uint/eq.h>
+#include <macrolop/priv/variadics/count.h>
 
 #define MACROLOP_PRIV_EVAL_PATCH_TERMS_WITH_COMMAS(...)                                            \
     MACROLOP_PRIV_EVAL_PATCH_TERMS_WITH_COMMAS_AUX(                                                \

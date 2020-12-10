@@ -8,11 +8,11 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include "priv/logical.h"
+#include <macrolop/priv/logical.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
-#include "lang.h"
+#include <macrolop/lang.h>
 
 /**
  * @brief Negates @p x.

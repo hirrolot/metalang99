@@ -95,13 +95,13 @@
 #ifndef MACROLOP_H
 #define MACROLOP_H
 
-#include "macrolop/aux.h"
-#include "macrolop/control.h"
-#include "macrolop/eval.h"
-#include "macrolop/lang.h"
-#include "macrolop/limits.h"
-#include "macrolop/overload.h"
-#include "macrolop/uint.h"
-#include "macrolop/variadics.h"
+#include <macrolop/aux.h>
+#include <macrolop/control.h>
+#include <macrolop/eval.h>
+#include <macrolop/lang.h>
+#include <macrolop/limits.h>
+#include <macrolop/overload.h>
+#include <macrolop/uint.h>
+#include <macrolop/variadics.h>
 
 #endif // MACROLOP_H
