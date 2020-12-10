@@ -1,7 +1,9 @@
 #include "assert.h"
 
-#include "../include/macrolop/eval.h"
-#include "../include/macrolop/lang.h"
+#include <macrolop/eval.h>
+#include <macrolop/lang.h>
+
+MACROLOP_EVAL()
 
 #define FOO(x) v((x + 1))
 #define BAR(x) v((x * 3))

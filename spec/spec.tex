@@ -47,7 +47,7 @@ library \cite{MacrolopDocs}.
     \caption{Grammar rules}
 
 \begin{minted}{bnf}
-<eval> ::= "MACROLOP_EVAL(" { <term> }+ ")" ;
+<eval> ::= "MACROLOP_EVAL(" { <term> }* ")" ;
 
 <term> ::= "call(" <op> "," { <term> }* ")"
          | "v(" <preprocessor-token-list> ")" ;
@@ -57,7 +57,7 @@ library \cite{MacrolopDocs}.
 
 \end{figure}
 
-A metaprogram in Macrolop consists of a non-empty sequence of terms, each of which
+A metaprogram in Macrolop consists of a possibly empty sequence of terms, each of which
 is either a macro call or just a value.
 
 Notes:
@@ -67,8 +67,9 @@ Notes:
     except for \texttt{MACROLOP\_EVAL}, \texttt{call}, and \texttt{v}.
     \item \texttt{call} accepts \texttt{op} either as an identifier or as a non-empty
     sequence of terms that reduces to an identifier.
-    \item \texttt{call} accepts arguments without a separator. This is intentional: it lets
-    all arguments be generated uniformly, unlike separation by commas where the last argument
+    \item \texttt{call} accepts arguments without a separator. This is intentional: suppose
+    you need to generate arguments for some macro and then call it. Without separators, all
+    arguments can be generated uniformly, unlike separation by commas where the last argument
     need no comma after itself.
 \end{itemize}
 
@@ -121,8 +122,8 @@ And here are the computational rules:
             \langle \langle K; A; call(?, \overline{a}) \ \overline{t'} \rangle; (); \overline{t} \rangle \\
         (args): \ & \langle K; A; call(ident, \overline{a}) \ \overline{t} \rangle & \to
             & \langle \langle K; A; ident(?) \ \overline{t} \rangle; (); comma\mbox{-}sep(\overline{a}) \rangle \\
-        (start): \ & MACROLOP\_EVAL(t \ \overline{t'}) & \to &
-            \langle halt; (); t \ \overline{t'} \rangle
+        (start): \ & MACROLOP\_EVAL(\overline{t'}) & \to &
+            \langle halt; (); \overline{t'} \rangle
     \end{align*}
 \end{figure}
 
@@ -132,7 +133,7 @@ The following notations are used:
     $\to$ denotes a single step of reduction (computation).
 \end{notation}
 
-\begin{notation}[Sequences]
+\begin{notation}[Sequence]
     \label{SequencesNotation}
     \begin{enumerate}
         \item A sequence has the form $(x_1, \ldots, x_n)$.
@@ -164,8 +165,7 @@ The following notations are used:
     \end{tabular}
 \end{notation}
 
-The rules are fairly simple: concrete sequence of terms provided into \\
-\texttt{MACROLOP\_EVAL} is evaluated sequentially till the end. A function's arguments
+The rules are fairly simple: a concrete sequence of terms provided to \\ \texttt{MACROLOP\_EVAL} is evaluated sequentially till the end. A function's arguments
 are evaluated before the function is applied, e.g. Macrolop follows applicative
 evaluation strategy \cite{ApplicativeEvaluationStrategy}. When there's no more terms
 to evaluate, the result is pasted where \texttt{MACROLOP\_EVAL} has been invoked.
@@ -270,10 +270,8 @@ $$
     \end{itemize}
 Then \texttt{FOO} gets blocked by the C preprocessor, e.g. Macrolop cannot handle ordinary
 macro recursion; you must use \texttt{call} to be sure that recursive calls
-will behave as expected.
-
-I therefore recommend to use only primitive C-style macros (e.g. for performance
-reasons or because of you cannot express them in Macrolop).
+will behave as expected. I therefore recommend to use only primitive C-style macros, e.g.
+for performance reasons or because of you cannot express them in terms of Macrolop.
 \end{itemize}
 
 \emergencystretch=1em
