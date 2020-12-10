@@ -5,14 +5,18 @@
 \usepackage{bussproofs}
 \usepackage{minted}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{ntheorem}
+\usepackage{geometry}
 \usepackage{biblatex}
 \usepackage{csquotes}
 \usepackage{tabularx}
 \usepackage[english]{babel}
 
+\geometry{legalpaper}
 \theoremstyle{break}
 \newtheorem{notation}{Notation}
+\newtheorem{example}{Example}
 
 \addbibresource{references.bib}
 
@@ -23,14 +27,14 @@
 
 \title{Macrolop Specification}
 \date{\today}
-\author{Temirkhan Myrzamadi (a.k.a. Hirrolot)}
+\author{Temirkhan Myrzamadi \\ e-mail: \href{mailto:hirrolot@gmail.com}{hirrolot@gmail.com}}
 \maketitle
 
 \begin{abstract}
-This paper is the official specification of Macrolop, a metalanguage aimed at language-oriented
-programming in C. In it, both the syntax and reduction semantics are defined formally. See the
-official repository \cite{Macrolop} for the user-friendly overview and the official documentation
-\cite{MacrolopDocs} for the accompanied standard library.
+This paper formally describes the form and execution of metaprograms written in Macrolop,
+an embedded metalanguage aimed at language-oriented programming in C. See also the official
+repository \cite{Macrolop} for the user-friendly overview and the accompanied standard
+library \cite{MacrolopDocs}.
 \end{abstract}
 
 \tableofcontents
@@ -63,8 +67,25 @@ Notes:
     except for \texttt{MACROLOP\_EVAL}, \texttt{call}, and \texttt{v}.
     \item \texttt{call} accepts \texttt{op} either as an identifier or as a non-empty
     sequence of terms that reduces to an identifier.
-    \item \texttt{call} accepts arguments without a separator.
+    \item \texttt{call} accepts arguments without a separator. This is intentional: it lets
+    all arguments be generated uniformly, unlike separation by commas where the last argument
+    need no comma after itself.
 \end{itemize}
+
+However, the \texttt{call} syntax hurts IDE support: bad code formatting, no parameters
+documentation highlighting, et cetera. The workaround is to define a wrapper around
+an implementation macro like this:
+
+\begin{minted}{c}
+/// A documentation string here.
+#define FOO(a, b, c) FOO_REAL(a b c)
+#define FOO_REAL(a, b, c) // The actual implementation here.
+\end{minted}
+
+Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3))}.
+
+All the public std's macros follow this convention, and moreover, std's public
+higher-order macros require so for supplied user macros.
 
 \section{Reduction Semantics}
 
@@ -73,8 +94,8 @@ of the form $\langle K; A; C \rangle$:
 
 \begin{itemize}
     \item $K$ is a continuation of the form $\langle K; A; C \rangle$, where
-    $C$ include the $?$ sign, which will be substituted with a result after a
-    continuation is called. For example: let $K = \langle K'; (1, 2, 3); v(abc) \ ? \rangle$,
+    $C$ includes the $?$ sign denoting a result passed into a continuation.
+    For example, let $K$ be $\langle K'; (1, 2, 3); v(abc) \\ ? \rangle$,
     then $K(v(ghi))$ is $\langle K'; (1, 2, 3); v(abc) \ v(ghi) \rangle$. A special
     continuation $halt$ terminates the abstract machine with provided result.
 
@@ -83,7 +104,7 @@ of the form $\langle K; A; C \rangle$:
 
     \item $C$ (control) is a concrete sequence \ref{ConcreteSequenceNotation} of terms
     upon which the abstract machine is operating right now. For example:
-    \texttt{call(FOO, v(123) \\ v(456)) v(w 8) v(blah)}.
+    \texttt{call(FOO, v(123) v(456)) v(w 8) v(blah)}.
 \end{itemize}
 
 And here are the computational rules:
@@ -92,18 +113,24 @@ And here are the computational rules:
     \caption{Computational rules}
 
     \begin{align*}
-        (v): \ & \langle K; A; v(\overline{tok}) \ t \ \overline{t'} \rangle & \to_1 &
+        (v): \ & \langle K; A; v(\overline{tok}) \ t \ \overline{t'} \rangle & \to &
             \langle K; A, \ \overline{tok}; t \ \overline{t'} \rangle \\
-        (v\mbox{-}end): \ & \langle K; A; v(\overline{tok}) \rangle & \to_1 &
+        (v\mbox{-}end): \ & \langle K; A; v(\overline{tok}) \rangle & \to &
             K(unseq(A, \overline{tok})) \\
-        (op): \ & \langle K; A; call(\overline{t}, \overline{a}) \ \overline{t'} \rangle & \to_1 &
+        (op): \ & \langle K; A; call(\overline{t}, \overline{a}) \ \overline{t'} \rangle & \to &
             \langle \langle K; A; call(?, \overline{a}) \ \overline{t'} \rangle; (); \overline{t} \rangle \\
-        (args): \ & \langle K; A; call(ident, \overline{a}) \ \overline{t} \rangle & \to_1 \\
-            & \langle \langle K; A; ident(unseq\mbox{-}cs(?)) \ \overline{t} \rangle; (); \overline{a} \rangle \\
-        (start): \ & MACROLOP\_EVAL(t \ \overline{t'}) & \to_1 &
+        (args): \ & \langle K; A; call(ident, \overline{a}) \ \overline{t} \rangle & \to
+            & \langle \langle K; A; ident(?) \ \overline{t} \rangle; (); comma\mbox{-}sep(\overline{a}) \rangle \\
+        (start): \ & MACROLOP\_EVAL(t \ \overline{t'}) & \to &
             \langle halt; (); t \ \overline{t'} \rangle
     \end{align*}
 \end{figure}
+
+The following notations are used:
+
+\begin{notation}[Reduction step]
+    $\to$ denotes a single step of reduction (computation).
+\end{notation}
 
 \begin{notation}[Sequences]
     \label{SequencesNotation}
@@ -113,13 +140,10 @@ And here are the computational rules:
         \item An element can be appended by comma: if $a = (1, 2, 3)$ and $b = 4$, then $a, b = (1, 2, 3, 4)$.
         \item \texttt{unseq} extracts elements from a sequence without a separator: \\
         \texttt{unseq((a, b, c)) = a b c}.
-        \item \texttt{unseq-cs} extracts elements from a sequence separated by comma: \\
-        \texttt{unseq-cs((a, b, c)) = a, b, c}.
+        \item \texttt{comma-sep} places \texttt{v(,)} between terms in a concrete sequence of terms:\\
+        \texttt{comma-sep(v(123) call(FOO, v(a)) call(BAR, v(b)))} results in
+        \texttt{v(123) v(,) call(FOO, v(a)) v(,) call(BAR, v(b))}.
     \end{enumerate}
-\end{notation}
-
-\begin{notation}[Reduction step]
-    $\to_1$ denotes a single step of reduction (computation).
 \end{notation}
 
 \begin{notation}[Concrete sequence]
@@ -140,11 +164,11 @@ And here are the computational rules:
     \end{tabular}
 \end{notation}
 
-The rules are fairly simple: a concrete sequence of terms provided into
-\texttt{MACROLOP\_EVAL} is evaluated sequentially till the end; a function's arguments
+The rules are fairly simple: concrete sequence of terms provided into \\
+\texttt{MACROLOP\_EVAL} is evaluated sequentially till the end. A function's arguments
 are evaluated before the function is applied, e.g. Macrolop follows applicative
-evaluation strategy. When there's no more terms to evaluate, the result is pasted
-where \texttt{MACROLOP\_EVAL} has been invoked.
+evaluation strategy \cite{ApplicativeEvaluationStrategy}. When there's no more terms
+to evaluate, the result is pasted where \texttt{MACROLOP\_EVAL} has been invoked.
 
 Notes:
 
@@ -152,12 +176,107 @@ Notes:
     \item Look at $(args)$. Macrolop generates a usual C-style macro invocation with
     fully evaluated arguments, which will be then expanded by the C preprocessor, resulting
     in yet another concrete sequence of Macrolop terms to be evaluated by the computational
-    rules. \par Therefore, an expansion of $call(\overline{t}, \overline{a})$
-    must match the Macrolop grammar, otherwise it might result in a compilation error.
+    rules.
     \item With the current implementation, at most $2^{14}$ reduction steps are
     possible. After exceeding this limit, compilation will likely fail.
 \end{itemize}
 
+The essence of the Macrolop metalanguage is that it allows recursive macro calls. But
+to be precise, it allows only indirect recursion. First define the $\twoheadrightarrow$
+meta-operator (resembles that in lambda calculi):
+
+\begin{notation}[Multiple reduction steps]
+    $\twoheadrightarrow$ denotes one or more single evaluation steps, e.g.
+    $\overline{t} \twoheadrightarrow \overline{t'}$ is the same as
+    $\overline{t} \to \ldots \to \overline{t'}$.
+\end{notation}
+
+Then consider these two cases:
+
+\begin{itemize}
+    \item Direct recursion: $call(X, \overline{tok}) \to \overline{t}$, where
+    $\overline{t}$ contains $X$. Then this $X$ will be blocked forever due to the
+    rules of the C preprocessor (an expansion of \texttt{X(...)} containing
+    \texttt{X}).
+
+    \item Indirect recursion: $call(X, \overline{a}) \twoheadrightarrow
+    \overline{t} \ call(Y, \overline{a'}) \ \overline{t'}$ and
+    $call(Y, \overline{a'}) \twoheadrightarrow \overline{t''}$, where $\overline{t''}$
+    contains $X$. Then this $X$ will \textbf{not} be blocked by the C preprocessor,
+    e.g. can be invoked again.
+\end{itemize}
+
+Now let's move on to the examples of reduction. Take the following code:
+
+\begin{minted}{c}
+#define X(op)        call(op, v(123))
+#define CALL_X(_123) call(X, v(ID))
+#define ID(x)        v(x)
+\end{minted}
+
+See how \texttt{call(X, v(CALL\_X))} is evaluated:
+
+\begin{example}[Evaluation of terms]
+\small
+\begin{gather*}
+    MACROLOP\_EVAL(call(X, v(CALL\_X))) \\
+    \downarrow (start) \\
+    \langle halt; (); call(X, v(CALL\_X)) \rangle \\
+    \downarrow (args) \\
+    \langle \langle halt; (); X(?) \rangle; (); v(CALL\_X) \rangle \\
+    \downarrow (v\mbox{-}end) \\
+    \langle halt; (); call(CALL\_X, v(123)) \rangle \\
+    \downarrow (args) \\
+    \langle \langle halt; (); CALL\_X(?) \rangle; (); v(123) \rangle \\
+    \downarrow (v\mbox{-}end) \\
+    \langle halt; (); call(X, v(ID)) \rangle \\
+    \downarrow (args) \\
+    \langle \langle halt; (); X(?) \rangle; (); v(ID) \rangle \\
+    \downarrow (v\mbox{-}end) \\
+    \langle halt; (); call(ID, v(123)) \rangle \\
+    \downarrow (args) \\
+    \langle \langle halt; (); ID(?) \rangle; (); v(123) \rangle \\
+    \downarrow (v\mbox{-}end) \\
+    \langle halt; (); v(123) \rangle \\
+    \downarrow (v\mbox{-}end) \\
+    halt(123)
+\end{gather*}
+\normalsize
+\end{example}
+
+The analogous version written in ordinary C looks like this:
+
+\begin{minted}{c}
+#define X(op)        op(123)
+#define CALL_X(_123) X(ID)
+#define ID(x)        x
+\end{minted}
+
+However, unlike the Macrolop version above, it gets blocked due to the
+second call to \texttt{X}:
+
+$$
+X(CALL\_X) \to CALL\_X(123) \to X(ID)
+$$
+
+\section{Caveats}
+
+\begin{itemize}
+\item Consider this scenario:
+    \begin{itemize}
+        \item You call \texttt{FOO(1, 2, 3)}
+        \item It gets expanded by the C preprocessor (not by Macrolop)
+        \item Its expansion contains \texttt{FOO}
+    \end{itemize}
+Then \texttt{FOO} gets blocked by the C preprocessor, e.g. Macrolop cannot handle ordinary
+macro recursion; you must use \texttt{call} to be sure that recursive calls
+will behave as expected.
+
+I therefore recommend to use only primitive C-style macros (e.g. for performance
+reasons or because of you cannot express them in Macrolop).
+\end{itemize}
+
+\emergencystretch=1em
 \printbibliography
 
 \end{document}
