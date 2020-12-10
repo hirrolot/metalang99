@@ -9,7 +9,7 @@
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include "aux.h"
-#include "variadics/count.h"
+#include "variadics.h"
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
@@ -23,14 +23,14 @@
 /**
  * @brief Overloads @p op on a number of arguments an immediately calls it.
  */
-#define MACROLOP_OVERLOAD_CALL(op, ...) call(MACROLOP_OVERLOAD_REAL_CALL, op __VA_ARGS__)
+#define MACROLOP_OVERLOAD_CALL(op, ...) call(MACROLOP_OVERLOAD_CALL_REAL, op __VA_ARGS__)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #define MACROLOP_OVERLOAD_REAL(op, ...)                                                            \
-    MACROLOP_CAT(v(op), call(MACROLOP_VARIADICS_COUNT_REAL, v(__VA_ARGS__)))
+    MACROLOP_CAT(v(op), MACROLOP_VARIADICS_COUNT(v(__VA_ARGS__)))
 
-#define MACROLOP_OVERLOAD_REAL_CALL(op, ...)                                                       \
+#define MACROLOP_OVERLOAD_CALL_REAL(op, ...)                                                       \
     call(MACROLOP_OVERLOAD(v(op), v(__VA_ARGS__)), v(__VA_ARGS__))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS

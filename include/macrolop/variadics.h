@@ -8,8 +8,7 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include "variadics/count.h"
-#include "variadics/get.h"
+#include "priv/variadics/count.h"
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
@@ -29,5 +28,13 @@
  * @brief Extracts a tail of the provided arguments.
  */
 #define MACROLOP_VARIADICS_TAIL(...) call(MACROLOP_VARIADICS_TAIL_REAL, __VA_ARGS__)
+
+#ifndef DOXYGEN_SHOULD_SKIP_THIS
+
+#define MACROLOP_VARIADICS_COUNT_REAL(...)   v(MACROLOP_PRIV_VARIADICS_COUNT(__VA_ARGS__))
+#define MACROLOP_VARIADICS_HEAD_REAL(x, ...) v(x)
+#define MACROLOP_VARIADICS_TAIL_REAL(x, ...) v(__VA_ARGS__)
+
+#endif // DOXYGEN_SHOULD_SKIP_THIS
 
 #endif // MACROLOP_VARIADICS_H

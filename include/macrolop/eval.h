@@ -9,8 +9,9 @@
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include "eval/acc.h"
-#include "eval/args.h"
 #include "eval/aux.h"
+#include "eval/machine.h"
+#include "eval/patch_with_commas.h"
 #include "eval/rec/control.h"
 #include "eval/rec/unroll.h"
 #include "eval/term.h"
@@ -44,8 +45,9 @@
 
 #define MACROLOP_PRIV_EVAL_MATCH_trivial_call(k, k_cx, acc, tail, op, ...)                         \
     MACROLOP_PRIV_EVAL_REC_CONTINUE(                                                               \
-        MACROLOP_PRIV_EVAL_ARGS_HOOK,                                                              \
-        (MACROLOP_PRIV_EVAL_MATCH_CALL_OP_HOOK, (k, k_cx, acc, tail, op)), __VA_ARGS__)
+        MACROLOP_PRIV_EVAL_AUX_HOOK,                                                               \
+        (MACROLOP_PRIV_EVAL_MATCH_CALL_OP_HOOK, (k, k_cx, acc, tail, op)),                         \
+        MACROLOP_PRIV_EVAL_PATCH_TERMS_WITH_COMMAS(__VA_ARGS__))
 
 #define MACROLOP_PRIV_EVAL_MATCH_call(k, k_cx, acc, tail, op, ...)                                 \
     MACROLOP_PRIV_EVAL_REC_CONTINUE(                                                               \

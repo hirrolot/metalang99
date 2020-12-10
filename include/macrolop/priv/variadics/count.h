@@ -1,7 +1,5 @@
-#ifndef MACROLOP_VARIADICS_COUNT_H
-#define MACROLOP_VARIADICS_COUNT_H
-
-#include "../lang.h"
+#ifndef MACROLOP_PRIV_VARIADICS_COUNT_H
+#define MACROLOP_PRIV_VARIADICS_COUNT_H
 
 /*
  * Proposition: The count of arguments of `MACROLOP_VARIADICS_COUNT_REAL` is `x`, which is
@@ -21,10 +19,9 @@
  * (N, ..., 1, ~)                      ---> (x, ...)
  * (N)                                 ---> (x)
  */
-
-#define MACROLOP_VARIADICS_COUNT_REAL(...)                                                         \
-    /* All the arguments are skipped, so we don't care about blueprinting at all. */               \
-    MACROLOP_VARIADICS_COUNT_REAL_AUX(                                                             \
+#define MACROLOP_PRIV_VARIADICS_COUNT(...)                                                         \
+    /* Blueprinting is not a concern here because `__VA_ARGS__` is skiped. */                      \
+    MACROLOP_PRIV_VARIADICS_COUNT_AUX(                                                             \
         ~, __VA_ARGS__, 1023, 1022, 1021, 1020, 1019, 1018, 1017, 1016, 1015, 1014, 1013, 1012,    \
         1011, 1010, 1009, 1008, 1007, 1006, 1005, 1004, 1003, 1002, 1001, 1000, 999, 998, 997,     \
         996, 995, 994, 993, 992, 991, 990, 989, 988, 987, 986, 985, 984, 983, 982, 981, 980, 979,  \
@@ -83,7 +80,7 @@
         29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7,   \
         6, 5, 4, 3, 2, 1, ~)
 
-#define MACROLOP_VARIADICS_COUNT_REAL_AUX(                                                         \
+#define MACROLOP_PRIV_VARIADICS_COUNT_AUX(                                                         \
     _, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20,  \
     _21, _22, _23, _24, _25, _26, _27, _28, _29, _30, _31, _32, _33, _34, _35, _36, _37, _38, _39, \
     _40, _41, _42, _43, _44, _45, _46, _47, _48, _49, _50, _51, _52, _53, _54, _55, _56, _57, _58, \
@@ -152,6 +149,6 @@
     _998, _999, _1000, _1001, _1002, _1003, _1004, _1005, _1006, _1007, _1008, _1009, _1010,       \
     _1011, _1012, _1013, _1014, _1015, _1016, _1017, _1018, _1019, _1020, _1021, _1022, _1023, x,  \
     ...)                                                                                           \
-    v(x)
+    x
 
-#endif // MACROLOP_VARIADICS_COUNT_H
+#endif // MACROLOP_PRIV_VARIADICS_COUNT_H
