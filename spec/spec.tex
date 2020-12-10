@@ -88,6 +88,48 @@ Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3))}.
 All the public std's macros follow this convention, and moreover, std's public
 higher-order macros require so for supplied user macros.
 
+\section{Notations}
+
+\begin{notation}[Sequence]
+    \begin{enumerate}
+        \item A sequence has the form $(x_1, \ldots, x_n)$.
+        \item $()$ denotes the empty sequence.
+        \item An element can be appended by comma: if $a = (1, 2, 3)$ and $b = 4$, then $a, b = (1, 2, 3, 4)$.
+        \item \texttt{unseq} extracts elements from a sequence without a separator: \\
+        \texttt{unseq((a, b, c)) = a b c}.
+        \item \texttt{comma-sep} places \texttt{v(,)} between terms in a concrete sequence of terms:\\
+        \texttt{comma-sep(v(123) call(FOO, v(a)) call(BAR, v(b)))} results in
+        \texttt{v(123) v(,) call(FOO, v(a)) v(,) call(BAR, v(b))}.
+    \end{enumerate}
+\end{notation}
+
+\begin{notation}[Concrete sequence]
+    $\overline{x}$ denotes a concrete sequence $x_1 \ldots x_n$. For example:
+    \texttt{v(abc) call(FOO, v(123)) v(u 8 9)}.
+\end{notation}
+
+\begin{notation}[Reduction step]
+    $\to$ denotes a single step of reduction (computation).
+\end{notation}
+
+\begin{notation}[Multiple reduction steps]
+    $\twoheadrightarrow$ denotes one or more single evaluation steps, e.g.
+    $\overline{t} \twoheadrightarrow \overline{t'}$ is the same as
+    $\overline{t} \to \ldots \to \overline{t'}$.
+\end{notation}
+
+\begin{notation}[Meta-variables]
+    \ \\
+    \begin{tabular}{|c|c|}
+        \hline
+        \texttt{tok} & C preprocessor token \\
+        \texttt{ident} & C preprocessor identifier \\
+        \texttt{t} & Macrolop term \\
+        \texttt{a} & Macrolop term used as an argument \\
+        \hline
+    \end{tabular}
+\end{notation}
+
 \section{Reduction Semantics}
 
 We define reduction semantics for Macrolop. The abstract machine executes configurations
@@ -100,12 +142,11 @@ of the form $\langle K; A; C \rangle$:
     then $K(v(ghi))$ is $\langle K'; (1, 2, 3); v(abc) \ v(ghi) \rangle$. A special
     continuation $halt$ terminates the abstract machine with provided result.
 
-    \item $A$ is an accumulator, a sequence \ref{SequencesNotation} of already computed
+    \item $A$ is an accumulator, a sequence of already computed
     results.
 
-    \item $C$ (control) is a concrete sequence \ref{ConcreteSequenceNotation} of terms
-    upon which the abstract machine is operating right now. For example:
-    \texttt{call(FOO, v(123) v(456)) v(w 8) v(blah)}.
+    \item $C$ (control) is a concrete sequence of terms upon which the abstract
+    machine is operating right now. For example: \texttt{call(FOO, v(123) v(456)) v(w 8) v(blah)}.
 \end{itemize}
 
 And here are the computational rules:
@@ -127,48 +168,10 @@ And here are the computational rules:
     \end{align*}
 \end{figure}
 
-The following notations are used:
-
-\begin{notation}[Reduction step]
-    $\to$ denotes a single step of reduction (computation).
-\end{notation}
-
-\begin{notation}[Sequence]
-    \label{SequencesNotation}
-    \begin{enumerate}
-        \item A sequence has the form $(x_1, \ldots, x_n)$.
-        \item $()$ denotes the empty sequence.
-        \item An element can be appended by comma: if $a = (1, 2, 3)$ and $b = 4$, then $a, b = (1, 2, 3, 4)$.
-        \item \texttt{unseq} extracts elements from a sequence without a separator: \\
-        \texttt{unseq((a, b, c)) = a b c}.
-        \item \texttt{comma-sep} places \texttt{v(,)} between terms in a concrete sequence of terms:\\
-        \texttt{comma-sep(v(123) call(FOO, v(a)) call(BAR, v(b)))} results in
-        \texttt{v(123) v(,) call(FOO, v(a)) v(,) call(BAR, v(b))}.
-    \end{enumerate}
-\end{notation}
-
-\begin{notation}[Concrete sequence]
-    \label{ConcreteSequenceNotation}
-    $\overline{x}$ denotes a concrete sequence $x_1 \ldots x_n$. For example:
-    \texttt{v(abc) call(FOO, v(123)) v(u 8 9)}.
-\end{notation}
-
-\begin{notation}[Meta-variables]
-    \ \\
-    \begin{tabular}{|c|c|}
-        \hline
-        \texttt{tok} & C preprocessor token \\
-        \texttt{ident} & C preprocessor identifier \\
-        \texttt{t} & Macrolop term \\
-        \texttt{a} & Macrolop term used as an argument \\
-        \hline
-    \end{tabular}
-\end{notation}
-
-The rules are fairly simple: a concrete sequence of terms provided to \\ \texttt{MACROLOP\_EVAL} is evaluated sequentially till the end. A function's arguments
+A concrete sequence of terms provided to \texttt{MACROLOP\_EVAL} is evaluated sequentially till the end. A function's arguments
 are evaluated before the function is applied, e.g. Macrolop follows applicative
 evaluation strategy \cite{ApplicativeEvaluationStrategy}. When there's no more terms
-to evaluate, the result is pasted where \texttt{MACROLOP\_EVAL} has been invoked.
+to evaluate, a result is pasted where \texttt{MACROLOP\_EVAL} has been invoked.
 
 Notes:
 
@@ -182,16 +185,7 @@ Notes:
 \end{itemize}
 
 The essence of the Macrolop metalanguage is that it allows recursive macro calls. But
-to be precise, it allows only indirect recursion. First define the $\twoheadrightarrow$
-meta-operator (resembles that in lambda calculi):
-
-\begin{notation}[Multiple reduction steps]
-    $\twoheadrightarrow$ denotes one or more single evaluation steps, e.g.
-    $\overline{t} \twoheadrightarrow \overline{t'}$ is the same as
-    $\overline{t} \to \ldots \to \overline{t'}$.
-\end{notation}
-
-Then consider these two cases:
+to be precise, it allows only indirect recursion. Consider these two cases:
 
 \begin{itemize}
     \item Direct recursion: $call(X, \overline{tok}) \to \overline{t}$, where
