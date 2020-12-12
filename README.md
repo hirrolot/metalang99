@@ -20,3 +20,26 @@ Everything you see happens at compile-time. Everything you need is `#include <ma
 Q: **What "Macrolop" means?**
 
 A: "Macrolop" = **M**acro + **l**anguage-**o**riented **p**rogramming ([Wikipedia](https://en.wikipedia.org/wiki/Language-oriented_programming)).
+
+Q: **Why C and not C++/Rust/whatever else?**
+
+A: For instance:
+
+ - Your company dictates to use C.
+ - Your target architecture does not support other high-level languages.
+ - Your code base is already written in C.
+ - ...
+
+Q: **Why formal specification?**
+
+A:
+
+ - **Formal proofs.** With a mathematical model it becomes possible to proof things about Macrolop formally.
+
+ - **It guides the implementation.** The implementation reflects the formal syntax and semantics, thereby making itself easier to reason about.
+
+ - **It guides the tests.** We immediately see many, if not all corner cases, which are ought to be tested.
+
+ - **Distinctness.** With a formal specification, it is much easier to answer questions like "Is it a bug of the implementation or it is a valid behaviour according to the specification?".
+
+That is, the development flow is "specification-driven", if you prefer.
