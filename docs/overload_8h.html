@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>macrolop: include/macrolop/overload.h File Reference</title>
+<title>Macrolop: include/macrolop/overload.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,10 +28,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">macrolop
+   <div id="projectname">Macrolop
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
-   <div id="projectbrief">Full-scale metaprogramming in C</div>
+   <div id="projectbrief">Language-oriented programming in C</div>
   </td>
  </tr>
  </tbody>
@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('overload_8h.html','');});
 
 <p>Overloading on a number of arguments.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="lang_8h_source.html">lang.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">macrolop/lang.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
@@ -109,7 +109,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:a6e3a1137e1b62183230ac5d74b34ce07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload <code>op</code> on a number of arguments. <br /></td></tr>
 <tr class="separator:a6e3a1137e1b62183230ac5d74b34ce07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40d5c67493d5b1d496c58b319722b127"><td class="memItemLeft" align="right" valign="top"><a id="a40d5c67493d5b1d496c58b319722b127"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a40d5c67493d5b1d496c58b319722b127">MACROLOP_OVERLOAD_CALL</a>(op, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(MACROLOP_OVERLOAD_REAL_CALL, op __VA_ARGS__)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a40d5c67493d5b1d496c58b319722b127">MACROLOP_OVERLOAD_CALL</a>(op, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(MACROLOP_OVERLOAD_CALL_REAL, op __VA_ARGS__)</td></tr>
 <tr class="memdesc:a40d5c67493d5b1d496c58b319722b127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads <code>op</code> on a number of arguments an immediately calls it. <br /></td></tr>
 <tr class="separator:a40d5c67493d5b1d496c58b319722b127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
