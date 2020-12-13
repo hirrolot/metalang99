@@ -6,13 +6,13 @@
 // MACROLOP_OVERLOAD_CALL
 
 #define X(...)    MACROLOP_OVERLOAD_CALL(v(X_), v(__VA_ARGS__))
-#define X_1(a)    v(MACROLOP_STATIC_ASSERT(a == 123);)
-#define X_2(a, b) v(MACROLOP_STATIC_ASSERT(a == 93145); MACROLOP_STATIC_ASSERT(b == 456);)
+#define X_1(a)    v(MACROLOP_C_STATIC_ASSERT(a == 123);)
+#define X_2(a, b) v(MACROLOP_C_STATIC_ASSERT(a == 93145); MACROLOP_C_STATIC_ASSERT(b == 456);)
 #define X_7(a, b, c, d, e, f, g)                                                                   \
-    v(MACROLOP_STATIC_ASSERT(a == 1516); MACROLOP_STATIC_ASSERT(b == 1);                           \
-      MACROLOP_STATIC_ASSERT(c == 9); MACROLOP_STATIC_ASSERT(d == 111);                            \
-      MACROLOP_STATIC_ASSERT(e == 119); MACROLOP_STATIC_ASSERT(f == 677);                          \
-      MACROLOP_STATIC_ASSERT(g == 62);)
+    v(MACROLOP_C_STATIC_ASSERT(a == 1516); MACROLOP_C_STATIC_ASSERT(b == 1);                       \
+      MACROLOP_C_STATIC_ASSERT(c == 9); MACROLOP_C_STATIC_ASSERT(d == 111);                        \
+      MACROLOP_C_STATIC_ASSERT(e == 119); MACROLOP_C_STATIC_ASSERT(f == 677);                      \
+      MACROLOP_C_STATIC_ASSERT(g == 62);)
 
 MACROLOP_EVAL(call(X, v(123)))
 MACROLOP_EVAL(call(X, v(93145) v(456)))

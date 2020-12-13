@@ -32,32 +32,32 @@
  * @brief Asserts that `MACROLOP_EVAL(lhs)` is equal to `MACROLOP_EVAL(rhs)`.
  */
 #define MACROLOP_ASSERT_EQ(lhs, rhs)                                                               \
-    MACROLOP_STATIC_ASSERT(MACROLOP_EVAL(lhs) == MACROLOP_EVAL(rhs))
+    MACROLOP_C_STATIC_ASSERT(MACROLOP_EVAL(lhs) == MACROLOP_EVAL(rhs))
 
 /**
  * @brief The same as #MACROLOP_ASSERT_EQ but accepts an error message.
  */
 #define MACROLOP_ASSERT_EQ_WITH_MSG(lhs, rhs, message)                                             \
-    MACROLOP_STATIC_ASSERT_WITH_MSG(MACROLOP_EVAL(lhs) == MACROLOP_EVAL(rhs), message)
+    MACROLOP_C_STATIC_ASSERT_WITH_MSG(MACROLOP_EVAL(lhs) == MACROLOP_EVAL(rhs), message)
 
 /**
  * @brief Asserts a constant expression @p expr.
  */
-#define MACROLOP_STATIC_ASSERT(expr) MACROLOP_PRIV_REGULAR_ASSERT_IMPL(expr)
+#define MACROLOP_C_STATIC_ASSERT(expr) MACROLOP_PRIV_C_STATIC_ASSERT_IMPL(expr)
 
 /**
- * @brief The same as #MACROLOP_STATIC_ASSERT but accept an error message.
+ * @brief The same as #MACROLOP_C_STATIC_ASSERT but accept an error message.
  */
-#define MACROLOP_STATIC_ASSERT_WITH_MSG(expr, message)                                             \
-    MACROLOP_PRIV_REGULAR_ASSERT_WITH_MSG_IMPL(expr, message)
+#define MACROLOP_C_STATIC_ASSERT_WITH_MSG(expr, message)                                           \
+    MACROLOP_PRIV_C_STATIC_ASSERT_WITH_MSG_IMPL(expr, message)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 // How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656.
 
-#define MACROLOP_PRIV_REGULAR_ASSERT_IMPL(expr)                                                    \
+#define MACROLOP_PRIV_C_STATIC_ASSERT_IMPL(expr)                                                   \
     static const char MACROLOP_PRIV_AUX_CAT(macrolop_static_assert_, __LINE__)[(expr) ? 1 : -1]
-#define MACROLOP_PRIV_REGULAR_ASSERT_WITH_MSG_IMPL(expr, message)                                  \
+#define MACROLOP_PRIV_C_STATIC_ASSERT_WITH_MSG_IMPL(expr, message)                                 \
     static const char MACROLOP_PRIV_AUX_CAT_4(                                                     \
         macrolop_static_assert_, __LINE__, _, message)[(expr) ? 1 : -1]
 
