@@ -1,9 +1,8 @@
-#include "../assert.h"
-
-#include "../../include/macrolop/aux.h"
-#include "../../include/macrolop/control.h"
-#include "../../include/macrolop/lang.h"
-#include "../../include/macrolop/uint.h"
+#include <macrolop/assert.h>
+#include <macrolop/aux.h>
+#include <macrolop/control.h>
+#include <macrolop/lang.h>
+#include <macrolop/uint.h>
 
 #define LIMIT 10
 #define SUM   ((LIMIT + 1) * (LIMIT / 2))
@@ -19,7 +18,8 @@
 #define STATE_FINALISER(state)      call(STATE_FINALISER_AUX, MACROLOP_UNPARENTHESISE(v(state)))
 #define STATE_FINALISER_AUX(acc, i) v(acc)
 
-ASSERT_EQ(call(STATE_FINALISER, MACROLOP_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
+MACROLOP_ASSERT_EQ(
+    call(STATE_FINALISER, MACROLOP_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
 
 #undef PREDICATE
 #undef PREDICATE_AUX

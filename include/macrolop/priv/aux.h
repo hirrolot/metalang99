@@ -5,6 +5,8 @@
 #define MACROLOP_PRIV_AUX_PRIMITIVE_CAT(x, y) x##y
 
 #define MACROLOP_PRIV_AUX_CAT_3(x, y, z) MACROLOP_PRIV_AUX_CAT(x, MACROLOP_PRIV_AUX_CAT(y, z))
+#define MACROLOP_PRIV_AUX_CAT_4(x, y, z, a)                                                        \
+    MACROLOP_PRIV_AUX_CAT_3(x, y, MACROLOP_PRIV_AUX_CAT(z, a))
 
 #define MACROLOP_PRIV_AUX_MATCH(op, pattern) MACROLOP_PRIV_AUX_CAT(op, pattern)
 

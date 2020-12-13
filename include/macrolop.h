@@ -90,11 +90,24 @@
  *   - #MACROLOP_VARIADICS_COUNT(...)
  *   - #MACROLOP_VARIADICS_HEAD(...)
  *   - #MACROLOP_VARIADICS_TAIL(...)
+ *
+ * @subsection _9 Static assertions
+ * @code
+ * #include <macrolop/assert.h>
+ * @endcode
+ *
+ *  - #MACROLOP_ASSERT(expr)
+ *  - #MACROLOP_ASSERT_WITH_MSG(expr, message)
+ *  - #MACROLOP_ASSERT_EQ(lhs, rhs)
+ *  - #MACROLOP_ASSERT_EQ_WITH_MSG(lhs, rhs)
+ *  - #MACROLOP_REGULAR_ASSERT(expr)
+ *  - #MACROLOP_REGULAR_ASSERT_WITH_MSG(expr, message)
  */
 
 #ifndef MACROLOP_H
 #define MACROLOP_H
 
+#include <macrolop/assert.h>
 #include <macrolop/aux.h>
 #include <macrolop/control.h>
 #include <macrolop/eval.h>

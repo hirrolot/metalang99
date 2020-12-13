@@ -1,8 +1,7 @@
-#include "assert.h"
-
-#include "../include/macrolop/aux.h"
-#include "../include/macrolop/eval.h"
-#include "../include/macrolop/lang.h"
+#include <macrolop/assert.h>
+#include <macrolop/aux.h>
+#include <macrolop/eval.h>
+#include <macrolop/lang.h>
 
 #include <assert.h>
 

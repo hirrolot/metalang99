@@ -1,8 +1,7 @@
-#include "assert.h"
-
-#include "../include/macrolop/eval.h"
-#include "../include/macrolop/lang.h"
-#include "../include/macrolop/overload.h"
+#include <macrolop/assert.h>
+#include <macrolop/eval.h>
+#include <macrolop/lang.h>
+#include <macrolop/overload.h>
 
 #include <assert.h>
 
@@ -33,16 +32,16 @@ MACROLOP_EVAL(call(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
 #define X_3    0
 #define X_8    7
 
-ASSERT_EQ(call(X, v(~)), v(27));
-ASSERT_EQ(call(X, v(~) v(~)), v(12));
-ASSERT_EQ(call(X, v(~) v(~) v(~)), v(0));
-ASSERT_EQ(call(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
+MACROLOP_ASSERT_EQ(call(X, v(~)), v(27));
+MACROLOP_ASSERT_EQ(call(X, v(~) v(~)), v(12));
+MACROLOP_ASSERT_EQ(call(X, v(~) v(~) v(~)), v(0));
+MACROLOP_ASSERT_EQ(call(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
 
 // An empty token list is also an argument.
-ASSERT_EQ(call(X, v()), v(27));
-ASSERT_EQ(call(X, v() v()), v(12));
-ASSERT_EQ(call(X, v() v() v()), v(0));
-ASSERT_EQ(call(X, v() v() v() v() v() v() v() v()), v(7));
+MACROLOP_ASSERT_EQ(call(X, v()), v(27));
+MACROLOP_ASSERT_EQ(call(X, v() v()), v(12));
+MACROLOP_ASSERT_EQ(call(X, v() v() v()), v(0));
+MACROLOP_ASSERT_EQ(call(X, v() v() v() v() v() v() v() v()), v(7));
 
 #undef X
 #undef X_1
