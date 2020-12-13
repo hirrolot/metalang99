@@ -8,8 +8,7 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include <macrolop/aux.h>
-#include <macrolop/variadics.h>
+#include <macrolop/priv/overload.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
@@ -27,9 +26,7 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define MACROLOP_OVERLOAD_REAL(op, ...)                                                            \
-    MACROLOP_CAT(v(op), MACROLOP_VARIADICS_COUNT(v(__VA_ARGS__)))
-
+#define MACROLOP_OVERLOAD_REAL(op, ...) v(MACROLOP_PRIV_OVERLOAD(op, __VA_ARGS__))
 #define MACROLOP_OVERLOAD_CALL_REAL(op, ...)                                                       \
     call(MACROLOP_OVERLOAD(v(op), v(__VA_ARGS__)), v(__VA_ARGS__))
 
