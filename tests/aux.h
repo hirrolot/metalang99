@@ -20,7 +20,7 @@ static const char stringified[] = MACROLOP_EVAL(MACROLOP_STRINGIFY(v(hello)));
 
 // I'm not sure that the stringified version won't contain any whitespaces, so for now just check
 // that it contains _at least_ six characters.
-static_assert(sizeof(stringified) >= 5 + 1, "");
+MACROLOP_STATIC_ASSERT(sizeof(stringified) >= 5 + 1);
 
 // MACROLOP_CAT
 

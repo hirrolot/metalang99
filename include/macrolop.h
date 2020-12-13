@@ -100,8 +100,8 @@
  *  - #MACROLOP_ASSERT_WITH_MSG(expr, message)
  *  - #MACROLOP_ASSERT_EQ(lhs, rhs)
  *  - #MACROLOP_ASSERT_EQ_WITH_MSG(lhs, rhs)
- *  - #MACROLOP_REGULAR_ASSERT(expr)
- *  - #MACROLOP_REGULAR_ASSERT_WITH_MSG(expr, message)
+ *  - #MACROLOP_STATIC_ASSERT(expr)
+ *  - #MACROLOP_STATIC_ASSERT_WITH_MSG(expr, message)
  */
 
 #ifndef MACROLOP_H

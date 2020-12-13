@@ -3,17 +3,16 @@
 #include <macrolop/lang.h>
 #include <macrolop/overload.h>
 
-#include <assert.h>
-
 // MACROLOP_OVERLOAD_CALL
 
 #define X(...)    MACROLOP_OVERLOAD_CALL(v(X_), v(__VA_ARGS__))
-#define X_1(a)    v(static_assert(a == 123, "");)
-#define X_2(a, b) v(static_assert(a == 93145, ""); static_assert(b == 456, "");)
+#define X_1(a)    v(MACROLOP_STATIC_ASSERT(a == 123);)
+#define X_2(a, b) v(MACROLOP_STATIC_ASSERT(a == 93145); MACROLOP_STATIC_ASSERT(b == 456);)
 #define X_7(a, b, c, d, e, f, g)                                                                   \
-    v(static_assert(a == 1516, ""); static_assert(b == 1, ""); static_assert(c == 9, "");          \
-      static_assert(d == 111, ""); static_assert(e == 119, ""); static_assert(f == 677, "");       \
-      static_assert(g == 62, "");)
+    v(MACROLOP_STATIC_ASSERT(a == 1516); MACROLOP_STATIC_ASSERT(b == 1);                           \
+      MACROLOP_STATIC_ASSERT(c == 9); MACROLOP_STATIC_ASSERT(d == 111);                            \
+      MACROLOP_STATIC_ASSERT(e == 119); MACROLOP_STATIC_ASSERT(f == 677);                          \
+      MACROLOP_STATIC_ASSERT(g == 62);)
 
 MACROLOP_EVAL(call(X, v(123)))
 MACROLOP_EVAL(call(X, v(93145) v(456)))
