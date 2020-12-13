@@ -2,14 +2,15 @@
 #define MACROLOP_EVAL_TERM_H
 
 #include <macrolop/priv/aux.h>
+#include <macrolop/priv/variadics/get.h>
 
 #define MACROLOP_PRIV_EVAL_TERM_END() (end, ~)
 
 #define MACROLOP_PRIV_EVAL_TERM_KIND(term)                                                         \
-    MACROLOP_PRIV_AUX_HEAD(MACROLOP_PRIV_AUX_UNPARENTHESISE(term))
+    MACROLOP_PRIV_VARIADICS_HEAD(MACROLOP_PRIV_AUX_UNPARENTHESISE(term))
 
 #define MACROLOP_PRIV_EVAL_TERM_DATA(term)                                                         \
-    MACROLOP_PRIV_AUX_TAIL(MACROLOP_PRIV_AUX_UNPARENTHESISE(term))
+    MACROLOP_PRIV_VARIADICS_TAIL(MACROLOP_PRIV_AUX_UNPARENTHESISE(term))
 
 #define MACROLOP_PRIV_EVAL_TERM_MATCH(op, term, ...)                                               \
     MACROLOP_PRIV_EVAL_TERM_MATCH_AUX(                                                             \
