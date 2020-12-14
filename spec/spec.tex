@@ -7,13 +7,11 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{ntheorem}
-\usepackage{geometry}
 \usepackage{biblatex}
 \usepackage{csquotes}
 \usepackage{tabularx}
 \usepackage[english]{babel}
 
-\geometry{legalpaper}
 \theoremstyle{break}
 \newtheorem{notation}{Notation}
 \newtheorem{example}{Example}
@@ -32,9 +30,8 @@
 
 \begin{abstract}
 This paper formally describes the form and execution of metaprograms written in Macrolop,
-an embedded metalanguage aimed at language-oriented programming in C. See also the official
-repository \cite{Macrolop} for the user-friendly overview and the accompanied standard
-library \cite{MacrolopDocs}.
+an embedded metalanguage aimed at language-oriented programming in C. It is \textbf{not}
+designed as a user-friendly overview -- see the official repository \cite{Macrolop}.
 \end{abstract}
 
 \tableofcontents
@@ -90,22 +87,26 @@ higher-order macros require so for supplied user macros.
 
 \section{Notations}
 
-\begin{notation}[Sequence]
-    \begin{enumerate}
-        \item A sequence has the form $(x_1, \ldots, x_n)$.
-        \item $()$ denotes the empty sequence.
-        \item An element can be appended by comma: if $a = (1, 2, 3)$ and $b = 4$, then $a, b = (1, 2, 3, 4)$.
-        \item \texttt{unseq} extracts elements from a sequence without a separator: \\
-        \texttt{unseq((a, b, c)) = a b c}.
-        \item \texttt{comma-sep} places \texttt{v(,)} between terms in a concrete sequence of terms:\\
-        \texttt{comma-sep(v(123) call(FOO, v(a)) call(BAR, v(b)))} results in
-        \texttt{v(123) v(,) call(FOO, v(a)) v(,) call(BAR, v(b))}.
-    \end{enumerate}
-\end{notation}
-
 \begin{notation}[Concrete sequence]
-    $\overline{x}$ denotes a concrete sequence $x_1 \ldots x_n$. For example:
-    \texttt{v(abc) call(FOO, v(123)) v(u 8 9)}.
+    \begin{itemize}
+        \item $\overline{x}$ denotes a concrete sequence $x_1 \ldots x_n$ (either of terms
+        or preprocessor tokens). For example:
+        \begin{itemize}
+            \item $v(abc) \ call(FOO, v(123)) \ v(u \ 8 \ 9)$ (of Macrolop terms)
+            \item $abc \ 13 \ "hello" \ + \ -$ (of preprocessor tokens)
+        \end{itemize}
+        \item $S \ x$ is appending an element or sequence $x$ to a sequence $S$. For
+        example:
+        \begin{itemize}
+            \item let $S$ be $v(1) \ v(2)$ and $x$ is $v(3)$, then $S \ x$ is $v(1) \ v(2) \ v(3)$
+            (appending an element)
+            \item let $S$ be $v(1) \ v(2)$ and $x$ is $v(3) \ v(abc)$, then $S \ x$ is $v(1) \ v(2) \ v(3) \\ v(abc)$
+            (appending a sequence)
+        \end{itemize}
+        \item $comma\mbox{-}sep$ places $v(,)$ between terms in a concrete sequence of terms:\\
+        $comma\mbox{-}sep(v(1) \ v(2) \ call(FOO, v(a)))$ results in\\
+        $v(1) \ v(,) \ v(2) \ v(,) \ call(FOO, v(a))$.
+    \end{itemize}
 \end{notation}
 
 \begin{notation}[Reduction step]
@@ -138,15 +139,17 @@ of the form $\langle K; A; C \rangle$:
 \begin{itemize}
     \item $K$ is a continuation of the form $\langle K; A; C \rangle$, where
     $C$ includes the $?$ sign denoting a result passed into a continuation.
-    For example, let $K$ be $\langle K'; (1, 2, 3); v(abc) \\ ? \rangle$,
-    then $K(v(ghi))$ is $\langle K'; (1, 2, 3); v(abc) \ v(ghi) \rangle$. A special
-    continuation $halt$ terminates the abstract machine with provided result.
+    For example, let $K$ be $\langle K'; (1, 2, 3); v(x) \ ? \rangle$,
+    then $K(v(y))$ is $\langle K'; (1, 2, 3); v(x) \ v(y) \rangle$.
 
-    \item $A$ is an accumulator, a sequence of already computed
+    \item A special continuation $halt$ terminates the abstract machine and
+    substitutes itself with a provided result.
+
+    \item $A$ is an accumulator, a concrete sequence of already computed
     results.
 
     \item $C$ (control) is a concrete sequence of terms upon which the abstract
-    machine is operating right now. For example: \texttt{call(FOO, v(123) v(456)) v(w 8) v(blah)}.
+    machine is operating right now.
 \end{itemize}
 
 And here are the computational rules:
@@ -155,16 +158,15 @@ And here are the computational rules:
     \caption{Computational rules}
 
     \begin{align*}
-        (v): \ & \langle K; A; v(\overline{tok}) \ t \ \overline{t'} \rangle & \to &
-            \langle K; A, \ \overline{tok}; t \ \overline{t'} \rangle \\
-        (v\mbox{-}end): \ & \langle K; A; v(\overline{tok}) \rangle & \to &
-            K(unseq(A, \overline{tok})) \\
+        (v): \ & \langle K; A; v(\overline{tok}) \ \overline{t} \rangle & \to &
+            \langle K; A \ \overline{tok}; \overline{t} \rangle \\
         (op): \ & \langle K; A; call(\overline{t}, \overline{a}) \ \overline{t'} \rangle & \to &
             \langle \langle K; A; call(?, \overline{a}) \ \overline{t'} \rangle; (); \overline{t} \rangle \\
         (args): \ & \langle K; A; call(ident, \overline{a}) \ \overline{t} \rangle & \to
             & \langle \langle K; A; ident(?) \ \overline{t} \rangle; (); comma\mbox{-}sep(\overline{a}) \rangle \\
-        (start): \ & MACROLOP\_EVAL(\overline{t'}) & \to &
-            \langle halt; (); \overline{t'} \rangle
+        (end): \ & \langle K; A; \rangle & \to & K(A) \\
+        (start): \ & MACROLOP\_EVAL(\overline{t}) & \to &
+            \langle halt; (); \overline{t} \rangle
     \end{align*}
 \end{figure}
 
@@ -184,23 +186,9 @@ Notes:
     possible. After exceeding this limit, compilation will likely fail.
 \end{itemize}
 
-The essence of the Macrolop metalanguage is that it allows recursive macro calls. But
-to be precise, it allows only indirect recursion. Consider these two cases:
+\subsection{Examples}
 
-\begin{itemize}
-    \item Direct recursion: $call(X, \overline{tok}) \to \overline{t}$, where
-    $\overline{t}$ contains $X$. Then this $X$ will be blocked forever due to the
-    rules of the C preprocessor (an expansion of \texttt{X(...)} containing
-    \texttt{X}).
-
-    \item Indirect recursion: $call(X, \overline{a}) \twoheadrightarrow
-    \overline{t} \ call(Y, \overline{a'}) \ \overline{t'}$ and
-    $call(Y, \overline{a'}) \twoheadrightarrow \overline{t''}$, where $\overline{t''}$
-    contains $X$. Then this $X$ will \textbf{not} be blocked by the C preprocessor,
-    e.g. can be invoked again.
-\end{itemize}
-
-Now let's move on to the examples of reduction. Take the following code:
+Take the following code:
 
 \begin{minted}{c}
 #define X(op)        call(op, v(123))
@@ -218,21 +206,32 @@ See how \texttt{call(X, v(CALL\_X))} is evaluated:
     \langle halt; (); call(X, v(CALL\_X)) \rangle \\
     \downarrow (args) \\
     \langle \langle halt; (); X(?) \rangle; (); v(CALL\_X) \rangle \\
-    \downarrow (v\mbox{-}end) \\
+    \downarrow (v) \\
+    \langle \langle halt; (); X(?) \rangle; CALL\_X; \rangle \\
+    \downarrow (end) \\
     \langle halt; (); call(CALL\_X, v(123)) \rangle \\
     \downarrow (args) \\
     \langle \langle halt; (); CALL\_X(?) \rangle; (); v(123) \rangle \\
-    \downarrow (v\mbox{-}end) \\
+    \downarrow (v) \\
+    \langle \langle halt; (); CALL\_X(?) \rangle; 123; \rangle \\
+    \downarrow (end) \\
     \langle halt; (); call(X, v(ID)) \rangle \\
     \downarrow (args) \\
     \langle \langle halt; (); X(?) \rangle; (); v(ID) \rangle \\
-    \downarrow (v\mbox{-}end) \\
+    \downarrow (v) \\
+    \langle \langle halt; (); X(?) \rangle; ID; \rangle \\
+    \downarrow (end) \\
     \langle halt; (); call(ID, v(123)) \rangle \\
     \downarrow (args) \\
     \langle \langle halt; (); ID(?) \rangle; (); v(123) \rangle \\
-    \downarrow (v\mbox{-}end) \\
+    \displaybreak
+    \downarrow (v) \\
+    \langle \langle halt; (); ID(?) \rangle; 123; \rangle \\
+    \downarrow (end) \\
     \langle halt; (); v(123) \rangle \\
-    \downarrow (v\mbox{-}end) \\
+    \downarrow (v) \\
+    \langle halt; 123; \rangle \\
+    \downarrow (end) \\
     halt(123)
 \end{gather*}
 \normalsize
