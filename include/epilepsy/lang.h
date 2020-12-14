@@ -26,8 +26,8 @@
         EPILEPSY_PRIV_call_NON_TRIVIAL)                                                            \
     (op, __VA_ARGS__),
 
-#define EPILEPSY_PRIV_call_TRIVIAL(op, ...)                 (trivial_call, op, __VA_ARGS__)
-#define EPILEPSY_PRIV_call_NON_TRIVIAL(op, _emptiness, ...) (call, op, __VA_ARGS__)
+#define EPILEPSY_PRIV_call_TRIVIAL(ident, ...)              (op, ident, __VA_ARGS__)
+#define EPILEPSY_PRIV_call_NON_TRIVIAL(op, _emptiness, ...) (args, op, __VA_ARGS__)
 
 #define EPILEPSY_PRIV_LANG_IS_TRIVIAL_OP(op)                                                       \
     EPILEPSY_PRIV_LANG_IS_TRIVIAL_OP_AUX(EPILEPSY_PRIV_LANG_IS_TRIVIAL_OP_NO op, 1, ~)
