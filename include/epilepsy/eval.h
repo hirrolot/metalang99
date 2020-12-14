@@ -60,7 +60,7 @@
     EPILEPSY_PRIV_EVAL_MACHINE_OP_STOP(k, k_cx, acc)
 
 #define EPILEPSY_PRIV_EVAL_MATCH_op_TRANSFORM(k, k_cx, acc, tail, evaluated_op, ...)               \
-    EPILEPSY_PRIV_EVAL_MACHINE_OP_CONTINUE(                                                        \
+    EPILEPSY_PRIV_EVAL_MATCH(                                                                      \
         k, k_cx, acc, evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
 #define EPILEPSY_PRIV_EVAL_MATCH_args_TRANSFORM(k, k_cx, acc, tail, args, evaluated_op)            \
