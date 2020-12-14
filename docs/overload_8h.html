@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Macrolop: include/macrolop/overload.h File Reference</title>
+<title>Epilepsy: include/epilepsy/overload.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,10 +28,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Macrolop
+   <div id="projectname">Epilepsy
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
-   <div id="projectbrief">Language-oriented programming in C</div>
+   <div id="projectbrief">Full-blown preprocessor metaprogramming in C</div>
   </td>
  </tr>
  </tbody>
@@ -90,13 +90,13 @@ $(document).ready(function(){initNavTree('overload_8h.html','');});
 
 <p>Overloading on a number of arguments.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">macrolop/lang.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">epilepsy/lang.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="overload_8h__dep__incl.png" border="0" usemap="#include_2macrolop_2overload_8hdep" alt=""/></div>
-<map name="include_2macrolop_2overload_8hdep" id="include_2macrolop_2overload_8hdep">
-<area shape="rect" id="node2" href="macrolop_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="32,80,163,107"/>
+<div class="center"><img src="overload_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2overload_8hdep" alt=""/></div>
+<map name="include_2epilepsy_2overload_8hdep" id="include_2epilepsy_2overload_8hdep">
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="31,80,158,107"/>
 </map>
 </div>
 </div>
@@ -104,14 +104,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a6e3a1137e1b62183230ac5d74b34ce07"><td class="memItemLeft" align="right" valign="top"><a id="a6e3a1137e1b62183230ac5d74b34ce07"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a6e3a1137e1b62183230ac5d74b34ce07">MACROLOP_OVERLOAD</a>(op, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(MACROLOP_OVERLOAD_REAL, op __VA_ARGS__)</td></tr>
-<tr class="memdesc:a6e3a1137e1b62183230ac5d74b34ce07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload <code>op</code> on a number of arguments. <br /></td></tr>
-<tr class="separator:a6e3a1137e1b62183230ac5d74b34ce07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40d5c67493d5b1d496c58b319722b127"><td class="memItemLeft" align="right" valign="top"><a id="a40d5c67493d5b1d496c58b319722b127"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a40d5c67493d5b1d496c58b319722b127">MACROLOP_OVERLOAD_CALL</a>(op, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(MACROLOP_OVERLOAD_CALL_REAL, op __VA_ARGS__)</td></tr>
-<tr class="memdesc:a40d5c67493d5b1d496c58b319722b127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads <code>op</code> on a number of arguments an immediately calls it. <br /></td></tr>
-<tr class="separator:a40d5c67493d5b1d496c58b319722b127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c8c20761de3c2dfbac98e251a44bad"><td class="memItemLeft" align="right" valign="top"><a id="a91c8c20761de3c2dfbac98e251a44bad"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a91c8c20761de3c2dfbac98e251a44bad">EPILEPSY_OVERLOAD</a>(op, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_OVERLOAD_REAL, op __VA_ARGS__)</td></tr>
+<tr class="memdesc:a91c8c20761de3c2dfbac98e251a44bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload <code>op</code> on a number of arguments. <br /></td></tr>
+<tr class="separator:a91c8c20761de3c2dfbac98e251a44bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208315cc377895b5a33379e3bc9298c6"><td class="memItemLeft" align="right" valign="top"><a id="a208315cc377895b5a33379e3bc9298c6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a208315cc377895b5a33379e3bc9298c6">EPILEPSY_OVERLOAD_CALL</a>(op, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_OVERLOAD_CALL_REAL, op __VA_ARGS__)</td></tr>
+<tr class="memdesc:a208315cc377895b5a33379e3bc9298c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads <code>op</code> on a number of arguments an immediately calls it. <br /></td></tr>
+<tr class="separator:a208315cc377895b5a33379e3bc9298c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Overloading on a number of arguments. </p>
@@ -120,7 +120,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e760eab8d0480921b9f1322654973391.html">macrolop</a></li><li class="navelem"><a class="el" href="overload_8h.html">overload.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8b54cf64a24d33e173ded5e34b1cf731.html">epilepsy</a></li><li class="navelem"><a class="el" href="overload_8h.html">overload.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

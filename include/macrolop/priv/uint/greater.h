@@ -1,8 +1,0 @@
-#ifndef MACROLOP_PRIV_UINT_GREATER_H
-#define MACROLOP_PRIV_UINT_GREATER_H
-
-#include <macrolop/priv/uint/lesser.h>
-
-#define MACROLOP_PRIV_UINT_GREATER(x, y) MACROLOP_PRIV_UINT_LESSER(y, x)
-
-#endif // MACROLOP_PRIV_UINT_GREATER_H

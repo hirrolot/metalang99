@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Macrolop: include/macrolop/control.h File Reference</title>
+<title>Epilepsy: include/epilepsy/control.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,10 +28,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Macrolop
+   <div id="projectname">Epilepsy
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
-   <div id="projectbrief">Language-oriented programming in C</div>
+   <div id="projectbrief">Full-blown preprocessor metaprogramming in C</div>
   </td>
  </tr>
  </tbody>
@@ -93,9 +93,9 @@ $(document).ready(function(){initNavTree('control_8h.html','');});
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="control_8h__dep__incl.png" border="0" usemap="#include_2macrolop_2control_8hdep" alt=""/></div>
-<map name="include_2macrolop_2control_8hdep" id="include_2macrolop_2control_8hdep">
-<area shape="rect" id="node2" href="macrolop_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="27,80,158,107"/>
+<div class="center"><img src="control_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2control_8hdep" alt=""/></div>
+<map name="include_2epilepsy_2control_8hdep" id="include_2epilepsy_2control_8hdep">
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="27,80,153,107"/>
 </map>
 </div>
 </div>
@@ -103,14 +103,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a3249b9dcf76191c70545726d394bf9e1"><td class="memItemLeft" align="right" valign="top"><a id="a3249b9dcf76191c70545726d394bf9e1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a3249b9dcf76191c70545726d394bf9e1">MACROLOP_IF</a>(cond,  x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(MACROLOP_IF_REAL, cond x y)</td></tr>
-<tr class="memdesc:a3249b9dcf76191c70545726d394bf9e1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>x</code> if <code>cond</code> expands to 1, otherwise <code>y</code>. <br /></td></tr>
-<tr class="separator:a3249b9dcf76191c70545726d394bf9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bf4943a5568392e973474cc61888bbc"><td class="memItemLeft" align="right" valign="top"><a id="a1bf4943a5568392e973474cc61888bbc"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a1bf4943a5568392e973474cc61888bbc">MACROLOP_WHILE</a>(predicate,  op,  state)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(MACROLOP_WHILE_REAL, predicate op state)</td></tr>
-<tr class="memdesc:a1bf4943a5568392e973474cc61888bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>op</code> as long as <code>predicate</code> holds for <code>state</code>. <br /></td></tr>
-<tr class="separator:a1bf4943a5568392e973474cc61888bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a8154ae70bba213845a654584ddad6f"><td class="memItemLeft" align="right" valign="top"><a id="a1a8154ae70bba213845a654584ddad6f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a1a8154ae70bba213845a654584ddad6f">EPILEPSY_IF</a>(cond,  x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_IF_REAL, cond x y)</td></tr>
+<tr class="memdesc:a1a8154ae70bba213845a654584ddad6f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>x</code> if <code>cond</code> expands to 1, otherwise <code>y</code>. <br /></td></tr>
+<tr class="separator:a1a8154ae70bba213845a654584ddad6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0700bcbd0cec9ad85f6032782f562f"><td class="memItemLeft" align="right" valign="top"><a id="add0700bcbd0cec9ad85f6032782f562f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#add0700bcbd0cec9ad85f6032782f562f">EPILEPSY_WHILE</a>(predicate,  op,  state)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_WHILE_REAL, predicate op state)</td></tr>
+<tr class="memdesc:add0700bcbd0cec9ad85f6032782f562f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>op</code> as long as <code>predicate</code> holds for <code>state</code>. <br /></td></tr>
+<tr class="separator:add0700bcbd0cec9ad85f6032782f562f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Control expressions. </p>
@@ -119,7 +119,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e760eab8d0480921b9f1322654973391.html">macrolop</a></li><li class="navelem"><a class="el" href="control_8h.html">control.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8b54cf64a24d33e173ded5e34b1cf731.html">epilepsy</a></li><li class="navelem"><a class="el" href="control_8h.html">control.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Macrolop", "index.html", [
+  [ "Epilepsy", "index.html", [
     [ "Introduction", "index.html", [
       [ "Summary", "index.html#Summary", [
         [ "Metalanguage syntax", "index.html#_0", null ],

@@ -1,0 +1,11268 @@
+#ifndef EPILEPSY_EVAL_REC_UNROLL_2048_TO_3071_H
+#define EPILEPSY_EVAL_REC_UNROLL_2048_TO_3071_H
+
+#define EPILEPSY_PRIV_EVAL_REC_2048(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2048_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2048_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2048_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2048_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2048_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2048_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2048_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2048_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2048_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2048_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2049
+#define EPILEPSY_PRIV_EVAL_REC_2048_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2049(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2049_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2049_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2049_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2049_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2049_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2049_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2049_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2049_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2049_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2049_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2050
+#define EPILEPSY_PRIV_EVAL_REC_2049_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2050(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2050_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2050_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2050_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2050_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2050_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2050_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2050_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2050_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2050_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2050_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2051
+#define EPILEPSY_PRIV_EVAL_REC_2050_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2051(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2051_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2051_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2051_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2051_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2051_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2051_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2051_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2051_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2051_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2051_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2052
+#define EPILEPSY_PRIV_EVAL_REC_2051_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2052(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2052_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2052_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2052_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2052_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2052_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2052_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2052_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2052_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2052_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2052_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2053
+#define EPILEPSY_PRIV_EVAL_REC_2052_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2053(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2053_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2053_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2053_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2053_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2053_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2053_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2053_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2053_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2053_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2053_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2054
+#define EPILEPSY_PRIV_EVAL_REC_2053_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2054(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2054_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2054_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2054_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2054_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2054_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2054_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2054_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2054_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2054_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2054_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2055
+#define EPILEPSY_PRIV_EVAL_REC_2054_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2055(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2055_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2055_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2055_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2055_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2055_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2055_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2055_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2055_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2055_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2055_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2056
+#define EPILEPSY_PRIV_EVAL_REC_2055_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2056(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2056_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2056_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2056_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2056_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2056_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2056_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2056_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2056_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2056_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2056_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2057
+#define EPILEPSY_PRIV_EVAL_REC_2056_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2057(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2057_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2057_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2057_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2057_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2057_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2057_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2057_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2057_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2057_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2057_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2058
+#define EPILEPSY_PRIV_EVAL_REC_2057_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2058(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2058_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2058_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2058_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2058_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2058_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2058_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2058_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2058_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2058_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2058_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2059
+#define EPILEPSY_PRIV_EVAL_REC_2058_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2059(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2059_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2059_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2059_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2059_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2059_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2059_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2059_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2059_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2059_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2059_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2060
+#define EPILEPSY_PRIV_EVAL_REC_2059_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2060(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2060_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2060_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2060_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2060_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2060_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2060_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2060_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2060_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2060_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2060_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2061
+#define EPILEPSY_PRIV_EVAL_REC_2060_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2061(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2061_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2061_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2061_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2061_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2061_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2061_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2061_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2061_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2061_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2061_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2062
+#define EPILEPSY_PRIV_EVAL_REC_2061_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2062(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2062_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2062_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2062_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2062_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2062_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2062_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2062_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2062_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2062_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2062_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2063
+#define EPILEPSY_PRIV_EVAL_REC_2062_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2063(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2063_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2063_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2063_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2063_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2063_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2063_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2063_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2063_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2063_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2063_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2064
+#define EPILEPSY_PRIV_EVAL_REC_2063_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2064(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2064_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2064_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2064_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2064_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2064_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2064_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2064_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2064_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2064_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2064_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2065
+#define EPILEPSY_PRIV_EVAL_REC_2064_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2065(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2065_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2065_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2065_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2065_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2065_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2065_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2065_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2065_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2065_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2065_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2066
+#define EPILEPSY_PRIV_EVAL_REC_2065_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2066(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2066_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2066_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2066_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2066_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2066_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2066_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2066_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2066_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2066_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2066_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2067
+#define EPILEPSY_PRIV_EVAL_REC_2066_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2067(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2067_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2067_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2067_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2067_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2067_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2067_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2067_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2067_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2067_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2067_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2068
+#define EPILEPSY_PRIV_EVAL_REC_2067_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2068(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2068_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2068_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2068_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2068_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2068_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2068_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2068_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2068_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2068_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2068_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2069
+#define EPILEPSY_PRIV_EVAL_REC_2068_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2069(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2069_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2069_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2069_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2069_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2069_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2069_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2069_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2069_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2069_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2069_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2070
+#define EPILEPSY_PRIV_EVAL_REC_2069_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2070(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2070_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2070_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2070_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2070_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2070_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2070_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2070_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2070_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2070_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2070_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2071
+#define EPILEPSY_PRIV_EVAL_REC_2070_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2071(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2071_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2071_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2071_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2071_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2071_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2071_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2071_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2071_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2071_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2071_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2072
+#define EPILEPSY_PRIV_EVAL_REC_2071_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2072(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2072_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2072_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2072_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2072_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2072_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2072_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2072_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2072_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2072_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2072_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2073
+#define EPILEPSY_PRIV_EVAL_REC_2072_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2073(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2073_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2073_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2073_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2073_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2073_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2073_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2073_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2073_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2073_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2073_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2074
+#define EPILEPSY_PRIV_EVAL_REC_2073_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2074(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2074_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2074_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2074_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2074_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2074_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2074_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2074_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2074_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2074_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2074_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2075
+#define EPILEPSY_PRIV_EVAL_REC_2074_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2075(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2075_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2075_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2075_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2075_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2075_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2075_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2075_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2075_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2075_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2075_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2076
+#define EPILEPSY_PRIV_EVAL_REC_2075_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2076(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2076_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2076_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2076_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2076_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2076_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2076_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2076_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2076_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2076_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2076_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2077
+#define EPILEPSY_PRIV_EVAL_REC_2076_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2077(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2077_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2077_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2077_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2077_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2077_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2077_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2077_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2077_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2077_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2077_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2078
+#define EPILEPSY_PRIV_EVAL_REC_2077_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2078(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2078_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2078_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2078_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2078_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2078_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2078_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2078_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2078_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2078_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2078_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2079
+#define EPILEPSY_PRIV_EVAL_REC_2078_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2079(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2079_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2079_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2079_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2079_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2079_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2079_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2079_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2079_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2079_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2079_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2080
+#define EPILEPSY_PRIV_EVAL_REC_2079_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2080(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2080_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2080_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2080_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2080_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2080_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2080_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2080_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2080_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2080_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2080_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2081
+#define EPILEPSY_PRIV_EVAL_REC_2080_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2081(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2081_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2081_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2081_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2081_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2081_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2081_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2081_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2081_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2081_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2081_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2082
+#define EPILEPSY_PRIV_EVAL_REC_2081_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2082(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2082_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2082_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2082_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2082_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2082_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2082_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2082_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2082_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2082_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2082_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2083
+#define EPILEPSY_PRIV_EVAL_REC_2082_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2083(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2083_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2083_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2083_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2083_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2083_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2083_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2083_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2083_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2083_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2083_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2084
+#define EPILEPSY_PRIV_EVAL_REC_2083_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2084(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2084_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2084_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2084_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2084_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2084_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2084_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2084_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2084_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2084_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2084_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2085
+#define EPILEPSY_PRIV_EVAL_REC_2084_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2085(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2085_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2085_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2085_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2085_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2085_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2085_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2085_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2085_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2085_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2085_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2086
+#define EPILEPSY_PRIV_EVAL_REC_2085_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2086(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2086_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2086_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2086_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2086_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2086_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2086_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2086_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2086_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2086_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2086_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2087
+#define EPILEPSY_PRIV_EVAL_REC_2086_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2087(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2087_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2087_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2087_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2087_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2087_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2087_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2087_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2087_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2087_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2087_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2088
+#define EPILEPSY_PRIV_EVAL_REC_2087_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2088(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2088_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2088_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2088_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2088_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2088_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2088_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2088_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2088_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2088_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2088_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2089
+#define EPILEPSY_PRIV_EVAL_REC_2088_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2089(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2089_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2089_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2089_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2089_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2089_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2089_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2089_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2089_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2089_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2089_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2090
+#define EPILEPSY_PRIV_EVAL_REC_2089_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2090(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2090_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2090_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2090_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2090_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2090_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2090_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2090_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2090_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2090_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2090_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2091
+#define EPILEPSY_PRIV_EVAL_REC_2090_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2091(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2091_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2091_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2091_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2091_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2091_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2091_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2091_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2091_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2091_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2091_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2092
+#define EPILEPSY_PRIV_EVAL_REC_2091_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2092(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2092_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2092_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2092_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2092_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2092_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2092_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2092_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2092_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2092_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2092_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2093
+#define EPILEPSY_PRIV_EVAL_REC_2092_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2093(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2093_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2093_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2093_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2093_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2093_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2093_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2093_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2093_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2093_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2093_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2094
+#define EPILEPSY_PRIV_EVAL_REC_2093_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2094(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2094_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2094_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2094_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2094_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2094_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2094_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2094_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2094_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2094_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2094_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2095
+#define EPILEPSY_PRIV_EVAL_REC_2094_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2095(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2095_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2095_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2095_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2095_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2095_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2095_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2095_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2095_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2095_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2095_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2096
+#define EPILEPSY_PRIV_EVAL_REC_2095_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2096(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2096_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2096_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2096_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2096_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2096_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2096_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2096_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2096_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2096_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2096_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2097
+#define EPILEPSY_PRIV_EVAL_REC_2096_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2097(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2097_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2097_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2097_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2097_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2097_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2097_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2097_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2097_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2097_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2097_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2098
+#define EPILEPSY_PRIV_EVAL_REC_2097_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2098(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2098_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2098_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2098_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2098_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2098_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2098_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2098_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2098_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2098_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2098_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2099
+#define EPILEPSY_PRIV_EVAL_REC_2098_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2099(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2099_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2099_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2099_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2099_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2099_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2099_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2099_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2099_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2099_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2099_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2100
+#define EPILEPSY_PRIV_EVAL_REC_2099_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2100(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2100_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2100_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2100_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2100_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2100_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2100_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2100_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2100_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2100_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2100_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2101
+#define EPILEPSY_PRIV_EVAL_REC_2100_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2101(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2101_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2101_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2101_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2101_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2101_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2101_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2101_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2101_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2101_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2101_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2102
+#define EPILEPSY_PRIV_EVAL_REC_2101_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2102(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2102_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2102_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2102_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2102_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2102_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2102_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2102_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2102_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2102_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2102_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2103
+#define EPILEPSY_PRIV_EVAL_REC_2102_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2103(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2103_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2103_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2103_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2103_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2103_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2103_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2103_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2103_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2103_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2103_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2104
+#define EPILEPSY_PRIV_EVAL_REC_2103_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2104(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2104_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2104_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2104_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2104_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2104_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2104_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2104_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2104_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2104_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2104_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2105
+#define EPILEPSY_PRIV_EVAL_REC_2104_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2105(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2105_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2105_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2105_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2105_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2105_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2105_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2105_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2105_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2105_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2105_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2106
+#define EPILEPSY_PRIV_EVAL_REC_2105_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2106(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2106_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2106_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2106_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2106_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2106_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2106_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2106_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2106_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2106_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2106_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2107
+#define EPILEPSY_PRIV_EVAL_REC_2106_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2107(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2107_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2107_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2107_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2107_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2107_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2107_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2107_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2107_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2107_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2107_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2108
+#define EPILEPSY_PRIV_EVAL_REC_2107_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2108(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2108_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2108_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2108_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2108_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2108_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2108_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2108_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2108_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2108_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2108_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2109
+#define EPILEPSY_PRIV_EVAL_REC_2108_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2109(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2109_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2109_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2109_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2109_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2109_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2109_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2109_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2109_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2109_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2109_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2110
+#define EPILEPSY_PRIV_EVAL_REC_2109_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2110(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2110_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2110_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2110_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2110_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2110_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2110_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2110_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2110_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2110_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2110_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2111
+#define EPILEPSY_PRIV_EVAL_REC_2110_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2111(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2111_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2111_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2111_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2111_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2111_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2111_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2111_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2111_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2111_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2111_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2112
+#define EPILEPSY_PRIV_EVAL_REC_2111_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2112(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2112_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2112_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2112_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2112_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2112_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2112_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2112_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2112_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2112_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2112_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2113
+#define EPILEPSY_PRIV_EVAL_REC_2112_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2113(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2113_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2113_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2113_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2113_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2113_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2113_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2113_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2113_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2113_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2113_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2114
+#define EPILEPSY_PRIV_EVAL_REC_2113_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2114(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2114_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2114_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2114_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2114_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2114_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2114_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2114_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2114_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2114_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2114_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2115
+#define EPILEPSY_PRIV_EVAL_REC_2114_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2115(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2115_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2115_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2115_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2115_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2115_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2115_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2115_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2115_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2115_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2115_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2116
+#define EPILEPSY_PRIV_EVAL_REC_2115_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2116(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2116_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2116_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2116_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2116_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2116_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2116_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2116_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2116_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2116_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2116_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2117
+#define EPILEPSY_PRIV_EVAL_REC_2116_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2117(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2117_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2117_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2117_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2117_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2117_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2117_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2117_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2117_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2117_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2117_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2118
+#define EPILEPSY_PRIV_EVAL_REC_2117_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2118(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2118_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2118_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2118_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2118_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2118_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2118_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2118_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2118_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2118_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2118_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2119
+#define EPILEPSY_PRIV_EVAL_REC_2118_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2119(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2119_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2119_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2119_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2119_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2119_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2119_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2119_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2119_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2119_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2119_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2120
+#define EPILEPSY_PRIV_EVAL_REC_2119_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2120(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2120_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2120_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2120_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2120_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2120_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2120_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2120_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2120_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2120_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2120_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2121
+#define EPILEPSY_PRIV_EVAL_REC_2120_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2121(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2121_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2121_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2121_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2121_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2121_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2121_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2121_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2121_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2121_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2121_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2122
+#define EPILEPSY_PRIV_EVAL_REC_2121_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2122(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2122_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2122_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2122_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2122_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2122_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2122_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2122_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2122_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2122_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2122_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2123
+#define EPILEPSY_PRIV_EVAL_REC_2122_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2123(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2123_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2123_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2123_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2123_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2123_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2123_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2123_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2123_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2123_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2123_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2124
+#define EPILEPSY_PRIV_EVAL_REC_2123_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2124(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2124_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2124_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2124_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2124_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2124_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2124_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2124_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2124_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2124_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2124_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2125
+#define EPILEPSY_PRIV_EVAL_REC_2124_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2125(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2125_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2125_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2125_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2125_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2125_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2125_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2125_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2125_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2125_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2125_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2126
+#define EPILEPSY_PRIV_EVAL_REC_2125_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2126(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2126_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2126_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2126_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2126_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2126_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2126_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2126_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2126_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2126_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2126_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2127
+#define EPILEPSY_PRIV_EVAL_REC_2126_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2127(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2127_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2127_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2127_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2127_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2127_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2127_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2127_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2127_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2127_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2127_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2128
+#define EPILEPSY_PRIV_EVAL_REC_2127_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2128(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2128_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2128_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2128_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2128_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2128_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2128_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2128_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2128_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2128_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2128_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2129
+#define EPILEPSY_PRIV_EVAL_REC_2128_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2129(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2129_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2129_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2129_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2129_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2129_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2129_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2129_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2129_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2129_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2129_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2130
+#define EPILEPSY_PRIV_EVAL_REC_2129_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2130(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2130_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2130_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2130_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2130_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2130_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2130_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2130_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2130_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2130_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2130_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2131
+#define EPILEPSY_PRIV_EVAL_REC_2130_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2131(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2131_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2131_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2131_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2131_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2131_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2131_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2131_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2131_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2131_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2131_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2132
+#define EPILEPSY_PRIV_EVAL_REC_2131_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2132(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2132_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2132_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2132_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2132_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2132_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2132_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2132_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2132_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2132_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2132_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2133
+#define EPILEPSY_PRIV_EVAL_REC_2132_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2133(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2133_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2133_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2133_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2133_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2133_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2133_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2133_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2133_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2133_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2133_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2134
+#define EPILEPSY_PRIV_EVAL_REC_2133_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2134(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2134_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2134_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2134_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2134_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2134_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2134_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2134_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2134_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2134_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2134_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2135
+#define EPILEPSY_PRIV_EVAL_REC_2134_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2135(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2135_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2135_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2135_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2135_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2135_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2135_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2135_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2135_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2135_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2135_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2136
+#define EPILEPSY_PRIV_EVAL_REC_2135_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2136(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2136_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2136_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2136_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2136_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2136_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2136_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2136_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2136_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2136_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2136_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2137
+#define EPILEPSY_PRIV_EVAL_REC_2136_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2137(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2137_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2137_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2137_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2137_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2137_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2137_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2137_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2137_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2137_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2137_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2138
+#define EPILEPSY_PRIV_EVAL_REC_2137_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2138(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2138_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2138_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2138_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2138_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2138_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2138_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2138_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2138_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2138_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2138_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2139
+#define EPILEPSY_PRIV_EVAL_REC_2138_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2139(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2139_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2139_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2139_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2139_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2139_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2139_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2139_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2139_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2139_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2139_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2140
+#define EPILEPSY_PRIV_EVAL_REC_2139_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2140(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2140_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2140_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2140_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2140_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2140_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2140_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2140_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2140_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2140_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2140_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2141
+#define EPILEPSY_PRIV_EVAL_REC_2140_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2141(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2141_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2141_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2141_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2141_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2141_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2141_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2141_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2141_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2141_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2141_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2142
+#define EPILEPSY_PRIV_EVAL_REC_2141_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2142(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2142_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2142_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2142_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2142_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2142_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2142_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2142_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2142_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2142_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2142_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2143
+#define EPILEPSY_PRIV_EVAL_REC_2142_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2143(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2143_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2143_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2143_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2143_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2143_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2143_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2143_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2143_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2143_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2143_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2144
+#define EPILEPSY_PRIV_EVAL_REC_2143_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2144(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2144_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2144_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2144_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2144_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2144_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2144_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2144_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2144_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2144_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2144_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2145
+#define EPILEPSY_PRIV_EVAL_REC_2144_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2145(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2145_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2145_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2145_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2145_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2145_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2145_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2145_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2145_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2145_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2145_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2146
+#define EPILEPSY_PRIV_EVAL_REC_2145_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2146(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2146_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2146_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2146_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2146_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2146_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2146_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2146_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2146_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2146_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2146_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2147
+#define EPILEPSY_PRIV_EVAL_REC_2146_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2147(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2147_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2147_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2147_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2147_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2147_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2147_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2147_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2147_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2147_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2147_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2148
+#define EPILEPSY_PRIV_EVAL_REC_2147_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2148(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2148_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2148_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2148_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2148_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2148_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2148_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2148_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2148_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2148_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2148_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2149
+#define EPILEPSY_PRIV_EVAL_REC_2148_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2149(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2149_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2149_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2149_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2149_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2149_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2149_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2149_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2149_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2149_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2149_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2150
+#define EPILEPSY_PRIV_EVAL_REC_2149_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2150(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2150_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2150_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2150_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2150_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2150_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2150_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2150_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2150_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2150_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2150_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2151
+#define EPILEPSY_PRIV_EVAL_REC_2150_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2151(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2151_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2151_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2151_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2151_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2151_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2151_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2151_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2151_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2151_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2151_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2152
+#define EPILEPSY_PRIV_EVAL_REC_2151_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2152(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2152_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2152_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2152_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2152_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2152_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2152_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2152_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2152_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2152_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2152_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2153
+#define EPILEPSY_PRIV_EVAL_REC_2152_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2153(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2153_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2153_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2153_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2153_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2153_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2153_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2153_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2153_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2153_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2153_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2154
+#define EPILEPSY_PRIV_EVAL_REC_2153_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2154(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2154_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2154_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2154_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2154_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2154_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2154_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2154_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2154_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2154_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2154_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2155
+#define EPILEPSY_PRIV_EVAL_REC_2154_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2155(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2155_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2155_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2155_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2155_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2155_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2155_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2155_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2155_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2155_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2155_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2156
+#define EPILEPSY_PRIV_EVAL_REC_2155_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2156(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2156_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2156_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2156_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2156_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2156_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2156_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2156_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2156_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2156_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2156_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2157
+#define EPILEPSY_PRIV_EVAL_REC_2156_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2157(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2157_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2157_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2157_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2157_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2157_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2157_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2157_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2157_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2157_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2157_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2158
+#define EPILEPSY_PRIV_EVAL_REC_2157_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2158(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2158_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2158_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2158_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2158_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2158_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2158_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2158_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2158_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2158_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2158_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2159
+#define EPILEPSY_PRIV_EVAL_REC_2158_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2159(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2159_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2159_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2159_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2159_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2159_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2159_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2159_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2159_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2159_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2159_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2160
+#define EPILEPSY_PRIV_EVAL_REC_2159_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2160(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2160_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2160_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2160_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2160_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2160_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2160_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2160_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2160_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2160_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2160_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2161
+#define EPILEPSY_PRIV_EVAL_REC_2160_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2161(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2161_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2161_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2161_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2161_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2161_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2161_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2161_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2161_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2161_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2161_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2162
+#define EPILEPSY_PRIV_EVAL_REC_2161_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2162(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2162_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2162_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2162_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2162_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2162_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2162_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2162_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2162_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2162_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2162_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2163
+#define EPILEPSY_PRIV_EVAL_REC_2162_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2163(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2163_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2163_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2163_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2163_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2163_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2163_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2163_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2163_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2163_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2163_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2164
+#define EPILEPSY_PRIV_EVAL_REC_2163_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2164(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2164_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2164_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2164_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2164_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2164_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2164_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2164_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2164_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2164_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2164_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2165
+#define EPILEPSY_PRIV_EVAL_REC_2164_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2165(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2165_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2165_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2165_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2165_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2165_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2165_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2165_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2165_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2165_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2165_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2166
+#define EPILEPSY_PRIV_EVAL_REC_2165_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2166(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2166_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2166_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2166_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2166_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2166_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2166_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2166_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2166_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2166_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2166_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2167
+#define EPILEPSY_PRIV_EVAL_REC_2166_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2167(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2167_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2167_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2167_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2167_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2167_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2167_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2167_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2167_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2167_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2167_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2168
+#define EPILEPSY_PRIV_EVAL_REC_2167_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2168(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2168_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2168_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2168_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2168_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2168_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2168_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2168_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2168_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2168_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2168_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2169
+#define EPILEPSY_PRIV_EVAL_REC_2168_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2169(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2169_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2169_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2169_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2169_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2169_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2169_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2169_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2169_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2169_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2169_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2170
+#define EPILEPSY_PRIV_EVAL_REC_2169_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2170(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2170_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2170_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2170_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2170_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2170_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2170_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2170_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2170_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2170_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2170_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2171
+#define EPILEPSY_PRIV_EVAL_REC_2170_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2171(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2171_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2171_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2171_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2171_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2171_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2171_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2171_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2171_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2171_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2171_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2172
+#define EPILEPSY_PRIV_EVAL_REC_2171_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2172(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2172_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2172_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2172_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2172_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2172_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2172_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2172_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2172_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2172_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2172_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2173
+#define EPILEPSY_PRIV_EVAL_REC_2172_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2173(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2173_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2173_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2173_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2173_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2173_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2173_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2173_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2173_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2173_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2173_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2174
+#define EPILEPSY_PRIV_EVAL_REC_2173_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2174(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2174_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2174_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2174_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2174_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2174_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2174_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2174_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2174_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2174_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2174_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2175
+#define EPILEPSY_PRIV_EVAL_REC_2174_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2175(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2175_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2175_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2175_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2175_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2175_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2175_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2175_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2175_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2175_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2175_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2176
+#define EPILEPSY_PRIV_EVAL_REC_2175_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2176(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2176_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2176_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2176_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2176_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2176_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2176_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2176_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2176_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2176_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2176_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2177
+#define EPILEPSY_PRIV_EVAL_REC_2176_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2177(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2177_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2177_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2177_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2177_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2177_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2177_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2177_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2177_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2177_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2177_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2178
+#define EPILEPSY_PRIV_EVAL_REC_2177_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2178(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2178_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2178_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2178_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2178_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2178_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2178_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2178_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2178_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2178_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2178_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2179
+#define EPILEPSY_PRIV_EVAL_REC_2178_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2179(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2179_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2179_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2179_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2179_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2179_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2179_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2179_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2179_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2179_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2179_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2180
+#define EPILEPSY_PRIV_EVAL_REC_2179_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2180(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2180_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2180_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2180_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2180_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2180_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2180_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2180_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2180_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2180_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2180_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2181
+#define EPILEPSY_PRIV_EVAL_REC_2180_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2181(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2181_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2181_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2181_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2181_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2181_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2181_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2181_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2181_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2181_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2181_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2182
+#define EPILEPSY_PRIV_EVAL_REC_2181_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2182(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2182_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2182_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2182_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2182_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2182_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2182_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2182_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2182_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2182_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2182_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2183
+#define EPILEPSY_PRIV_EVAL_REC_2182_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2183(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2183_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2183_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2183_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2183_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2183_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2183_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2183_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2183_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2183_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2183_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2184
+#define EPILEPSY_PRIV_EVAL_REC_2183_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2184(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2184_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2184_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2184_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2184_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2184_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2184_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2184_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2184_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2184_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2184_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2185
+#define EPILEPSY_PRIV_EVAL_REC_2184_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2185(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2185_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2185_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2185_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2185_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2185_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2185_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2185_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2185_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2185_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2185_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2186
+#define EPILEPSY_PRIV_EVAL_REC_2185_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2186(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2186_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2186_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2186_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2186_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2186_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2186_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2186_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2186_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2186_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2186_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2187
+#define EPILEPSY_PRIV_EVAL_REC_2186_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2187(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2187_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2187_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2187_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2187_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2187_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2187_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2187_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2187_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2187_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2187_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2188
+#define EPILEPSY_PRIV_EVAL_REC_2187_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2188(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2188_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2188_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2188_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2188_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2188_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2188_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2188_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2188_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2188_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2188_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2189
+#define EPILEPSY_PRIV_EVAL_REC_2188_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2189(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2189_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2189_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2189_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2189_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2189_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2189_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2189_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2189_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2189_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2189_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2190
+#define EPILEPSY_PRIV_EVAL_REC_2189_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2190(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2190_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2190_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2190_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2190_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2190_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2190_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2190_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2190_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2190_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2190_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2191
+#define EPILEPSY_PRIV_EVAL_REC_2190_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2191(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2191_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2191_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2191_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2191_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2191_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2191_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2191_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2191_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2191_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2191_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2192
+#define EPILEPSY_PRIV_EVAL_REC_2191_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2192(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2192_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2192_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2192_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2192_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2192_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2192_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2192_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2192_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2192_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2192_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2193
+#define EPILEPSY_PRIV_EVAL_REC_2192_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2193(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2193_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2193_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2193_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2193_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2193_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2193_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2193_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2193_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2193_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2193_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2194
+#define EPILEPSY_PRIV_EVAL_REC_2193_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2194(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2194_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2194_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2194_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2194_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2194_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2194_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2194_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2194_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2194_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2194_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2195
+#define EPILEPSY_PRIV_EVAL_REC_2194_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2195(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2195_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2195_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2195_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2195_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2195_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2195_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2195_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2195_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2195_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2195_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2196
+#define EPILEPSY_PRIV_EVAL_REC_2195_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2196(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2196_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2196_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2196_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2196_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2196_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2196_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2196_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2196_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2196_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2196_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2197
+#define EPILEPSY_PRIV_EVAL_REC_2196_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2197(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2197_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2197_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2197_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2197_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2197_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2197_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2197_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2197_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2197_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2197_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2198
+#define EPILEPSY_PRIV_EVAL_REC_2197_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2198(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2198_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2198_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2198_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2198_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2198_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2198_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2198_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2198_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2198_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2198_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2199
+#define EPILEPSY_PRIV_EVAL_REC_2198_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2199(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2199_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2199_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2199_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2199_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2199_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2199_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2199_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2199_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2199_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2199_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2200
+#define EPILEPSY_PRIV_EVAL_REC_2199_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2200(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2200_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2200_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2200_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2200_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2200_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2200_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2200_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2200_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2200_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2200_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2201
+#define EPILEPSY_PRIV_EVAL_REC_2200_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2201(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2201_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2201_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2201_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2201_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2201_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2201_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2201_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2201_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2201_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2201_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2202
+#define EPILEPSY_PRIV_EVAL_REC_2201_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2202(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2202_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2202_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2202_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2202_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2202_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2202_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2202_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2202_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2202_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2202_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2203
+#define EPILEPSY_PRIV_EVAL_REC_2202_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2203(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2203_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2203_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2203_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2203_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2203_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2203_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2203_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2203_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2203_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2203_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2204
+#define EPILEPSY_PRIV_EVAL_REC_2203_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2204(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2204_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2204_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2204_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2204_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2204_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2204_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2204_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2204_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2204_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2204_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2205
+#define EPILEPSY_PRIV_EVAL_REC_2204_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2205(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2205_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2205_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2205_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2205_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2205_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2205_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2205_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2205_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2205_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2205_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2206
+#define EPILEPSY_PRIV_EVAL_REC_2205_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2206(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2206_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2206_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2206_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2206_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2206_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2206_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2206_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2206_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2206_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2206_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2207
+#define EPILEPSY_PRIV_EVAL_REC_2206_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2207(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2207_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2207_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2207_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2207_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2207_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2207_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2207_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2207_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2207_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2207_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2208
+#define EPILEPSY_PRIV_EVAL_REC_2207_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2208(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2208_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2208_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2208_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2208_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2208_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2208_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2208_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2208_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2208_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2208_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2209
+#define EPILEPSY_PRIV_EVAL_REC_2208_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2209(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2209_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2209_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2209_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2209_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2209_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2209_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2209_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2209_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2209_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2209_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2210
+#define EPILEPSY_PRIV_EVAL_REC_2209_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2210(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2210_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2210_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2210_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2210_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2210_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2210_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2210_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2210_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2210_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2210_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2211
+#define EPILEPSY_PRIV_EVAL_REC_2210_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2211(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2211_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2211_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2211_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2211_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2211_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2211_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2211_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2211_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2211_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2211_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2212
+#define EPILEPSY_PRIV_EVAL_REC_2211_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2212(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2212_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2212_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2212_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2212_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2212_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2212_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2212_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2212_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2212_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2212_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2213
+#define EPILEPSY_PRIV_EVAL_REC_2212_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2213(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2213_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2213_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2213_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2213_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2213_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2213_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2213_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2213_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2213_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2213_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2214
+#define EPILEPSY_PRIV_EVAL_REC_2213_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2214(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2214_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2214_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2214_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2214_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2214_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2214_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2214_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2214_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2214_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2214_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2215
+#define EPILEPSY_PRIV_EVAL_REC_2214_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2215(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2215_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2215_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2215_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2215_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2215_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2215_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2215_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2215_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2215_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2215_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2216
+#define EPILEPSY_PRIV_EVAL_REC_2215_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2216(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2216_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2216_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2216_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2216_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2216_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2216_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2216_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2216_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2216_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2216_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2217
+#define EPILEPSY_PRIV_EVAL_REC_2216_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2217(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2217_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2217_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2217_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2217_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2217_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2217_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2217_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2217_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2217_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2217_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2218
+#define EPILEPSY_PRIV_EVAL_REC_2217_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2218(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2218_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2218_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2218_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2218_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2218_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2218_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2218_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2218_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2218_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2218_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2219
+#define EPILEPSY_PRIV_EVAL_REC_2218_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2219(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2219_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2219_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2219_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2219_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2219_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2219_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2219_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2219_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2219_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2219_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2220
+#define EPILEPSY_PRIV_EVAL_REC_2219_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2220(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2220_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2220_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2220_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2220_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2220_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2220_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2220_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2220_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2220_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2220_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2221
+#define EPILEPSY_PRIV_EVAL_REC_2220_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2221(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2221_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2221_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2221_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2221_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2221_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2221_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2221_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2221_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2221_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2221_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2222
+#define EPILEPSY_PRIV_EVAL_REC_2221_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2222(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2222_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2222_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2222_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2222_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2222_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2222_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2222_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2222_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2222_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2222_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2223
+#define EPILEPSY_PRIV_EVAL_REC_2222_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2223(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2223_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2223_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2223_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2223_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2223_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2223_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2223_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2223_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2223_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2223_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2224
+#define EPILEPSY_PRIV_EVAL_REC_2223_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2224(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2224_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2224_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2224_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2224_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2224_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2224_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2224_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2224_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2224_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2224_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2225
+#define EPILEPSY_PRIV_EVAL_REC_2224_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2225(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2225_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2225_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2225_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2225_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2225_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2225_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2225_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2225_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2225_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2225_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2226
+#define EPILEPSY_PRIV_EVAL_REC_2225_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2226(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2226_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2226_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2226_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2226_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2226_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2226_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2226_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2226_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2226_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2226_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2227
+#define EPILEPSY_PRIV_EVAL_REC_2226_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2227(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2227_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2227_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2227_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2227_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2227_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2227_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2227_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2227_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2227_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2227_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2228
+#define EPILEPSY_PRIV_EVAL_REC_2227_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2228(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2228_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2228_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2228_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2228_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2228_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2228_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2228_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2228_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2228_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2228_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2229
+#define EPILEPSY_PRIV_EVAL_REC_2228_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2229(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2229_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2229_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2229_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2229_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2229_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2229_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2229_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2229_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2229_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2229_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2230
+#define EPILEPSY_PRIV_EVAL_REC_2229_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2230(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2230_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2230_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2230_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2230_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2230_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2230_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2230_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2230_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2230_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2230_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2231
+#define EPILEPSY_PRIV_EVAL_REC_2230_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2231(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2231_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2231_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2231_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2231_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2231_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2231_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2231_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2231_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2231_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2231_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2232
+#define EPILEPSY_PRIV_EVAL_REC_2231_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2232(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2232_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2232_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2232_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2232_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2232_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2232_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2232_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2232_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2232_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2232_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2233
+#define EPILEPSY_PRIV_EVAL_REC_2232_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2233(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2233_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2233_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2233_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2233_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2233_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2233_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2233_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2233_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2233_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2233_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2234
+#define EPILEPSY_PRIV_EVAL_REC_2233_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2234(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2234_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2234_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2234_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2234_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2234_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2234_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2234_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2234_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2234_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2234_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2235
+#define EPILEPSY_PRIV_EVAL_REC_2234_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2235(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2235_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2235_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2235_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2235_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2235_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2235_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2235_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2235_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2235_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2235_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2236
+#define EPILEPSY_PRIV_EVAL_REC_2235_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2236(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2236_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2236_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2236_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2236_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2236_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2236_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2236_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2236_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2236_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2236_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2237
+#define EPILEPSY_PRIV_EVAL_REC_2236_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2237(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2237_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2237_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2237_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2237_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2237_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2237_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2237_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2237_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2237_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2237_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2238
+#define EPILEPSY_PRIV_EVAL_REC_2237_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2238(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2238_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2238_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2238_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2238_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2238_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2238_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2238_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2238_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2238_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2238_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2239
+#define EPILEPSY_PRIV_EVAL_REC_2238_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2239(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2239_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2239_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2239_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2239_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2239_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2239_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2239_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2239_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2239_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2239_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2240
+#define EPILEPSY_PRIV_EVAL_REC_2239_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2240(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2240_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2240_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2240_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2240_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2240_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2240_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2240_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2240_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2240_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2240_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2241
+#define EPILEPSY_PRIV_EVAL_REC_2240_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2241(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2241_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2241_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2241_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2241_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2241_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2241_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2241_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2241_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2241_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2241_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2242
+#define EPILEPSY_PRIV_EVAL_REC_2241_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2242(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2242_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2242_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2242_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2242_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2242_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2242_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2242_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2242_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2242_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2242_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2243
+#define EPILEPSY_PRIV_EVAL_REC_2242_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2243(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2243_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2243_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2243_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2243_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2243_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2243_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2243_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2243_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2243_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2243_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2244
+#define EPILEPSY_PRIV_EVAL_REC_2243_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2244(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2244_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2244_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2244_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2244_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2244_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2244_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2244_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2244_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2244_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2244_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2245
+#define EPILEPSY_PRIV_EVAL_REC_2244_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2245(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2245_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2245_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2245_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2245_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2245_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2245_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2245_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2245_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2245_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2245_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2246
+#define EPILEPSY_PRIV_EVAL_REC_2245_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2246(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2246_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2246_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2246_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2246_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2246_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2246_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2246_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2246_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2246_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2246_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2247
+#define EPILEPSY_PRIV_EVAL_REC_2246_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2247(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2247_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2247_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2247_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2247_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2247_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2247_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2247_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2247_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2247_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2247_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2248
+#define EPILEPSY_PRIV_EVAL_REC_2247_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2248(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2248_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2248_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2248_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2248_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2248_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2248_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2248_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2248_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2248_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2248_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2249
+#define EPILEPSY_PRIV_EVAL_REC_2248_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2249(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2249_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2249_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2249_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2249_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2249_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2249_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2249_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2249_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2249_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2249_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2250
+#define EPILEPSY_PRIV_EVAL_REC_2249_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2250(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2250_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2250_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2250_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2250_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2250_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2250_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2250_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2250_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2250_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2250_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2251
+#define EPILEPSY_PRIV_EVAL_REC_2250_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2251(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2251_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2251_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2251_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2251_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2251_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2251_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2251_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2251_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2251_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2251_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2252
+#define EPILEPSY_PRIV_EVAL_REC_2251_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2252(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2252_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2252_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2252_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2252_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2252_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2252_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2252_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2252_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2252_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2252_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2253
+#define EPILEPSY_PRIV_EVAL_REC_2252_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2253(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2253_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2253_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2253_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2253_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2253_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2253_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2253_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2253_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2253_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2253_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2254
+#define EPILEPSY_PRIV_EVAL_REC_2253_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2254(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2254_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2254_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2254_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2254_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2254_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2254_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2254_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2254_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2254_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2254_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2255
+#define EPILEPSY_PRIV_EVAL_REC_2254_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2255(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2255_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2255_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2255_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2255_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2255_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2255_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2255_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2255_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2255_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2255_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2256
+#define EPILEPSY_PRIV_EVAL_REC_2255_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2256(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2256_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2256_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2256_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2256_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2256_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2256_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2256_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2256_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2256_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2256_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2257
+#define EPILEPSY_PRIV_EVAL_REC_2256_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2257(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2257_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2257_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2257_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2257_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2257_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2257_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2257_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2257_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2257_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2257_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2258
+#define EPILEPSY_PRIV_EVAL_REC_2257_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2258(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2258_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2258_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2258_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2258_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2258_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2258_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2258_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2258_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2258_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2258_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2259
+#define EPILEPSY_PRIV_EVAL_REC_2258_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2259(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2259_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2259_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2259_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2259_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2259_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2259_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2259_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2259_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2259_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2259_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2260
+#define EPILEPSY_PRIV_EVAL_REC_2259_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2260(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2260_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2260_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2260_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2260_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2260_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2260_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2260_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2260_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2260_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2260_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2261
+#define EPILEPSY_PRIV_EVAL_REC_2260_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2261(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2261_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2261_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2261_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2261_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2261_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2261_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2261_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2261_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2261_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2261_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2262
+#define EPILEPSY_PRIV_EVAL_REC_2261_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2262(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2262_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2262_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2262_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2262_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2262_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2262_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2262_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2262_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2262_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2262_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2263
+#define EPILEPSY_PRIV_EVAL_REC_2262_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2263(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2263_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2263_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2263_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2263_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2263_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2263_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2263_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2263_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2263_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2263_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2264
+#define EPILEPSY_PRIV_EVAL_REC_2263_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2264(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2264_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2264_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2264_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2264_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2264_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2264_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2264_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2264_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2264_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2264_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2265
+#define EPILEPSY_PRIV_EVAL_REC_2264_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2265(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2265_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2265_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2265_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2265_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2265_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2265_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2265_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2265_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2265_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2265_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2266
+#define EPILEPSY_PRIV_EVAL_REC_2265_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2266(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2266_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2266_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2266_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2266_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2266_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2266_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2266_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2266_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2266_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2266_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2267
+#define EPILEPSY_PRIV_EVAL_REC_2266_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2267(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2267_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2267_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2267_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2267_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2267_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2267_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2267_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2267_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2267_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2267_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2268
+#define EPILEPSY_PRIV_EVAL_REC_2267_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2268(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2268_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2268_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2268_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2268_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2268_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2268_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2268_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2268_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2268_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2268_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2269
+#define EPILEPSY_PRIV_EVAL_REC_2268_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2269(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2269_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2269_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2269_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2269_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2269_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2269_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2269_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2269_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2269_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2269_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2270
+#define EPILEPSY_PRIV_EVAL_REC_2269_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2270(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2270_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2270_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2270_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2270_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2270_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2270_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2270_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2270_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2270_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2270_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2271
+#define EPILEPSY_PRIV_EVAL_REC_2270_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2271(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2271_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2271_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2271_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2271_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2271_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2271_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2271_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2271_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2271_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2271_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2272
+#define EPILEPSY_PRIV_EVAL_REC_2271_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2272(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2272_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2272_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2272_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2272_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2272_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2272_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2272_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2272_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2272_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2272_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2273
+#define EPILEPSY_PRIV_EVAL_REC_2272_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2273(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2273_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2273_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2273_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2273_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2273_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2273_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2273_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2273_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2273_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2273_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2274
+#define EPILEPSY_PRIV_EVAL_REC_2273_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2274(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2274_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2274_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2274_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2274_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2274_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2274_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2274_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2274_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2274_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2274_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2275
+#define EPILEPSY_PRIV_EVAL_REC_2274_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2275(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2275_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2275_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2275_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2275_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2275_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2275_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2275_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2275_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2275_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2275_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2276
+#define EPILEPSY_PRIV_EVAL_REC_2275_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2276(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2276_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2276_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2276_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2276_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2276_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2276_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2276_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2276_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2276_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2276_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2277
+#define EPILEPSY_PRIV_EVAL_REC_2276_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2277(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2277_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2277_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2277_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2277_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2277_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2277_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2277_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2277_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2277_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2277_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2278
+#define EPILEPSY_PRIV_EVAL_REC_2277_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2278(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2278_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2278_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2278_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2278_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2278_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2278_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2278_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2278_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2278_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2278_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2279
+#define EPILEPSY_PRIV_EVAL_REC_2278_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2279(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2279_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2279_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2279_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2279_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2279_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2279_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2279_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2279_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2279_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2279_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2280
+#define EPILEPSY_PRIV_EVAL_REC_2279_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2280(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2280_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2280_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2280_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2280_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2280_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2280_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2280_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2280_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2280_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2280_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2281
+#define EPILEPSY_PRIV_EVAL_REC_2280_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2281(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2281_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2281_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2281_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2281_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2281_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2281_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2281_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2281_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2281_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2281_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2282
+#define EPILEPSY_PRIV_EVAL_REC_2281_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2282(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2282_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2282_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2282_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2282_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2282_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2282_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2282_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2282_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2282_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2282_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2283
+#define EPILEPSY_PRIV_EVAL_REC_2282_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2283(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2283_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2283_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2283_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2283_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2283_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2283_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2283_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2283_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2283_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2283_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2284
+#define EPILEPSY_PRIV_EVAL_REC_2283_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2284(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2284_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2284_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2284_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2284_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2284_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2284_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2284_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2284_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2284_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2284_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2285
+#define EPILEPSY_PRIV_EVAL_REC_2284_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2285(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2285_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2285_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2285_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2285_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2285_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2285_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2285_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2285_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2285_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2285_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2286
+#define EPILEPSY_PRIV_EVAL_REC_2285_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2286(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2286_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2286_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2286_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2286_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2286_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2286_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2286_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2286_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2286_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2286_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2287
+#define EPILEPSY_PRIV_EVAL_REC_2286_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2287(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2287_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2287_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2287_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2287_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2287_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2287_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2287_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2287_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2287_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2287_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2288
+#define EPILEPSY_PRIV_EVAL_REC_2287_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2288(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2288_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2288_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2288_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2288_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2288_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2288_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2288_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2288_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2288_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2288_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2289
+#define EPILEPSY_PRIV_EVAL_REC_2288_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2289(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2289_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2289_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2289_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2289_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2289_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2289_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2289_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2289_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2289_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2289_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2290
+#define EPILEPSY_PRIV_EVAL_REC_2289_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2290(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2290_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2290_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2290_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2290_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2290_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2290_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2290_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2290_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2290_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2290_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2291
+#define EPILEPSY_PRIV_EVAL_REC_2290_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2291(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2291_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2291_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2291_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2291_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2291_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2291_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2291_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2291_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2291_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2291_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2292
+#define EPILEPSY_PRIV_EVAL_REC_2291_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2292(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2292_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2292_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2292_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2292_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2292_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2292_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2292_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2292_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2292_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2292_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2293
+#define EPILEPSY_PRIV_EVAL_REC_2292_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2293(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2293_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2293_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2293_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2293_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2293_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2293_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2293_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2293_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2293_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2293_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2294
+#define EPILEPSY_PRIV_EVAL_REC_2293_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2294(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2294_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2294_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2294_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2294_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2294_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2294_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2294_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2294_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2294_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2294_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2295
+#define EPILEPSY_PRIV_EVAL_REC_2294_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2295(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2295_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2295_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2295_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2295_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2295_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2295_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2295_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2295_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2295_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2295_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2296
+#define EPILEPSY_PRIV_EVAL_REC_2295_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2296(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2296_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2296_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2296_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2296_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2296_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2296_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2296_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2296_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2296_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2296_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2297
+#define EPILEPSY_PRIV_EVAL_REC_2296_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2297(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2297_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2297_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2297_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2297_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2297_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2297_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2297_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2297_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2297_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2297_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2298
+#define EPILEPSY_PRIV_EVAL_REC_2297_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2298(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2298_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2298_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2298_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2298_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2298_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2298_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2298_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2298_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2298_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2298_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2299
+#define EPILEPSY_PRIV_EVAL_REC_2298_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2299(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2299_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2299_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2299_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2299_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2299_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2299_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2299_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2299_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2299_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2299_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2300
+#define EPILEPSY_PRIV_EVAL_REC_2299_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2300(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2300_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2300_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2300_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2300_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2300_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2300_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2300_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2300_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2300_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2300_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2301
+#define EPILEPSY_PRIV_EVAL_REC_2300_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2301(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2301_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2301_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2301_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2301_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2301_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2301_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2301_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2301_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2301_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2301_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2302
+#define EPILEPSY_PRIV_EVAL_REC_2301_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2302(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2302_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2302_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2302_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2302_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2302_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2302_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2302_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2302_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2302_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2302_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2303
+#define EPILEPSY_PRIV_EVAL_REC_2302_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2303(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2303_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2303_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2303_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2303_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2303_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2303_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2303_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2303_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2303_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2303_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2304
+#define EPILEPSY_PRIV_EVAL_REC_2303_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2304(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2304_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2304_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2304_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2304_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2304_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2304_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2304_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2304_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2304_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2304_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2305
+#define EPILEPSY_PRIV_EVAL_REC_2304_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2305(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2305_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2305_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2305_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2305_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2305_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2305_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2305_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2305_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2305_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2305_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2306
+#define EPILEPSY_PRIV_EVAL_REC_2305_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2306(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2306_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2306_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2306_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2306_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2306_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2306_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2306_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2306_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2306_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2306_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2307
+#define EPILEPSY_PRIV_EVAL_REC_2306_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2307(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2307_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2307_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2307_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2307_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2307_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2307_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2307_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2307_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2307_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2307_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2308
+#define EPILEPSY_PRIV_EVAL_REC_2307_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2308(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2308_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2308_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2308_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2308_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2308_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2308_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2308_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2308_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2308_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2308_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2309
+#define EPILEPSY_PRIV_EVAL_REC_2308_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2309(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2309_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2309_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2309_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2309_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2309_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2309_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2309_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2309_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2309_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2309_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2310
+#define EPILEPSY_PRIV_EVAL_REC_2309_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2310(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2310_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2310_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2310_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2310_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2310_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2310_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2310_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2310_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2310_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2310_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2311
+#define EPILEPSY_PRIV_EVAL_REC_2310_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2311(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2311_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2311_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2311_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2311_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2311_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2311_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2311_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2311_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2311_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2311_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2312
+#define EPILEPSY_PRIV_EVAL_REC_2311_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2312(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2312_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2312_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2312_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2312_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2312_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2312_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2312_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2312_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2312_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2312_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2313
+#define EPILEPSY_PRIV_EVAL_REC_2312_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2313(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2313_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2313_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2313_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2313_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2313_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2313_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2313_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2313_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2313_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2313_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2314
+#define EPILEPSY_PRIV_EVAL_REC_2313_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2314(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2314_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2314_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2314_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2314_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2314_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2314_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2314_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2314_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2314_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2314_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2315
+#define EPILEPSY_PRIV_EVAL_REC_2314_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2315(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2315_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2315_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2315_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2315_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2315_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2315_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2315_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2315_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2315_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2315_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2316
+#define EPILEPSY_PRIV_EVAL_REC_2315_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2316(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2316_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2316_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2316_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2316_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2316_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2316_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2316_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2316_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2316_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2316_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2317
+#define EPILEPSY_PRIV_EVAL_REC_2316_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2317(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2317_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2317_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2317_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2317_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2317_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2317_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2317_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2317_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2317_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2317_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2318
+#define EPILEPSY_PRIV_EVAL_REC_2317_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2318(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2318_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2318_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2318_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2318_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2318_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2318_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2318_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2318_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2318_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2318_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2319
+#define EPILEPSY_PRIV_EVAL_REC_2318_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2319(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2319_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2319_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2319_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2319_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2319_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2319_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2319_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2319_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2319_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2319_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2320
+#define EPILEPSY_PRIV_EVAL_REC_2319_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2320(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2320_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2320_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2320_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2320_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2320_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2320_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2320_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2320_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2320_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2320_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2321
+#define EPILEPSY_PRIV_EVAL_REC_2320_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2321(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2321_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2321_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2321_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2321_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2321_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2321_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2321_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2321_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2321_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2321_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2322
+#define EPILEPSY_PRIV_EVAL_REC_2321_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2322(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2322_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2322_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2322_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2322_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2322_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2322_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2322_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2322_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2322_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2322_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2323
+#define EPILEPSY_PRIV_EVAL_REC_2322_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2323(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2323_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2323_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2323_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2323_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2323_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2323_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2323_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2323_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2323_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2323_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2324
+#define EPILEPSY_PRIV_EVAL_REC_2323_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2324(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2324_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2324_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2324_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2324_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2324_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2324_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2324_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2324_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2324_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2324_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2325
+#define EPILEPSY_PRIV_EVAL_REC_2324_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2325(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2325_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2325_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2325_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2325_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2325_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2325_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2325_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2325_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2325_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2325_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2326
+#define EPILEPSY_PRIV_EVAL_REC_2325_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2326(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2326_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2326_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2326_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2326_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2326_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2326_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2326_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2326_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2326_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2326_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2327
+#define EPILEPSY_PRIV_EVAL_REC_2326_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2327(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2327_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2327_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2327_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2327_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2327_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2327_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2327_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2327_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2327_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2327_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2328
+#define EPILEPSY_PRIV_EVAL_REC_2327_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2328(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2328_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2328_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2328_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2328_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2328_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2328_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2328_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2328_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2328_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2328_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2329
+#define EPILEPSY_PRIV_EVAL_REC_2328_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2329(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2329_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2329_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2329_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2329_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2329_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2329_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2329_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2329_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2329_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2329_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2330
+#define EPILEPSY_PRIV_EVAL_REC_2329_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2330(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2330_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2330_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2330_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2330_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2330_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2330_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2330_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2330_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2330_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2330_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2331
+#define EPILEPSY_PRIV_EVAL_REC_2330_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2331(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2331_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2331_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2331_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2331_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2331_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2331_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2331_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2331_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2331_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2331_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2332
+#define EPILEPSY_PRIV_EVAL_REC_2331_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2332(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2332_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2332_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2332_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2332_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2332_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2332_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2332_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2332_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2332_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2332_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2333
+#define EPILEPSY_PRIV_EVAL_REC_2332_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2333(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2333_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2333_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2333_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2333_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2333_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2333_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2333_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2333_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2333_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2333_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2334
+#define EPILEPSY_PRIV_EVAL_REC_2333_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2334(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2334_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2334_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2334_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2334_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2334_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2334_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2334_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2334_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2334_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2334_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2335
+#define EPILEPSY_PRIV_EVAL_REC_2334_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2335(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2335_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2335_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2335_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2335_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2335_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2335_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2335_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2335_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2335_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2335_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2336
+#define EPILEPSY_PRIV_EVAL_REC_2335_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2336(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2336_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2336_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2336_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2336_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2336_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2336_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2336_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2336_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2336_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2336_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2337
+#define EPILEPSY_PRIV_EVAL_REC_2336_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2337(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2337_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2337_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2337_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2337_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2337_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2337_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2337_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2337_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2337_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2337_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2338
+#define EPILEPSY_PRIV_EVAL_REC_2337_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2338(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2338_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2338_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2338_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2338_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2338_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2338_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2338_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2338_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2338_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2338_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2339
+#define EPILEPSY_PRIV_EVAL_REC_2338_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2339(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2339_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2339_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2339_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2339_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2339_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2339_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2339_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2339_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2339_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2339_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2340
+#define EPILEPSY_PRIV_EVAL_REC_2339_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2340(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2340_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2340_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2340_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2340_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2340_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2340_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2340_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2340_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2340_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2340_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2341
+#define EPILEPSY_PRIV_EVAL_REC_2340_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2341(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2341_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2341_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2341_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2341_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2341_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2341_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2341_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2341_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2341_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2341_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2342
+#define EPILEPSY_PRIV_EVAL_REC_2341_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2342(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2342_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2342_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2342_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2342_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2342_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2342_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2342_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2342_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2342_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2342_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2343
+#define EPILEPSY_PRIV_EVAL_REC_2342_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2343(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2343_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2343_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2343_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2343_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2343_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2343_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2343_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2343_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2343_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2343_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2344
+#define EPILEPSY_PRIV_EVAL_REC_2343_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2344(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2344_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2344_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2344_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2344_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2344_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2344_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2344_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2344_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2344_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2344_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2345
+#define EPILEPSY_PRIV_EVAL_REC_2344_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2345(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2345_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2345_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2345_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2345_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2345_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2345_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2345_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2345_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2345_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2345_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2346
+#define EPILEPSY_PRIV_EVAL_REC_2345_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2346(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2346_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2346_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2346_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2346_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2346_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2346_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2346_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2346_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2346_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2346_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2347
+#define EPILEPSY_PRIV_EVAL_REC_2346_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2347(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2347_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2347_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2347_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2347_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2347_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2347_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2347_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2347_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2347_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2347_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2348
+#define EPILEPSY_PRIV_EVAL_REC_2347_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2348(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2348_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2348_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2348_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2348_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2348_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2348_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2348_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2348_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2348_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2348_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2349
+#define EPILEPSY_PRIV_EVAL_REC_2348_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2349(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2349_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2349_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2349_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2349_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2349_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2349_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2349_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2349_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2349_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2349_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2350
+#define EPILEPSY_PRIV_EVAL_REC_2349_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2350(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2350_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2350_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2350_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2350_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2350_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2350_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2350_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2350_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2350_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2350_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2351
+#define EPILEPSY_PRIV_EVAL_REC_2350_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2351(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2351_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2351_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2351_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2351_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2351_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2351_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2351_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2351_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2351_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2351_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2352
+#define EPILEPSY_PRIV_EVAL_REC_2351_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2352(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2352_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2352_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2352_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2352_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2352_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2352_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2352_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2352_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2352_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2352_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2353
+#define EPILEPSY_PRIV_EVAL_REC_2352_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2353(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2353_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2353_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2353_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2353_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2353_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2353_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2353_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2353_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2353_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2353_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2354
+#define EPILEPSY_PRIV_EVAL_REC_2353_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2354(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2354_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2354_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2354_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2354_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2354_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2354_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2354_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2354_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2354_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2354_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2355
+#define EPILEPSY_PRIV_EVAL_REC_2354_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2355(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2355_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2355_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2355_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2355_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2355_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2355_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2355_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2355_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2355_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2355_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2356
+#define EPILEPSY_PRIV_EVAL_REC_2355_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2356(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2356_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2356_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2356_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2356_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2356_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2356_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2356_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2356_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2356_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2356_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2357
+#define EPILEPSY_PRIV_EVAL_REC_2356_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2357(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2357_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2357_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2357_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2357_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2357_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2357_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2357_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2357_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2357_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2357_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2358
+#define EPILEPSY_PRIV_EVAL_REC_2357_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2358(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2358_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2358_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2358_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2358_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2358_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2358_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2358_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2358_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2358_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2358_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2359
+#define EPILEPSY_PRIV_EVAL_REC_2358_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2359(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2359_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2359_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2359_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2359_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2359_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2359_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2359_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2359_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2359_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2359_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2360
+#define EPILEPSY_PRIV_EVAL_REC_2359_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2360(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2360_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2360_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2360_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2360_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2360_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2360_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2360_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2360_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2360_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2360_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2361
+#define EPILEPSY_PRIV_EVAL_REC_2360_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2361(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2361_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2361_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2361_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2361_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2361_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2361_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2361_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2361_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2361_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2361_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2362
+#define EPILEPSY_PRIV_EVAL_REC_2361_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2362(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2362_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2362_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2362_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2362_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2362_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2362_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2362_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2362_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2362_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2362_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2363
+#define EPILEPSY_PRIV_EVAL_REC_2362_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2363(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2363_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2363_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2363_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2363_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2363_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2363_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2363_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2363_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2363_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2363_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2364
+#define EPILEPSY_PRIV_EVAL_REC_2363_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2364(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2364_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2364_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2364_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2364_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2364_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2364_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2364_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2364_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2364_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2364_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2365
+#define EPILEPSY_PRIV_EVAL_REC_2364_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2365(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2365_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2365_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2365_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2365_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2365_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2365_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2365_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2365_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2365_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2365_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2366
+#define EPILEPSY_PRIV_EVAL_REC_2365_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2366(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2366_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2366_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2366_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2366_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2366_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2366_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2366_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2366_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2366_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2366_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2367
+#define EPILEPSY_PRIV_EVAL_REC_2366_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2367(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2367_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2367_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2367_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2367_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2367_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2367_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2367_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2367_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2367_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2367_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2368
+#define EPILEPSY_PRIV_EVAL_REC_2367_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2368(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2368_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2368_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2368_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2368_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2368_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2368_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2368_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2368_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2368_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2368_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2369
+#define EPILEPSY_PRIV_EVAL_REC_2368_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2369(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2369_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2369_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2369_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2369_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2369_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2369_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2369_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2369_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2369_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2369_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2370
+#define EPILEPSY_PRIV_EVAL_REC_2369_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2370(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2370_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2370_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2370_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2370_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2370_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2370_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2370_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2370_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2370_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2370_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2371
+#define EPILEPSY_PRIV_EVAL_REC_2370_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2371(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2371_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2371_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2371_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2371_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2371_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2371_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2371_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2371_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2371_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2371_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2372
+#define EPILEPSY_PRIV_EVAL_REC_2371_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2372(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2372_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2372_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2372_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2372_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2372_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2372_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2372_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2372_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2372_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2372_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2373
+#define EPILEPSY_PRIV_EVAL_REC_2372_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2373(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2373_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2373_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2373_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2373_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2373_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2373_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2373_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2373_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2373_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2373_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2374
+#define EPILEPSY_PRIV_EVAL_REC_2373_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2374(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2374_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2374_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2374_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2374_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2374_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2374_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2374_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2374_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2374_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2374_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2375
+#define EPILEPSY_PRIV_EVAL_REC_2374_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2375(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2375_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2375_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2375_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2375_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2375_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2375_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2375_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2375_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2375_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2375_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2376
+#define EPILEPSY_PRIV_EVAL_REC_2375_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2376(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2376_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2376_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2376_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2376_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2376_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2376_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2376_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2376_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2376_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2376_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2377
+#define EPILEPSY_PRIV_EVAL_REC_2376_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2377(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2377_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2377_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2377_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2377_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2377_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2377_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2377_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2377_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2377_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2377_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2378
+#define EPILEPSY_PRIV_EVAL_REC_2377_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2378(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2378_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2378_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2378_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2378_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2378_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2378_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2378_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2378_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2378_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2378_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2379
+#define EPILEPSY_PRIV_EVAL_REC_2378_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2379(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2379_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2379_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2379_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2379_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2379_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2379_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2379_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2379_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2379_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2379_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2380
+#define EPILEPSY_PRIV_EVAL_REC_2379_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2380(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2380_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2380_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2380_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2380_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2380_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2380_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2380_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2380_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2380_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2380_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2381
+#define EPILEPSY_PRIV_EVAL_REC_2380_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2381(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2381_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2381_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2381_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2381_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2381_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2381_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2381_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2381_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2381_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2381_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2382
+#define EPILEPSY_PRIV_EVAL_REC_2381_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2382(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2382_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2382_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2382_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2382_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2382_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2382_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2382_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2382_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2382_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2382_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2383
+#define EPILEPSY_PRIV_EVAL_REC_2382_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2383(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2383_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2383_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2383_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2383_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2383_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2383_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2383_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2383_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2383_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2383_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2384
+#define EPILEPSY_PRIV_EVAL_REC_2383_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2384(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2384_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2384_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2384_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2384_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2384_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2384_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2384_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2384_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2384_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2384_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2385
+#define EPILEPSY_PRIV_EVAL_REC_2384_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2385(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2385_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2385_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2385_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2385_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2385_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2385_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2385_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2385_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2385_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2385_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2386
+#define EPILEPSY_PRIV_EVAL_REC_2385_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2386(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2386_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2386_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2386_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2386_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2386_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2386_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2386_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2386_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2386_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2386_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2387
+#define EPILEPSY_PRIV_EVAL_REC_2386_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2387(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2387_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2387_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2387_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2387_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2387_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2387_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2387_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2387_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2387_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2387_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2388
+#define EPILEPSY_PRIV_EVAL_REC_2387_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2388(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2388_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2388_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2388_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2388_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2388_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2388_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2388_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2388_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2388_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2388_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2389
+#define EPILEPSY_PRIV_EVAL_REC_2388_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2389(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2389_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2389_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2389_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2389_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2389_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2389_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2389_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2389_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2389_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2389_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2390
+#define EPILEPSY_PRIV_EVAL_REC_2389_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2390(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2390_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2390_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2390_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2390_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2390_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2390_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2390_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2390_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2390_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2390_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2391
+#define EPILEPSY_PRIV_EVAL_REC_2390_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2391(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2391_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2391_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2391_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2391_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2391_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2391_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2391_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2391_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2391_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2391_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2392
+#define EPILEPSY_PRIV_EVAL_REC_2391_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2392(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2392_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2392_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2392_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2392_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2392_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2392_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2392_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2392_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2392_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2392_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2393
+#define EPILEPSY_PRIV_EVAL_REC_2392_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2393(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2393_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2393_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2393_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2393_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2393_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2393_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2393_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2393_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2393_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2393_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2394
+#define EPILEPSY_PRIV_EVAL_REC_2393_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2394(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2394_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2394_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2394_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2394_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2394_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2394_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2394_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2394_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2394_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2394_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2395
+#define EPILEPSY_PRIV_EVAL_REC_2394_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2395(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2395_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2395_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2395_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2395_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2395_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2395_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2395_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2395_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2395_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2395_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2396
+#define EPILEPSY_PRIV_EVAL_REC_2395_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2396(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2396_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2396_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2396_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2396_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2396_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2396_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2396_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2396_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2396_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2396_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2397
+#define EPILEPSY_PRIV_EVAL_REC_2396_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2397(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2397_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2397_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2397_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2397_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2397_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2397_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2397_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2397_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2397_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2397_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2398
+#define EPILEPSY_PRIV_EVAL_REC_2397_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2398(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2398_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2398_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2398_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2398_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2398_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2398_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2398_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2398_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2398_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2398_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2399
+#define EPILEPSY_PRIV_EVAL_REC_2398_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2399(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2399_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2399_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2399_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2399_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2399_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2399_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2399_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2399_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2399_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2399_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2400
+#define EPILEPSY_PRIV_EVAL_REC_2399_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2400(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2400_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2400_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2400_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2400_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2400_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2400_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2400_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2400_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2400_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2400_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2401
+#define EPILEPSY_PRIV_EVAL_REC_2400_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2401(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2401_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2401_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2401_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2401_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2401_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2401_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2401_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2401_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2401_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2401_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2402
+#define EPILEPSY_PRIV_EVAL_REC_2401_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2402(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2402_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2402_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2402_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2402_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2402_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2402_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2402_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2402_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2402_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2402_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2403
+#define EPILEPSY_PRIV_EVAL_REC_2402_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2403(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2403_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2403_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2403_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2403_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2403_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2403_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2403_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2403_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2403_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2403_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2404
+#define EPILEPSY_PRIV_EVAL_REC_2403_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2404(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2404_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2404_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2404_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2404_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2404_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2404_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2404_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2404_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2404_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2404_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2405
+#define EPILEPSY_PRIV_EVAL_REC_2404_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2405(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2405_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2405_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2405_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2405_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2405_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2405_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2405_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2405_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2405_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2405_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2406
+#define EPILEPSY_PRIV_EVAL_REC_2405_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2406(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2406_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2406_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2406_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2406_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2406_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2406_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2406_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2406_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2406_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2406_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2407
+#define EPILEPSY_PRIV_EVAL_REC_2406_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2407(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2407_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2407_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2407_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2407_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2407_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2407_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2407_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2407_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2407_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2407_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2408
+#define EPILEPSY_PRIV_EVAL_REC_2407_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2408(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2408_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2408_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2408_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2408_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2408_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2408_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2408_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2408_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2408_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2408_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2409
+#define EPILEPSY_PRIV_EVAL_REC_2408_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2409(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2409_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2409_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2409_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2409_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2409_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2409_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2409_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2409_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2409_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2409_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2410
+#define EPILEPSY_PRIV_EVAL_REC_2409_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2410(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2410_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2410_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2410_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2410_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2410_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2410_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2410_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2410_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2410_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2410_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2411
+#define EPILEPSY_PRIV_EVAL_REC_2410_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2411(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2411_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2411_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2411_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2411_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2411_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2411_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2411_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2411_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2411_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2411_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2412
+#define EPILEPSY_PRIV_EVAL_REC_2411_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2412(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2412_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2412_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2412_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2412_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2412_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2412_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2412_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2412_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2412_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2412_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2413
+#define EPILEPSY_PRIV_EVAL_REC_2412_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2413(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2413_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2413_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2413_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2413_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2413_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2413_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2413_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2413_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2413_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2413_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2414
+#define EPILEPSY_PRIV_EVAL_REC_2413_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2414(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2414_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2414_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2414_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2414_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2414_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2414_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2414_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2414_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2414_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2414_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2415
+#define EPILEPSY_PRIV_EVAL_REC_2414_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2415(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2415_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2415_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2415_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2415_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2415_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2415_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2415_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2415_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2415_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2415_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2416
+#define EPILEPSY_PRIV_EVAL_REC_2415_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2416(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2416_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2416_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2416_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2416_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2416_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2416_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2416_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2416_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2416_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2416_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2417
+#define EPILEPSY_PRIV_EVAL_REC_2416_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2417(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2417_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2417_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2417_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2417_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2417_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2417_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2417_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2417_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2417_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2417_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2418
+#define EPILEPSY_PRIV_EVAL_REC_2417_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2418(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2418_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2418_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2418_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2418_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2418_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2418_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2418_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2418_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2418_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2418_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2419
+#define EPILEPSY_PRIV_EVAL_REC_2418_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2419(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2419_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2419_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2419_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2419_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2419_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2419_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2419_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2419_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2419_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2419_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2420
+#define EPILEPSY_PRIV_EVAL_REC_2419_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2420(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2420_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2420_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2420_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2420_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2420_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2420_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2420_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2420_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2420_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2420_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2421
+#define EPILEPSY_PRIV_EVAL_REC_2420_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2421(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2421_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2421_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2421_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2421_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2421_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2421_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2421_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2421_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2421_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2421_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2422
+#define EPILEPSY_PRIV_EVAL_REC_2421_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2422(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2422_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2422_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2422_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2422_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2422_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2422_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2422_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2422_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2422_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2422_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2423
+#define EPILEPSY_PRIV_EVAL_REC_2422_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2423(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2423_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2423_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2423_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2423_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2423_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2423_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2423_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2423_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2423_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2423_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2424
+#define EPILEPSY_PRIV_EVAL_REC_2423_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2424(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2424_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2424_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2424_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2424_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2424_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2424_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2424_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2424_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2424_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2424_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2425
+#define EPILEPSY_PRIV_EVAL_REC_2424_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2425(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2425_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2425_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2425_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2425_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2425_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2425_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2425_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2425_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2425_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2425_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2426
+#define EPILEPSY_PRIV_EVAL_REC_2425_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2426(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2426_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2426_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2426_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2426_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2426_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2426_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2426_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2426_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2426_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2426_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2427
+#define EPILEPSY_PRIV_EVAL_REC_2426_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2427(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2427_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2427_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2427_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2427_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2427_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2427_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2427_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2427_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2427_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2427_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2428
+#define EPILEPSY_PRIV_EVAL_REC_2427_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2428(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2428_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2428_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2428_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2428_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2428_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2428_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2428_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2428_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2428_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2428_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2429
+#define EPILEPSY_PRIV_EVAL_REC_2428_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2429(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2429_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2429_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2429_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2429_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2429_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2429_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2429_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2429_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2429_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2429_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2430
+#define EPILEPSY_PRIV_EVAL_REC_2429_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2430(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2430_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2430_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2430_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2430_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2430_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2430_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2430_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2430_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2430_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2430_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2431
+#define EPILEPSY_PRIV_EVAL_REC_2430_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2431(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2431_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2431_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2431_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2431_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2431_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2431_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2431_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2431_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2431_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2431_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2432
+#define EPILEPSY_PRIV_EVAL_REC_2431_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2432(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2432_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2432_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2432_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2432_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2432_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2432_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2432_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2432_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2432_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2432_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2433
+#define EPILEPSY_PRIV_EVAL_REC_2432_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2433(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2433_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2433_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2433_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2433_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2433_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2433_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2433_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2433_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2433_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2433_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2434
+#define EPILEPSY_PRIV_EVAL_REC_2433_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2434(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2434_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2434_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2434_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2434_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2434_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2434_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2434_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2434_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2434_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2434_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2435
+#define EPILEPSY_PRIV_EVAL_REC_2434_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2435(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2435_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2435_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2435_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2435_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2435_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2435_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2435_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2435_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2435_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2435_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2436
+#define EPILEPSY_PRIV_EVAL_REC_2435_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2436(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2436_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2436_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2436_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2436_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2436_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2436_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2436_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2436_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2436_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2436_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2437
+#define EPILEPSY_PRIV_EVAL_REC_2436_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2437(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2437_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2437_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2437_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2437_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2437_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2437_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2437_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2437_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2437_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2437_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2438
+#define EPILEPSY_PRIV_EVAL_REC_2437_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2438(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2438_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2438_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2438_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2438_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2438_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2438_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2438_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2438_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2438_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2438_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2439
+#define EPILEPSY_PRIV_EVAL_REC_2438_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2439(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2439_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2439_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2439_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2439_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2439_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2439_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2439_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2439_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2439_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2439_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2440
+#define EPILEPSY_PRIV_EVAL_REC_2439_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2440(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2440_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2440_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2440_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2440_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2440_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2440_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2440_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2440_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2440_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2440_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2441
+#define EPILEPSY_PRIV_EVAL_REC_2440_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2441(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2441_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2441_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2441_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2441_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2441_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2441_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2441_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2441_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2441_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2441_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2442
+#define EPILEPSY_PRIV_EVAL_REC_2441_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2442(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2442_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2442_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2442_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2442_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2442_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2442_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2442_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2442_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2442_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2442_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2443
+#define EPILEPSY_PRIV_EVAL_REC_2442_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2443(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2443_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2443_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2443_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2443_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2443_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2443_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2443_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2443_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2443_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2443_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2444
+#define EPILEPSY_PRIV_EVAL_REC_2443_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2444(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2444_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2444_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2444_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2444_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2444_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2444_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2444_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2444_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2444_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2444_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2445
+#define EPILEPSY_PRIV_EVAL_REC_2444_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2445(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2445_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2445_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2445_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2445_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2445_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2445_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2445_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2445_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2445_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2445_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2446
+#define EPILEPSY_PRIV_EVAL_REC_2445_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2446(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2446_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2446_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2446_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2446_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2446_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2446_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2446_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2446_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2446_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2446_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2447
+#define EPILEPSY_PRIV_EVAL_REC_2446_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2447(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2447_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2447_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2447_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2447_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2447_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2447_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2447_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2447_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2447_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2447_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2448
+#define EPILEPSY_PRIV_EVAL_REC_2447_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2448(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2448_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2448_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2448_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2448_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2448_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2448_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2448_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2448_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2448_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2448_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2449
+#define EPILEPSY_PRIV_EVAL_REC_2448_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2449(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2449_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2449_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2449_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2449_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2449_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2449_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2449_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2449_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2449_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2449_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2450
+#define EPILEPSY_PRIV_EVAL_REC_2449_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2450(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2450_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2450_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2450_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2450_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2450_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2450_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2450_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2450_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2450_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2450_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2451
+#define EPILEPSY_PRIV_EVAL_REC_2450_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2451(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2451_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2451_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2451_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2451_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2451_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2451_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2451_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2451_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2451_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2451_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2452
+#define EPILEPSY_PRIV_EVAL_REC_2451_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2452(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2452_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2452_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2452_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2452_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2452_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2452_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2452_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2452_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2452_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2452_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2453
+#define EPILEPSY_PRIV_EVAL_REC_2452_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2453(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2453_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2453_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2453_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2453_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2453_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2453_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2453_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2453_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2453_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2453_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2454
+#define EPILEPSY_PRIV_EVAL_REC_2453_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2454(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2454_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2454_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2454_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2454_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2454_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2454_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2454_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2454_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2454_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2454_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2455
+#define EPILEPSY_PRIV_EVAL_REC_2454_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2455(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2455_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2455_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2455_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2455_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2455_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2455_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2455_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2455_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2455_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2455_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2456
+#define EPILEPSY_PRIV_EVAL_REC_2455_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2456(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2456_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2456_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2456_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2456_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2456_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2456_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2456_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2456_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2456_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2456_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2457
+#define EPILEPSY_PRIV_EVAL_REC_2456_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2457(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2457_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2457_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2457_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2457_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2457_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2457_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2457_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2457_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2457_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2457_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2458
+#define EPILEPSY_PRIV_EVAL_REC_2457_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2458(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2458_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2458_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2458_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2458_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2458_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2458_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2458_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2458_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2458_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2458_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2459
+#define EPILEPSY_PRIV_EVAL_REC_2458_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2459(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2459_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2459_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2459_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2459_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2459_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2459_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2459_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2459_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2459_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2459_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2460
+#define EPILEPSY_PRIV_EVAL_REC_2459_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2460(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2460_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2460_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2460_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2460_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2460_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2460_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2460_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2460_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2460_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2460_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2461
+#define EPILEPSY_PRIV_EVAL_REC_2460_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2461(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2461_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2461_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2461_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2461_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2461_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2461_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2461_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2461_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2461_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2461_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2462
+#define EPILEPSY_PRIV_EVAL_REC_2461_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2462(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2462_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2462_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2462_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2462_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2462_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2462_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2462_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2462_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2462_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2462_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2463
+#define EPILEPSY_PRIV_EVAL_REC_2462_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2463(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2463_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2463_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2463_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2463_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2463_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2463_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2463_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2463_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2463_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2463_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2464
+#define EPILEPSY_PRIV_EVAL_REC_2463_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2464(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2464_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2464_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2464_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2464_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2464_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2464_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2464_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2464_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2464_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2464_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2465
+#define EPILEPSY_PRIV_EVAL_REC_2464_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2465(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2465_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2465_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2465_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2465_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2465_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2465_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2465_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2465_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2465_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2465_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2466
+#define EPILEPSY_PRIV_EVAL_REC_2465_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2466(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2466_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2466_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2466_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2466_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2466_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2466_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2466_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2466_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2466_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2466_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2467
+#define EPILEPSY_PRIV_EVAL_REC_2466_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2467(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2467_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2467_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2467_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2467_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2467_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2467_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2467_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2467_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2467_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2467_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2468
+#define EPILEPSY_PRIV_EVAL_REC_2467_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2468(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2468_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2468_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2468_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2468_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2468_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2468_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2468_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2468_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2468_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2468_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2469
+#define EPILEPSY_PRIV_EVAL_REC_2468_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2469(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2469_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2469_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2469_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2469_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2469_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2469_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2469_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2469_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2469_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2469_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2470
+#define EPILEPSY_PRIV_EVAL_REC_2469_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2470(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2470_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2470_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2470_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2470_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2470_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2470_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2470_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2470_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2470_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2470_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2471
+#define EPILEPSY_PRIV_EVAL_REC_2470_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2471(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2471_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2471_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2471_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2471_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2471_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2471_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2471_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2471_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2471_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2471_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2472
+#define EPILEPSY_PRIV_EVAL_REC_2471_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2472(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2472_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2472_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2472_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2472_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2472_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2472_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2472_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2472_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2472_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2472_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2473
+#define EPILEPSY_PRIV_EVAL_REC_2472_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2473(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2473_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2473_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2473_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2473_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2473_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2473_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2473_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2473_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2473_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2473_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2474
+#define EPILEPSY_PRIV_EVAL_REC_2473_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2474(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2474_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2474_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2474_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2474_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2474_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2474_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2474_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2474_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2474_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2474_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2475
+#define EPILEPSY_PRIV_EVAL_REC_2474_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2475(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2475_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2475_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2475_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2475_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2475_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2475_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2475_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2475_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2475_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2475_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2476
+#define EPILEPSY_PRIV_EVAL_REC_2475_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2476(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2476_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2476_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2476_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2476_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2476_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2476_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2476_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2476_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2476_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2476_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2477
+#define EPILEPSY_PRIV_EVAL_REC_2476_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2477(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2477_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2477_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2477_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2477_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2477_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2477_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2477_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2477_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2477_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2477_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2478
+#define EPILEPSY_PRIV_EVAL_REC_2477_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2478(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2478_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2478_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2478_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2478_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2478_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2478_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2478_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2478_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2478_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2478_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2479
+#define EPILEPSY_PRIV_EVAL_REC_2478_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2479(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2479_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2479_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2479_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2479_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2479_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2479_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2479_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2479_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2479_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2479_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2480
+#define EPILEPSY_PRIV_EVAL_REC_2479_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2480(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2480_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2480_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2480_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2480_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2480_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2480_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2480_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2480_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2480_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2480_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2481
+#define EPILEPSY_PRIV_EVAL_REC_2480_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2481(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2481_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2481_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2481_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2481_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2481_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2481_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2481_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2481_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2481_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2481_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2482
+#define EPILEPSY_PRIV_EVAL_REC_2481_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2482(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2482_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2482_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2482_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2482_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2482_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2482_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2482_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2482_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2482_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2482_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2483
+#define EPILEPSY_PRIV_EVAL_REC_2482_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2483(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2483_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2483_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2483_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2483_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2483_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2483_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2483_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2483_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2483_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2483_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2484
+#define EPILEPSY_PRIV_EVAL_REC_2483_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2484(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2484_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2484_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2484_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2484_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2484_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2484_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2484_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2484_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2484_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2484_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2485
+#define EPILEPSY_PRIV_EVAL_REC_2484_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2485(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2485_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2485_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2485_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2485_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2485_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2485_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2485_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2485_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2485_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2485_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2486
+#define EPILEPSY_PRIV_EVAL_REC_2485_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2486(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2486_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2486_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2486_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2486_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2486_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2486_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2486_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2486_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2486_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2486_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2487
+#define EPILEPSY_PRIV_EVAL_REC_2486_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2487(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2487_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2487_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2487_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2487_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2487_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2487_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2487_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2487_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2487_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2487_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2488
+#define EPILEPSY_PRIV_EVAL_REC_2487_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2488(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2488_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2488_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2488_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2488_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2488_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2488_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2488_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2488_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2488_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2488_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2489
+#define EPILEPSY_PRIV_EVAL_REC_2488_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2489(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2489_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2489_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2489_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2489_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2489_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2489_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2489_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2489_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2489_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2489_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2490
+#define EPILEPSY_PRIV_EVAL_REC_2489_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2490(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2490_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2490_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2490_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2490_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2490_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2490_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2490_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2490_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2490_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2490_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2491
+#define EPILEPSY_PRIV_EVAL_REC_2490_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2491(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2491_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2491_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2491_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2491_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2491_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2491_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2491_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2491_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2491_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2491_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2492
+#define EPILEPSY_PRIV_EVAL_REC_2491_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2492(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2492_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2492_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2492_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2492_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2492_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2492_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2492_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2492_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2492_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2492_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2493
+#define EPILEPSY_PRIV_EVAL_REC_2492_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2493(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2493_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2493_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2493_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2493_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2493_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2493_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2493_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2493_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2493_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2493_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2494
+#define EPILEPSY_PRIV_EVAL_REC_2493_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2494(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2494_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2494_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2494_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2494_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2494_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2494_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2494_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2494_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2494_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2494_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2495
+#define EPILEPSY_PRIV_EVAL_REC_2494_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2495(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2495_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2495_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2495_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2495_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2495_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2495_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2495_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2495_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2495_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2495_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2496
+#define EPILEPSY_PRIV_EVAL_REC_2495_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2496(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2496_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2496_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2496_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2496_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2496_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2496_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2496_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2496_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2496_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2496_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2497
+#define EPILEPSY_PRIV_EVAL_REC_2496_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2497(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2497_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2497_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2497_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2497_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2497_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2497_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2497_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2497_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2497_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2497_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2498
+#define EPILEPSY_PRIV_EVAL_REC_2497_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2498(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2498_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2498_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2498_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2498_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2498_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2498_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2498_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2498_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2498_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2498_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2499
+#define EPILEPSY_PRIV_EVAL_REC_2498_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2499(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2499_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2499_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2499_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2499_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2499_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2499_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2499_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2499_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2499_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2499_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2500
+#define EPILEPSY_PRIV_EVAL_REC_2499_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2500(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2500_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2500_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2500_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2500_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2500_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2500_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2500_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2500_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2500_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2500_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2501
+#define EPILEPSY_PRIV_EVAL_REC_2500_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2501(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2501_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2501_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2501_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2501_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2501_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2501_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2501_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2501_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2501_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2501_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2502
+#define EPILEPSY_PRIV_EVAL_REC_2501_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2502(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2502_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2502_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2502_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2502_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2502_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2502_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2502_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2502_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2502_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2502_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2503
+#define EPILEPSY_PRIV_EVAL_REC_2502_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2503(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2503_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2503_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2503_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2503_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2503_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2503_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2503_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2503_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2503_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2503_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2504
+#define EPILEPSY_PRIV_EVAL_REC_2503_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2504(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2504_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2504_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2504_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2504_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2504_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2504_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2504_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2504_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2504_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2504_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2505
+#define EPILEPSY_PRIV_EVAL_REC_2504_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2505(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2505_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2505_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2505_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2505_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2505_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2505_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2505_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2505_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2505_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2505_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2506
+#define EPILEPSY_PRIV_EVAL_REC_2505_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2506(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2506_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2506_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2506_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2506_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2506_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2506_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2506_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2506_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2506_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2506_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2507
+#define EPILEPSY_PRIV_EVAL_REC_2506_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2507(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2507_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2507_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2507_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2507_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2507_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2507_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2507_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2507_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2507_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2507_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2508
+#define EPILEPSY_PRIV_EVAL_REC_2507_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2508(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2508_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2508_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2508_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2508_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2508_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2508_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2508_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2508_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2508_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2508_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2509
+#define EPILEPSY_PRIV_EVAL_REC_2508_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2509(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2509_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2509_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2509_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2509_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2509_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2509_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2509_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2509_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2509_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2509_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2510
+#define EPILEPSY_PRIV_EVAL_REC_2509_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2510(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2510_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2510_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2510_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2510_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2510_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2510_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2510_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2510_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2510_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2510_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2511
+#define EPILEPSY_PRIV_EVAL_REC_2510_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2511(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2511_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2511_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2511_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2511_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2511_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2511_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2511_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2511_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2511_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2511_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2512
+#define EPILEPSY_PRIV_EVAL_REC_2511_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2512(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2512_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2512_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2512_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2512_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2512_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2512_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2512_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2512_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2512_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2512_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2513
+#define EPILEPSY_PRIV_EVAL_REC_2512_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2513(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2513_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2513_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2513_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2513_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2513_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2513_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2513_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2513_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2513_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2513_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2514
+#define EPILEPSY_PRIV_EVAL_REC_2513_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2514(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2514_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2514_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2514_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2514_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2514_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2514_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2514_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2514_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2514_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2514_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2515
+#define EPILEPSY_PRIV_EVAL_REC_2514_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2515(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2515_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2515_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2515_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2515_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2515_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2515_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2515_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2515_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2515_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2515_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2516
+#define EPILEPSY_PRIV_EVAL_REC_2515_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2516(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2516_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2516_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2516_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2516_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2516_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2516_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2516_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2516_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2516_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2516_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2517
+#define EPILEPSY_PRIV_EVAL_REC_2516_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2517(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2517_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2517_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2517_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2517_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2517_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2517_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2517_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2517_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2517_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2517_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2518
+#define EPILEPSY_PRIV_EVAL_REC_2517_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2518(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2518_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2518_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2518_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2518_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2518_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2518_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2518_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2518_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2518_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2518_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2519
+#define EPILEPSY_PRIV_EVAL_REC_2518_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2519(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2519_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2519_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2519_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2519_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2519_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2519_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2519_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2519_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2519_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2519_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2520
+#define EPILEPSY_PRIV_EVAL_REC_2519_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2520(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2520_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2520_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2520_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2520_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2520_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2520_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2520_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2520_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2520_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2520_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2521
+#define EPILEPSY_PRIV_EVAL_REC_2520_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2521(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2521_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2521_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2521_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2521_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2521_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2521_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2521_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2521_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2521_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2521_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2522
+#define EPILEPSY_PRIV_EVAL_REC_2521_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2522(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2522_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2522_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2522_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2522_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2522_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2522_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2522_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2522_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2522_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2522_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2523
+#define EPILEPSY_PRIV_EVAL_REC_2522_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2523(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2523_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2523_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2523_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2523_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2523_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2523_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2523_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2523_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2523_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2523_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2524
+#define EPILEPSY_PRIV_EVAL_REC_2523_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2524(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2524_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2524_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2524_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2524_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2524_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2524_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2524_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2524_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2524_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2524_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2525
+#define EPILEPSY_PRIV_EVAL_REC_2524_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2525(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2525_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2525_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2525_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2525_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2525_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2525_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2525_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2525_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2525_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2525_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2526
+#define EPILEPSY_PRIV_EVAL_REC_2525_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2526(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2526_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2526_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2526_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2526_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2526_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2526_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2526_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2526_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2526_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2526_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2527
+#define EPILEPSY_PRIV_EVAL_REC_2526_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2527(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2527_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2527_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2527_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2527_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2527_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2527_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2527_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2527_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2527_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2527_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2528
+#define EPILEPSY_PRIV_EVAL_REC_2527_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2528(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2528_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2528_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2528_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2528_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2528_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2528_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2528_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2528_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2528_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2528_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2529
+#define EPILEPSY_PRIV_EVAL_REC_2528_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2529(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2529_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2529_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2529_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2529_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2529_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2529_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2529_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2529_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2529_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2529_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2530
+#define EPILEPSY_PRIV_EVAL_REC_2529_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2530(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2530_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2530_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2530_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2530_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2530_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2530_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2530_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2530_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2530_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2530_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2531
+#define EPILEPSY_PRIV_EVAL_REC_2530_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2531(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2531_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2531_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2531_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2531_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2531_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2531_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2531_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2531_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2531_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2531_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2532
+#define EPILEPSY_PRIV_EVAL_REC_2531_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2532(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2532_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2532_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2532_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2532_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2532_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2532_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2532_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2532_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2532_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2532_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2533
+#define EPILEPSY_PRIV_EVAL_REC_2532_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2533(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2533_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2533_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2533_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2533_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2533_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2533_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2533_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2533_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2533_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2533_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2534
+#define EPILEPSY_PRIV_EVAL_REC_2533_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2534(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2534_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2534_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2534_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2534_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2534_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2534_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2534_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2534_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2534_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2534_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2535
+#define EPILEPSY_PRIV_EVAL_REC_2534_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2535(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2535_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2535_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2535_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2535_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2535_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2535_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2535_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2535_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2535_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2535_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2536
+#define EPILEPSY_PRIV_EVAL_REC_2535_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2536(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2536_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2536_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2536_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2536_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2536_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2536_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2536_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2536_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2536_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2536_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2537
+#define EPILEPSY_PRIV_EVAL_REC_2536_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2537(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2537_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2537_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2537_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2537_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2537_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2537_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2537_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2537_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2537_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2537_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2538
+#define EPILEPSY_PRIV_EVAL_REC_2537_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2538(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2538_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2538_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2538_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2538_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2538_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2538_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2538_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2538_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2538_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2538_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2539
+#define EPILEPSY_PRIV_EVAL_REC_2538_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2539(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2539_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2539_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2539_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2539_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2539_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2539_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2539_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2539_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2539_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2539_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2540
+#define EPILEPSY_PRIV_EVAL_REC_2539_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2540(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2540_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2540_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2540_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2540_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2540_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2540_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2540_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2540_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2540_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2540_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2541
+#define EPILEPSY_PRIV_EVAL_REC_2540_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2541(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2541_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2541_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2541_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2541_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2541_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2541_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2541_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2541_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2541_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2541_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2542
+#define EPILEPSY_PRIV_EVAL_REC_2541_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2542(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2542_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2542_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2542_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2542_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2542_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2542_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2542_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2542_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2542_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2542_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2543
+#define EPILEPSY_PRIV_EVAL_REC_2542_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2543(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2543_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2543_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2543_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2543_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2543_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2543_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2543_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2543_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2543_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2543_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2544
+#define EPILEPSY_PRIV_EVAL_REC_2543_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2544(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2544_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2544_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2544_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2544_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2544_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2544_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2544_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2544_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2544_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2544_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2545
+#define EPILEPSY_PRIV_EVAL_REC_2544_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2545(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2545_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2545_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2545_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2545_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2545_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2545_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2545_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2545_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2545_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2545_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2546
+#define EPILEPSY_PRIV_EVAL_REC_2545_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2546(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2546_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2546_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2546_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2546_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2546_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2546_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2546_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2546_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2546_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2546_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2547
+#define EPILEPSY_PRIV_EVAL_REC_2546_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2547(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2547_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2547_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2547_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2547_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2547_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2547_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2547_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2547_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2547_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2547_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2548
+#define EPILEPSY_PRIV_EVAL_REC_2547_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2548(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2548_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2548_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2548_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2548_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2548_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2548_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2548_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2548_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2548_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2548_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2549
+#define EPILEPSY_PRIV_EVAL_REC_2548_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2549(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2549_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2549_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2549_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2549_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2549_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2549_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2549_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2549_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2549_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2549_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2550
+#define EPILEPSY_PRIV_EVAL_REC_2549_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2550(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2550_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2550_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2550_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2550_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2550_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2550_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2550_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2550_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2550_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2550_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2551
+#define EPILEPSY_PRIV_EVAL_REC_2550_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2551(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2551_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2551_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2551_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2551_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2551_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2551_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2551_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2551_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2551_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2551_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2552
+#define EPILEPSY_PRIV_EVAL_REC_2551_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2552(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2552_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2552_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2552_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2552_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2552_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2552_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2552_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2552_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2552_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2552_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2553
+#define EPILEPSY_PRIV_EVAL_REC_2552_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2553(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2553_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2553_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2553_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2553_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2553_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2553_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2553_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2553_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2553_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2553_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2554
+#define EPILEPSY_PRIV_EVAL_REC_2553_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2554(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2554_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2554_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2554_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2554_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2554_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2554_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2554_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2554_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2554_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2554_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2555
+#define EPILEPSY_PRIV_EVAL_REC_2554_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2555(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2555_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2555_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2555_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2555_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2555_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2555_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2555_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2555_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2555_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2555_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2556
+#define EPILEPSY_PRIV_EVAL_REC_2555_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2556(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2556_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2556_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2556_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2556_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2556_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2556_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2556_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2556_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2556_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2556_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2557
+#define EPILEPSY_PRIV_EVAL_REC_2556_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2557(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2557_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2557_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2557_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2557_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2557_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2557_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2557_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2557_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2557_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2557_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2558
+#define EPILEPSY_PRIV_EVAL_REC_2557_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2558(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2558_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2558_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2558_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2558_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2558_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2558_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2558_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2558_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2558_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2558_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2559
+#define EPILEPSY_PRIV_EVAL_REC_2558_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2559(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2559_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2559_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2559_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2559_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2559_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2559_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2559_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2559_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2559_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2559_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2560
+#define EPILEPSY_PRIV_EVAL_REC_2559_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2560(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2560_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2560_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2560_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2560_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2560_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2560_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2560_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2560_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2560_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2560_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2561
+#define EPILEPSY_PRIV_EVAL_REC_2560_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2561(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2561_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2561_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2561_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2561_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2561_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2561_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2561_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2561_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2561_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2561_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2562
+#define EPILEPSY_PRIV_EVAL_REC_2561_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2562(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2562_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2562_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2562_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2562_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2562_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2562_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2562_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2562_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2562_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2562_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2563
+#define EPILEPSY_PRIV_EVAL_REC_2562_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2563(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2563_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2563_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2563_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2563_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2563_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2563_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2563_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2563_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2563_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2563_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2564
+#define EPILEPSY_PRIV_EVAL_REC_2563_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2564(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2564_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2564_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2564_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2564_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2564_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2564_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2564_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2564_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2564_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2564_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2565
+#define EPILEPSY_PRIV_EVAL_REC_2564_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2565(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2565_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2565_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2565_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2565_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2565_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2565_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2565_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2565_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2565_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2565_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2566
+#define EPILEPSY_PRIV_EVAL_REC_2565_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2566(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2566_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2566_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2566_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2566_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2566_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2566_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2566_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2566_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2566_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2566_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2567
+#define EPILEPSY_PRIV_EVAL_REC_2566_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2567(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2567_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2567_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2567_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2567_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2567_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2567_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2567_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2567_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2567_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2567_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2568
+#define EPILEPSY_PRIV_EVAL_REC_2567_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2568(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2568_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2568_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2568_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2568_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2568_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2568_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2568_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2568_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2568_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2568_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2569
+#define EPILEPSY_PRIV_EVAL_REC_2568_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2569(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2569_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2569_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2569_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2569_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2569_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2569_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2569_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2569_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2569_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2569_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2570
+#define EPILEPSY_PRIV_EVAL_REC_2569_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2570(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2570_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2570_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2570_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2570_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2570_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2570_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2570_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2570_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2570_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2570_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2571
+#define EPILEPSY_PRIV_EVAL_REC_2570_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2571(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2571_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2571_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2571_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2571_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2571_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2571_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2571_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2571_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2571_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2571_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2572
+#define EPILEPSY_PRIV_EVAL_REC_2571_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2572(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2572_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2572_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2572_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2572_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2572_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2572_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2572_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2572_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2572_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2572_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2573
+#define EPILEPSY_PRIV_EVAL_REC_2572_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2573(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2573_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2573_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2573_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2573_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2573_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2573_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2573_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2573_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2573_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2573_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2574
+#define EPILEPSY_PRIV_EVAL_REC_2573_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2574(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2574_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2574_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2574_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2574_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2574_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2574_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2574_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2574_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2574_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2574_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2575
+#define EPILEPSY_PRIV_EVAL_REC_2574_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2575(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2575_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2575_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2575_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2575_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2575_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2575_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2575_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2575_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2575_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2575_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2576
+#define EPILEPSY_PRIV_EVAL_REC_2575_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2576(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2576_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2576_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2576_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2576_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2576_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2576_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2576_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2576_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2576_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2576_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2577
+#define EPILEPSY_PRIV_EVAL_REC_2576_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2577(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2577_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2577_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2577_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2577_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2577_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2577_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2577_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2577_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2577_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2577_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2578
+#define EPILEPSY_PRIV_EVAL_REC_2577_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2578(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2578_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2578_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2578_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2578_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2578_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2578_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2578_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2578_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2578_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2578_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2579
+#define EPILEPSY_PRIV_EVAL_REC_2578_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2579(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2579_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2579_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2579_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2579_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2579_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2579_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2579_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2579_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2579_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2579_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2580
+#define EPILEPSY_PRIV_EVAL_REC_2579_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2580(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2580_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2580_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2580_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2580_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2580_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2580_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2580_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2580_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2580_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2580_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2581
+#define EPILEPSY_PRIV_EVAL_REC_2580_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2581(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2581_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2581_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2581_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2581_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2581_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2581_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2581_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2581_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2581_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2581_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2582
+#define EPILEPSY_PRIV_EVAL_REC_2581_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2582(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2582_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2582_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2582_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2582_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2582_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2582_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2582_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2582_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2582_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2582_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2583
+#define EPILEPSY_PRIV_EVAL_REC_2582_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2583(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2583_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2583_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2583_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2583_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2583_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2583_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2583_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2583_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2583_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2583_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2584
+#define EPILEPSY_PRIV_EVAL_REC_2583_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2584(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2584_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2584_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2584_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2584_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2584_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2584_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2584_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2584_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2584_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2584_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2585
+#define EPILEPSY_PRIV_EVAL_REC_2584_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2585(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2585_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2585_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2585_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2585_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2585_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2585_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2585_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2585_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2585_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2585_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2586
+#define EPILEPSY_PRIV_EVAL_REC_2585_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2586(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2586_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2586_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2586_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2586_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2586_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2586_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2586_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2586_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2586_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2586_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2587
+#define EPILEPSY_PRIV_EVAL_REC_2586_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2587(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2587_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2587_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2587_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2587_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2587_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2587_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2587_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2587_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2587_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2587_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2588
+#define EPILEPSY_PRIV_EVAL_REC_2587_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2588(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2588_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2588_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2588_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2588_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2588_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2588_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2588_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2588_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2588_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2588_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2589
+#define EPILEPSY_PRIV_EVAL_REC_2588_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2589(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2589_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2589_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2589_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2589_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2589_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2589_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2589_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2589_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2589_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2589_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2590
+#define EPILEPSY_PRIV_EVAL_REC_2589_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2590(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2590_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2590_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2590_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2590_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2590_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2590_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2590_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2590_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2590_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2590_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2591
+#define EPILEPSY_PRIV_EVAL_REC_2590_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2591(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2591_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2591_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2591_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2591_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2591_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2591_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2591_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2591_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2591_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2591_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2592
+#define EPILEPSY_PRIV_EVAL_REC_2591_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2592(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2592_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2592_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2592_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2592_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2592_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2592_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2592_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2592_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2592_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2592_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2593
+#define EPILEPSY_PRIV_EVAL_REC_2592_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2593(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2593_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2593_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2593_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2593_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2593_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2593_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2593_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2593_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2593_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2593_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2594
+#define EPILEPSY_PRIV_EVAL_REC_2593_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2594(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2594_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2594_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2594_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2594_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2594_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2594_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2594_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2594_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2594_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2594_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2595
+#define EPILEPSY_PRIV_EVAL_REC_2594_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2595(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2595_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2595_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2595_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2595_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2595_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2595_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2595_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2595_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2595_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2595_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2596
+#define EPILEPSY_PRIV_EVAL_REC_2595_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2596(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2596_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2596_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2596_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2596_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2596_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2596_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2596_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2596_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2596_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2596_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2597
+#define EPILEPSY_PRIV_EVAL_REC_2596_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2597(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2597_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2597_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2597_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2597_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2597_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2597_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2597_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2597_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2597_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2597_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2598
+#define EPILEPSY_PRIV_EVAL_REC_2597_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2598(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2598_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2598_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2598_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2598_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2598_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2598_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2598_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2598_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2598_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2598_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2599
+#define EPILEPSY_PRIV_EVAL_REC_2598_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2599(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2599_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2599_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2599_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2599_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2599_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2599_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2599_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2599_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2599_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2599_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2600
+#define EPILEPSY_PRIV_EVAL_REC_2599_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2600(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2600_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2600_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2600_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2600_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2600_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2600_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2600_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2600_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2600_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2600_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2601
+#define EPILEPSY_PRIV_EVAL_REC_2600_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2601(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2601_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2601_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2601_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2601_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2601_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2601_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2601_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2601_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2601_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2601_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2602
+#define EPILEPSY_PRIV_EVAL_REC_2601_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2602(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2602_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2602_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2602_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2602_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2602_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2602_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2602_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2602_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2602_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2602_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2603
+#define EPILEPSY_PRIV_EVAL_REC_2602_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2603(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2603_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2603_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2603_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2603_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2603_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2603_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2603_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2603_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2603_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2603_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2604
+#define EPILEPSY_PRIV_EVAL_REC_2603_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2604(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2604_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2604_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2604_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2604_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2604_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2604_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2604_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2604_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2604_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2604_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2605
+#define EPILEPSY_PRIV_EVAL_REC_2604_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2605(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2605_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2605_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2605_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2605_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2605_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2605_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2605_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2605_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2605_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2605_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2606
+#define EPILEPSY_PRIV_EVAL_REC_2605_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2606(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2606_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2606_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2606_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2606_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2606_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2606_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2606_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2606_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2606_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2606_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2607
+#define EPILEPSY_PRIV_EVAL_REC_2606_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2607(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2607_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2607_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2607_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2607_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2607_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2607_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2607_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2607_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2607_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2607_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2608
+#define EPILEPSY_PRIV_EVAL_REC_2607_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2608(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2608_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2608_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2608_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2608_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2608_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2608_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2608_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2608_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2608_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2608_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2609
+#define EPILEPSY_PRIV_EVAL_REC_2608_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2609(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2609_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2609_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2609_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2609_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2609_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2609_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2609_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2609_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2609_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2609_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2610
+#define EPILEPSY_PRIV_EVAL_REC_2609_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2610(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2610_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2610_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2610_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2610_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2610_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2610_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2610_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2610_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2610_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2610_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2611
+#define EPILEPSY_PRIV_EVAL_REC_2610_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2611(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2611_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2611_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2611_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2611_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2611_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2611_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2611_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2611_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2611_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2611_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2612
+#define EPILEPSY_PRIV_EVAL_REC_2611_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2612(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2612_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2612_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2612_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2612_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2612_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2612_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2612_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2612_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2612_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2612_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2613
+#define EPILEPSY_PRIV_EVAL_REC_2612_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2613(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2613_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2613_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2613_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2613_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2613_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2613_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2613_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2613_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2613_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2613_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2614
+#define EPILEPSY_PRIV_EVAL_REC_2613_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2614(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2614_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2614_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2614_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2614_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2614_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2614_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2614_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2614_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2614_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2614_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2615
+#define EPILEPSY_PRIV_EVAL_REC_2614_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2615(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2615_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2615_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2615_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2615_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2615_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2615_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2615_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2615_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2615_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2615_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2616
+#define EPILEPSY_PRIV_EVAL_REC_2615_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2616(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2616_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2616_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2616_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2616_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2616_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2616_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2616_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2616_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2616_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2616_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2617
+#define EPILEPSY_PRIV_EVAL_REC_2616_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2617(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2617_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2617_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2617_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2617_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2617_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2617_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2617_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2617_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2617_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2617_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2618
+#define EPILEPSY_PRIV_EVAL_REC_2617_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2618(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2618_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2618_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2618_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2618_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2618_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2618_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2618_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2618_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2618_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2618_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2619
+#define EPILEPSY_PRIV_EVAL_REC_2618_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2619(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2619_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2619_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2619_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2619_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2619_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2619_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2619_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2619_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2619_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2619_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2620
+#define EPILEPSY_PRIV_EVAL_REC_2619_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2620(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2620_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2620_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2620_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2620_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2620_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2620_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2620_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2620_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2620_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2620_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2621
+#define EPILEPSY_PRIV_EVAL_REC_2620_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2621(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2621_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2621_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2621_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2621_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2621_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2621_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2621_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2621_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2621_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2621_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2622
+#define EPILEPSY_PRIV_EVAL_REC_2621_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2622(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2622_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2622_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2622_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2622_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2622_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2622_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2622_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2622_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2622_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2622_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2623
+#define EPILEPSY_PRIV_EVAL_REC_2622_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2623(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2623_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2623_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2623_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2623_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2623_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2623_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2623_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2623_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2623_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2623_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2624
+#define EPILEPSY_PRIV_EVAL_REC_2623_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2624(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2624_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2624_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2624_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2624_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2624_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2624_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2624_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2624_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2624_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2624_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2625
+#define EPILEPSY_PRIV_EVAL_REC_2624_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2625(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2625_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2625_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2625_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2625_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2625_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2625_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2625_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2625_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2625_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2625_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2626
+#define EPILEPSY_PRIV_EVAL_REC_2625_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2626(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2626_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2626_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2626_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2626_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2626_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2626_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2626_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2626_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2626_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2626_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2627
+#define EPILEPSY_PRIV_EVAL_REC_2626_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2627(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2627_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2627_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2627_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2627_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2627_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2627_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2627_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2627_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2627_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2627_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2628
+#define EPILEPSY_PRIV_EVAL_REC_2627_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2628(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2628_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2628_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2628_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2628_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2628_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2628_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2628_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2628_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2628_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2628_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2629
+#define EPILEPSY_PRIV_EVAL_REC_2628_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2629(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2629_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2629_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2629_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2629_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2629_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2629_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2629_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2629_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2629_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2629_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2630
+#define EPILEPSY_PRIV_EVAL_REC_2629_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2630(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2630_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2630_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2630_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2630_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2630_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2630_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2630_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2630_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2630_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2630_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2631
+#define EPILEPSY_PRIV_EVAL_REC_2630_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2631(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2631_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2631_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2631_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2631_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2631_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2631_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2631_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2631_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2631_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2631_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2632
+#define EPILEPSY_PRIV_EVAL_REC_2631_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2632(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2632_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2632_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2632_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2632_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2632_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2632_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2632_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2632_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2632_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2632_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2633
+#define EPILEPSY_PRIV_EVAL_REC_2632_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2633(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2633_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2633_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2633_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2633_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2633_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2633_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2633_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2633_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2633_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2633_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2634
+#define EPILEPSY_PRIV_EVAL_REC_2633_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2634(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2634_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2634_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2634_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2634_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2634_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2634_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2634_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2634_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2634_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2634_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2635
+#define EPILEPSY_PRIV_EVAL_REC_2634_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2635(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2635_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2635_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2635_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2635_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2635_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2635_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2635_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2635_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2635_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2635_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2636
+#define EPILEPSY_PRIV_EVAL_REC_2635_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2636(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2636_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2636_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2636_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2636_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2636_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2636_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2636_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2636_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2636_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2636_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2637
+#define EPILEPSY_PRIV_EVAL_REC_2636_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2637(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2637_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2637_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2637_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2637_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2637_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2637_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2637_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2637_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2637_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2637_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2638
+#define EPILEPSY_PRIV_EVAL_REC_2637_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2638(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2638_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2638_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2638_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2638_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2638_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2638_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2638_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2638_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2638_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2638_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2639
+#define EPILEPSY_PRIV_EVAL_REC_2638_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2639(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2639_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2639_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2639_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2639_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2639_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2639_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2639_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2639_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2639_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2639_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2640
+#define EPILEPSY_PRIV_EVAL_REC_2639_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2640(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2640_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2640_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2640_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2640_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2640_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2640_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2640_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2640_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2640_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2640_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2641
+#define EPILEPSY_PRIV_EVAL_REC_2640_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2641(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2641_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2641_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2641_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2641_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2641_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2641_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2641_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2641_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2641_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2641_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2642
+#define EPILEPSY_PRIV_EVAL_REC_2641_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2642(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2642_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2642_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2642_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2642_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2642_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2642_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2642_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2642_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2642_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2642_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2643
+#define EPILEPSY_PRIV_EVAL_REC_2642_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2643(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2643_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2643_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2643_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2643_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2643_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2643_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2643_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2643_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2643_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2643_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2644
+#define EPILEPSY_PRIV_EVAL_REC_2643_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2644(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2644_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2644_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2644_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2644_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2644_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2644_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2644_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2644_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2644_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2644_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2645
+#define EPILEPSY_PRIV_EVAL_REC_2644_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2645(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2645_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2645_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2645_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2645_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2645_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2645_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2645_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2645_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2645_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2645_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2646
+#define EPILEPSY_PRIV_EVAL_REC_2645_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2646(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2646_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2646_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2646_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2646_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2646_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2646_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2646_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2646_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2646_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2646_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2647
+#define EPILEPSY_PRIV_EVAL_REC_2646_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2647(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2647_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2647_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2647_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2647_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2647_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2647_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2647_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2647_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2647_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2647_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2648
+#define EPILEPSY_PRIV_EVAL_REC_2647_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2648(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2648_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2648_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2648_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2648_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2648_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2648_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2648_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2648_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2648_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2648_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2649
+#define EPILEPSY_PRIV_EVAL_REC_2648_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2649(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2649_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2649_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2649_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2649_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2649_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2649_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2649_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2649_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2649_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2649_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2650
+#define EPILEPSY_PRIV_EVAL_REC_2649_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2650(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2650_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2650_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2650_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2650_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2650_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2650_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2650_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2650_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2650_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2650_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2651
+#define EPILEPSY_PRIV_EVAL_REC_2650_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2651(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2651_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2651_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2651_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2651_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2651_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2651_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2651_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2651_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2651_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2651_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2652
+#define EPILEPSY_PRIV_EVAL_REC_2651_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2652(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2652_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2652_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2652_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2652_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2652_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2652_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2652_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2652_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2652_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2652_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2653
+#define EPILEPSY_PRIV_EVAL_REC_2652_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2653(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2653_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2653_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2653_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2653_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2653_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2653_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2653_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2653_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2653_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2653_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2654
+#define EPILEPSY_PRIV_EVAL_REC_2653_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2654(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2654_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2654_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2654_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2654_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2654_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2654_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2654_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2654_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2654_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2654_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2655
+#define EPILEPSY_PRIV_EVAL_REC_2654_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2655(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2655_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2655_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2655_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2655_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2655_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2655_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2655_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2655_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2655_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2655_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2656
+#define EPILEPSY_PRIV_EVAL_REC_2655_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2656(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2656_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2656_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2656_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2656_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2656_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2656_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2656_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2656_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2656_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2656_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2657
+#define EPILEPSY_PRIV_EVAL_REC_2656_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2657(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2657_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2657_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2657_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2657_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2657_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2657_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2657_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2657_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2657_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2657_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2658
+#define EPILEPSY_PRIV_EVAL_REC_2657_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2658(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2658_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2658_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2658_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2658_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2658_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2658_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2658_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2658_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2658_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2658_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2659
+#define EPILEPSY_PRIV_EVAL_REC_2658_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2659(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2659_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2659_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2659_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2659_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2659_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2659_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2659_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2659_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2659_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2659_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2660
+#define EPILEPSY_PRIV_EVAL_REC_2659_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2660(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2660_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2660_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2660_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2660_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2660_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2660_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2660_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2660_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2660_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2660_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2661
+#define EPILEPSY_PRIV_EVAL_REC_2660_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2661(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2661_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2661_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2661_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2661_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2661_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2661_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2661_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2661_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2661_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2661_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2662
+#define EPILEPSY_PRIV_EVAL_REC_2661_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2662(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2662_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2662_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2662_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2662_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2662_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2662_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2662_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2662_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2662_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2662_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2663
+#define EPILEPSY_PRIV_EVAL_REC_2662_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2663(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2663_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2663_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2663_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2663_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2663_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2663_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2663_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2663_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2663_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2663_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2664
+#define EPILEPSY_PRIV_EVAL_REC_2663_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2664(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2664_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2664_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2664_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2664_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2664_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2664_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2664_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2664_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2664_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2664_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2665
+#define EPILEPSY_PRIV_EVAL_REC_2664_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2665(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2665_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2665_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2665_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2665_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2665_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2665_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2665_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2665_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2665_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2665_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2666
+#define EPILEPSY_PRIV_EVAL_REC_2665_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2666(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2666_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2666_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2666_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2666_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2666_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2666_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2666_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2666_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2666_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2666_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2667
+#define EPILEPSY_PRIV_EVAL_REC_2666_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2667(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2667_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2667_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2667_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2667_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2667_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2667_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2667_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2667_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2667_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2667_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2668
+#define EPILEPSY_PRIV_EVAL_REC_2667_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2668(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2668_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2668_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2668_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2668_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2668_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2668_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2668_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2668_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2668_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2668_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2669
+#define EPILEPSY_PRIV_EVAL_REC_2668_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2669(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2669_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2669_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2669_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2669_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2669_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2669_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2669_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2669_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2669_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2669_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2670
+#define EPILEPSY_PRIV_EVAL_REC_2669_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2670(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2670_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2670_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2670_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2670_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2670_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2670_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2670_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2670_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2670_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2670_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2671
+#define EPILEPSY_PRIV_EVAL_REC_2670_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2671(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2671_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2671_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2671_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2671_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2671_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2671_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2671_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2671_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2671_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2671_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2672
+#define EPILEPSY_PRIV_EVAL_REC_2671_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2672(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2672_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2672_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2672_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2672_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2672_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2672_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2672_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2672_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2672_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2672_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2673
+#define EPILEPSY_PRIV_EVAL_REC_2672_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2673(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2673_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2673_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2673_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2673_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2673_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2673_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2673_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2673_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2673_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2673_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2674
+#define EPILEPSY_PRIV_EVAL_REC_2673_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2674(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2674_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2674_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2674_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2674_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2674_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2674_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2674_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2674_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2674_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2674_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2675
+#define EPILEPSY_PRIV_EVAL_REC_2674_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2675(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2675_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2675_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2675_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2675_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2675_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2675_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2675_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2675_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2675_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2675_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2676
+#define EPILEPSY_PRIV_EVAL_REC_2675_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2676(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2676_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2676_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2676_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2676_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2676_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2676_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2676_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2676_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2676_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2676_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2677
+#define EPILEPSY_PRIV_EVAL_REC_2676_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2677(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2677_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2677_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2677_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2677_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2677_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2677_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2677_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2677_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2677_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2677_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2678
+#define EPILEPSY_PRIV_EVAL_REC_2677_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2678(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2678_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2678_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2678_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2678_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2678_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2678_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2678_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2678_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2678_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2678_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2679
+#define EPILEPSY_PRIV_EVAL_REC_2678_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2679(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2679_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2679_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2679_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2679_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2679_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2679_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2679_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2679_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2679_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2679_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2680
+#define EPILEPSY_PRIV_EVAL_REC_2679_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2680(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2680_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2680_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2680_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2680_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2680_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2680_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2680_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2680_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2680_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2680_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2681
+#define EPILEPSY_PRIV_EVAL_REC_2680_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2681(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2681_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2681_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2681_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2681_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2681_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2681_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2681_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2681_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2681_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2681_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2682
+#define EPILEPSY_PRIV_EVAL_REC_2681_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2682(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2682_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2682_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2682_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2682_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2682_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2682_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2682_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2682_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2682_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2682_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2683
+#define EPILEPSY_PRIV_EVAL_REC_2682_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2683(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2683_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2683_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2683_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2683_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2683_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2683_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2683_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2683_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2683_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2683_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2684
+#define EPILEPSY_PRIV_EVAL_REC_2683_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2684(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2684_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2684_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2684_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2684_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2684_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2684_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2684_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2684_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2684_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2684_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2685
+#define EPILEPSY_PRIV_EVAL_REC_2684_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2685(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2685_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2685_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2685_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2685_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2685_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2685_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2685_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2685_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2685_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2685_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2686
+#define EPILEPSY_PRIV_EVAL_REC_2685_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2686(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2686_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2686_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2686_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2686_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2686_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2686_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2686_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2686_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2686_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2686_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2687
+#define EPILEPSY_PRIV_EVAL_REC_2686_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2687(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2687_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2687_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2687_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2687_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2687_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2687_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2687_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2687_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2687_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2687_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2688
+#define EPILEPSY_PRIV_EVAL_REC_2687_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2688(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2688_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2688_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2688_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2688_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2688_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2688_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2688_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2688_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2688_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2688_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2689
+#define EPILEPSY_PRIV_EVAL_REC_2688_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2689(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2689_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2689_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2689_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2689_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2689_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2689_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2689_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2689_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2689_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2689_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2690
+#define EPILEPSY_PRIV_EVAL_REC_2689_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2690(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2690_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2690_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2690_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2690_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2690_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2690_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2690_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2690_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2690_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2690_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2691
+#define EPILEPSY_PRIV_EVAL_REC_2690_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2691(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2691_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2691_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2691_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2691_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2691_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2691_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2691_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2691_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2691_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2691_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2692
+#define EPILEPSY_PRIV_EVAL_REC_2691_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2692(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2692_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2692_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2692_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2692_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2692_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2692_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2692_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2692_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2692_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2692_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2693
+#define EPILEPSY_PRIV_EVAL_REC_2692_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2693(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2693_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2693_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2693_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2693_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2693_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2693_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2693_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2693_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2693_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2693_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2694
+#define EPILEPSY_PRIV_EVAL_REC_2693_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2694(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2694_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2694_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2694_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2694_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2694_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2694_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2694_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2694_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2694_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2694_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2695
+#define EPILEPSY_PRIV_EVAL_REC_2694_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2695(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2695_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2695_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2695_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2695_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2695_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2695_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2695_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2695_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2695_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2695_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2696
+#define EPILEPSY_PRIV_EVAL_REC_2695_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2696(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2696_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2696_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2696_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2696_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2696_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2696_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2696_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2696_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2696_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2696_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2697
+#define EPILEPSY_PRIV_EVAL_REC_2696_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2697(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2697_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2697_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2697_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2697_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2697_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2697_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2697_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2697_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2697_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2697_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2698
+#define EPILEPSY_PRIV_EVAL_REC_2697_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2698(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2698_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2698_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2698_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2698_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2698_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2698_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2698_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2698_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2698_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2698_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2699
+#define EPILEPSY_PRIV_EVAL_REC_2698_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2699(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2699_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2699_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2699_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2699_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2699_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2699_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2699_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2699_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2699_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2699_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2700
+#define EPILEPSY_PRIV_EVAL_REC_2699_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2700(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2700_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2700_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2700_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2700_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2700_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2700_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2700_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2700_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2700_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2700_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2701
+#define EPILEPSY_PRIV_EVAL_REC_2700_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2701(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2701_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2701_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2701_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2701_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2701_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2701_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2701_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2701_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2701_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2701_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2702
+#define EPILEPSY_PRIV_EVAL_REC_2701_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2702(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2702_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2702_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2702_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2702_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2702_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2702_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2702_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2702_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2702_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2702_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2703
+#define EPILEPSY_PRIV_EVAL_REC_2702_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2703(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2703_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2703_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2703_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2703_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2703_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2703_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2703_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2703_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2703_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2703_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2704
+#define EPILEPSY_PRIV_EVAL_REC_2703_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2704(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2704_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2704_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2704_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2704_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2704_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2704_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2704_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2704_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2704_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2704_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2705
+#define EPILEPSY_PRIV_EVAL_REC_2704_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2705(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2705_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2705_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2705_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2705_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2705_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2705_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2705_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2705_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2705_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2705_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2706
+#define EPILEPSY_PRIV_EVAL_REC_2705_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2706(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2706_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2706_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2706_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2706_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2706_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2706_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2706_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2706_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2706_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2706_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2707
+#define EPILEPSY_PRIV_EVAL_REC_2706_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2707(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2707_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2707_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2707_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2707_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2707_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2707_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2707_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2707_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2707_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2707_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2708
+#define EPILEPSY_PRIV_EVAL_REC_2707_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2708(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2708_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2708_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2708_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2708_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2708_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2708_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2708_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2708_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2708_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2708_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2709
+#define EPILEPSY_PRIV_EVAL_REC_2708_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2709(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2709_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2709_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2709_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2709_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2709_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2709_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2709_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2709_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2709_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2709_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2710
+#define EPILEPSY_PRIV_EVAL_REC_2709_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2710(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2710_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2710_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2710_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2710_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2710_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2710_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2710_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2710_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2710_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2710_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2711
+#define EPILEPSY_PRIV_EVAL_REC_2710_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2711(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2711_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2711_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2711_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2711_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2711_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2711_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2711_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2711_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2711_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2711_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2712
+#define EPILEPSY_PRIV_EVAL_REC_2711_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2712(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2712_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2712_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2712_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2712_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2712_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2712_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2712_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2712_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2712_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2712_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2713
+#define EPILEPSY_PRIV_EVAL_REC_2712_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2713(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2713_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2713_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2713_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2713_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2713_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2713_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2713_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2713_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2713_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2713_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2714
+#define EPILEPSY_PRIV_EVAL_REC_2713_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2714(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2714_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2714_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2714_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2714_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2714_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2714_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2714_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2714_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2714_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2714_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2715
+#define EPILEPSY_PRIV_EVAL_REC_2714_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2715(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2715_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2715_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2715_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2715_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2715_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2715_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2715_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2715_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2715_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2715_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2716
+#define EPILEPSY_PRIV_EVAL_REC_2715_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2716(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2716_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2716_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2716_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2716_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2716_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2716_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2716_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2716_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2716_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2716_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2717
+#define EPILEPSY_PRIV_EVAL_REC_2716_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2717(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2717_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2717_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2717_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2717_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2717_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2717_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2717_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2717_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2717_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2717_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2718
+#define EPILEPSY_PRIV_EVAL_REC_2717_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2718(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2718_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2718_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2718_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2718_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2718_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2718_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2718_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2718_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2718_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2718_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2719
+#define EPILEPSY_PRIV_EVAL_REC_2718_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2719(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2719_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2719_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2719_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2719_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2719_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2719_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2719_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2719_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2719_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2719_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2720
+#define EPILEPSY_PRIV_EVAL_REC_2719_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2720(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2720_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2720_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2720_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2720_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2720_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2720_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2720_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2720_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2720_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2720_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2721
+#define EPILEPSY_PRIV_EVAL_REC_2720_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2721(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2721_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2721_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2721_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2721_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2721_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2721_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2721_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2721_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2721_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2721_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2722
+#define EPILEPSY_PRIV_EVAL_REC_2721_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2722(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2722_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2722_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2722_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2722_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2722_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2722_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2722_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2722_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2722_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2722_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2723
+#define EPILEPSY_PRIV_EVAL_REC_2722_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2723(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2723_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2723_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2723_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2723_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2723_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2723_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2723_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2723_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2723_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2723_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2724
+#define EPILEPSY_PRIV_EVAL_REC_2723_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2724(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2724_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2724_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2724_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2724_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2724_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2724_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2724_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2724_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2724_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2724_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2725
+#define EPILEPSY_PRIV_EVAL_REC_2724_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2725(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2725_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2725_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2725_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2725_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2725_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2725_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2725_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2725_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2725_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2725_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2726
+#define EPILEPSY_PRIV_EVAL_REC_2725_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2726(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2726_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2726_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2726_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2726_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2726_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2726_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2726_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2726_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2726_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2726_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2727
+#define EPILEPSY_PRIV_EVAL_REC_2726_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2727(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2727_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2727_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2727_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2727_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2727_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2727_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2727_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2727_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2727_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2727_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2728
+#define EPILEPSY_PRIV_EVAL_REC_2727_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2728(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2728_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2728_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2728_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2728_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2728_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2728_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2728_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2728_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2728_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2728_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2729
+#define EPILEPSY_PRIV_EVAL_REC_2728_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2729(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2729_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2729_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2729_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2729_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2729_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2729_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2729_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2729_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2729_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2729_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2730
+#define EPILEPSY_PRIV_EVAL_REC_2729_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2730(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2730_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2730_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2730_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2730_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2730_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2730_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2730_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2730_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2730_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2730_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2731
+#define EPILEPSY_PRIV_EVAL_REC_2730_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2731(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2731_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2731_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2731_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2731_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2731_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2731_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2731_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2731_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2731_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2731_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2732
+#define EPILEPSY_PRIV_EVAL_REC_2731_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2732(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2732_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2732_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2732_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2732_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2732_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2732_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2732_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2732_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2732_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2732_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2733
+#define EPILEPSY_PRIV_EVAL_REC_2732_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2733(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2733_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2733_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2733_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2733_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2733_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2733_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2733_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2733_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2733_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2733_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2734
+#define EPILEPSY_PRIV_EVAL_REC_2733_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2734(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2734_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2734_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2734_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2734_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2734_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2734_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2734_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2734_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2734_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2734_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2735
+#define EPILEPSY_PRIV_EVAL_REC_2734_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2735(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2735_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2735_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2735_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2735_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2735_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2735_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2735_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2735_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2735_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2735_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2736
+#define EPILEPSY_PRIV_EVAL_REC_2735_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2736(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2736_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2736_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2736_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2736_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2736_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2736_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2736_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2736_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2736_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2736_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2737
+#define EPILEPSY_PRIV_EVAL_REC_2736_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2737(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2737_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2737_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2737_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2737_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2737_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2737_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2737_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2737_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2737_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2737_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2738
+#define EPILEPSY_PRIV_EVAL_REC_2737_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2738(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2738_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2738_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2738_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2738_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2738_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2738_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2738_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2738_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2738_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2738_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2739
+#define EPILEPSY_PRIV_EVAL_REC_2738_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2739(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2739_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2739_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2739_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2739_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2739_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2739_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2739_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2739_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2739_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2739_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2740
+#define EPILEPSY_PRIV_EVAL_REC_2739_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2740(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2740_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2740_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2740_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2740_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2740_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2740_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2740_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2740_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2740_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2740_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2741
+#define EPILEPSY_PRIV_EVAL_REC_2740_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2741(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2741_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2741_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2741_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2741_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2741_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2741_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2741_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2741_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2741_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2741_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2742
+#define EPILEPSY_PRIV_EVAL_REC_2741_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2742(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2742_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2742_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2742_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2742_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2742_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2742_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2742_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2742_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2742_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2742_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2743
+#define EPILEPSY_PRIV_EVAL_REC_2742_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2743(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2743_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2743_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2743_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2743_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2743_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2743_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2743_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2743_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2743_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2743_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2744
+#define EPILEPSY_PRIV_EVAL_REC_2743_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2744(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2744_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2744_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2744_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2744_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2744_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2744_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2744_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2744_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2744_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2744_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2745
+#define EPILEPSY_PRIV_EVAL_REC_2744_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2745(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2745_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2745_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2745_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2745_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2745_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2745_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2745_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2745_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2745_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2745_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2746
+#define EPILEPSY_PRIV_EVAL_REC_2745_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2746(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2746_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2746_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2746_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2746_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2746_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2746_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2746_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2746_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2746_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2746_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2747
+#define EPILEPSY_PRIV_EVAL_REC_2746_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2747(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2747_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2747_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2747_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2747_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2747_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2747_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2747_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2747_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2747_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2747_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2748
+#define EPILEPSY_PRIV_EVAL_REC_2747_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2748(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2748_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2748_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2748_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2748_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2748_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2748_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2748_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2748_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2748_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2748_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2749
+#define EPILEPSY_PRIV_EVAL_REC_2748_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2749(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2749_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2749_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2749_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2749_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2749_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2749_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2749_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2749_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2749_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2749_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2750
+#define EPILEPSY_PRIV_EVAL_REC_2749_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2750(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2750_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2750_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2750_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2750_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2750_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2750_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2750_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2750_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2750_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2750_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2751
+#define EPILEPSY_PRIV_EVAL_REC_2750_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2751(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2751_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2751_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2751_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2751_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2751_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2751_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2751_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2751_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2751_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2751_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2752
+#define EPILEPSY_PRIV_EVAL_REC_2751_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2752(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2752_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2752_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2752_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2752_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2752_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2752_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2752_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2752_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2752_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2752_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2753
+#define EPILEPSY_PRIV_EVAL_REC_2752_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2753(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2753_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2753_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2753_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2753_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2753_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2753_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2753_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2753_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2753_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2753_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2754
+#define EPILEPSY_PRIV_EVAL_REC_2753_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2754(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2754_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2754_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2754_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2754_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2754_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2754_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2754_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2754_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2754_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2754_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2755
+#define EPILEPSY_PRIV_EVAL_REC_2754_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2755(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2755_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2755_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2755_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2755_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2755_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2755_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2755_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2755_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2755_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2755_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2756
+#define EPILEPSY_PRIV_EVAL_REC_2755_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2756(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2756_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2756_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2756_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2756_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2756_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2756_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2756_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2756_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2756_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2756_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2757
+#define EPILEPSY_PRIV_EVAL_REC_2756_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2757(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2757_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2757_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2757_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2757_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2757_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2757_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2757_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2757_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2757_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2757_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2758
+#define EPILEPSY_PRIV_EVAL_REC_2757_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2758(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2758_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2758_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2758_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2758_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2758_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2758_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2758_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2758_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2758_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2758_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2759
+#define EPILEPSY_PRIV_EVAL_REC_2758_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2759(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2759_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2759_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2759_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2759_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2759_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2759_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2759_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2759_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2759_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2759_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2760
+#define EPILEPSY_PRIV_EVAL_REC_2759_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2760(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2760_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2760_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2760_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2760_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2760_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2760_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2760_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2760_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2760_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2760_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2761
+#define EPILEPSY_PRIV_EVAL_REC_2760_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2761(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2761_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2761_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2761_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2761_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2761_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2761_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2761_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2761_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2761_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2761_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2762
+#define EPILEPSY_PRIV_EVAL_REC_2761_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2762(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2762_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2762_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2762_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2762_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2762_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2762_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2762_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2762_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2762_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2762_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2763
+#define EPILEPSY_PRIV_EVAL_REC_2762_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2763(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2763_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2763_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2763_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2763_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2763_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2763_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2763_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2763_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2763_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2763_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2764
+#define EPILEPSY_PRIV_EVAL_REC_2763_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2764(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2764_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2764_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2764_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2764_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2764_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2764_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2764_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2764_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2764_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2764_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2765
+#define EPILEPSY_PRIV_EVAL_REC_2764_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2765(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2765_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2765_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2765_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2765_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2765_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2765_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2765_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2765_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2765_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2765_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2766
+#define EPILEPSY_PRIV_EVAL_REC_2765_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2766(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2766_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2766_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2766_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2766_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2766_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2766_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2766_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2766_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2766_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2766_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2767
+#define EPILEPSY_PRIV_EVAL_REC_2766_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2767(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2767_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2767_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2767_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2767_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2767_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2767_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2767_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2767_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2767_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2767_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2768
+#define EPILEPSY_PRIV_EVAL_REC_2767_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2768(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2768_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2768_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2768_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2768_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2768_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2768_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2768_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2768_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2768_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2768_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2769
+#define EPILEPSY_PRIV_EVAL_REC_2768_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2769(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2769_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2769_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2769_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2769_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2769_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2769_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2769_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2769_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2769_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2769_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2770
+#define EPILEPSY_PRIV_EVAL_REC_2769_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2770(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2770_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2770_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2770_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2770_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2770_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2770_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2770_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2770_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2770_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2770_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2771
+#define EPILEPSY_PRIV_EVAL_REC_2770_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2771(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2771_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2771_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2771_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2771_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2771_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2771_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2771_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2771_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2771_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2771_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2772
+#define EPILEPSY_PRIV_EVAL_REC_2771_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2772(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2772_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2772_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2772_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2772_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2772_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2772_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2772_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2772_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2772_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2772_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2773
+#define EPILEPSY_PRIV_EVAL_REC_2772_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2773(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2773_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2773_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2773_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2773_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2773_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2773_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2773_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2773_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2773_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2773_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2774
+#define EPILEPSY_PRIV_EVAL_REC_2773_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2774(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2774_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2774_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2774_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2774_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2774_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2774_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2774_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2774_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2774_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2774_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2775
+#define EPILEPSY_PRIV_EVAL_REC_2774_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2775(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2775_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2775_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2775_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2775_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2775_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2775_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2775_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2775_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2775_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2775_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2776
+#define EPILEPSY_PRIV_EVAL_REC_2775_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2776(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2776_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2776_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2776_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2776_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2776_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2776_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2776_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2776_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2776_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2776_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2777
+#define EPILEPSY_PRIV_EVAL_REC_2776_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2777(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2777_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2777_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2777_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2777_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2777_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2777_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2777_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2777_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2777_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2777_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2778
+#define EPILEPSY_PRIV_EVAL_REC_2777_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2778(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2778_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2778_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2778_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2778_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2778_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2778_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2778_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2778_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2778_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2778_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2779
+#define EPILEPSY_PRIV_EVAL_REC_2778_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2779(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2779_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2779_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2779_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2779_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2779_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2779_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2779_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2779_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2779_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2779_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2780
+#define EPILEPSY_PRIV_EVAL_REC_2779_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2780(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2780_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2780_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2780_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2780_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2780_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2780_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2780_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2780_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2780_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2780_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2781
+#define EPILEPSY_PRIV_EVAL_REC_2780_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2781(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2781_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2781_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2781_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2781_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2781_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2781_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2781_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2781_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2781_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2781_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2782
+#define EPILEPSY_PRIV_EVAL_REC_2781_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2782(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2782_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2782_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2782_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2782_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2782_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2782_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2782_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2782_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2782_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2782_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2783
+#define EPILEPSY_PRIV_EVAL_REC_2782_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2783(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2783_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2783_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2783_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2783_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2783_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2783_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2783_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2783_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2783_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2783_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2784
+#define EPILEPSY_PRIV_EVAL_REC_2783_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2784(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2784_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2784_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2784_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2784_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2784_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2784_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2784_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2784_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2784_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2784_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2785
+#define EPILEPSY_PRIV_EVAL_REC_2784_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2785(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2785_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2785_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2785_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2785_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2785_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2785_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2785_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2785_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2785_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2785_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2786
+#define EPILEPSY_PRIV_EVAL_REC_2785_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2786(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2786_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2786_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2786_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2786_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2786_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2786_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2786_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2786_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2786_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2786_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2787
+#define EPILEPSY_PRIV_EVAL_REC_2786_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2787(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2787_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2787_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2787_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2787_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2787_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2787_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2787_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2787_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2787_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2787_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2788
+#define EPILEPSY_PRIV_EVAL_REC_2787_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2788(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2788_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2788_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2788_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2788_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2788_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2788_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2788_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2788_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2788_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2788_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2789
+#define EPILEPSY_PRIV_EVAL_REC_2788_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2789(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2789_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2789_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2789_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2789_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2789_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2789_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2789_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2789_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2789_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2789_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2790
+#define EPILEPSY_PRIV_EVAL_REC_2789_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2790(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2790_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2790_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2790_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2790_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2790_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2790_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2790_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2790_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2790_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2790_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2791
+#define EPILEPSY_PRIV_EVAL_REC_2790_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2791(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2791_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2791_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2791_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2791_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2791_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2791_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2791_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2791_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2791_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2791_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2792
+#define EPILEPSY_PRIV_EVAL_REC_2791_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2792(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2792_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2792_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2792_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2792_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2792_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2792_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2792_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2792_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2792_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2792_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2793
+#define EPILEPSY_PRIV_EVAL_REC_2792_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2793(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2793_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2793_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2793_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2793_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2793_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2793_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2793_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2793_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2793_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2793_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2794
+#define EPILEPSY_PRIV_EVAL_REC_2793_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2794(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2794_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2794_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2794_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2794_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2794_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2794_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2794_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2794_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2794_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2794_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2795
+#define EPILEPSY_PRIV_EVAL_REC_2794_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2795(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2795_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2795_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2795_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2795_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2795_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2795_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2795_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2795_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2795_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2795_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2796
+#define EPILEPSY_PRIV_EVAL_REC_2795_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2796(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2796_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2796_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2796_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2796_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2796_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2796_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2796_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2796_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2796_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2796_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2797
+#define EPILEPSY_PRIV_EVAL_REC_2796_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2797(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2797_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2797_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2797_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2797_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2797_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2797_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2797_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2797_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2797_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2797_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2798
+#define EPILEPSY_PRIV_EVAL_REC_2797_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2798(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2798_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2798_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2798_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2798_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2798_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2798_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2798_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2798_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2798_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2798_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2799
+#define EPILEPSY_PRIV_EVAL_REC_2798_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2799(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2799_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2799_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2799_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2799_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2799_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2799_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2799_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2799_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2799_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2799_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2800
+#define EPILEPSY_PRIV_EVAL_REC_2799_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2800(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2800_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2800_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2800_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2800_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2800_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2800_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2800_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2800_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2800_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2800_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2801
+#define EPILEPSY_PRIV_EVAL_REC_2800_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2801(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2801_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2801_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2801_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2801_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2801_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2801_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2801_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2801_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2801_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2801_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2802
+#define EPILEPSY_PRIV_EVAL_REC_2801_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2802(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2802_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2802_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2802_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2802_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2802_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2802_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2802_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2802_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2802_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2802_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2803
+#define EPILEPSY_PRIV_EVAL_REC_2802_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2803(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2803_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2803_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2803_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2803_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2803_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2803_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2803_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2803_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2803_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2803_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2804
+#define EPILEPSY_PRIV_EVAL_REC_2803_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2804(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2804_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2804_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2804_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2804_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2804_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2804_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2804_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2804_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2804_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2804_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2805
+#define EPILEPSY_PRIV_EVAL_REC_2804_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2805(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2805_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2805_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2805_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2805_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2805_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2805_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2805_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2805_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2805_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2805_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2806
+#define EPILEPSY_PRIV_EVAL_REC_2805_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2806(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2806_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2806_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2806_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2806_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2806_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2806_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2806_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2806_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2806_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2806_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2807
+#define EPILEPSY_PRIV_EVAL_REC_2806_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2807(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2807_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2807_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2807_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2807_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2807_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2807_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2807_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2807_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2807_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2807_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2808
+#define EPILEPSY_PRIV_EVAL_REC_2807_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2808(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2808_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2808_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2808_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2808_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2808_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2808_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2808_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2808_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2808_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2808_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2809
+#define EPILEPSY_PRIV_EVAL_REC_2808_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2809(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2809_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2809_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2809_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2809_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2809_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2809_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2809_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2809_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2809_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2809_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2810
+#define EPILEPSY_PRIV_EVAL_REC_2809_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2810(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2810_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2810_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2810_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2810_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2810_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2810_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2810_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2810_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2810_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2810_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2811
+#define EPILEPSY_PRIV_EVAL_REC_2810_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2811(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2811_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2811_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2811_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2811_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2811_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2811_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2811_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2811_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2811_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2811_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2812
+#define EPILEPSY_PRIV_EVAL_REC_2811_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2812(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2812_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2812_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2812_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2812_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2812_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2812_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2812_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2812_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2812_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2812_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2813
+#define EPILEPSY_PRIV_EVAL_REC_2812_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2813(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2813_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2813_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2813_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2813_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2813_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2813_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2813_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2813_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2813_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2813_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2814
+#define EPILEPSY_PRIV_EVAL_REC_2813_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2814(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2814_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2814_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2814_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2814_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2814_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2814_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2814_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2814_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2814_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2814_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2815
+#define EPILEPSY_PRIV_EVAL_REC_2814_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2815(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2815_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2815_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2815_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2815_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2815_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2815_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2815_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2815_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2815_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2815_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2816
+#define EPILEPSY_PRIV_EVAL_REC_2815_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2816(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2816_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2816_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2816_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2816_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2816_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2816_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2816_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2816_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2816_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2816_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2817
+#define EPILEPSY_PRIV_EVAL_REC_2816_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2817(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2817_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2817_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2817_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2817_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2817_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2817_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2817_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2817_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2817_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2817_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2818
+#define EPILEPSY_PRIV_EVAL_REC_2817_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2818(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2818_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2818_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2818_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2818_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2818_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2818_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2818_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2818_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2818_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2818_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2819
+#define EPILEPSY_PRIV_EVAL_REC_2818_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2819(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2819_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2819_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2819_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2819_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2819_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2819_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2819_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2819_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2819_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2819_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2820
+#define EPILEPSY_PRIV_EVAL_REC_2819_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2820(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2820_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2820_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2820_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2820_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2820_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2820_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2820_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2820_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2820_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2820_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2821
+#define EPILEPSY_PRIV_EVAL_REC_2820_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2821(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2821_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2821_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2821_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2821_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2821_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2821_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2821_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2821_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2821_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2821_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2822
+#define EPILEPSY_PRIV_EVAL_REC_2821_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2822(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2822_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2822_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2822_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2822_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2822_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2822_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2822_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2822_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2822_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2822_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2823
+#define EPILEPSY_PRIV_EVAL_REC_2822_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2823(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2823_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2823_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2823_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2823_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2823_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2823_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2823_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2823_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2823_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2823_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2824
+#define EPILEPSY_PRIV_EVAL_REC_2823_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2824(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2824_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2824_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2824_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2824_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2824_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2824_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2824_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2824_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2824_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2824_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2825
+#define EPILEPSY_PRIV_EVAL_REC_2824_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2825(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2825_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2825_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2825_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2825_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2825_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2825_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2825_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2825_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2825_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2825_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2826
+#define EPILEPSY_PRIV_EVAL_REC_2825_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2826(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2826_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2826_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2826_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2826_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2826_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2826_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2826_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2826_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2826_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2826_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2827
+#define EPILEPSY_PRIV_EVAL_REC_2826_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2827(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2827_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2827_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2827_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2827_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2827_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2827_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2827_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2827_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2827_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2827_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2828
+#define EPILEPSY_PRIV_EVAL_REC_2827_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2828(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2828_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2828_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2828_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2828_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2828_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2828_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2828_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2828_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2828_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2828_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2829
+#define EPILEPSY_PRIV_EVAL_REC_2828_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2829(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2829_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2829_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2829_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2829_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2829_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2829_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2829_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2829_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2829_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2829_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2830
+#define EPILEPSY_PRIV_EVAL_REC_2829_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2830(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2830_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2830_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2830_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2830_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2830_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2830_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2830_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2830_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2830_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2830_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2831
+#define EPILEPSY_PRIV_EVAL_REC_2830_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2831(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2831_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2831_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2831_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2831_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2831_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2831_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2831_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2831_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2831_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2831_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2832
+#define EPILEPSY_PRIV_EVAL_REC_2831_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2832(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2832_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2832_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2832_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2832_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2832_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2832_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2832_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2832_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2832_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2832_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2833
+#define EPILEPSY_PRIV_EVAL_REC_2832_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2833(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2833_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2833_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2833_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2833_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2833_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2833_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2833_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2833_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2833_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2833_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2834
+#define EPILEPSY_PRIV_EVAL_REC_2833_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2834(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2834_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2834_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2834_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2834_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2834_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2834_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2834_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2834_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2834_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2834_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2835
+#define EPILEPSY_PRIV_EVAL_REC_2834_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2835(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2835_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2835_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2835_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2835_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2835_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2835_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2835_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2835_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2835_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2835_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2836
+#define EPILEPSY_PRIV_EVAL_REC_2835_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2836(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2836_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2836_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2836_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2836_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2836_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2836_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2836_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2836_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2836_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2836_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2837
+#define EPILEPSY_PRIV_EVAL_REC_2836_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2837(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2837_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2837_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2837_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2837_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2837_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2837_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2837_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2837_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2837_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2837_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2838
+#define EPILEPSY_PRIV_EVAL_REC_2837_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2838(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2838_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2838_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2838_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2838_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2838_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2838_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2838_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2838_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2838_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2838_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2839
+#define EPILEPSY_PRIV_EVAL_REC_2838_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2839(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2839_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2839_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2839_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2839_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2839_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2839_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2839_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2839_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2839_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2839_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2840
+#define EPILEPSY_PRIV_EVAL_REC_2839_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2840(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2840_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2840_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2840_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2840_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2840_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2840_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2840_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2840_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2840_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2840_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2841
+#define EPILEPSY_PRIV_EVAL_REC_2840_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2841(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2841_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2841_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2841_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2841_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2841_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2841_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2841_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2841_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2841_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2841_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2842
+#define EPILEPSY_PRIV_EVAL_REC_2841_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2842(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2842_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2842_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2842_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2842_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2842_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2842_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2842_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2842_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2842_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2842_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2843
+#define EPILEPSY_PRIV_EVAL_REC_2842_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2843(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2843_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2843_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2843_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2843_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2843_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2843_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2843_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2843_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2843_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2843_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2844
+#define EPILEPSY_PRIV_EVAL_REC_2843_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2844(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2844_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2844_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2844_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2844_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2844_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2844_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2844_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2844_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2844_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2844_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2845
+#define EPILEPSY_PRIV_EVAL_REC_2844_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2845(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2845_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2845_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2845_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2845_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2845_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2845_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2845_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2845_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2845_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2845_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2846
+#define EPILEPSY_PRIV_EVAL_REC_2845_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2846(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2846_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2846_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2846_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2846_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2846_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2846_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2846_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2846_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2846_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2846_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2847
+#define EPILEPSY_PRIV_EVAL_REC_2846_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2847(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2847_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2847_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2847_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2847_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2847_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2847_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2847_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2847_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2847_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2847_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2848
+#define EPILEPSY_PRIV_EVAL_REC_2847_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2848(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2848_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2848_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2848_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2848_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2848_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2848_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2848_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2848_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2848_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2848_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2849
+#define EPILEPSY_PRIV_EVAL_REC_2848_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2849(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2849_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2849_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2849_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2849_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2849_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2849_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2849_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2849_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2849_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2849_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2850
+#define EPILEPSY_PRIV_EVAL_REC_2849_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2850(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2850_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2850_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2850_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2850_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2850_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2850_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2850_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2850_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2850_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2850_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2851
+#define EPILEPSY_PRIV_EVAL_REC_2850_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2851(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2851_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2851_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2851_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2851_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2851_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2851_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2851_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2851_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2851_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2851_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2852
+#define EPILEPSY_PRIV_EVAL_REC_2851_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2852(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2852_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2852_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2852_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2852_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2852_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2852_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2852_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2852_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2852_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2852_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2853
+#define EPILEPSY_PRIV_EVAL_REC_2852_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2853(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2853_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2853_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2853_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2853_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2853_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2853_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2853_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2853_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2853_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2853_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2854
+#define EPILEPSY_PRIV_EVAL_REC_2853_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2854(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2854_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2854_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2854_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2854_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2854_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2854_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2854_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2854_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2854_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2854_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2855
+#define EPILEPSY_PRIV_EVAL_REC_2854_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2855(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2855_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2855_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2855_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2855_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2855_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2855_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2855_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2855_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2855_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2855_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2856
+#define EPILEPSY_PRIV_EVAL_REC_2855_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2856(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2856_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2856_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2856_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2856_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2856_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2856_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2856_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2856_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2856_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2856_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2857
+#define EPILEPSY_PRIV_EVAL_REC_2856_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2857(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2857_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2857_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2857_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2857_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2857_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2857_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2857_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2857_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2857_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2857_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2858
+#define EPILEPSY_PRIV_EVAL_REC_2857_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2858(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2858_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2858_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2858_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2858_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2858_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2858_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2858_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2858_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2858_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2858_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2859
+#define EPILEPSY_PRIV_EVAL_REC_2858_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2859(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2859_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2859_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2859_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2859_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2859_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2859_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2859_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2859_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2859_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2859_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2860
+#define EPILEPSY_PRIV_EVAL_REC_2859_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2860(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2860_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2860_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2860_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2860_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2860_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2860_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2860_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2860_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2860_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2860_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2861
+#define EPILEPSY_PRIV_EVAL_REC_2860_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2861(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2861_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2861_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2861_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2861_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2861_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2861_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2861_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2861_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2861_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2861_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2862
+#define EPILEPSY_PRIV_EVAL_REC_2861_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2862(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2862_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2862_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2862_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2862_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2862_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2862_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2862_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2862_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2862_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2862_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2863
+#define EPILEPSY_PRIV_EVAL_REC_2862_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2863(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2863_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2863_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2863_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2863_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2863_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2863_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2863_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2863_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2863_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2863_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2864
+#define EPILEPSY_PRIV_EVAL_REC_2863_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2864(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2864_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2864_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2864_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2864_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2864_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2864_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2864_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2864_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2864_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2864_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2865
+#define EPILEPSY_PRIV_EVAL_REC_2864_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2865(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2865_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2865_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2865_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2865_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2865_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2865_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2865_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2865_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2865_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2865_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2866
+#define EPILEPSY_PRIV_EVAL_REC_2865_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2866(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2866_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2866_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2866_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2866_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2866_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2866_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2866_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2866_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2866_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2866_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2867
+#define EPILEPSY_PRIV_EVAL_REC_2866_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2867(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2867_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2867_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2867_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2867_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2867_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2867_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2867_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2867_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2867_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2867_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2868
+#define EPILEPSY_PRIV_EVAL_REC_2867_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2868(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2868_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2868_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2868_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2868_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2868_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2868_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2868_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2868_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2868_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2868_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2869
+#define EPILEPSY_PRIV_EVAL_REC_2868_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2869(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2869_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2869_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2869_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2869_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2869_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2869_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2869_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2869_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2869_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2869_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2870
+#define EPILEPSY_PRIV_EVAL_REC_2869_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2870(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2870_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2870_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2870_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2870_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2870_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2870_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2870_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2870_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2870_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2870_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2871
+#define EPILEPSY_PRIV_EVAL_REC_2870_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2871(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2871_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2871_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2871_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2871_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2871_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2871_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2871_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2871_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2871_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2871_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2872
+#define EPILEPSY_PRIV_EVAL_REC_2871_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2872(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2872_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2872_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2872_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2872_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2872_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2872_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2872_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2872_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2872_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2872_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2873
+#define EPILEPSY_PRIV_EVAL_REC_2872_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2873(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2873_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2873_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2873_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2873_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2873_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2873_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2873_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2873_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2873_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2873_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2874
+#define EPILEPSY_PRIV_EVAL_REC_2873_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2874(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2874_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2874_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2874_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2874_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2874_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2874_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2874_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2874_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2874_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2874_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2875
+#define EPILEPSY_PRIV_EVAL_REC_2874_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2875(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2875_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2875_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2875_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2875_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2875_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2875_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2875_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2875_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2875_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2875_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2876
+#define EPILEPSY_PRIV_EVAL_REC_2875_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2876(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2876_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2876_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2876_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2876_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2876_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2876_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2876_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2876_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2876_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2876_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2877
+#define EPILEPSY_PRIV_EVAL_REC_2876_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2877(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2877_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2877_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2877_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2877_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2877_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2877_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2877_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2877_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2877_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2877_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2878
+#define EPILEPSY_PRIV_EVAL_REC_2877_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2878(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2878_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2878_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2878_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2878_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2878_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2878_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2878_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2878_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2878_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2878_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2879
+#define EPILEPSY_PRIV_EVAL_REC_2878_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2879(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2879_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2879_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2879_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2879_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2879_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2879_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2879_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2879_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2879_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2879_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2880
+#define EPILEPSY_PRIV_EVAL_REC_2879_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2880(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2880_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2880_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2880_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2880_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2880_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2880_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2880_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2880_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2880_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2880_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2881
+#define EPILEPSY_PRIV_EVAL_REC_2880_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2881(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2881_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2881_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2881_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2881_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2881_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2881_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2881_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2881_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2881_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2881_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2882
+#define EPILEPSY_PRIV_EVAL_REC_2881_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2882(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2882_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2882_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2882_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2882_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2882_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2882_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2882_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2882_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2882_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2882_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2883
+#define EPILEPSY_PRIV_EVAL_REC_2882_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2883(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2883_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2883_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2883_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2883_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2883_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2883_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2883_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2883_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2883_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2883_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2884
+#define EPILEPSY_PRIV_EVAL_REC_2883_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2884(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2884_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2884_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2884_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2884_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2884_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2884_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2884_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2884_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2884_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2884_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2885
+#define EPILEPSY_PRIV_EVAL_REC_2884_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2885(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2885_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2885_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2885_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2885_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2885_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2885_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2885_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2885_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2885_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2885_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2886
+#define EPILEPSY_PRIV_EVAL_REC_2885_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2886(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2886_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2886_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2886_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2886_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2886_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2886_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2886_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2886_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2886_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2886_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2887
+#define EPILEPSY_PRIV_EVAL_REC_2886_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2887(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2887_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2887_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2887_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2887_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2887_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2887_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2887_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2887_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2887_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2887_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2888
+#define EPILEPSY_PRIV_EVAL_REC_2887_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2888(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2888_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2888_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2888_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2888_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2888_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2888_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2888_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2888_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2888_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2888_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2889
+#define EPILEPSY_PRIV_EVAL_REC_2888_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2889(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2889_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2889_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2889_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2889_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2889_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2889_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2889_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2889_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2889_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2889_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2890
+#define EPILEPSY_PRIV_EVAL_REC_2889_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2890(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2890_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2890_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2890_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2890_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2890_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2890_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2890_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2890_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2890_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2890_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2891
+#define EPILEPSY_PRIV_EVAL_REC_2890_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2891(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2891_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2891_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2891_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2891_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2891_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2891_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2891_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2891_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2891_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2891_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2892
+#define EPILEPSY_PRIV_EVAL_REC_2891_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2892(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2892_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2892_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2892_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2892_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2892_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2892_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2892_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2892_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2892_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2892_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2893
+#define EPILEPSY_PRIV_EVAL_REC_2892_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2893(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2893_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2893_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2893_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2893_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2893_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2893_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2893_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2893_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2893_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2893_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2894
+#define EPILEPSY_PRIV_EVAL_REC_2893_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2894(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2894_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2894_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2894_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2894_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2894_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2894_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2894_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2894_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2894_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2894_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2895
+#define EPILEPSY_PRIV_EVAL_REC_2894_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2895(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2895_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2895_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2895_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2895_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2895_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2895_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2895_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2895_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2895_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2895_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2896
+#define EPILEPSY_PRIV_EVAL_REC_2895_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2896(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2896_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2896_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2896_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2896_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2896_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2896_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2896_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2896_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2896_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2896_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2897
+#define EPILEPSY_PRIV_EVAL_REC_2896_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2897(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2897_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2897_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2897_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2897_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2897_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2897_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2897_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2897_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2897_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2897_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2898
+#define EPILEPSY_PRIV_EVAL_REC_2897_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2898(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2898_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2898_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2898_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2898_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2898_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2898_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2898_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2898_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2898_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2898_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2899
+#define EPILEPSY_PRIV_EVAL_REC_2898_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2899(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2899_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2899_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2899_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2899_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2899_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2899_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2899_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2899_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2899_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2899_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2900
+#define EPILEPSY_PRIV_EVAL_REC_2899_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2900(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2900_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2900_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2900_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2900_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2900_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2900_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2900_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2900_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2900_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2900_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2901
+#define EPILEPSY_PRIV_EVAL_REC_2900_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2901(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2901_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2901_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2901_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2901_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2901_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2901_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2901_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2901_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2901_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2901_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2902
+#define EPILEPSY_PRIV_EVAL_REC_2901_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2902(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2902_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2902_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2902_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2902_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2902_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2902_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2902_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2902_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2902_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2902_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2903
+#define EPILEPSY_PRIV_EVAL_REC_2902_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2903(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2903_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2903_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2903_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2903_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2903_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2903_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2903_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2903_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2903_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2903_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2904
+#define EPILEPSY_PRIV_EVAL_REC_2903_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2904(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2904_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2904_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2904_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2904_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2904_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2904_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2904_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2904_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2904_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2904_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2905
+#define EPILEPSY_PRIV_EVAL_REC_2904_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2905(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2905_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2905_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2905_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2905_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2905_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2905_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2905_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2905_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2905_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2905_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2906
+#define EPILEPSY_PRIV_EVAL_REC_2905_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2906(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2906_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2906_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2906_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2906_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2906_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2906_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2906_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2906_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2906_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2906_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2907
+#define EPILEPSY_PRIV_EVAL_REC_2906_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2907(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2907_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2907_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2907_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2907_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2907_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2907_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2907_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2907_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2907_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2907_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2908
+#define EPILEPSY_PRIV_EVAL_REC_2907_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2908(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2908_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2908_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2908_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2908_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2908_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2908_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2908_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2908_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2908_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2908_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2909
+#define EPILEPSY_PRIV_EVAL_REC_2908_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2909(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2909_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2909_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2909_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2909_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2909_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2909_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2909_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2909_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2909_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2909_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2910
+#define EPILEPSY_PRIV_EVAL_REC_2909_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2910(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2910_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2910_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2910_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2910_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2910_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2910_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2910_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2910_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2910_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2910_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2911
+#define EPILEPSY_PRIV_EVAL_REC_2910_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2911(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2911_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2911_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2911_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2911_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2911_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2911_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2911_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2911_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2911_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2911_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2912
+#define EPILEPSY_PRIV_EVAL_REC_2911_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2912(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2912_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2912_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2912_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2912_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2912_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2912_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2912_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2912_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2912_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2912_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2913
+#define EPILEPSY_PRIV_EVAL_REC_2912_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2913(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2913_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2913_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2913_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2913_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2913_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2913_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2913_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2913_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2913_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2913_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2914
+#define EPILEPSY_PRIV_EVAL_REC_2913_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2914(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2914_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2914_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2914_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2914_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2914_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2914_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2914_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2914_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2914_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2914_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2915
+#define EPILEPSY_PRIV_EVAL_REC_2914_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2915(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2915_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2915_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2915_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2915_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2915_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2915_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2915_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2915_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2915_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2915_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2916
+#define EPILEPSY_PRIV_EVAL_REC_2915_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2916(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2916_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2916_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2916_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2916_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2916_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2916_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2916_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2916_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2916_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2916_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2917
+#define EPILEPSY_PRIV_EVAL_REC_2916_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2917(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2917_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2917_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2917_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2917_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2917_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2917_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2917_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2917_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2917_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2917_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2918
+#define EPILEPSY_PRIV_EVAL_REC_2917_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2918(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2918_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2918_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2918_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2918_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2918_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2918_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2918_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2918_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2918_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2918_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2919
+#define EPILEPSY_PRIV_EVAL_REC_2918_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2919(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2919_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2919_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2919_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2919_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2919_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2919_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2919_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2919_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2919_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2919_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2920
+#define EPILEPSY_PRIV_EVAL_REC_2919_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2920(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2920_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2920_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2920_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2920_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2920_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2920_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2920_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2920_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2920_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2920_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2921
+#define EPILEPSY_PRIV_EVAL_REC_2920_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2921(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2921_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2921_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2921_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2921_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2921_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2921_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2921_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2921_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2921_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2921_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2922
+#define EPILEPSY_PRIV_EVAL_REC_2921_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2922(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2922_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2922_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2922_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2922_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2922_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2922_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2922_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2922_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2922_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2922_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2923
+#define EPILEPSY_PRIV_EVAL_REC_2922_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2923(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2923_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2923_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2923_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2923_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2923_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2923_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2923_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2923_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2923_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2923_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2924
+#define EPILEPSY_PRIV_EVAL_REC_2923_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2924(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2924_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2924_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2924_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2924_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2924_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2924_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2924_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2924_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2924_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2924_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2925
+#define EPILEPSY_PRIV_EVAL_REC_2924_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2925(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2925_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2925_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2925_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2925_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2925_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2925_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2925_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2925_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2925_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2925_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2926
+#define EPILEPSY_PRIV_EVAL_REC_2925_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2926(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2926_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2926_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2926_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2926_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2926_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2926_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2926_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2926_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2926_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2926_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2927
+#define EPILEPSY_PRIV_EVAL_REC_2926_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2927(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2927_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2927_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2927_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2927_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2927_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2927_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2927_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2927_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2927_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2927_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2928
+#define EPILEPSY_PRIV_EVAL_REC_2927_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2928(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2928_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2928_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2928_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2928_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2928_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2928_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2928_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2928_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2928_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2928_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2929
+#define EPILEPSY_PRIV_EVAL_REC_2928_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2929(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2929_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2929_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2929_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2929_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2929_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2929_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2929_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2929_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2929_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2929_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2930
+#define EPILEPSY_PRIV_EVAL_REC_2929_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2930(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2930_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2930_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2930_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2930_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2930_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2930_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2930_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2930_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2930_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2930_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2931
+#define EPILEPSY_PRIV_EVAL_REC_2930_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2931(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2931_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2931_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2931_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2931_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2931_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2931_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2931_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2931_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2931_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2931_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2932
+#define EPILEPSY_PRIV_EVAL_REC_2931_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2932(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2932_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2932_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2932_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2932_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2932_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2932_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2932_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2932_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2932_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2932_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2933
+#define EPILEPSY_PRIV_EVAL_REC_2932_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2933(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2933_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2933_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2933_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2933_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2933_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2933_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2933_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2933_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2933_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2933_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2934
+#define EPILEPSY_PRIV_EVAL_REC_2933_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2934(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2934_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2934_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2934_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2934_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2934_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2934_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2934_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2934_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2934_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2934_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2935
+#define EPILEPSY_PRIV_EVAL_REC_2934_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2935(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2935_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2935_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2935_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2935_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2935_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2935_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2935_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2935_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2935_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2935_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2936
+#define EPILEPSY_PRIV_EVAL_REC_2935_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2936(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2936_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2936_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2936_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2936_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2936_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2936_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2936_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2936_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2936_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2936_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2937
+#define EPILEPSY_PRIV_EVAL_REC_2936_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2937(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2937_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2937_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2937_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2937_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2937_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2937_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2937_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2937_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2937_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2937_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2938
+#define EPILEPSY_PRIV_EVAL_REC_2937_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2938(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2938_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2938_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2938_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2938_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2938_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2938_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2938_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2938_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2938_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2938_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2939
+#define EPILEPSY_PRIV_EVAL_REC_2938_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2939(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2939_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2939_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2939_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2939_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2939_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2939_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2939_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2939_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2939_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2939_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2940
+#define EPILEPSY_PRIV_EVAL_REC_2939_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2940(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2940_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2940_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2940_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2940_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2940_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2940_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2940_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2940_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2940_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2940_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2941
+#define EPILEPSY_PRIV_EVAL_REC_2940_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2941(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2941_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2941_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2941_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2941_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2941_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2941_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2941_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2941_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2941_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2941_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2942
+#define EPILEPSY_PRIV_EVAL_REC_2941_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2942(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2942_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2942_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2942_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2942_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2942_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2942_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2942_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2942_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2942_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2942_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2943
+#define EPILEPSY_PRIV_EVAL_REC_2942_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2943(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2943_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2943_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2943_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2943_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2943_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2943_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2943_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2943_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2943_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2943_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2944
+#define EPILEPSY_PRIV_EVAL_REC_2943_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2944(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2944_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2944_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2944_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2944_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2944_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2944_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2944_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2944_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2944_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2944_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2945
+#define EPILEPSY_PRIV_EVAL_REC_2944_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2945(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2945_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2945_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2945_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2945_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2945_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2945_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2945_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2945_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2945_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2945_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2946
+#define EPILEPSY_PRIV_EVAL_REC_2945_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2946(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2946_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2946_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2946_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2946_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2946_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2946_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2946_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2946_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2946_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2946_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2947
+#define EPILEPSY_PRIV_EVAL_REC_2946_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2947(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2947_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2947_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2947_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2947_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2947_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2947_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2947_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2947_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2947_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2947_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2948
+#define EPILEPSY_PRIV_EVAL_REC_2947_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2948(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2948_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2948_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2948_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2948_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2948_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2948_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2948_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2948_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2948_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2948_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2949
+#define EPILEPSY_PRIV_EVAL_REC_2948_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2949(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2949_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2949_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2949_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2949_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2949_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2949_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2949_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2949_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2949_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2949_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2950
+#define EPILEPSY_PRIV_EVAL_REC_2949_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2950(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2950_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2950_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2950_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2950_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2950_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2950_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2950_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2950_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2950_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2950_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2951
+#define EPILEPSY_PRIV_EVAL_REC_2950_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2951(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2951_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2951_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2951_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2951_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2951_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2951_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2951_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2951_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2951_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2951_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2952
+#define EPILEPSY_PRIV_EVAL_REC_2951_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2952(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2952_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2952_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2952_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2952_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2952_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2952_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2952_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2952_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2952_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2952_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2953
+#define EPILEPSY_PRIV_EVAL_REC_2952_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2953(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2953_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2953_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2953_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2953_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2953_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2953_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2953_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2953_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2953_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2953_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2954
+#define EPILEPSY_PRIV_EVAL_REC_2953_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2954(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2954_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2954_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2954_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2954_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2954_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2954_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2954_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2954_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2954_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2954_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2955
+#define EPILEPSY_PRIV_EVAL_REC_2954_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2955(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2955_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2955_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2955_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2955_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2955_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2955_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2955_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2955_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2955_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2955_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2956
+#define EPILEPSY_PRIV_EVAL_REC_2955_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2956(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2956_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2956_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2956_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2956_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2956_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2956_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2956_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2956_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2956_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2956_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2957
+#define EPILEPSY_PRIV_EVAL_REC_2956_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2957(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2957_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2957_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2957_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2957_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2957_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2957_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2957_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2957_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2957_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2957_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2958
+#define EPILEPSY_PRIV_EVAL_REC_2957_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2958(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2958_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2958_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2958_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2958_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2958_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2958_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2958_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2958_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2958_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2958_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2959
+#define EPILEPSY_PRIV_EVAL_REC_2958_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2959(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2959_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2959_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2959_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2959_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2959_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2959_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2959_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2959_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2959_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2959_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2960
+#define EPILEPSY_PRIV_EVAL_REC_2959_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2960(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2960_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2960_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2960_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2960_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2960_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2960_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2960_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2960_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2960_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2960_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2961
+#define EPILEPSY_PRIV_EVAL_REC_2960_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2961(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2961_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2961_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2961_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2961_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2961_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2961_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2961_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2961_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2961_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2961_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2962
+#define EPILEPSY_PRIV_EVAL_REC_2961_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2962(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2962_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2962_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2962_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2962_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2962_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2962_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2962_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2962_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2962_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2962_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2963
+#define EPILEPSY_PRIV_EVAL_REC_2962_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2963(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2963_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2963_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2963_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2963_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2963_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2963_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2963_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2963_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2963_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2963_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2964
+#define EPILEPSY_PRIV_EVAL_REC_2963_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2964(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2964_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2964_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2964_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2964_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2964_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2964_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2964_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2964_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2964_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2964_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2965
+#define EPILEPSY_PRIV_EVAL_REC_2964_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2965(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2965_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2965_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2965_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2965_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2965_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2965_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2965_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2965_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2965_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2965_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2966
+#define EPILEPSY_PRIV_EVAL_REC_2965_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2966(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2966_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2966_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2966_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2966_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2966_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2966_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2966_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2966_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2966_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2966_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2967
+#define EPILEPSY_PRIV_EVAL_REC_2966_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2967(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2967_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2967_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2967_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2967_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2967_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2967_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2967_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2967_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2967_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2967_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2968
+#define EPILEPSY_PRIV_EVAL_REC_2967_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2968(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2968_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2968_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2968_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2968_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2968_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2968_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2968_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2968_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2968_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2968_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2969
+#define EPILEPSY_PRIV_EVAL_REC_2968_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2969(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2969_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2969_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2969_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2969_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2969_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2969_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2969_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2969_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2969_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2969_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2970
+#define EPILEPSY_PRIV_EVAL_REC_2969_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2970(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2970_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2970_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2970_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2970_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2970_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2970_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2970_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2970_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2970_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2970_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2971
+#define EPILEPSY_PRIV_EVAL_REC_2970_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2971(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2971_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2971_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2971_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2971_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2971_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2971_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2971_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2971_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2971_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2971_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2972
+#define EPILEPSY_PRIV_EVAL_REC_2971_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2972(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2972_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2972_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2972_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2972_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2972_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2972_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2972_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2972_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2972_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2972_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2973
+#define EPILEPSY_PRIV_EVAL_REC_2972_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2973(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2973_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2973_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2973_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2973_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2973_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2973_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2973_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2973_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2973_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2973_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2974
+#define EPILEPSY_PRIV_EVAL_REC_2973_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2974(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2974_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2974_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2974_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2974_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2974_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2974_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2974_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2974_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2974_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2974_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2975
+#define EPILEPSY_PRIV_EVAL_REC_2974_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2975(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2975_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2975_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2975_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2975_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2975_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2975_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2975_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2975_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2975_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2975_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2976
+#define EPILEPSY_PRIV_EVAL_REC_2975_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2976(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2976_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2976_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2976_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2976_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2976_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2976_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2976_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2976_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2976_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2976_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2977
+#define EPILEPSY_PRIV_EVAL_REC_2976_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2977(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2977_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2977_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2977_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2977_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2977_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2977_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2977_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2977_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2977_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2977_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2978
+#define EPILEPSY_PRIV_EVAL_REC_2977_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2978(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2978_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2978_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2978_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2978_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2978_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2978_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2978_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2978_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2978_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2978_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2979
+#define EPILEPSY_PRIV_EVAL_REC_2978_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2979(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2979_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2979_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2979_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2979_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2979_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2979_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2979_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2979_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2979_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2979_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2980
+#define EPILEPSY_PRIV_EVAL_REC_2979_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2980(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2980_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2980_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2980_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2980_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2980_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2980_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2980_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2980_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2980_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2980_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2981
+#define EPILEPSY_PRIV_EVAL_REC_2980_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2981(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2981_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2981_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2981_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2981_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2981_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2981_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2981_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2981_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2981_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2981_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2982
+#define EPILEPSY_PRIV_EVAL_REC_2981_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2982(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2982_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2982_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2982_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2982_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2982_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2982_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2982_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2982_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2982_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2982_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2983
+#define EPILEPSY_PRIV_EVAL_REC_2982_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2983(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2983_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2983_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2983_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2983_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2983_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2983_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2983_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2983_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2983_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2983_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2984
+#define EPILEPSY_PRIV_EVAL_REC_2983_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2984(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2984_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2984_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2984_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2984_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2984_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2984_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2984_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2984_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2984_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2984_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2985
+#define EPILEPSY_PRIV_EVAL_REC_2984_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2985(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2985_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2985_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2985_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2985_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2985_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2985_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2985_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2985_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2985_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2985_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2986
+#define EPILEPSY_PRIV_EVAL_REC_2985_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2986(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2986_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2986_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2986_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2986_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2986_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2986_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2986_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2986_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2986_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2986_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2987
+#define EPILEPSY_PRIV_EVAL_REC_2986_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2987(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2987_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2987_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2987_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2987_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2987_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2987_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2987_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2987_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2987_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2987_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2988
+#define EPILEPSY_PRIV_EVAL_REC_2987_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2988(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2988_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2988_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2988_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2988_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2988_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2988_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2988_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2988_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2988_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2988_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2989
+#define EPILEPSY_PRIV_EVAL_REC_2988_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2989(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2989_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2989_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2989_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2989_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2989_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2989_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2989_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2989_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2989_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2989_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2990
+#define EPILEPSY_PRIV_EVAL_REC_2989_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2990(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2990_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2990_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2990_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2990_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2990_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2990_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2990_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2990_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2990_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2990_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2991
+#define EPILEPSY_PRIV_EVAL_REC_2990_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2991(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2991_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2991_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2991_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2991_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2991_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2991_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2991_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2991_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2991_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2991_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2992
+#define EPILEPSY_PRIV_EVAL_REC_2991_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2992(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2992_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2992_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2992_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2992_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2992_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2992_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2992_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2992_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2992_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2992_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2993
+#define EPILEPSY_PRIV_EVAL_REC_2992_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2993(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2993_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2993_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2993_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2993_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2993_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2993_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2993_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2993_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2993_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2993_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2994
+#define EPILEPSY_PRIV_EVAL_REC_2993_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2994(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2994_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2994_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2994_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2994_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2994_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2994_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2994_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2994_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2994_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2994_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2995
+#define EPILEPSY_PRIV_EVAL_REC_2994_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2995(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2995_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2995_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2995_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2995_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2995_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2995_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2995_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2995_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2995_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2995_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2996
+#define EPILEPSY_PRIV_EVAL_REC_2995_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2996(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2996_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2996_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2996_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2996_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2996_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2996_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2996_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2996_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2996_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2996_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2997
+#define EPILEPSY_PRIV_EVAL_REC_2996_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2997(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2997_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2997_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2997_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2997_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2997_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2997_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2997_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2997_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2997_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2997_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2998
+#define EPILEPSY_PRIV_EVAL_REC_2997_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2998(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2998_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2998_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2998_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2998_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2998_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2998_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2998_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2998_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2998_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2998_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_2999
+#define EPILEPSY_PRIV_EVAL_REC_2998_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_2999(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_2999_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_2999_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_2999_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_2999_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_2999_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_2999_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_2999_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_2999_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_2999_##choice
+#define EPILEPSY_PRIV_EVAL_REC_2999_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3000
+#define EPILEPSY_PRIV_EVAL_REC_2999_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3000(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3000_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3000_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3000_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3000_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3000_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3000_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3000_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3000_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3000_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3000_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3001
+#define EPILEPSY_PRIV_EVAL_REC_3000_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3001(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3001_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3001_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3001_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3001_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3001_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3001_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3001_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3001_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3001_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3001_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3002
+#define EPILEPSY_PRIV_EVAL_REC_3001_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3002(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3002_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3002_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3002_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3002_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3002_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3002_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3002_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3002_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3002_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3002_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3003
+#define EPILEPSY_PRIV_EVAL_REC_3002_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3003(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3003_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3003_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3003_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3003_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3003_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3003_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3003_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3003_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3003_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3003_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3004
+#define EPILEPSY_PRIV_EVAL_REC_3003_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3004(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3004_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3004_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3004_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3004_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3004_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3004_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3004_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3004_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3004_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3004_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3005
+#define EPILEPSY_PRIV_EVAL_REC_3004_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3005(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3005_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3005_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3005_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3005_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3005_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3005_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3005_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3005_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3005_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3005_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3006
+#define EPILEPSY_PRIV_EVAL_REC_3005_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3006(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3006_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3006_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3006_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3006_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3006_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3006_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3006_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3006_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3006_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3006_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3007
+#define EPILEPSY_PRIV_EVAL_REC_3006_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3007(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3007_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3007_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3007_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3007_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3007_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3007_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3007_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3007_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3007_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3007_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3008
+#define EPILEPSY_PRIV_EVAL_REC_3007_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3008(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3008_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3008_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3008_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3008_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3008_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3008_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3008_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3008_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3008_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3008_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3009
+#define EPILEPSY_PRIV_EVAL_REC_3008_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3009(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3009_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3009_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3009_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3009_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3009_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3009_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3009_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3009_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3009_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3009_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3010
+#define EPILEPSY_PRIV_EVAL_REC_3009_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3010(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3010_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3010_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3010_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3010_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3010_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3010_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3010_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3010_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3010_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3010_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3011
+#define EPILEPSY_PRIV_EVAL_REC_3010_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3011(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3011_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3011_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3011_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3011_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3011_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3011_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3011_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3011_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3011_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3011_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3012
+#define EPILEPSY_PRIV_EVAL_REC_3011_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3012(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3012_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3012_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3012_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3012_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3012_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3012_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3012_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3012_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3012_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3012_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3013
+#define EPILEPSY_PRIV_EVAL_REC_3012_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3013(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3013_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3013_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3013_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3013_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3013_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3013_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3013_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3013_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3013_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3013_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3014
+#define EPILEPSY_PRIV_EVAL_REC_3013_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3014(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3014_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3014_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3014_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3014_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3014_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3014_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3014_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3014_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3014_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3014_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3015
+#define EPILEPSY_PRIV_EVAL_REC_3014_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3015(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3015_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3015_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3015_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3015_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3015_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3015_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3015_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3015_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3015_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3015_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3016
+#define EPILEPSY_PRIV_EVAL_REC_3015_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3016(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3016_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3016_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3016_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3016_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3016_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3016_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3016_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3016_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3016_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3016_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3017
+#define EPILEPSY_PRIV_EVAL_REC_3016_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3017(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3017_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3017_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3017_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3017_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3017_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3017_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3017_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3017_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3017_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3017_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3018
+#define EPILEPSY_PRIV_EVAL_REC_3017_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3018(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3018_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3018_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3018_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3018_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3018_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3018_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3018_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3018_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3018_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3018_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3019
+#define EPILEPSY_PRIV_EVAL_REC_3018_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3019(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3019_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3019_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3019_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3019_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3019_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3019_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3019_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3019_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3019_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3019_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3020
+#define EPILEPSY_PRIV_EVAL_REC_3019_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3020(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3020_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3020_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3020_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3020_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3020_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3020_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3020_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3020_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3020_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3020_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3021
+#define EPILEPSY_PRIV_EVAL_REC_3020_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3021(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3021_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3021_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3021_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3021_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3021_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3021_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3021_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3021_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3021_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3021_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3022
+#define EPILEPSY_PRIV_EVAL_REC_3021_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3022(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3022_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3022_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3022_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3022_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3022_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3022_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3022_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3022_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3022_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3022_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3023
+#define EPILEPSY_PRIV_EVAL_REC_3022_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3023(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3023_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3023_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3023_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3023_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3023_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3023_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3023_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3023_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3023_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3023_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3024
+#define EPILEPSY_PRIV_EVAL_REC_3023_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3024(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3024_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3024_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3024_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3024_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3024_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3024_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3024_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3024_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3024_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3024_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3025
+#define EPILEPSY_PRIV_EVAL_REC_3024_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3025(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3025_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3025_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3025_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3025_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3025_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3025_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3025_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3025_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3025_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3025_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3026
+#define EPILEPSY_PRIV_EVAL_REC_3025_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3026(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3026_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3026_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3026_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3026_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3026_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3026_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3026_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3026_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3026_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3026_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3027
+#define EPILEPSY_PRIV_EVAL_REC_3026_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3027(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3027_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3027_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3027_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3027_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3027_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3027_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3027_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3027_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3027_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3027_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3028
+#define EPILEPSY_PRIV_EVAL_REC_3027_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3028(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3028_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3028_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3028_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3028_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3028_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3028_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3028_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3028_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3028_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3028_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3029
+#define EPILEPSY_PRIV_EVAL_REC_3028_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3029(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3029_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3029_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3029_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3029_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3029_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3029_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3029_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3029_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3029_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3029_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3030
+#define EPILEPSY_PRIV_EVAL_REC_3029_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3030(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3030_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3030_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3030_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3030_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3030_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3030_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3030_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3030_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3030_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3030_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3031
+#define EPILEPSY_PRIV_EVAL_REC_3030_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3031(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3031_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3031_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3031_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3031_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3031_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3031_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3031_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3031_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3031_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3031_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3032
+#define EPILEPSY_PRIV_EVAL_REC_3031_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3032(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3032_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3032_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3032_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3032_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3032_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3032_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3032_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3032_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3032_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3032_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3033
+#define EPILEPSY_PRIV_EVAL_REC_3032_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3033(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3033_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3033_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3033_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3033_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3033_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3033_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3033_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3033_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3033_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3033_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3034
+#define EPILEPSY_PRIV_EVAL_REC_3033_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3034(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3034_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3034_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3034_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3034_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3034_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3034_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3034_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3034_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3034_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3034_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3035
+#define EPILEPSY_PRIV_EVAL_REC_3034_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3035(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3035_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3035_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3035_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3035_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3035_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3035_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3035_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3035_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3035_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3035_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3036
+#define EPILEPSY_PRIV_EVAL_REC_3035_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3036(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3036_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3036_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3036_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3036_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3036_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3036_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3036_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3036_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3036_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3036_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3037
+#define EPILEPSY_PRIV_EVAL_REC_3036_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3037(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3037_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3037_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3037_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3037_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3037_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3037_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3037_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3037_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3037_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3037_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3038
+#define EPILEPSY_PRIV_EVAL_REC_3037_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3038(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3038_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3038_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3038_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3038_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3038_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3038_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3038_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3038_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3038_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3038_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3039
+#define EPILEPSY_PRIV_EVAL_REC_3038_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3039(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3039_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3039_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3039_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3039_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3039_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3039_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3039_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3039_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3039_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3039_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3040
+#define EPILEPSY_PRIV_EVAL_REC_3039_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3040(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3040_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3040_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3040_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3040_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3040_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3040_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3040_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3040_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3040_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3040_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3041
+#define EPILEPSY_PRIV_EVAL_REC_3040_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3041(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3041_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3041_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3041_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3041_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3041_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3041_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3041_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3041_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3041_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3041_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3042
+#define EPILEPSY_PRIV_EVAL_REC_3041_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3042(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3042_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3042_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3042_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3042_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3042_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3042_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3042_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3042_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3042_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3042_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3043
+#define EPILEPSY_PRIV_EVAL_REC_3042_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3043(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3043_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3043_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3043_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3043_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3043_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3043_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3043_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3043_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3043_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3043_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3044
+#define EPILEPSY_PRIV_EVAL_REC_3043_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3044(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3044_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3044_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3044_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3044_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3044_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3044_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3044_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3044_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3044_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3044_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3045
+#define EPILEPSY_PRIV_EVAL_REC_3044_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3045(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3045_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3045_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3045_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3045_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3045_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3045_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3045_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3045_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3045_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3045_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3046
+#define EPILEPSY_PRIV_EVAL_REC_3045_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3046(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3046_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3046_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3046_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3046_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3046_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3046_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3046_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3046_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3046_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3046_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3047
+#define EPILEPSY_PRIV_EVAL_REC_3046_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3047(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3047_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3047_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3047_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3047_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3047_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3047_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3047_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3047_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3047_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3047_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3048
+#define EPILEPSY_PRIV_EVAL_REC_3047_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3048(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3048_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3048_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3048_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3048_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3048_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3048_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3048_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3048_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3048_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3048_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3049
+#define EPILEPSY_PRIV_EVAL_REC_3048_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3049(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3049_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3049_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3049_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3049_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3049_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3049_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3049_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3049_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3049_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3049_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3050
+#define EPILEPSY_PRIV_EVAL_REC_3049_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3050(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3050_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3050_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3050_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3050_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3050_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3050_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3050_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3050_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3050_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3050_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3051
+#define EPILEPSY_PRIV_EVAL_REC_3050_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3051(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3051_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3051_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3051_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3051_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3051_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3051_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3051_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3051_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3051_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3051_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3052
+#define EPILEPSY_PRIV_EVAL_REC_3051_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3052(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3052_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3052_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3052_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3052_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3052_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3052_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3052_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3052_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3052_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3052_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3053
+#define EPILEPSY_PRIV_EVAL_REC_3052_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3053(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3053_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3053_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3053_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3053_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3053_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3053_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3053_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3053_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3053_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3053_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3054
+#define EPILEPSY_PRIV_EVAL_REC_3053_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3054(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3054_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3054_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3054_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3054_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3054_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3054_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3054_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3054_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3054_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3054_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3055
+#define EPILEPSY_PRIV_EVAL_REC_3054_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3055(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3055_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3055_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3055_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3055_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3055_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3055_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3055_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3055_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3055_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3055_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3056
+#define EPILEPSY_PRIV_EVAL_REC_3055_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3056(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3056_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3056_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3056_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3056_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3056_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3056_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3056_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3056_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3056_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3056_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3057
+#define EPILEPSY_PRIV_EVAL_REC_3056_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3057(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3057_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3057_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3057_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3057_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3057_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3057_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3057_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3057_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3057_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3057_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3058
+#define EPILEPSY_PRIV_EVAL_REC_3057_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3058(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3058_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3058_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3058_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3058_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3058_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3058_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3058_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3058_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3058_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3058_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3059
+#define EPILEPSY_PRIV_EVAL_REC_3058_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3059(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3059_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3059_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3059_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3059_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3059_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3059_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3059_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3059_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3059_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3059_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3060
+#define EPILEPSY_PRIV_EVAL_REC_3059_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3060(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3060_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3060_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3060_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3060_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3060_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3060_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3060_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3060_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3060_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3060_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3061
+#define EPILEPSY_PRIV_EVAL_REC_3060_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3061(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3061_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3061_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3061_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3061_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3061_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3061_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3061_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3061_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3061_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3061_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3062
+#define EPILEPSY_PRIV_EVAL_REC_3061_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3062(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3062_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3062_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3062_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3062_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3062_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3062_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3062_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3062_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3062_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3062_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3063
+#define EPILEPSY_PRIV_EVAL_REC_3062_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3063(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3063_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3063_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3063_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3063_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3063_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3063_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3063_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3063_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3063_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3063_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3064
+#define EPILEPSY_PRIV_EVAL_REC_3063_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3064(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3064_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3064_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3064_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3064_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3064_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3064_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3064_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3064_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3064_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3064_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3065
+#define EPILEPSY_PRIV_EVAL_REC_3064_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3065(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3065_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3065_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3065_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3065_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3065_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3065_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3065_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3065_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3065_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3065_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3066
+#define EPILEPSY_PRIV_EVAL_REC_3065_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3066(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3066_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3066_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3066_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3066_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3066_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3066_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3066_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3066_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3066_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3066_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3067
+#define EPILEPSY_PRIV_EVAL_REC_3066_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3067(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3067_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3067_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3067_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3067_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3067_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3067_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3067_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3067_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3067_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3067_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3068
+#define EPILEPSY_PRIV_EVAL_REC_3067_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3068(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3068_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3068_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3068_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3068_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3068_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3068_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3068_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3068_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3068_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3068_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3069
+#define EPILEPSY_PRIV_EVAL_REC_3068_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3069(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3069_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3069_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3069_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3069_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3069_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3069_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3069_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3069_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3069_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3069_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3070
+#define EPILEPSY_PRIV_EVAL_REC_3069_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3070(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3070_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3070_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3070_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3070_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3070_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3070_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3070_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3070_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3070_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3070_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3071
+#define EPILEPSY_PRIV_EVAL_REC_3070_STOP(...)                  __VA_ARGS__
+
+#define EPILEPSY_PRIV_EVAL_REC_3071(...)                                                           \
+    EPILEPSY_PRIV_EVAL_REC_3071_OVERLOAD(EPILEPSY_PRIV_EVAL_REC_3071_GET_CHOICE(__VA_ARGS__))      \
+    (EPILEPSY_PRIV_EVAL_REC_3071_GET_REST(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_REC_3071_GET_CHOICE(choice, ...) choice
+#define EPILEPSY_PRIV_EVAL_REC_3071_GET_REST(choice, ...)   __VA_ARGS__
+#define EPILEPSY_PRIV_EVAL_REC_3071_OVERLOAD(choice)                                               \
+    EPILEPSY_PRIV_EVAL_REC_3071_OVERLOAD_PRIMITIVE(choice)
+#define EPILEPSY_PRIV_EVAL_REC_3071_OVERLOAD_PRIMITIVE(choice) EPILEPSY_PRIV_EVAL_REC_3071_##choice
+#define EPILEPSY_PRIV_EVAL_REC_3071_CONTINUE                   EPILEPSY_PRIV_EVAL_REC_3072
+#define EPILEPSY_PRIV_EVAL_REC_3071_STOP(...)                  __VA_ARGS__
+
+#endif // EPILEPSY_EVAL_REC_UNROLL_2048_TO_3071_H

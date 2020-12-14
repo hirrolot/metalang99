@@ -23,15 +23,16 @@
 
 \begin{document}
 
-\title{Macrolop Specification}
+\title{Epilepsy Specification}
 \date{\today}
 \author{Temirkhan Myrzamadi \\ e-mail: \href{mailto:hirrolot@gmail.com}{hirrolot@gmail.com}}
 \maketitle
 
 \begin{abstract}
-This paper formally describes the form and execution of metaprograms written in Macrolop,
-an embedded metalanguage aimed at language-oriented programming in C. It is \textbf{not}
-designed as a user-friendly overview -- see the official repository \cite{Macrolop}.
+This paper formally describes the form and execution of metaprograms written
+Epilepsy, a metalanguage aimed at full-blown preprocessor metaprogramming in C. This paper
+is \textbf{not} designed as a user-friendly overview -- see the official repository
+\cite{Epilepsy}.
 \end{abstract}
 
 \tableofcontents
@@ -44,7 +45,7 @@ designed as a user-friendly overview -- see the official repository \cite{Macrol
     \caption{Grammar rules}
 
 \begin{minted}{bnf}
-<eval> ::= "MACROLOP_EVAL(" { <term> }* ")" ;
+<eval> ::= "EPILEPSY_EVAL(" { <term> }* ")" ;
 
 <term> ::= "call(" <op> "," { <term> }* ")"
          | "v(" <preprocessor-token-list> ")" ;
@@ -54,14 +55,14 @@ designed as a user-friendly overview -- see the official repository \cite{Macrol
 
 \end{figure}
 
-A metaprogram in Macrolop consists of a possibly empty sequence of terms, each of which
+A metaprogram in Epilepsy consists of a possibly empty sequence of terms, each of which
 is either a macro call or just a value.
 
 Notes:
 
 \begin{itemize}
     \item The grammar above describes metaprograms already expanded by the C preprocessor,
-    except for \texttt{MACROLOP\_EVAL}, \texttt{call}, and \texttt{v}.
+    except for \texttt{EPILEPSY\_EVAL}, \texttt{call}, and \texttt{v}.
     \item \texttt{call} accepts \texttt{op} either as an identifier or as a non-empty
     sequence of terms that reduces to an identifier.
     \item \texttt{call} accepts arguments without a separator. This is intentional: suppose
@@ -92,7 +93,7 @@ higher-order macros require so for supplied user macros.
         \item $\overline{x}$ denotes a concrete sequence $x_1 \ldots x_n$ (either of terms
         or preprocessor tokens). For example:
         \begin{itemize}
-            \item $v(abc) \ call(FOO, v(123)) \ v(u \ 8 \ 9)$ (of Macrolop terms)
+            \item $v(abc) \ call(FOO, v(123)) \ v(u \ 8 \ 9)$ (of Epilepsy terms)
             \item $abc \ 13 \ "hello" \ + \ -$ (of preprocessor tokens)
         \end{itemize}
         \item $S \ x$ is appending an element or sequence $x$ to a sequence $S$. For
@@ -125,15 +126,15 @@ higher-order macros require so for supplied user macros.
         \hline
         \texttt{tok} & C preprocessor token \\
         \texttt{ident} & C preprocessor identifier \\
-        \texttt{t} & Macrolop term \\
-        \texttt{a} & Macrolop term used as an argument \\
+        \texttt{t} & Epilepsy term \\
+        \texttt{a} & Epilepsy term used as an argument \\
         \hline
     \end{tabular}
 \end{notation}
 
 \section{Reduction Semantics}
 
-We define reduction semantics for Macrolop. The abstract machine executes configurations
+We define reduction semantics for Epilepsy. The abstract machine executes configurations
 of the form $\langle K; A; C \rangle$:
 
 \begin{itemize}
@@ -165,22 +166,22 @@ And here are the computational rules:
         (args): \ & \langle K; A; call(ident, \overline{a}) \ \overline{t} \rangle & \to
             & \langle \langle K; A; ident(?) \ \overline{t} \rangle; (); comma\mbox{-}sep(\overline{a}) \rangle \\
         (end): \ & \langle K; A; \rangle & \to & K(A) \\
-        (start): \ & MACROLOP\_EVAL(\overline{t}) & \to &
+        (start): \ & EPILEPSY\_EVAL(\overline{t}) & \to &
             \langle halt; (); \overline{t} \rangle
     \end{align*}
 \end{figure}
 
-A concrete sequence of terms provided to \texttt{MACROLOP\_EVAL} is evaluated sequentially till the end. A function's arguments
-are evaluated before the function is applied, e.g. Macrolop follows applicative
+A concrete sequence of terms provided to \texttt{EPILEPSY\_EVAL} is evaluated sequentially till the end. A function's arguments
+are evaluated before the function is applied, e.g. Epilepsy follows applicative
 evaluation strategy \cite{ApplicativeEvaluationStrategy}. When there's no more terms
-to evaluate, a result is pasted where \texttt{MACROLOP\_EVAL} has been invoked.
+to evaluate, a result is pasted where \texttt{EPILEPSY\_EVAL} has been invoked.
 
 Notes:
 
 \begin{itemize}
-    \item Look at $(args)$. Macrolop generates a usual C-style macro invocation with
+    \item Look at $(args)$. Epilepsy generates a usual C-style macro invocation with
     fully evaluated arguments, which will be then expanded by the C preprocessor, resulting
-    in yet another concrete sequence of Macrolop terms to be evaluated by the computational
+    in yet another concrete sequence of Epilepsy terms to be evaluated by the computational
     rules.
     \item With the current implementation, at most $2^{14}$ reduction steps are
     possible. After exceeding this limit, compilation will likely fail.
@@ -201,7 +202,7 @@ See how \texttt{call(X, v(CALL\_X))} is evaluated:
 \begin{example}[Evaluation of terms]
 \small
 \begin{gather*}
-    MACROLOP\_EVAL(call(X, v(CALL\_X))) \\
+    EPILEPSY\_EVAL(call(X, v(CALL\_X))) \\
     \downarrow (start) \\
     \langle halt; (); call(X, v(CALL\_X)) \rangle \\
     \downarrow (args) \\
@@ -245,7 +246,7 @@ The analogous version written in ordinary C looks like this:
 #define ID(x)        x
 \end{minted}
 
-However, unlike the Macrolop version above, it gets blocked due to the
+However, unlike the Epilepsy version above, it gets blocked due to the
 second call to \texttt{X}:
 
 $$
@@ -258,13 +259,13 @@ $$
 \item Consider this scenario:
     \begin{itemize}
         \item You call \texttt{FOO(1, 2, 3)}
-        \item It gets expanded by the C preprocessor (not by Macrolop)
+        \item It gets expanded by the C preprocessor (not by Epilepsy)
         \item Its expansion contains \texttt{FOO}
     \end{itemize}
-Then \texttt{FOO} gets blocked by the C preprocessor, e.g. Macrolop cannot handle ordinary
+Then \texttt{FOO} gets blocked by the C preprocessor, e.g. Epilepsy cannot handle ordinary
 macro recursion; you must use \texttt{call} to be sure that recursive calls
 will behave as expected. I therefore recommend to use only primitive C-style macros, e.g.
-for performance reasons or because of you cannot express them in terms of Macrolop.
+for performance reasons or because of you cannot express them in terms of Epilepsy.
 \end{itemize}
 
 \emergencystretch=1em

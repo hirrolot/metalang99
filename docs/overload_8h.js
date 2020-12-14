@@ -1,5 +1,5 @@
 var overload_8h =
 [
-    [ "MACROLOP_OVERLOAD", "overload_8h.html#a6e3a1137e1b62183230ac5d74b34ce07", null ],
-    [ "MACROLOP_OVERLOAD_CALL", "overload_8h.html#a40d5c67493d5b1d496c58b319722b127", null ]
+    [ "EPILEPSY_OVERLOAD", "overload_8h.html#a91c8c20761de3c2dfbac98e251a44bad", null ],
+    [ "EPILEPSY_OVERLOAD_CALL", "overload_8h.html#a208315cc377895b5a33379e3bc9298c6", null ]
 ];

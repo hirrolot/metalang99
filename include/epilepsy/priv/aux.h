@@ -1,0 +1,26 @@
+#ifndef EPILEPSY_PRIV_AUX_H
+#define EPILEPSY_PRIV_AUX_H
+
+#define EPILEPSY_PRIV_AUX_CAT(x, y)           EPILEPSY_PRIV_AUX_PRIMITIVE_CAT(x, y)
+#define EPILEPSY_PRIV_AUX_PRIMITIVE_CAT(x, y) x##y
+
+#define EPILEPSY_PRIV_AUX_CAT_3(x, y, z) EPILEPSY_PRIV_AUX_CAT(x, EPILEPSY_PRIV_AUX_CAT(y, z))
+#define EPILEPSY_PRIV_AUX_CAT_4(x, y, z, a)                                                        \
+    EPILEPSY_PRIV_AUX_CAT_3(x, y, EPILEPSY_PRIV_AUX_CAT(z, a))
+
+#define EPILEPSY_PRIV_AUX_MATCH(op, pattern) EPILEPSY_PRIV_AUX_CAT(op, pattern)
+
+#define EPILEPSY_PRIV_AUX_EMPTY()
+#define EPILEPSY_PRIV_AUX_EXPAND(...)  __VA_ARGS__
+#define EPILEPSY_PRIV_AUX_CONSUME(...) EPILEPSY_PRIV_AUX_EMPTY()
+#define EPILEPSY_PRIV_AUX_COMMA()      ,
+
+#define EPILEPSY_PRIV_AUX_PARENTHESISE(...) (__VA_ARGS__)
+#define EPILEPSY_PRIV_AUX_UNPARENTHESISE(x) EPILEPSY_PRIV_AUX_EXPAND(EPILEPSY_PRIV_AUX_EXPAND x)
+
+#define EPILEPSY_PRIV_AUX_IF(cond, x, y)                                                           \
+    EPILEPSY_PRIV_AUX_MATCH(EPILEPSY_PRIV_AUX_IF_, cond)((x), (y))
+#define EPILEPSY_PRIV_AUX_IF_0(_x, y) EPILEPSY_PRIV_AUX_UNPARENTHESISE(y)
+#define EPILEPSY_PRIV_AUX_IF_1(x, _y) EPILEPSY_PRIV_AUX_UNPARENTHESISE(x)
+
+#endif // EPILEPSY_PRIV_AUX_H

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Macrolop: Introduction</title>
+<title>Epilepsy: Introduction</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,10 +28,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Macrolop
+   <div id="projectname">Epilepsy
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
-   <div id="projectbrief">Language-oriented programming in C</div>
+   <div id="projectbrief">Full-blown preprocessor metaprogramming in C</div>
   </td>
  </tr>
  </tbody>
@@ -89,80 +89,80 @@ $(document).ready(function(){initNavTree('index.html','');});
 Summary</h1>
 <h2><a class="anchor" id="_0"></a>
 Metalanguage syntax</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="lang_8h.html">macrolop/lang.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="lang_8h.html">epilepsy/lang.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b" title="Calls op with the provided arguments. ">call</a>(op, ...)</li>
 <li><a class="el" href="lang_8h.html#accda83681bf7cf367504a2fd1e31b651" title="Expands to the provided arguments as-is. ">v</a>(...)</li>
 </ul>
 <h2><a class="anchor" id="_1"></a>
 Evaluation of metaprograms</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="eval_8h.html">macrolop/eval.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="eval_8h.html#aa66da7c04b9528d52de0bdb0f89c4a59" title="Evaluates a metaprogram. ">MACROLOP_EVAL</a>(...)</li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="eval_8h.html">epilepsy/eval.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79" title="Evaluates a metaprogram. ">EPILEPSY_EVAL</a>(...)</li>
 </ul>
 <h2><a class="anchor" id="_2"></a>
 Auxiliary macros</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="aux_8h.html">macrolop/aux.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="aux_8h.html#a0cb2aec3512e43e51ca92a2a814bf77a" title="Concatenates x and y. ">MACROLOP_CAT()</a></li>
-<li><a class="el" href="aux_8h.html#a6b064fec8033df2498d966f246a8bf56" title="Stringifies x. ">MACROLOP_STRINGIFY()</a></li>
-<li><a class="el" href="aux_8h.html#a726017e244175570a9db97fecf400ce0" title="Expands to nothing. ">MACROLOP_EMPTY()</a></li>
-<li><a class="el" href="aux_8h.html#a16ee8feca5c6b6c038261cccfbb52436" title="Expands to x. ">MACROLOP_ID(x)</a></li>
-<li><a class="el" href="aux_8h.html#aad159b4f12355756d3ee884b6b14e302" title="Expands to the provided arguments. ">MACROLOP_EXPAND</a>(...)</li>
-<li><a class="el" href="aux_8h.html#ad3e75c2f286592bef43ee9d03f8e2692" title="Expands to nothing, consuming all the provided arguments. ">MACROLOP_CONSUME</a>(...)</li>
-<li><a class="el" href="aux_8h.html#a099bbf2720d92f8788fb51b33bd8ce5a" title="Puts the specified arguments into parentheses. ">MACROLOP_PARENTHESISE</a>(...)</li>
-<li><a class="el" href="aux_8h.html#a9dbe2f578cfee0f5e3fbd49f36e6e56e" title="Removes parentheses around x. ">MACROLOP_UNPARENTHESISE(x)</a></li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="aux_8h.html">epilepsy/aux.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="aux_8h.html#a3aa305dafbc5d422a62b88224a12c342" title="Concatenates x and y. ">EPILEPSY_CAT()</a></li>
+<li><a class="el" href="aux_8h.html#a6d208f65135ce780cc479db35e8c20f0" title="Stringifies x. ">EPILEPSY_STRINGIFY()</a></li>
+<li><a class="el" href="aux_8h.html#ac1be6cfa56e6d62429e9067c340e6a3c" title="Expands to nothing. ">EPILEPSY_EMPTY()</a></li>
+<li><a class="el" href="aux_8h.html#a2abc13c3a4ff50ea993e34d5c6c8eb4f" title="Expands to x. ">EPILEPSY_ID(x)</a></li>
+<li><a class="el" href="aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258" title="Expands to the provided arguments. ">EPILEPSY_EXPAND</a>(...)</li>
+<li><a class="el" href="aux_8h.html#ac0c675b758fc57b936eba2805bdc5faa" title="Expands to nothing, consuming all the provided arguments. ">EPILEPSY_CONSUME</a>(...)</li>
+<li><a class="el" href="aux_8h.html#a1b9a6e8b9b785c61619fa83106191e51" title="Puts the specified arguments into parentheses. ">EPILEPSY_PARENTHESISE</a>(...)</li>
+<li><a class="el" href="aux_8h.html#a1eaee2bc480c09853f9897a36b3738ab" title="Removes parentheses around x. ">EPILEPSY_UNPARENTHESISE(x)</a></li>
 </ul>
 <h2><a class="anchor" id="_3"></a>
 Control expressions</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="control_8h.html">macrolop/control.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="control_8h.html#a3249b9dcf76191c70545726d394bf9e1" title="x if cond expands to 1, otherwise y. ">MACROLOP_IF(cond, x, y)</a></li>
-<li><a class="el" href="control_8h.html#a1bf4943a5568392e973474cc61888bbc" title="Executes op as long as predicate holds for state. ">MACROLOP_WHILE(predicate, op, context)</a></li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="control_8h.html">epilepsy/control.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="control_8h.html#a1a8154ae70bba213845a654584ddad6f" title="x if cond expands to 1, otherwise y. ">EPILEPSY_IF(cond, x, y)</a></li>
+<li><a class="el" href="control_8h.html#add0700bcbd0cec9ad85f6032782f562f" title="Executes op as long as predicate holds for state. ">EPILEPSY_WHILE(predicate, op, context)</a></li>
 </ul>
 <h2><a class="anchor" id="_4"></a>
 Implementation limits</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="limits_8h.html">macrolop/limits.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="limits_8h.html#af38c68d530ea5afe1259498b817d4850" title="The maximum supported unsigned integer. ">MACROLOP_UINT_MAX</a></li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="limits_8h.html">epilepsy/limits.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="limits_8h.html#aea10e46e067cada42a97d4e7738dcb49" title="The maximum supported unsigned integer. ">EPILEPSY_UINT_MAX</a></li>
 </ul>
 <h2><a class="anchor" id="_5"></a>
 Boolean algebra</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="logical_8h.html">macrolop/logical.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="logical_8h.html#aacfb162752b3bbc0dbbd107b2255ce29" title="Negates x. ">MACROLOP_NOT(x)</a></li>
-<li><a class="el" href="logical_8h.html#abc00b7186b58544747d92588e085728f" title="Performs logical conjunction on and y. ">MACROLOP_AND(x, y)</a></li>
-<li><a class="el" href="logical_8h.html#ac802a9c49429bb9247fcdaf7c10cdf26" title="Performs inclusive OR on and y. ">MACROLOP_OR(x, y)</a></li>
-<li><a class="el" href="logical_8h.html#a38cd17792579ac25272bb4545cb505ab" title="Performs exclusive OR on and y. ">MACROLOP_XOR(x, y)</a></li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="logical_8h.html">epilepsy/logical.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="logical_8h.html#a9f2efbd7834db6f77490f6e897f66a42" title="Negates x. ">EPILEPSY_NOT(x)</a></li>
+<li><a class="el" href="logical_8h.html#aed5109ba08657d25df32fbd9f35ef5b0" title="Performs logical conjunction on and y. ">EPILEPSY_AND(x, y)</a></li>
+<li><a class="el" href="logical_8h.html#a0a6f3534ad92d6d1768e16653c98c46e" title="Performs inclusive OR on and y. ">EPILEPSY_OR(x, y)</a></li>
+<li><a class="el" href="logical_8h.html#aff1f850dc85afb7e3e0886ca39ae3b4d" title="Performs exclusive OR on and y. ">EPILEPSY_XOR(x, y)</a></li>
 </ul>
 <h2><a class="anchor" id="_6"></a>
 Overloading on a number of arguments</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="overload_8h.html">macrolop/overload.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="overload_8h.html#a6e3a1137e1b62183230ac5d74b34ce07" title="Overload op on a number of arguments. ">MACROLOP_OVERLOAD</a>(op, ...)</li>
-<li><a class="el" href="overload_8h.html#a40d5c67493d5b1d496c58b319722b127" title="Overloads op on a number of arguments an immediately calls it. ">MACROLOP_OVERLOAD_CALL</a>(op, ...)</li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="overload_8h.html">epilepsy/overload.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="overload_8h.html#a91c8c20761de3c2dfbac98e251a44bad" title="Overload op on a number of arguments. ">EPILEPSY_OVERLOAD</a>(op, ...)</li>
+<li><a class="el" href="overload_8h.html#a208315cc377895b5a33379e3bc9298c6" title="Overloads op on a number of arguments an immediately calls it. ">EPILEPSY_OVERLOAD_CALL</a>(op, ...)</li>
 </ul>
 <h2><a class="anchor" id="_7"></a>
 Unsigned integers</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="uint_8h.html">macrolop/uint.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="uint_8h.html#a0e2d9f1ad555e559e0b0f12a9138c698" title="Increments x. ">MACROLOP_UINT_INC(x)</a></li>
-<li><a class="el" href="uint_8h.html#a251b59df4488ee89a0b9db2947c416c2" title="Decrements x. ">MACROLOP_UINT_DEC(x)</a></li>
-<li><a class="el" href="uint_8h.html#a7be77b6ee0377d76e8e957e866f0e56a" title="Checks whether x and y are equal. ">MACROLOP_UINT_EQ(x, y)</a></li>
-<li><a class="el" href="uint_8h.html#a075421b38321481b10531c5a05dc6f03" title="Checks whether x and y are not equal. ">MACROLOP_UINT_NEQ(x, y)</a></li>
-<li><a class="el" href="uint_8h.html#ad0adff0352145c1ac929bddc94326a23" title="Checks whether x is greater than y. ">MACROLOP_UINT_GREATER(x, y)</a></li>
-<li><a class="el" href="uint_8h.html#a61308c9ebd265d23ce8341ff30d09378" title="Checks whether x is greater or equal than y. ">MACROLOP_UINT_GREATER_EQUAL(x, y)</a></li>
-<li><a class="el" href="uint_8h.html#a3626ce1751dc2daff27fe2faed37f85c" title="Checks whether x is lesser than y. ">MACROLOP_UINT_LESSER(x, y)</a></li>
-<li><a class="el" href="uint_8h.html#a0917b28e3ec4acb3204d3a2e268d4872" title="Checks whether x is lesser or equal than y. ">MACROLOP_UINT_LESSER_EQUAL(x, y)</a></li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="uint_8h.html">epilepsy/uint.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="uint_8h.html#abb900b638e07fe7d54661dd98dd49ba8" title="Increments x. ">EPILEPSY_UINT_INC(x)</a></li>
+<li><a class="el" href="uint_8h.html#a09b97ab12e5b4696cdfe4be7343d0282" title="Decrements x. ">EPILEPSY_UINT_DEC(x)</a></li>
+<li><a class="el" href="uint_8h.html#a1454dfab75157451e18490078f3fd3a5" title="Checks whether x and y are equal. ">EPILEPSY_UINT_EQ(x, y)</a></li>
+<li><a class="el" href="uint_8h.html#a9b0aced9ee77dac75430a772676c2ed4" title="Checks whether x and y are not equal. ">EPILEPSY_UINT_NEQ(x, y)</a></li>
+<li><a class="el" href="uint_8h.html#a59ea9abf18a743fbb75dcab61df76fc2" title="Checks whether x is greater than y. ">EPILEPSY_UINT_GREATER(x, y)</a></li>
+<li><a class="el" href="uint_8h.html#a85b11bb6a6fd33b0916a950b575a319a" title="Checks whether x is greater or equal than y. ">EPILEPSY_UINT_GREATER_EQUAL(x, y)</a></li>
+<li><a class="el" href="uint_8h.html#ad340ba6347941ed5c28b6877d3fcd92e" title="Checks whether x is lesser than y. ">EPILEPSY_UINT_LESSER(x, y)</a></li>
+<li><a class="el" href="uint_8h.html#a1ea88d7dfd5ca49890230695293d517d" title="Checks whether x is lesser or equal than y. ">EPILEPSY_UINT_LESSER_EQUAL(x, y)</a></li>
 </ul>
 <h2><a class="anchor" id="_8"></a>
 Utilities for variadic macros</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="variadics_8h.html">macrolop/variadics.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="variadics_8h.html#a78acae98000c2b5df7fdc67887c8167e" title="Computes a count of the provided arguments. ">MACROLOP_VARIADICS_COUNT</a>(...)</li>
-<li><a class="el" href="variadics_8h.html#a82b51ababa9f291a24cce43e42e0e202" title="Extracts a head of the provided arguments. ">MACROLOP_VARIADICS_HEAD</a>(...)</li>
-<li><a class="el" href="variadics_8h.html#a0615cd923d8e81afb1f39d7f24640d71" title="Extracts a tail of the provided arguments. ">MACROLOP_VARIADICS_TAIL</a>(...)</li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="variadics_8h.html">epilepsy/variadics.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="variadics_8h.html#a2487f0e32af8e00776550bfff58ac98b" title="Computes a count of the provided arguments. ">EPILEPSY_VARIADICS_COUNT</a>(...)</li>
+<li><a class="el" href="variadics_8h.html#a9a48cdcb61cfdc33d9f28db494ade10d" title="Extracts a head of the provided arguments. ">EPILEPSY_VARIADICS_HEAD</a>(...)</li>
+<li><a class="el" href="variadics_8h.html#ad3c92d4a26b099c8e33053bdeca58cc1" title="Extracts a tail of the provided arguments. ">EPILEPSY_VARIADICS_TAIL</a>(...)</li>
 </ul>
 <h2><a class="anchor" id="_9"></a>
 Static assertions</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="assert_8h.html">macrolop/assert.h</a>&gt;</span></div></div><!-- fragment --><ul>
-<li><a class="el" href="assert_8h.html#a29e5dfdbc0d1d5091c747726b324fd66" title="Asserts MACROLOP_EVAL(expr). ">MACROLOP_ASSERT(expr)</a></li>
-<li><a class="el" href="assert_8h.html#a3333b24aac70c21fbaed829b28a4a176" title="The same as MACROLOP_ASSERT but accepts an error message. ">MACROLOP_ASSERT_WITH_MSG(expr, message)</a></li>
-<li><a class="el" href="assert_8h.html#a9153bf2db3d1c331abc3c0afb500d1f6" title="Asserts that MACROLOP_EVAL(lhs) is equal to MACROLOP_EVAL(rhs). ">MACROLOP_ASSERT_EQ(lhs, rhs)</a></li>
-<li><a class="el" href="assert_8h.html#ae794388ec2cbfc6e1c94eec7a38cee11" title="The same as MACROLOP_ASSERT_EQ but accepts an error message. ">MACROLOP_ASSERT_EQ_WITH_MSG(lhs, rhs)</a></li>
-<li><a class="el" href="assert_8h.html#a63676600b7ddae9fa1fbbdf5e89ffba6" title="Asserts a constant expression expr. ">MACROLOP_C_STATIC_ASSERT(expr)</a></li>
-<li><a class="el" href="assert_8h.html#ae931c8f529eb9de52c0ececc69d0b6a4" title="The same as MACROLOP_C_STATIC_ASSERT but accept an error message. ">MACROLOP_C_STATIC_ASSERT_WITH_MSG(expr, message)</a> </li>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="assert_8h.html">epilepsy/assert.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="assert_8h.html#a6395f44a4cd52809013099f8454f25e3" title="Asserts EPILEPSY_EVAL(expr). ">EPILEPSY_ASSERT(expr)</a></li>
+<li><a class="el" href="assert_8h.html#a601e741e820ef44dce554ddf08d0d39e" title="The same as EPILEPSY_ASSERT but accepts an error message. ">EPILEPSY_ASSERT_WITH_MSG(expr, message)</a></li>
+<li><a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879" title="Asserts that EPILEPSY_EVAL(lhs) is equal to EPILEPSY_EVAL(rhs). ">EPILEPSY_ASSERT_EQ(lhs, rhs)</a></li>
+<li><a class="el" href="assert_8h.html#a521c93242ebd08103aebebb286e2e82d" title="The same as EPILEPSY_ASSERT_EQ but accepts an error message. ">EPILEPSY_ASSERT_EQ_WITH_MSG(lhs, rhs)</a></li>
+<li><a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2" title="Asserts a constant expression expr. ">EPILEPSY_C_STATIC_ASSERT(expr)</a></li>
+<li><a class="el" href="assert_8h.html#a3bb8ca8db992b6778afe4021150bdb4d" title="The same as EPILEPSY_C_STATIC_ASSERT but accept an error message. ">EPILEPSY_C_STATIC_ASSERT_WITH_MSG(expr, message)</a> </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

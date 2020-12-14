@@ -1,11 +1,11 @@
 var aux_8h =
 [
-    [ "MACROLOP_CAT", "aux_8h.html#a0cb2aec3512e43e51ca92a2a814bf77a", null ],
-    [ "MACROLOP_CONSUME", "aux_8h.html#ad3e75c2f286592bef43ee9d03f8e2692", null ],
-    [ "MACROLOP_EMPTY", "aux_8h.html#a726017e244175570a9db97fecf400ce0", null ],
-    [ "MACROLOP_EXPAND", "aux_8h.html#aad159b4f12355756d3ee884b6b14e302", null ],
-    [ "MACROLOP_ID", "aux_8h.html#a16ee8feca5c6b6c038261cccfbb52436", null ],
-    [ "MACROLOP_PARENTHESISE", "aux_8h.html#a099bbf2720d92f8788fb51b33bd8ce5a", null ],
-    [ "MACROLOP_STRINGIFY", "aux_8h.html#a6b064fec8033df2498d966f246a8bf56", null ],
-    [ "MACROLOP_UNPARENTHESISE", "aux_8h.html#a9dbe2f578cfee0f5e3fbd49f36e6e56e", null ]
+    [ "EPILEPSY_CAT", "aux_8h.html#a3aa305dafbc5d422a62b88224a12c342", null ],
+    [ "EPILEPSY_CONSUME", "aux_8h.html#ac0c675b758fc57b936eba2805bdc5faa", null ],
+    [ "EPILEPSY_EMPTY", "aux_8h.html#ac1be6cfa56e6d62429e9067c340e6a3c", null ],
+    [ "EPILEPSY_EXPAND", "aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258", null ],
+    [ "EPILEPSY_ID", "aux_8h.html#a2abc13c3a4ff50ea993e34d5c6c8eb4f", null ],
+    [ "EPILEPSY_PARENTHESISE", "aux_8h.html#a1b9a6e8b9b785c61619fa83106191e51", null ],
+    [ "EPILEPSY_STRINGIFY", "aux_8h.html#a6d208f65135ce780cc479db35e8c20f0", null ],
+    [ "EPILEPSY_UNPARENTHESISE", "aux_8h.html#a1eaee2bc480c09853f9897a36b3738ab", null ]
 ];

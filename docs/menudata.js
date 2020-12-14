@@ -5,9 +5,9 @@ var menudata={children:[
 {text:"Globals",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
 {text:"c",url:"globals.html#index_c"},
-{text:"m",url:"globals.html#index_m"},
+{text:"e",url:"globals.html#index_e"},
 {text:"v",url:"globals.html#index_v"}]},
 {text:"Macros",url:"globals_defs.html",children:[
 {text:"c",url:"globals_defs.html#index_c"},
-{text:"m",url:"globals_defs.html#index_m"},
+{text:"e",url:"globals_defs.html#index_e"},
 {text:"v",url:"globals_defs.html#index_v"}]}]}]}]}

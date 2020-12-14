@@ -1,0 +1,8 @@
+#ifndef EPILEPSY_PRIV_UINT_GREATER_H
+#define EPILEPSY_PRIV_UINT_GREATER_H
+
+#include <epilepsy/priv/uint/lesser.h>
+
+#define EPILEPSY_PRIV_UINT_GREATER(x, y) EPILEPSY_PRIV_UINT_LESSER(y, x)
+
+#endif // EPILEPSY_PRIV_UINT_GREATER_H

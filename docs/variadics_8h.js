@@ -1,6 +1,6 @@
 var variadics_8h =
 [
-    [ "MACROLOP_VARIADICS_COUNT", "variadics_8h.html#a78acae98000c2b5df7fdc67887c8167e", null ],
-    [ "MACROLOP_VARIADICS_HEAD", "variadics_8h.html#a82b51ababa9f291a24cce43e42e0e202", null ],
-    [ "MACROLOP_VARIADICS_TAIL", "variadics_8h.html#a0615cd923d8e81afb1f39d7f24640d71", null ]
+    [ "EPILEPSY_VARIADICS_COUNT", "variadics_8h.html#a2487f0e32af8e00776550bfff58ac98b", null ],
+    [ "EPILEPSY_VARIADICS_HEAD", "variadics_8h.html#a9a48cdcb61cfdc33d9f28db494ade10d", null ],
+    [ "EPILEPSY_VARIADICS_TAIL", "variadics_8h.html#ad3c92d4a26b099c8e33053bdeca58cc1", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Macrolop: include/macrolop/assert.h File Reference</title>
+<title>Epilepsy: include/epilepsy/assert.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,10 +28,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Macrolop
+   <div id="projectname">Epilepsy
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
-   <div id="projectbrief">Language-oriented programming in C</div>
+   <div id="projectbrief">Full-blown preprocessor metaprogramming in C</div>
   </td>
  </tr>
  </tbody>
@@ -94,9 +94,9 @@ $(document).ready(function(){initNavTree('assert_8h.html','');});
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="assert_8h__dep__incl.png" border="0" usemap="#include_2macrolop_2assert_8hdep" alt=""/></div>
-<map name="include_2macrolop_2assert_8hdep" id="include_2macrolop_2assert_8hdep">
-<area shape="rect" id="node2" href="macrolop_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="25,80,156,107"/>
+<div class="center"><img src="assert_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2assert_8hdep" alt=""/></div>
+<map name="include_2epilepsy_2assert_8hdep" id="include_2epilepsy_2assert_8hdep">
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="25,80,152,107"/>
 </map>
 </div>
 </div>
@@ -104,30 +104,30 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a29e5dfdbc0d1d5091c747726b324fd66"><td class="memItemLeft" align="right" valign="top"><a id="a29e5dfdbc0d1d5091c747726b324fd66"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a29e5dfdbc0d1d5091c747726b324fd66">MACROLOP_ASSERT</a>(expr)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a9153bf2db3d1c331abc3c0afb500d1f6">MACROLOP_ASSERT_EQ</a>(<a class="el" href="aux_8h.html#aad159b4f12355756d3ee884b6b14e302">MACROLOP_EXPAND</a>(expr), <a class="el" href="lang_8h.html#accda83681bf7cf367504a2fd1e31b651">v</a>(true))</td></tr>
-<tr class="memdesc:a29e5dfdbc0d1d5091c747726b324fd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts <code><a class="el" href="eval_8h.html#aa66da7c04b9528d52de0bdb0f89c4a59" title="Evaluates a metaprogram. ">MACROLOP_EVAL(expr)</a></code>. <br /></td></tr>
-<tr class="separator:a29e5dfdbc0d1d5091c747726b324fd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3333b24aac70c21fbaed829b28a4a176"><td class="memItemLeft" align="right" valign="top"><a id="a3333b24aac70c21fbaed829b28a4a176"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a3333b24aac70c21fbaed829b28a4a176">MACROLOP_ASSERT_WITH_MSG</a>(expr,  message)&#160;&#160;&#160;<a class="el" href="assert_8h.html#ae794388ec2cbfc6e1c94eec7a38cee11">MACROLOP_ASSERT_EQ_WITH_MSG</a>(<a class="el" href="aux_8h.html#aad159b4f12355756d3ee884b6b14e302">MACROLOP_EXPAND</a>(expr), <a class="el" href="lang_8h.html#accda83681bf7cf367504a2fd1e31b651">v</a>(true), message)</td></tr>
-<tr class="memdesc:a3333b24aac70c21fbaed829b28a4a176"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a29e5dfdbc0d1d5091c747726b324fd66" title="Asserts MACROLOP_EVAL(expr). ">MACROLOP_ASSERT</a> but accepts an error message. <br /></td></tr>
-<tr class="separator:a3333b24aac70c21fbaed829b28a4a176"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9153bf2db3d1c331abc3c0afb500d1f6"><td class="memItemLeft" align="right" valign="top"><a id="a9153bf2db3d1c331abc3c0afb500d1f6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a9153bf2db3d1c331abc3c0afb500d1f6">MACROLOP_ASSERT_EQ</a>(lhs,  rhs)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a63676600b7ddae9fa1fbbdf5e89ffba6">MACROLOP_C_STATIC_ASSERT</a>(<a class="el" href="eval_8h.html#aa66da7c04b9528d52de0bdb0f89c4a59">MACROLOP_EVAL</a>(lhs) == <a class="el" href="eval_8h.html#aa66da7c04b9528d52de0bdb0f89c4a59">MACROLOP_EVAL</a>(rhs))</td></tr>
-<tr class="memdesc:a9153bf2db3d1c331abc3c0afb500d1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts that <code><a class="el" href="eval_8h.html#aa66da7c04b9528d52de0bdb0f89c4a59" title="Evaluates a metaprogram. ">MACROLOP_EVAL(lhs)</a></code> is equal to <code><a class="el" href="eval_8h.html#aa66da7c04b9528d52de0bdb0f89c4a59" title="Evaluates a metaprogram. ">MACROLOP_EVAL(rhs)</a></code>. <br /></td></tr>
-<tr class="separator:a9153bf2db3d1c331abc3c0afb500d1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae794388ec2cbfc6e1c94eec7a38cee11"><td class="memItemLeft" align="right" valign="top"><a id="ae794388ec2cbfc6e1c94eec7a38cee11"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#ae794388ec2cbfc6e1c94eec7a38cee11">MACROLOP_ASSERT_EQ_WITH_MSG</a>(lhs,  rhs,  message)&#160;&#160;&#160;<a class="el" href="assert_8h.html#ae931c8f529eb9de52c0ececc69d0b6a4">MACROLOP_C_STATIC_ASSERT_WITH_MSG</a>(<a class="el" href="eval_8h.html#aa66da7c04b9528d52de0bdb0f89c4a59">MACROLOP_EVAL</a>(lhs) == <a class="el" href="eval_8h.html#aa66da7c04b9528d52de0bdb0f89c4a59">MACROLOP_EVAL</a>(rhs), message)</td></tr>
-<tr class="memdesc:ae794388ec2cbfc6e1c94eec7a38cee11"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a9153bf2db3d1c331abc3c0afb500d1f6" title="Asserts that MACROLOP_EVAL(lhs) is equal to MACROLOP_EVAL(rhs). ">MACROLOP_ASSERT_EQ</a> but accepts an error message. <br /></td></tr>
-<tr class="separator:ae794388ec2cbfc6e1c94eec7a38cee11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63676600b7ddae9fa1fbbdf5e89ffba6"><td class="memItemLeft" align="right" valign="top"><a id="a63676600b7ddae9fa1fbbdf5e89ffba6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a63676600b7ddae9fa1fbbdf5e89ffba6">MACROLOP_C_STATIC_ASSERT</a>(expr)&#160;&#160;&#160;MACROLOP_PRIV_C_STATIC_ASSERT_IMPL(expr)</td></tr>
-<tr class="memdesc:a63676600b7ddae9fa1fbbdf5e89ffba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts a constant expression <code>expr</code>. <br /></td></tr>
-<tr class="separator:a63676600b7ddae9fa1fbbdf5e89ffba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae931c8f529eb9de52c0ececc69d0b6a4"><td class="memItemLeft" align="right" valign="top"><a id="ae931c8f529eb9de52c0ececc69d0b6a4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#ae931c8f529eb9de52c0ececc69d0b6a4">MACROLOP_C_STATIC_ASSERT_WITH_MSG</a>(expr,  message)&#160;&#160;&#160;MACROLOP_PRIV_C_STATIC_ASSERT_WITH_MSG_IMPL(expr, message)</td></tr>
-<tr class="memdesc:ae931c8f529eb9de52c0ececc69d0b6a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a63676600b7ddae9fa1fbbdf5e89ffba6" title="Asserts a constant expression expr. ">MACROLOP_C_STATIC_ASSERT</a> but accept an error message. <br /></td></tr>
-<tr class="separator:ae931c8f529eb9de52c0ececc69d0b6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6395f44a4cd52809013099f8454f25e3"><td class="memItemLeft" align="right" valign="top"><a id="a6395f44a4cd52809013099f8454f25e3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a6395f44a4cd52809013099f8454f25e3">EPILEPSY_ASSERT</a>(expr)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879">EPILEPSY_ASSERT_EQ</a>(<a class="el" href="aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258">EPILEPSY_EXPAND</a>(expr), <a class="el" href="lang_8h.html#accda83681bf7cf367504a2fd1e31b651">v</a>(true))</td></tr>
+<tr class="memdesc:a6395f44a4cd52809013099f8454f25e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts <code><a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79" title="Evaluates a metaprogram. ">EPILEPSY_EVAL(expr)</a></code>. <br /></td></tr>
+<tr class="separator:a6395f44a4cd52809013099f8454f25e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a601e741e820ef44dce554ddf08d0d39e"><td class="memItemLeft" align="right" valign="top"><a id="a601e741e820ef44dce554ddf08d0d39e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a601e741e820ef44dce554ddf08d0d39e">EPILEPSY_ASSERT_WITH_MSG</a>(expr,  message)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a521c93242ebd08103aebebb286e2e82d">EPILEPSY_ASSERT_EQ_WITH_MSG</a>(<a class="el" href="aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258">EPILEPSY_EXPAND</a>(expr), <a class="el" href="lang_8h.html#accda83681bf7cf367504a2fd1e31b651">v</a>(true), message)</td></tr>
+<tr class="memdesc:a601e741e820ef44dce554ddf08d0d39e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a6395f44a4cd52809013099f8454f25e3" title="Asserts EPILEPSY_EVAL(expr). ">EPILEPSY_ASSERT</a> but accepts an error message. <br /></td></tr>
+<tr class="separator:a601e741e820ef44dce554ddf08d0d39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="memItemLeft" align="right" valign="top"><a id="a0e8e70d2d5e47c825e72d8ada9fbe879"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879">EPILEPSY_ASSERT_EQ</a>(lhs,  rhs)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2">EPILEPSY_C_STATIC_ASSERT</a>(<a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79">EPILEPSY_EVAL</a>(lhs) == <a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79">EPILEPSY_EVAL</a>(rhs))</td></tr>
+<tr class="memdesc:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts that <code><a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79" title="Evaluates a metaprogram. ">EPILEPSY_EVAL(lhs)</a></code> is equal to <code><a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79" title="Evaluates a metaprogram. ">EPILEPSY_EVAL(rhs)</a></code>. <br /></td></tr>
+<tr class="separator:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a521c93242ebd08103aebebb286e2e82d"><td class="memItemLeft" align="right" valign="top"><a id="a521c93242ebd08103aebebb286e2e82d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a521c93242ebd08103aebebb286e2e82d">EPILEPSY_ASSERT_EQ_WITH_MSG</a>(lhs,  rhs,  message)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a3bb8ca8db992b6778afe4021150bdb4d">EPILEPSY_C_STATIC_ASSERT_WITH_MSG</a>(<a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79">EPILEPSY_EVAL</a>(lhs) == <a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79">EPILEPSY_EVAL</a>(rhs), message)</td></tr>
+<tr class="memdesc:a521c93242ebd08103aebebb286e2e82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879" title="Asserts that EPILEPSY_EVAL(lhs) is equal to EPILEPSY_EVAL(rhs). ">EPILEPSY_ASSERT_EQ</a> but accepts an error message. <br /></td></tr>
+<tr class="separator:a521c93242ebd08103aebebb286e2e82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85810d51e6536a2a958e9e11a4f00fe2"><td class="memItemLeft" align="right" valign="top"><a id="a85810d51e6536a2a958e9e11a4f00fe2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2">EPILEPSY_C_STATIC_ASSERT</a>(expr)&#160;&#160;&#160;EPILEPSY_PRIV_C_STATIC_ASSERT_IMPL(expr)</td></tr>
+<tr class="memdesc:a85810d51e6536a2a958e9e11a4f00fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts a constant expression <code>expr</code>. <br /></td></tr>
+<tr class="separator:a85810d51e6536a2a958e9e11a4f00fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb8ca8db992b6778afe4021150bdb4d"><td class="memItemLeft" align="right" valign="top"><a id="a3bb8ca8db992b6778afe4021150bdb4d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a3bb8ca8db992b6778afe4021150bdb4d">EPILEPSY_C_STATIC_ASSERT_WITH_MSG</a>(expr,  message)&#160;&#160;&#160;EPILEPSY_PRIV_C_STATIC_ASSERT_WITH_MSG_IMPL(expr, message)</td></tr>
+<tr class="memdesc:a3bb8ca8db992b6778afe4021150bdb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2" title="Asserts a constant expression expr. ">EPILEPSY_C_STATIC_ASSERT</a> but accept an error message. <br /></td></tr>
+<tr class="separator:a3bb8ca8db992b6778afe4021150bdb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static assertions. </p>
@@ -136,7 +136,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e760eab8d0480921b9f1322654973391.html">macrolop</a></li><li class="navelem"><a class="el" href="assert_8h.html">assert.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8b54cf64a24d33e173ded5e34b1cf731.html">epilepsy</a></li><li class="navelem"><a class="el" href="assert_8h.html">assert.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

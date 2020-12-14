@@ -1,25 +1,25 @@
-#include <macrolop/assert.h>
-#include <macrolop/aux.h>
-#include <macrolop/control.h>
-#include <macrolop/lang.h>
-#include <macrolop/uint.h>
+#include <epilepsy/assert.h>
+#include <epilepsy/aux.h>
+#include <epilepsy/control.h>
+#include <epilepsy/lang.h>
+#include <epilepsy/uint.h>
 
 #define LIMIT 10
 #define SUM   ((LIMIT + 1) * (LIMIT / 2))
 
 #define PREDICATE(state)       call(PREDICATE_REAL, state)
-#define PREDICATE_REAL(state)  call(PREDICATE_AUX, MACROLOP_UNPARENTHESISE(v(state)))
-#define PREDICATE_AUX(_acc, i) MACROLOP_UINT_NEQ(v(i), MACROLOP_UINT_INC(v(LIMIT)))
+#define PREDICATE_REAL(state)  call(PREDICATE_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
+#define PREDICATE_AUX(_acc, i) EPILEPSY_UINT_NEQ(v(i), EPILEPSY_UINT_INC(v(LIMIT)))
 
 #define OP(state)      call(OP_REAL, state)
-#define OP_REAL(state) call(OP_AUX, MACROLOP_UNPARENTHESISE(v(state)))
-#define OP_AUX(acc, i) v((v(acc + i) MACROLOP_UINT_INC(v(i))))
+#define OP_REAL(state) call(OP_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
+#define OP_AUX(acc, i) v((v(acc + i) EPILEPSY_UINT_INC(v(i))))
 
-#define STATE_FINALISER(state)      call(STATE_FINALISER_AUX, MACROLOP_UNPARENTHESISE(v(state)))
+#define STATE_FINALISER(state)      call(STATE_FINALISER_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
 #define STATE_FINALISER_AUX(acc, i) v(acc)
 
-MACROLOP_ASSERT_EQ(
-    call(STATE_FINALISER, MACROLOP_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
+EPILEPSY_ASSERT_EQ(
+    call(STATE_FINALISER, EPILEPSY_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
 
 #undef PREDICATE
 #undef PREDICATE_AUX
