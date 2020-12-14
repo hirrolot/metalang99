@@ -9,22 +9,13 @@
 
 TODO: the main example (https://github.com/Hirrolot/epilepsy/issues/1).
 
-Epilepsy allows you to create and use embedded [domain-specific languages] in pure C.
+Epilepsy allows you to create and use embedded [domain-specific languages] in C/C++.
 
-Everything you see happens at compile-time. Everything you need is `#include <epilepsy.h>` and a C99 preprocessor.
+Everything you see happens at compile-time. Everything you need is `#include <epilepsy.h>` and a C99/C++11-compliant preprocessor.
 
 [domain-specific languages]: https://en.wikipedia.org/wiki/Domain-specific_language
 
 ## FAQ
-
-Q: **Why C and not C++/Rust/whatever else?**
-
-A: For instance:
-
- - Your company dictates to use C.
- - Your target architecture does not support other high-level languages.
- - Your code base is already written in C.
- - ...
 
 Q: **Why formal specification?**
 
