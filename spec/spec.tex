@@ -141,13 +141,12 @@ of the form $\langle K; A; C \rangle$:
     \item $K$ is a continuation of the form $\langle K; A; C \rangle$, where
     $C$ includes the $?$ sign denoting a result passed into a continuation.
     For example, let $K$ be $\langle K'; (1, 2, 3); v(x) \ ? \rangle$,
-    then $K(v(y))$ is $\langle K'; (1, 2, 3); v(x) \ v(y) \rangle$.
+    then $K(v(y))$ is $\langle K'; (1, 2, 3); v(x) \ v(y) \rangle$. A special
+    continuation $halt$ terminates the abstract machine and substitutes itself
+    with a provided result. For example, when the abstract machine encounters
+    $halt(1 + 2)$, it will just stop and paste $1 + 2$.
 
-    \item A special continuation $halt$ terminates the abstract machine and
-    substitutes itself with a provided result.
-
-    \item $A$ is an accumulator, a concrete sequence of already computed
-    results.
+    \item $A$ (accumulator) is a concrete sequence of already computed results.
 
     \item $C$ (control) is a concrete sequence of terms upon which the abstract
     machine is operating right now.
