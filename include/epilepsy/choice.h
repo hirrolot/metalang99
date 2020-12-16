@@ -9,6 +9,7 @@
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #include <epilepsy/priv/aux.h>
+#include <epilepsy/priv/overload.h>
 #include <epilepsy/priv/variadics/get.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
@@ -18,7 +19,7 @@
 /**
  * @brief Creates an instance of a choice type.
  */
-#define EPILEPSY_CHOICE(variant_name, data) call(EPILEPSY_CHOICE_REAL, variant_name data)
+#define EPILEPSY_CHOICE(...) call(EPILEPSY_CHOICE_REAL, __VA_ARGS__)
 
 /**
  * @brief Matches an instance of a choice type.
@@ -28,7 +29,9 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define EPILEPSY_CHOICE_REAL(variant_name, data) v((variant_name)(data))
+#define EPILEPSY_CHOICE_REAL(...)                  EPILEPSY_PRIV_OVERLOAD_CALL(EPILEPSY_PRIV_CHOICE_, __VA_ARGS__)
+#define EPILEPSY_PRIV_CHOICE_1(variant_name)       v((variant_name)(~))
+#define EPILEPSY_PRIV_CHOICE_2(variant_name, data) v((variant_name)(data))
 
 #define EPILEPSY_CHOICE_MATCH_REAL(matcher, choice, ...)                                           \
     call(                                                                                          \
