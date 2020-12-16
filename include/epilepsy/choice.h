@@ -24,27 +24,22 @@
 /**
  * @brief Matches an instance of a choice type.
  */
-#define EPILEPSY_CHOICE_MATCH(matcher, choice, ...)                                                \
-    call(EPILEPSY_CHOICE_MATCH_REAL, matcher choice __VA_ARGS__)
+#define EPILEPSY_CHOICE_MATCH(choice, mathcer, ...)                                                \
+    call(EPILEPSY_CHOICE_MATCH_REAL, choice matcher __VA_ARGS__)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #define EPILEPSY_CHOICE_REAL(...)                  EPILEPSY_PRIV_OVERLOAD_CALL(EPILEPSY_PRIV_CHOICE_, __VA_ARGS__)
-#define EPILEPSY_PRIV_CHOICE_1(variant_name)       v((variant_name)(~))
-#define EPILEPSY_PRIV_CHOICE_2(variant_name, data) v((variant_name)(data))
+#define EPILEPSY_PRIV_CHOICE_1(variant_name)       v((variant_name, ~))
+#define EPILEPSY_PRIV_CHOICE_2(variant_name, data) v((variant_name, data))
 
-#define EPILEPSY_CHOICE_MATCH_REAL(matcher, choice, ...)                                           \
+#define EPILEPSY_CHOICE_MATCH_REAL(choice, matcher, ...)                                           \
     call(                                                                                          \
         EPILEPSY_PRIV_AUX_MATCH(matcher, EPILEPSY_PRIV_CHOICE_VARIANT_NAME(choice)),               \
-        v(__VA_ARGS__) v(EPILEPSY_PRIV_CHOICE_DATA(choice)))
+        v(EPILEPSY_PRIV_CHOICE_DATA(choice) v(__VA_ARGS__)))
 
-#define EPILEPSY_PRIV_CHOICE_VARIANT_NAME(choice)                                                  \
-    EPILEPSY_PRIV_VARIADICS_HEAD(EPILEPSY_PRIV_CHOICE_VARIANT_NAME_AUX choice)
-#define EPILEPSY_PRIV_CHOICE_VARIANT_NAME_AUX(variant_name) variant_name,
-
-#define EPILEPSY_PRIV_CHOICE_DATA(choice)                                                          \
-    EPILEPSY_PRIV_CHOICE_DATA_EXPAND(EPILEPSY_PRIV_AUX_EXPAND EPILEPSY_PRIV_AUX_CONSUME choice)
-#define EPILEPSY_PRIV_CHOICE_DATA_EXPAND(...) __VA_ARGS__
+#define EPILEPSY_PRIV_CHOICE_VARIANT_NAME(choice) EPILEPSY_PRIV_VARIADICS_HEAD choice
+#define EPILEPSY_PRIV_CHOICE_DATA(choice)         EPILEPSY_PRIV_VARIADICS_TAIL choice
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
