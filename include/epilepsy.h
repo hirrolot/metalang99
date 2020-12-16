@@ -49,7 +49,7 @@
  * @endcode
  *
  *   - #EPILEPSY_CHOICE(variant_name, data)
- *   - #EPILEPSY_CHOICE_MATCH(matcher, choice, ...)
+ *   - #EPILEPSY_CHOICE_MATCH(choice, matcher, ...)
  *
  * @subsection _5 Implementation limits
  * @code
