@@ -7,12 +7,13 @@ var NAVTREE =
         [ "Evaluation of metaprograms", "index.html#_1", null ],
         [ "Auxiliary macros", "index.html#_2", null ],
         [ "Control expressions", "index.html#_3", null ],
-        [ "Implementation limits", "index.html#_4", null ],
-        [ "Boolean algebra", "index.html#_5", null ],
-        [ "Overloading on a number of arguments", "index.html#_6", null ],
-        [ "Unsigned integers", "index.html#_7", null ],
-        [ "Utilities for variadic macros", "index.html#_8", null ],
-        [ "Static assertions", "index.html#_9", null ]
+        [ "Choice types", "index.html#_4", null ],
+        [ "Implementation limits", "index.html#_5", null ],
+        [ "Boolean algebra", "index.html#_6", null ],
+        [ "Overloading on a number of arguments", "index.html#_7", null ],
+        [ "Unsigned integers", "index.html#_8", null ],
+        [ "Utilities for variadic macros", "index.html#_9", null ],
+        [ "Static assertions", "index.html#_10", null ]
       ] ]
     ] ],
     [ "Files", null, [

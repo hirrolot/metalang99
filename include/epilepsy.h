@@ -43,14 +43,22 @@
  *   - #EPILEPSY_IF(cond, x, y)
  *   - #EPILEPSY_WHILE(predicate, op, context)
  *
- * @subsection _4 Implementation limits
+ * @subsection _4 Choice types
+ * @code
+ * #include <epilepsy/choice.h>
+ * @endcode
+ *
+ *   - #EPILEPSY_CHOICE(variant_name, data)
+ *   - #EPILEPSY_CHOICE_MATCH(matcher, choice, ...)
+ *
+ * @subsection _5 Implementation limits
  * @code
  * #include <epilepsy/limits.h>
  * @endcode
  *
  *   - #EPILEPSY_UINT_MAX
  *
- * @subsection _5 Boolean algebra
+ * @subsection _6 Boolean algebra
  * @code
  * #include <epilepsy/logical.h>
  * @endcode
@@ -60,7 +68,7 @@
  *   - #EPILEPSY_OR(x, y)
  *   - #EPILEPSY_XOR(x, y)
  *
- * @subsection _6 Overloading on a number of arguments
+ * @subsection _7 Overloading on a number of arguments
  * @code
  * #include <epilepsy/overload.h>
  * @endcode
@@ -68,7 +76,7 @@
  *   - #EPILEPSY_OVERLOAD(op, ...)
  *   - #EPILEPSY_OVERLOAD_CALL(op, ...)
  *
- * @subsection _7 Unsigned integers
+ * @subsection _8 Unsigned integers
  * @code
  * #include <epilepsy/uint.h>
  * @endcode
@@ -82,7 +90,7 @@
  *   - #EPILEPSY_UINT_LESSER(x, y)
  *   - #EPILEPSY_UINT_LESSER_EQUAL(x, y)
  *
- * @subsection _8 Utilities for variadic macros
+ * @subsection _9 Utilities for variadic macros
  * @code
  * #include <epilepsy/variadics.h>
  * @endcode
@@ -91,7 +99,7 @@
  *   - #EPILEPSY_VARIADICS_HEAD(...)
  *   - #EPILEPSY_VARIADICS_TAIL(...)
  *
- * @subsection _9 Static assertions
+ * @subsection _10 Static assertions
  * @code
  * #include <epilepsy/assert.h>
  * @endcode
@@ -109,6 +117,7 @@
 
 #include <epilepsy/assert.h>
 #include <epilepsy/aux.h>
+#include <epilepsy/choice.h>
 #include <epilepsy/control.h>
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
