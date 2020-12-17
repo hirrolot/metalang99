@@ -10,7 +10,7 @@
 
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/overload.h>
-#include <epilepsy/priv/variadics/get.h>
+#include <epilepsy/priv/pair.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
@@ -29,17 +29,17 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define EPILEPSY_CHOICE_REAL(...)                  EPILEPSY_PRIV_OVERLOAD_CALL(EPILEPSY_PRIV_CHOICE_, __VA_ARGS__)
-#define EPILEPSY_PRIV_CHOICE_1(variant_name)       v((variant_name, ~))
-#define EPILEPSY_PRIV_CHOICE_2(variant_name, data) v((variant_name, data))
+#define EPILEPSY_CHOICE_REAL(...)         EPILEPSY_PRIV_OVERLOAD_CALL(EPILEPSY_PRIV_CHOICE_, __VA_ARGS__)
+#define EPILEPSY_PRIV_CHOICE_1(tag)       v(EPILEPSY_PRIV_PAIR(tag, ~))
+#define EPILEPSY_PRIV_CHOICE_2(tag, data) v(EPILEPSY_PRIV_PAIR(tag, data))
 
 #define EPILEPSY_CHOICE_MATCH_REAL(choice, matcher, ...)                                           \
     call(                                                                                          \
-        EPILEPSY_PRIV_AUX_MATCH(matcher, EPILEPSY_PRIV_CHOICE_VARIANT_NAME(choice)),               \
+        EPILEPSY_PRIV_AUX_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                        \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice)) v(__VA_ARGS__))
 
-#define EPILEPSY_PRIV_CHOICE_VARIANT_NAME(choice) EPILEPSY_PRIV_VARIADICS_HEAD choice
-#define EPILEPSY_PRIV_CHOICE_DATA(choice)         EPILEPSY_PRIV_VARIADICS_TAIL choice
+#define EPILEPSY_PRIV_CHOICE_TAG  EPILEPSY_PRIV_PAIR_FST
+#define EPILEPSY_PRIV_CHOICE_DATA EPILEPSY_PRIV_PAIR_SND
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 

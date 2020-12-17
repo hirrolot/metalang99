@@ -7,12 +7,12 @@
 #define EPILEPSY_LANG_H
 
 /**
- * @brief Calls @p op with the provided arguments.
+ * @brief Calls @p op with provided arguments.
  */
 #define call(op, ...) EPILEPSY_PRIV_call(op, __VA_ARGS__)
 
 /**
- * @brief Expands to the provided arguments as-is.
+ * @brief Expands to provided arguments as-is.
  */
 #define v(...) EPILEPSY_PRIV_v(__VA_ARGS__)
 

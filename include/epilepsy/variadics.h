@@ -15,17 +15,17 @@
 #include <epilepsy/lang.h>
 
 /**
- * @brief Computes a count of the provided arguments.
+ * @brief Computes a count of provided arguments.
  */
 #define EPILEPSY_VARIADICS_COUNT(...) call(EPILEPSY_VARIADICS_COUNT_REAL, __VA_ARGS__)
 
 /**
- * @brief Extracts a head of the provided arguments.
+ * @brief Extracts a head of provided arguments.
  */
 #define EPILEPSY_VARIADICS_HEAD(...) call(EPILEPSY_VARIADICS_HEAD_REAL, __VA_ARGS__)
 
 /**
- * @brief Extracts a tail of the provided arguments.
+ * @brief Extracts a tail of provided arguments.
  */
 #define EPILEPSY_VARIADICS_TAIL(...) call(EPILEPSY_VARIADICS_TAIL_REAL, __VA_ARGS__)
 

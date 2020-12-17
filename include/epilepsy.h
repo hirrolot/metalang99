@@ -48,7 +48,7 @@
  * #include <epilepsy/choice.h>
  * @endcode
  *
- *   - #EPILEPSY_CHOICE(variant_name, data)
+ *   - #EPILEPSY_CHOICE(...)
  *   - #EPILEPSY_CHOICE_MATCH(choice, matcher, ...)
  *
  * @subsection _5 Maybe
@@ -71,14 +71,25 @@
  *   - #EPILEPSY_EitherIsLeft(either)
  *   - #EPILEPSY_EitherIsRight(either)
  *
- * @subsection _8 Implementation limits
+ * @subsection _8 Lists
+ * @code
+ * #include <epilepsy/list.h>
+ * @endcode
+ *
+ *   - #EPILEPSY_Cons(head, tail)
+ *   - #EPILEPSY_Nil()
+ *   - #EPILEPSY_List(...)
+ *   - #EPILEPSY_ListFoldr(list, op, init)
+ *   - #EPILEPSY_ListGet(list, i)
+ *
+ * @subsection _9 Implementation limits
  * @code
  * #include <epilepsy/limits.h>
  * @endcode
  *
  *   - #EPILEPSY_UINT_MAX
  *
- * @subsection _9 Boolean algebra
+ * @subsection _10 Boolean algebra
  * @code
  * #include <epilepsy/logical.h>
  * @endcode
@@ -88,7 +99,7 @@
  *   - #EPILEPSY_OR(x, y)
  *   - #EPILEPSY_XOR(x, y)
  *
- * @subsection _10 Overloading on a number of arguments
+ * @subsection _11 Overloading on a number of arguments
  * @code
  * #include <epilepsy/overload.h>
  * @endcode
@@ -96,7 +107,7 @@
  *   - #EPILEPSY_OVERLOAD(op, ...)
  *   - #EPILEPSY_OVERLOAD_CALL(op, ...)
  *
- * @subsection _11 Unsigned integers
+ * @subsection _12 Unsigned integers
  * @code
  * #include <epilepsy/uint.h>
  * @endcode
@@ -110,7 +121,7 @@
  *   - #EPILEPSY_UINT_LESSER(x, y)
  *   - #EPILEPSY_UINT_LESSER_EQUAL(x, y)
  *
- * @subsection _12 Utilities for variadic macros
+ * @subsection _13 Utilities for variadic macros
  * @code
  * #include <epilepsy/variadics.h>
  * @endcode
@@ -119,7 +130,7 @@
  *   - #EPILEPSY_VARIADICS_HEAD(...)
  *   - #EPILEPSY_VARIADICS_TAIL(...)
  *
- * @subsection _13 Static assertions
+ * @subsection _14 Static assertions
  * @code
  * #include <epilepsy/assert.h>
  * @endcode
@@ -142,6 +153,7 @@
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/limits.h>
+#include <epilepsy/list.h>
 #include <epilepsy/maybe.h>
 #include <epilepsy/overload.h>
 #include <epilepsy/uint.h>
