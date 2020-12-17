@@ -123,11 +123,19 @@ Choice types</h2>
 <li><a class="el" href="choice_8h.html#a8ee4deefbb3c3f09d790ac48984aa35c" title="Matches an instance of a choice type. ">EPILEPSY_CHOICE_MATCH</a>(choice, matcher, ...)</li>
 </ul>
 <h2><a class="anchor" id="_5"></a>
+An optional value</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="maybe_8h.html">epilepsy/maybe.h</a>&gt;</span></div></div><!-- fragment --><ul>
+<li><a class="el" href="maybe_8h.html#ac261b58cdf3f944837c5f19781d67d03" title="Some value x. ">EPILEPSY_MAYBE_JUST(x)</a></li>
+<li><a class="el" href="maybe_8h.html#adaeb6c2d3cf886e33cefd16fa90cbb93" title="No value. ">EPILEPSY_MAYBE_NOTHING()</a></li>
+<li><a class="el" href="maybe_8h.html#ad558fcf3496916c4269df666ff554adf" title="1 if maybe contains some value, otherwise 0. ">EPILEPSY_MAYBE_IS_JUST(maybe)</a></li>
+<li><a class="el" href="maybe_8h.html#aef15b9771f5b1f0e5b0fa13183d82954" title="1 if maybe contains no value, otherwise 0. ">EPILEPSY_MAYBE_IS_NOTHING(maybe)</a></li>
+</ul>
+<h2><a class="anchor" id="_6"></a>
 Implementation limits</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="limits_8h.html">epilepsy/limits.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="limits_8h.html#aea10e46e067cada42a97d4e7738dcb49" title="The maximum supported unsigned integer. ">EPILEPSY_UINT_MAX</a></li>
 </ul>
-<h2><a class="anchor" id="_6"></a>
+<h2><a class="anchor" id="_7"></a>
 Boolean algebra</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="logical_8h.html">epilepsy/logical.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="logical_8h.html#a9f2efbd7834db6f77490f6e897f66a42" title="Negates x. ">EPILEPSY_NOT(x)</a></li>
@@ -135,13 +143,13 @@ Boolean algebra</h2>
 <li><a class="el" href="logical_8h.html#a0a6f3534ad92d6d1768e16653c98c46e" title="Performs inclusive OR on and y. ">EPILEPSY_OR(x, y)</a></li>
 <li><a class="el" href="logical_8h.html#aff1f850dc85afb7e3e0886ca39ae3b4d" title="Performs exclusive OR on and y. ">EPILEPSY_XOR(x, y)</a></li>
 </ul>
-<h2><a class="anchor" id="_7"></a>
+<h2><a class="anchor" id="_8"></a>
 Overloading on a number of arguments</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="overload_8h.html">epilepsy/overload.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="overload_8h.html#a91c8c20761de3c2dfbac98e251a44bad" title="Overload op on a number of arguments. ">EPILEPSY_OVERLOAD</a>(op, ...)</li>
 <li><a class="el" href="overload_8h.html#a208315cc377895b5a33379e3bc9298c6" title="Overloads op on a number of arguments an immediately calls it. ">EPILEPSY_OVERLOAD_CALL</a>(op, ...)</li>
 </ul>
-<h2><a class="anchor" id="_8"></a>
+<h2><a class="anchor" id="_9"></a>
 Unsigned integers</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="uint_8h.html">epilepsy/uint.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="uint_8h.html#abb900b638e07fe7d54661dd98dd49ba8" title="Increments x. ">EPILEPSY_UINT_INC(x)</a></li>
@@ -153,14 +161,14 @@ Unsigned integers</h2>
 <li><a class="el" href="uint_8h.html#ad340ba6347941ed5c28b6877d3fcd92e" title="Checks whether x is lesser than y. ">EPILEPSY_UINT_LESSER(x, y)</a></li>
 <li><a class="el" href="uint_8h.html#a1ea88d7dfd5ca49890230695293d517d" title="Checks whether x is lesser or equal than y. ">EPILEPSY_UINT_LESSER_EQUAL(x, y)</a></li>
 </ul>
-<h2><a class="anchor" id="_9"></a>
+<h2><a class="anchor" id="_10"></a>
 Utilities for variadic macros</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="variadics_8h.html">epilepsy/variadics.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="variadics_8h.html#a2487f0e32af8e00776550bfff58ac98b" title="Computes a count of the provided arguments. ">EPILEPSY_VARIADICS_COUNT</a>(...)</li>
 <li><a class="el" href="variadics_8h.html#a9a48cdcb61cfdc33d9f28db494ade10d" title="Extracts a head of the provided arguments. ">EPILEPSY_VARIADICS_HEAD</a>(...)</li>
 <li><a class="el" href="variadics_8h.html#ad3c92d4a26b099c8e33053bdeca58cc1" title="Extracts a tail of the provided arguments. ">EPILEPSY_VARIADICS_TAIL</a>(...)</li>
 </ul>
-<h2><a class="anchor" id="_10"></a>
+<h2><a class="anchor" id="_11"></a>
 Static assertions</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="assert_8h.html">epilepsy/assert.h</a>&gt;</span></div></div><!-- fragment --><ul>
 <li><a class="el" href="assert_8h.html#a6395f44a4cd52809013099f8454f25e3" title="Asserts EPILEPSY_EVAL(expr). ">EPILEPSY_ASSERT(expr)</a></li>

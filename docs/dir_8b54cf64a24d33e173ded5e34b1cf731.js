@@ -8,6 +8,7 @@ var dir_8b54cf64a24d33e173ded5e34b1cf731 =
     [ "lang.h", "lang_8h.html", "lang_8h" ],
     [ "limits.h", "limits_8h.html", "limits_8h" ],
     [ "logical.h", "logical_8h.html", "logical_8h" ],
+    [ "maybe.h", "maybe_8h.html", "maybe_8h" ],
     [ "overload.h", "overload_8h.html", "overload_8h" ],
     [ "uint.h", "uint_8h.html", "uint_8h" ],
     [ "variadics.h", "variadics_8h.html", "variadics_8h" ]

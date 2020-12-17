@@ -2,6 +2,7 @@
 #include "control.h"
 #include "eval.h"
 #include "logical.h"
+#include "maybe.h"
 #include "overload.h"
 #include "uint.h"
 #include "variadics.h"
