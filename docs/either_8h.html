@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Epilepsy: include/epilepsy/variadics.h File Reference</title>
+<title>Epilepsy: include/epilepsy/either.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('variadics_8h.html','');});
+$(document).ready(function(){initNavTree('either_8h.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -84,47 +84,43 @@ $(document).ready(function(){initNavTree('variadics_8h.html','');});
   <div class="summary">
 <a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">variadics.h File Reference</div>  </div>
+<div class="title">either.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utilities for variadic macros.  
+<p>A choice type with two cases.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">epilepsy/lang.h</a>&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="variadics_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2variadics_8hdep" alt=""/></div>
-<map name="include_2epilepsy_2variadics_8hdep" id="include_2epilepsy_2variadics_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="33,80,160,107"/>
-</map>
+<div class="textblock"><code>#include &lt;<a class="el" href="choice_8h_source.html">epilepsy/choice.h</a>&gt;</code><br />
 </div>
-</div>
-<p><a href="variadics_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="either_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a2487f0e32af8e00776550bfff58ac98b"><td class="memItemLeft" align="right" valign="top"><a id="a2487f0e32af8e00776550bfff58ac98b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#a2487f0e32af8e00776550bfff58ac98b">EPILEPSY_VARIADICS_COUNT</a>(...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_VARIADICS_COUNT_REAL, __VA_ARGS__)</td></tr>
-<tr class="memdesc:a2487f0e32af8e00776550bfff58ac98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a count of the provided arguments. <br /></td></tr>
-<tr class="separator:a2487f0e32af8e00776550bfff58ac98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a48cdcb61cfdc33d9f28db494ade10d"><td class="memItemLeft" align="right" valign="top"><a id="a9a48cdcb61cfdc33d9f28db494ade10d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#a9a48cdcb61cfdc33d9f28db494ade10d">EPILEPSY_VARIADICS_HEAD</a>(...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_VARIADICS_HEAD_REAL, __VA_ARGS__)</td></tr>
-<tr class="memdesc:a9a48cdcb61cfdc33d9f28db494ade10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a head of the provided arguments. <br /></td></tr>
-<tr class="separator:a9a48cdcb61cfdc33d9f28db494ade10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3c92d4a26b099c8e33053bdeca58cc1"><td class="memItemLeft" align="right" valign="top"><a id="ad3c92d4a26b099c8e33053bdeca58cc1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#ad3c92d4a26b099c8e33053bdeca58cc1">EPILEPSY_VARIADICS_TAIL</a>(...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_VARIADICS_TAIL_REAL, __VA_ARGS__)</td></tr>
-<tr class="memdesc:ad3c92d4a26b099c8e33053bdeca58cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a tail of the provided arguments. <br /></td></tr>
-<tr class="separator:ad3c92d4a26b099c8e33053bdeca58cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f3d37ee2657a028943f624b6cc2cc6"><td class="memItemLeft" align="right" valign="top"><a id="a51f3d37ee2657a028943f624b6cc2cc6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="either_8h.html#a51f3d37ee2657a028943f624b6cc2cc6">EPILEPSY_EitherLeft</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_EitherLeft_REAL, x)</td></tr>
+<tr class="memdesc:a51f3d37ee2657a028943f624b6cc2cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Some value <code>x</code>. <br /></td></tr>
+<tr class="separator:a51f3d37ee2657a028943f624b6cc2cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ed659a3ee6710e9502ca7cf01640736"><td class="memItemLeft" align="right" valign="top"><a id="a5ed659a3ee6710e9502ca7cf01640736"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="either_8h.html#a5ed659a3ee6710e9502ca7cf01640736">EPILEPSY_EitherRight</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_EitherRight_REAL, x)</td></tr>
+<tr class="memdesc:a5ed659a3ee6710e9502ca7cf01640736"><td class="mdescLeft">&#160;</td><td class="mdescRight">No value. <br /></td></tr>
+<tr class="separator:a5ed659a3ee6710e9502ca7cf01640736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af206734aed7c13def0a9b099e47ae5d2"><td class="memItemLeft" align="right" valign="top"><a id="af206734aed7c13def0a9b099e47ae5d2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="either_8h.html#af206734aed7c13def0a9b099e47ae5d2">EPILEPSY_EitherIsLeft</a>(either)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_EitherIsLeft_REAL, either)</td></tr>
+<tr class="memdesc:af206734aed7c13def0a9b099e47ae5d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 if <code>either</code> contains some value, otherwise 0. <br /></td></tr>
+<tr class="separator:af206734aed7c13def0a9b099e47ae5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa82e84a1bd1c5d77b300e723c3886d8e"><td class="memItemLeft" align="right" valign="top"><a id="aa82e84a1bd1c5d77b300e723c3886d8e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="either_8h.html#aa82e84a1bd1c5d77b300e723c3886d8e">EPILEPSY_EitherIsRight</a>(either)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_EitherIsRight_REAL, either)</td></tr>
+<tr class="memdesc:aa82e84a1bd1c5d77b300e723c3886d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 if <code>either</code> contains no value, otherwise 0. <br /></td></tr>
+<tr class="separator:aa82e84a1bd1c5d77b300e723c3886d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utilities for variadic macros. </p>
+<div class="textblock"><p>A choice type with two cases. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8b54cf64a24d33e173ded5e34b1cf731.html">epilepsy</a></li><li class="navelem"><a class="el" href="variadics_8h.html">variadics.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_8b54cf64a24d33e173ded5e34b1cf731.html">epilepsy</a></li><li class="navelem"><a class="el" href="either_8h.html">either.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>

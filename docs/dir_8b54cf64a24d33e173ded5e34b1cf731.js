@@ -4,6 +4,7 @@ var dir_8b54cf64a24d33e173ded5e34b1cf731 =
     [ "aux.h", "aux_8h.html", "aux_8h" ],
     [ "choice.h", "choice_8h.html", "choice_8h" ],
     [ "control.h", "control_8h.html", "control_8h" ],
+    [ "either.h", "either_8h.html", "either_8h" ],
     [ "eval.h", "eval_8h.html", "eval_8h" ],
     [ "lang.h", "lang_8h.html", "lang_8h" ],
     [ "limits.h", "limits_8h.html", "limits_8h" ],

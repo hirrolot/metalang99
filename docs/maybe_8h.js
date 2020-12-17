@@ -1,7 +1,7 @@
 var maybe_8h =
 [
-    [ "EPILEPSY_MAYBE_IS_JUST", "maybe_8h.html#ad558fcf3496916c4269df666ff554adf", null ],
-    [ "EPILEPSY_MAYBE_IS_NOTHING", "maybe_8h.html#aef15b9771f5b1f0e5b0fa13183d82954", null ],
-    [ "EPILEPSY_MAYBE_JUST", "maybe_8h.html#ac261b58cdf3f944837c5f19781d67d03", null ],
-    [ "EPILEPSY_MAYBE_NOTHING", "maybe_8h.html#adaeb6c2d3cf886e33cefd16fa90cbb93", null ]
+    [ "EPILEPSY_MaybeIsJust", "maybe_8h.html#a77ae86bf0d9673a1ada34818a5d56f73", null ],
+    [ "EPILEPSY_MaybeIsNothing", "maybe_8h.html#a6ee059edd5f7896e6797c2de266681d9", null ],
+    [ "EPILEPSY_MaybeJust", "maybe_8h.html#a65ccee90a802834507944e130d1a1c2f", null ],
+    [ "EPILEPSY_MaybeNothing", "maybe_8h.html#a76f507b977a8244367f32675fe744aa4", null ]
 ];
