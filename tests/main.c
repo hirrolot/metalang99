@@ -1,5 +1,6 @@
 #include "aux.h"
 #include "control.h"
+#include "either.h"
 #include "eval.h"
 #include "logical.h"
 #include "maybe.h"

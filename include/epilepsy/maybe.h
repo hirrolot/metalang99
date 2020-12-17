@@ -41,7 +41,7 @@
 
 #define EPILEPSY_MAYBE_IS_JUST_REAL(maybe)                                                         \
     EPILEPSY_CHOICE_MATCH(v(maybe), v(EPILEPSY_PRIV_MAYBE_IS_JUST_), v(~))
-#define EPILEPSY_PRIV_MAYBE_IS_JUST_JUST(x, _)         v(1)
+#define EPILEPSY_PRIV_MAYBE_IS_JUST_JUST(_x, _)        v(1)
 #define EPILEPSY_PRIV_MAYBE_IS_JUST_NOTHING(_dummy, _) v(0)
 
 #define EPILEPSY_MAYBE_IS_NOTHING_REAL(maybe) EPILEPSY_NOT(EPILEPSY_MAYBE_IS_JUST(v(maybe)))
