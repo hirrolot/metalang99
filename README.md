@@ -9,9 +9,11 @@
 
 TODO: the main example (https://github.com/Hirrolot/epilepsy/issues/1).
 
-Epilepsy allows you to create and use embedded [domain-specific languages] in C/C++.
-
 Everything you see happens at compile-time. Everything you need is `#include <epilepsy.h>` and a C99/C++11-compliant preprocessor.
+
+## Purpose
+
+Epilepsy allows you to create and use embedded [domain-specific languages] in C/C++.
 
 [domain-specific languages]: https://en.wikipedia.org/wiki/Domain-specific_language
 
