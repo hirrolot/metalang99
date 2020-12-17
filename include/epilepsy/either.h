@@ -40,7 +40,7 @@
 #define EPILEPSY_EitherRight_REAL(x) EPILEPSY_CHOICE(v(EitherRight) v(x))
 
 #define EPILEPSY_EitherIsLeft_REAL(either)                                                         \
-    EPILEPSY_CHOICE_MATCH(v(either), v(EPILEPSY_PRIV_EitherIsLeft_), v(~))
+    EPILEPSY_MATCH(v(either), v(EPILEPSY_PRIV_EitherIsLeft_), v(~))
 #define EPILEPSY_PRIV_EitherIsLeft_EitherLeft(_x, _)  v(1)
 #define EPILEPSY_PRIV_EitherIsLeft_EitherRight(_x, _) v(0)
 

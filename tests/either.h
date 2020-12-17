@@ -5,7 +5,7 @@
 
 #define VAL v(abc ? +-148 % "hello world")
 
-#define MATCH(either) EPILEPSY_CHOICE_MATCH(v(either), v(MATCH_), v(123))
+#define MATCH(either) EPILEPSY_MATCH(v(either), v(MATCH_), v(123))
 #define MATCH_EitherLeft(_18, _123)                                                                \
     v(EPILEPSY_C_STATIC_ASSERT(_18 == 18); EPILEPSY_C_STATIC_ASSERT(_123 == 123);)
 #define MATCH_EitherRight(_4, _123)                                                                \

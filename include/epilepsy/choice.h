@@ -24,8 +24,7 @@
 /**
  * @brief Matches an instance of a choice type.
  */
-#define EPILEPSY_CHOICE_MATCH(choice, matcher, ...)                                                \
-    call(EPILEPSY_CHOICE_MATCH_REAL, choice matcher __VA_ARGS__)
+#define EPILEPSY_MATCH(choice, matcher, ...) call(EPILEPSY_MATCH_REAL, choice matcher __VA_ARGS__)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
@@ -33,7 +32,7 @@
 #define EPILEPSY_PRIV_CHOICE_1(tag)       v(EPILEPSY_PRIV_PAIR(tag, ~))
 #define EPILEPSY_PRIV_CHOICE_2(tag, data) v(EPILEPSY_PRIV_PAIR(tag, data))
 
-#define EPILEPSY_CHOICE_MATCH_REAL(choice, matcher, ...)                                           \
+#define EPILEPSY_MATCH_REAL(choice, matcher, ...)                                                  \
     call(                                                                                          \
         EPILEPSY_PRIV_AUX_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                        \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice)) v(__VA_ARGS__))

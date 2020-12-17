@@ -49,9 +49,17 @@
  * @endcode
  *
  *   - #EPILEPSY_CHOICE(...)
- *   - #EPILEPSY_CHOICE_MATCH(choice, matcher, ...)
+ *   - #EPILEPSY_MATCH(choice, matcher, ...)
  *
- * @subsection _5 Maybe
+ * @subsection _5 Record types
+ * @code
+ * #include <epilepsy/record.h>
+ * @endcode
+ *
+ *   - #EPILEPSY_RECORD(...)
+ *   - #EPILEPSY_RECORD_GET(record, i)
+ *
+ * @subsection _6 Maybe
  * @code
  * #include <epilepsy/maybe.h>
  * @endcode
@@ -156,6 +164,7 @@
 #include <epilepsy/list.h>
 #include <epilepsy/maybe.h>
 #include <epilepsy/overload.h>
+#include <epilepsy/record.h>
 #include <epilepsy/uint.h>
 #include <epilepsy/variadics.h>
 

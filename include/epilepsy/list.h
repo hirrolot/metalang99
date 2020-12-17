@@ -49,7 +49,7 @@
 #define EPILEPSY_Nil_REAL()            EPILEPSY_CHOICE(v(Nil))
 
 #define EPILEPSY_ListFoldr_REAL(list, op, init)                                                    \
-    EPILEPSY_CHOICE_MATCH(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(op) v(init))
+    EPILEPSY_MATCH(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(op) v(init))
 #define EPILEPSY_PRIV_ListFoldr_Cons(list, op, acc)                                                \
     call(                                                                                          \
         op, v(EPILEPSY_PRIV_ListHead(list))                                                        \
