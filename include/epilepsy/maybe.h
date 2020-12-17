@@ -17,34 +17,34 @@
 /**
  * @brief Some value @p x.
  */
-#define EPILEPSY_MAYBE_JUST(x) call(EPILEPSY_MAYBE_JUST_REAL, x)
+#define EPILEPSY_MaybeJust(x) call(EPILEPSY_MaybeJust_REAL, x)
 
 /**
  * @brief No value.
  */
-#define EPILEPSY_MAYBE_NOTHING() call(EPILEPSY_MAYBE_NOTHING_REAL, )
+#define EPILEPSY_MaybeNothing() call(EPILEPSY_MaybeNothing_REAL, )
 
 /**
  * @brief 1 if @p maybe contains some value, otherwise 0.
  */
-#define EPILEPSY_MAYBE_IS_JUST(maybe) call(EPILEPSY_MAYBE_IS_JUST_REAL, maybe)
+#define EPILEPSY_MaybeIsJust(maybe) call(EPILEPSY_MaybeIsJust_REAL, maybe)
 
 /**
  * @brief 1 if @p maybe contains no value, otherwise 0.
  */
-#define EPILEPSY_MAYBE_IS_NOTHING(maybe) call(EPILEPSY_MAYBE_IS_NOTHING_REAL, maybe)
+#define EPILEPSY_MaybeIsNothing(maybe) call(EPILEPSY_MaybeIsNothing_REAL, maybe)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define EPILEPSY_MAYBE_JUST_REAL(x)   EPILEPSY_CHOICE(v(JUST) v(x))
-#define EPILEPSY_MAYBE_NOTHING_REAL() EPILEPSY_CHOICE(v(NOTHING))
+#define EPILEPSY_MaybeJust_REAL(x)   EPILEPSY_CHOICE(v(MaybeJust) v(x))
+#define EPILEPSY_MaybeNothing_REAL() EPILEPSY_CHOICE(v(MaybeNothing))
 
-#define EPILEPSY_MAYBE_IS_JUST_REAL(maybe)                                                         \
-    EPILEPSY_CHOICE_MATCH(v(maybe), v(EPILEPSY_PRIV_MAYBE_IS_JUST_), v(~))
-#define EPILEPSY_PRIV_MAYBE_IS_JUST_JUST(_x, _)        v(1)
-#define EPILEPSY_PRIV_MAYBE_IS_JUST_NOTHING(_dummy, _) v(0)
+#define EPILEPSY_MaybeIsJust_REAL(maybe)                                                           \
+    EPILEPSY_CHOICE_MATCH(v(maybe), v(EPILEPSY_PRIV_MaybeIsJust_), v(~))
+#define EPILEPSY_PRIV_MaybeIsJust_MaybeJust(_x, _)        v(1)
+#define EPILEPSY_PRIV_MaybeIsJust_MaybeNothing(_dummy, _) v(0)
 
-#define EPILEPSY_MAYBE_IS_NOTHING_REAL(maybe) EPILEPSY_NOT(EPILEPSY_MAYBE_IS_JUST(v(maybe)))
+#define EPILEPSY_MaybeIsNothing_REAL(maybe) EPILEPSY_NOT(EPILEPSY_MaybeIsJust(v(maybe)))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 

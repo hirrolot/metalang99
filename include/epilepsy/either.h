@@ -17,34 +17,34 @@
 /**
  * @brief Some value @p x.
  */
-#define EPILEPSY_EITHER_LEFT(x) call(EPILEPSY_EITHER_LEFT_REAL, x)
+#define EPILEPSY_EitherLeft(x) call(EPILEPSY_EitherLeft_REAL, x)
 
 /**
  * @brief No value.
  */
-#define EPILEPSY_EITHER_RIGHT(x) call(EPILEPSY_EITHER_RIGHT_REAL, x)
+#define EPILEPSY_EitherRight(x) call(EPILEPSY_EitherRight_REAL, x)
 
 /**
  * @brief 1 if @p either contains some value, otherwise 0.
  */
-#define EPILEPSY_EITHER_IS_LEFT(either) call(EPILEPSY_EITHER_IS_LEFT_REAL, either)
+#define EPILEPSY_EitherIsLeft(either) call(EPILEPSY_EitherIsLeft_REAL, either)
 
 /**
  * @brief 1 if @p either contains no value, otherwise 0.
  */
-#define EPILEPSY_EITHER_IS_RIGHT(either) call(EPILEPSY_EITHER_IS_RIGHT_REAL, either)
+#define EPILEPSY_EitherIsRight(either) call(EPILEPSY_EitherIsRight_REAL, either)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define EPILEPSY_EITHER_LEFT_REAL(x)  EPILEPSY_CHOICE(v(LEFT) v(x))
-#define EPILEPSY_EITHER_RIGHT_REAL(x) EPILEPSY_CHOICE(v(RIGHT) v(x))
+#define EPILEPSY_EitherLeft_REAL(x)  EPILEPSY_CHOICE(v(EitherLeft) v(x))
+#define EPILEPSY_EitherRight_REAL(x) EPILEPSY_CHOICE(v(EitherRight) v(x))
 
-#define EPILEPSY_EITHER_IS_LEFT_REAL(either)                                                       \
-    EPILEPSY_CHOICE_MATCH(v(either), v(EPILEPSY_PRIV_EITHER_IS_LEFT_), v(~))
-#define EPILEPSY_PRIV_EITHER_IS_LEFT_LEFT(_x, _)  v(1)
-#define EPILEPSY_PRIV_EITHER_IS_LEFT_RIGHT(_x, _) v(0)
+#define EPILEPSY_EitherIsLeft_REAL(either)                                                         \
+    EPILEPSY_CHOICE_MATCH(v(either), v(EPILEPSY_PRIV_EitherIsLeft_), v(~))
+#define EPILEPSY_PRIV_EitherIsLeft_EitherLeft(_x, _)  v(1)
+#define EPILEPSY_PRIV_EitherIsLeft_EitherRight(_x, _) v(0)
 
-#define EPILEPSY_EITHER_IS_RIGHT_REAL(either) EPILEPSY_NOT(EPILEPSY_EITHER_IS_LEFT(v(either)))
+#define EPILEPSY_EitherIsRight_REAL(either) EPILEPSY_NOT(EPILEPSY_EitherIsLeft(v(either)))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 

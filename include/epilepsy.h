@@ -56,20 +56,20 @@
  * #include <epilepsy/maybe.h>
  * @endcode
  *
- *   - #EPILEPSY_MAYBE_JUST(x)
- *   - #EPILEPSY_MAYBE_NOTHING()
- *   - #EPILEPSY_MAYBE_IS_JUST(maybe)
- *   - #EPILEPSY_MAYBE_IS_NOTHING(maybe)
+ *   - #EPILEPSY_MaybeJust(x)
+ *   - #EPILEPSY_MaybeNothing()
+ *   - #EPILEPSY_MaybeIsJust(maybe)
+ *   - #EPILEPSY_MaybeIsNothing(maybe)
  *
  * @subsection _7 Either
  * @code
  * #include <epilepsy/either.h>
  * @endcode
  *
- *   - #EPILEPSY_EITHER_LEFT(x)
- *   - #EPILEPSY_EITHER_RIGHT(x)
- *   - #EPILEPSY_EITHER_IS_LEFT(either)
- *   - #EPILEPSY_EITHER_IS_RIGHT(either)
+ *   - #EPILEPSY_EitherLeft(x)
+ *   - #EPILEPSY_EitherRight(x)
+ *   - #EPILEPSY_EitherIsLeft(either)
+ *   - #EPILEPSY_EitherIsRight(either)
  *
  * @subsection _8 Implementation limits
  * @code
