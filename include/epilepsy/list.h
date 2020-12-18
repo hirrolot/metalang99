@@ -74,13 +74,12 @@
             EPILEPSY_UINT_EQ(v(i), v(0)), v(EPILEPSY_PRIV_ListGet_VISIT_DONE),                     \
             v(EPILEPSY_PRIV_ListGet_VISIT_PROGRESS)),                                              \
         v(list) v(i))
-#define EPILEPSY_PRIV_ListGet_VISIT_DONE(list, _i)                                                 \
-    v(EPILEPSY_PRIV_ListHead(EPILEPSY_PRIV_ListTail(EPILEPSY_PRIV_ListTail(list))))
+#define EPILEPSY_PRIV_ListGet_VISIT_DONE(list, _i) v(EPILEPSY_PRIV_ListHead(list))
 #define EPILEPSY_PRIV_ListGet_VISIT_PROGRESS(list, i)                                              \
     EPILEPSY_ListGet(v(EPILEPSY_PRIV_ListTail(list)), EPILEPSY_UINT_DEC(v(i)))
 
-#define EPILEPSY_PRIV_ListHead EPILEPSY_PRIV_PAIR_FST
-#define EPILEPSY_PRIV_ListTail EPILEPSY_PRIV_PAIR_SND
+#define EPILEPSY_PRIV_ListHead(list) EPILEPSY_PRIV_PAIR_FST(EPILEPSY_PRIV_PAIR_SND(list))
+#define EPILEPSY_PRIV_ListTail(list) EPILEPSY_PRIV_PAIR_SND(EPILEPSY_PRIV_PAIR_SND(list))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
