@@ -10,7 +10,7 @@
 #define FooB(x) EPILEPSY_CHOICE(v(FooB) v(x))
 #define FooC(x) EPILEPSY_CHOICE(v(FooC) v(x))
 
-#define MATCH(foo)        EPILEPSY_MATCH(v(foo), v(MATCH_), v(3))
+#define MATCH(foo)        EPILEPSY_MATCH_WITH_ARGS(v(foo), v(MATCH_), v(3))
 #define MATCH_FooA(x, _3) v(EPILEPSY_C_STATIC_ASSERT(x == 19); EPILEPSY_C_STATIC_ASSERT(_3 == 3);)
 #define MATCH_FooB(x, _3) v(EPILEPSY_C_STATIC_ASSERT(x == 1756); EPILEPSY_C_STATIC_ASSERT(_3 == 3);)
 #define MATCH_FooC(x, _3) v(EPILEPSY_C_STATIC_ASSERT(x == 0); EPILEPSY_C_STATIC_ASSERT(_3 == 3);)

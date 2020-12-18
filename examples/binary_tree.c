@@ -18,11 +18,10 @@
 #define NodeData(node)       call(NodeData_REAL, node)
 #define NodeRhs(node)        call(NodeRhs_REAL, node)
 
-#define SUM(tree)      call(SUM_REAL, tree)
-#define SUM_REAL(tree) EPILEPSY_MATCH(v(tree), v(SUM_), v(~))
-#define SUM_TreeNode(node, _)                                                                      \
-    SUM(NodeLhs(v(node))) v(+) NodeData(v(node)) v(+) SUM(NodeRhs(v(node)))
-#define SUM_TreeLeaf(x, _) v(x)
+#define SUM(tree)          call(SUM_REAL, tree)
+#define SUM_REAL(tree)     EPILEPSY_MATCH(v(tree), v(SUM_))
+#define SUM_TreeNode(node) SUM(NodeLhs(v(node))) v(+) NodeData(v(node)) v(+) SUM(NodeRhs(v(node)))
+#define SUM_TreeLeaf(x)    v(x)
 
 /*
  *         4

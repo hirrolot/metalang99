@@ -5,7 +5,7 @@
 
 #define VAL v(abc ? +-148 % "hello world")
 
-#define MATCH(maybe) EPILEPSY_MATCH(v(maybe), v(MATCH_), v(123))
+#define MATCH(maybe) EPILEPSY_MATCH_WITH_ARGS(v(maybe), v(MATCH_), v(123))
 #define MATCH_MaybeJust(_87, _123)                                                                 \
     v(EPILEPSY_C_STATIC_ASSERT(_87 == 87); EPILEPSY_C_STATIC_ASSERT(_123 == 123);)
 #define MATCH_MaybeNothing(_dummy, _123) v(EPILEPSY_C_STATIC_ASSERT(_123 == 123);)

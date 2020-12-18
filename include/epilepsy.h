@@ -49,7 +49,7 @@
  * @endcode
  *
  *   - #EPILEPSY_CHOICE(...)
- *   - #EPILEPSY_MATCH(choice, matcher, ...)
+ *   - #EPILEPSY_MATCH_WITH_ARGS(choice, matcher, ...)
  *
  * @subsection _5 Record types
  * @code

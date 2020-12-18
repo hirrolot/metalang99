@@ -61,7 +61,7 @@
     EPILEPSY_Cons(v(head), call(EPILEPSY_PRIV_List_AUX, EPILEPSY_UINT_DEC(v(count)) v(__VA_ARGS__)))
 
 #define EPILEPSY_ListFoldr_REAL(list, op, init)                                                    \
-    EPILEPSY_MATCH(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(op) v(init))
+    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(op) v(init))
 #define EPILEPSY_PRIV_ListFoldr_Cons(list, op, acc)                                                \
     call(                                                                                          \
         op, v(EPILEPSY_PRIV_ListHead(list))                                                        \
