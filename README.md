@@ -11,7 +11,7 @@ TODO: the main example (https://github.com/Hirrolot/epilepsy/issues/1).
 
 Everything you see happens at compile-time. Everything you need is `#include <epilepsy.h>` and a C99/C++11-compliant preprocessor.
 
-## Purpose
+## Overview
 
 Epilepsy allows you to create and use embedded [domain-specific languages] in C/C++.
 
@@ -19,7 +19,7 @@ Epilepsy allows you to create and use embedded [domain-specific languages] in C/
 
 ## FAQ
 
-Q: **Why formal specification?**
+### Q: Why formal specification?
 
 A:
 
