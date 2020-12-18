@@ -34,7 +34,7 @@
 
 #define EPILEPSY_MATCH_REAL(choice, matcher, ...)                                                  \
     call(                                                                                          \
-        EPILEPSY_PRIV_AUX_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                        \
+        EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice)) v(__VA_ARGS__))
 
 #define EPILEPSY_PRIV_CHOICE_TAG  EPILEPSY_PRIV_PAIR_FST

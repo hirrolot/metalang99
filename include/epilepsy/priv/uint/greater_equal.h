@@ -6,7 +6,7 @@
 #include <epilepsy/priv/uint/greater.h>
 
 #define EPILEPSY_PRIV_UINT_GREATER_EQUAL(x, y)                                                     \
-    EPILEPSY_PRIV_AUX_IF(                                                                          \
+    EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_UINT_EQ(x, y), EPILEPSY_PRIV_UINT_GREATER_EQUAL_TRUE,                        \
         EPILEPSY_PRIV_UINT_GREATER)                                                                \
     (x, y)

@@ -6,7 +6,7 @@
 #include <epilepsy/priv/uint/lesser.h>
 
 #define EPILEPSY_PRIV_UINT_LESSER_EQUAL(x, y)                                                      \
-    EPILEPSY_PRIV_AUX_IF(                                                                          \
+    EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_UINT_EQ(x, y), EPILEPSY_PRIV_UINT_LESSER_EQUAL_TRUE,                         \
         EPILEPSY_PRIV_UINT_LESSER)                                                                 \
     (x, y)

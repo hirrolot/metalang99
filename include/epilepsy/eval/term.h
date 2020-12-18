@@ -7,14 +7,14 @@
 #define EPILEPSY_PRIV_EVAL_TERM_END() (end, ~)
 
 #define EPILEPSY_PRIV_EVAL_TERM_KIND(term)                                                         \
-    EPILEPSY_PRIV_VARIADICS_HEAD(EPILEPSY_PRIV_AUX_UNPARENTHESISE(term))
+    EPILEPSY_PRIV_VARIADICS_HEAD(EPILEPSY_PRIV_UNPARENTHESISE(term))
 
 #define EPILEPSY_PRIV_EVAL_TERM_DATA(term)                                                         \
-    EPILEPSY_PRIV_VARIADICS_TAIL(EPILEPSY_PRIV_AUX_UNPARENTHESISE(term))
+    EPILEPSY_PRIV_VARIADICS_TAIL(EPILEPSY_PRIV_UNPARENTHESISE(term))
 
 #define EPILEPSY_PRIV_EVAL_TERM_MATCH(op, term, ...)                                               \
     EPILEPSY_PRIV_EVAL_TERM_MATCH_AUX(                                                             \
-        EPILEPSY_PRIV_AUX_MATCH(op, EPILEPSY_PRIV_EVAL_TERM_KIND(term)), __VA_ARGS__,              \
+        EPILEPSY_PRIV_MATCH(op, EPILEPSY_PRIV_EVAL_TERM_KIND(term)), __VA_ARGS__,                  \
         EPILEPSY_PRIV_EVAL_TERM_DATA(term))
 
 #define EPILEPSY_PRIV_EVAL_TERM_MATCH_AUX(op, ...) op(__VA_ARGS__)
@@ -28,7 +28,7 @@
 
 #define EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH(op, term, ...)                                        \
     EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH_AUX(                                                      \
-        EPILEPSY_PRIV_AUX_MATCH(op, EPILEPSY_PRIV_EVAL_TERM_KIND(term)), __VA_ARGS__,              \
+        EPILEPSY_PRIV_MATCH(op, EPILEPSY_PRIV_EVAL_TERM_KIND(term)), __VA_ARGS__,                  \
         EPILEPSY_PRIV_EVAL_TERM_DATA(term))
 
 #define EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH_AUX(op, ...) op(__VA_ARGS__)

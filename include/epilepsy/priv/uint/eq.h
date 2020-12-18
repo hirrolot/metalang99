@@ -1,14 +1,11 @@
 #ifndef EPILEPSY_PRIV_UINT_EQ_H
 #define EPILEPSY_PRIV_UINT_EQ_H
 
-#define EPILEPSY_PRIV_UINT_EQ(x, y) EPILEPSY_PRIV_UINT_EQ_AUX(x, y)
+#include <epilepsy/priv/aux.h>
+#include <epilepsy/priv/variadics/get.h>
 
-#define EPILEPSY_PRIV_UINT_EQ_AUX(x, y)                                                            \
-    EPILEPSY_PRIV_UINT_SECOND(EPILEPSY_PRIV_UINT_EQ_OVERLOAD(x, y)(), 0, ~)
-#define EPILEPSY_PRIV_UINT_EQ_OVERLOAD(x, y) EPILEPSY_PRIV_UINT_EQ_##x##_##y
-
-#define EPILEPSY_PRIV_UINT_SECOND(...)            EPILEPSY_PRIV_UINT_SECOND_AUX(__VA_ARGS__)
-#define EPILEPSY_PRIV_UINT_SECOND_AUX(_a, b, ...) b
+#define EPILEPSY_PRIV_UINT_EQ(x, y)                                                                \
+    EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_CAT_4(EPILEPSY_PRIV_UINT_EQ_, x, _, y)(), 0, ~)
 
 #define EPILEPSY_PRIV_UINT_EQ_0_0()       ~, 1
 #define EPILEPSY_PRIV_UINT_EQ_1_1()       ~, 1

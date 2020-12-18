@@ -21,7 +21,7 @@
 #include <epilepsy/priv/aux.h>
 
 #define EPILEPSY_PRIV_call(op, ...)                                                                \
-    EPILEPSY_PRIV_AUX_IF(                                                                          \
+    EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_LANG_IS_TRIVIAL_OP(op), EPILEPSY_PRIV_call_TRIVIAL,                          \
         EPILEPSY_PRIV_call_NON_TRIVIAL)                                                            \
     (op, __VA_ARGS__),

@@ -56,9 +56,9 @@
 // How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656.
 
 #define EPILEPSY_PRIV_C_STATIC_ASSERT_IMPL(expr)                                                   \
-    static const char EPILEPSY_PRIV_AUX_CAT(epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1]
+    static const char EPILEPSY_PRIV_CAT(epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1]
 #define EPILEPSY_PRIV_C_STATIC_ASSERT_WITH_MSG_IMPL(expr, message)                                 \
-    static const char EPILEPSY_PRIV_AUX_CAT_4(                                                     \
+    static const char EPILEPSY_PRIV_CAT_4(                                                         \
         epilepsy_static_assert_, __LINE__, _, message)[(expr) ? 1 : -1]
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS

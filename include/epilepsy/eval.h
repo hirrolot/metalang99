@@ -65,7 +65,7 @@
 #define EPILEPSY_PRIV_EVAL_args_TRANSFORM(k, k_cx, lfolder, acc, tail, args, evaluated_op)         \
     EPILEPSY_PRIV_EVAL_MATCH(                                                                      \
         k, k_cx, lfolder, acc,                                                                     \
-        call(evaluated_op, EPILEPSY_PRIV_AUX_UNPARENTHESISE(args))                                 \
+        call(evaluated_op, EPILEPSY_PRIV_UNPARENTHESISE(args))                                     \
             EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
