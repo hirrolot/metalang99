@@ -8,8 +8,8 @@
 
 #include <epilepsy/list.h>
 
-#define EPILEPSY_RECORD(...)           call(EPILEPSY_RECORD_IMPL, __VA_ARGS__)
-#define EPILEPSY_RECORD_GET(record, i) call(EPILEPSY_RECORD_GET_IMPL, record i)
+#define EPILEPSY_RECORD(...)    call(EPILEPSY_RECORD_IMPL, __VA_ARGS__)
+#define EPILEPSY_GET(record, i) call(EPILEPSY_GET_IMPL, record i)
 
 /**
  * @brief Constructs a record.
@@ -19,6 +19,6 @@
 /**
  * @brief Extracts a field from a record.
  */
-#define EPILEPSY_RECORD_GET_IMPL(record, i) EPILEPSY_ListGet(v(record), v(i))
+#define EPILEPSY_GET_IMPL(record, i) EPILEPSY_ListGet(v(record), v(i))
 
 #endif // EPILEPSY_RECORD_H

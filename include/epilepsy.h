@@ -57,7 +57,7 @@
  * @endcode
  *
  *   - #EPILEPSY_RECORD(...)
- *   - #EPILEPSY_RECORD_GET(record, i)
+ *   - #EPILEPSY_GET(record, i)
  *
  * @subsection _6 Maybe
  * @code

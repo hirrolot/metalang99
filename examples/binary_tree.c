@@ -19,9 +19,9 @@
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf) v(x))
 
 #define Node_IMPL(lhs, data, rhs) EPILEPSY_RECORD(v(lhs) v(data) v(rhs))
-#define NodeLhs_IMPL(node)        EPILEPSY_RECORD_GET(v(node), v(0))
-#define NodeData_IMPL(node)       EPILEPSY_RECORD_GET(v(node), v(1))
-#define NodeRhs_IMPL(node)        EPILEPSY_RECORD_GET(v(node), v(2))
+#define NodeLhs_IMPL(node)        EPILEPSY_GET(v(node), v(0))
+#define NodeData_IMPL(node)       EPILEPSY_GET(v(node), v(1))
+#define NodeRhs_IMPL(node)        EPILEPSY_GET(v(node), v(2))
 
 #define SUM_IMPL(tree) EPILEPSY_MATCH(v(tree), v(SUM_))
 #define SUM_TreeNode(node)                                                                         \
