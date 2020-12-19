@@ -1,3 +1,5 @@
+// Sums all nodes of a binary tree, recursively.
+
 #include <epilepsy.h>
 
 #include <stdio.h>
