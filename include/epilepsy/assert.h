@@ -15,18 +15,16 @@
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
-#include <stdbool.h>
-
 /**
  * @brief Asserts `EPILEPSY_EVAL(expr)`.
  */
-#define EPILEPSY_ASSERT(expr) EPILEPSY_ASSERT_EQ(EPILEPSY_EXPAND(expr), v(true))
+#define EPILEPSY_ASSERT(expr) EPILEPSY_ASSERT_EQ(EPILEPSY_EXPAND(expr), v(1))
 
 /**
  * @brief The same as #EPILEPSY_ASSERT but accepts an error message.
  */
 #define EPILEPSY_ASSERT_WITH_MSG(expr, message)                                                    \
-    EPILEPSY_ASSERT_EQ_WITH_MSG(EPILEPSY_EXPAND(expr), v(true), message)
+    EPILEPSY_ASSERT_EQ_WITH_MSG(EPILEPSY_EXPAND(expr), v(1), message)
 
 /**
  * @brief Asserts that `EPILEPSY_EVAL(lhs)` is equal to `EPILEPSY_EVAL(rhs)`.
