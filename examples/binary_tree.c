@@ -20,9 +20,11 @@
 #define NodeData_REAL(node)       EPILEPSY_RECORD_GET(v(node), v(1))
 #define NodeRhs_REAL(node)        EPILEPSY_RECORD_GET(v(node), v(2))
 
-#define SUM_REAL(tree)     EPILEPSY_MATCH(v(tree), v(SUM_))
-#define SUM_TreeNode(node) SUM(NodeLhs(v(node))) v(+) NodeData(v(node)) v(+) SUM(NodeRhs(v(node)))
-#define SUM_TreeLeaf(x)    v(x)
+#define SUM_REAL(tree) EPILEPSY_MATCH(v(tree), v(SUM_))
+#define SUM_TreeNode(node)                                                                         \
+    EPILEPSY_UINT_ADD(                                                                             \
+        EPILEPSY_UINT_ADD(SUM(NodeLhs(v(node))), NodeData(v(node))), SUM(NodeRhs(v(node))))
+#define SUM_TreeLeaf(x) v(x)
 
 /*
  *         4
@@ -39,6 +41,5 @@
         TreeNode(TreeLeaf(v(5)), v(6), TreeLeaf(v(7))))
 
 int main(void) {
-    // 1 + 2 + 3 + 4 + 5 + 6 + 7
-    printf("%d\n", EPILEPSY_EVAL(SUM(TREE)));
+    puts(EPILEPSY_EVAL(EPILEPSY_STRINGIFY(SUM(TREE))));
 }

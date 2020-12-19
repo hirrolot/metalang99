@@ -58,6 +58,11 @@
  */
 #define EPILEPSY_UINT_LESSER_EQUAL(x, y) call(EPILEPSY_UINT_LESSER_EQUAL_REAL, x y)
 
+/**
+ * @Brief @p x + @p y.
+ */
+#define EPILEPSY_UINT_ADD(x, y) call(EPILEPSY_UINT_ADD_REAL, x y)
+
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #define EPILEPSY_UINT_NEQ_REAL(x, y)          EPILEPSY_NOT(EPILEPSY_UINT_EQ(v(x), v(y)))
@@ -83,6 +88,17 @@
             EPILEPSY_UINT_EQ(v(x), EPILEPSY_UINT_DEC(v(y))), v(EPILEPSY_TRUE_REAL),                \
             v(EPILEPSY_UINT_LESSER_REAL)),                                                         \
         v(x) EPILEPSY_UINT_DEC(v(y)))
+
+#define EPILEPSY_UINT_ADD_REAL(x, y)                                                               \
+    call(                                                                                          \
+        EPILEPSY_IF(                                                                               \
+            EPILEPSY_UINT_EQ(v(y), v(0)), v(EPILEPSY_PRIV_UINT_ADD_DONE),                          \
+            v(EPILEPSY_PRIV_UINT_ADD_PROGRESS)),                                                   \
+        v(x) v(y))
+
+#define EPILEPSY_PRIV_UINT_ADD_DONE(x, _y) v(x)
+#define EPILEPSY_PRIV_UINT_ADD_PROGRESS(x, y)                                                      \
+    EPILEPSY_UINT_ADD(EPILEPSY_UINT_INC(v(x)), EPILEPSY_UINT_DEC(v(y)))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
