@@ -1,11 +1,12 @@
 #ifndef EPILEPSY_PRIV_UINT_EQ_H
 #define EPILEPSY_PRIV_UINT_EQ_H
 
+#include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/variadics/get.h>
 
-#define EPILEPSY_PRIV_UINT_EQ(x, y)                                                                \
-    EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_CAT_4(EPILEPSY_PRIV_UINT_EQ_, x, _, y)(), 0, ~)
+#define EPILEPSY_UINT_EQ_REAL(x, y)                                                                \
+    v(EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_CAT_4(EPILEPSY_PRIV_UINT_EQ_, x, _, y)(), 0, ~))
 
 #define EPILEPSY_PRIV_UINT_EQ_0_0()       ~, 1
 #define EPILEPSY_PRIV_UINT_EQ_1_1()       ~, 1

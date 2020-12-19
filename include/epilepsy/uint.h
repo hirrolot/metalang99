@@ -8,7 +8,11 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#include <epilepsy/priv/uint.h>
+#include <epilepsy/control.h>
+#include <epilepsy/logical.h>
+#include <epilepsy/uint/dec.h>
+#include <epilepsy/uint/eq.h>
+#include <epilepsy/uint/inc.h>
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
@@ -56,14 +60,29 @@
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define EPILEPSY_UINT_INC_REAL(x)              v(EPILEPSY_PRIV_UINT_INC(x))
-#define EPILEPSY_UINT_DEC_REAL(x)              v(EPILEPSY_PRIV_UINT_DEC(x))
-#define EPILEPSY_UINT_EQ_REAL(x, y)            v(EPILEPSY_PRIV_UINT_EQ(x, y))
-#define EPILEPSY_UINT_NEQ_REAL(x, y)           v(EPILEPSY_PRIV_UINT_NEQ(x, y))
-#define EPILEPSY_UINT_GREATER_REAL(x, y)       v(EPILEPSY_PRIV_UINT_GREATER(x, y))
-#define EPILEPSY_UINT_GREATER_EQUAL_REAL(x, y) v(EPILEPSY_PRIV_UINT_GREATER_EQUAL(x, y))
-#define EPILEPSY_UINT_LESSER_REAL(x, y)        v(EPILEPSY_PRIV_UINT_LESSER(x, y))
-#define EPILEPSY_UINT_LESSER_EQUAL_REAL(x, y)  v(EPILEPSY_PRIV_UINT_LESSER_EQUAL(x, y))
+#define EPILEPSY_UINT_NEQ_REAL(x, y)          EPILEPSY_NOT(EPILEPSY_UINT_EQ(v(x), v(y)))
+#define EPILEPSY_UINT_GREATER_REAL(x, y)      EPILEPSY_UINT_LESSER(v(y), v(x))
+#define EPILEPSY_UINT_LESSER_EQUAL_REAL(x, y) EPILEPSY_UINT_GREATER_EQUAL(v(y), v(x))
+
+#define EPILEPSY_UINT_GREATER_EQUAL_REAL(x, y)                                                     \
+    call(                                                                                          \
+        EPILEPSY_IF(                                                                               \
+            EPILEPSY_UINT_EQ(v(x), v(y)), v(EPILEPSY_TRUE_REAL), v(EPILEPSY_UINT_GREATER_REAL)),   \
+        v(x) v(y))
+
+#define EPILEPSY_UINT_LESSER_REAL(x, y)                                                            \
+    call(                                                                                          \
+        EPILEPSY_IF(                                                                               \
+            EPILEPSY_UINT_EQ(v(y), v(0)), v(EPILEPSY_FALSE_REAL),                                  \
+            v(EPILEPSY_PRIV_UINT_LESSER_PROGRESS)),                                                \
+        v(x) v(y))
+
+#define EPILEPSY_PRIV_UINT_LESSER_PROGRESS(x, y)                                                   \
+    call(                                                                                          \
+        EPILEPSY_IF(                                                                               \
+            EPILEPSY_UINT_EQ(v(x), EPILEPSY_UINT_DEC(v(y))), v(EPILEPSY_TRUE_REAL),                \
+            v(EPILEPSY_UINT_LESSER_REAL)),                                                         \
+        v(x) EPILEPSY_UINT_DEC(v(y)))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 

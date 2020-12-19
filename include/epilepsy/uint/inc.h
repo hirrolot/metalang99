@@ -1,9 +1,10 @@
 #ifndef EPILEPSY_PRIV_UINT_INC_H
 #define EPILEPSY_PRIV_UINT_INC_H
 
+#include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
 
-#define EPILEPSY_PRIV_UINT_INC(x) EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_UINT_INC_, x)()
+#define EPILEPSY_UINT_INC_REAL(x) v(EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_UINT_INC_, x)())
 
 #define EPILEPSY_PRIV_UINT_INC_0()    1
 #define EPILEPSY_PRIV_UINT_INC_1()    2
