@@ -1,24 +1,28 @@
 > WARNING: still under v0.1.0 active development.
 
 # Epilepsy
+
 [![CI](https://github.com/Hirrolot/epilepsy/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/epilepsy/actions)
 [![docs](https://img.shields.io/badge/docs-github.io-blue)](https://hirrolot.github.io/epilepsy/)
 [![ызус](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf)
 
-> The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp;&emsp;<b>-- Darth Sidious</b>
+> The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp; &emsp; <b>-- Darth Sidious</b>
 
-[[`examples/binary_tree.c`](examples/binary_tree.c)]
-```c
+[[ `examples/binary_tree.c` ](examples/binary_tree.c)]
+
+``` c
 // Sums all nodes of a binary tree, recursively.
 
 #include <epilepsy.h>
 
-#define TreeLeaf(x)                   call(TreeLeaf_IMPL, x)
-#define TreeNode(lhs, data, rhs)      call(TreeNode_IMPL, lhs data rhs)
+#define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
+#define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
+
+#define SUM(tree) call(SUM_IMPL, tree)
+
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf), v(x))
 #define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))
 
-#define SUM(tree)                    call(SUM_IMPL, tree)
 #define SUM_IMPL(tree)               EPILEPSY_MATCH(v(tree), v(SUM_))
 #define SUM_TreeLeaf(x)              v(x)
 #define SUM_TreeNode(lhs, data, rhs) EPILEPSY_UINT_ADD(SUM(v(lhs)) v(data) SUM(v(rhs)))
