@@ -3,15 +3,15 @@
 #include <stdio.h>
 
 // Desugaring {
-#define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
 #define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
+#define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
 
 #define SUM(tree) call(SUM_IMPL, tree)
 // }
 
 // Implementation {
-#define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf), v(x))
+#define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))
 
 #define SUM_IMPL(tree)               EPILEPSY_MATCH(v(tree), v(SUM_))
 #define SUM_TreeLeaf(x)              v(x)
