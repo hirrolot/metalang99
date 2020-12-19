@@ -39,6 +39,7 @@
 #define EPILEPSY_PRIV_EVAL_MATCH_AUX(k, k_cx, lfolder, acc, head, ...)                             \
     EPILEPSY_PRIV_EVAL_TERM_MATCH(EPILEPSY_PRIV_EVAL_, head, k, k_cx, lfolder, acc, (__VA_ARGS__))
 
+// Reduction rules {
 #define EPILEPSY_PRIV_EVAL_v(k, k_cx, lfolder, acc, tail, ...)                                     \
     EPILEPSY_PRIV_EVAL_MACHINE_OP_CONTINUE(                                                        \
         k, k_cx, lfolder, lfolder(acc, __VA_ARGS__), EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
@@ -57,7 +58,9 @@
 
 #define EPILEPSY_PRIV_EVAL_end(k, k_cx, _lfolder, acc, _tail, _)                                   \
     EPILEPSY_PRIV_EVAL_MACHINE_OP_STOP(k, k_cx, acc)
+// }
 
+// Continuations {
 #define EPILEPSY_PRIV_EVAL_op_TRANSFORM(k, k_cx, lfolder, acc, tail, evaluated_op, ...)            \
     EPILEPSY_PRIV_EVAL_MATCH(                                                                      \
         k, k_cx, lfolder, acc, evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
@@ -67,6 +70,7 @@
         k, k_cx, lfolder, acc,                                                                     \
         call(evaluated_op, EPILEPSY_PRIV_UNPARENTHESISE(args))                                     \
             EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
+// }
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
