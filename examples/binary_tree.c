@@ -6,27 +6,16 @@
 #define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
 #define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
 
-#define Node(lhs, data, rhs) call(Node_IMPL, lhs data rhs)
-#define NodeLhs(node)        call(NodeLhs_IMPL, node)
-#define NodeData(node)       call(NodeData_IMPL, node)
-#define NodeRhs(node)        call(NodeRhs_IMPL, node)
-
 #define SUM(tree) call(SUM_IMPL, tree)
 // }
 
 // Implementation {
-#define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode) Node(v(lhs), v(data), v(rhs)))
+#define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode) v(lhs, data, rhs))
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf) v(x))
 
-#define Node_IMPL(lhs, data, rhs) EPILEPSY_RECORD(v(lhs, data, rhs))
-#define NodeLhs_IMPL(node)        EPILEPSY_GET(v(node), v(0))
-#define NodeData_IMPL(node)       EPILEPSY_GET(v(node), v(1))
-#define NodeRhs_IMPL(node)        EPILEPSY_GET(v(node), v(2))
-
 #define SUM_IMPL(tree) EPILEPSY_MATCH(v(tree), v(SUM_))
-#define SUM_TreeNode(node)                                                                         \
-    EPILEPSY_UINT_ADD(                                                                             \
-        EPILEPSY_UINT_ADD(SUM(NodeLhs(v(node))), NodeData(v(node))), SUM(NodeRhs(v(node))))
+#define SUM_TreeNode(lhs, data, rhs)                                                               \
+    EPILEPSY_UINT_ADD(EPILEPSY_UINT_ADD(SUM(v(lhs)), v(data)), SUM(v(rhs)))
 #define SUM_TreeLeaf(x) v(x)
 // }
 
