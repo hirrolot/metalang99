@@ -2,8 +2,6 @@
 
 #include <epilepsy.h>
 
-#include <stdio.h>
-
 // Desugaring {
 #define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
 #define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
