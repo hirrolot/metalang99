@@ -17,9 +17,9 @@
 #include <epilepsy/eval/term.h>
 #include <epilepsy/priv/aux.h>
 
-#define EPILEPSY_PRIV_EVAL_MATCH_HOOK()          EPILEPSY_PRIV_EVAL_MATCH
-#define EPILEPSY_PRIV_EVAL_args_TRANSFORM_HOOK() EPILEPSY_PRIV_EVAL_args_TRANSFORM
-#define EPILEPSY_PRIV_EVAL_op_TRANSFORM_HOOK()   EPILEPSY_PRIV_EVAL_op_TRANSFORM
+#define EPILEPSY_PRIV_EVAL_MATCH_HOOK()  EPILEPSY_PRIV_EVAL_MATCH
+#define EPILEPSY_PRIV_EVAL_args_K_HOOK() EPILEPSY_PRIV_EVAL_args_K
+#define EPILEPSY_PRIV_EVAL_op_K_HOOK()   EPILEPSY_PRIV_EVAL_op_K
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
@@ -46,13 +46,13 @@
 
 #define EPILEPSY_PRIV_EVAL_op(k, k_cx, lfolder, acc, tail, op, ...)                                \
     EPILEPSY_PRIV_EVAL_MACHINE_OP_CONTINUE(                                                        \
-        EPILEPSY_PRIV_EVAL_op_TRANSFORM_HOOK, (k, k_cx, lfolder, acc, tail, op),                   \
+        EPILEPSY_PRIV_EVAL_op_K_HOOK, (k, k_cx, lfolder, acc, tail, op),                           \
         EPILEPSY_PRIV_EVAL_LFOLDER_INTERSPERSE_COMMA, EPILEPSY_PRIV_EVAL_ACC_EMPTY(),              \
         __VA_ARGS__ EPILEPSY_PRIV_EVAL_TERM_END(), ~)
 
 #define EPILEPSY_PRIV_EVAL_args(k, k_cx, lfolder, acc, tail, op, ...)                              \
     EPILEPSY_PRIV_EVAL_MACHINE_OP_CONTINUE(                                                        \
-        EPILEPSY_PRIV_EVAL_args_TRANSFORM_HOOK, (k, k_cx, lfolder, acc, tail, (__VA_ARGS__)),      \
+        EPILEPSY_PRIV_EVAL_args_K_HOOK, (k, k_cx, lfolder, acc, tail, (__VA_ARGS__)),              \
         EPILEPSY_PRIV_EVAL_LFOLDER_APPEND, EPILEPSY_PRIV_EVAL_ACC_EMPTY(), op,                     \
         EPILEPSY_PRIV_EVAL_TERM_END(), ~)
 
@@ -61,11 +61,11 @@
 // }
 
 // Continuations {
-#define EPILEPSY_PRIV_EVAL_op_TRANSFORM(k, k_cx, lfolder, acc, tail, evaluated_op, ...)            \
+#define EPILEPSY_PRIV_EVAL_op_K(k, k_cx, lfolder, acc, tail, evaluated_op, ...)                    \
     EPILEPSY_PRIV_EVAL_MATCH(                                                                      \
         k, k_cx, lfolder, acc, evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
-#define EPILEPSY_PRIV_EVAL_args_TRANSFORM(k, k_cx, lfolder, acc, tail, args, evaluated_op)         \
+#define EPILEPSY_PRIV_EVAL_args_K(k, k_cx, lfolder, acc, tail, args, evaluated_op)                 \
     EPILEPSY_PRIV_EVAL_MATCH(                                                                      \
         k, k_cx, lfolder, acc,                                                                     \
         call(evaluated_op, EPILEPSY_PRIV_UNPARENTHESISE(args))                                     \
