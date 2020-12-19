@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 
+// Desugaring {
 #define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
 #define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
 
@@ -11,7 +12,9 @@
 #define NodeRhs(node)        call(NodeRhs_IMPL, node)
 
 #define SUM(tree) call(SUM_IMPL, tree)
+// }
 
+// Implementation {
 #define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode) Node(v(lhs), v(data), v(rhs)))
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf) v(x))
 
@@ -25,6 +28,7 @@
     EPILEPSY_UINT_ADD(                                                                             \
         EPILEPSY_UINT_ADD(SUM(NodeLhs(v(node))), NodeData(v(node))), SUM(NodeRhs(v(node))))
 #define SUM_TreeLeaf(x) v(x)
+// }
 
 /*
  *         4
