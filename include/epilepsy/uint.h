@@ -61,7 +61,12 @@
 /**
  * @Brief @p x + @p y.
  */
-#define EPILEPSY_UINT_ADD(x, y) call(EPILEPSY_UINT_ADD_IMPL, x y)
+#define EPILEPSY_UINT_ADD_TRAP(x, y) call(EPILEPSY_UINT_ADD_IMPL, x y)
+
+#define EPILEPSY_UINT_ADD(...) call(EPILEPSY_UINT_ADD_X, __VA_ARGS__)
+
+#define EPILEPSY_UINT_ADD_X(x, y, z)                                                               \
+    EPILEPSY_UINT_ADD_TRAP(v(x), EPILEPSY_UINT_ADD_TRAP(v(y), v(z)))
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
@@ -98,7 +103,7 @@
 
 #define EPILEPSY_PRIV_UINT_ADD_DONE(x, _y) v(x)
 #define EPILEPSY_PRIV_UINT_ADD_PROGRESS(x, y)                                                      \
-    EPILEPSY_UINT_ADD(EPILEPSY_UINT_INC(v(x)), EPILEPSY_UINT_DEC(v(y)))
+    EPILEPSY_UINT_ADD_TRAP(EPILEPSY_UINT_INC(v(x)), EPILEPSY_UINT_DEC(v(y)))
 
 #endif // DOXYGEN_SHOULD_SKIP_THIS
 
