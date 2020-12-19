@@ -2,21 +2,15 @@
 
 #include <epilepsy.h>
 
-// Desugaring {
-#define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
-#define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
-
-#define SUM(tree) call(SUM_IMPL, tree)
-// }
-
-// Implementation {
+#define TreeLeaf(x)                   call(TreeLeaf_IMPL, x)
+#define TreeNode(lhs, data, rhs)      call(TreeNode_IMPL, lhs data rhs)
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf), v(x))
 #define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))
 
+#define SUM(tree)                    call(SUM_IMPL, tree)
 #define SUM_IMPL(tree)               EPILEPSY_MATCH(v(tree), v(SUM_))
 #define SUM_TreeLeaf(x)              v(x)
 #define SUM_TreeNode(lhs, data, rhs) EPILEPSY_UINT_ADD(SUM(v(lhs)) v(data) SUM(v(rhs)))
-// }
 
 /*
  *         4
