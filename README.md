@@ -7,6 +7,7 @@
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp;&emsp;<b>-- Darth Sidious</b>
 
+[[`examples/binary_tree.c`](examples/binary_tree.c)]
 ```c
 // Sums all nodes of a binary tree, recursively.
 
