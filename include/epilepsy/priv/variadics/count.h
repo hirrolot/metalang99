@@ -2,8 +2,8 @@
 #define EPILEPSY_PRIV_VARIADICS_COUNT_H
 
 /*
- * Proposition: The count of arguments of `EPILEPSY_VARIADICS_COUNT_REAL` is `x`, which is
- * returned from `EPILEPSY_VARIADICS_COUNT_REAL_AUX`.
+ * Proposition: The count of arguments of `EPILEPSY_VARIADICS_COUNT_IMPL` is `x`, which is
+ * returned from `EPILEPSY_VARIADICS_COUNT_IMPL_AUX`.
  *
  * Proof:
  *  1) Let N be the length of __VA_ARGS__.

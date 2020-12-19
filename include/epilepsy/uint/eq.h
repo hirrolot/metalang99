@@ -5,7 +5,7 @@
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/variadics/get.h>
 
-#define EPILEPSY_UINT_EQ_REAL(x, y)                                                                \
+#define EPILEPSY_UINT_EQ_IMPL(x, y)                                                                \
     v(EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_CAT_4(EPILEPSY_PRIV_UINT_EQ_, x, _, y)(), 0, ~))
 
 #define EPILEPSY_PRIV_UINT_EQ_0_0()       ~, 1

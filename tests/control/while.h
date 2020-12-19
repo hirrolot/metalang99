@@ -7,12 +7,12 @@
 #define LIMIT 10
 #define SUM   ((LIMIT + 1) * (LIMIT / 2))
 
-#define PREDICATE(state)       call(PREDICATE_REAL, state)
-#define PREDICATE_REAL(state)  call(PREDICATE_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
+#define PREDICATE(state)       call(PREDICATE_IMPL, state)
+#define PREDICATE_IMPL(state)  call(PREDICATE_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
 #define PREDICATE_AUX(_acc, i) EPILEPSY_UINT_NEQ(v(i), EPILEPSY_UINT_INC(v(LIMIT)))
 
-#define OP(state)      call(OP_REAL, state)
-#define OP_REAL(state) call(OP_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
+#define OP(state)      call(OP_IMPL, state)
+#define OP_IMPL(state) call(OP_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
 #define OP_AUX(acc, i) v((v(acc + i) EPILEPSY_UINT_INC(v(i))))
 
 #define STATE_FINALISER(state)      call(STATE_FINALISER_AUX, EPILEPSY_UNPARENTHESISE(v(state)))

@@ -21,34 +21,34 @@
 /**
  * @brief Prepends an item to a list.
  */
-#define EPILEPSY_Cons(head, tail) call(EPILEPSY_Cons_REAL, head tail)
+#define EPILEPSY_Cons(head, tail) call(EPILEPSY_Cons_IMPL, head tail)
 
 /**
  * @brief The empty list.
  */
-#define EPILEPSY_Nil() call(EPILEPSY_Nil_REAL, )
+#define EPILEPSY_Nil() call(EPILEPSY_Nil_IMPL, )
 
 /**
  * @brief Constructs a list from supplied arguments.
  */
-#define EPILEPSY_List(...) call(EPILEPSY_List_REAL, __VA_ARGS__)
+#define EPILEPSY_List(...) call(EPILEPSY_List_IMPL, __VA_ARGS__)
 
 /**
  * @brief Performs a right fold.
  */
-#define EPILEPSY_ListFoldr(list, op, init) call(EPILEPSY_ListFoldr_REAL, list op init)
+#define EPILEPSY_ListFoldr(list, op, init) call(EPILEPSY_ListFoldr_IMPL, list op init)
 
 /**
  * @brief Gets an @p i -indexed element.
  */
-#define EPILEPSY_ListGet(list, i) call(EPILEPSY_ListGet_REAL, list i)
+#define EPILEPSY_ListGet(list, i) call(EPILEPSY_ListGet_IMPL, list i)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-#define EPILEPSY_Cons_REAL(head, tail) EPILEPSY_CHOICE(v(Cons) v(EPILEPSY_PRIV_PAIR(head, tail)))
-#define EPILEPSY_Nil_REAL()            EPILEPSY_CHOICE(v(Nil))
+#define EPILEPSY_Cons_IMPL(head, tail) EPILEPSY_CHOICE(v(Cons) v(EPILEPSY_PRIV_PAIR(head, tail)))
+#define EPILEPSY_Nil_IMPL()            EPILEPSY_CHOICE(v(Nil))
 
-#define EPILEPSY_List_REAL(...)                                                                    \
+#define EPILEPSY_List_IMPL(...)                                                                    \
     call(EPILEPSY_PRIV_List_AUX, EPILEPSY_VARIADICS_COUNT(v(__VA_ARGS__)) v(__VA_ARGS__) v(~))
 #define EPILEPSY_PRIV_List_AUX(count, ...)                                                         \
     call(                                                                                          \
@@ -60,7 +60,7 @@
 #define EPILEPSY_PRIV_List_PROGRESS(count, head, ...)                                              \
     EPILEPSY_Cons(v(head), call(EPILEPSY_PRIV_List_AUX, EPILEPSY_UINT_DEC(v(count)) v(__VA_ARGS__)))
 
-#define EPILEPSY_ListFoldr_REAL(list, op, init)                                                    \
+#define EPILEPSY_ListFoldr_IMPL(list, op, init)                                                    \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(op) v(init))
 #define EPILEPSY_PRIV_ListFoldr_Cons(list, op, acc)                                                \
     call(                                                                                          \
@@ -68,7 +68,7 @@
                 EPILEPSY_ListFoldr(v(EPILEPSY_PRIV_ListTail(list)), v(op), v(acc)))
 #define EPILEPSY_PRIV_ListFoldr_Nil(_dummy, _op, acc) v(acc)
 
-#define EPILEPSY_ListGet_REAL(list, i)                                                             \
+#define EPILEPSY_ListGet_IMPL(list, i)                                                             \
     call(                                                                                          \
         EPILEPSY_IF(                                                                               \
             EPILEPSY_UINT_EQ(v(i), v(0)), v(EPILEPSY_PRIV_ListGet_VISIT_DONE),                     \
