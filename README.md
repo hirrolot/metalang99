@@ -7,7 +7,45 @@
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp;&emsp;<b>-- Darth Sidious</b>
 
-TODO: the main example (https://github.com/Hirrolot/epilepsy/issues/1).
+```c
+// Sums all nodes of a binary tree, recursively.
+
+#include <epilepsy.h>
+
+// Desugaring {
+#define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
+#define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
+
+#define SUM(tree) call(SUM_IMPL, tree)
+// }
+
+// Implementation {
+#define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf), v(x))
+#define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))
+
+#define SUM_IMPL(tree)               EPILEPSY_MATCH(v(tree), v(SUM_))
+#define SUM_TreeLeaf(x)              v(x)
+#define SUM_TreeNode(lhs, data, rhs) EPILEPSY_UINT_ADD(SUM(v(lhs)) v(data) SUM(v(rhs)))
+// }
+
+/*
+ *         4
+ *        / \
+ *       /   \
+ *      /     \
+ *     2       6
+ *    / \     / \
+ *   1   3   5   7
+ */
+#define TREE                                                                                       \
+    TreeNode(                                                                                      \
+        TreeNode(TreeLeaf(v(1)), v(2), TreeLeaf(v(3))), v(4),                                      \
+        TreeNode(TreeLeaf(v(5)), v(6), TreeLeaf(v(7))))
+
+EPILEPSY_ASSERT_EQ(SUM(TREE), v(28));
+
+int main(void) {}
+```
 
 Everything you see happens at compile-time. Everything you need is `#include <epilepsy.h>` and a C99/C++11-compliant preprocessor.
 
