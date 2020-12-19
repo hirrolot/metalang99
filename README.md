@@ -46,11 +46,13 @@ EPILEPSY_ASSERT_EQ(SUM(TREE), v(28));
 int main(void) {}
 ```
 
-Everything you see happens at compile-time. Everything you need is `#include <epilepsy.h>` and a C99/C++11-compliant preprocessor.
+Epilepsy is a functional language aimed at C99/C++11 preprocessor metaprogramming.
 
-## Overview
+It provides basic and compound data types, control expressions, collections, boolean logic, and other stuff typically found in normal programming languages.
 
-Epilepsy allows you to create and use embedded [domain-specific languages] in C/C++.
+## Motivation
+
+Epilepsy allows you to create and use embedded [domain-specific languages].
 
 [domain-specific languages]: https://en.wikipedia.org/wiki/Domain-specific_language
 
