@@ -1,5 +1,5 @@
 /*
- * Usage: ./gen_rec <power-of-two> <output-path> <header-guard>
+ * Usage: ./build/gen_rec <power-of-two> <output-path> <header-guard>
  * Example: ./build/gen_rec 14 "../include/epilepsy/eval/rec" EPILEPSY_EVAL_REC_UNROLL_H
  */
 
