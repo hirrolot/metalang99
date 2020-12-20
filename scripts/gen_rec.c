@@ -1,6 +1,6 @@
 /*
  * Usage: ./build/gen_rec <power-of-two> <output-path> <header-guard>
- * Example: ./build/gen_rec 14 "../include/epilepsy/eval/rec" EPILEPSY_EVAL_REC_UNROLL_H
+ * Example: ./build/gen_rec 15 "../include/epilepsy/eval/rec" EPILEPSY_EVAL_REC_UNROLL_H
  */
 
 #include <assert.h>
@@ -36,7 +36,8 @@ int main(int argc, const char *argv[]) {
         "\
 #ifndef %s\n\
 #define %s\n\n\
-#define EPILEPSY_PRIV_REC_UNROLL EPILEPSY_PRIV_REC_0\n\n",
+#define EPILEPSY_PRIV_REC_UNROLL EPILEPSY_PRIV_REC_0\n\n\
+",
         header_guard, header_guard);
     assert(rc > 0);
 
