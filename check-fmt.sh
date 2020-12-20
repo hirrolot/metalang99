@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./run-clang-format/run-clang-format.py -r include tests examples
+./run-clang-format/run-clang-format.py -r include tests examples scripts

@@ -31,8 +31,8 @@
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
 #define EPILEPSY_PRIV_EVAL(...)                                                                    \
-    EPILEPSY_PRIV_EVAL_REC_UNROLL(EPILEPSY_PRIV_EVAL_MATCH(                                        \
-        EPILEPSY_PRIV_EVAL_REC_STOP, (~), EPILEPSY_PRIV_EVAL_LFOLDER_APPEND,                       \
+    EPILEPSY_PRIV_REC_UNROLL(EPILEPSY_PRIV_EVAL_MATCH(                                             \
+        EPILEPSY_PRIV_REC_STOP, (~), EPILEPSY_PRIV_EVAL_LFOLDER_APPEND,                            \
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(), __VA_ARGS__ EPILEPSY_PRIV_EVAL_TERM_END(), ~))
 
 #define EPILEPSY_PRIV_EVAL_MATCH(...) EPILEPSY_PRIV_EVAL_MATCH_AUX(__VA_ARGS__)
