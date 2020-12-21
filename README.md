@@ -20,9 +20,9 @@ Epilepsy allows you to create and use embedded [domain-specific languages].
 
 [domain-specific languages]: https://en.wikipedia.org/wiki/Domain-specific_language
 
-## Data types
+## Overview
 
-### Compound
+### Data types
 
 #### Choice types
 
