@@ -13,15 +13,14 @@ def amalgamate(headers, header_name):
     f = open(header_name)
     content = f.read()
     f.close()
-    output_f.write(content)
 
     for line in content.splitlines():
         match = re.search("#include <(.+)>", line)
 
         if match is None:
-            continue
-
-        amalgamate(headers, f"include/{match[1]}")
+            output_f.write(line)
+        else:
+            amalgamate(headers, f"include/{match[1]}")
 
 
 output_file_name = sys.argv[1]
