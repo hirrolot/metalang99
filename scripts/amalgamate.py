@@ -18,7 +18,7 @@ def amalgamate(headers, header_name):
         match = re.search("#include <(.+)>", line)
 
         if match is None:
-            output_f.write(line)
+            output_f.write(f"{line}\n")
         else:
             amalgamate(headers, f"include/{match[1]}")
 
