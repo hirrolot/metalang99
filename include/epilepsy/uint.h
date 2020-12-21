@@ -8,6 +8,7 @@
 
 #include <epilepsy/control.h>
 #include <epilepsy/lang.h>
+#include <epilepsy/list.h>
 #include <epilepsy/logical.h>
 #include <epilepsy/uint/dec.h>
 #include <epilepsy/uint/eq.h>
@@ -57,11 +58,7 @@
 /**
  * @Brief @p x + @p y.
  */
-#define EPILEPSY_UIntAdd_TRAP(x, y) call(EPILEPSY_UIntAdd_IMPL, x y)
-
-#define EPILEPSY_UIntAdd(...) call(EPILEPSY_UIntAdd_X, __VA_ARGS__)
-
-#define EPILEPSY_UIntAdd_X(x, y, z) EPILEPSY_UIntAdd_TRAP(v(x), EPILEPSY_UIntAdd_TRAP(v(y), v(z)))
+#define EPILEPSY_UIntAdd(...) call(EPILEPSY_UIntAdd_IMPL, __VA_ARGS__)
 // }
 
 // Implementation {
@@ -82,14 +79,17 @@
         EPILEPSY_UIntEq(v(x), EPILEPSY_UIntDec(v(y))), v(EPILEPSY_TRUE_IMPL),                      \
         v(EPILEPSY_UIntLesser_IMPL), v(x) EPILEPSY_UIntDec(v(y)))
 
-#define EPILEPSY_UIntAdd_IMPL(x, y)                                                                \
-    EPILEPSY_IF_LAZY(                                                                              \
-        EPILEPSY_UIntEq(v(y), v(0)), v(EPILEPSY_PRIV_UINT_ADD_DONE),                               \
-        v(EPILEPSY_PRIV_UINT_ADD_PROGRESS), v(x, y))
+#define EPILEPSY_UIntAdd_IMPL(...)                                                                 \
+    EPILEPSY_ListFoldr(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_PRIV_UIntAdd_VISIT), v(0))
+#define EPILEPSY_PRIV_UIntAdd_VISIT(x, acc) call(EPILEPSY_PRIV_UIntAdd_TWO, v(x, acc))
 
-#define EPILEPSY_PRIV_UINT_ADD_DONE(x, _y) v(x)
-#define EPILEPSY_PRIV_UINT_ADD_PROGRESS(x, y)                                                      \
-    EPILEPSY_UIntAdd_TRAP(EPILEPSY_UIntInc(v(x)), EPILEPSY_UIntDec(v(y)))
+#define EPILEPSY_PRIV_UIntAdd_TWO(x, y)                                                            \
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_UIntEq(v(y), v(0)), v(EPILEPSY_PRIV_UIntAdd_TWO_DONE),                            \
+        v(EPILEPSY_PRIV_UIntAdd_TWO_PROGRESS), v(x, y))
+#define EPILEPSY_PRIV_UIntAdd_TWO_DONE(x, _y) v(x)
+#define EPILEPSY_PRIV_UIntAdd_TWO_PROGRESS(x, y)                                                   \
+    call(EPILEPSY_PRIV_UIntAdd_TWO, EPILEPSY_UIntInc(v(x)) EPILEPSY_UIntDec(v(y)))
 // }
 
 #endif // EPILEPSY_UINT_H
