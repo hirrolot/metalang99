@@ -4,9 +4,27 @@
 
 [![CI](https://github.com/Hirrolot/epilepsy/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/epilepsy/actions)
 [![docs](https://img.shields.io/badge/docs-github.io-blue)](https://hirrolot.github.io/epilepsy/)
-[![ызус](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf)
+[![spec](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf)
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp; &emsp; <b>-- Darth Sidious</b>
+
+TODO: the main example.
+
+Epilepsy is a functional language aimed at C99/C++11 preprocessor metaprogramming.
+
+It provides basic and compound data types, control expressions, collections, boolean logic, and other stuff typically found in normal programming languages.
+
+## Motivation
+
+Epilepsy allows you to create and use embedded [domain-specific languages].
+
+[domain-specific languages]: https://en.wikipedia.org/wiki/Domain-specific_language
+
+## Data types
+
+### Compound
+
+#### Choice types
 
 [[ `examples/binary_tree.c` ](examples/binary_tree.c)]
 
@@ -46,15 +64,7 @@ EPILEPSY_ASSERT_EQ(SUM(TREE), v(28));
 int main(void) {}
 ```
 
-Epilepsy is a functional language aimed at C99/C++11 preprocessor metaprogramming.
-
-It provides basic and compound data types, control expressions, collections, boolean logic, and other stuff typically found in normal programming languages.
-
-## Motivation
-
-Epilepsy allows you to create and use embedded [domain-specific languages].
-
-[domain-specific languages]: https://en.wikipedia.org/wiki/Domain-specific_language
+[![playground](media/playground.png)](https://godbolt.org/z/hxGjfM)
 
 ## FAQ
 
