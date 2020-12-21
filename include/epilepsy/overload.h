@@ -6,14 +6,10 @@
 #ifndef EPILEPSY_OVERLOAD_H
 #define EPILEPSY_OVERLOAD_H
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
+#include <epilepsy/lang.h>
 #include <epilepsy/priv/overload.h>
 
-#endif // DOXYGEN_SHOULD_SKIP_THIS
-
-#include <epilepsy/lang.h>
-
+// Desugaring {
 /**
  * @brief Overload @p op on a number of arguments.
  */
@@ -23,13 +19,12 @@
  * @brief Overloads @p op on a number of arguments an immediately calls it.
  */
 #define EPILEPSY_OVERLOAD_CALL(op, ...) call(EPILEPSY_OVERLOAD_CALL_IMPL, op __VA_ARGS__)
+// }
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
+// Implementation {
 #define EPILEPSY_OVERLOAD_IMPL(op, ...) v(EPILEPSY_PRIV_OVERLOAD(op, __VA_ARGS__))
 #define EPILEPSY_OVERLOAD_CALL_IMPL(op, ...)                                                       \
     call(EPILEPSY_OVERLOAD(v(op), v(__VA_ARGS__)), v(__VA_ARGS__))
-
-#endif // DOXYGEN_SHOULD_SKIP_THIS
+// }
 
 #endif // EPILEPSY_OVERLOAD_H

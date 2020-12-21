@@ -6,18 +6,13 @@
 #ifndef EPILEPSY_LIST_H
 #define EPILEPSY_LIST_H
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
+#include <epilepsy/choice.h>
 #include <epilepsy/control.h>
 #include <epilepsy/logical.h>
-#include <epilepsy/priv/pair.h>
 #include <epilepsy/uint.h>
 #include <epilepsy/variadics.h>
 
-#endif // DOXYGEN_SHOULD_SKIP_THIS
-
-#include <epilepsy/choice.h>
-
+// Desugaring {
 /**
  * @brief Prepends an item to a list.
  */
@@ -42,45 +37,38 @@
  * @brief Gets an @p i -indexed element.
  */
 #define EPILEPSY_ListGet(list, i) call(EPILEPSY_ListGet_IMPL, list i)
+// }
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
-#define EPILEPSY_Cons_IMPL(head, tail) EPILEPSY_CHOICE(v(Cons) v(EPILEPSY_PRIV_PAIR(head, tail)))
-#define EPILEPSY_Nil_IMPL()            EPILEPSY_CHOICE(v(Nil))
+// Implementation {
+#define EPILEPSY_Cons_IMPL(head, tail) EPILEPSY_CHOICE(v(Cons), v(head, tail))
+#define EPILEPSY_Nil_IMPL()            EPILEPSY_CHOICE(v(Nil), v(~))
 
 #define EPILEPSY_List_IMPL(...)                                                                    \
-    call(EPILEPSY_PRIV_List_AUX, EPILEPSY_VARIADICS_COUNT(v(__VA_ARGS__)) v(__VA_ARGS__) v(~))
+    call(EPILEPSY_PRIV_List_AUX, EPILEPSY_VARIADICS_COUNT(v(__VA_ARGS__)) v(__VA_ARGS__, ~))
 #define EPILEPSY_PRIV_List_AUX(count, ...)                                                         \
-    call(                                                                                          \
-        EPILEPSY_IF(                                                                               \
-            EPILEPSY_UINT_EQ(v(count), v(1)), v(EPILEPSY_PRIV_List_DONE),                          \
-            v(EPILEPSY_PRIV_List_PROGRESS)),                                                       \
-        v(count) v(__VA_ARGS__))
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_UIntEq(v(count), v(1)), v(EPILEPSY_PRIV_List_DONE),                               \
+        v(EPILEPSY_PRIV_List_PROGRESS), v(count, __VA_ARGS__))
 #define EPILEPSY_PRIV_List_DONE(_count, last, _) EPILEPSY_Cons(v(last), EPILEPSY_Nil())
 #define EPILEPSY_PRIV_List_PROGRESS(count, head, ...)                                              \
-    EPILEPSY_Cons(v(head), call(EPILEPSY_PRIV_List_AUX, EPILEPSY_UINT_DEC(v(count)) v(__VA_ARGS__)))
+    EPILEPSY_Cons(v(head), call(EPILEPSY_PRIV_List_AUX, EPILEPSY_UIntDec(v(count)) v(__VA_ARGS__)))
 
 #define EPILEPSY_ListFoldr_IMPL(list, op, init)                                                    \
-    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(op) v(init))
-#define EPILEPSY_PRIV_ListFoldr_Cons(list, op, acc)                                                \
-    call(                                                                                          \
-        op, v(EPILEPSY_PRIV_ListHead(list))                                                        \
-                EPILEPSY_ListFoldr(v(EPILEPSY_PRIV_ListTail(list)), v(op), v(acc)))
-#define EPILEPSY_PRIV_ListFoldr_Nil(_dummy, _op, acc) v(acc)
+    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(op, init))
+#define EPILEPSY_PRIV_ListFoldr_Cons(head, tail, op, acc)                                          \
+    call(op, v(head) EPILEPSY_ListFoldr(v(tail), v(op), v(acc)))
+#define EPILEPSY_PRIV_ListFoldr_Nil(_, _op, acc) v(acc)
 
 #define EPILEPSY_ListGet_IMPL(list, i)                                                             \
-    call(                                                                                          \
-        EPILEPSY_IF(                                                                               \
-            EPILEPSY_UINT_EQ(v(i), v(0)), v(EPILEPSY_PRIV_ListGet_VISIT_DONE),                     \
-            v(EPILEPSY_PRIV_ListGet_VISIT_PROGRESS)),                                              \
-        v(list) v(i))
-#define EPILEPSY_PRIV_ListGet_VISIT_DONE(list, _i) v(EPILEPSY_PRIV_ListHead(list))
-#define EPILEPSY_PRIV_ListGet_VISIT_PROGRESS(list, i)                                              \
-    EPILEPSY_ListGet(v(EPILEPSY_PRIV_ListTail(list)), EPILEPSY_UINT_DEC(v(i)))
-
-#define EPILEPSY_PRIV_ListHead(list) EPILEPSY_PRIV_PAIR_FST(EPILEPSY_PRIV_PAIR_SND(list))
-#define EPILEPSY_PRIV_ListTail(list) EPILEPSY_PRIV_PAIR_SND(EPILEPSY_PRIV_PAIR_SND(list))
-
-#endif // DOXYGEN_SHOULD_SKIP_THIS
+    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListGet_), v(i))
+#define EPILEPSY_PRIV_ListGet_Nil(_, i) EPILEPSY_ERROR()
+#define EPILEPSY_PRIV_ListGet_Cons(head, tail, i)                                                  \
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_UIntEq(v(i), v(0)), v(EPILEPSY_PRIV_ListGet_Cons_DONE),                           \
+        v(EPILEPSY_PRIV_ListGet_Cons_PROGRESS), v(head, tail, i))
+#define EPILEPSY_PRIV_ListGet_Cons_DONE(head, _tail, _i) v(head)
+#define EPILEPSY_PRIV_ListGet_Cons_PROGRESS(_head, tail, i)                                        \
+    EPILEPSY_ListGet(v(tail), EPILEPSY_UIntDec(v(i)))
+// }
 
 #endif // EPILEPSY_LIST_H

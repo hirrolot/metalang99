@@ -6,8 +6,6 @@
 #ifndef EPILEPSY_EVAL_H
 #define EPILEPSY_EVAL_H
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
 #include <epilepsy/eval/acc.h>
 #include <epilepsy/eval/control.h>
 #include <epilepsy/eval/lfolder.h>
@@ -21,15 +19,15 @@
 #define EPILEPSY_PRIV_EVAL_args_K_HOOK() EPILEPSY_PRIV_EVAL_args_K
 #define EPILEPSY_PRIV_EVAL_op_K_HOOK()   EPILEPSY_PRIV_EVAL_op_K
 
-#endif // DOXYGEN_SHOULD_SKIP_THIS
-
-/**
- * @brief Evaluates a metaprogram.
+// Desugaring {
+/** Evaluates a metaprogram.
+ *
+ * @param ...(term): A sequence of terms to evaluate.
  */
 #define EPILEPSY_EVAL(...) EPILEPSY_PRIV_EVAL(__VA_ARGS__)
+// }
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
+// Implementation {
 #define EPILEPSY_PRIV_EVAL(...)                                                                    \
     EPILEPSY_PRIV_REC_UNROLL(EPILEPSY_PRIV_EVAL_MATCH(                                             \
         EPILEPSY_PRIV_REC_STOP, (~), EPILEPSY_PRIV_EVAL_LFOLDER_APPEND,                            \
@@ -72,6 +70,7 @@
             EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 // }
 
-#endif // DOXYGEN_SHOULD_SKIP_THIS
+#define EPILEPSY_PRIV_REC_UNROLL(...) EPILEPSY_PRIV_REC_0(__VA_ARGS__)
+// } (Implementation)
 
 #endif // EPILEPSY_EVAL_H

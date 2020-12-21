@@ -9,11 +9,11 @@
 
 #define PREDICATE(state)       call(PREDICATE_IMPL, state)
 #define PREDICATE_IMPL(state)  call(PREDICATE_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
-#define PREDICATE_AUX(_acc, i) EPILEPSY_UINT_NEQ(v(i), EPILEPSY_UINT_INC(v(LIMIT)))
+#define PREDICATE_AUX(_acc, i) EPILEPSY_UIntNeq(v(i), EPILEPSY_UIntInc(v(LIMIT)))
 
 #define OP(state)      call(OP_IMPL, state)
 #define OP_IMPL(state) call(OP_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
-#define OP_AUX(acc, i) v((v(acc + i) EPILEPSY_UINT_INC(v(i))))
+#define OP_AUX(acc, i) v((v(acc + i) EPILEPSY_UIntInc(v(i))))
 
 #define STATE_FINALISER(state)      call(STATE_FINALISER_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
 #define STATE_FINALISER_AUX(acc, i) v(acc)

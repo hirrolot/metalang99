@@ -3,6 +3,7 @@
 
 #include <epilepsy/lang.h>
 
+// Desugaring {
 /**
  * @brief Negates @p x.
  */
@@ -32,9 +33,9 @@
  * @brief Consumes all arguments and returns 0.
  */
 #define EPILEPSY_FALSE(...) call(EPILEPSY_FALSE_IMPL, __VA_ARGS__)
+// }
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
+// Implementation {
 #define EPILEPSY_NOT_IMPL(x)  call(EPILEPSY_NOT_IMPL_##x, )
 #define EPILEPSY_NOT_IMPL_0() v(1)
 #define EPILEPSY_NOT_IMPL_1() v(0)
@@ -59,7 +60,6 @@
 
 #define EPILEPSY_TRUE_IMPL(...)  v(1)
 #define EPILEPSY_FALSE_IMPL(...) v(0)
-
-#endif // DOXYGEN_SHOULD_SKIP_THIS
+// }
 
 #endif // EPILEPSY_PRIV_LOGICAL_H

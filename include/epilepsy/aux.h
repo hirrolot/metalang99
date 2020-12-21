@@ -8,6 +8,7 @@
 
 #include <epilepsy/lang.h>
 
+// Desugaring {
 /**
  * @brief Concatenates @p x and @p y.
  */
@@ -48,24 +49,20 @@
  */
 #define EPILEPSY_UNPARENTHESISE(x) call(EPILEPSY_UNPARENTHESISE_IMPL, x)
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
+#define EPILEPSY_ERROR(...) call(EPILEPSY_ERROR_IMPL, x)
+// }
 
-#define EPILEPSY_CAT_IMPL(x, y)    v(x##y)
-#define EPILEPSY_STRINGIFY_IMPL(x) v(#x)
-
-#define EPILEPSY_EMPTY_IMPL() v()
-#define EPILEPSY_ID_IMPL(x)   v(x)
-
-#define EPILEPSY_EXPAND_IMPL(...)  v(__VA_ARGS__)
-#define EPILEPSY_CONSUME_IMPL(...) EPILEPSY_EMPTY()
-
+// Implementation {
+#define EPILEPSY_CAT_IMPL(x, y)         v(x##y)
+#define EPILEPSY_STRINGIFY_IMPL(x)      v(#x)
+#define EPILEPSY_EMPTY_IMPL()           v()
+#define EPILEPSY_ID_IMPL(x)             v(x)
+#define EPILEPSY_EXPAND_IMPL(...)       v(__VA_ARGS__)
+#define EPILEPSY_CONSUME_IMPL(...)      EPILEPSY_EMPTY()
 #define EPILEPSY_PARENTHESISE_IMPL(...) v((__VA_ARGS__))
-
-#define EPILEPSY_UNPARENTHESISE_IMPL(x)                                                            \
-    call(EPILEPSY_UNPARENTHESISE_IMPL_EXPAND_1, EPILEPSY_UNPARENTHESISE_IMPL_EXPAND_0 x)
-#define EPILEPSY_UNPARENTHESISE_IMPL_EXPAND_0(...) __VA_ARGS__
-#define EPILEPSY_UNPARENTHESISE_IMPL_EXPAND_1(...) v(__VA_ARGS__)
-
-#endif // DOXYGEN_SHOULD_SKIP_THIS
+#define EPILEPSY_UNPARENTHESISE_IMPL(x) EPILEPSY_PRIV_UNPARENTHESISE(x)
+#define EPILEPSY_ERROR_IMPL(...)        EPILEPSY_ERROR_AUX()
+#define EPILEPSY_AUX(missing_arg)       EPILEPSY_EMPTY()
+// }
 
 #endif // EPILEPSY_AUX_H

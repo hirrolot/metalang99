@@ -6,105 +6,90 @@
 #ifndef EPILEPSY_UINT_H
 #define EPILEPSY_UINT_H
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
 #include <epilepsy/control.h>
+#include <epilepsy/lang.h>
 #include <epilepsy/logical.h>
 #include <epilepsy/uint/dec.h>
 #include <epilepsy/uint/eq.h>
 #include <epilepsy/uint/inc.h>
 
-#endif // DOXYGEN_SHOULD_SKIP_THIS
-
-#include <epilepsy/lang.h>
-
+// Desugaring {
 /**
  * @brief Increments @p x.
  */
-#define EPILEPSY_UINT_INC(x) call(EPILEPSY_UINT_INC_IMPL, x)
+#define EPILEPSY_UIntInc(x) call(EPILEPSY_UIntInc_IMPL, x)
 
 /**
  * @brief Decrements @p x.
  */
-#define EPILEPSY_UINT_DEC(x) call(EPILEPSY_UINT_DEC_IMPL, x)
+#define EPILEPSY_UIntDec(x) call(EPILEPSY_UIntDec_IMPL, x)
 
 /**
  * @brief Checks whether @p x and @p y are equal.
  */
-#define EPILEPSY_UINT_EQ(x, y) call(EPILEPSY_UINT_EQ_IMPL, x y)
+#define EPILEPSY_UIntEq(x, y) call(EPILEPSY_UIntEq_IMPL, x y)
 
 /**
  * @brief Checks whether @p x and @p y are **not** equal.
  */
-#define EPILEPSY_UINT_NEQ(x, y) call(EPILEPSY_UINT_NEQ_IMPL, x y)
+#define EPILEPSY_UIntNeq(x, y) call(EPILEPSY_UIntNeq_IMPL, x y)
 
 /**
  * @brief Checks whether @p x is greater than @p y.
  */
-#define EPILEPSY_UINT_GREATER(x, y) call(EPILEPSY_UINT_GREATER_IMPL, x y)
+#define EPILEPSY_UIntGreater(x, y) call(EPILEPSY_UIntGreater_IMPL, x y)
 
 /**
  * @brief Checks whether @p x is greater or equal than @p y.
  */
-#define EPILEPSY_UINT_GREATER_EQUAL(x, y) call(EPILEPSY_UINT_GREATER_EQUAL_IMPL, x y)
+#define EPILEPSY_UIntGreaterEq(x, y) call(EPILEPSY_UIntGreaterEq_IMPL, x y)
 
 /**
  * @brief Checks whether @p x is lesser than @p y.
  */
-#define EPILEPSY_UINT_LESSER(x, y) call(EPILEPSY_UINT_LESSER_IMPL, x y)
+#define EPILEPSY_UIntLesser(x, y) call(EPILEPSY_UIntLesser_IMPL, x y)
 
 /**
  * @brief Checks whether @p x is lesser or equal than @p y.
  */
-#define EPILEPSY_UINT_LESSER_EQUAL(x, y) call(EPILEPSY_UINT_LESSER_EQUAL_IMPL, x y)
+#define EPILEPSY_UIntLesserEq(x, y) call(EPILEPSY_UIntLesserEq_IMPL, x y)
 
 /**
  * @Brief @p x + @p y.
  */
-#define EPILEPSY_UINT_ADD_TRAP(x, y) call(EPILEPSY_UINT_ADD_IMPL, x y)
+#define EPILEPSY_UIntAdd_TRAP(x, y) call(EPILEPSY_UIntAdd_IMPL, x y)
 
-#define EPILEPSY_UINT_ADD(...) call(EPILEPSY_UINT_ADD_X, __VA_ARGS__)
+#define EPILEPSY_UIntAdd(...) call(EPILEPSY_UIntAdd_X, __VA_ARGS__)
 
-#define EPILEPSY_UINT_ADD_X(x, y, z)                                                               \
-    EPILEPSY_UINT_ADD_TRAP(v(x), EPILEPSY_UINT_ADD_TRAP(v(y), v(z)))
+#define EPILEPSY_UIntAdd_X(x, y, z) EPILEPSY_UIntAdd_TRAP(v(x), EPILEPSY_UIntAdd_TRAP(v(y), v(z)))
+// }
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
+// Implementation {
+#define EPILEPSY_UIntNeq_IMPL(x, y)      EPILEPSY_NOT(EPILEPSY_UIntEq(v(x), v(y)))
+#define EPILEPSY_UIntGreater_IMPL(x, y)  EPILEPSY_UIntLesser(v(y), v(x))
+#define EPILEPSY_UIntLesserEq_IMPL(x, y) EPILEPSY_UIntGreaterEq(v(y), v(x))
 
-#define EPILEPSY_UINT_NEQ_IMPL(x, y)          EPILEPSY_NOT(EPILEPSY_UINT_EQ(v(x), v(y)))
-#define EPILEPSY_UINT_GREATER_IMPL(x, y)      EPILEPSY_UINT_LESSER(v(y), v(x))
-#define EPILEPSY_UINT_LESSER_EQUAL_IMPL(x, y) EPILEPSY_UINT_GREATER_EQUAL(v(y), v(x))
+#define EPILEPSY_UIntGreaterEq_IMPL(x, y)                                                          \
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_UIntEq(v(x), v(y)), v(EPILEPSY_TRUE_IMPL), v(EPILEPSY_UIntGreater_IMPL), v(x, y))
 
-#define EPILEPSY_UINT_GREATER_EQUAL_IMPL(x, y)                                                     \
-    call(                                                                                          \
-        EPILEPSY_IF(                                                                               \
-            EPILEPSY_UINT_EQ(v(x), v(y)), v(EPILEPSY_TRUE_IMPL), v(EPILEPSY_UINT_GREATER_IMPL)),   \
-        v(x) v(y))
-
-#define EPILEPSY_UINT_LESSER_IMPL(x, y)                                                            \
-    call(                                                                                          \
-        EPILEPSY_IF(                                                                               \
-            EPILEPSY_UINT_EQ(v(y), v(0)), v(EPILEPSY_FALSE_IMPL),                                  \
-            v(EPILEPSY_PRIV_UINT_LESSER_PROGRESS)),                                                \
-        v(x) v(y))
-
+#define EPILEPSY_UIntLesser_IMPL(x, y)                                                             \
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_UIntEq(v(y), v(0)), v(EPILEPSY_FALSE_IMPL),                                       \
+        v(EPILEPSY_PRIV_UINT_LESSER_PROGRESS), v(x, y))
 #define EPILEPSY_PRIV_UINT_LESSER_PROGRESS(x, y)                                                   \
-    call(                                                                                          \
-        EPILEPSY_IF(                                                                               \
-            EPILEPSY_UINT_EQ(v(x), EPILEPSY_UINT_DEC(v(y))), v(EPILEPSY_TRUE_IMPL),                \
-            v(EPILEPSY_UINT_LESSER_IMPL)),                                                         \
-        v(x) EPILEPSY_UINT_DEC(v(y)))
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_UIntEq(v(x), EPILEPSY_UIntDec(v(y))), v(EPILEPSY_TRUE_IMPL),                      \
+        v(EPILEPSY_UIntLesser_IMPL), v(x) EPILEPSY_UIntDec(v(y)))
 
-#define EPILEPSY_UINT_ADD_IMPL(x, y)                                                               \
-    call(                                                                                          \
-        EPILEPSY_IF(                                                                               \
-            EPILEPSY_UINT_EQ(v(y), v(0)), v(EPILEPSY_PRIV_UINT_ADD_DONE),                          \
-            v(EPILEPSY_PRIV_UINT_ADD_PROGRESS)),                                                   \
-        v(x) v(y))
+#define EPILEPSY_UIntAdd_IMPL(x, y)                                                                \
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_UIntEq(v(y), v(0)), v(EPILEPSY_PRIV_UINT_ADD_DONE),                               \
+        v(EPILEPSY_PRIV_UINT_ADD_PROGRESS), v(x, y))
 
 #define EPILEPSY_PRIV_UINT_ADD_DONE(x, _y) v(x)
 #define EPILEPSY_PRIV_UINT_ADD_PROGRESS(x, y)                                                      \
-    EPILEPSY_UINT_ADD_TRAP(EPILEPSY_UINT_INC(v(x)), EPILEPSY_UINT_DEC(v(y)))
-
-#endif // DOXYGEN_SHOULD_SKIP_THIS
+    EPILEPSY_UIntAdd_TRAP(EPILEPSY_UIntInc(v(x)), EPILEPSY_UIntDec(v(y)))
+// }
 
 #endif // EPILEPSY_UINT_H

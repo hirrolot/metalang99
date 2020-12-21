@@ -6,14 +6,10 @@
 #ifndef EPILEPSY_MAYBE_H
 #define EPILEPSY_MAYBE_H
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
+#include <epilepsy/choice.h>
 #include <epilepsy/logical.h>
 
-#endif // DOXYGEN_SHOULD_SKIP_THIS
-
-#include <epilepsy/choice.h>
-
+// Desugaring {
 /**
  * @brief Some value @p x.
  */
@@ -33,9 +29,9 @@
  * @brief 1 if @p maybe contains no value, otherwise 0.
  */
 #define EPILEPSY_MaybeIsNothing(maybe) call(EPILEPSY_MaybeIsNothing_IMPL, maybe)
+// }
 
-#ifndef DOXYGEN_SHOULD_SKIP_THIS
-
+// Implementation {
 #define EPILEPSY_MaybeJust_IMPL(x)   EPILEPSY_CHOICE(v(MaybeJust) v(x))
 #define EPILEPSY_MaybeNothing_IMPL() EPILEPSY_CHOICE(v(MaybeNothing))
 
@@ -45,7 +41,6 @@
 #define EPILEPSY_PRIV_MaybeIsJust_MaybeNothing(_dummy, _) v(0)
 
 #define EPILEPSY_MaybeIsNothing_IMPL(maybe) EPILEPSY_NOT(EPILEPSY_MaybeIsJust(v(maybe)))
-
-#endif // DOXYGEN_SHOULD_SKIP_THIS
+// }
 
 #endif // EPILEPSY_MAYBE_H
