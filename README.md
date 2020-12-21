@@ -64,7 +64,7 @@ EPILEPSY_ASSERT_EQ(SUM(TREE), v(28));
 int main(void) {}
 ```
 
-[![playground](media/playground.png)](https://godbolt.org/z/hxGjfM)
+[![playground](media/playground.png)](https://godbolt.org/z/5xW5ne)
 
 ## FAQ
 
