@@ -26,7 +26,7 @@ Epilepsy allows you to create and use embedded [domain-specific languages].
 
 #### Choice types
 
-[[ `examples/binary_tree.c` ](examples/binary_tree.c)]
+[[ `examples/binary_tree.c` ](examples/binary_tree.c)] [ [Playground](https://godbolt.org/z/5xW5ne) ]
 
 ``` c
 // Sums all nodes of a binary tree, recursively.
@@ -63,8 +63,6 @@ EPILEPSY_ASSERT_EQ(SUM(TREE), v(28));
 
 int main(void) {}
 ```
-
-[![playground](media/playground.png)](https://godbolt.org/z/5xW5ne)
 
 ## FAQ
 
