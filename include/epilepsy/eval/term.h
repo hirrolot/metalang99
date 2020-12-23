@@ -4,7 +4,7 @@
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/variadics/get.h>
 
-#define EPILEPSY_PRIV_EVAL_TERM_END() (end, ~)
+#define EPILEPSY_PRIV_EVAL_TERM_END() (0end, ~)
 
 #define EPILEPSY_PRIV_EVAL_TERM_KIND(term)                                                         \
     EPILEPSY_PRIV_VARIADICS_HEAD(EPILEPSY_PRIV_UNPARENTHESISE(term))
@@ -21,10 +21,10 @@
 
 #define EPILEPSY_PRIV_EVAL_TERM_IS_END(term)                                                       \
     EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH(EPILEPSY_PRIV_EVAL_TERM_IS_END_, term, ~)
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_trivial_call(_, op, ...) 0
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_call(_, op, ...)         0
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_v(_, ...)                0
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_end(_, __)               1
+#define EPILEPSY_PRIV_EVAL_TERM_IS_END_0v(...)    0
+#define EPILEPSY_PRIV_EVAL_TERM_IS_END_0op(...)   0
+#define EPILEPSY_PRIV_EVAL_TERM_IS_END_0args(...) 0
+#define EPILEPSY_PRIV_EVAL_TERM_IS_END_0end(...)  1
 
 #define EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH(op, term, ...)                                        \
     EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH_AUX(                                                      \
