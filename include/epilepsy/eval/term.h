@@ -19,18 +19,4 @@
 
 #define EPILEPSY_PRIV_EVAL_TERM_MATCH_AUX(op, ...) op(__VA_ARGS__)
 
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END(term)                                                       \
-    EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH(EPILEPSY_PRIV_EVAL_TERM_IS_END_, term, ~)
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_0v(...)    0
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_0op(...)   0
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_0args(...) 0
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_0end(...)  1
-
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH(op, term, ...)                                        \
-    EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH_AUX(                                                      \
-        EPILEPSY_PRIV_MATCH(op, EPILEPSY_PRIV_EVAL_TERM_KIND(term)), __VA_ARGS__,                  \
-        EPILEPSY_PRIV_EVAL_TERM_DATA(term))
-
-#define EPILEPSY_PRIV_EVAL_TERM_IS_END_MATCH_AUX(op, ...) op(__VA_ARGS__)
-
 #endif // EPILEPSY_EVAL_TERM_H

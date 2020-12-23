@@ -35,7 +35,8 @@
 
 #define EPILEPSY_PRIV_EVAL_MATCH(...) EPILEPSY_PRIV_EVAL_MATCH_AUX(__VA_ARGS__)
 #define EPILEPSY_PRIV_EVAL_MATCH_AUX(k, k_cx, lfolder, acc, head, ...)                             \
-    EPILEPSY_PRIV_EVAL_TERM_MATCH(EPILEPSY_PRIV_EVAL_, head, k, k_cx, lfolder, acc, (__VA_ARGS__))
+    EPILEPSY_PRIV_EVAL_TERM_MATCH(                                                                 \
+        EPILEPSY_PRIV_EVAL_, head, k, k_cx, lfolder, acc, EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
 
 // Reduction rules {
 #define EPILEPSY_PRIV_EVAL_0v(k, k_cx, lfolder, acc, tail, ...)                                    \
