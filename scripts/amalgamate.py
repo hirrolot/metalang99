@@ -10,9 +10,8 @@ def amalgamate(headers, header_name):
 
     headers.add(header_name)
 
-    f = open(header_name)
-    content = f.read()
-    f.close()
+    with open(header_name) as f:
+        content = f.read()
 
     for line in content.splitlines():
         match = re.search("#include <(.+)>", line)
@@ -24,9 +23,9 @@ def amalgamate(headers, header_name):
 
 
 output_file_name = sys.argv[1]
-output_f = open(output_file_name, "w")
 
-headers = set()
-amalgamate(headers, "include/epilepsy.h")
+with open(output_file_name, "w") as output_f:
+    headers = set()
+    amalgamate(headers, "include/epilepsy.h")
 
-output_f.close()
+print("Done!")
