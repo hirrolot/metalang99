@@ -1,5 +1,6 @@
 var choice_8h =
 [
-    [ "EPILEPSY_CHOICE", "choice_8h.html#a6e9e67f34d4a1a83d9ae290434c88670", null ],
-    [ "EPILEPSY_CHOICE_MATCH", "choice_8h.html#ad31a35bdba82ac750c211d101e384817", null ]
+    [ "EPILEPSY_CHOICE", "choice_8h.html#a618448f23322cd0fe6e7b0dad6018d48", null ],
+    [ "EPILEPSY_MATCH", "choice_8h.html#a9afc605d26fc8660997939be3bae9c00", null ],
+    [ "EPILEPSY_MATCH_WITH_ARGS", "choice_8h.html#a17402a0693a7920f9830f9e45b2e19f7", null ]
 ];

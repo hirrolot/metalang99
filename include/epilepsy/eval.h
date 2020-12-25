@@ -1,8 +1,3 @@
-/**
- * @file
- * @brief Evaluation of metaprograms.
- */
-
 #ifndef EPILEPSY_EVAL_H
 #define EPILEPSY_EVAL_H
 
@@ -19,16 +14,7 @@
 #define EPILEPSY_PRIV_EVAL_0op_K_HOOK()   EPILEPSY_PRIV_EVAL_0op_K
 #define EPILEPSY_PRIV_EVAL_0args_K_HOOK() EPILEPSY_PRIV_EVAL_0args_K
 
-// Desugaring {
-/** Evaluates a metaprogram.
- *
- * @param ...(term): A sequence of terms to evaluate.
- */
-#define EPILEPSY_EVAL(...) EPILEPSY_PRIV_EVAL(__VA_ARGS__)
-// }
-
-// Implementation {
-#define EPILEPSY_PRIV_EVAL(...)                                                                    \
+#define EPILEPSY_EVAL(...)                                                                         \
     EPILEPSY_PRIV_REC_UNROLL(EPILEPSY_PRIV_EVAL_MATCH(                                             \
         EPILEPSY_PRIV_REC_STOP, (~), EPILEPSY_PRIV_EVAL_LFOLDER_APPEND,                            \
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(), __VA_ARGS__ EPILEPSY_PRIV_EVAL_TERM_END(), ~))
@@ -72,6 +58,5 @@
 // }
 
 #define EPILEPSY_PRIV_REC_UNROLL(...) EPILEPSY_PRIV_REC_0(__VA_ARGS__)
-// } (Implementation)
 
 #endif // EPILEPSY_EVAL_H

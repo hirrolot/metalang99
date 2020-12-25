@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,13 +96,20 @@ $(document).ready(function(){initNavTree('aux_8h.html','');});
 
 <p>Auxiliary macros.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">epilepsy/lang.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;epilepsy/lang.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="aux_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2aux_8hdep" alt=""/></div>
 <map name="include_2epilepsy_2aux_8hdep" id="include_2epilepsy_2aux_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="17,80,144,107"/>
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="107,304,234,331"/>
+<area shape="rect" id="node3" href="assert_8h.html" title="Static assertions. " alt="" coords="22,80,188,107"/>
+<area shape="rect" id="node4" href="choice_8h.html" title="Choice types. " alt="" coords="213,80,381,107"/>
+<area shape="rect" id="node5" href="either_8h.html" title="A choice type with two cases. " alt="" coords="185,155,348,181"/>
+<area shape="rect" id="node6" href="list_8h.html" title="Lists. " alt="" coords="372,155,518,181"/>
+<area shape="rect" id="node9" href="maybe_8h.html" title="An optional value. " alt="" coords="574,229,743,256"/>
+<area shape="rect" id="node7" href="record_8h.html" title="Record types. " alt="" coords="208,229,375,256"/>
+<area shape="rect" id="node8" href="uint_8h.html" title="Unsigned integers. " alt="" coords="399,229,550,256"/>
 </map>
 </div>
 </div>
@@ -105,37 +118,41 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a3aa305dafbc5d422a62b88224a12c342"><td class="memItemLeft" align="right" valign="top"><a id="a3aa305dafbc5d422a62b88224a12c342"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a3aa305dafbc5d422a62b88224a12c342">EPILEPSY_CAT</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_CAT_REAL, x y)</td></tr>
-<tr class="memdesc:a3aa305dafbc5d422a62b88224a12c342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates <code>x</code> and <code>y</code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a3aa305dafbc5d422a62b88224a12c342">EPILEPSY_CAT</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_CAT_IMPL, x y)</td></tr>
+<tr class="memdesc:a3aa305dafbc5d422a62b88224a12c342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates <code>x</code> with <code>y</code>. <br /></td></tr>
 <tr class="separator:a3aa305dafbc5d422a62b88224a12c342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d208f65135ce780cc479db35e8c20f0"><td class="memItemLeft" align="right" valign="top"><a id="a6d208f65135ce780cc479db35e8c20f0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a6d208f65135ce780cc479db35e8c20f0">EPILEPSY_STRINGIFY</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_STRINGIFY_REAL, x)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a6d208f65135ce780cc479db35e8c20f0">EPILEPSY_STRINGIFY</a>(x)&#160;&#160;&#160;call(EPILEPSY_STRINGIFY_IMPL, x)</td></tr>
 <tr class="memdesc:a6d208f65135ce780cc479db35e8c20f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stringifies <code>x</code>. <br /></td></tr>
 <tr class="separator:a6d208f65135ce780cc479db35e8c20f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1be6cfa56e6d62429e9067c340e6a3c"><td class="memItemLeft" align="right" valign="top"><a id="ac1be6cfa56e6d62429e9067c340e6a3c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#ac1be6cfa56e6d62429e9067c340e6a3c">EPILEPSY_EMPTY</a>()&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_EMPTY_REAL, )</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#ac1be6cfa56e6d62429e9067c340e6a3c">EPILEPSY_EMPTY</a>()&#160;&#160;&#160;call(EPILEPSY_EMPTY_IMPL, )</td></tr>
 <tr class="memdesc:ac1be6cfa56e6d62429e9067c340e6a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to nothing. <br /></td></tr>
 <tr class="separator:ac1be6cfa56e6d62429e9067c340e6a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2abc13c3a4ff50ea993e34d5c6c8eb4f"><td class="memItemLeft" align="right" valign="top"><a id="a2abc13c3a4ff50ea993e34d5c6c8eb4f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a2abc13c3a4ff50ea993e34d5c6c8eb4f">EPILEPSY_ID</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_ID_REAL, )</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a2abc13c3a4ff50ea993e34d5c6c8eb4f">EPILEPSY_ID</a>(x)&#160;&#160;&#160;call(EPILEPSY_ID_IMPL, )</td></tr>
 <tr class="memdesc:a2abc13c3a4ff50ea993e34d5c6c8eb4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to <code>x</code>. <br /></td></tr>
 <tr class="separator:a2abc13c3a4ff50ea993e34d5c6c8eb4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a07d10eba3ea6d8a2530161c789f258"><td class="memItemLeft" align="right" valign="top"><a id="a4a07d10eba3ea6d8a2530161c789f258"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258">EPILEPSY_EXPAND</a>(...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_EXPAND_REAL, __VA_ARGS__)</td></tr>
-<tr class="memdesc:a4a07d10eba3ea6d8a2530161c789f258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to the provided arguments. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258">EPILEPSY_EXPAND</a>(...)&#160;&#160;&#160;call(EPILEPSY_EXPAND_IMPL, __VA_ARGS__)</td></tr>
+<tr class="memdesc:a4a07d10eba3ea6d8a2530161c789f258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to its arguments. <br /></td></tr>
 <tr class="separator:a4a07d10eba3ea6d8a2530161c789f258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0c675b758fc57b936eba2805bdc5faa"><td class="memItemLeft" align="right" valign="top"><a id="ac0c675b758fc57b936eba2805bdc5faa"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#ac0c675b758fc57b936eba2805bdc5faa">EPILEPSY_CONSUME</a>(...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_CONSUME_REAL, __VA_ARGS__)</td></tr>
-<tr class="memdesc:ac0c675b758fc57b936eba2805bdc5faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to nothing, consuming all the provided arguments. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#ac0c675b758fc57b936eba2805bdc5faa">EPILEPSY_CONSUME</a>(...)&#160;&#160;&#160;call(EPILEPSY_CONSUME_IMPL, __VA_ARGS__)</td></tr>
+<tr class="memdesc:ac0c675b758fc57b936eba2805bdc5faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to nothing, consuming all arguments. <br /></td></tr>
 <tr class="separator:ac0c675b758fc57b936eba2805bdc5faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b9a6e8b9b785c61619fa83106191e51"><td class="memItemLeft" align="right" valign="top"><a id="a1b9a6e8b9b785c61619fa83106191e51"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a1b9a6e8b9b785c61619fa83106191e51">EPILEPSY_PARENTHESISE</a>(...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_PARENTHESISE_REAL, __VA_ARGS__)</td></tr>
-<tr class="memdesc:a1b9a6e8b9b785c61619fa83106191e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts the specified arguments into parentheses. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a1b9a6e8b9b785c61619fa83106191e51">EPILEPSY_PARENTHESISE</a>(...)&#160;&#160;&#160;call(EPILEPSY_PARENTHESISE_IMPL, __VA_ARGS__)</td></tr>
+<tr class="memdesc:a1b9a6e8b9b785c61619fa83106191e51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parenthesises a sequence of arguments. <br /></td></tr>
 <tr class="separator:a1b9a6e8b9b785c61619fa83106191e51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eaee2bc480c09853f9897a36b3738ab"><td class="memItemLeft" align="right" valign="top"><a id="a1eaee2bc480c09853f9897a36b3738ab"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a1eaee2bc480c09853f9897a36b3738ab">EPILEPSY_UNPARENTHESISE</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UNPARENTHESISE_REAL, x)</td></tr>
-<tr class="memdesc:a1eaee2bc480c09853f9897a36b3738ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes parentheses around <code>x</code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a1eaee2bc480c09853f9897a36b3738ab">EPILEPSY_UNPARENTHESISE</a>(x)&#160;&#160;&#160;call(EPILEPSY_UNPARENTHESISE_IMPL, x)</td></tr>
+<tr class="memdesc:a1eaee2bc480c09853f9897a36b3738ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unparenthesises a sequence of arguments. <br /></td></tr>
 <tr class="separator:a1eaee2bc480c09853f9897a36b3738ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27812fc50c722e49e3b41371fdd65408"><td class="memItemLeft" align="right" valign="top"><a id="a27812fc50c722e49e3b41371fdd65408"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aux_8h.html#a27812fc50c722e49e3b41371fdd65408">EPILEPSY_ERROR</a>(...)&#160;&#160;&#160;call(EPILEPSY_ERROR_IMPL, x)</td></tr>
+<tr class="memdesc:a27812fc50c722e49e3b41371fdd65408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emits a preprocessor error, consuming all arguments. <br /></td></tr>
+<tr class="separator:a27812fc50c722e49e3b41371fdd65408"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Auxiliary macros. </p>

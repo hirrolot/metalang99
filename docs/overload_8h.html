@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,13 +96,14 @@ $(document).ready(function(){initNavTree('overload_8h.html','');});
 
 <p>Overloading on a number of arguments.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">epilepsy/lang.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;epilepsy/lang.h&gt;</code><br />
+<code>#include &lt;epilepsy/priv/overload.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="overload_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2overload_8hdep" alt=""/></div>
 <map name="include_2epilepsy_2overload_8hdep" id="include_2epilepsy_2overload_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="31,80,158,107"/>
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="31,80,158,107"/>
 </map>
 </div>
 </div>
@@ -105,11 +112,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a91c8c20761de3c2dfbac98e251a44bad"><td class="memItemLeft" align="right" valign="top"><a id="a91c8c20761de3c2dfbac98e251a44bad"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a91c8c20761de3c2dfbac98e251a44bad">EPILEPSY_OVERLOAD</a>(op, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_OVERLOAD_REAL, op __VA_ARGS__)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a91c8c20761de3c2dfbac98e251a44bad">EPILEPSY_OVERLOAD</a>(op, ...)&#160;&#160;&#160;call(EPILEPSY_OVERLOAD_IMPL, op __VA_ARGS__)</td></tr>
 <tr class="memdesc:a91c8c20761de3c2dfbac98e251a44bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload <code>op</code> on a number of arguments. <br /></td></tr>
 <tr class="separator:a91c8c20761de3c2dfbac98e251a44bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a208315cc377895b5a33379e3bc9298c6"><td class="memItemLeft" align="right" valign="top"><a id="a208315cc377895b5a33379e3bc9298c6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a208315cc377895b5a33379e3bc9298c6">EPILEPSY_OVERLOAD_CALL</a>(op, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_OVERLOAD_CALL_REAL, op __VA_ARGS__)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="overload_8h.html#a208315cc377895b5a33379e3bc9298c6">EPILEPSY_OVERLOAD_CALL</a>(op, ...)&#160;&#160;&#160;call(EPILEPSY_OVERLOAD_CALL_IMPL, op __VA_ARGS__)</td></tr>
 <tr class="memdesc:a208315cc377895b5a33379e3bc9298c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overloads <code>op</code> on a number of arguments an immediately calls it. <br /></td></tr>
 <tr class="separator:a208315cc377895b5a33379e3bc9298c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

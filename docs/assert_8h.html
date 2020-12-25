@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,13 +96,16 @@ $(document).ready(function(){initNavTree('assert_8h.html','');});
 
 <p>Static assertions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="aux_8h_source.html">epilepsy/aux.h</a>&gt;</code><br />
+<code>#include &lt;epilepsy/eval.h&gt;</code><br />
+<code>#include &lt;epilepsy/priv/aux.h&gt;</code><br />
+<code>#include &lt;epilepsy/priv/overload.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="assert_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2assert_8hdep" alt=""/></div>
 <map name="include_2epilepsy_2assert_8hdep" id="include_2epilepsy_2assert_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="25,80,152,107"/>
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="25,80,152,107"/>
 </map>
 </div>
 </div>
@@ -105,29 +114,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a6395f44a4cd52809013099f8454f25e3"><td class="memItemLeft" align="right" valign="top"><a id="a6395f44a4cd52809013099f8454f25e3"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a6395f44a4cd52809013099f8454f25e3">EPILEPSY_ASSERT</a>(expr)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879">EPILEPSY_ASSERT_EQ</a>(<a class="el" href="aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258">EPILEPSY_EXPAND</a>(expr), <a class="el" href="lang_8h.html#accda83681bf7cf367504a2fd1e31b651">v</a>(true))</td></tr>
-<tr class="memdesc:a6395f44a4cd52809013099f8454f25e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts <code><a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79" title="Evaluates a metaprogram. ">EPILEPSY_EVAL(expr)</a></code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a6395f44a4cd52809013099f8454f25e3">EPILEPSY_ASSERT</a>(expr)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879">EPILEPSY_ASSERT_EQ</a>(<a class="el" href="aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258">EPILEPSY_EXPAND</a>(expr), v(1))</td></tr>
+<tr class="memdesc:a6395f44a4cd52809013099f8454f25e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts <code>EPILEPSY_EVAL(expr)</code>. <br /></td></tr>
 <tr class="separator:a6395f44a4cd52809013099f8454f25e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a601e741e820ef44dce554ddf08d0d39e"><td class="memItemLeft" align="right" valign="top"><a id="a601e741e820ef44dce554ddf08d0d39e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a601e741e820ef44dce554ddf08d0d39e">EPILEPSY_ASSERT_WITH_MSG</a>(expr,  message)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a521c93242ebd08103aebebb286e2e82d">EPILEPSY_ASSERT_EQ_WITH_MSG</a>(<a class="el" href="aux_8h.html#a4a07d10eba3ea6d8a2530161c789f258">EPILEPSY_EXPAND</a>(expr), <a class="el" href="lang_8h.html#accda83681bf7cf367504a2fd1e31b651">v</a>(true), message)</td></tr>
-<tr class="memdesc:a601e741e820ef44dce554ddf08d0d39e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a6395f44a4cd52809013099f8454f25e3" title="Asserts EPILEPSY_EVAL(expr). ">EPILEPSY_ASSERT</a> but accepts an error message. <br /></td></tr>
-<tr class="separator:a601e741e820ef44dce554ddf08d0d39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="memItemLeft" align="right" valign="top"><a id="a0e8e70d2d5e47c825e72d8ada9fbe879"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879">EPILEPSY_ASSERT_EQ</a>(lhs,  rhs)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2">EPILEPSY_C_STATIC_ASSERT</a>(<a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79">EPILEPSY_EVAL</a>(lhs) == <a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79">EPILEPSY_EVAL</a>(rhs))</td></tr>
-<tr class="memdesc:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts that <code><a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79" title="Evaluates a metaprogram. ">EPILEPSY_EVAL(lhs)</a></code> is equal to <code><a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79" title="Evaluates a metaprogram. ">EPILEPSY_EVAL(rhs)</a></code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879">EPILEPSY_ASSERT_EQ</a>(lhs,  rhs)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2">EPILEPSY_C_STATIC_ASSERT</a>(EPILEPSY_EVAL(lhs) == EPILEPSY_EVAL(rhs))</td></tr>
+<tr class="memdesc:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts the equality of <code>EPILEPSY_EVAL(lhs)</code> and <code>EPILEPSY_EVAL(rhs)</code>. <br /></td></tr>
 <tr class="separator:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a521c93242ebd08103aebebb286e2e82d"><td class="memItemLeft" align="right" valign="top"><a id="a521c93242ebd08103aebebb286e2e82d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a521c93242ebd08103aebebb286e2e82d">EPILEPSY_ASSERT_EQ_WITH_MSG</a>(lhs,  rhs,  message)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a3bb8ca8db992b6778afe4021150bdb4d">EPILEPSY_C_STATIC_ASSERT_WITH_MSG</a>(<a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79">EPILEPSY_EVAL</a>(lhs) == <a class="el" href="eval_8h.html#a8bfc64032d5f419564907610efbcce79">EPILEPSY_EVAL</a>(rhs), message)</td></tr>
-<tr class="memdesc:a521c93242ebd08103aebebb286e2e82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879" title="Asserts that EPILEPSY_EVAL(lhs) is equal to EPILEPSY_EVAL(rhs). ">EPILEPSY_ASSERT_EQ</a> but accepts an error message. <br /></td></tr>
-<tr class="separator:a521c93242ebd08103aebebb286e2e82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85810d51e6536a2a958e9e11a4f00fe2"><td class="memItemLeft" align="right" valign="top"><a id="a85810d51e6536a2a958e9e11a4f00fe2"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2">EPILEPSY_C_STATIC_ASSERT</a>(expr)&#160;&#160;&#160;EPILEPSY_PRIV_C_STATIC_ASSERT_IMPL(expr)</td></tr>
-<tr class="memdesc:a85810d51e6536a2a958e9e11a4f00fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts a constant expression <code>expr</code>. <br /></td></tr>
+<tr class="memdesc:a85810d51e6536a2a958e9e11a4f00fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts the C constant expression <code>expr</code>. <br /></td></tr>
 <tr class="separator:a85810d51e6536a2a958e9e11a4f00fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb8ca8db992b6778afe4021150bdb4d"><td class="memItemLeft" align="right" valign="top"><a id="a3bb8ca8db992b6778afe4021150bdb4d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a3bb8ca8db992b6778afe4021150bdb4d">EPILEPSY_C_STATIC_ASSERT_WITH_MSG</a>(expr,  message)&#160;&#160;&#160;EPILEPSY_PRIV_C_STATIC_ASSERT_WITH_MSG_IMPL(expr, message)</td></tr>
-<tr class="memdesc:a3bb8ca8db992b6778afe4021150bdb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2" title="Asserts a constant expression expr. ">EPILEPSY_C_STATIC_ASSERT</a> but accept an error message. <br /></td></tr>
-<tr class="separator:a3bb8ca8db992b6778afe4021150bdb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static assertions. </p>

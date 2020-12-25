@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief An optional value.
+ * An optional value.
  */
 
 #ifndef EPILEPSY_MAYBE_H
@@ -11,25 +11,27 @@
 
 // Desugaring {
 /**
- * @brief Some value @p x.
+ * Some value @p x.
  */
 #define EPILEPSY_MaybeJust(x) call(EPILEPSY_MaybeJust_IMPL, x)
 
 /**
- * @brief No value.
+ * No value.
  */
 #define EPILEPSY_MaybeNothing() call(EPILEPSY_MaybeNothing_IMPL, )
 
 /**
- * @brief 1 if @p maybe contains some value, otherwise 0.
+ * 1 if @p maybe contains some value, otherwise 0.
  */
 #define EPILEPSY_MaybeIsJust(maybe) call(EPILEPSY_MaybeIsJust_IMPL, maybe)
 
 /**
- * @brief 1 if @p maybe contains no value, otherwise 0.
+ * 1 if @p maybe contains no value, otherwise 0.
  */
 #define EPILEPSY_MaybeIsNothing(maybe) call(EPILEPSY_MaybeIsNothing_IMPL, maybe)
 // }
+
+#ifndef DOXYGEN_IGNORE
 
 // Implementation {
 #define EPILEPSY_MaybeJust_IMPL(x)   EPILEPSY_CHOICE(v(MaybeJust) v(x))
@@ -42,5 +44,7 @@
 
 #define EPILEPSY_MaybeIsNothing_IMPL(maybe) EPILEPSY_NOT(EPILEPSY_MaybeIsJust(v(maybe)))
 // }
+
+#endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_MAYBE_H

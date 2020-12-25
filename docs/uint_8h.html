@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,13 +96,21 @@ $(document).ready(function(){initNavTree('uint_8h.html','');});
 
 <p>Unsigned integers.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">epilepsy/lang.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="control_8h_source.html">epilepsy/control.h</a>&gt;</code><br />
+<code>#include &lt;epilepsy/lang.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="list_8h_source.html">epilepsy/list.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="logical_8h_source.html">epilepsy/logical.h</a>&gt;</code><br />
+<code>#include &lt;epilepsy/uint/dec.h&gt;</code><br />
+<code>#include &lt;epilepsy/uint/eq.h&gt;</code><br />
+<code>#include &lt;epilepsy/uint/inc.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="uint_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2uint_8hdep" alt=""/></div>
 <map name="include_2epilepsy_2uint_8hdep" id="include_2epilepsy_2uint_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="17,80,144,107"/>
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="5,229,132,256"/>
+<area shape="rect" id="node3" href="list_8h.html" title="Lists. " alt="" coords="55,80,202,107"/>
+<area shape="rect" id="node4" href="record_8h.html" title="Record types. " alt="" coords="107,155,273,181"/>
 </map>
 </div>
 </div>
@@ -104,38 +118,46 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:abb900b638e07fe7d54661dd98dd49ba8"><td class="memItemLeft" align="right" valign="top"><a id="abb900b638e07fe7d54661dd98dd49ba8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#abb900b638e07fe7d54661dd98dd49ba8">EPILEPSY_UINT_INC</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UINT_INC_REAL, x)</td></tr>
-<tr class="memdesc:abb900b638e07fe7d54661dd98dd49ba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments <code>x</code>. <br /></td></tr>
-<tr class="separator:abb900b638e07fe7d54661dd98dd49ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09b97ab12e5b4696cdfe4be7343d0282"><td class="memItemLeft" align="right" valign="top"><a id="a09b97ab12e5b4696cdfe4be7343d0282"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#a09b97ab12e5b4696cdfe4be7343d0282">EPILEPSY_UINT_DEC</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UINT_DEC_REAL, x)</td></tr>
-<tr class="memdesc:a09b97ab12e5b4696cdfe4be7343d0282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrements <code>x</code>. <br /></td></tr>
-<tr class="separator:a09b97ab12e5b4696cdfe4be7343d0282"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1454dfab75157451e18490078f3fd3a5"><td class="memItemLeft" align="right" valign="top"><a id="a1454dfab75157451e18490078f3fd3a5"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#a1454dfab75157451e18490078f3fd3a5">EPILEPSY_UINT_EQ</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UINT_EQ_REAL, x y)</td></tr>
-<tr class="memdesc:a1454dfab75157451e18490078f3fd3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>x</code> and <code>y</code> are equal. <br /></td></tr>
-<tr class="separator:a1454dfab75157451e18490078f3fd3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b0aced9ee77dac75430a772676c2ed4"><td class="memItemLeft" align="right" valign="top"><a id="a9b0aced9ee77dac75430a772676c2ed4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#a9b0aced9ee77dac75430a772676c2ed4">EPILEPSY_UINT_NEQ</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UINT_NEQ_REAL, x y)</td></tr>
-<tr class="memdesc:a9b0aced9ee77dac75430a772676c2ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>x</code> and <code>y</code> are <b>not</b> equal. <br /></td></tr>
-<tr class="separator:a9b0aced9ee77dac75430a772676c2ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59ea9abf18a743fbb75dcab61df76fc2"><td class="memItemLeft" align="right" valign="top"><a id="a59ea9abf18a743fbb75dcab61df76fc2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#a59ea9abf18a743fbb75dcab61df76fc2">EPILEPSY_UINT_GREATER</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UINT_GREATER_REAL, x y)</td></tr>
-<tr class="memdesc:a59ea9abf18a743fbb75dcab61df76fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>x</code> is greater than <code>y</code>. <br /></td></tr>
-<tr class="separator:a59ea9abf18a743fbb75dcab61df76fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85b11bb6a6fd33b0916a950b575a319a"><td class="memItemLeft" align="right" valign="top"><a id="a85b11bb6a6fd33b0916a950b575a319a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#a85b11bb6a6fd33b0916a950b575a319a">EPILEPSY_UINT_GREATER_EQUAL</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UINT_GREATER_EQUAL_REAL, x y)</td></tr>
-<tr class="memdesc:a85b11bb6a6fd33b0916a950b575a319a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>x</code> is greater or equal than <code>y</code>. <br /></td></tr>
-<tr class="separator:a85b11bb6a6fd33b0916a950b575a319a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad340ba6347941ed5c28b6877d3fcd92e"><td class="memItemLeft" align="right" valign="top"><a id="ad340ba6347941ed5c28b6877d3fcd92e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#ad340ba6347941ed5c28b6877d3fcd92e">EPILEPSY_UINT_LESSER</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UINT_LESSER_REAL, x y)</td></tr>
-<tr class="memdesc:ad340ba6347941ed5c28b6877d3fcd92e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>x</code> is lesser than <code>y</code>. <br /></td></tr>
-<tr class="separator:ad340ba6347941ed5c28b6877d3fcd92e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ea88d7dfd5ca49890230695293d517d"><td class="memItemLeft" align="right" valign="top"><a id="a1ea88d7dfd5ca49890230695293d517d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#a1ea88d7dfd5ca49890230695293d517d">EPILEPSY_UINT_LESSER_EQUAL</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_UINT_LESSER_EQUAL_REAL, x y)</td></tr>
-<tr class="memdesc:a1ea88d7dfd5ca49890230695293d517d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>x</code> is lesser or equal than <code>y</code>. <br /></td></tr>
-<tr class="separator:a1ea88d7dfd5ca49890230695293d517d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa500d4f9d0936c60a31c508062e19b2"><td class="memItemLeft" align="right" valign="top"><a id="afa500d4f9d0936c60a31c508062e19b2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#afa500d4f9d0936c60a31c508062e19b2">EPILEPSY_UIntInc</a>(x)&#160;&#160;&#160;call(EPILEPSY_UIntInc_IMPL, x)</td></tr>
+<tr class="memdesc:afa500d4f9d0936c60a31c508062e19b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x + 1\) <br /></td></tr>
+<tr class="separator:afa500d4f9d0936c60a31c508062e19b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8c8021722ba9bb3ce55901b19d32384"><td class="memItemLeft" align="right" valign="top"><a id="af8c8021722ba9bb3ce55901b19d32384"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#af8c8021722ba9bb3ce55901b19d32384">EPILEPSY_UIntDec</a>(x)&#160;&#160;&#160;call(EPILEPSY_UIntDec_IMPL, x)</td></tr>
+<tr class="memdesc:af8c8021722ba9bb3ce55901b19d32384"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x - 1\) <br /></td></tr>
+<tr class="separator:af8c8021722ba9bb3ce55901b19d32384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe752766262b6630625d65dca63274d"><td class="memItemLeft" align="right" valign="top"><a id="abfe752766262b6630625d65dca63274d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#abfe752766262b6630625d65dca63274d">EPILEPSY_UIntEq</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_UIntEq_IMPL, x y)</td></tr>
+<tr class="memdesc:abfe752766262b6630625d65dca63274d"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x = y\) <br /></td></tr>
+<tr class="separator:abfe752766262b6630625d65dca63274d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad35b250aa390c6a3dadb9ecc708e1d91"><td class="memItemLeft" align="right" valign="top"><a id="ad35b250aa390c6a3dadb9ecc708e1d91"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#ad35b250aa390c6a3dadb9ecc708e1d91">EPILEPSY_UIntNeq</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_UIntNeq_IMPL, x y)</td></tr>
+<tr class="memdesc:ad35b250aa390c6a3dadb9ecc708e1d91"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x \neq y\) <br /></td></tr>
+<tr class="separator:ad35b250aa390c6a3dadb9ecc708e1d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a516a4fb4e2886c323412d28ec759fb1e"><td class="memItemLeft" align="right" valign="top"><a id="a516a4fb4e2886c323412d28ec759fb1e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#a516a4fb4e2886c323412d28ec759fb1e">EPILEPSY_UIntGreater</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_UIntGreater_IMPL, x y)</td></tr>
+<tr class="memdesc:a516a4fb4e2886c323412d28ec759fb1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x &gt; y\) <br /></td></tr>
+<tr class="separator:a516a4fb4e2886c323412d28ec759fb1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8e8a8ec7c55f2e1219f16bc2c53f6e"><td class="memItemLeft" align="right" valign="top"><a id="afe8e8a8ec7c55f2e1219f16bc2c53f6e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#afe8e8a8ec7c55f2e1219f16bc2c53f6e">EPILEPSY_UIntGreaterEq</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_UIntGreaterEq_IMPL, x y)</td></tr>
+<tr class="memdesc:afe8e8a8ec7c55f2e1219f16bc2c53f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x \geq y\) <br /></td></tr>
+<tr class="separator:afe8e8a8ec7c55f2e1219f16bc2c53f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cac5ef406b0719f594fd588633df6d4"><td class="memItemLeft" align="right" valign="top"><a id="a4cac5ef406b0719f594fd588633df6d4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#a4cac5ef406b0719f594fd588633df6d4">EPILEPSY_UIntLesser</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_UIntLesser_IMPL, x y)</td></tr>
+<tr class="memdesc:a4cac5ef406b0719f594fd588633df6d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x &lt; y\) <br /></td></tr>
+<tr class="separator:a4cac5ef406b0719f594fd588633df6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb4dc8690e6d6f36c596d9ae1cb2322a"><td class="memItemLeft" align="right" valign="top"><a id="aeb4dc8690e6d6f36c596d9ae1cb2322a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#aeb4dc8690e6d6f36c596d9ae1cb2322a">EPILEPSY_UIntLesserEq</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_UIntLesserEq_IMPL, x y)</td></tr>
+<tr class="memdesc:aeb4dc8690e6d6f36c596d9ae1cb2322a"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x \leq y\) <br /></td></tr>
+<tr class="separator:aeb4dc8690e6d6f36c596d9ae1cb2322a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac872918b03a995e8cbe3bd0c9d11eb60"><td class="memItemLeft" align="right" valign="top"><a id="ac872918b03a995e8cbe3bd0c9d11eb60"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#ac872918b03a995e8cbe3bd0c9d11eb60">EPILEPSY_UIntAdd</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_UIntAdd_IMPL, x y)</td></tr>
+<tr class="memdesc:ac872918b03a995e8cbe3bd0c9d11eb60"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x + y\) <br /></td></tr>
+<tr class="separator:ac872918b03a995e8cbe3bd0c9d11eb60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae68228f85174cddaaf7f123c46f9bc95"><td class="memItemLeft" align="right" valign="top"><a id="ae68228f85174cddaaf7f123c46f9bc95"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uint_8h.html#ae68228f85174cddaaf7f123c46f9bc95">EPILEPSY_UIntAddVariadics</a>(...)&#160;&#160;&#160;call(EPILEPSY_UIntAddVariadics_IMPL, __VA_ARGS__)</td></tr>
+<tr class="memdesc:ae68228f85174cddaaf7f123c46f9bc95"><td class="mdescLeft">&#160;</td><td class="mdescRight">\(x_1 + \ldots + x_n\) <br /></td></tr>
+<tr class="separator:ae68228f85174cddaaf7f123c46f9bc95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Unsigned integers. </p>

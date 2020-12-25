@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -91,12 +97,13 @@ $(document).ready(function(){initNavTree('maybe_8h.html','');});
 <p>An optional value.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="choice_8h_source.html">epilepsy/choice.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="logical_8h_source.html">epilepsy/logical.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="maybe_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2maybe_8hdep" alt=""/></div>
 <map name="include_2epilepsy_2maybe_8hdep" id="include_2epilepsy_2maybe_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="27,80,153,107"/>
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="27,80,153,107"/>
 </map>
 </div>
 </div>
@@ -105,19 +112,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a65ccee90a802834507944e130d1a1c2f"><td class="memItemLeft" align="right" valign="top"><a id="a65ccee90a802834507944e130d1a1c2f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maybe_8h.html#a65ccee90a802834507944e130d1a1c2f">EPILEPSY_MaybeJust</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_MaybeJust_REAL, x)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maybe_8h.html#a65ccee90a802834507944e130d1a1c2f">EPILEPSY_MaybeJust</a>(x)&#160;&#160;&#160;call(EPILEPSY_MaybeJust_IMPL, x)</td></tr>
 <tr class="memdesc:a65ccee90a802834507944e130d1a1c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Some value <code>x</code>. <br /></td></tr>
 <tr class="separator:a65ccee90a802834507944e130d1a1c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76f507b977a8244367f32675fe744aa4"><td class="memItemLeft" align="right" valign="top"><a id="a76f507b977a8244367f32675fe744aa4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maybe_8h.html#a76f507b977a8244367f32675fe744aa4">EPILEPSY_MaybeNothing</a>()&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_MaybeNothing_REAL, )</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maybe_8h.html#a76f507b977a8244367f32675fe744aa4">EPILEPSY_MaybeNothing</a>()&#160;&#160;&#160;call(EPILEPSY_MaybeNothing_IMPL, )</td></tr>
 <tr class="memdesc:a76f507b977a8244367f32675fe744aa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">No value. <br /></td></tr>
 <tr class="separator:a76f507b977a8244367f32675fe744aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77ae86bf0d9673a1ada34818a5d56f73"><td class="memItemLeft" align="right" valign="top"><a id="a77ae86bf0d9673a1ada34818a5d56f73"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maybe_8h.html#a77ae86bf0d9673a1ada34818a5d56f73">EPILEPSY_MaybeIsJust</a>(maybe)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_MaybeIsJust_REAL, maybe)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maybe_8h.html#a77ae86bf0d9673a1ada34818a5d56f73">EPILEPSY_MaybeIsJust</a>(maybe)&#160;&#160;&#160;call(EPILEPSY_MaybeIsJust_IMPL, maybe)</td></tr>
 <tr class="memdesc:a77ae86bf0d9673a1ada34818a5d56f73"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 if <code>maybe</code> contains some value, otherwise 0. <br /></td></tr>
 <tr class="separator:a77ae86bf0d9673a1ada34818a5d56f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ee059edd5f7896e6797c2de266681d9"><td class="memItemLeft" align="right" valign="top"><a id="a6ee059edd5f7896e6797c2de266681d9"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maybe_8h.html#a6ee059edd5f7896e6797c2de266681d9">EPILEPSY_MaybeIsNothing</a>(maybe)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_MaybeIsNothing_REAL, maybe)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="maybe_8h.html#a6ee059edd5f7896e6797c2de266681d9">EPILEPSY_MaybeIsNothing</a>(maybe)&#160;&#160;&#160;call(EPILEPSY_MaybeIsNothing_IMPL, maybe)</td></tr>
 <tr class="memdesc:a6ee059edd5f7896e6797c2de266681d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 if <code>maybe</code> contains no value, otherwise 0. <br /></td></tr>
 <tr class="separator:a6ee059edd5f7896e6797c2de266681d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

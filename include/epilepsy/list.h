@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief Lists.
+ * Lists.
  */
 
 #ifndef EPILEPSY_LIST_H
@@ -14,30 +14,32 @@
 
 // Desugaring {
 /**
- * @brief Prepends an item to a list.
+ * Prepends @p head to @p tail.
  */
 #define EPILEPSY_Cons(head, tail) call(EPILEPSY_Cons_IMPL, head tail)
 
 /**
- * @brief The empty list.
+ * The empty list.
  */
 #define EPILEPSY_Nil() call(EPILEPSY_Nil_IMPL, )
 
 /**
- * @brief Constructs a list from supplied arguments.
+ * Constructs a list from its arguments.
  */
 #define EPILEPSY_List(...) call(EPILEPSY_List_IMPL, __VA_ARGS__)
 
 /**
- * @brief Performs a right fold.
+ * Performs a right fold.
  */
 #define EPILEPSY_ListFoldr(list, op, init) call(EPILEPSY_ListFoldr_IMPL, list op init)
 
 /**
- * @brief Gets an @p i -indexed element.
+ * Gets an @p i -indexed element.
  */
 #define EPILEPSY_ListGet(list, i) call(EPILEPSY_ListGet_IMPL, list i)
 // }
+
+#ifndef DOXYGEN_IGNORE
 
 // Implementation {
 #define EPILEPSY_Cons_IMPL(head, tail) EPILEPSY_CHOICE(v(Cons), v(head, tail))
@@ -70,5 +72,7 @@
 #define EPILEPSY_PRIV_ListGet_Cons_PROGRESS(_head, tail, i)                                        \
     EPILEPSY_ListGet(v(tail), EPILEPSY_UIntDec(v(i)))
 // }
+
+#endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_LIST_H

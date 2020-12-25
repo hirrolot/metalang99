@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief Re-exports all the functionality.
+ * Everything Epilepsy provides.
  */
 
 #ifndef EPILEPSY_H
@@ -12,7 +12,6 @@
 #include <epilepsy/control.h>
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
-#include <epilepsy/limits.h>
 #include <epilepsy/list.h>
 #include <epilepsy/maybe.h>
 #include <epilepsy/overload.h>

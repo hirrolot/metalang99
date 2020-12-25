@@ -1,23 +1,6 @@
 var NAVTREE =
 [
   [ "Epilepsy", "index.html", [
-    [ "Introduction", "index.html", [
-      [ "Summary", "index.html#Summary", [
-        [ "Metalanguage syntax", "index.html#_0", null ],
-        [ "Evaluation of metaprograms", "index.html#_1", null ],
-        [ "Auxiliary macros", "index.html#_2", null ],
-        [ "Control expressions", "index.html#_3", null ],
-        [ "Choice types", "index.html#_4", null ],
-        [ "Maybe", "index.html#_5", null ],
-        [ "Either", "index.html#_7", null ],
-        [ "Implementation limits", "index.html#_8", null ],
-        [ "Boolean algebra", "index.html#_9", null ],
-        [ "Overloading on a number of arguments", "index.html#_10", null ],
-        [ "Unsigned integers", "index.html#_11", null ],
-        [ "Utilities for variadic macros", "index.html#_12", null ],
-        [ "Static assertions", "index.html#_13", null ]
-      ] ]
-    ] ],
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
       [ "Globals", "globals.html", [

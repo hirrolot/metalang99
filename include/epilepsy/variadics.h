@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief Utilities for variadic macros.
+ * Variadic macro utilities.
  */
 
 #ifndef EPILEPSY_VARIADICS_H
@@ -11,25 +11,29 @@
 
 // Desugaring {
 /**
- * @brief Computes a count of provided arguments.
+ * Computes a count of its arguments.
  */
 #define EPILEPSY_VARIADICS_COUNT(...) call(EPILEPSY_VARIADICS_COUNT_IMPL, __VA_ARGS__)
 
 /**
- * @brief Extracts a head of provided arguments.
+ * Extracts a head of its arguments.
  */
 #define EPILEPSY_VARIADICS_HEAD(...) call(EPILEPSY_VARIADICS_HEAD_IMPL, __VA_ARGS__)
 
 /**
- * @brief Extracts a tail of provided arguments.
+ * Extracts a tail of its arguments.
  */
 #define EPILEPSY_VARIADICS_TAIL(...) call(EPILEPSY_VARIADICS_TAIL_IMPL, __VA_ARGS__)
 // }
+
+#ifndef DOXYGEN_IGNORE
 
 // Implementation {
 #define EPILEPSY_VARIADICS_COUNT_IMPL(...)   v(EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__))
 #define EPILEPSY_VARIADICS_HEAD_IMPL(x, ...) v(x)
 #define EPILEPSY_VARIADICS_TAIL_IMPL(x, ...) v(__VA_ARGS__)
 // }
+
+#endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_VARIADICS_H

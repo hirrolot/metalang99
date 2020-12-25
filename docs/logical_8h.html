@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,28 +96,49 @@ $(document).ready(function(){initNavTree('logical_8h.html','');});
 
 <p>Boolean algebra.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">epilepsy/lang.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;epilepsy/lang.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="logical_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2logical_8hdep" alt=""/></div>
+<map name="include_2epilepsy_2logical_8hdep" id="include_2epilepsy_2logical_8hdep">
+<area shape="rect" id="node2" href="either_8h.html" title="A choice type with two cases. " alt="" coords="5,80,168,107"/>
+<area shape="rect" id="node3" href="list_8h.html" title="Lists. " alt="" coords="192,80,339,107"/>
+<area shape="rect" id="node6" href="uint_8h.html" title="Unsigned integers. " alt="" coords="267,155,418,181"/>
+<area shape="rect" id="node7" href="maybe_8h.html" title="An optional value. " alt="" coords="442,155,611,181"/>
+<area shape="rect" id="node4" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="187,229,314,256"/>
+<area shape="rect" id="node5" href="record_8h.html" title="Record types. " alt="" coords="77,155,243,181"/>
+</map>
+</div>
 </div>
 <p><a href="logical_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a9f2efbd7834db6f77490f6e897f66a42"><td class="memItemLeft" align="right" valign="top"><a id="a9f2efbd7834db6f77490f6e897f66a42"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#a9f2efbd7834db6f77490f6e897f66a42">EPILEPSY_NOT</a>(x)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_NOT_REAL, x)</td></tr>
-<tr class="memdesc:a9f2efbd7834db6f77490f6e897f66a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negates <code>x</code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#a9f2efbd7834db6f77490f6e897f66a42">EPILEPSY_NOT</a>(x)&#160;&#160;&#160;call(EPILEPSY_NOT_IMPL, x)</td></tr>
+<tr class="memdesc:a9f2efbd7834db6f77490f6e897f66a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logical negation. <br /></td></tr>
 <tr class="separator:a9f2efbd7834db6f77490f6e897f66a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed5109ba08657d25df32fbd9f35ef5b0"><td class="memItemLeft" align="right" valign="top"><a id="aed5109ba08657d25df32fbd9f35ef5b0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#aed5109ba08657d25df32fbd9f35ef5b0">EPILEPSY_AND</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_AND_REAL, x y)</td></tr>
-<tr class="memdesc:aed5109ba08657d25df32fbd9f35ef5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs logical conjunction on <code>and</code> <code>y</code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#aed5109ba08657d25df32fbd9f35ef5b0">EPILEPSY_AND</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_AND_IMPL, x y)</td></tr>
+<tr class="memdesc:aed5109ba08657d25df32fbd9f35ef5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logical conjunction. <br /></td></tr>
 <tr class="separator:aed5109ba08657d25df32fbd9f35ef5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a6f3534ad92d6d1768e16653c98c46e"><td class="memItemLeft" align="right" valign="top"><a id="a0a6f3534ad92d6d1768e16653c98c46e"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#a0a6f3534ad92d6d1768e16653c98c46e">EPILEPSY_OR</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_OR_REAL, x y)</td></tr>
-<tr class="memdesc:a0a6f3534ad92d6d1768e16653c98c46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs inclusive OR on <code>and</code> <code>y</code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#a0a6f3534ad92d6d1768e16653c98c46e">EPILEPSY_OR</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_OR_IMPL, x y)</td></tr>
+<tr class="memdesc:a0a6f3534ad92d6d1768e16653c98c46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logical inclusive OR. <br /></td></tr>
 <tr class="separator:a0a6f3534ad92d6d1768e16653c98c46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff1f850dc85afb7e3e0886ca39ae3b4d"><td class="memItemLeft" align="right" valign="top"><a id="aff1f850dc85afb7e3e0886ca39ae3b4d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#aff1f850dc85afb7e3e0886ca39ae3b4d">EPILEPSY_XOR</a>(x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_XOR_REAL, x y)</td></tr>
-<tr class="memdesc:aff1f850dc85afb7e3e0886ca39ae3b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs exclusive OR on <code>and</code> <code>y</code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#aff1f850dc85afb7e3e0886ca39ae3b4d">EPILEPSY_XOR</a>(x,  y)&#160;&#160;&#160;call(EPILEPSY_XOR_IMPL, x y)</td></tr>
+<tr class="memdesc:aff1f850dc85afb7e3e0886ca39ae3b4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logical exclusive OR. <br /></td></tr>
 <tr class="separator:aff1f850dc85afb7e3e0886ca39ae3b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72fb506d1298e492c78b571fbf045af5"><td class="memItemLeft" align="right" valign="top"><a id="a72fb506d1298e492c78b571fbf045af5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#a72fb506d1298e492c78b571fbf045af5">EPILEPSY_CONST_TRUE</a>(...)&#160;&#160;&#160;call(EPILEPSY_CONST_TRUE_IMPL, __VA_ARGS__)</td></tr>
+<tr class="memdesc:a72fb506d1298e492c78b571fbf045af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to 1, consuming all arguments. <br /></td></tr>
+<tr class="separator:a72fb506d1298e492c78b571fbf045af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af275a9dd496b0c45ee4acfc65a5a13d1"><td class="memItemLeft" align="right" valign="top"><a id="af275a9dd496b0c45ee4acfc65a5a13d1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logical_8h.html#af275a9dd496b0c45ee4acfc65a5a13d1">EPILEPSY_CONST_FALSE</a>(...)&#160;&#160;&#160;call(EPILEPSY_CONST_FALSE_IMPL, __VA_ARGS__)</td></tr>
+<tr class="memdesc:af275a9dd496b0c45ee4acfc65a5a13d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands to 0, consuming all arguments. <br /></td></tr>
+<tr class="separator:af275a9dd496b0c45ee4acfc65a5a13d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Boolean algebra. </p>

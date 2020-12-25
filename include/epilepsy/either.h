@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief A choice type with two cases.
+ * A choice type with two cases.
  */
 
 #ifndef EPILEPSY_EITHER_H
@@ -11,25 +11,27 @@
 
 // Desugaring {
 /**
- * @brief Some value @p x.
+ * The left value @p x.
  */
 #define EPILEPSY_EitherLeft(x) call(EPILEPSY_EitherLeft_IMPL, x)
 
 /**
- * @brief No value.
+ * The right value @p x.
  */
 #define EPILEPSY_EitherRight(x) call(EPILEPSY_EitherRight_IMPL, x)
 
 /**
- * @brief 1 if @p either contains some value, otherwise 0.
+ * 1 if @p either contains a left value, otherwise 0.
  */
 #define EPILEPSY_EitherIsLeft(either) call(EPILEPSY_EitherIsLeft_IMPL, either)
 
 /**
- * @brief 1 if @p either contains no value, otherwise 0.
+ * 1 if @p either contains a right value, otherwise 0.
  */
 #define EPILEPSY_EitherIsRight(either) call(EPILEPSY_EitherIsRight_IMPL, either)
 // }
+
+#ifndef DOXYGEN_IGNORE
 
 // Implementation {
 #define EPILEPSY_EitherLeft_IMPL(x)  EPILEPSY_CHOICE(v(EitherLeft) v(x))
@@ -41,5 +43,7 @@
 
 #define EPILEPSY_EitherIsRight_IMPL(either) EPILEPSY_NOT(EPILEPSY_EitherIsLeft(v(either)))
 // }
+
+#endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_EITHER_H

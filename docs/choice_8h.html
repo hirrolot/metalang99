@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,15 +96,22 @@ $(document).ready(function(){initNavTree('choice_8h.html','');});
 
 <p>Choice types.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="lang_8h_source.html">epilepsy/lang.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="aux_8h_source.html">epilepsy/aux.h</a>&gt;</code><br />
+<code>#include &lt;epilepsy/lang.h&gt;</code><br />
+<code>#include &lt;epilepsy/priv/aux.h&gt;</code><br />
+<code>#include &lt;epilepsy/priv/overload.h&gt;</code><br />
+<code>#include &lt;epilepsy/priv/pair.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="choice_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2choice_8hdep" alt=""/></div>
 <map name="include_2epilepsy_2choice_8hdep" id="include_2epilepsy_2choice_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="76,155,203,181"/>
-<area shape="rect" id="node3" href="either_8h.html" title="A choice type with two cases. " alt="" coords="22,80,185,107"/>
-<area shape="rect" id="node4" href="maybe_8h.html" title="An optional value. " alt="" coords="210,80,379,107"/>
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="69,229,195,256"/>
+<area shape="rect" id="node3" href="either_8h.html" title="A choice type with two cases. " alt="" coords="25,80,188,107"/>
+<area shape="rect" id="node4" href="list_8h.html" title="Lists. " alt="" coords="212,80,359,107"/>
+<area shape="rect" id="node7" href="maybe_8h.html" title="An optional value. " alt="" coords="414,155,583,181"/>
+<area shape="rect" id="node5" href="record_8h.html" title="Record types. " alt="" coords="49,155,215,181"/>
+<area shape="rect" id="node6" href="uint_8h.html" title="Unsigned integers. " alt="" coords="239,155,390,181"/>
 </map>
 </div>
 </div>
@@ -106,14 +119,18 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a6e9e67f34d4a1a83d9ae290434c88670"><td class="memItemLeft" align="right" valign="top"><a id="a6e9e67f34d4a1a83d9ae290434c88670"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="choice_8h.html#a6e9e67f34d4a1a83d9ae290434c88670">EPILEPSY_CHOICE</a>(...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_CHOICE_REAL, __VA_ARGS__)</td></tr>
-<tr class="memdesc:a6e9e67f34d4a1a83d9ae290434c88670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of a choice type. <br /></td></tr>
-<tr class="separator:a6e9e67f34d4a1a83d9ae290434c88670"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad31a35bdba82ac750c211d101e384817"><td class="memItemLeft" align="right" valign="top"><a id="ad31a35bdba82ac750c211d101e384817"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="choice_8h.html#ad31a35bdba82ac750c211d101e384817">EPILEPSY_CHOICE_MATCH</a>(choice,  matcher, ...)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_CHOICE_MATCH_REAL, choice matcher __VA_ARGS__)</td></tr>
-<tr class="memdesc:ad31a35bdba82ac750c211d101e384817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matches an instance of a choice type. <br /></td></tr>
-<tr class="separator:ad31a35bdba82ac750c211d101e384817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618448f23322cd0fe6e7b0dad6018d48"><td class="memItemLeft" align="right" valign="top"><a id="a618448f23322cd0fe6e7b0dad6018d48"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="choice_8h.html#a618448f23322cd0fe6e7b0dad6018d48">EPILEPSY_CHOICE</a>(tag, ...)&#160;&#160;&#160;call(EPILEPSY_CHOICE_IMPL, tag __VA_ARGS__)</td></tr>
+<tr class="memdesc:a618448f23322cd0fe6e7b0dad6018d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an instance of a choice type. <br /></td></tr>
+<tr class="separator:a618448f23322cd0fe6e7b0dad6018d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9afc605d26fc8660997939be3bae9c00"><td class="memItemLeft" align="right" valign="top"><a id="a9afc605d26fc8660997939be3bae9c00"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="choice_8h.html#a9afc605d26fc8660997939be3bae9c00">EPILEPSY_MATCH</a>(choice,  matcher)&#160;&#160;&#160;call(EPILEPSY_MATCH_IMPL, choice matcher)</td></tr>
+<tr class="memdesc:a9afc605d26fc8660997939be3bae9c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matches the instance <code>choice</code> of a choice type. <br /></td></tr>
+<tr class="separator:a9afc605d26fc8660997939be3bae9c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17402a0693a7920f9830f9e45b2e19f7"><td class="memItemLeft" align="right" valign="top"><a id="a17402a0693a7920f9830f9e45b2e19f7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="choice_8h.html#a17402a0693a7920f9830f9e45b2e19f7">EPILEPSY_MATCH_WITH_ARGS</a>(choice,  matcher, ...)&#160;&#160;&#160;call(EPILEPSY_MATCH_WITH_ARGS_IMPL, choice matcher __VA_ARGS__)</td></tr>
+<tr class="memdesc:a17402a0693a7920f9830f9e45b2e19f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="choice_8h.html#a9afc605d26fc8660997939be3bae9c00" title="Matches the instance choice of a choice type. ">EPILEPSY_MATCH</a> but supplies additional arguments to all branches. <br /></td></tr>
+<tr class="separator:a17402a0693a7920f9830f9e45b2e19f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Choice types. </p>

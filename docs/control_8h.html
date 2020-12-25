@@ -19,6 +19,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,12 +96,16 @@ $(document).ready(function(){initNavTree('control_8h.html','');});
 
 <p>Control expressions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &lt;epilepsy/lang.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="control_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2control_8hdep" alt=""/></div>
 <map name="include_2epilepsy_2control_8hdep" id="include_2epilepsy_2control_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Re&#45;exports all the functionality. " alt="" coords="27,80,153,107"/>
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="5,229,132,256"/>
+<area shape="rect" id="node3" href="list_8h.html" title="Lists. " alt="" coords="74,80,221,107"/>
+<area shape="rect" id="node5" href="uint_8h.html" title="Unsigned integers. " alt="" coords="237,155,388,181"/>
+<area shape="rect" id="node4" href="record_8h.html" title="Record types. " alt="" coords="47,155,213,181"/>
 </map>
 </div>
 </div>
@@ -104,12 +114,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a1a8154ae70bba213845a654584ddad6f"><td class="memItemLeft" align="right" valign="top"><a id="a1a8154ae70bba213845a654584ddad6f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a1a8154ae70bba213845a654584ddad6f">EPILEPSY_IF</a>(cond,  x,  y)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_IF_REAL, cond x y)</td></tr>
-<tr class="memdesc:a1a8154ae70bba213845a654584ddad6f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>x</code> if <code>cond</code> expands to 1, otherwise <code>y</code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a1a8154ae70bba213845a654584ddad6f">EPILEPSY_IF</a>(cond,  x,  y)&#160;&#160;&#160;call(EPILEPSY_IF_IMPL, cond x y)</td></tr>
+<tr class="memdesc:a1a8154ae70bba213845a654584ddad6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">If <code>cond</code> is true, expands to <code>x</code>, otherwise <code>y</code>. <br /></td></tr>
 <tr class="separator:a1a8154ae70bba213845a654584ddad6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c3e724c52ac6a198607197e4ff0e81"><td class="memItemLeft" align="right" valign="top"><a id="a08c3e724c52ac6a198607197e4ff0e81"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a08c3e724c52ac6a198607197e4ff0e81">EPILEPSY_IF_LAZY</a>(cond,  op_if_true,  op_if_false, ...)&#160;&#160;&#160;call(EPILEPSY_IF_LAZY_IMPL, cond op_if_true op_if_false __VA_ARGS__)</td></tr>
+<tr class="memdesc:a08c3e724c52ac6a198607197e4ff0e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lazy #EPILSPY_IF. <br /></td></tr>
+<tr class="separator:a08c3e724c52ac6a198607197e4ff0e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add0700bcbd0cec9ad85f6032782f562f"><td class="memItemLeft" align="right" valign="top"><a id="add0700bcbd0cec9ad85f6032782f562f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#add0700bcbd0cec9ad85f6032782f562f">EPILEPSY_WHILE</a>(predicate,  op,  state)&#160;&#160;&#160;<a class="el" href="lang_8h.html#ab9cb3415ce090bc700dfe8a3c905557b">call</a>(EPILEPSY_WHILE_REAL, predicate op state)</td></tr>
-<tr class="memdesc:add0700bcbd0cec9ad85f6032782f562f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>op</code> as long as <code>predicate</code> holds for <code>state</code>. <br /></td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#add0700bcbd0cec9ad85f6032782f562f">EPILEPSY_WHILE</a>(predicate,  op,  state)&#160;&#160;&#160;call(EPILEPSY_WHILE_IMPL, predicate op state)</td></tr>
+<tr class="memdesc:add0700bcbd0cec9ad85f6032782f562f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an <code>op</code> as long as a <code>predicate</code> holds for <code>state</code>. <br /></td></tr>
 <tr class="separator:add0700bcbd0cec9ad85f6032782f562f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
