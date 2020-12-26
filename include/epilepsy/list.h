@@ -44,6 +44,11 @@
 #define EPILEPSY_ListFoldr(list, op, init) call(EPILEPSY_ListFoldr_IMPL, list op init)
 
 /**
+ * Intersperses @p x between the items in @p list.
+ */
+#define EPILEPSY_ListIntersperse(list, x) call(EPILEPSY_ListIntersperse_IMPL, list x)
+
+/**
  * Prepends @p x to all items in @p list.
  */
 #define EPILEPSY_ListPrependToAll(list, x) call(EPILEPSY_ListPrependToAll_IMPL, list x)
@@ -85,6 +90,12 @@
 #define EPILEPSY_PRIV_ListFoldr_Nil(_, _op, acc) v(acc)
 #define EPILEPSY_PRIV_ListFoldr_Cons(head, tail, op, acc)                                          \
     call(op, v(head) EPILEPSY_ListFoldr(v(tail), v(op), v(acc)))
+
+#define EPILEPSY_ListIntersperse_IMPL(list, x)                                                     \
+    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListIntersperse_), v(x))
+#define EPILEPSY_PRIV_ListIntersperse_Nil(_, x) EPILEPSY_Nil()
+#define EPILEPSY_PRIV_ListIntersperse_Cons(head, tail, x)                                          \
+    EPILEPSY_Cons(v(head), EPILEPSY_ListPrependToAll(v(tail), v(x)))
 
 #define EPILEPSY_ListPrependToAll_IMPL(list, x)                                                    \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListPrependToAll_), v(x))

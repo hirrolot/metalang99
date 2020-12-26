@@ -12,4 +12,8 @@ EPILEPSY_ASSERT_EQ(
     v(0) EPILEPSY_ListUnwrap(EPILEPSY_ListPrependToAll(EPILEPSY_List(v(1) v(2) v(3)), v(+))),
     v(1 + 2 + 3))
 
+EPILEPSY_ASSERT_EQ(
+    EPILEPSY_ListUnwrap(EPILEPSY_ListIntersperse(EPILEPSY_List(v(1) v(2) v(3)), v(+))),
+    v(1 + 2 + 3))
+
 #undef SUM
