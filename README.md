@@ -43,7 +43,7 @@ Epilepsy allows you to create and use embedded [domain-specific languages].
 
 #define SUM_IMPL(tree)               EPILEPSY_MATCH(v(tree), v(SUM_))
 #define SUM_TreeLeaf(x)              v(x)
-#define SUM_TreeNode(lhs, data, rhs) EPILEPSY_UIntAdd(SUM(v(lhs)) v(data) SUM(v(rhs)))
+#define SUM_TreeNode(lhs, data, rhs) EPILEPSY_UIntAddVariadics(SUM(v(lhs)) v(data) SUM(v(rhs)))
 
 /*
  *         4
