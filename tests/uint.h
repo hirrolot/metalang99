@@ -72,6 +72,7 @@ EPILEPSY_ASSERT(EPILEPSY_UIntLesserEq(v(18), v(27)));
 EPILEPSY_ASSERT(EPILEPSY_UIntLesserEq(v(82), v(90)));
 EPILEPSY_ASSERT(EPILEPSY_UIntLesserEq(v(345), v(346)));
 EPILEPSY_ASSERT(EPILEPSY_UIntLesserEq(v(901), v(1023)));
+// }
 
 // EPILEPSY_UIntAdd {
 
@@ -104,7 +105,7 @@ EPILEPSY_ASSERT_EQ(
 EPILEPSY_ASSERT_EQ(
     EPILEPSY_UIntAdd(v(1020), EPILEPSY_UIntAdd(v(1), v(2))),
     EPILEPSY_UIntAdd(EPILEPSY_UIntAdd(v(1020), v(1)), v(2)));
-//
+// }
 
 // Identity element {
 EPILEPSY_ASSERT_EQ(EPILEPSY_UIntAdd(v(1), v(0)), v(1));
