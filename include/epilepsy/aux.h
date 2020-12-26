@@ -53,6 +53,13 @@
  * Emits a preprocessor error, consuming all arguments.
  */
 #define EPILEPSY_ERROR(...) call(EPILEPSY_ERROR_IMPL, x)
+
+#define EPILEPSY_PLAIN_EMPTY()
+#define EPILEPSY_PLAIN_ID(x)             x
+#define EPILEPSY_PLAIN_EXPAND(...)       __VA_ARGS__
+#define EPILEPSY_PLAIN_CONSUME(...)      EPILEPSY_PLAIN_EMPTY()
+#define EPILEPSY_PLAIN_PARENTHESISE(...) (__VA_ARGS__)
+#define EPILEPSY_PLAIN_UNPARENTHESISE(x) EPILEPSY_PLAIN_EXPAND(EPILEPSY_PLAIN_EXPAND x)
 // }
 
 #ifndef DOXYGEN_IGNORE
