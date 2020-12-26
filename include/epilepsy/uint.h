@@ -87,13 +87,13 @@
         EPILEPSY_UIntEq(v(x), EPILEPSY_UIntDec(v(y))), v(EPILEPSY_CONST_TRUE_IMPL),                \
         v(EPILEPSY_UIntLesser_IMPL), v(x) EPILEPSY_UIntDec(v(y)))
 
-#define EPILEPSY_PRIV_UIntAdd_IMPL(x, y)                                                           \
+#define EPILEPSY_UIntAdd_IMPL(x, y)                                                                \
     EPILEPSY_IF_LAZY(                                                                              \
         EPILEPSY_UIntEq(v(y), v(0)), v(EPILEPSY_PRIV_UIntAdd_DONE),                                \
         v(EPILEPSY_PRIV_UIntAdd_PROGRESS), v(x, y))
 #define EPILEPSY_PRIV_UIntAdd_DONE(x, _y) v(x)
 #define EPILEPSY_PRIV_UIntAdd_PROGRESS(x, y)                                                       \
-    call(EPILEPSY_PRIV_UIntAdd_IMPL, EPILEPSY_UIntInc(v(x)) EPILEPSY_UIntDec(v(y)))
+    EPILEPSY_UIntAdd(EPILEPSY_UIntInc(v(x)), EPILEPSY_UIntDec(v(y)))
 
 #define EPILEPSY_UIntAddVariadics_IMPL(...)                                                        \
     EPILEPSY_ListFoldr(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntAdd_IMPL), v(0))

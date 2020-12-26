@@ -70,6 +70,6 @@
 #define EPILEPSY_PRIV_ERRROR_AUX(missing_arg) EPILEPSY_EMPTY()
 // }
 
-#endif DOXYGEN_IGNORE
+#endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_AUX_H
