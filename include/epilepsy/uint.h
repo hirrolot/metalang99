@@ -79,9 +79,9 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_UIntNeq_IMPL(x, y)      EPILEPSY_NOT(EPILEPSY_UIntEq(v(x), v(y)))
-#define EPILEPSY_UIntGreater_IMPL(x, y)  EPILEPSY_UIntLesser(v(y), v(x))
-#define EPILEPSY_UIntLesserEq_IMPL(x, y) EPILEPSY_UIntGreaterEq(v(y), v(x))
+#define EPILEPSY_UIntNeq_IMPL(x, y) EPILEPSY_NOT(EPILEPSY_UIntEq(v(x), v(y)))
+
+#define EPILEPSY_UIntGreater_IMPL(x, y) EPILEPSY_UIntLesser(v(y), v(x))
 
 #define EPILEPSY_UIntGreaterEq_IMPL(x, y)                                                          \
     EPILEPSY_IF_LAZY(                                                                              \
@@ -97,6 +97,8 @@
         EPILEPSY_UIntEq(v(x), EPILEPSY_UIntDec(v(y))), v(EPILEPSY_CONST_TRUE_IMPL),                \
         v(EPILEPSY_UIntLesser_IMPL), v(x) EPILEPSY_UIntDec(v(y)))
 
+#define EPILEPSY_UIntLesserEq_IMPL(x, y) EPILEPSY_UIntGreaterEq(v(y), v(x))
+
 #define EPILEPSY_UIntAdd_IMPL(x, y)                                                                \
     EPILEPSY_IF_LAZY(                                                                              \
         EPILEPSY_UIntEq(v(y), v(0)), v(EPILEPSY_PRIV_UIntAdd_DONE),                                \
@@ -111,7 +113,7 @@
 #define EPILEPSY_UIntSub_IMPL(x, y)                                                                \
     EPILEPSY_IF_LAZY(                                                                              \
         EPILEPSY_UIntEq(v(y), v(0)), v(EPILEPSY_PRIV_UIntSub_DONE),                                \
-        v(EPILEPSY_PRIV_UIntAdd_PROGRESS), v(x, y))
+        v(EPILEPSY_PRIV_UIntSub_PROGRESS), v(x, y))
 #define EPILEPSY_PRIV_UIntSub_DONE(x, _y) v(x)
 #define EPILEPSY_PRIV_UIntSub_PROGRESS(x, y)                                                       \
     EPILEPSY_UIntSub(EPILEPSY_UIntDec(v(x)), EPILEPSY_UIntDec(v(y)))

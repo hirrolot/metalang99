@@ -126,3 +126,16 @@ EPILEPSY_ASSERT_EQ(EPILEPSY_UIntAddVariadics(v(0)), v(0));
 EPILEPSY_ASSERT_EQ(EPILEPSY_UIntAddVariadics(v(1023)), v(1023));
 EPILEPSY_ASSERT_EQ(EPILEPSY_UIntAddVariadics(v(1) v(2) v(3) v(4) v(5)), v(1 + 2 + 3 + 4 + 5));
 // }
+
+// EPILEPSY_UIntSub {
+
+EPILEPSY_ASSERT_EQ(EPILEPSY_UIntSub(v(105), v(19)), v(105 - 19));
+
+// } (EPILEPSY_UIntSub)
+
+// EPILEPSY_UIntSubVariadics {
+EPILEPSY_ASSERT_EQ(EPILEPSY_UIntSubVariadics(v(0)), v(0));
+EPILEPSY_ASSERT_EQ(EPILEPSY_UIntSubVariadics(v(1023)), v(1023));
+EPILEPSY_ASSERT_EQ(
+    EPILEPSY_UIntSubVariadics(v(198) v(13) v(29) v(10) v(1)), v(198 - 13 - 29 - 10 - 1));
+// }
