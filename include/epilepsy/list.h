@@ -9,6 +9,7 @@
 #include <epilepsy/choice.h>
 #include <epilepsy/control.h>
 #include <epilepsy/logical.h>
+#include <epilepsy/priv/pair.h>
 #include <epilepsy/uint.h>
 #include <epilepsy/variadics.h>
 
@@ -39,9 +40,14 @@
 #define EPILEPSY_ListGet(list, i) call(EPILEPSY_ListGet_IMPL, list i)
 
 /**
- * Performs a right fold.
+ * Performs a right-associative fold over @p list.
  */
 #define EPILEPSY_ListFoldr(list, op, init) call(EPILEPSY_ListFoldr_IMPL, list op init)
+
+/**
+ * Performs a left-associative fold over @p list.
+ */
+#define EPILEPSY_ListFoldl(list, op, init) call(EPILEPSY_ListFoldl_IMPL, list op init)
 
 /**
  * Intersperses @p x between the items in @p list.
@@ -90,6 +96,10 @@
 #define EPILEPSY_PRIV_ListFoldr_Nil(_, _op, acc) v(acc)
 #define EPILEPSY_PRIV_ListFoldr_Cons(head, tail, op, acc)                                          \
     call(op, v(head) EPILEPSY_ListFoldr(v(tail), v(op), v(acc)))
+
+#define EPILEPSY_ListFoldl_IMPL(list, op, init)                                                    \
+    EPILEPSY_ListFoldr(v(list), v(EPILEPSY_PRIV_ListFoldlOp), v(init))
+#define EPILEPSY_PRIV_ListFoldlOp(x, acc)
 
 #define EPILEPSY_ListIntersperse_IMPL(list, x)                                                     \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListIntersperse_), v(x))
