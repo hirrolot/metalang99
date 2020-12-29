@@ -7,9 +7,9 @@
 
 #define MATCH(either) EPILEPSY_MATCH_WITH_ARGS(v(either), v(MATCH_), v(123))
 #define MATCH_EitherLeft(_18, _123)                                                                \
-    v(EPILEPSY_C_STATIC_ASSERT(_18 == 18); EPILEPSY_C_STATIC_ASSERT(_123 == 123);)
+    v(EPILEPSY_PLAIN_STATIC_ASSERT(_18 == 18); EPILEPSY_PLAIN_STATIC_ASSERT(_123 == 123);)
 #define MATCH_EitherRight(_4, _123)                                                                \
-    v(EPILEPSY_C_STATIC_ASSERT(_4 == 4); EPILEPSY_C_STATIC_ASSERT(_123 == 123);)
+    v(EPILEPSY_PLAIN_STATIC_ASSERT(_4 == 4); EPILEPSY_PLAIN_STATIC_ASSERT(_123 == 123);)
 
 EPILEPSY_EVAL(call(MATCH, EPILEPSY_EitherLeft(v(18))))
 EPILEPSY_EVAL(call(MATCH, EPILEPSY_EitherRight(v(4))))
