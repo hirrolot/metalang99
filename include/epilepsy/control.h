@@ -17,8 +17,7 @@
 /**
  * Lazy #EPILSPY_IF.
  */
-#define EPILEPSY_IF_LAZY(cond, op_if_true, op_if_false, ...)                                       \
-    call(EPILEPSY_IF_LAZY_IMPL, cond op_if_true op_if_false __VA_ARGS__)
+#define EPILEPSY_IF_LAZY(cond, f, g, ...) call(EPILEPSY_IF_LAZY_IMPL, cond f g __VA_ARGS__)
 
 /**
  * Executes an @p op as long as a @p predicate holds for @p state.
@@ -33,8 +32,8 @@
 #define EPILEPSY_PRIV_CONTROL_IF_0(_x, y) v(y)
 #define EPILEPSY_PRIV_CONTROL_IF_1(x, _y) v(x)
 
-#define EPILEPSY_IF_LAZY_IMPL(cond, op_if_true, op_if_false, ...)                                  \
-    call(EPILEPSY_IF(v(cond), v(op_if_true), v(op_if_false)), v(__VA_ARGS__))
+#define EPILEPSY_IF_LAZY_IMPL(cond, f, g, ...)                                                     \
+    call(EPILEPSY_IF(v(cond), v(f), v(g)), v(__VA_ARGS__))
 
 #define EPILEPSY_WHILE_IMPL(predicate, op, state)                                                  \
     call(                                                                                          \

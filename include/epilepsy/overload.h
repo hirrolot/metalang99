@@ -11,22 +11,22 @@
 
 // Desugaring {
 /**
- * Overload @p op on a number of arguments.
+ * Overload @p f on a number of arguments.
  */
-#define EPILEPSY_OVERLOAD(op, ...) call(EPILEPSY_OVERLOAD_IMPL, op __VA_ARGS__)
+#define EPILEPSY_OVERLOAD(f, ...) call(EPILEPSY_OVERLOAD_IMPL, f __VA_ARGS__)
 
 /**
- * Overloads @p op on a number of arguments an immediately calls it.
+ * Overloads @p f on a number of arguments an immediately calls it.
  */
-#define EPILEPSY_OVERLOAD_CALL(op, ...) call(EPILEPSY_OVERLOAD_CALL_IMPL, op __VA_ARGS__)
+#define EPILEPSY_OVERLOAD_CALL(f, ...) call(EPILEPSY_OVERLOAD_CALL_IMPL, f __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_OVERLOAD_IMPL(op, ...) v(EPILEPSY_PRIV_OVERLOAD(op, __VA_ARGS__))
-#define EPILEPSY_OVERLOAD_CALL_IMPL(op, ...)                                                       \
-    call(EPILEPSY_OVERLOAD(v(op), v(__VA_ARGS__)), v(__VA_ARGS__))
+#define EPILEPSY_OVERLOAD_IMPL(f, ...) v(EPILEPSY_PRIV_OVERLOAD(f, __VA_ARGS__))
+#define EPILEPSY_OVERLOAD_CALL_IMPL(f, ...)                                                        \
+    call(EPILEPSY_OVERLOAD(v(f), v(__VA_ARGS__)), v(__VA_ARGS__))
 // }
 
 #endif // DOXYGEN_IGNORE
