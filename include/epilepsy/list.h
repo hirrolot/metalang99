@@ -51,6 +51,11 @@
 #define EPILEPSY_ListFoldl(list, f, init) call(EPILEPSY_ListFoldl_IMPL, list f init)
 
 /**
+ * The same as #EPILEPSY_ListFoldl but treats the first element of @p list as the initial value.
+ */
+#define EPILEPSY_ListFoldl1(list, f) call(EPILEPSY_ListFoldl1_IMPL, list f)
+
+/**
  * Intersperses @p item between the items in @p list.
  */
 #define EPILEPSY_ListIntersperse(list, item) call(EPILEPSY_ListIntersperse_IMPL, list item)
@@ -103,6 +108,11 @@
 #define EPILEPSY_PRIV_ListFoldl_Nil(_, _f, acc) v(acc)
 #define EPILEPSY_PRIV_ListFoldl_Cons(x, xs, f, acc)                                                \
     EPILEPSY_ListFoldl(v(xs), v(f), call(f, v(acc, x)))
+
+#define EPILEPSY_ListFoldl1_IMPL(list, f)                                                          \
+    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldl1_), v(f))
+#define EPILEPSY_PRIV_ListFoldl1_Nil(_, _f)     EPILEPSY_ERROR()
+#define EPILEPSY_PRIV_ListFoldl1_Cons(x, xs, f) EPILEPSY_ListFoldl(v(xs), v(f), v(x))
 
 #define EPILEPSY_ListIntersperse_IMPL(list, item)                                                  \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListIntersperse_), v(item))
