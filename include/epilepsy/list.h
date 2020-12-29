@@ -70,7 +70,7 @@
 
 // Implementation {
 #define EPILEPSY_Cons_IMPL(x, xs) EPILEPSY_CHOICE(v(Cons), v(x, xs))
-#define EPILEPSY_Nil_IMPL()       EPILEPSY_CHOICE(v(Nil), v(~))
+#define EPILEPSY_Nil_IMPL()       EPILEPSY_CHOICE_EMPTY(v(Nil))
 
 #define EPILEPSY_List_IMPL(...)                                                                    \
     call(EPILEPSY_PRIV_List_AUX, EPILEPSY_VARIADICS_COUNT(v(__VA_ARGS__)) v(__VA_ARGS__, ~))
@@ -83,12 +83,12 @@
     EPILEPSY_Cons(v(x), call(EPILEPSY_PRIV_List_AUX, EPILEPSY_UIntDec(v(count)) v(__VA_ARGS__)))
 
 #define EPILEPSY_ListUnwrap_IMPL(list)       EPILEPSY_MATCH(v(list), v(EPILEPSY_PRIV_ListUnwrap_))
-#define EPILEPSY_PRIV_ListUnwrap_Nil(_)      EPILEPSY_EMPTY()
+#define EPILEPSY_PRIV_ListUnwrap_Nil()       EPILEPSY_EMPTY()
 #define EPILEPSY_PRIV_ListUnwrap_Cons(x, xs) v(x) EPILEPSY_ListUnwrap(v(xs))
 
 #define EPILEPSY_ListGet_IMPL(list, i)                                                             \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListGet_), v(i))
-#define EPILEPSY_PRIV_ListGet_Nil(_, i) EPILEPSY_ERROR()
+#define EPILEPSY_PRIV_ListGet_Nil(i) EPILEPSY_ERROR()
 #define EPILEPSY_PRIV_ListGet_Cons(x, xs, i)                                                       \
     EPILEPSY_IF_LAZY(                                                                              \
         EPILEPSY_UIntEq(v(i), v(0)), v(EPILEPSY_PRIV_ListGet_Cons_DONE),                           \
@@ -99,30 +99,30 @@
 
 #define EPILEPSY_ListFoldr_IMPL(list, f, init)                                                     \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(f, init))
-#define EPILEPSY_PRIV_ListFoldr_Nil(_, _f, acc) v(acc)
+#define EPILEPSY_PRIV_ListFoldr_Nil(_f, acc) v(acc)
 #define EPILEPSY_PRIV_ListFoldr_Cons(x, xs, f, acc)                                                \
     call(f, v(x) EPILEPSY_ListFoldr(v(xs), v(f), v(acc)))
 
 #define EPILEPSY_ListFoldl_IMPL(list, f, init)                                                     \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldl_), v(f, init))
-#define EPILEPSY_PRIV_ListFoldl_Nil(_, _f, acc) v(acc)
+#define EPILEPSY_PRIV_ListFoldl_Nil(_f, acc) v(acc)
 #define EPILEPSY_PRIV_ListFoldl_Cons(x, xs, f, acc)                                                \
     EPILEPSY_ListFoldl(v(xs), v(f), call(f, v(acc, x)))
 
 #define EPILEPSY_ListFoldl1_IMPL(list, f)                                                          \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldl1_), v(f))
-#define EPILEPSY_PRIV_ListFoldl1_Nil(_, _f)     EPILEPSY_ERROR()
+#define EPILEPSY_PRIV_ListFoldl1_Nil(_f)        EPILEPSY_ERROR()
 #define EPILEPSY_PRIV_ListFoldl1_Cons(x, xs, f) EPILEPSY_ListFoldl(v(xs), v(f), v(x))
 
 #define EPILEPSY_ListIntersperse_IMPL(list, item)                                                  \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListIntersperse_), v(item))
-#define EPILEPSY_PRIV_ListIntersperse_Nil(_, x) EPILEPSY_Nil()
+#define EPILEPSY_PRIV_ListIntersperse_Nil(_x) EPILEPSY_Nil()
 #define EPILEPSY_PRIV_ListIntersperse_Cons(x, xs, item)                                            \
     EPILEPSY_Cons(v(x), EPILEPSY_ListPrependToAll(v(xs), v(item)))
 
 #define EPILEPSY_ListPrependToAll_IMPL(list, item)                                                 \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListPrependToAll_), v(item))
-#define EPILEPSY_PRIV_ListPrependToAll_Nil(_, x) EPILEPSY_Nil()
+#define EPILEPSY_PRIV_ListPrependToAll_Nil(_x) EPILEPSY_Nil()
 #define EPILEPSY_PRIV_ListPrependToAll_Cons(x, xs, item)                                           \
     EPILEPSY_Cons(v(item), EPILEPSY_Cons(v(x), EPILEPSY_ListPrependToAll(v(xs), v(item))))
 // }

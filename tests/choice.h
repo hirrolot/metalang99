@@ -6,9 +6,9 @@
 
 #define VAL v(abc ? +-148 % "hello world")
 
-#define FooA(x) EPILEPSY_CHOICE(v(FooA) v(x))
-#define FooB(x) EPILEPSY_CHOICE(v(FooB) v(x))
-#define FooC(x) EPILEPSY_CHOICE(v(FooC) v(x))
+#define FooA(x) EPILEPSY_CHOICE(v(FooA), v(x))
+#define FooB(x) EPILEPSY_CHOICE(v(FooB), v(x))
+#define FooC(x) EPILEPSY_CHOICE(v(FooC), v(x))
 
 #define MATCH(foo) EPILEPSY_MATCH_WITH_ARGS(v(foo), v(MATCH_), v(3))
 #define MATCH_FooA(x, _3)                                                                          \

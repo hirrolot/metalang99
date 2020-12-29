@@ -34,13 +34,12 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_MaybeJust_IMPL(x)   EPILEPSY_CHOICE(v(MaybeJust) v(x))
-#define EPILEPSY_MaybeNothing_IMPL() EPILEPSY_CHOICE(v(MaybeNothing))
+#define EPILEPSY_MaybeJust_IMPL(x)   EPILEPSY_CHOICE(v(MaybeJust), v(x))
+#define EPILEPSY_MaybeNothing_IMPL() EPILEPSY_CHOICE_EMPTY(v(MaybeNothing))
 
-#define EPILEPSY_MaybeIsJust_IMPL(maybe)                                                           \
-    EPILEPSY_MATCH_WITH_ARGS(v(maybe), v(EPILEPSY_PRIV_MaybeIsJust_), v(~))
-#define EPILEPSY_PRIV_MaybeIsJust_MaybeJust(_x, _)        v(1)
-#define EPILEPSY_PRIV_MaybeIsJust_MaybeNothing(_dummy, _) v(0)
+#define EPILEPSY_MaybeIsJust_IMPL(maybe)         EPILEPSY_MATCH(v(maybe), v(EPILEPSY_PRIV_MaybeIsJust_))
+#define EPILEPSY_PRIV_MaybeIsJust_MaybeJust(_x)  v(1)
+#define EPILEPSY_PRIV_MaybeIsJust_MaybeNothing() v(0)
 
 #define EPILEPSY_MaybeIsNothing_IMPL(maybe) EPILEPSY_NOT(EPILEPSY_MaybeIsJust(v(maybe)))
 // }
