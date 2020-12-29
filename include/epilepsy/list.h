@@ -8,6 +8,7 @@
 
 #include <epilepsy/choice.h>
 #include <epilepsy/control.h>
+#include <epilepsy/fn.h>
 #include <epilepsy/logical.h>
 #include <epilepsy/priv/pair.h>
 #include <epilepsy/uint.h>
@@ -98,8 +99,10 @@
     call(op, v(head) EPILEPSY_ListFoldr(v(tail), v(op), v(acc)))
 
 #define EPILEPSY_ListFoldl_IMPL(list, op, init)                                                    \
-    EPILEPSY_ListFoldr(v(list), v(EPILEPSY_PRIV_ListFoldlOp), v(init))
-#define EPILEPSY_PRIV_ListFoldlOp(x, acc)
+    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldl_), v(op, init))
+#define EPILEPSY_PRIV_ListFoldl_Nil(_, _op, acc) v(acc)
+#define EPILEPSY_PRIV_ListFoldl_Cons(head, tail, op, acc)                                          \
+    EPILEPSY_ListFoldl(v(tail), v(op), call(op, v(acc, head)))
 
 #define EPILEPSY_ListIntersperse_IMPL(list, x)                                                     \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListIntersperse_), v(x))

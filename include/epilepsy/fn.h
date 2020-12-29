@@ -1,18 +1,36 @@
 #ifndef EPILEPSY_FN_H
 #define EPILEPSY_FN_H
 
-#include <epilepsy/aux.h>
 #include <epilepsy/lang.h>
+#include <epilepsy/priv/aux.h>
+#include <epilepsy/priv/pair.h>
 
-#define EPILEPSY_COMPOSE(f1, f2, f1_cx, f2_cx) call(EPILEPSY_COMPOSE_IMPL, f1 f2 f1_cx f2_cx)
-#define EPILEPSY_APPLY(closure, x)             call(EPILEPSY_APPLY_IMPL, closure x)
+// Desugaring {
+#define EPILEPSY_CLOSURE(f, ...)   call(EPILEPSY_CLOSURE_IMPL, f __VA_ARGS__)
+#define EPILEPSY_APPLY(closure, x) call(EPILEPSY_APPLY_IMPL, closure x)
+#define EPILEPSY_COMPOSE(f, g)     call(EPILEPSY_COMPOSE_IMPL, f g)
+#define EPILEPSY_LAMBDA(f)         call(EPILEPSY_LAMBDA_IMPL, f)
+// }
 
-#define EPILEPSY_COMPOSE_IMPL(f1, f2, f1_cx, f2_cx) EPILEPSY_PARENTHESISE(v(f1, f2, f1_cx, f2_cx))
+// Implementation {
+#define EPILEPSY_CLOSURE_IMPL(f, ...) v(EPILEPSY_PRIV_PAIR(f, (__VA_ARGS__)))
 
-#define EPILEPSY_APPLY_IMPL(closure, x)                                                            \
-    EPILEPSY_PRIV_APPLY_AUX(EPILEPSY_PLAIN_UNPARENTHESISE(closure), x)
-#define EPILEPSY_PRIV_APPLY_AUX(...) EPILEPSY_PRIV_APPLY_AUX_AUX(__VA_ARGS__)
-#define EPILEPSY_PRIV_APPLY_AUX_AUX(f1, f2, f1_cx, f2_cx, x)                                       \
-    call(f1, v(f1_cx) call(f2, v(f2_cx, x)))
+#define EPILEPSY_APPLY_IMPL(closure, ...)                                                          \
+    call(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_CX(closure), __VA_ARGS__))
+
+#define EPILEPSY_COMPOSE_IMPL(f, g) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_COMPOSE_CLOSURE), v(f, g))
+#define EPILEPSY_PRIV_COMPOSE_CLOSURE(f, g, ...)                                                   \
+    call(                                                                                          \
+        EPILEPSY_PRIV_CLOSURE_F(f),                                                                \
+        v(EPILEPSY_PRIV_CLOSURE_CX(f))                                                             \
+            call(EPILEPSY_PRIV_CLOSURE_F(g), v(EPILEPSY_PRIV_CLOSURE_CX(g), __VA_ARGS__)))
+
+#define EPILEPSY_LAMBDA_IMPL(f)              EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_LAMBDA_CLOSURE), v(f))
+#define EPILEPSY_PRIV_LAMBDA_CLOSURE(f, ...) call(f, v(__VA_ARGS__))
+
+#define EPILEPSY_PRIV_CLOSURE_F EPILEPSY_PRIV_PAIR_FST
+#define EPILEPSY_PRIV_CLOSURE_CX(closure)                                                          \
+    EPILEPSY_PRIV_UNPARENTHESISE(EPILEPSY_PRIV_PAIR_SND(closure))
+// }
 
 #endif // EPILEPSY_FN_H
