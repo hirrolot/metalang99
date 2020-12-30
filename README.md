@@ -46,15 +46,15 @@ Epilepsy allows you to create and use embedded [domain-specific languages].
     EPILEPSY_UIntMul(RectangleWidth(v(rectangle)), RectangleHeight(v(rectangle)))
 
 /*
- *              15
- * +--------------------------+
- * |                          |
- * |                          |
- * |                          | 6
- * |                          |
- * |                          |
- * |                          |
- * +--------------------------+
+ *                 15
+ * +--------------------------------+
+ * |                                |
+ * |                                |
+ * |                                | 6
+ * |                                |
+ * |                                |
+ * |                                |
+ * +--------------------------------+
  */
 #define RECTANGLE Rectangle(v(15), v(6))
 
