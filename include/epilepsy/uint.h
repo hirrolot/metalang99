@@ -74,6 +74,16 @@
  * \f$x_1 - \ldots - x_n\f$
  */
 #define EPILEPSY_UIntSubVariadics(...) call(EPILEPSY_UIntSubVariadics_IMPL, __VA_ARGS__)
+
+/**
+ * \f$x * y\f$
+ */
+#define EPILEPSY_UIntMul(x, y) call(EPILEPSY_UIntMul_IMPL, x y)
+
+/**
+ * \f$x_1 * \ldots * x_n\f$
+ */
+#define EPILEPSY_UIntMulVariadics(...) call(EPILEPSY_UIntMulVariadics_IMPL, __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -120,6 +130,17 @@
 
 #define EPILEPSY_UIntSubVariadics_IMPL(...)                                                        \
     EPILEPSY_ListFoldl1(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntSub_IMPL))
+
+#define EPILEPSY_UIntMul_IMPL(x, y)                                                                \
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_UIntEq(v(y), v(0)), v(EPILEPSY_PRIV_UIntMul_DONE),                                \
+        v(EPILEPSY_PRIV_UIntMul_PROGRESS), v(x, y))
+#define EPILEPSY_PRIV_UIntMul_DONE(x, _y) v(0)
+#define EPILEPSY_PRIV_UIntMul_PROGRESS(x, y)                                                       \
+    EPILEPSY_UIntAdd(v(x), EPILEPSY_UIntMul(v(x), EPILEPSY_UIntDec(v(y))))
+
+#define EPILEPSY_UIntMulVariadics_IMPL(...)                                                        \
+    EPILEPSY_ListFoldl1(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntMul_IMPL))
 // }
 
 #endif // DOXYGEN_IGNORE
