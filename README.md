@@ -10,16 +10,7 @@
 
 TODO: the main example.
 
-Epilepsy is a tool for [language-oriented programming] (C99/C++11 onwards): you `#define` [DSL]s whose syntax reflects your problem domain, leading to more expressive and robust code.
-
-[language-oriented programming]: https://en.wikipedia.org/wiki/Language-oriented_programming
-[DSL]: https://en.wikipedia.org/wiki/Domain-specific_language
-
-## Motivation
-
-Epilepsy allows you to create and use embedded [domain-specific languages].
-
-[domain-specific languages]: https://en.wikipedia.org/wiki/Domain-specific_language
+Epilepsy enables you to create and use languages that [coincide with a problem domain](https://en.wikipedia.org/wiki/Language-oriented_programming). This way, secondary details get obliterated, code repetition is replaced by a single pattern, hard mental operations on a syntax level are left to machines, etc., leading towards a more maintainable and reliable design.
 
 ## Overview
 
