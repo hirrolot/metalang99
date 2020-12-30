@@ -22,13 +22,41 @@ Epilepsy allows you to create and use embedded [domain-specific languages].
 
 ## Overview
 
-### Data types
+### Data model
+
+#### Record types
+
+[[ `examples/rectangle.c` ](examples/rectangle.c)]
+```c
+// Computes the area of a rectangle.
+
+#include <epilepsy.h>
+
+#define Rectangle(width, height)   call(Rectangle_IMPL, width height)
+#define RectangleWidth(rectangle)  call(RectangleWidth_IMPL, rectangle)
+#define RectangleHeight(rectangle) call(RectangleHeight_IMPL, rectangle)
+
+#define RectangleArea(rectangle) call(RectangleArea_IMPL, rectangle)
+
+#define Rectangle_IMPL(width, height)   EPILEPSY_RECORD(v(width, height))
+#define RectangleWidth_IMPL(rectangle)  EPILEPSY_GET(v(rectangle), v(0))
+#define RectangleHeight_IMPL(rectangle) EPILEPSY_GET(v(rectangle), v(1))
+
+#define RectangleArea_IMPL(rectangle)                                                              \
+    EPILEPSY_UIntMul(RectangleWidth(v(rectangle)), RectangleHeight(v(rectangle)))
+
+#define RECTANGLE Rectangle(v(8), v(15))
+
+EPILEPSY_ASSERT_EQ(RectangleArea(RECTANGLE), v(8 * 15));
+
+int main(void) {}
+```
 
 #### Choice types
 
 [[ `examples/binary_tree.c` ](examples/binary_tree.c)] [ [Playground >>](https://godbolt.org/z/5xW5ne) ]
 
-``` c
+```c
 // Sums all nodes of a binary tree, recursively.
 
 #include <epilepsy.h>
