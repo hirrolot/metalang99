@@ -9,14 +9,14 @@
 #include <epilepsy/uint.h>
 
 // Desugaring {
-#define EPILEPSY_CLOSURE(f, ...)           call(EPILEPSY_CLOSURE_IMPL, f __VA_ARGS__)
-#define EPILEPSY_LAMBDA(f)                 call(EPILEPSY_LAMBDA_IMPL, f)
-#define EPILEPSY_APPLY(closure, ...)       call(EPILEPSY_APPLY_IMPL, closure __VA_ARGS__)
-#define EPILEPSY_APPLY_LIST(closure, list) call(EPILEPSY_APPLY_LIST_IMPL, closure list)
+#define EPILEPSY_CLOSURE(f, ...)           desugar(EPILEPSY_CLOSURE, f __VA_ARGS__)
+#define EPILEPSY_LAMBDA(f)                 desugar(EPILEPSY_LAMBDA, f)
+#define EPILEPSY_APPLY(closure, ...)       desugar(EPILEPSY_APPLY, closure __VA_ARGS__)
+#define EPILEPSY_APPLY_LIST(closure, list) desugar(EPILEPSY_APPLY_LIST, closure list)
 #define EPILEPSY_APPLY_VARIADICS(closure, ...)                                                     \
-    call(EPILEPSY_APPLY_VARIADICS_IMPL, closure __VA_ARGS__)
-#define EPILEPSY_COMPOSE(f, g)   call(EPILEPSY_COMPOSE_IMPL, f g)
-#define EPILEPSY_CURRY(f, arity) call(EPILEPSY_CURRY_IMPL, f arity)
+    desugar(EPILEPSY_APPLY_VARIADICS, closure __VA_ARGS__)
+#define EPILEPSY_COMPOSE(f, g)   desugar(EPILEPSY_COMPOSE, f g)
+#define EPILEPSY_CURRY(f, arity) desugar(EPILEPSY_CURRY, f arity)
 // }
 
 // Implementation {

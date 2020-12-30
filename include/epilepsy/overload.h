@@ -13,12 +13,12 @@
 /**
  * Overload @p f on a number of arguments.
  */
-#define EPILEPSY_OVERLOAD(f, ...) call(EPILEPSY_OVERLOAD_IMPL, f __VA_ARGS__)
+#define EPILEPSY_OVERLOAD(f, ...) desugar(EPILEPSY_OVERLOAD, f __VA_ARGS__)
 
 /**
  * Overloads @p f on a number of arguments an immediately calls it.
  */
-#define EPILEPSY_OVERLOAD_CALL(f, ...) call(EPILEPSY_OVERLOAD_CALL_IMPL, f __VA_ARGS__)
+#define EPILEPSY_OVERLOAD_CALL(f, ...) desugar(EPILEPSY_OVERLOAD_CALL, f __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

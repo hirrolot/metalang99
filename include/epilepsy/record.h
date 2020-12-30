@@ -12,12 +12,12 @@
 /**
  * Constructs an instance of a record type.
  */
-#define EPILEPSY_RECORD(...) call(EPILEPSY_RECORD_IMPL, __VA_ARGS__)
+#define EPILEPSY_RECORD(...) desugar(EPILEPSY_RECORD, __VA_ARGS__)
 
 /**
  * Extracts a field of a record type.
  */
-#define EPILEPSY_GET(record, i) call(EPILEPSY_GET_IMPL, record i)
+#define EPILEPSY_GET(record, i) desugar(EPILEPSY_GET, record i)
 // }
 
 #ifndef DOXYGEN_IGNORE

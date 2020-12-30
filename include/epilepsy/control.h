@@ -12,17 +12,17 @@
 /**
  * If @p cond is true, expands to @p x, otherwise @p y.
  */
-#define EPILEPSY_IF(cond, x, y) call(EPILEPSY_IF_IMPL, cond x y)
+#define EPILEPSY_IF(cond, x, y) desugar(EPILEPSY_IF, cond x y)
 
 /**
  * Lazy #EPILSPY_IF.
  */
-#define EPILEPSY_IF_LAZY(cond, f, g, ...) call(EPILEPSY_IF_LAZY_IMPL, cond f g __VA_ARGS__)
+#define EPILEPSY_IF_LAZY(cond, f, g, ...) desugar(EPILEPSY_IF_LAZY, cond f g __VA_ARGS__)
 
 /**
  * Executes an @p op as long as a @p predicate holds for @p state.
  */
-#define EPILEPSY_WHILE(predicate, op, state) call(EPILEPSY_WHILE_IMPL, predicate op state)
+#define EPILEPSY_WHILE(predicate, op, state) desugar(EPILEPSY_WHILE, predicate op state)
 // }
 
 #ifndef DOXYGEN_IGNORE

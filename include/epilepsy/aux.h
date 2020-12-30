@@ -12,47 +12,47 @@
 /**
  * Concatenates @p x with @p y.
  */
-#define EPILEPSY_CAT(x, y) call(EPILEPSY_CAT_IMPL, x y)
+#define EPILEPSY_CAT(x, y) desugar(EPILEPSY_CAT, x y)
 
 /**
  * Stringifies @p x.
  */
-#define EPILEPSY_STRINGIFY(x) call(EPILEPSY_STRINGIFY_IMPL, x)
+#define EPILEPSY_STRINGIFY(x) desugar(EPILEPSY_STRINGIFY, x)
 
 /**
  * Expands to nothing.
  */
-#define EPILEPSY_EMPTY() call(EPILEPSY_EMPTY_IMPL, )
+#define EPILEPSY_EMPTY() desugar(EPILEPSY_EMPTY, )
 
 /**
  * Expands to @p x.
  */
-#define EPILEPSY_ID(x) call(EPILEPSY_ID_IMPL, )
+#define EPILEPSY_ID(x) desugar(EPILEPSY_ID, )
 
 /**
  * Expands to its arguments.
  */
-#define EPILEPSY_EXPAND(...) call(EPILEPSY_EXPAND_IMPL, __VA_ARGS__)
+#define EPILEPSY_EXPAND(...) desugar(EPILEPSY_EXPAND, __VA_ARGS__)
 
 /**
  * Expands to nothing, consuming all arguments.
  */
-#define EPILEPSY_CONSUME(...) call(EPILEPSY_CONSUME_IMPL, __VA_ARGS__)
+#define EPILEPSY_CONSUME(...) desugar(EPILEPSY_CONSUME, __VA_ARGS__)
 
 /**
  * Parenthesises a sequence of arguments.
  */
-#define EPILEPSY_PARENTHESISE(...) call(EPILEPSY_PARENTHESISE_IMPL, __VA_ARGS__)
+#define EPILEPSY_PARENTHESISE(...) desugar(EPILEPSY_PARENTHESISE, __VA_ARGS__)
 
 /**
  * Unparenthesises a sequence of arguments.
  */
-#define EPILEPSY_UNPARENTHESISE(x) call(EPILEPSY_UNPARENTHESISE_IMPL, x)
+#define EPILEPSY_UNPARENTHESISE(x) desugar(EPILEPSY_UNPARENTHESISE, x)
 
 /**
  * Emits a preprocessor error, consuming all arguments.
  */
-#define EPILEPSY_ERROR(...) call(EPILEPSY_ERROR_IMPL, x)
+#define EPILEPSY_ERROR(...) desugar(EPILEPSY_ERROR, x)
 
 #define EPILEPSY_EMPTY_PLAIN()
 #define EPILEPSY_ID_PLAIN(x)             x

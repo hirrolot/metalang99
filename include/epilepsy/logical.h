@@ -12,32 +12,32 @@
 /**
  * Logical negation.
  */
-#define EPILEPSY_NOT(x) call(EPILEPSY_NOT_IMPL, x)
+#define EPILEPSY_NOT(x) desugar(EPILEPSY_NOT, x)
 
 /**
  * Logical conjunction.
  */
-#define EPILEPSY_AND(x, y) call(EPILEPSY_AND_IMPL, x y)
+#define EPILEPSY_AND(x, y) desugar(EPILEPSY_AND, x y)
 
 /**
  * Logical inclusive OR.
  */
-#define EPILEPSY_OR(x, y) call(EPILEPSY_OR_IMPL, x y)
+#define EPILEPSY_OR(x, y) desugar(EPILEPSY_OR, x y)
 
 /**
  * Logical exclusive OR.
  */
-#define EPILEPSY_XOR(x, y) call(EPILEPSY_XOR_IMPL, x y)
+#define EPILEPSY_XOR(x, y) desugar(EPILEPSY_XOR, x y)
 
 /**
  * Expands to 1, consuming all arguments.
  */
-#define EPILEPSY_CONST_TRUE(...) call(EPILEPSY_CONST_TRUE_IMPL, __VA_ARGS__)
+#define EPILEPSY_CONST_TRUE(...) desugar(EPILEPSY_CONST_TRUE, __VA_ARGS__)
 
 /**
  * Expands to 0, consuming all arguments.
  */
-#define EPILEPSY_CONST_FALSE(...) call(EPILEPSY_CONST_FALSE_IMPL, __VA_ARGS__)
+#define EPILEPSY_CONST_FALSE(...) desugar(EPILEPSY_CONST_FALSE, __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

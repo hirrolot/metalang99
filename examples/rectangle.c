@@ -2,11 +2,11 @@
 
 #include <epilepsy.h>
 
-#define Rect(width, height) call(Rect_IMPL, width height)
-#define RectWidth(rect)     call(RectWidth_IMPL, rect)
-#define RectHeight(rect)    call(RectHeight_IMPL, rect)
+#define Rect(width, height) desugar(Rect, width height)
+#define RectWidth(rect)     desugar(RectWidth, rect)
+#define RectHeight(rect)    desugar(RectHeight, rect)
 
-#define RectArea(rect) call(RectArea_IMPL, rect)
+#define RectArea(rect) desugar(RectArea, rect)
 
 #define Rect_IMPL(width, height) EPILEPSY_RECORD(v(width, height))
 #define RectWidth_IMPL(rect)     EPILEPSY_GET(v(rect), v(0))

@@ -32,18 +32,17 @@ Epilepsy allows you to create and use embedded [domain-specific languages].
 
 #include <epilepsy.h>
 
-#define Rectangle(width, height)   call(Rectangle_IMPL, width height)
-#define RectangleWidth(rectangle)  call(RectangleWidth_IMPL, rectangle)
-#define RectangleHeight(rectangle) call(RectangleHeight_IMPL, rectangle)
+#define Rect(width, height) desugar(Rect, width height)
+#define RectWidth(rect)     desugar(RectWidth, rect)
+#define RectHeight(rect)    desugar(RectHeight, rect)
 
-#define RectangleArea(rectangle) call(RectangleArea_IMPL, rectangle)
+#define RectArea(rect) desugar(RectArea, rect)
 
-#define Rectangle_IMPL(width, height)   EPILEPSY_RECORD(v(width, height))
-#define RectangleWidth_IMPL(rectangle)  EPILEPSY_GET(v(rectangle), v(0))
-#define RectangleHeight_IMPL(rectangle) EPILEPSY_GET(v(rectangle), v(1))
+#define Rect_IMPL(width, height) EPILEPSY_RECORD(v(width, height))
+#define RectWidth_IMPL(rect)     EPILEPSY_GET(v(rect), v(0))
+#define RectHeight_IMPL(rect)    EPILEPSY_GET(v(rect), v(1))
 
-#define RectangleArea_IMPL(rectangle)                                                              \
-    EPILEPSY_UIntMul(RectangleWidth(v(rectangle)), RectangleHeight(v(rectangle)))
+#define RectArea_IMPL(rect) EPILEPSY_UIntMul(RectWidth(v(rect)), RectHeight(v(rect)))
 
 /*
  *                 15
@@ -56,9 +55,9 @@ Epilepsy allows you to create and use embedded [domain-specific languages].
  * |                                |
  * +--------------------------------+
  */
-#define RECTANGLE Rectangle(v(15), v(6))
+#define RECTANGLE Rect(v(15), v(6))
 
-EPILEPSY_ASSERT_EQ(RectangleArea(RECTANGLE), v(15 * 6));
+EPILEPSY_ASSERT_EQ(RectArea(RECTANGLE), v(15 * 6));
 
 int main(void) {}
 ```
@@ -72,10 +71,10 @@ int main(void) {}
 
 #include <epilepsy.h>
 
-#define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
-#define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
+#define TreeLeaf(x)              desugar(TreeLeaf, x)
+#define TreeNode(lhs, data, rhs) desugar(TreeNode, lhs data rhs)
 
-#define SUM(tree) call(SUM_IMPL, tree)
+#define SUM(tree) desugar(SUM, tree)
 
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf), v(x))
 #define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))

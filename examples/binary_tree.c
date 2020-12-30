@@ -2,10 +2,10 @@
 
 #include <epilepsy.h>
 
-#define TreeLeaf(x)              call(TreeLeaf_IMPL, x)
-#define TreeNode(lhs, data, rhs) call(TreeNode_IMPL, lhs data rhs)
+#define TreeLeaf(x)              desugar(TreeLeaf, x)
+#define TreeNode(lhs, data, rhs) desugar(TreeNode, lhs data rhs)
 
-#define SUM(tree) call(SUM_IMPL, tree)
+#define SUM(tree) desugar(SUM, tree)
 
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf), v(x))
 #define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))

@@ -18,52 +18,52 @@
 /**
  * Prepends @p x to @p xs.
  */
-#define EPILEPSY_Cons(x, xs) call(EPILEPSY_Cons_IMPL, x xs)
+#define EPILEPSY_Cons(x, xs) desugar(EPILEPSY_Cons, x xs)
 
 /**
  * The empty list.
  */
-#define EPILEPSY_Nil() call(EPILEPSY_Nil_IMPL, )
+#define EPILEPSY_Nil() desugar(EPILEPSY_Nil, )
 
 /**
  * Constructs a list from its arguments.
  */
-#define EPILEPSY_List(...) call(EPILEPSY_List_IMPL, __VA_ARGS__)
+#define EPILEPSY_List(...) desugar(EPILEPSY_List, __VA_ARGS__)
 
 /**
  * Places all the items in @p list as-is.
  */
-#define EPILEPSY_ListUnwrap(list) call(EPILEPSY_ListUnwrap_IMPL, list)
+#define EPILEPSY_ListUnwrap(list) desugar(EPILEPSY_ListUnwrap, list)
 
 /**
  * Gets an @p i -indexed element.
  */
-#define EPILEPSY_ListGet(list, i) call(EPILEPSY_ListGet_IMPL, list i)
+#define EPILEPSY_ListGet(list, i) desugar(EPILEPSY_ListGet, list i)
 
 /**
  * Performs a right-associative fold over @p list.
  */
-#define EPILEPSY_ListFoldr(list, f, init) call(EPILEPSY_ListFoldr_IMPL, list f init)
+#define EPILEPSY_ListFoldr(list, f, init) desugar(EPILEPSY_ListFoldr, list f init)
 
 /**
  * Performs a left-associative fold over @p list.
  */
-#define EPILEPSY_ListFoldl(list, f, init) call(EPILEPSY_ListFoldl_IMPL, list f init)
+#define EPILEPSY_ListFoldl(list, f, init) desugar(EPILEPSY_ListFoldl, list f init)
 
 /**
  * The same as #EPILEPSY_ListFoldl but treats the first element of @p list as the initial value.
  */
-#define EPILEPSY_ListFoldl1(list, f) call(EPILEPSY_ListFoldl1_IMPL, list f)
+#define EPILEPSY_ListFoldl1(list, f) desugar(EPILEPSY_ListFoldl1, list f)
 
 /**
  * Intersperses @p item between the items in @p list.
  */
-#define EPILEPSY_ListIntersperse(list, item) call(EPILEPSY_ListIntersperse_IMPL, list item)
+#define EPILEPSY_ListIntersperse(list, item) desugar(EPILEPSY_ListIntersperse, list item)
 
 /**
  * Prepends @p item to all items in @p list.
  */
-#define EPILEPSY_ListPrependToAll(list, item) call(EPILEPSY_ListPrependToAll_IMPL, list item)
+#define EPILEPSY_ListPrependToAll(list, item) desugar(EPILEPSY_ListPrependToAll, list item)
 // }
 
 #ifndef DOXYGEN_IGNORE

@@ -13,22 +13,22 @@
 /**
  * The left value @p x.
  */
-#define EPILEPSY_EitherLeft(x) call(EPILEPSY_EitherLeft_IMPL, x)
+#define EPILEPSY_EitherLeft(x) desugar(EPILEPSY_EitherLeft, x)
 
 /**
  * The right value @p x.
  */
-#define EPILEPSY_EitherRight(x) call(EPILEPSY_EitherRight_IMPL, x)
+#define EPILEPSY_EitherRight(x) desugar(EPILEPSY_EitherRight, x)
 
 /**
  * 1 if @p either contains a left value, otherwise 0.
  */
-#define EPILEPSY_EitherIsLeft(either) call(EPILEPSY_EitherIsLeft_IMPL, either)
+#define EPILEPSY_EitherIsLeft(either) desugar(EPILEPSY_EitherIsLeft, either)
 
 /**
  * 1 if @p either contains a right value, otherwise 0.
  */
-#define EPILEPSY_EitherIsRight(either) call(EPILEPSY_EitherIsRight_IMPL, either)
+#define EPILEPSY_EitherIsRight(either) desugar(EPILEPSY_EitherIsRight, either)
 // }
 
 #ifndef DOXYGEN_IGNORE
