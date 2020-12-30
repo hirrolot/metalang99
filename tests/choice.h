@@ -12,11 +12,11 @@
 
 #define MATCH(foo) EPILEPSY_MATCH_WITH_ARGS(v(foo), v(MATCH_), v(3))
 #define MATCH_FooA(x, _3)                                                                          \
-    v(EPILEPSY_PLAIN_STATIC_ASSERT(x == 19); EPILEPSY_PLAIN_STATIC_ASSERT(_3 == 3);)
+    v(EPILEPSY_STATIC_ASSERT_PLAIN(x == 19); EPILEPSY_STATIC_ASSERT_PLAIN(_3 == 3);)
 #define MATCH_FooB(x, _3)                                                                          \
-    v(EPILEPSY_PLAIN_STATIC_ASSERT(x == 1756); EPILEPSY_PLAIN_STATIC_ASSERT(_3 == 3);)
+    v(EPILEPSY_STATIC_ASSERT_PLAIN(x == 1756); EPILEPSY_STATIC_ASSERT_PLAIN(_3 == 3);)
 #define MATCH_FooC(x, _3)                                                                          \
-    v(EPILEPSY_PLAIN_STATIC_ASSERT(x == 0); EPILEPSY_PLAIN_STATIC_ASSERT(_3 == 3);)
+    v(EPILEPSY_STATIC_ASSERT_PLAIN(x == 0); EPILEPSY_STATIC_ASSERT_PLAIN(_3 == 3);)
 
 EPILEPSY_EVAL(call(MATCH, call(FooA, v(19))))
 EPILEPSY_EVAL(call(MATCH, call(FooB, v(1756))))
