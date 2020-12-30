@@ -45,19 +45,18 @@ Epilepsy allows you to create and use embedded [domain-specific languages].
 #define RectArea_IMPL(rect) EPILEPSY_UIntMul(RectWidth(v(rect)), RectHeight(v(rect)))
 
 /*
- *                 15
- * +--------------------------------+
- * |                                |
- * |                                |
- * |                                | 6
- * |                                |
- * |                                |
- * |                                |
- * +--------------------------------+
+ *                15
+ * +------------------------------+
+ * |                              |
+ * |                              |
+ * |                              | 7
+ * |                              |
+ * |                              |
+ * +------------------------------+
  */
-#define RECTANGLE Rect(v(15), v(6))
+#define RECTANGLE Rect(v(15), v(7))
 
-EPILEPSY_ASSERT_EQ(RectArea(RECTANGLE), v(15 * 6));
+EPILEPSY_ASSERT_EQ(RectArea(RECTANGLE), v(15 * 7));
 
 int main(void) {}
 ```
