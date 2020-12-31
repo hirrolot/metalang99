@@ -8,18 +8,18 @@
 #define SUM   ((LIMIT + 1) * (LIMIT / 2))
 
 #define PREDICATE(state)       EPILEPSY_DESUGAR(PREDICATE, state)
-#define PREDICATE_IMPL(state)  call(PREDICATE_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
+#define PREDICATE_IMPL(state)  EPILEPSY_CALL(PREDICATE_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
 #define PREDICATE_AUX(_acc, i) EPILEPSY_UIntNeq(v(i), EPILEPSY_UIntInc(v(LIMIT)))
 
 #define OP(state)      EPILEPSY_DESUGAR(OP, state)
-#define OP_IMPL(state) call(OP_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
+#define OP_IMPL(state) EPILEPSY_CALL(OP_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
 #define OP_AUX(acc, i) v((v(acc + i) EPILEPSY_UIntInc(v(i))))
 
-#define STATE_FINALISER(state)      call(STATE_FINALISER_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
+#define STATE_FINALISER(state)      EPILEPSY_CALL(STATE_FINALISER_AUX, EPILEPSY_UNPARENTHESISE(v(state)))
 #define STATE_FINALISER_AUX(acc, i) v(acc)
 
 EPILEPSY_ASSERT_EQ(
-    call(STATE_FINALISER, EPILEPSY_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
+    EPILEPSY_CALL(STATE_FINALISER, EPILEPSY_WHILE(v(PREDICATE), v(OP), v((v(0, 1))))), v(SUM));
 
 #undef PREDICATE
 #undef PREDICATE_AUX

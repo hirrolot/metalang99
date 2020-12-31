@@ -4,12 +4,12 @@
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/variadics/get.h>
 
-#define call(...) EPILEPSY_PRIV_call(__VA_ARGS__)
-#define v(...)    (0v, __VA_ARGS__),
+#define EPILEPSY_CALL(...) EPILEPSY_PRIV_EPILEPSY_CALL(__VA_ARGS__)
+#define v(...)             (0v, __VA_ARGS__),
 
-#define EPILEPSY_DESUGAR(f, ...) call(f##_IMPL, __VA_ARGS__)
+#define EPILEPSY_DESUGAR(f, ...) EPILEPSY_CALL(f##_IMPL, __VA_ARGS__)
 
-#define EPILEPSY_PRIV_call(op, ...)                                                                \
+#define EPILEPSY_PRIV_EPILEPSY_CALL(op, ...)                                                       \
     EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(op), EPILEPSY_PRIV_call_0args,                       \
         EPILEPSY_PRIV_call_0op)                                                                    \

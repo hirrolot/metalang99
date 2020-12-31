@@ -26,7 +26,7 @@
 // Implementation {
 #define EPILEPSY_OVERLOAD_IMPL(f, ...) v(EPILEPSY_PRIV_OVERLOAD(f, __VA_ARGS__))
 #define EPILEPSY_OVERLOAD_CALL_IMPL(f, ...)                                                        \
-    call(EPILEPSY_OVERLOAD(v(f), v(__VA_ARGS__)), v(__VA_ARGS__))
+    EPILEPSY_CALL(EPILEPSY_OVERLOAD(v(f), v(__VA_ARGS__)), v(__VA_ARGS__))
 // }
 
 #endif // DOXYGEN_IGNORE

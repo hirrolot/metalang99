@@ -11,8 +11,8 @@
 #define MATCH_EitherRight(_4, _123)                                                                \
     v(EPILEPSY_STATIC_ASSERT_PLAIN(_4 == 4); EPILEPSY_STATIC_ASSERT_PLAIN(_123 == 123);)
 
-EPILEPSY_EVAL(call(MATCH, EPILEPSY_EitherLeft(v(18))))
-EPILEPSY_EVAL(call(MATCH, EPILEPSY_EitherRight(v(4))))
+EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_EitherLeft(v(18))))
+EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_EitherRight(v(4))))
 
 #undef MATCH
 #undef MATCH_LEFT

@@ -18,9 +18,9 @@
 #define MATCH_FooC(x, _3)                                                                          \
     v(EPILEPSY_STATIC_ASSERT_PLAIN(x == 0); EPILEPSY_STATIC_ASSERT_PLAIN(_3 == 3);)
 
-EPILEPSY_EVAL(call(MATCH, call(FooA, v(19))))
-EPILEPSY_EVAL(call(MATCH, call(FooB, v(1756))))
-EPILEPSY_EVAL(call(MATCH, call(FooC, v(0))))
+EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooA, v(19))))
+EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooB, v(1756))))
+EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooC, v(0))))
 
 #undef MATCH
 #undef MATCH_FooA

@@ -43,23 +43,23 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_NOT_IMPL(x)  call(EPILEPSY_PRIV_NOT_##x, )
+#define EPILEPSY_NOT_IMPL(x)  EPILEPSY_CALL(EPILEPSY_PRIV_NOT_##x, )
 #define EPILEPSY_PRIV_NOT_0() v(1)
 #define EPILEPSY_PRIV_NOT_1() v(0)
 
-#define EPILEPSY_AND_IMPL(x, y) call(EPILEPSY_PRIV_AND_##x##y, )
+#define EPILEPSY_AND_IMPL(x, y) EPILEPSY_CALL(EPILEPSY_PRIV_AND_##x##y, )
 #define EPILEPSY_PRIV_AND_00()  v(0)
 #define EPILEPSY_PRIV_AND_01()  v(0)
 #define EPILEPSY_PRIV_AND_10()  v(0)
 #define EPILEPSY_PRIV_AND_11()  v(1)
 
-#define EPILEPSY_OR_IMPL(x, y) call(EPILEPSY_PRIV_OR_##x##y, )
+#define EPILEPSY_OR_IMPL(x, y) EPILEPSY_CALL(EPILEPSY_PRIV_OR_##x##y, )
 #define EPILEPSY_PRIV_OR_00()  v(0)
 #define EPILEPSY_PRIV_OR_01()  v(1)
 #define EPILEPSY_PRIV_OR_10()  v(1)
 #define EPILEPSY_PRIV_OR_11()  v(1)
 
-#define EPILEPSY_XOR_IMPL(x, y) call(EPILEPSY_PRIV_XOR_##x##y, )
+#define EPILEPSY_XOR_IMPL(x, y) EPILEPSY_CALL(EPILEPSY_PRIV_XOR_##x##y, )
 #define EPILEPSY_PRIV_XOR_00()  v(0)
 #define EPILEPSY_PRIV_XOR_01()  v(1)
 #define EPILEPSY_PRIV_XOR_10()  v(1)

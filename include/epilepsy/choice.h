@@ -42,7 +42,7 @@
 #define EPILEPSY_CHOICE_EMPTY_IMPL(tag) v(EPILEPSY_PRIV_PAIR(tag, 0empty()))
 
 #define EPILEPSY_MATCH_IMPL(choice, matcher)                                                       \
-    call(                                                                                          \
+    EPILEPSY_CALL(                                                                                 \
         EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice)))
 
@@ -52,9 +52,9 @@
         EPILEPSY_PRIV_MATCH_WITH_ARGS_NON_EMPTY)                                                   \
     (choice, matcher, __VA_ARGS__)
 #define EPILEPSY_PRIV_MATCH_WITH_ARGS_EMPTY(choice, matcher, ...)                                  \
-    call(EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)), v(__VA_ARGS__))
+    EPILEPSY_CALL(EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)), v(__VA_ARGS__))
 #define EPILEPSY_PRIV_MATCH_WITH_ARGS_NON_EMPTY(choice, matcher, ...)                              \
-    call(                                                                                          \
+    EPILEPSY_CALL(                                                                                 \
         EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice), __VA_ARGS__))
 
