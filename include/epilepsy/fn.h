@@ -1,98 +1,118 @@
+
 #ifndef EPILEPSY_FN_H
 #define EPILEPSY_FN_H
 
 #include <epilepsy/control.h>
 #include <epilepsy/lang.h>
-#include <epilepsy/list.h>
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/pair.h>
-#include <epilepsy/uint.h>
 
 // Desugaring {
-#define EPILEPSY_CLOSURE(f, ...)           EPILEPSY_DESUGAR(EPILEPSY_CLOSURE, f __VA_ARGS__)
-#define EPILEPSY_LAMBDA(f)                 EPILEPSY_DESUGAR(EPILEPSY_LAMBDA, f)
-#define EPILEPSY_APPLY(closure, ...)       EPILEPSY_DESUGAR(EPILEPSY_APPLY, closure __VA_ARGS__)
-#define EPILEPSY_APPLY_LIST(closure, list) EPILEPSY_DESUGAR(EPILEPSY_APPLY_LIST, closure list)
-#define EPILEPSY_APPLY_VARIADICS(closure, ...)                                                     \
-    EPILEPSY_DESUGAR(EPILEPSY_APPLY_VARIADICS, closure __VA_ARGS__)
-#define EPILEPSY_COMPOSE(f, g)   EPILEPSY_DESUGAR(EPILEPSY_COMPOSE, f g)
-#define EPILEPSY_CURRY(f, arity) EPILEPSY_DESUGAR(EPILEPSY_CURRY, f arity)
+#define EPILEPSY_APPLY(f, x) EPILEPSY_DESUGAR(EPILEPSY_APPLY, f x)
 // }
 
 // Implementation {
-#define EPILEPSY_CLOSURE_IMPL(f, ...) v(EPILEPSY_PRIV_PAIR(f, (__VA_ARGS__)))
+#define EPILEPSY_APPLY_IMPL(f, x)                                                                  \
+    EPILEPSY_IF_LAZY(                                                                              \
+        v(EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(f)), v(EPILEPSY_PRIV_APPLY_F),                     \
+        v(EPILEPSY_PRIV_APPLY_CLOSURE), v(f, x))
+#define EPILEPSY_PRIV_APPLY_F(f, x)                                                                \
+    call(EPILEPSY_PRIV_APPLY_WITHOUT_ARGS, EPILEPSY_PRIV_CLOSURE(v(f), v(x)))
+#define EPILEPSY_PRIV_APPLY_CLOSURE(closure, x)                                                    \
+    call(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure), x))
 
-#define EPILEPSY_APPLY_IMPL(closure, ...)                                                          \
-    call(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_CX(closure), __VA_ARGS__))
+#define EPILEPSY_PRIV_APPLY_WITHOUT_ARGS(closure)                                                  \
+    call(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure)))
 
-#define EPILEPSY_APPLY_LIST_IMPL(closure, list)                                                    \
-    EPILEPSY_ListFoldl(v(list), v(EPILEPSY_APPLY_IMPL), v(closure))
+#define EPILEPSY_PRIV_CLOSURE(f, ...) EPILEPSY_DESUGAR(EPILEPSY_PRIV_CLOSURE, f __VA_ARGS__)
+#define EPILEPSY_PRIV_CLOSURE_IMPL(f, ...)                                                         \
+    EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_CURRY_, f##_ARITY)(f, __VA_ARGS__)
 
-#define EPILEPSY_APPLY_VARIADICS_IMPL(closure, ...)                                                \
-    EPILEPSY_APPLY_LIST(v(closure), EPILEPSY_List(v(__VA_ARGS__)))
+#define EPILEPSY_PRIV_CURRY_1(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_1_CLOSURE), v(f))
+#define EPILEPSY_PRIV_CURRY_1_CLOSURE(f, ...) call(f, v(__VA_ARGS__))
 
-#define EPILEPSY_COMPOSE_IMPL(f, g) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_COMPOSE_CLOSURE), v(f, g))
-#define EPILEPSY_PRIV_COMPOSE_CLOSURE(f, g, ...)                                                   \
-    call(                                                                                          \
-        EPILEPSY_PRIV_CLOSURE_F(f),                                                                \
-        v(EPILEPSY_PRIV_CLOSURE_CX(f))                                                             \
-            call(EPILEPSY_PRIV_CLOSURE_F(g), v(EPILEPSY_PRIV_CLOSURE_CX(g), __VA_ARGS__)))
-
-#define EPILEPSY_LAMBDA_IMPL(f)              EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_LAMBDA_CLOSURE), v(f))
-#define EPILEPSY_PRIV_LAMBDA_CLOSURE(f, ...) call(f, v(__VA_ARGS__))
-
-#define EPILEPSY_CURRY_IMPL(f, arity) EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_CURRY_, arity)(f)
-
-#define EPILEPSY_PRIV_CURRY_1(f)              EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_1_CLOSURE), v(f))
-#define EPILEPSY_PRIV_CURRY_1_CLOSURE(f, ...) EPILEPSY_APPLY(v(f), v(__VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_2(f)              EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_2_CLOSURE), v(f))
+#define EPILEPSY_PRIV_CURRY_2(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_2_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_2_CLOSURE(f, ...)                                                      \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_1_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_3(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_3_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_1_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_3(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_3_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_3_CLOSURE(f, ...)                                                      \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_2_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_4(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_4_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_2_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_4(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_4_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_4_CLOSURE(f, ...)                                                      \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_3_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_5(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_5_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_3_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_5(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_5_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_5_CLOSURE(f, ...)                                                      \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_4_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_6(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_6_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_4_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_6(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_6_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_6_CLOSURE(f, ...)                                                      \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_5_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_7(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_7_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_5_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_7(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_7_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_7_CLOSURE(f, ...)                                                      \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_6_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_8(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_8_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_6_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_8(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_8_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_8_CLOSURE(f, ...)                                                      \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_7_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_9(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_9_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_7_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_9(f, ...)                                                              \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_9_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_9_CLOSURE(f, ...)                                                      \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_8_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_10(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_10_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_8_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_10(f, ...)                                                             \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_10_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_10_CLOSURE(f, ...)                                                     \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_9_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_11(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_11_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_9_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_11(f, ...)                                                             \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_11_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_11_CLOSURE(f, ...)                                                     \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_10_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_12(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_12_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_10_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_12(f, ...)                                                             \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_12_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_12_CLOSURE(f, ...)                                                     \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_11_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_13(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_13_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_11_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_13(f, ...)                                                             \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_13_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_13_CLOSURE(f, ...)                                                     \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_12_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_14(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_14_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_12_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_14(f, ...)                                                             \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_14_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_14_CLOSURE(f, ...)                                                     \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_13_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_15(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_15_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_13_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_15(f, ...)                                                             \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_15_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_15_CLOSURE(f, ...)                                                     \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_14_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_16(f) EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_16_CLOSURE), v(f))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_14_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CURRY_16(f, ...)                                                             \
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_16_CLOSURE), v(f, __VA_ARGS__))
 #define EPILEPSY_PRIV_CURRY_16_CLOSURE(f, ...)                                                     \
-    EPILEPSY_CLOSURE(v(EPILEPSY_PRIV_CURRY_15_CLOSURE), v(f, __VA_ARGS__))
+    EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_15_CLOSURE), v(f, __VA_ARGS__))
+
+#define EPILEPSY_PRIV_CLOSURE_UNCURRIED(f, ...)                                                    \
+    EPILEPSY_DESUGAR(EPILEPSY_PRIV_CLOSURE_UNCURRIED, f __VA_ARGS__)
+#define EPILEPSY_PRIV_CLOSURE_UNCURRIED_IMPL(f, ...) v(EPILEPSY_PRIV_PAIR(f, (__VA_ARGS__)))
 
 #define EPILEPSY_PRIV_CLOSURE_F EPILEPSY_PRIV_PAIR_FST
-#define EPILEPSY_PRIV_CLOSURE_CX(closure)                                                          \
+#define EPILEPSY_PRIV_CLOSURE_ENV(closure)                                                         \
     EPILEPSY_PRIV_UNPARENTHESISE(EPILEPSY_PRIV_PAIR_SND(closure))
 // }
 
