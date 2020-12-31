@@ -10,7 +10,7 @@
 
 TODO: the main example.
 
-Epilepsy enables you to create and use languages that [coincide with a problem domain](https://en.wikipedia.org/wiki/Language-oriented_programming). This way, secondary details get obliterated, code repetition is replaced by a single pattern, hard mental operations on a syntax level are left to machines, etc., leading towards a more maintainable and reliable design.
+Epilepsy enables you to easily develop both small and complex metaprograms for the C/C++ preprocessor. Its prominent features include algebraic data types, general recursion, and currying.
 
 ## Overview
 
