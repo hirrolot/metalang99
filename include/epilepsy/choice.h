@@ -16,23 +16,23 @@
 /**
  * Constructs an instance of a choice type.
  */
-#define EPILEPSY_CHOICE(tag, ...) desugar(EPILEPSY_CHOICE, tag __VA_ARGS__)
+#define EPILEPSY_CHOICE(tag, ...) EPILEPSY_DESUGAR(EPILEPSY_CHOICE, tag __VA_ARGS__)
 
 /**
  * The same as #EPILEPSY_CHOICE but does not require additional arguments.
  */
-#define EPILEPSY_CHOICE_EMPTY(tag) desugar(EPILEPSY_CHOICE_EMPTY, tag)
+#define EPILEPSY_CHOICE_EMPTY(tag) EPILEPSY_DESUGAR(EPILEPSY_CHOICE_EMPTY, tag)
 
 /**
  * Matches the instance @p choice of a choice type.
  */
-#define EPILEPSY_MATCH(choice, matcher) desugar(EPILEPSY_MATCH, choice matcher)
+#define EPILEPSY_MATCH(choice, matcher) EPILEPSY_DESUGAR(EPILEPSY_MATCH, choice matcher)
 
 /**
  * The same as #EPILEPSY_MATCH but supplies additional arguments to all branches.
  */
 #define EPILEPSY_MATCH_WITH_ARGS(choice, matcher, ...)                                             \
-    desugar(EPILEPSY_MATCH_WITH_ARGS, choice matcher __VA_ARGS__)
+    EPILEPSY_DESUGAR(EPILEPSY_MATCH_WITH_ARGS, choice matcher __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

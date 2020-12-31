@@ -18,72 +18,72 @@
 /**
  * \f$x + 1\f$
  */
-#define EPILEPSY_UIntInc(x) desugar(EPILEPSY_UIntInc, x)
+#define EPILEPSY_UIntInc(x) EPILEPSY_DESUGAR(EPILEPSY_UIntInc, x)
 
 /**
  * \f$x - 1\f$
  */
-#define EPILEPSY_UIntDec(x) desugar(EPILEPSY_UIntDec, x)
+#define EPILEPSY_UIntDec(x) EPILEPSY_DESUGAR(EPILEPSY_UIntDec, x)
 
 /**
  * \f$x = y\f$
  */
-#define EPILEPSY_UIntEq(x, y) desugar(EPILEPSY_UIntEq, x y)
+#define EPILEPSY_UIntEq(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntEq, x y)
 
 /**
  * \f$x \neq y\f$
  */
-#define EPILEPSY_UIntNeq(x, y) desugar(EPILEPSY_UIntNeq, x y)
+#define EPILEPSY_UIntNeq(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntNeq, x y)
 
 /**
  * \f$x > y\f$
  */
-#define EPILEPSY_UIntGreater(x, y) desugar(EPILEPSY_UIntGreater, x y)
+#define EPILEPSY_UIntGreater(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntGreater, x y)
 
 /**
  * \f$x \geq y\f$
  */
-#define EPILEPSY_UIntGreaterEq(x, y) desugar(EPILEPSY_UIntGreaterEq, x y)
+#define EPILEPSY_UIntGreaterEq(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntGreaterEq, x y)
 
 /**
  * \f$x < y\f$
  */
-#define EPILEPSY_UIntLesser(x, y) desugar(EPILEPSY_UIntLesser, x y)
+#define EPILEPSY_UIntLesser(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntLesser, x y)
 
 /**
  * \f$x \leq y\f$
  */
-#define EPILEPSY_UIntLesserEq(x, y) desugar(EPILEPSY_UIntLesserEq, x y)
+#define EPILEPSY_UIntLesserEq(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntLesserEq, x y)
 
 /**
  * \f$x + y\f$
  */
-#define EPILEPSY_UIntAdd(x, y) desugar(EPILEPSY_UIntAdd, x y)
+#define EPILEPSY_UIntAdd(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntAdd, x y)
 
 /**
  * \f$x_1 + \ldots + x_n\f$
  */
-#define EPILEPSY_UIntAddVariadics(...) desugar(EPILEPSY_UIntAddVariadics, __VA_ARGS__)
+#define EPILEPSY_UIntAddVariadics(...) EPILEPSY_DESUGAR(EPILEPSY_UIntAddVariadics, __VA_ARGS__)
 
 /**
  * \f$x - y\f$
  */
-#define EPILEPSY_UIntSub(x, y) desugar(EPILEPSY_UIntSub, x y)
+#define EPILEPSY_UIntSub(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntSub, x y)
 
 /**
  * \f$x_1 - \ldots - x_n\f$
  */
-#define EPILEPSY_UIntSubVariadics(...) desugar(EPILEPSY_UIntSubVariadics, __VA_ARGS__)
+#define EPILEPSY_UIntSubVariadics(...) EPILEPSY_DESUGAR(EPILEPSY_UIntSubVariadics, __VA_ARGS__)
 
 /**
  * \f$x * y\f$
  */
-#define EPILEPSY_UIntMul(x, y) desugar(EPILEPSY_UIntMul, x y)
+#define EPILEPSY_UIntMul(x, y) EPILEPSY_DESUGAR(EPILEPSY_UIntMul, x y)
 
 /**
  * \f$x_1 * \ldots * x_n\f$
  */
-#define EPILEPSY_UIntMulVariadics(...) desugar(EPILEPSY_UIntMulVariadics, __VA_ARGS__)
+#define EPILEPSY_UIntMulVariadics(...) EPILEPSY_DESUGAR(EPILEPSY_UIntMulVariadics, __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

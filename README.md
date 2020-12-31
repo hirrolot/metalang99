@@ -24,11 +24,11 @@ Epilepsy enables you to easily develop both small and complex metaprograms for t
 
 #include <epilepsy.h>
 
-#define Rect(width, height) desugar(Rect, width height)
-#define RectWidth(rect)     desugar(RectWidth, rect)
-#define RectHeight(rect)    desugar(RectHeight, rect)
+#define Rect(width, height) EPILEPSY_DESUGAR(Rect, width height)
+#define RectWidth(rect)     EPILEPSY_DESUGAR(RectWidth, rect)
+#define RectHeight(rect)    EPILEPSY_DESUGAR(RectHeight, rect)
 
-#define RectArea(rect) desugar(RectArea, rect)
+#define RectArea(rect) EPILEPSY_DESUGAR(RectArea, rect)
 
 #define Rect_IMPL(width, height) EPILEPSY_RECORD(v(width, height))
 #define RectWidth_IMPL(rect)     EPILEPSY_GET(v(rect), v(0))
@@ -62,10 +62,10 @@ int main(void) {}
 
 #include <epilepsy.h>
 
-#define TreeLeaf(x)              desugar(TreeLeaf, x)
-#define TreeNode(lhs, data, rhs) desugar(TreeNode, lhs data rhs)
+#define TreeLeaf(x)              EPILEPSY_DESUGAR(TreeLeaf, x)
+#define TreeNode(lhs, data, rhs) EPILEPSY_DESUGAR(TreeNode, lhs data rhs)
 
-#define SUM(tree) desugar(SUM, tree)
+#define SUM(tree) EPILEPSY_DESUGAR(SUM, tree)
 
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf), v(x))
 #define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))

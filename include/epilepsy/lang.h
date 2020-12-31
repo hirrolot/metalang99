@@ -7,7 +7,7 @@
 #define call(...) EPILEPSY_PRIV_call(__VA_ARGS__)
 #define v(...)    (0v, __VA_ARGS__),
 
-#define desugar(f, ...) call(f##_IMPL, __VA_ARGS__)
+#define EPILEPSY_DESUGAR(f, ...) call(f##_IMPL, __VA_ARGS__)
 
 #define EPILEPSY_PRIV_call(op, ...)                                                                \
     EPILEPSY_PRIV_IF(                                                                              \
