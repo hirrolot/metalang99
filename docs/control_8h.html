@@ -1,5 +1,7 @@
+<!-- HTML header for doxygen 1.8.13-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
@@ -97,6 +99,7 @@ $(document).ready(function(){initNavTree('control_8h.html','');});
 <p>Control expressions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;epilepsy/lang.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="variadics_8h_source.html">epilepsy/variadics.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
@@ -114,17 +117,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a1a8154ae70bba213845a654584ddad6f"><td class="memItemLeft" align="right" valign="top"><a id="a1a8154ae70bba213845a654584ddad6f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a1a8154ae70bba213845a654584ddad6f">EPILEPSY_IF</a>(cond,  x,  y)&#160;&#160;&#160;call(EPILEPSY_IF_IMPL, cond x y)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a1a8154ae70bba213845a654584ddad6f">EPILEPSY_IF</a>(cond,  x,  y)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_IF, cond x y)</td></tr>
 <tr class="memdesc:a1a8154ae70bba213845a654584ddad6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">If <code>cond</code> is true, expands to <code>x</code>, otherwise <code>y</code>. <br /></td></tr>
 <tr class="separator:a1a8154ae70bba213845a654584ddad6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08c3e724c52ac6a198607197e4ff0e81"><td class="memItemLeft" align="right" valign="top"><a id="a08c3e724c52ac6a198607197e4ff0e81"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a08c3e724c52ac6a198607197e4ff0e81">EPILEPSY_IF_LAZY</a>(cond,  op_if_true,  op_if_false, ...)&#160;&#160;&#160;call(EPILEPSY_IF_LAZY_IMPL, cond op_if_true op_if_false __VA_ARGS__)</td></tr>
-<tr class="memdesc:a08c3e724c52ac6a198607197e4ff0e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lazy #EPILSPY_IF. <br /></td></tr>
-<tr class="separator:a08c3e724c52ac6a198607197e4ff0e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add0700bcbd0cec9ad85f6032782f562f"><td class="memItemLeft" align="right" valign="top"><a id="add0700bcbd0cec9ad85f6032782f562f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#add0700bcbd0cec9ad85f6032782f562f">EPILEPSY_WHILE</a>(predicate,  op,  state)&#160;&#160;&#160;call(EPILEPSY_WHILE_IMPL, predicate op state)</td></tr>
-<tr class="memdesc:add0700bcbd0cec9ad85f6032782f562f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes an <code>op</code> as long as a <code>predicate</code> holds for <code>state</code>. <br /></td></tr>
-<tr class="separator:add0700bcbd0cec9ad85f6032782f562f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025e677c6cb2c0d16ebfb5931b2dbce6"><td class="memItemLeft" align="right" valign="top"><a id="a025e677c6cb2c0d16ebfb5931b2dbce6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="control_8h.html#a025e677c6cb2c0d16ebfb5931b2dbce6">EPILEPSY_IF_LAZY</a>(cond,  f,  g, ...)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_IF_LAZY, cond f g __VA_ARGS__)</td></tr>
+<tr class="memdesc:a025e677c6cb2c0d16ebfb5931b2dbce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lazy #EPILSPY_IF. <br /></td></tr>
+<tr class="separator:a025e677c6cb2c0d16ebfb5931b2dbce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Control expressions. </p>

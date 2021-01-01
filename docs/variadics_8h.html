@@ -1,5 +1,7 @@
+<!-- HTML header for doxygen 1.8.13-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
@@ -103,10 +105,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="variadics_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2variadics_8hdep" alt=""/></div>
 <map name="include_2epilepsy_2variadics_8hdep" id="include_2epilepsy_2variadics_8hdep">
-<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="59,229,185,256"/>
-<area shape="rect" id="node3" href="list_8h.html" title="Lists. " alt="" coords="110,80,257,107"/>
-<area shape="rect" id="node4" href="record_8h.html" title="Record types. " alt="" coords="100,155,267,181"/>
-<area shape="rect" id="node5" href="uint_8h.html" title="Unsigned integers. " alt="" coords="291,155,441,181"/>
+<area shape="rect" id="node2" href="epilepsy_8h.html" title="Everything Epilepsy provides. " alt="" coords="448,304,574,331"/>
+<area shape="rect" id="node3" href="choice_8h.html" title="Choice types. " alt="" coords="235,80,403,107"/>
+<area shape="rect" id="node5" href="list_8h.html" title="Lists. " alt="" coords="559,155,706,181"/>
+<area shape="rect" id="node9" href="control_8h.html" title="Control expressions. " alt="" coords="604,80,773,107"/>
+<area shape="rect" id="node4" href="either_8h.html" title="A choice type with two cases. " alt="" coords="32,155,195,181"/>
+<area shape="rect" id="node8" href="maybe_8h.html" title="An optional value. " alt="" coords="234,229,404,256"/>
+<area shape="rect" id="node6" href="record_8h.html" title="Record types. " alt="" coords="428,229,594,256"/>
+<area shape="rect" id="node7" href="uint_8h.html" title="Unsigned integers. " alt="" coords="670,229,821,256"/>
 </map>
 </div>
 </div>
@@ -115,17 +121,23 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a2487f0e32af8e00776550bfff58ac98b"><td class="memItemLeft" align="right" valign="top"><a id="a2487f0e32af8e00776550bfff58ac98b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#a2487f0e32af8e00776550bfff58ac98b">EPILEPSY_VARIADICS_COUNT</a>(...)&#160;&#160;&#160;call(EPILEPSY_VARIADICS_COUNT_IMPL, __VA_ARGS__)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#a2487f0e32af8e00776550bfff58ac98b">EPILEPSY_VARIADICS_COUNT</a>(...)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_VARIADICS_COUNT, __VA_ARGS__)</td></tr>
 <tr class="memdesc:a2487f0e32af8e00776550bfff58ac98b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a count of its arguments. <br /></td></tr>
 <tr class="separator:a2487f0e32af8e00776550bfff58ac98b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a48cdcb61cfdc33d9f28db494ade10d"><td class="memItemLeft" align="right" valign="top"><a id="a9a48cdcb61cfdc33d9f28db494ade10d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#a9a48cdcb61cfdc33d9f28db494ade10d">EPILEPSY_VARIADICS_HEAD</a>(...)&#160;&#160;&#160;call(EPILEPSY_VARIADICS_HEAD_IMPL, __VA_ARGS__)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#a9a48cdcb61cfdc33d9f28db494ade10d">EPILEPSY_VARIADICS_HEAD</a>(...)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_VARIADICS_HEAD, __VA_ARGS__)</td></tr>
 <tr class="memdesc:a9a48cdcb61cfdc33d9f28db494ade10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a head of its arguments. <br /></td></tr>
 <tr class="separator:a9a48cdcb61cfdc33d9f28db494ade10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3c92d4a26b099c8e33053bdeca58cc1"><td class="memItemLeft" align="right" valign="top"><a id="ad3c92d4a26b099c8e33053bdeca58cc1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#ad3c92d4a26b099c8e33053bdeca58cc1">EPILEPSY_VARIADICS_TAIL</a>(...)&#160;&#160;&#160;call(EPILEPSY_VARIADICS_TAIL_IMPL, __VA_ARGS__)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="variadics_8h.html#ad3c92d4a26b099c8e33053bdeca58cc1">EPILEPSY_VARIADICS_TAIL</a>(...)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_VARIADICS_TAIL, __VA_ARGS__)</td></tr>
 <tr class="memdesc:ad3c92d4a26b099c8e33053bdeca58cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a tail of its arguments. <br /></td></tr>
 <tr class="separator:ad3c92d4a26b099c8e33053bdeca58cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88efb55e00d1f965c2d7d37c74d7f1a8"><td class="memItemLeft" align="right" valign="top"><a id="a88efb55e00d1f965c2d7d37c74d7f1a8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EPILEPSY_VARIADICS_APPLY</b>(f, ...)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_VARIADICS_APPLY, f __VA_ARGS__)</td></tr>
+<tr class="separator:a88efb55e00d1f965c2d7d37c74d7f1a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec43baea4a5b1221b4291333114093e4"><td class="memItemLeft" align="right" valign="top"><a id="aec43baea4a5b1221b4291333114093e4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EPILEPSY_VARIADICS_APPLY_WITH_ARITY</b>(f,  arity, ...)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_VARIADICS_APPLY_WITH_ARITY, f arity __VA_ARGS__)</td></tr>
+<tr class="separator:aec43baea4a5b1221b4291333114093e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Variadic macro utilities. </p>

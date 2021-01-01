@@ -1,5 +1,7 @@
+<!-- HTML header for doxygen 1.8.13-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
@@ -99,6 +101,7 @@ $(document).ready(function(){initNavTree('list_8h.html','');});
 <div class="textblock"><code>#include &lt;<a class="el" href="choice_8h_source.html">epilepsy/choice.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="control_8h_source.html">epilepsy/control.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="logical_8h_source.html">epilepsy/logical.h</a>&gt;</code><br />
+<code>#include &lt;epilepsy/priv/pair.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="uint_8h_source.html">epilepsy/uint.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="variadics_8h_source.html">epilepsy/variadics.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -116,26 +119,49 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a854735ac76f37e136b9f0dcb9f2c93ac"><td class="memItemLeft" align="right" valign="top"><a id="a854735ac76f37e136b9f0dcb9f2c93ac"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a854735ac76f37e136b9f0dcb9f2c93ac">EPILEPSY_Cons</a>(head,  tail)&#160;&#160;&#160;call(EPILEPSY_Cons_IMPL, head tail)</td></tr>
-<tr class="memdesc:a854735ac76f37e136b9f0dcb9f2c93ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends <code>head</code> to <code>tail</code>. <br /></td></tr>
-<tr class="separator:a854735ac76f37e136b9f0dcb9f2c93ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2c29c71e7ee54cd23ef3997ca076c2"><td class="memItemLeft" align="right" valign="top"><a id="a5f2c29c71e7ee54cd23ef3997ca076c2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a5f2c29c71e7ee54cd23ef3997ca076c2">EPILEPSY_Cons</a>(x,  xs)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_Cons, x xs)</td></tr>
+<tr class="memdesc:a5f2c29c71e7ee54cd23ef3997ca076c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends <code>x</code> to <code>xs</code>. <br /></td></tr>
+<tr class="separator:a5f2c29c71e7ee54cd23ef3997ca076c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac77d17604413a42886bbb0b47b3457f6"><td class="memItemLeft" align="right" valign="top"><a id="ac77d17604413a42886bbb0b47b3457f6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#ac77d17604413a42886bbb0b47b3457f6">EPILEPSY_Nil</a>()&#160;&#160;&#160;call(EPILEPSY_Nil_IMPL, )</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#ac77d17604413a42886bbb0b47b3457f6">EPILEPSY_Nil</a>()&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_Nil, )</td></tr>
 <tr class="memdesc:ac77d17604413a42886bbb0b47b3457f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The empty list. <br /></td></tr>
 <tr class="separator:ac77d17604413a42886bbb0b47b3457f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a884f47015456784fa18fc695d870c87a"><td class="memItemLeft" align="right" valign="top"><a id="a884f47015456784fa18fc695d870c87a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a884f47015456784fa18fc695d870c87a">EPILEPSY_List</a>(...)&#160;&#160;&#160;call(EPILEPSY_List_IMPL, __VA_ARGS__)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a884f47015456784fa18fc695d870c87a">EPILEPSY_List</a>(...)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_List, __VA_ARGS__)</td></tr>
 <tr class="memdesc:a884f47015456784fa18fc695d870c87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a list from its arguments. <br /></td></tr>
 <tr class="separator:a884f47015456784fa18fc695d870c87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb8ccdd4659157d7e70cc70d68053b64"><td class="memItemLeft" align="right" valign="top"><a id="acb8ccdd4659157d7e70cc70d68053b64"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#acb8ccdd4659157d7e70cc70d68053b64">EPILEPSY_ListFoldr</a>(list,  op,  init)&#160;&#160;&#160;call(EPILEPSY_ListFoldr_IMPL, list op init)</td></tr>
-<tr class="memdesc:acb8ccdd4659157d7e70cc70d68053b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a right fold. <br /></td></tr>
-<tr class="separator:acb8ccdd4659157d7e70cc70d68053b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c835a3e2d3de4b0b3b78ed3c9eb8de9"><td class="memItemLeft" align="right" valign="top"><a id="a0c835a3e2d3de4b0b3b78ed3c9eb8de9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a0c835a3e2d3de4b0b3b78ed3c9eb8de9">EPILEPSY_ListUnwrap</a>(list)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListUnwrap, list)</td></tr>
+<tr class="memdesc:a0c835a3e2d3de4b0b3b78ed3c9eb8de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places all the items in <code>list</code> as-is. <br /></td></tr>
+<tr class="separator:a0c835a3e2d3de4b0b3b78ed3c9eb8de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad96f203b33b1f579ca347f7e9010ddbc"><td class="memItemLeft" align="right" valign="top"><a id="ad96f203b33b1f579ca347f7e9010ddbc"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#ad96f203b33b1f579ca347f7e9010ddbc">EPILEPSY_ListGet</a>(list,  i)&#160;&#160;&#160;call(EPILEPSY_ListGet_IMPL, list i)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#ad96f203b33b1f579ca347f7e9010ddbc">EPILEPSY_ListGet</a>(list,  i)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListGet, list i)</td></tr>
 <tr class="memdesc:ad96f203b33b1f579ca347f7e9010ddbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an <code>i</code> -indexed element. <br /></td></tr>
 <tr class="separator:ad96f203b33b1f579ca347f7e9010ddbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1414bb96cd1bbd5801bf0f1bb3b54bb7"><td class="memItemLeft" align="right" valign="top"><a id="a1414bb96cd1bbd5801bf0f1bb3b54bb7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a1414bb96cd1bbd5801bf0f1bb3b54bb7">EPILEPSY_ListFoldr</a>(list,  f,  init)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListFoldr, list f init)</td></tr>
+<tr class="memdesc:a1414bb96cd1bbd5801bf0f1bb3b54bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a right-associative fold over <code>list</code>. <br /></td></tr>
+<tr class="separator:a1414bb96cd1bbd5801bf0f1bb3b54bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa674d37c39d95753f17e1ce055b1f78c"><td class="memItemLeft" align="right" valign="top"><a id="aa674d37c39d95753f17e1ce055b1f78c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#aa674d37c39d95753f17e1ce055b1f78c">EPILEPSY_ListFoldl</a>(list,  f,  init)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListFoldl, list f init)</td></tr>
+<tr class="memdesc:aa674d37c39d95753f17e1ce055b1f78c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a left-associative fold over <code>list</code>. <br /></td></tr>
+<tr class="separator:aa674d37c39d95753f17e1ce055b1f78c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5510aaeb66cc222ac5c6391dd8b57c7c"><td class="memItemLeft" align="right" valign="top"><a id="a5510aaeb66cc222ac5c6391dd8b57c7c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a5510aaeb66cc222ac5c6391dd8b57c7c">EPILEPSY_ListFoldl1</a>(list,  f)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListFoldl1, list f)</td></tr>
+<tr class="memdesc:a5510aaeb66cc222ac5c6391dd8b57c7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same as <a class="el" href="list_8h.html#aa674d37c39d95753f17e1ce055b1f78c" title="Performs a left-associative fold over list. ">EPILEPSY_ListFoldl</a> but treats the first element of <code>list</code> as the initial value. <br /></td></tr>
+<tr class="separator:a5510aaeb66cc222ac5c6391dd8b57c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a908ca74aec410ea614044d19f4f09f44"><td class="memItemLeft" align="right" valign="top"><a id="a908ca74aec410ea614044d19f4f09f44"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a908ca74aec410ea614044d19f4f09f44">EPILEPSY_ListIntersperse</a>(list,  item)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListIntersperse, list item)</td></tr>
+<tr class="memdesc:a908ca74aec410ea614044d19f4f09f44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intersperses <code>item</code> between the items in <code>list</code>. <br /></td></tr>
+<tr class="separator:a908ca74aec410ea614044d19f4f09f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011f23620b57eb6b11280f258df31160"><td class="memItemLeft" align="right" valign="top"><a id="a011f23620b57eb6b11280f258df31160"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a011f23620b57eb6b11280f258df31160">EPILEPSY_ListPrependToAll</a>(list,  item)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListPrependToAll, list item)</td></tr>
+<tr class="memdesc:a011f23620b57eb6b11280f258df31160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends <code>item</code> to all items in <code>list</code>. <br /></td></tr>
+<tr class="separator:a011f23620b57eb6b11280f258df31160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8ebcda3c47feeeff3bf1af3ac469059"><td class="memItemLeft" align="right" valign="top"><a id="aa8ebcda3c47feeeff3bf1af3ac469059"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EPILEPSY_ListApply</b>(list,  f)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListApply, list f)</td></tr>
+<tr class="separator:aa8ebcda3c47feeeff3bf1af3ac469059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lists. </p>

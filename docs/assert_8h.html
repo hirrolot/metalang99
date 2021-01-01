@@ -1,5 +1,7 @@
+<!-- HTML header for doxygen 1.8.13-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
@@ -118,13 +120,13 @@ Macros</h2></td></tr>
 <tr class="memdesc:a6395f44a4cd52809013099f8454f25e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts <code>EPILEPSY_EVAL(expr)</code>. <br /></td></tr>
 <tr class="separator:a6395f44a4cd52809013099f8454f25e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="memItemLeft" align="right" valign="top"><a id="a0e8e70d2d5e47c825e72d8ada9fbe879"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879">EPILEPSY_ASSERT_EQ</a>(lhs,  rhs)&#160;&#160;&#160;<a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2">EPILEPSY_C_STATIC_ASSERT</a>(EPILEPSY_EVAL(lhs) == EPILEPSY_EVAL(rhs))</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a0e8e70d2d5e47c825e72d8ada9fbe879">EPILEPSY_ASSERT_EQ</a>(lhs,  rhs)&#160;&#160;&#160;<a class="el" href="assert_8h.html#ae9025b160fe00d6959b01a46d8780902">EPILEPSY_STATIC_ASSERT_PLAIN</a>(EPILEPSY_EVAL(lhs) == EPILEPSY_EVAL(rhs))</td></tr>
 <tr class="memdesc:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts the equality of <code>EPILEPSY_EVAL(lhs)</code> and <code>EPILEPSY_EVAL(rhs)</code>. <br /></td></tr>
 <tr class="separator:a0e8e70d2d5e47c825e72d8ada9fbe879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85810d51e6536a2a958e9e11a4f00fe2"><td class="memItemLeft" align="right" valign="top"><a id="a85810d51e6536a2a958e9e11a4f00fe2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#a85810d51e6536a2a958e9e11a4f00fe2">EPILEPSY_C_STATIC_ASSERT</a>(expr)&#160;&#160;&#160;EPILEPSY_PRIV_C_STATIC_ASSERT_IMPL(expr)</td></tr>
-<tr class="memdesc:a85810d51e6536a2a958e9e11a4f00fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts the C constant expression <code>expr</code>. <br /></td></tr>
-<tr class="separator:a85810d51e6536a2a958e9e11a4f00fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9025b160fe00d6959b01a46d8780902"><td class="memItemLeft" align="right" valign="top"><a id="ae9025b160fe00d6959b01a46d8780902"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8h.html#ae9025b160fe00d6959b01a46d8780902">EPILEPSY_STATIC_ASSERT_PLAIN</a>(expr)&#160;&#160;&#160;EPILEPSY_PRIV_STATIC_ASSERT_PLAIN_IMPL(expr)</td></tr>
+<tr class="memdesc:ae9025b160fe00d6959b01a46d8780902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts the C constant expression <code>expr</code>. <br /></td></tr>
+<tr class="separator:ae9025b160fe00d6959b01a46d8780902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static assertions. </p>
