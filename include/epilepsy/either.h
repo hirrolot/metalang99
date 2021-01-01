@@ -49,9 +49,6 @@
 #define EPILEPSY_EitherRight_IMPL_ARITY   1
 #define EPILEPSY_EitherIsLeft_IMPL_ARITY  1
 #define EPILEPSY_EitherIsRight_IMPL_ARITY 1
-
-#define EPILEPSY_PRIV_EitherIsLeft_EitherLeft_ARITY  1
-#define EPILEPSY_PRIV_EitherIsLeft_EitherRight_ARITY 1
 // }
 
 #endif // DOXYGEN_IGNORE

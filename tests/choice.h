@@ -19,10 +19,6 @@
 #define MATCH_FooC(x, _3)                                                                          \
     v(EPILEPSY_STATIC_ASSERT_PLAIN(x == 0); EPILEPSY_STATIC_ASSERT_PLAIN(_3 == 3);)
 
-#define MATCH_FooA_ARITY 2
-#define MATCH_FooB_ARITY 2
-#define MATCH_FooC_ARITY 2
-
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooA, v(19))))
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooB, v(1756))))
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooC, v(0))))
@@ -31,10 +27,6 @@ EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooC, v(0))))
 #undef MATCH_FooA
 #undef MATCH_FooB
 #undef MATCH_FooC
-
-#undef MATCH_FooA_ARITY
-#undef MATCH_FooB_ARITY
-#undef MATCH_FooC_ARITY
 
 #undef FooA
 #undef FooB

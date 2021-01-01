@@ -144,28 +144,8 @@
 #define EPILEPSY_PRIV_List_DONE_ARITY     1
 #define EPILEPSY_PRIV_List_PROGRESS_ARITY 2
 
-#define EPILEPSY_PRIV_ListUnwrap_Nil_ARITY  1
-#define EPILEPSY_PRIV_ListUnwrap_Cons_ARITY 2
-
-#define EPILEPSY_PRIV_ListGet_Nil_ARITY           1
-#define EPILEPSY_PRIV_ListGet_Cons_ARITY          3
 #define EPILEPSY_PRIV_ListGet_Cons_DONE_ARITY     3
 #define EPILEPSY_PRIV_ListGet_Cons_PROGRESS_ARITY 3
-
-#define EPILEPSY_PRIV_ListFoldr_Nil_ARITY  2
-#define EPILEPSY_PRIV_ListFoldr_Cons_ARITY 4
-
-#define EPILEPSY_PRIV_ListFoldl_Nil_ARITY  2
-#define EPILEPSY_PRIV_ListFoldl_Cons_ARITY 4
-
-#define EPILEPSY_PRIV_ListFoldl1_Nil_ARITY  1
-#define EPILEPSY_PRIV_ListFoldl1_Cons_ARITY 3
-
-#define EPILEPSY_PRIV_ListIntersperse_Nil_ARITY  1
-#define EPILEPSY_PRIV_ListIntersperse_Cons_ARITY 3
-
-#define EPILEPSY_PRIV_ListPrependToAll_Nil_ARITY  1
-#define EPILEPSY_PRIV_ListPrependToAll_Cons_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE

@@ -49,9 +49,6 @@
 #define EPILEPSY_MaybeNothing_IMPL_ARITY   1
 #define EPILEPSY_MaybeIsJust_IMPL_ARITY    1
 #define EPILEPSY_MaybeIsNothing_IMPL_ARITY 1
-
-#define EPILEPSY_PRIV_MaybeIsJust_MaybeJust_ARITY    1
-#define EPILEPSY_PRIV_MaybeIsJust_MaybeNothing_ARITY 1
 // }
 
 #endif // DOXYGEN_IGNORE
