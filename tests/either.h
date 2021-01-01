@@ -2,6 +2,7 @@
 #include <epilepsy/either.h>
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
+#include <epilepsy/uint.h>
 
 #define VAL v(abc ? +-148 % "hello world")
 
@@ -11,12 +12,18 @@
 #define MATCH_EitherRight(_4, _123)                                                                \
     v(EPILEPSY_STATIC_ASSERT_PLAIN(_4 == 4); EPILEPSY_STATIC_ASSERT_PLAIN(_123 == 123);)
 
+#define MATCH_EitherLeft_ARITY  2
+#define MATCH_EitherRight_ARITY 2
+
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_EitherLeft(v(18))))
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_EitherRight(v(4))))
 
 #undef MATCH
 #undef MATCH_LEFT
 #undef MATCH_RIGHT
+
+#undef MATCH_EitherLeft_ARITY
+#undef MATCH_EitherRight_ARITY
 
 EPILEPSY_ASSERT(EPILEPSY_EitherIsLeft(EPILEPSY_EitherLeft(VAL)));
 EPILEPSY_ASSERT_EQ(EPILEPSY_EitherIsLeft(EPILEPSY_EitherRight(VAL)), v(0));

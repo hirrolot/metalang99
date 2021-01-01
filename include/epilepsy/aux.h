@@ -54,6 +54,9 @@
  */
 #define EPILEPSY_ERROR(...) EPILEPSY_DESUGAR(EPILEPSY_ERROR, x)
 
+#define EPILEPSY_CONST(x, a)      EPILEPSY_DESUGAR(EPILEPSY_CONST, x a)
+#define EPILEPSY_CONST_2(x, a, b) EPILEPSY_DESUGAR(EPILEPSY_CONST_2, x a b)
+
 #define EPILEPSY_EMPTY_PLAIN()
 #define EPILEPSY_ID_PLAIN(x)             x
 #define EPILEPSY_EXPAND_PLAIN(...)       __VA_ARGS__
@@ -75,6 +78,14 @@
 #define EPILEPSY_UNPARENTHESISE_IMPL(x)       EPILEPSY_PRIV_UNPARENTHESISE(x)
 #define EPILEPSY_ERROR_IMPL(...)              EPILEPSY_PRIV_ERRROR_AUX()
 #define EPILEPSY_PRIV_ERRROR_AUX(missing_arg) EPILEPSY_EMPTY()
+
+#define EPILEPSY_CONST_IMPL(x, a)      v(x)
+#define EPILEPSY_CONST_2_IMPL(x, a, b) v(x)
+// }
+
+// Arity specifiers {
+#define EPILEPSY_CONST_IMPL_ARITY   2
+#define EPILEPSY_CONST_2_IMPL_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE

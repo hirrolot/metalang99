@@ -11,7 +11,6 @@
 #include <epilepsy/choice.h>
 #include <epilepsy/control.h>
 #include <epilepsy/eval.h>
-#include <epilepsy/fn.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/list.h>
 #include <epilepsy/maybe.h>

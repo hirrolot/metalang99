@@ -1,6 +1,5 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/eval.h>
-#include <epilepsy/fn.h>
 #include <epilepsy/lang.h>
 
 #define F(x, y) v(x / y)

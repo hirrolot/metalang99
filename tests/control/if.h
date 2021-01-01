@@ -1,9 +1,25 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/control.h>
 #include <epilepsy/lang.h>
+#include <epilepsy/uint.h>
 
 EPILEPSY_ASSERT_EQ(EPILEPSY_IF(v(1), v(24), v(848)), v(24));
 EPILEPSY_ASSERT_EQ(EPILEPSY_IF(v(1), v(1549), v(1678)), v(1549));
 
 EPILEPSY_ASSERT_EQ(EPILEPSY_IF(v(0), v(516), v(115)), v(115));
 EPILEPSY_ASSERT_EQ(EPILEPSY_IF(v(0), v(10), v(6)), v(6));
+
+#define F(x) v(x + 1)
+#define G(x) v(x + 5)
+
+#define F_ARITY 1
+#define G_ARITY 1
+
+EPILEPSY_ASSERT_EQ(EPILEPSY_IF_LAZY(v(0), v(F), v(G), v(123)), v(123 + 5));
+EPILEPSY_ASSERT_EQ(EPILEPSY_IF_LAZY(v(1), v(F), v(G), v(123)), v(123 + 1));
+
+#undef F
+#undef G
+
+#undef F_ARITY
+#undef G_ARITY

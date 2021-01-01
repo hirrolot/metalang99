@@ -3,7 +3,7 @@
 #include "control.h"
 #include "either.h"
 #include "eval.h"
-#include "fn.h"
+#include "lang.h"
 #include "list.h"
 #include "logical.h"
 #include "maybe.h"

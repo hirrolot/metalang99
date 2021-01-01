@@ -26,7 +26,14 @@
 // Implementation {
 #define EPILEPSY_OVERLOAD_IMPL(f, ...) v(EPILEPSY_PRIV_OVERLOAD(f, __VA_ARGS__))
 #define EPILEPSY_OVERLOAD_CALL_IMPL(f, ...)                                                        \
-    EPILEPSY_CALL(EPILEPSY_OVERLOAD(v(f), v(__VA_ARGS__)), v(__VA_ARGS__))
+    EPILEPSY_PRIV_OVERLOAD_CALL_AUX(f, EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__)
+#define EPILEPSY_PRIV_OVERLOAD_CALL_AUX(f, arity, ...)                                             \
+    EPILEPSY_VARIADICS_APPLY_WITH_ARITY(v(EPILEPSY_PRIV_CAT(f, arity)), v(arity), v(__VA_ARGS__))
+// }
+
+// Arity specifiers {
+#define EPILEPSY_OVERLOAD_IMPL_ARITY 2
+#define EPILEPSY_OVERLOAD_CALL_ARITY 2
 // }
 
 #endif // DOXYGEN_IGNORE

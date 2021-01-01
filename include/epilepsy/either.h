@@ -44,6 +44,16 @@
 #define EPILEPSY_EitherIsRight_IMPL(either) EPILEPSY_NOT(EPILEPSY_EitherIsLeft(v(either)))
 // }
 
+// Arity specifiers {
+#define EPILEPSY_EitherLeft_IMPL_ARITY    1
+#define EPILEPSY_EitherRight_IMPL_ARITY   1
+#define EPILEPSY_EitherIsLeft_IMPL_ARITY  1
+#define EPILEPSY_EitherIsRight_IMPL_ARITY 1
+
+#define EPILEPSY_PRIV_EitherIsLeft_EitherLeft_ARITY  1
+#define EPILEPSY_PRIV_EitherIsLeft_EitherRight_ARITY 1
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_EITHER_H

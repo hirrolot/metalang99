@@ -11,6 +11,7 @@
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/overload.h>
 #include <epilepsy/priv/pair.h>
+#include <epilepsy/variadics.h>
 
 // Desugaring {
 /**
@@ -42,8 +43,8 @@
 #define EPILEPSY_CHOICE_EMPTY_IMPL(tag) v(EPILEPSY_PRIV_PAIR(tag, 0empty()))
 
 #define EPILEPSY_MATCH_IMPL(choice, matcher)                                                       \
-    EPILEPSY_CALL(                                                                                 \
-        EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
+    EPILEPSY_VARIADICS_APPLY(                                                                      \
+        v(EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice))),                         \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice)))
 
 #define EPILEPSY_MATCH_WITH_ARGS_IMPL(choice, matcher, ...)                                        \
@@ -52,10 +53,11 @@
         EPILEPSY_PRIV_MATCH_WITH_ARGS_NON_EMPTY)                                                   \
     (choice, matcher, __VA_ARGS__)
 #define EPILEPSY_PRIV_MATCH_WITH_ARGS_EMPTY(choice, matcher, ...)                                  \
-    EPILEPSY_CALL(EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)), v(__VA_ARGS__))
+    EPILEPSY_VARIADICS_APPLY(                                                                      \
+        v(EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice))), v(__VA_ARGS__))
 #define EPILEPSY_PRIV_MATCH_WITH_ARGS_NON_EMPTY(choice, matcher, ...)                              \
-    EPILEPSY_CALL(                                                                                 \
-        EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
+    EPILEPSY_VARIADICS_APPLY(                                                                      \
+        v(EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice))),                         \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice), __VA_ARGS__))
 
 #define EPILEPSY_PRIV_CHOICE_IS_EMPTY(choice)                                                      \
@@ -69,6 +71,13 @@
     EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_CHOICE_DATA_, EPILEPSY_PRIV_PAIR_SND(choice))
 #define EPILEPSY_PRIV_CHOICE_DATA_0non_empty(...) __VA_ARGS__
 #define EPILEPSY_PRIV_CHOICE_DATA_0empty(...)     __VA_ARGS__
+// }
+
+// Arity specifiers {
+#define EPILEPSY_CHOICE_IMPL_ARITY          2
+#define EPILEPSY_CHOICE_EMPTY_IMPL_ARITY    1
+#define EPILEPSY_MATCH_IMPL_ARITY           2
+#define EPILEPSY_MATCH_WITH_ARGS_IMPL_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE

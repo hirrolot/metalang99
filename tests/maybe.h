@@ -2,6 +2,7 @@
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/maybe.h>
+#include <epilepsy/uint.h>
 
 #define VAL v(abc ? +-148 % "hello world")
 
@@ -10,12 +11,18 @@
     v(EPILEPSY_STATIC_ASSERT_PLAIN(_87 == 87); EPILEPSY_STATIC_ASSERT_PLAIN(_123 == 123);)
 #define MATCH_MaybeNothing(_123) v(EPILEPSY_STATIC_ASSERT_PLAIN(_123 == 123);)
 
+#define MATCH_MaybeJust_ARITY    2
+#define MATCH_MaybeNothing_ARITY 1
+
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_MaybeJust(v(87))))
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_MaybeNothing()))
 
 #undef MATCH
 #undef MATCH_JUST
 #undef MATCH_NOTHING
+
+#undef MATCH_MaybeJust_ARITY
+#undef MATCH_MaybeNothing_ARITY
 
 EPILEPSY_ASSERT(EPILEPSY_MaybeIsJust(EPILEPSY_MaybeJust(VAL)));
 EPILEPSY_ASSERT_EQ(EPILEPSY_MaybeIsJust(EPILEPSY_MaybeNothing()), v(0));

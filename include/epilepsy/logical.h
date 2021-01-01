@@ -64,9 +64,13 @@
 #define EPILEPSY_PRIV_XOR_01()  v(1)
 #define EPILEPSY_PRIV_XOR_10()  v(1)
 #define EPILEPSY_PRIV_XOR_11()  v(0)
+// }
 
-#define EPILEPSY_CONST_TRUE_IMPL(...)  v(1)
-#define EPILEPSY_CONST_FALSE_IMPL(...) v(0)
+// Arity specifiers {
+#define EPILEPSY_NOT_IMPL_ARITY 1
+#define EPILEPSY_AND_IMPL_ARITY 2
+#define EPILEPSY_OR_IMPL_ARITY  2
+#define EPILEPSY_XOR_IMPL_ARITY 2
 // }
 
 #endif // DOXYGEN_IGNORE

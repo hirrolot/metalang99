@@ -2,10 +2,15 @@
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/list.h>
+#include <epilepsy/uint.h>
 
 #define DIV(x, acc)   v(acc / x)
 #define DIV_L(x, acc) v(x / acc)
 #define SUB(acc, x)   v(acc - x)
+
+#define DIV_ARITY   2
+#define DIV_L_ARITY 2
+#define SUB_ARITY   2
 
 EPILEPSY_ASSERT_EQ(
     EPILEPSY_ListFoldr(EPILEPSY_List(v(2) v(5) v(3)), v(DIV), v(60)), v(60 / 3 / 5 / 2));
@@ -26,3 +31,7 @@ EPILEPSY_ASSERT_EQ(
 #undef DIV
 #undef DIV_L
 #undef SUB
+
+#undef DIV_ARITY
+#undef DIV_L_ARITY
+#undef SUB_ARITY
