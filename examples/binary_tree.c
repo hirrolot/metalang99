@@ -25,7 +25,8 @@
  */
 #define TREE                                                                                       \
     TreeNode(                                                                                      \
-        TreeNode(TreeLeaf(v(1)), v(2), TreeLeaf(v(3))), v(4),                                      \
+        TreeNode(TreeLeaf(v(1)), v(2), TreeLeaf(v(3))),                                            \
+        v(4),                                                                                      \
         TreeNode(TreeLeaf(v(5)), v(6), TreeLeaf(v(7))))
 
 EPILEPSY_ASSERT_EQ(SUM(TREE), v(28));

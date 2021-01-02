@@ -122,8 +122,10 @@
 #define EPILEPSY_PRIV_ListUnwrap_Nil()       EPILEPSY_EMPTY()
 #define EPILEPSY_PRIV_ListUnwrap_Cons(x, xs) v(x) EPILEPSY_ListUnwrap(v(xs))
 
+// EPILEPSY_ListGet_IMPL {
 #define EPILEPSY_ListGet_IMPL(list, i)                                                             \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListGet_), v(i))
+
 #define EPILEPSY_PRIV_ListGet_Nil(i) EPILEPSY_ERROR()
 #define EPILEPSY_PRIV_ListGet_Cons(x, xs, i)                                                       \
     EPILEPSY_IF_LAZY(                                                                              \
@@ -131,9 +133,11 @@
         v(EPILEPSY_PRIV_ListGet_Cons_DONE),                                                        \
         v(EPILEPSY_PRIV_ListGet_Cons_PROGRESS),                                                    \
         v(x, xs, i))
+
 #define EPILEPSY_PRIV_ListGet_Cons_DONE(x, _xs, _i) v(x)
 #define EPILEPSY_PRIV_ListGet_Cons_PROGRESS(_x, xs, i)                                             \
     EPILEPSY_ListGet(v(xs), EPILEPSY_UIntDec(v(i)))
+// }
 
 #define EPILEPSY_ListFoldr_IMPL(list, f, init)                                                     \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldr_), v(f, init))
