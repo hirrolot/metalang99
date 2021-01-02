@@ -3,7 +3,6 @@
 
 #include <epilepsy/lang/closure.h>
 #include <epilepsy/priv/aux.h>
-#include <epilepsy/priv/variadics/get.h>
 
 // Desugaring {
 #define EPILEPSY_CALL(...)        EPILEPSY_PRIV_EPILEPSY_CALL(__VA_ARGS__)
@@ -19,14 +18,8 @@
 // Implementation {
 #define EPILEPSY_PRIV_EPILEPSY_CALL(op, ...)                                                       \
     EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(op),                                                 \
-        EPILEPSY_PRIV_call_0args,                                                                  \
-        EPILEPSY_PRIV_call_0op)                                                                    \
+        EPILEPSY_PRIV_IS_UNPARENTHESISED(op), EPILEPSY_PRIV_call_0args, EPILEPSY_PRIV_call_0op)    \
     (op, __VA_ARGS__),
-
-#define EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(x)                                                   \
-    EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED_TEST x, 1, ~)
-#define EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED_TEST(...) ~, 0
 
 #define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident, __VA_ARGS__)
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__)

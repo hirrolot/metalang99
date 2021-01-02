@@ -39,21 +39,7 @@
 #define EPILEPSY_VARIADICS_TAIL_IMPL(x, ...) v(__VA_ARGS__)
 
 #define EPILEPSY_VARIADICS_APPLY_IMPL(f, ...)                                                      \
-    EPILEPSY_CALL(                                                                                 \
-        EPILEPSY_PRIV_VARIADICS_APPLY_AUX,                                                         \
-        v(f) EPILEPSY_VARIADICS_COUNT(v(__VA_ARGS__)) v(__VA_ARGS__, ~))
-#define EPILEPSY_PRIV_VARIADICS_APPLY_AUX(f, count, ...)                                           \
-    EPILEPSY_CALL(                                                                                 \
-        EPILEPSY_IF(                                                                               \
-            EPILEPSY_UIntEq(v(count), v(1)),                                                       \
-            v(EPILEPSY_PRIV_VARIADICS_APPLY_DONE),                                                 \
-            v(EPILEPSY_PRIV_VARIADICS_APPLY_PROGRESS)),                                            \
-        v(f, count, __VA_ARGS__))
-#define EPILEPSY_PRIV_VARIADICS_APPLY_DONE(f, _count, last, _) EPILEPSY_APPLY(v(f), v(last))
-#define EPILEPSY_PRIV_VARIADICS_APPLY_PROGRESS(f, count, x, ...)                                   \
-    EPILEPSY_CALL(                                                                                 \
-        EPILEPSY_PRIV_VARIADICS_APPLY_AUX,                                                         \
-        EPILEPSY_APPLY(v(f), v(x)) EPILEPSY_UIntDec(v(count)) v(__VA_ARGS__))
+    EPILEPSY_VARIADICS_APPLY_WITH_ARITY(v(f), v(EPILEPSY_PRIV_DETERMINE_ARITY(f)), v(__VA_ARGS__))
 
 #define EPILEPSY_VARIADICS_APPLY_WITH_ARITY_IMPL(f, arity, ...)                                    \
     EPILEPSY_CALL(                                                                                 \

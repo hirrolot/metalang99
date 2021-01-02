@@ -1,6 +1,8 @@
 #ifndef EPILEPSY_PRIV_AUX_H
 #define EPILEPSY_PRIV_AUX_H
 
+#include <epilepsy/priv/variadics/get.h>
+
 #define EPILEPSY_PRIV_CAT(x, y)           EPILEPSY_PRIV_PRIMITIVE_CAT(x, y)
 #define EPILEPSY_PRIV_PRIMITIVE_CAT(x, y) x##y
 
@@ -20,5 +22,9 @@
 #define EPILEPSY_PRIV_IF(cond, x, y) EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_IF_, cond)((x), (y))
 #define EPILEPSY_PRIV_IF_0(_x, y)    EPILEPSY_PRIV_UNPARENTHESISE(y)
 #define EPILEPSY_PRIV_IF_1(x, _y)    EPILEPSY_PRIV_UNPARENTHESISE(x)
+
+#define EPILEPSY_PRIV_IS_UNPARENTHESISED(x)                                                        \
+    EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_IS_UNPARENTHESISED_TEST x, 1, ~)
+#define EPILEPSY_PRIV_IS_UNPARENTHESISED_TEST(...) ~, 0
 
 #endif // EPILEPSY_PRIV_AUX_H

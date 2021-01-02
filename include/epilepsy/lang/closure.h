@@ -5,21 +5,22 @@
 #include <epilepsy/priv/pair.h>
 
 #define EPILEPSY_APPLY_IMPL(f, ...)                                                                \
-    EPILEPSY_APPLY_WITH_ARITY(                                                                     \
-        v(f),                                                                                      \
-        EPILEPSY_PRIV_IF(                                                                          \
-            EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(f),                                              \
-            EPILEPSY_PRIV_APPLY_ARITY_F,                                                           \
-            EPILEPSY_PRIV_APPLY_ARITY_CLOSURE)(f),                                                 \
-        v(__VA_ARGS__))
-#define EPILEPSY_PRIV_APPLY_ARITY_F(f)              v(f##_ARITY)
-#define EPILEPSY_PRIV_APPLY_ARITY_CLOSURE(_closure) v(~)
+    EPILEPSY_APPLY_WITH_ARITY(v(f), v(EPILEPSY_PRIV_DETERMINE_ARITY(f)), v(__VA_ARGS__))
+
+#define EPILEPSY_PRIV_DETERMINE_ARITY(f)                                                           \
+    EPILEPSY_PRIV_IF(                                                                              \
+        EPILEPSY_PRIV_IS_UNPARENTHESISED(f),                                                       \
+        EPILEPSY_PRIV_DETERMINE_ARITY_F,                                                           \
+        EPILEPSY_PRIV_DETERMINE_ARITY_CLOSURE)                                                     \
+    (f)
+#define EPILEPSY_PRIV_DETERMINE_ARITY_F(f)              f##_ARITY
+#define EPILEPSY_PRIV_DETERMINE_ARITY_CLOSURE(_closure) ~
 
 #define EPILEPSY_APPLY_2_IMPL(f, a, b) EPILEPSY_APPLY(EPILEPSY_APPLY(v(f), v(a)), v(b))
 
 #define EPILEPSY_APPLY_WITH_ARITY_IMPL(f, arity, ...)                                              \
     EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(f),                                                  \
+        EPILEPSY_PRIV_IS_UNPARENTHESISED(f),                                                       \
         EPILEPSY_PRIV_APPLY_WITH_ARITY_F,                                                          \
         EPILEPSY_PRIV_APPLY_WITH_ARITY_CLOSURE)                                                    \
     (f, arity, __VA_ARGS__)
