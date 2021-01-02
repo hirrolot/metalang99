@@ -35,3 +35,25 @@ EPILEPSY_ASSERT_EQ(
 #undef DIV_ARITY
 #undef DIV_L_ARITY
 #undef SUB_ARITY
+
+// EPILEPSY_ListEq {
+EPILEPSY_ASSERT(
+    EPILEPSY_ListEq(EPILEPSY_List(v(1, 2, 3)), EPILEPSY_List(v(1, 2, 3)), v(EPILEPSY_UIntEq_IMPL)));
+EPILEPSY_ASSERT_EQ(
+    EPILEPSY_ListEq(EPILEPSY_List(v(1, 2, 3)), EPILEPSY_List(v(1)), v(EPILEPSY_UIntEq_IMPL)), v(0));
+EPILEPSY_ASSERT_EQ(
+    EPILEPSY_ListEq(EPILEPSY_List(v(1)), EPILEPSY_List(v(1, 2, 3)), v(EPILEPSY_UIntEq_IMPL)), v(0));
+EPILEPSY_ASSERT_EQ(
+    EPILEPSY_ListEq(EPILEPSY_List(v(0, 5, 6, 6)), EPILEPSY_List(v(6, 7)), v(EPILEPSY_UIntEq_IMPL)),
+    v(0));
+// }
+
+// EPILEPSY_ListMap {
+#define ADD_3 EPILEPSY_APPLY(v(EPILEPSY_UIntAdd_IMPL), v(3))
+
+EPILEPSY_ASSERT(EPILEPSY_ListEq(
+    EPILEPSY_ListMap(EPILEPSY_List(v(1, 2, 3)), ADD_3), EPILEPSY_List(v(4, 5, 6)),
+    v(EPILEPSY_UIntEq_IMPL)));
+
+#undef ADD_3
+// }

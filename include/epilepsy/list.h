@@ -35,6 +35,11 @@
 #define EPILEPSY_ListUnwrap(list) EPILEPSY_DESUGAR(EPILEPSY_ListUnwrap, list)
 
 /**
+ * Checks @p list for emptiness.
+ */
+#define EPILEPSY_ListIsEmpty(list) EPILEPSY_DESUGAR(EPILEPSY_ListIsEmpty, list)
+
+/**
  * Gets an @p i -indexed element.
  */
 #define EPILEPSY_ListGet(list, i) EPILEPSY_DESUGAR(EPILEPSY_ListGet, list i)
@@ -64,6 +69,17 @@
  */
 #define EPILEPSY_ListPrependToAll(list, item) EPILEPSY_DESUGAR(EPILEPSY_ListPrependToAll, list item)
 
+/**
+ * Maps all the elements in @p list with @p f.
+ */
+#define EPILEPSY_ListMap(list, f) EPILEPSY_DESUGAR(EPILEPSY_ListMap, list f)
+
+/**
+ * Checks whether @p list is equal to @p other.
+ */
+#define EPILEPSY_ListEq(list, other, comparator)                                                   \
+    EPILEPSY_DESUGAR(EPILEPSY_ListEq, list other comparator)
+
 #define EPILEPSY_ListApply(list, f) EPILEPSY_DESUGAR(EPILEPSY_ListApply, list f)
 // }
 
@@ -92,6 +108,10 @@
 #define EPILEPSY_PRIV_List_PROGRESS_AUX(count, x, ...)                                             \
     EPILEPSY_Cons(                                                                                 \
         v(x), EPILEPSY_CALL(EPILEPSY_PRIV_List_AUX, EPILEPSY_UIntDec(v(count)) v(__VA_ARGS__)))
+
+#define EPILEPSY_ListIsEmpty_IMPL(list)         EPILEPSY_MATCH(v(list), v(EPILEPSY_PRIV_ListIsEmpty_))
+#define EPILEPSY_PRIV_ListIsEmpty_Nil()         v(1)
+#define EPILEPSY_PRIV_ListIsEmpty_Cons(_x, _xs) v(0)
 
 #define EPILEPSY_ListUnwrap_IMPL(list)       EPILEPSY_MATCH(v(list), v(EPILEPSY_PRIV_ListUnwrap_))
 #define EPILEPSY_PRIV_ListUnwrap_Nil()       EPILEPSY_EMPTY()
@@ -127,20 +147,40 @@
 
 #define EPILEPSY_ListIntersperse_IMPL(list, item)                                                  \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListIntersperse_), v(item))
-#define EPILEPSY_PRIV_ListIntersperse_Nil(_x) EPILEPSY_Nil()
+#define EPILEPSY_PRIV_ListIntersperse_Nil(_item) EPILEPSY_Nil()
 #define EPILEPSY_PRIV_ListIntersperse_Cons(x, xs, item)                                            \
     EPILEPSY_Cons(v(x), EPILEPSY_ListPrependToAll(v(xs), v(item)))
 
 #define EPILEPSY_ListPrependToAll_IMPL(list, item)                                                 \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListPrependToAll_), v(item))
-#define EPILEPSY_PRIV_ListPrependToAll_Nil(_x) EPILEPSY_Nil()
+#define EPILEPSY_PRIV_ListPrependToAll_Nil(_item) EPILEPSY_Nil()
 #define EPILEPSY_PRIV_ListPrependToAll_Cons(x, xs, item)                                           \
     EPILEPSY_Cons(v(item), EPILEPSY_Cons(v(x), EPILEPSY_ListPrependToAll(v(xs), v(item))))
+
+#define EPILEPSY_ListMap_IMPL(list, f)                                                             \
+    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListMap_), v(f))
+#define EPILEPSY_PRIV_ListMap_Nil(_f) EPILEPSY_Nil()
+#define EPILEPSY_PRIV_ListMap_Cons(x, xs, f)                                                       \
+    EPILEPSY_Cons(EPILEPSY_APPLY(v(f), v(x)), EPILEPSY_ListMap(v(xs), v(f)))
+
+#define EPILEPSY_ListEq_IMPL(list, other, comparator)                                              \
+    EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListEq_), v(other, comparator))
+#define EPILEPSY_PRIV_ListEq_Nil(other, _comparator) EPILEPSY_ListIsEmpty(v(other))
+#define EPILEPSY_PRIV_ListEq_Cons(x, xs, other, comparator)                                        \
+    EPILEPSY_MATCH_WITH_ARGS(v(other), v(EPILEPSY_PRIV_ListEq_Cons_), v(x, xs, comparator))
+
+#define EPILEPSY_PRIV_ListEq_Cons_Nil(_x, _xs, _comparator) v(0)
+#define EPILEPSY_PRIV_ListEq_Cons_Cons(other_x, other_xs, x, xs, comparator)                       \
+    EPILEPSY_IF_LAZY(                                                                              \
+        EPILEPSY_APPLY_2(v(comparator), v(x), v(other_x)), v(EPILEPSY_ListEq_IMPL),                \
+        EPILEPSY_APPLY(v(EPILEPSY_CONST_3_IMPL), v(0)), v(xs, other_xs, comparator))
 
 #define EPILEPSY_ListApply_IMPL(list, f) EPILEPSY_ListFoldl(v(list), v(EPILEPSY_APPLY_IMPL), v(f))
 // }
 
 // Arity specifiers {
+#define EPILEPSY_ListEq_IMPL_ARITY 3
+
 #define EPILEPSY_PRIV_List_DONE_ARITY     1
 #define EPILEPSY_PRIV_List_PROGRESS_ARITY 2
 

@@ -5,8 +5,9 @@
 #include <epilepsy/priv/pair.h>
 #include <epilepsy/priv/variadics/get.h>
 
-#define EPILEPSY_CALL(...)     EPILEPSY_PRIV_EPILEPSY_CALL(__VA_ARGS__)
-#define EPILEPSY_APPLY(f, ...) EPILEPSY_DESUGAR(EPILEPSY_APPLY, f __VA_ARGS__)
+#define EPILEPSY_CALL(...)        EPILEPSY_PRIV_EPILEPSY_CALL(__VA_ARGS__)
+#define EPILEPSY_APPLY(f, ...)    EPILEPSY_DESUGAR(EPILEPSY_APPLY, f __VA_ARGS__)
+#define EPILEPSY_APPLY_2(f, a, b) EPILEPSY_DESUGAR(EPILEPSY_APPLY_2, f a b)
 #define EPILEPSY_APPLY_WITH_ARITY(f, arity, ...)                                                   \
     EPILEPSY_DESUGAR(EPILEPSY_APPLY_WITH_ARITY, f arity __VA_ARGS__)
 #define v(...) (0v, __VA_ARGS__),
@@ -36,6 +37,8 @@
 #define EPILEPSY_PRIV_APPLY_CLOSURE(closure, ...)                                                  \
     EPILEPSY_CALL(                                                                                 \
         EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure), __VA_ARGS__))
+
+#define EPILEPSY_APPLY_2_IMPL(f, a, b) EPILEPSY_APPLY(EPILEPSY_APPLY(v(f), v(a)), v(b))
 
 #define EPILEPSY_APPLY_WITH_ARITY_IMPL(f, arity, ...)                                              \
     EPILEPSY_PRIV_IF(                                                                              \
