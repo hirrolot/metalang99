@@ -50,7 +50,7 @@ is \textbf{not} designed as a user-friendly overview -- see the official reposit
 \begin{minted}{bnf}
 <eval> ::= "EPILEPSY_EVAL(" { <term> }* ")" ;
 
-<term> ::= "call(" <op> "," { <term> }* ")"
+<term> ::= "EPILEPSY_CALL(" <op> "," { <term> }* ")"
          | "v(" <preprocessor-token-list> ")" ;
 
 <op>   ::= <ident> | { <term> }+ ;
@@ -65,36 +65,33 @@ Notes:
 
 \begin{itemize}
     \item The grammar above describes metaprograms already expanded by the preprocessor,
-    except for \texttt{EPILEPSY\_EVAL}, \texttt{call}, and \texttt{v}.
-    \item \texttt{call} accepts \texttt{op} either as an identifier or as a non-empty
+    except for \texttt{EPILEPSY\_EVAL}, \texttt{EPILEPSY\_CALL}, and \texttt{v}.
+    \item \texttt{EPILEPSY\_CALL} accepts \texttt{op} either as an identifier or as a non-empty
     sequence of terms that reduces to an identifier.
-    \item \texttt{call} accepts arguments without a separator. This is intentional: suppose
-    you need to generate arguments for some macro and then call it. Without separators, all
-    arguments can be generated uniformly, unlike separation by commas where the last argument
-    need no comma after itself.
+    \item \texttt{EPILEPSY\_CALL} accepts arguments of \texttt{op} without a separator.
 \end{itemize}
 
-However, the \texttt{call} syntax hurts IDE support: bad code formatting, no parameters
+The \texttt{EPILEPSY\_CALL} syntax hurts IDE support: bad code formatting, no parameters
 documentation highlighting, et cetera. The workaround is to define a wrapper around
 an implementation macro like this:
 
 \begin{minted}{c}
-/// A documentation string here.
+/// The documentation string.
 #define FOO(a, b, c) FOO_IMPL(a b c)
-#define FOO_IMPL(a, b, c) // The actual implementation here.
+#define FOO_IMPL(a, b, c) // The implementation.
 \end{minted}
 
-Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3))}.
+Then \texttt{FOO} can be conveniently called as \texttt{FOO(v(1), v(2), v(3))}.
 
 Notice that variadic macros are a bit special here. Their calls should be desugared as follows:
 
 \begin{minted}{c}
-/// A documentation string here.
+/// The documentation string.
 #define FOO(a, b, c, ...) FOO_IMPL(a b c __VA_ARGS__)
-#define FOO_IMPL(a, b, c, ...) // The actual implementation here.
+#define FOO_IMPL(a, b, c, ...) // The implementation.
 \end{minted}
 
-Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3), v(5) v(6) v(7))}.
+Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3), v(5) v(6) v(7))};
 \texttt{v(5) v(6) v(7)} are \textbf{not} separated by commas.
 
 \section{Notations}
@@ -103,7 +100,7 @@ Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3), v(5) v(6) v(7))
     \begin{itemize}
         \item $\overline{x} \coloneqq x_1 \ldots x_n$. Examples:
         \begin{itemize}
-            \item Epilepsy terms: \texttt{v(abc) call(FOO, v(123)) v(u 8 9)}
+            \item Epilepsy terms: \texttt{v(abc) EPILEPSY\_CALL(FOO, v(123)) v(u 8 9)}
             \item Preprocessor tokens: \texttt{abc 13 "hello" + -}
         \end{itemize}
         \item $()$ denotes the empty sequence.
@@ -164,15 +161,14 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
     \caption{Reduction Semantics}
 
     \begin{align*}
-        (v): \ & \langle K; F; A; v(\overline{tok}) \ \overline{t} \rangle & \to &
+        (v): & \ \langle K; F; A; \texttt{v}(\overline{tok}) \ \overline{t} \rangle \to
             \langle K; F; F(A, \overline{tok}); \overline{t} \rangle \\
-        (op): \ & \langle K; F; A; call(\overline{t}, \overline{a}) \ \overline{t'} \rangle & \to &
-            \langle \langle K; F; A; call(?, \overline{a}) \ \overline{t'} \rangle; fappend; (); \overline{t} \rangle \\
-        (args): \ & \langle K; F; A; call(ident, \overline{a}) \ \overline{t} \rangle & \to
+        (op): & \ \langle K; F; A; \texttt{EPILEPSY\_CALL}(\overline{t}, \overline{a}) \ \overline{t'} \rangle \to \\
+            & \langle \langle K; F; A; \texttt{EPILEPSY\_CALL}(?, \overline{a}) \ \overline{t'} \rangle; fappend; (); \overline{t} \rangle \\
+        (args): & \ \langle K; F; A; \texttt{EPILEPSY\_CALL}(ident, \overline{a}) \ \overline{t} \rangle \to \\
             & \langle \langle K; F; A; ident(?) \ \overline{t} \rangle; fcomma; (); \overline{a} \rangle \\
-        (end): \ & \langle K; F; A; () \rangle & \to & K(A) \\
-        (start): \ & EPILEPSY\_EVAL(\overline{t}) & \to &
-            \langle halt; fappend; (); \overline{t} \rangle
+        (end): & \ \langle K; F; A; () \rangle \to K(A) \\
+        (start): & \ \texttt{EPILEPSY\_CALL}(\overline{t}) \to \langle halt; fappend; (); \overline{t} \rangle
     \end{align*}
     \label{ReductionSemantics}
 \end{figure}
@@ -200,25 +196,25 @@ Take the following code:
 #define ID(x)        v(x)
 \end{minted}
 
-See how \texttt{call(X, v(CALL\_X))} is evaluated:
+See how \texttt{EPILEPSY\_CALL(X, v(CALL\_X))} is evaluated:
 
 \begin{example}[Evaluation of terms]
 \small
 \begin{align*}
-    EPILEPSY\_EVAL(call(X, v(CALL\_X))) & \to (start) \\
-    \langle halt; fappend; (); call(X, v(CALL\_X)) \rangle & \to (args) \\
-    \langle \langle halt; fappend; (); X(?) \rangle; fcomma; (); v(CALL\_X) \rangle & \to (v) \\
-    \langle \langle halt; fappend; (); X(?) \rangle; fcomma; CALL\_X; () \rangle & \to (end) \\
-    \langle halt; fappend; (); call(CALL\_X, v(123)) \rangle & \to (args) \\
-    \langle \langle halt; fappend; (); CALL\_X(?) \rangle; fcomma; (); v(123) \rangle & \to (v) \\
-    \langle \langle halt; fappend; (); CALL\_X(?) \rangle; fcomma; 123; () \rangle & \to (end) \\
-    \langle halt; fappend; (); call(X, v(ID)) \rangle & \to (args) \\
-    \langle \langle halt; fappend; (); X(?) \rangle; fcomma; (); v(ID) \rangle & \to (v) \\
-    \langle \langle halt; fappend; (); X(?) \rangle; fcomma; ID; \rangle & \to (end) \\
-    \langle halt; fappend; (); call(ID, v(123)) \rangle & \to (args) \\
-    \langle \langle halt; fappend; (); ID(?) \rangle; fcomma; (); v(123) \rangle & \to (v) \\
-    \langle \langle halt; fappend; (); ID(?) \rangle; fcomma; 123; () \rangle & \to (end) \\
-    \langle halt; fappend; (); v(123) \rangle & \to (v) \\
+    \texttt{EPILEPSY\_EVAL}(\texttt{EPILEPSY\_CALL}(X, \texttt{v}(\texttt{CALL\_X}))) & \to (start) \\
+    \langle halt; fappend; (); \texttt{EPILEPSY\_CALL}(X, \texttt{v}(\texttt{CALL\_X})) \rangle & \to (args) \\
+    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{CALL\_X}) \rangle & \to (v) \\
+    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; \texttt{CALL\_X}; () \rangle & \to (end) \\
+    \langle halt; fappend; (); \texttt{EPILEPSY\_CALL}(\texttt{CALL\_X}, \texttt{v}(123)) \rangle & \to (args) \\
+    \langle \langle halt; fappend; (); \texttt{CALL\_X}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \to (v) \\
+    \langle \langle halt; fappend; (); \texttt{CALL\_X}(?) \rangle; fcomma; 123; () \rangle & \to (end) \\
+    \langle halt; fappend; (); \texttt{EPILEPSY\_CALL}(X, \texttt{v}(ID)) \rangle & \to (args) \\
+    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(ID) \rangle & \to (v) \\
+    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; ID; \rangle & \to (end) \\
+    \langle halt; fappend; (); \texttt{EPILEPSY\_CALL}(ID, \texttt{v}(123)) \rangle & \to (args) \\
+    \langle \langle halt; fappend; (); \texttt{ID}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \to (v) \\
+    \langle \langle halt; fappend; (); \texttt{ID}(?) \rangle; fcomma; 123; () \rangle & \to (end) \\
+    \langle halt; fappend; (); \texttt{v}(123) \rangle & \to (v) \\
     \langle halt; fappend; 123; () \rangle & \to (end) \\
     halt(123) &
 \end{align*}
@@ -238,7 +234,7 @@ second call to \texttt{X}. The trick is that Epilepsy performs evaluation step-b
 unlike the preprocessor:
 
 \begin{itemize}
-    \item The Epilepsy version: \texttt{X(CALL\_X)} expands to \texttt{call(CALL\_X, v(123))}.
+    \item The Epilepsy version: \texttt{X(CALL\_X)} expands to \texttt{EPILEPSY\_CALL(CALL\_X, v(123))}.
     This expansion does not contain \texttt{X}, and therefore \texttt{X} is \textbf{not}
     blocked by the preprocessor.
 
@@ -262,7 +258,7 @@ TODO: prove the progress theorem.
         \item Its expansion contains \texttt{FOO}
     \end{itemize}
 Then \texttt{FOO} gets blocked \cite{Blueprinting} by the preprocessor, e.g. Epilepsy cannot handle ordinary
-macro recursion; you must use \texttt{call} to be sure that recursive calls
+macro recursion; you must use \texttt{EPILEPSY\_CALL} to be sure that recursive calls
 will behave as expected. I therefore recommend to use only primitive C-style macros, e.g.
 for performance reasons or because of you cannot express them in terms of Epilepsy.
 \end{itemize}
