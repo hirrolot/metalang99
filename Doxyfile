@@ -790,7 +790,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = include/epilepsy.h include/epilepsy/assert.h include/epilepsy/aux.h include/epilepsy/choice.h include/epilepsy/control.h include/epilepsy/either.h include/epilepsy/list.h include/epilepsy/logical.h include/epilepsy/maybe.h include/epilepsy/overload.h include/epilepsy/record.h include/epilepsy/uint.h include/epilepsy/variadics.h
+INPUT                  = include
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
