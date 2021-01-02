@@ -48,7 +48,8 @@
 
 #define EPILEPSY_MATCH_WITH_ARGS_IMPL(choice, matcher, ...)                                        \
     EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_CHOICE_IS_EMPTY(choice), EPILEPSY_PRIV_MATCH_WITH_ARGS_EMPTY,                \
+        EPILEPSY_PRIV_CHOICE_IS_EMPTY(choice),                                                     \
+        EPILEPSY_PRIV_MATCH_WITH_ARGS_EMPTY,                                                       \
         EPILEPSY_PRIV_MATCH_WITH_ARGS_NON_EMPTY)                                                   \
     (choice, matcher, __VA_ARGS__)
 #define EPILEPSY_PRIV_MATCH_WITH_ARGS_EMPTY(choice, matcher, ...)                                  \

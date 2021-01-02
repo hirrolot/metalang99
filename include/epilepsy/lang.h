@@ -16,7 +16,8 @@
 
 #define EPILEPSY_PRIV_EPILEPSY_CALL(op, ...)                                                       \
     EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(op), EPILEPSY_PRIV_call_0args,                       \
+        EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(op),                                                 \
+        EPILEPSY_PRIV_call_0args,                                                                  \
         EPILEPSY_PRIV_call_0op)                                                                    \
     (op, __VA_ARGS__),
 
@@ -29,7 +30,8 @@
 
 #define EPILEPSY_APPLY_IMPL(f, ...)                                                                \
     EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(f), EPILEPSY_PRIV_APPLY_F,                           \
+        EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(f),                                                  \
+        EPILEPSY_PRIV_APPLY_F,                                                                     \
         EPILEPSY_PRIV_APPLY_CLOSURE)                                                               \
     (f, __VA_ARGS__)
 #define EPILEPSY_PRIV_APPLY_F(f, ...)                                                              \
@@ -42,7 +44,8 @@
 
 #define EPILEPSY_APPLY_WITH_ARITY_IMPL(f, arity, ...)                                              \
     EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(f), EPILEPSY_PRIV_APPLY_WITH_ARITY_F,                \
+        EPILEPSY_PRIV_LANG_IS_UNPARENTHESISED(f),                                                  \
+        EPILEPSY_PRIV_APPLY_WITH_ARITY_F,                                                          \
         EPILEPSY_PRIV_APPLY_WITH_ARITY_CLOSURE)                                                    \
     (f, arity, __VA_ARGS__)
 #define EPILEPSY_PRIV_APPLY_WITH_ARITY_F(f, arity, ...)                                            \

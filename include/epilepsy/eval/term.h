@@ -14,7 +14,8 @@
 
 #define EPILEPSY_PRIV_TERM_MATCH(f, term, ...)                                                     \
     EPILEPSY_PRIV_TERM_MATCH_AUX(                                                                  \
-        EPILEPSY_PRIV_MATCH(f, EPILEPSY_PRIV_TERM_KIND(term)), __VA_ARGS__,                        \
+        EPILEPSY_PRIV_MATCH(f, EPILEPSY_PRIV_TERM_KIND(term)),                                     \
+        __VA_ARGS__,                                                                               \
         EPILEPSY_PRIV_TERM_DATA(term))
 
 #define EPILEPSY_PRIV_TERM_MATCH_AUX(f, ...) f(__VA_ARGS__)
