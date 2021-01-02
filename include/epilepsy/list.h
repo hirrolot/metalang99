@@ -179,7 +179,20 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_ListEq_IMPL_ARITY 3
+#define EPILEPSY_Cons_IMPL_ARITY             2
+#define EPILEPSY_Nil_ARITY                   1
+#define EPILEPSY_List_IMPL_ARITY             1
+#define EPILEPSY_ListUnwrap_IMPL_ARITY       1
+#define EPILEPSY_ListIsEmpty_IMPL_ARITY      1
+#define EPILEPSY_ListGet_IMPL_ARITY          2
+#define EPILEPSY_ListFoldr_IMPL_ARITY        3
+#define EPILEPSY_ListFoldl_IMPL_ARITY        3
+#define EPILEPSY_ListFoldl1_IMPL_ARITY       2
+#define EPILEPSY_ListIntersperse_IMPL_ARITY  2
+#define EPILEPSY_ListPrependToAll_IMPL_ARITY 2
+#define EPILEPSY_ListMap_IMPL_ARITY          2
+#define EPILEPSY_ListEq_IMPL_ARITY           3
+#define EPILEPSY_ListApply_IMPL_ARITY        2
 
 #define EPILEPSY_PRIV_List_DONE_ARITY     1
 #define EPILEPSY_PRIV_List_PROGRESS_ARITY 2
