@@ -20,20 +20,19 @@
 /**
  * Asserts the equality of `EPILEPSY_EVAL(lhs)` and `EPILEPSY_EVAL(rhs)`.
  */
-#define EPILEPSY_ASSERT_EQ(lhs, rhs)                                                               \
-    EPILEPSY_STATIC_ASSERT_PLAIN(EPILEPSY_EVAL(lhs) == EPILEPSY_EVAL(rhs))
+#define EPILEPSY_ASSERT_EQ(lhs, rhs) EPILEPSY_ASSERT_PLAIN(EPILEPSY_EVAL(lhs) == EPILEPSY_EVAL(rhs))
 
 /**
  * Asserts the C constant expression @p expr.
  */
-#define EPILEPSY_STATIC_ASSERT_PLAIN(expr) EPILEPSY_PRIV_STATIC_ASSERT_PLAIN_IMPL(expr)
+#define EPILEPSY_ASSERT_PLAIN(expr) EPILEPSY_PRIV_ASSERT_PLAIN(expr)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
 // How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656.
-#define EPILEPSY_PRIV_STATIC_ASSERT_PLAIN_IMPL(expr)                                               \
+#define EPILEPSY_PRIV_ASSERT_PLAIN(expr)                                                           \
     static const char EPILEPSY_PRIV_CAT(epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1]
 // }
 

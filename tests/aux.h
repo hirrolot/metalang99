@@ -20,7 +20,7 @@ static const char stringified[] = EPILEPSY_EVAL(EPILEPSY_STRINGIFY(v(hello)));
 
 // I'm not sure that the stringified version won't contain any whitespaces, so for now just check
 // that it contains _at least_ six characters.
-EPILEPSY_STATIC_ASSERT_PLAIN(sizeof(stringified) >= 5 + 1);
+EPILEPSY_ASSERT_PLAIN(sizeof(stringified) >= 5 + 1);
 
 // EPILEPSY_CAT
 

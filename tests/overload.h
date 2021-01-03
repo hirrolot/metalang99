@@ -6,17 +6,16 @@
 
 // EPILEPSY_OVERLOAD_CALL
 
-#define X(...) EPILEPSY_OVERLOAD_CALL(v(X_), v(__VA_ARGS__))
-#define X_1(a) v(EPILEPSY_STATIC_ASSERT_PLAIN(a == 123);)
-#define X_2(a, b)                                                                                  \
-    v(EPILEPSY_STATIC_ASSERT_PLAIN(a == 93145); EPILEPSY_STATIC_ASSERT_PLAIN(b == 456);)
+#define X(...)    EPILEPSY_OVERLOAD_CALL(v(X_), v(__VA_ARGS__))
+#define X_1(a)    v(EPILEPSY_ASSERT_PLAIN(a == 123);)
+#define X_2(a, b) v(EPILEPSY_ASSERT_PLAIN(a == 93145); EPILEPSY_ASSERT_PLAIN(b == 456);)
 #define X_7(a, b, c, d, e, f, g)                                                                   \
-    v(EPILEPSY_STATIC_ASSERT_PLAIN(a == 1516); EPILEPSY_STATIC_ASSERT_PLAIN(b == 1);               \
-      EPILEPSY_STATIC_ASSERT_PLAIN(c == 9);                                                        \
-      EPILEPSY_STATIC_ASSERT_PLAIN(d == 111);                                                      \
-      EPILEPSY_STATIC_ASSERT_PLAIN(e == 119);                                                      \
-      EPILEPSY_STATIC_ASSERT_PLAIN(f == 677);                                                      \
-      EPILEPSY_STATIC_ASSERT_PLAIN(g == 62);)
+    v(EPILEPSY_ASSERT_PLAIN(a == 1516); EPILEPSY_ASSERT_PLAIN(b == 1);                             \
+      EPILEPSY_ASSERT_PLAIN(c == 9);                                                               \
+      EPILEPSY_ASSERT_PLAIN(d == 111);                                                             \
+      EPILEPSY_ASSERT_PLAIN(e == 119);                                                             \
+      EPILEPSY_ASSERT_PLAIN(f == 677);                                                             \
+      EPILEPSY_ASSERT_PLAIN(g == 62);)
 
 EPILEPSY_EVAL(EPILEPSY_CALL(X, v(123)))
 EPILEPSY_EVAL(EPILEPSY_CALL(X, v(93145) v(456)))

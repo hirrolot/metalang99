@@ -8,8 +8,8 @@
 
 #define MATCH(maybe) EPILEPSY_MATCH_WITH_ARGS(v(maybe), v(MATCH_), v(123))
 #define MATCH_MaybeJust(_87, _123)                                                                 \
-    v(EPILEPSY_STATIC_ASSERT_PLAIN(_87 == 87); EPILEPSY_STATIC_ASSERT_PLAIN(_123 == 123);)
-#define MATCH_MaybeNothing(_123) v(EPILEPSY_STATIC_ASSERT_PLAIN(_123 == 123);)
+    v(EPILEPSY_ASSERT_PLAIN(_87 == 87); EPILEPSY_ASSERT_PLAIN(_123 == 123);)
+#define MATCH_MaybeNothing(_123) v(EPILEPSY_ASSERT_PLAIN(_123 == 123);)
 
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_MaybeJust(v(87))))
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_MaybeNothing()))
