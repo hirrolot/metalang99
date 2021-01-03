@@ -6,7 +6,7 @@
 \usepackage{minted}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{ntheorem}
+\usepackage[standard,thmmarks]{ntheorem}
 \usepackage{biblatex}
 \usepackage{csquotes}
 \usepackage{mathtools}
@@ -15,8 +15,6 @@
 
 \theoremstyle{break}
 \newtheorem{notation}{Notation}
-\newtheorem{example}{Example}
-\newtheorem{axiom}{Axiom}
 
 \addbibresource{references.bib}
 
@@ -77,7 +75,7 @@ an implementation macro like this:
 
 \begin{minted}{c}
 /// The documentation string.
-#define FOO(a, b, c) FOO_IMPL(a b c)
+#define FOO(a, b, c) EPILEPSY_DESUGAR(FOO, a b c)
 #define FOO_IMPL(a, b, c) // The implementation.
 \end{minted}
 
@@ -87,7 +85,8 @@ Notice that variadic macros are a bit special here. Their calls should be desuga
 
 \begin{minted}{c}
 /// The documentation string.
-#define FOO(a, b, c, ...) FOO_IMPL(a b c __VA_ARGS__)
+#define FOO(a, b, c, ...) \
+    EPILEPSY_DESUGAR(FOO, a b c __VA_ARGS__)
 #define FOO_IMPL(a, b, c, ...) // The implementation.
 \end{minted}
 
@@ -183,7 +182,8 @@ Notes:
     in yet another concrete sequence of Epilepsy terms to be evaluated by the computational
     rules.
     \item With the current implementation, at most $2^{16}$ reduction steps are
-    possible. After exceeding this limit, compilation will likely fail.
+    possible. After exceeding this limit, Epilepsy will not be able to perform reduction
+    of a given metaprogram anymore.
 \end{itemize}
 
 \subsection{Examples}
@@ -246,7 +246,14 @@ unlike the preprocessor:
 
 \subsection{Progress}
 
-TODO: prove the progress theorem.
+\begin{proposition}[Progress]
+Either $\langle K; F; A; \overline{t} \rangle \to \langle K; F; A; \overline{t'} \rangle$ or \\
+$\langle K; F; A; \overline{t} \rangle \to halt(\overline{x})$.
+\end{proposition}
+
+\begin{proof}
+By inspection of \ref{ReductionSemantics}.
+\end{proof}
 
 \section{Caveats}
 
