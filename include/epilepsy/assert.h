@@ -33,8 +33,15 @@
 // Implementation {
 // How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656.
 #define EPILEPSY_PRIV_ASSERT_PLAIN(expr)                                                           \
-    static const char EPILEPSY_PRIV_CAT(epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1]
+    static const char EPILEPSY_PRIV_CAT(                                                           \
+        epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_ATTR_UNUSED
 // }
+
+#ifdef __GNUC__
+#define EPILEPSY_PRIV_ATTR_UNUSED __attribute__((unused))
+#else
+#define EPILEPSY_PRIV_ATTR_UNUSED
+#endif
 
 #endif // DOXYGEN_IGNORE
 
