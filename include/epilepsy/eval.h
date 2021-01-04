@@ -10,10 +10,9 @@
 #include <epilepsy/eval/term.h>
 #include <epilepsy/priv/aux.h>
 
-#define EPILEPSY_PRIV_EVAL_MATCH_HOOK()   EPILEPSY_PRIV_EVAL_MATCH
-#define EPILEPSY_PRIV_EVAL_0op_K_HOOK()   EPILEPSY_PRIV_EVAL_0op_K
-#define EPILEPSY_PRIV_EVAL_0args_K_HOOK() EPILEPSY_PRIV_EVAL_0args_K
-
+/**
+ * Evaluates a metaprogram.
+ */
 #define EPILEPSY_EVAL(...)                                                                         \
     EPILEPSY_PRIV_REC_UNROLL(EPILEPSY_PRIV_EVAL_MATCH(                                             \
         EPILEPSY_PRIV_REC_STOP,                                                                    \
@@ -22,6 +21,12 @@
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
         __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
         ~))
+
+#ifndef DOXYGEN_IGNORE
+
+#define EPILEPSY_PRIV_EVAL_MATCH_HOOK()   EPILEPSY_PRIV_EVAL_MATCH
+#define EPILEPSY_PRIV_EVAL_0op_K_HOOK()   EPILEPSY_PRIV_EVAL_0op_K
+#define EPILEPSY_PRIV_EVAL_0args_K_HOOK() EPILEPSY_PRIV_EVAL_0args_K
 
 #define EPILEPSY_PRIV_EVAL_MATCH(...) EPILEPSY_PRIV_EVAL_MATCH_AUX(__VA_ARGS__)
 #define EPILEPSY_PRIV_EVAL_MATCH_AUX(k, k_cx, lfolder, acc, head, ...)                             \
@@ -72,5 +77,7 @@
 // }
 
 #define EPILEPSY_PRIV_REC_UNROLL(...) EPILEPSY_PRIV_REC_0(__VA_ARGS__)
+
+#endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_EVAL_H

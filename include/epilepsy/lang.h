@@ -5,15 +5,41 @@
 #include <epilepsy/priv/aux.h>
 
 // Desugaring {
-#define EPILEPSY_CALL(...)        EPILEPSY_PRIV_EPILEPSY_CALL(__VA_ARGS__)
-#define EPILEPSY_APPLY(f, ...)    EPILEPSY_DESUGAR(EPILEPSY_APPLY, f __VA_ARGS__)
+
+/**
+ * Invokes a metafunction with arguments.
+ */
+#define EPILEPSY_CALL(...) EPILEPSY_PRIV_EPILEPSY_CALL(__VA_ARGS__)
+
+/**
+ * Applies arguments to @p f.
+ */
+#define EPILEPSY_APPLY(f, ...) EPILEPSY_DESUGAR(EPILEPSY_APPLY, f __VA_ARGS__)
+
+/**
+ * Applies @p a and @p b to @p f.
+ */
 #define EPILEPSY_APPLY_2(f, a, b) EPILEPSY_DESUGAR(EPILEPSY_APPLY_2, f a b)
+
+/**
+ * Applies arguments to @p f with the arity @p arity.
+ */
 #define EPILEPSY_APPLY_WITH_ARITY(f, arity, ...)                                                   \
     EPILEPSY_DESUGAR(EPILEPSY_APPLY_WITH_ARITY, f arity __VA_ARGS__)
+
+/**
+ * Represents a <a href="https://en.wikipedia.org/wiki/Beta_normal_form">normal form</a> of an
+ * Epilepsy term.
+ */
 #define v(...) (0v, __VA_ARGS__),
 
+/**
+ * Desugars calls to @p f.
+ */
 #define EPILEPSY_DESUGAR(f, ...) EPILEPSY_CALL(f##_IMPL, __VA_ARGS__)
 // }
+
+#ifndef DOXYGEN_IGNORE
 
 // Implementation {
 #define EPILEPSY_PRIV_EPILEPSY_CALL(op, ...)                                                       \
@@ -24,5 +50,7 @@
 #define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident, __VA_ARGS__)
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__)
 //
+
+#endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_LANG_H
