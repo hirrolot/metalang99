@@ -1,6 +1,4 @@
 #include <epilepsy/assert.h>
-#include <epilepsy/eval.h>
-#include <epilepsy/lang.h>
 #include <epilepsy/variadics.h>
 
 EPILEPSY_ASSERT_EQ(EPILEPSY_VARIADICS_HEAD(v(51) v(21) v(1) v(7378)), v(51));

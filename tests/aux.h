@@ -1,9 +1,5 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/aux.h>
-#include <epilepsy/eval.h>
-#include <epilepsy/lang.h>
-
-#include <assert.h>
 
 #define CHECK_EMPTY(unique_fn_id, empty)                                                           \
     inline empty static empty void empty test_empty_##unique_fn_id empty(empty void empty) empty { \

@@ -1,6 +1,4 @@
 #include <epilepsy/assert.h>
-
-#include <epilepsy/lang.h>
 #include <epilepsy/variadics.h>
 
 #define _5_ARGS   v(~) v(~) v(~) v(~) v(~)

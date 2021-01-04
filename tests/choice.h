@@ -1,8 +1,6 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/aux.h>
 #include <epilepsy/choice.h>
-#include <epilepsy/eval.h>
-#include <epilepsy/lang.h>
 #include <epilepsy/list.h>
 
 #define VAL v(abc ? +-148 % "hello world")

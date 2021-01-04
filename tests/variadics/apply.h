@@ -1,6 +1,4 @@
 #include <epilepsy/assert.h>
-
-#include <epilepsy/lang.h>
 #include <epilepsy/list.h>
 #include <epilepsy/variadics.h>
 

@@ -1,5 +1,4 @@
 #include <epilepsy/assert.h>
-#include <epilepsy/lang.h>
 #include <epilepsy/logical.h>
 
 EPILEPSY_ASSERT_EQ(EPILEPSY_NOT(v(0)), v(1));

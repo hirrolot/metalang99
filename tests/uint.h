@@ -1,5 +1,4 @@
 #include <epilepsy/assert.h>
-#include <epilepsy/lang.h>
 #include <epilepsy/uint.h>
 
 // EPILEPSY_UIntInc {

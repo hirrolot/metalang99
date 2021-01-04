@@ -1,7 +1,5 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/either.h>
-#include <epilepsy/eval.h>
-#include <epilepsy/lang.h>
 #include <epilepsy/uint.h>
 
 #define VAL v(abc ? +-148 % "hello world")

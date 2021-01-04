@@ -1,6 +1,4 @@
 #include <epilepsy/assert.h>
-#include <epilepsy/eval.h>
-#include <epilepsy/lang.h>
 
 EPILEPSY_EVAL()
 
