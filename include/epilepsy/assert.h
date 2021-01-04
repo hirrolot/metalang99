@@ -20,8 +20,7 @@
  * @code
  * #include <epilepsy/assert.h>
  *
- * EPILEPSY_ASSERT(v(1 == 1));
- * EPILEPSY_ASSERT(v(!(1 == 2)));
+ * EPILEPSY_ASSERT(v(123 == 123));
  * @endcode
  */
 #define EPILEPSY_ASSERT(expr) EPILEPSY_ASSERT_EQ(EPILEPSY_EXPAND(expr), v(1))
@@ -48,8 +47,7 @@
  * @code
  * #include <epilepsy/assert.h>
  *
- * EPILEPSY_ASSERT_PLAIN(1 == 1);
- * EPILEPSY_ASSERT_PLAIN(!(1 == 2));
+ * EPILEPSY_ASSERT_PLAIN(123 == 123);
  * @endcode
  */
 #define EPILEPSY_ASSERT_PLAIN(expr) EPILEPSY_PRIV_ASSERT_PLAIN(expr)
