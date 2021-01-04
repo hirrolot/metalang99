@@ -18,7 +18,7 @@
 
 import os
 
-os.system("doxygen ..")
+os.system("cd .. && doxygen")
 
 project = 'Epilepsy'
 copyright = '2021, Hirrolot'
