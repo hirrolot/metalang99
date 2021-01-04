@@ -8,22 +8,50 @@
 
 #include <epilepsy/aux.h>
 #include <epilepsy/eval.h>
+#include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/overload.h>
 
 // Desugaring {
 /**
- * Asserts `EPILEPSY_EVAL(expr)`.
+ * Asserts `EPILEPSY_EVAL(expr)` at compile-time.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/assert.h>
+ *
+ * EPILEPSY_ASSERT(v(1 == 1));
+ * EPILEPSY_ASSERT(v(!(1 == 2)));
+ * @endcode
  */
 #define EPILEPSY_ASSERT(expr) EPILEPSY_ASSERT_EQ(EPILEPSY_EXPAND(expr), v(1))
 
 /**
- * Asserts the equality of `EPILEPSY_EVAL(lhs)` and `EPILEPSY_EVAL(rhs)`.
+ * Asserts the equality of `EPILEPSY_EVAL(lhs)` and `EPILEPSY_EVAL(rhs)` at compile-time.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/assert.h>
+ *
+ * EPILEPSY_ASSERT_EQ(v(123), v(123));
+ * @endcode
  */
 #define EPILEPSY_ASSERT_EQ(lhs, rhs) EPILEPSY_ASSERT_PLAIN(EPILEPSY_EVAL(lhs) == EPILEPSY_EVAL(rhs))
 
 /**
- * Asserts the C constant expression @p expr.
+ * Asserts the C constant expression @p expr; <a
+ * href="https://en.cppreference.com/w/c/error/static_assert">static_assert</a> in pure C99.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/assert.h>
+ *
+ * EPILEPSY_ASSERT_PLAIN(1 == 1);
+ * EPILEPSY_ASSERT_PLAIN(!(1 == 2));
+ * @endcode
  */
 #define EPILEPSY_ASSERT_PLAIN(expr) EPILEPSY_PRIV_ASSERT_PLAIN(expr)
 // }
