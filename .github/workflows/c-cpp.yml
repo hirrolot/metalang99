@@ -14,9 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install the dev tooling
-      run: pip3 install breathe sphinx
-
     - name: Update Git submodules
       run: git submodule update --init --recursive
 

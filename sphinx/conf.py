@@ -14,6 +14,8 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import os
+os.system("pip3 install breathe")
 
 # -- Project information -----------------------------------------------------
 
