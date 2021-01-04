@@ -16,6 +16,10 @@
 
 # -- Project information -----------------------------------------------------
 
+import os
+
+os.system("doxygen ..")
+
 project = 'Epilepsy'
 copyright = '2021, Hirrolot'
 author = 'Hirrolot'
