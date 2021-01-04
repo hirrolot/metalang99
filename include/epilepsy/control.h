@@ -16,7 +16,7 @@
 #define EPILEPSY_IF(cond, x, y) EPILEPSY_DESUGAR(EPILEPSY_IF, cond x y)
 
 /**
- * Lazy #EPILSPY_IF.
+ * Lazy #EPILEPSY_IF.
  */
 #define EPILEPSY_IF_LAZY(cond, f, g, ...) EPILEPSY_DESUGAR(EPILEPSY_IF_LAZY, cond f g __VA_ARGS__)
 // }
