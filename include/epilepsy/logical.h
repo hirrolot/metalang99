@@ -28,16 +28,6 @@
  * Logical exclusive OR.
  */
 #define EPILEPSY_XOR(x, y) EPILEPSY_DESUGAR(EPILEPSY_XOR, x y)
-
-/**
- * Expands to 1, consuming all arguments.
- */
-#define EPILEPSY_CONST_TRUE(...) EPILEPSY_DESUGAR(EPILEPSY_CONST_TRUE, __VA_ARGS__)
-
-/**
- * Expands to 0, consuming all arguments.
- */
-#define EPILEPSY_CONST_FALSE(...) EPILEPSY_DESUGAR(EPILEPSY_CONST_FALSE, __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
