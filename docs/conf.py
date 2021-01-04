@@ -16,9 +16,9 @@
 
 # -- Project information -----------------------------------------------------
 
-import os
+import subprocess
 
-os.system("cd .. && doxygen")
+subprocess.call("cd .. ; doxygen", shell=True)
 
 project = 'Epilepsy'
 copyright = '2021, Hirrolot'

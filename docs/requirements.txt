@@ -1,1 +1,1 @@
-breathe
+breathe >= 4.25.1
