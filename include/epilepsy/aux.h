@@ -58,6 +58,8 @@
 #define EPILEPSY_CONST_2(x, a, b)    EPILEPSY_DESUGAR(EPILEPSY_CONST_2, x a b)
 #define EPILEPSY_CONST_3(x, a, b, c) EPILEPSY_DESUGAR(EPILEPSY_CONST_2, x a b c)
 
+#define EPILEPSY_CAT_PLAIN(x, y)     EPILEPSY_CAT_PRIMITIVE(x, y)
+#define EPILEPSY_CAT_PRIMITIVE(x, y) x##_y
 #define EPILEPSY_EMPTY_PLAIN()
 #define EPILEPSY_ID_PLAIN(x)             x
 #define EPILEPSY_EXPAND_PLAIN(...)       __VA_ARGS__
