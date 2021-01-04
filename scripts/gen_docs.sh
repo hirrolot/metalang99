@@ -1,5 +1,4 @@
 #!/bin/bash
 
 doxygen
-cd sphinx
-sphinx-build -b html . ../docs
+sphinx-build -b html sphinx docs
