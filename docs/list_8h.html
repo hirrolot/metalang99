@@ -1,7 +1,5 @@
-<!-- HTML header for doxygen 1.8.13-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
@@ -98,13 +96,7 @@ $(document).ready(function(){initNavTree('list_8h.html','');});
 
 <p>Lists.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="choice_8h_source.html">epilepsy/choice.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="control_8h_source.html">epilepsy/control.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="logical_8h_source.html">epilepsy/logical.h</a>&gt;</code><br />
-<code>#include &lt;epilepsy/priv/pair.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="uint_8h_source.html">epilepsy/uint.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="variadics_8h_source.html">epilepsy/variadics.h</a>&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
+<div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="list_8h__dep__incl.png" border="0" usemap="#include_2epilepsy_2list_8hdep" alt=""/></div>
@@ -135,6 +127,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a0c835a3e2d3de4b0b3b78ed3c9eb8de9">EPILEPSY_ListUnwrap</a>(list)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListUnwrap, list)</td></tr>
 <tr class="memdesc:a0c835a3e2d3de4b0b3b78ed3c9eb8de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places all the items in <code>list</code> as-is. <br /></td></tr>
 <tr class="separator:a0c835a3e2d3de4b0b3b78ed3c9eb8de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302ccee5b6d78ca142f960dc1c51284c"><td class="memItemLeft" align="right" valign="top"><a id="a302ccee5b6d78ca142f960dc1c51284c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a302ccee5b6d78ca142f960dc1c51284c">EPILEPSY_ListIsEmpty</a>(list)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListIsEmpty, list)</td></tr>
+<tr class="memdesc:a302ccee5b6d78ca142f960dc1c51284c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks <code>list</code> for emptiness. <br /></td></tr>
+<tr class="separator:a302ccee5b6d78ca142f960dc1c51284c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad96f203b33b1f579ca347f7e9010ddbc"><td class="memItemLeft" align="right" valign="top"><a id="ad96f203b33b1f579ca347f7e9010ddbc"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#ad96f203b33b1f579ca347f7e9010ddbc">EPILEPSY_ListGet</a>(list,  i)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListGet, list i)</td></tr>
 <tr class="memdesc:ad96f203b33b1f579ca347f7e9010ddbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an <code>i</code> -indexed element. <br /></td></tr>
@@ -159,8 +155,17 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a011f23620b57eb6b11280f258df31160">EPILEPSY_ListPrependToAll</a>(list,  item)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListPrependToAll, list item)</td></tr>
 <tr class="memdesc:a011f23620b57eb6b11280f258df31160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends <code>item</code> to all items in <code>list</code>. <br /></td></tr>
 <tr class="separator:a011f23620b57eb6b11280f258df31160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad52eb447a5871ea7f5a8d4ee440e8bfc"><td class="memItemLeft" align="right" valign="top"><a id="ad52eb447a5871ea7f5a8d4ee440e8bfc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#ad52eb447a5871ea7f5a8d4ee440e8bfc">EPILEPSY_ListMap</a>(list,  f)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListMap, list f)</td></tr>
+<tr class="memdesc:ad52eb447a5871ea7f5a8d4ee440e8bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps all the elements in <code>list</code> with <code>f</code>. <br /></td></tr>
+<tr class="separator:ad52eb447a5871ea7f5a8d4ee440e8bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d86ecb71c6f1bd6e6dc1e488e4d09f9"><td class="memItemLeft" align="right" valign="top"><a id="a1d86ecb71c6f1bd6e6dc1e488e4d09f9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#a1d86ecb71c6f1bd6e6dc1e488e4d09f9">EPILEPSY_ListEq</a>(list,  other,  compare)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListEq, list other compare)</td></tr>
+<tr class="memdesc:a1d86ecb71c6f1bd6e6dc1e488e4d09f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks <code>list</code> and <code>other</code> for equality. <br /></td></tr>
+<tr class="separator:a1d86ecb71c6f1bd6e6dc1e488e4d09f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8ebcda3c47feeeff3bf1af3ac469059"><td class="memItemLeft" align="right" valign="top"><a id="aa8ebcda3c47feeeff3bf1af3ac469059"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>EPILEPSY_ListApply</b>(list,  f)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListApply, list f)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="list_8h.html#aa8ebcda3c47feeeff3bf1af3ac469059">EPILEPSY_ListApply</a>(list,  f)&#160;&#160;&#160;EPILEPSY_DESUGAR(EPILEPSY_ListApply, list f)</td></tr>
+<tr class="memdesc:aa8ebcda3c47feeeff3bf1af3ac469059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies all the items in <code>list</code> to <code>f</code>. <br /></td></tr>
 <tr class="separator:aa8ebcda3c47feeeff3bf1af3ac469059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

@@ -5,6 +5,8 @@ var dir_8b54cf64a24d33e173ded5e34b1cf731 =
     [ "choice.h", "choice_8h.html", "choice_8h" ],
     [ "control.h", "control_8h.html", "control_8h" ],
     [ "either.h", "either_8h.html", "either_8h" ],
+    [ "eval.h", "eval_8h_source.html", null ],
+    [ "lang.h", "lang_8h_source.html", null ],
     [ "list.h", "list_8h.html", "list_8h" ],
     [ "logical.h", "logical_8h.html", "logical_8h" ],
     [ "maybe.h", "maybe_8h.html", "maybe_8h" ],
