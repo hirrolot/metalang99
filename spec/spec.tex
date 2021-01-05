@@ -50,7 +50,8 @@ is \textbf{not} designed as a user-friendly overview -- see the official reposit
 
 <term> ::= "EPILEPSY_CALL(" <op> "," { <term> }* ")"
          | "EPILEPSY_DBG(" <preprocessor-token-list> ")"
-         | "EPILEPSY_FATAL(" <ident> "," <string-literal> ")"
+         | "EPILEPSY_FATAL(" <ident> ","
+                <preprocessor-token-list> ")"
          | "v(" <preprocessor-token-list> ")" ;
 
 <op>   ::= <ident> | { <term> }+ ;
@@ -126,7 +127,6 @@ Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3), v(5) v(6) v(7))
         \texttt{ident} & preprocessor identifier \\
         \texttt{t} & Epilepsy term \\
         \texttt{a} & Epilepsy term used as an argument \\
-        \texttt{str} & string literal \\
         \hline
     \end{tabular}
 \end{notation}
@@ -169,9 +169,8 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
             & \ \ \ \ \langle \langle K; F; A; \texttt{EPILEPSY\_CALL}(?, \overline{a}) \ \overline{t'} \rangle; fappend; (); \overline{t} \rangle \\
         (args): & \ \langle K; F; A; \texttt{EPILEPSY\_CALL}(ident, \overline{a}) \ \overline{t} \rangle \to \\
             & \ \ \ \ \langle \langle K; F; A; ident\texttt{\_IMPL}(?) \ \overline{t} \rangle; fcomma; (); \overline{a} \rangle \\
-        (dbg): & \ \langle K; F; A; \texttt{EPILEPSY\_DBG}(\overline{tok}) \ \overline{t} \rangle \to halt(\overline{tok}) \\
-        (error): & \ \langle K; F; A; \texttt{EPILEPSY\_FATAL}(ident, str) \ \overline{t} \rangle \to \\
-            & \ \ \ \ halt(\texttt{!Epilepsy error} \ \texttt{(}ident\texttt{):} \ str) \\
+        (dbg): & \ \langle K; F; A; \texttt{EPILEPSY\_DBG}(\overline{tok}) \ \overline{t} \rangle \to halt(\ldots) \\
+        (error): & \ \langle K; F; A; \texttt{EPILEPSY\_FATAL}(ident, \overline{tok}) \ \overline{t} \rangle \to halt(\ldots) \\
         (end): & \ \langle K; F; A; () \rangle \to K(A) \\
         (start): & \ \texttt{EPILEPSY\_CALL}(\overline{t}) \to \langle halt; fappend; (); \overline{t} \rangle
     \end{align*}
@@ -190,6 +189,8 @@ Notes:
     \item $(args)$ Epilepsy appends \texttt{\_IMPL} to every macro identifier called using
     \texttt{EPILEPSY\_CALL} -- it makes easier to follow the convention that all implementations
     of metafunctions shall have the postfix \texttt{\_IMPL}.
+    \item $(dbg)$ and $(error)$ The ellipsis means that an implementation is free to provide
+    diagnostics in any format.
     \item With the current implementation, at most $2^{16}$ reduction steps are
     possible. After exceeding this limit, Epilepsy will not be able to perform reduction
     of a given metaprogram anymore.
