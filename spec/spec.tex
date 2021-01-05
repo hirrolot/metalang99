@@ -49,6 +49,8 @@ is \textbf{not} designed as a user-friendly overview -- see the official reposit
 <eval> ::= "EPILEPSY_EVAL(" { <term> }* ")" ;
 
 <term> ::= "EPILEPSY_CALL(" <op> "," { <term> }* ")"
+         | "EPILEPSY_DBG(" <preprocessor-token-list> ")"
+         | "EPILEPSY_ERROR(" <ident> "," <string-literal> ")"
          | "v(" <preprocessor-token-list> ")" ;
 
 <op>   ::= <ident> | { <term> }+ ;
@@ -75,7 +77,7 @@ an implementation macro like this:
 
 \begin{minted}{c}
 /// The documentation string.
-#define FOO(a, b, c) EPILEPSY_DESUGAR(FOO, a b c)
+#define FOO(a, b, c) EPILEPSY_CALL(FOO, a b c)
 #define FOO_IMPL(a, b, c) // The implementation.
 \end{minted}
 
@@ -86,7 +88,7 @@ Notice that variadic macros are a bit special here. Their calls should be desuga
 \begin{minted}{c}
 /// The documentation string.
 #define FOO(a, b, c, ...) \
-    EPILEPSY_DESUGAR(FOO, a b c __VA_ARGS__)
+    EPILEPSY_CALL(FOO, a b c __VA_ARGS__)
 #define FOO_IMPL(a, b, c, ...) // The implementation.
 \end{minted}
 
@@ -116,7 +118,7 @@ Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3), v(5) v(6) v(7))
     $\to$ denotes a single step of reduction (computation, evaluation).
 \end{notation}
 
-\begin{notation}[Meta-variables]
+\begin{notation}[Metavariables]
     \ \\
     \begin{tabular}{|c|c|}
         \hline
@@ -124,6 +126,7 @@ Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3), v(5) v(6) v(7))
         \texttt{ident} & preprocessor identifier \\
         \texttt{t} & Epilepsy term \\
         \texttt{a} & Epilepsy term used as an argument \\
+        \texttt{str} & string literal \\
         \hline
     \end{tabular}
 \end{notation}
@@ -163,9 +166,12 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
         (v): & \ \langle K; F; A; \texttt{v}(\overline{tok}) \ \overline{t} \rangle \to
             \langle K; F; F(A, \overline{tok}); \overline{t} \rangle \\
         (op): & \ \langle K; F; A; \texttt{EPILEPSY\_CALL}(\overline{t}, \overline{a}) \ \overline{t'} \rangle \to \\
-            & \langle \langle K; F; A; \texttt{EPILEPSY\_CALL}(?, \overline{a}) \ \overline{t'} \rangle; fappend; (); \overline{t} \rangle \\
+            & \ \ \ \ \langle \langle K; F; A; \texttt{EPILEPSY\_CALL}(?, \overline{a}) \ \overline{t'} \rangle; fappend; (); \overline{t} \rangle \\
         (args): & \ \langle K; F; A; \texttt{EPILEPSY\_CALL}(ident, \overline{a}) \ \overline{t} \rangle \to \\
-            & \langle \langle K; F; A; ident(?) \ \overline{t} \rangle; fcomma; (); \overline{a} \rangle \\
+            & \ \ \ \ \langle \langle K; F; A; ident\texttt{\_IMPL}(?) \ \overline{t} \rangle; fcomma; (); \overline{a} \rangle \\
+        (dbg): & \ \langle K; F; A; \texttt{EPILEPSY\_DBG}(\overline{tok}) \ \overline{t} \rangle \to halt(\overline{tok}) \\
+        (error): & \ \langle K; F; A; \texttt{EPILEPSY\_ERROR}(ident, str) \ \overline{t} \rangle \to \\
+            & \ \ \ \ halt(\texttt{!Epilepsy error} \ \texttt{(}ident\texttt{):} \ str) \\
         (end): & \ \langle K; F; A; () \rangle \to K(A) \\
         (start): & \ \texttt{EPILEPSY\_CALL}(\overline{t}) \to \langle halt; fappend; (); \overline{t} \rangle
     \end{align*}
@@ -177,10 +183,13 @@ Notes:
 \begin{itemize}
     \item Epilepsy follows applicative evaluation strategy \cite{ApplicativeEvaluationStrategy}.
 
-    \item Look at $(args)$. Epilepsy generates a usual C-style macro invocation with
+    \item $(args)$ Epilepsy generates a usual C-style macro invocation with
     fully evaluated arguments, which will be then expanded by the preprocessor, resulting
     in yet another concrete sequence of Epilepsy terms to be evaluated by the computational
     rules.
+    \item $(args)$ Epilepsy appends \texttt{\_IMPL} to every macro identifier called using
+    \texttt{EPILEPSY\_CALL} -- it makes easier to follow the convention that all implementations
+    of metafunctions shall have the postfix \texttt{\_IMPL}.
     \item With the current implementation, at most $2^{16}$ reduction steps are
     possible. After exceeding this limit, Epilepsy will not be able to perform reduction
     of a given metaprogram anymore.
@@ -199,7 +208,6 @@ Take the following code:
 See how \texttt{EPILEPSY\_CALL(X, v(CALL\_X))} is evaluated:
 
 \begin{example}[Evaluation of terms]
-\small
 \begin{align*}
     \texttt{EPILEPSY\_EVAL}(\texttt{EPILEPSY\_CALL}(X, \texttt{v}(\texttt{CALL\_X}))) & \to (start) \\
     \langle halt; fappend; (); \texttt{EPILEPSY\_CALL}(X, \texttt{v}(\texttt{CALL\_X})) \rangle & \to (args) \\
@@ -218,7 +226,6 @@ See how \texttt{EPILEPSY\_CALL(X, v(CALL\_X))} is evaluated:
     \langle halt; fappend; 123; () \rangle & \to (end) \\
     halt(123) &
 \end{align*}
-\normalsize
 \end{example}
 
 The analogous version written in ordinary C looks like this:
