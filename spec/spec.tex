@@ -170,7 +170,7 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
         (args): & \ \langle K; F; A; \texttt{EPILEPSY\_CALL}(ident, \overline{a}) \ \overline{t} \rangle \to \\
             & \ \ \ \ \langle \langle K; F; A; ident\texttt{\_IMPL}(?) \ \overline{t} \rangle; fcomma; (); \overline{a} \rangle \\
         (dbg): & \ \langle K; F; A; \texttt{EPILEPSY\_DBG}(\overline{tok}) \ \overline{t} \rangle \to halt(\ldots) \\
-        (error): & \ \langle K; F; A; \texttt{EPILEPSY\_FATAL}(ident, \overline{tok}) \ \overline{t} \rangle \to halt(\ldots) \\
+        (fatal): & \ \langle K; F; A; \texttt{EPILEPSY\_FATAL}(ident, \overline{tok}) \ \overline{t} \rangle \to halt(\ldots) \\
         (end): & \ \langle K; F; A; () \rangle \to K(A) \\
         (start): & \ \texttt{EPILEPSY\_CALL}(\overline{t}) \to \langle halt; fappend; (); \overline{t} \rangle
     \end{align*}
@@ -189,7 +189,7 @@ Notes:
     \item $(args)$ Epilepsy appends \texttt{\_IMPL} to every macro identifier called using
     \texttt{EPILEPSY\_CALL} -- it makes easier to follow the convention that all implementations
     of metafunctions shall have the postfix \texttt{\_IMPL}.
-    \item $(dbg)$ and $(error)$ The ellipsis means that an implementation is free to provide
+    \item $(dbg)$ and $(fatal)$ The ellipsis means that an implementation is free to provide
     diagnostics in any format.
     \item With the current implementation, at most $2^{16}$ reduction steps are
     possible. After exceeding this limit, Epilepsy will not be able to perform reduction
