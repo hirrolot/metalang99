@@ -28,8 +28,7 @@
 #define EPILEPSY_PRIV_EVAL_0op_K_HOOK()   EPILEPSY_PRIV_EVAL_0op_K
 #define EPILEPSY_PRIV_EVAL_0args_K_HOOK() EPILEPSY_PRIV_EVAL_0args_K
 
-#define EPILEPSY_PRIV_EVAL_MATCH(...) EPILEPSY_PRIV_EVAL_MATCH_AUX(__VA_ARGS__)
-#define EPILEPSY_PRIV_EVAL_MATCH_AUX(k, k_cx, lfolder, acc, head, ...)                             \
+#define EPILEPSY_PRIV_EVAL_MATCH(k, k_cx, lfolder, acc, head, ...)                                 \
     EPILEPSY_PRIV_TERM_MATCH(                                                                      \
         EPILEPSY_PRIV_EVAL_, head, k, k_cx, lfolder, acc, EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
 
@@ -63,11 +62,17 @@
 
 // Continuations {
 #define EPILEPSY_PRIV_EVAL_0args_K(k, k_cx, lfolder, acc, tail, evaluated_op, ...)                 \
-    EPILEPSY_PRIV_EVAL_MATCH(                                                                      \
-        k, k_cx, lfolder, acc, evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
+    EPILEPSY_PRIV_INVOKE(                                                                          \
+        EPILEPSY_PRIV_EVAL_MATCH,                                                                  \
+        k,                                                                                         \
+        k_cx,                                                                                      \
+        lfolder,                                                                                   \
+        acc,                                                                                       \
+        evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
 #define EPILEPSY_PRIV_EVAL_0op_K(k, k_cx, lfolder, acc, tail, args, evaluated_op)                  \
-    EPILEPSY_PRIV_EVAL_MATCH(                                                                      \
+    EPILEPSY_PRIV_INVOKE(                                                                          \
+        EPILEPSY_PRIV_EVAL_MATCH,                                                                  \
         k,                                                                                         \
         k_cx,                                                                                      \
         lfolder,                                                                                   \
