@@ -62,6 +62,4 @@
 #define EPILEPSY_PRIV_ATTR_UNUSED
 #endif
 
-#endif // DOXYGEN_IGNORE
-
 #endif // EPILEPSY_ASSERT_H
