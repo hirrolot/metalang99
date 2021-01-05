@@ -45,16 +45,16 @@
     EPILEPSY_CALL(                                                                                 \
         EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_AUX,                                              \
         v(f, arity) EPILEPSY_VARIADICS_COUNT(v(__VA_ARGS__)) v(__VA_ARGS__, ~))
-#define EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_AUX(f, arity, count, ...)                         \
+#define EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_AUX_IMPL(f, arity, count, ...)                    \
     EPILEPSY_CALL(                                                                                 \
         EPILEPSY_IF(                                                                               \
             EPILEPSY_UIntEq(v(count), v(1)),                                                       \
             v(EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_DONE),                                      \
             v(EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_PROGRESS)),                                 \
         v(f, arity, count, __VA_ARGS__))
-#define EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_DONE(f, arity, _count, last, _)                   \
+#define EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_DONE_IMPL(f, arity, _count, last, _)              \
     EPILEPSY_APPLY_WITH_ARITY(v(f), v(arity), v(last))
-#define EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_PROGRESS(f, arity, count, x, ...)                 \
+#define EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_PROGRESS_IMPL(f, arity, count, x, ...)            \
     EPILEPSY_CALL(                                                                                 \
         EPILEPSY_PRIV_VARIADICS_APPLY_WITH_ARITY_AUX,                                              \
         EPILEPSY_APPLY_WITH_ARITY(v(f), v(arity), v(x)) v(arity) EPILEPSY_UIntDec(v(count))        \
@@ -62,11 +62,11 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_VARIADICS_COUNT_IMPL_ARITY            1
-#define EPILEPSY_VARIADICS_HEAD_IMPL_ARITY             1
-#define EPILEPSY_VARIADICS_TAIL_IMPL_ARITY             1
-#define EPILEPSY_VARIADICS_APPLY_IMPL_ARITY            2
-#define EPILEPSY_VARIADICS_APPLY_WITH_ARITY_IMPL_ARITY 3
+#define EPILEPSY_VARIADICS_COUNT_ARITY            1
+#define EPILEPSY_VARIADICS_HEAD_ARITY             1
+#define EPILEPSY_VARIADICS_TAIL_ARITY             1
+#define EPILEPSY_VARIADICS_APPLY_ARITY            2
+#define EPILEPSY_VARIADICS_APPLY_WITH_ARITY_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE

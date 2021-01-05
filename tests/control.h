@@ -8,8 +8,8 @@ EPILEPSY_ASSERT_EQ(EPILEPSY_IF(v(1), v(1549), v(1678)), v(1549));
 EPILEPSY_ASSERT_EQ(EPILEPSY_IF(v(0), v(516), v(115)), v(115));
 EPILEPSY_ASSERT_EQ(EPILEPSY_IF(v(0), v(10), v(6)), v(6));
 
-#define F(x) v(x + 1)
-#define G(x) v(x + 5)
+#define F_IMPL(x) v(x + 1)
+#define G_IMPL(x) v(x + 5)
 
 #define F_ARITY 1
 #define G_ARITY 1
@@ -17,8 +17,8 @@ EPILEPSY_ASSERT_EQ(EPILEPSY_IF(v(0), v(10), v(6)), v(6));
 EPILEPSY_ASSERT_EQ(EPILEPSY_IF_LAZY(v(0), v(F), v(G), v(123)), v(123 + 5));
 EPILEPSY_ASSERT_EQ(EPILEPSY_IF_LAZY(v(1), v(F), v(G), v(123)), v(123 + 1));
 
-#undef F
-#undef G
+#undef F_IMPL
+#undef G_IMPL
 
 #undef F_ARITY
 #undef G_ARITY

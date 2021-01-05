@@ -1,5 +1,5 @@
-#ifndef EPILEPSY_PRIV_UINT_DEC_H
-#define EPILEPSY_PRIV_UINT_DEC_H
+#ifndef EPILEPSY_UINT_DEC_H
+#define EPILEPSY_UINT_DEC_H
 
 #include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
@@ -1030,4 +1030,4 @@
 #define EPILEPSY_PRIV_UINT_DEC_1022() 1021
 #define EPILEPSY_PRIV_UINT_DEC_1023() 1022
 
-#endif // EPILEPSY_PRIV_UINT_DEC_H
+#endif // EPILEPSY_UINT_DEC_H

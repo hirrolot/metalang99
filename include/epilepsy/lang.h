@@ -36,7 +36,7 @@
 /**
  * Desugars calls to @p f.
  */
-#define EPILEPSY_DESUGAR(f, ...) EPILEPSY_CALL(f##_IMPL, __VA_ARGS__)
+#define EPILEPSY_DESUGAR(f, ...) EPILEPSY_CALL(f, __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -47,7 +47,7 @@
         EPILEPSY_PRIV_IS_UNPARENTHESISED(op), EPILEPSY_PRIV_call_0args, EPILEPSY_PRIV_call_0op)    \
     (op, __VA_ARGS__),
 
-#define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident, __VA_ARGS__)
+#define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident##_IMPL, __VA_ARGS__)
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__)
 //
 

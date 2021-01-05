@@ -73,10 +73,10 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_CHOICE_IMPL_ARITY          2
-#define EPILEPSY_CHOICE_EMPTY_IMPL_ARITY    1
-#define EPILEPSY_MATCH_IMPL_ARITY           2
-#define EPILEPSY_MATCH_WITH_ARGS_IMPL_ARITY 3
+#define EPILEPSY_CHOICE_ARITY          2
+#define EPILEPSY_CHOICE_EMPTY_ARITY    1
+#define EPILEPSY_MATCH_ARITY           2
+#define EPILEPSY_MATCH_WITH_ARGS_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE

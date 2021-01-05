@@ -1,5 +1,5 @@
-#ifndef EPILEPSY_PRIV_UINT_INC_H
-#define EPILEPSY_PRIV_UINT_INC_H
+#ifndef EPILEPSY_UINT_INC_H
+#define EPILEPSY_UINT_INC_H
 
 #include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
@@ -1031,4 +1031,4 @@
 #define EPILEPSY_PRIV_UINT_INC_1022() 1023
 #define EPILEPSY_PRIV_UINT_INC_1023() 1024_LIMIT_REACHED)
 
-#endif // EPILEPSY_PRIV_UINT_INC_H
+#endif // EPILEPSY_UINT_INC_H

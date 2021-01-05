@@ -96,21 +96,21 @@
 #define EPILEPSY_UIntGreaterEq_IMPL(x, y)                                                          \
     EPILEPSY_IF_LAZY(                                                                              \
         EPILEPSY_UIntEq(v(x), v(y)),                                                               \
-        EPILEPSY_APPLY(v(EPILEPSY_CONST_2_IMPL), v(1)),                                            \
-        v(EPILEPSY_UIntGreater_IMPL),                                                              \
+        EPILEPSY_APPLY(v(EPILEPSY_CONST_2), v(1)),                                                 \
+        v(EPILEPSY_UIntGreater),                                                                   \
         v(x, y))
 
 #define EPILEPSY_UIntLesser_IMPL(x, y)                                                             \
     EPILEPSY_IF_LAZY(                                                                              \
         EPILEPSY_UIntEq(v(y), v(0)),                                                               \
-        EPILEPSY_APPLY(v(EPILEPSY_CONST_2_IMPL), v(0)),                                            \
+        EPILEPSY_APPLY(v(EPILEPSY_CONST_2), v(0)),                                                 \
         v(EPILEPSY_PRIV_UINT_LESSER_PROGRESS),                                                     \
         v(x, y))
-#define EPILEPSY_PRIV_UINT_LESSER_PROGRESS(x, y)                                                   \
+#define EPILEPSY_PRIV_UINT_LESSER_PROGRESS_IMPL(x, y)                                              \
     EPILEPSY_IF_LAZY(                                                                              \
         EPILEPSY_UIntEq(v(x), EPILEPSY_UIntDec(v(y))),                                             \
-        EPILEPSY_APPLY(v(EPILEPSY_CONST_2_IMPL), v(1)),                                            \
-        v(EPILEPSY_UIntLesser_IMPL),                                                               \
+        EPILEPSY_APPLY(v(EPILEPSY_CONST_2), v(1)),                                                 \
+        v(EPILEPSY_UIntLesser),                                                                    \
         v(x) EPILEPSY_UIntDec(v(y)))
 
 #define EPILEPSY_UIntLesserEq_IMPL(x, y) EPILEPSY_UIntGreaterEq(v(y), v(x))
@@ -121,12 +121,12 @@
         v(EPILEPSY_PRIV_UIntAdd_DONE),                                                             \
         v(EPILEPSY_PRIV_UIntAdd_PROGRESS),                                                         \
         v(x, y))
-#define EPILEPSY_PRIV_UIntAdd_DONE(x, _y) v(x)
-#define EPILEPSY_PRIV_UIntAdd_PROGRESS(x, y)                                                       \
+#define EPILEPSY_PRIV_UIntAdd_DONE_IMPL(x, _y) v(x)
+#define EPILEPSY_PRIV_UIntAdd_PROGRESS_IMPL(x, y)                                                  \
     EPILEPSY_UIntAdd(EPILEPSY_UIntInc(v(x)), EPILEPSY_UIntDec(v(y)))
 
 #define EPILEPSY_UIntAddVariadics_IMPL(...)                                                        \
-    EPILEPSY_ListFoldr(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntAdd_IMPL), v(0))
+    EPILEPSY_ListFoldr(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntAdd), v(0))
 
 #define EPILEPSY_UIntSub_IMPL(x, y)                                                                \
     EPILEPSY_IF_LAZY(                                                                              \
@@ -134,12 +134,12 @@
         v(EPILEPSY_PRIV_UIntSub_DONE),                                                             \
         v(EPILEPSY_PRIV_UIntSub_PROGRESS),                                                         \
         v(x, y))
-#define EPILEPSY_PRIV_UIntSub_DONE(x, _y) v(x)
-#define EPILEPSY_PRIV_UIntSub_PROGRESS(x, y)                                                       \
+#define EPILEPSY_PRIV_UIntSub_DONE_IMPL(x, _y) v(x)
+#define EPILEPSY_PRIV_UIntSub_PROGRESS_IMPL(x, y)                                                  \
     EPILEPSY_UIntSub(EPILEPSY_UIntDec(v(x)), EPILEPSY_UIntDec(v(y)))
 
 #define EPILEPSY_UIntSubVariadics_IMPL(...)                                                        \
-    EPILEPSY_ListFoldl1(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntSub_IMPL))
+    EPILEPSY_ListFoldl1(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntSub))
 
 #define EPILEPSY_UIntMul_IMPL(x, y)                                                                \
     EPILEPSY_IF_LAZY(                                                                              \
@@ -147,29 +147,29 @@
         v(EPILEPSY_PRIV_UIntMul_DONE),                                                             \
         v(EPILEPSY_PRIV_UIntMul_PROGRESS),                                                         \
         v(x, y))
-#define EPILEPSY_PRIV_UIntMul_DONE(x, _y) v(0)
-#define EPILEPSY_PRIV_UIntMul_PROGRESS(x, y)                                                       \
+#define EPILEPSY_PRIV_UIntMul_DONE_IMPL(x, _y) v(0)
+#define EPILEPSY_PRIV_UIntMul_PROGRESS_IMPL(x, y)                                                  \
     EPILEPSY_UIntAdd(v(x), EPILEPSY_UIntMul(v(x), EPILEPSY_UIntDec(v(y))))
 
 #define EPILEPSY_UIntMulVariadics_IMPL(...)                                                        \
-    EPILEPSY_ListFoldl1(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntMul_IMPL))
+    EPILEPSY_ListFoldl1(EPILEPSY_List(v(__VA_ARGS__)), v(EPILEPSY_UIntMul))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_UIntInc_IMPL_ARITY          1
-#define EPILEPSY_UIntDec_IMPL_ARITY          1
-#define EPILEPSY_UIntEq_IMPL_ARITY           2
-#define EPILEPSY_UIntNeq_IMPL_ARITY          2
-#define EPILEPSY_UIntGreater_IMPL_ARITY      2
-#define EPILEPSY_UIntGreaterEq_IMPL_ARITY    2
-#define EPILEPSY_UIntLesser_IMPL_ARITY       2
-#define EPILEPSY_UIntLesserEq_IMPL_ARITY     2
-#define EPILEPSY_UIntAdd_IMPL_ARITY          2
-#define EPILEPSY_UIntAddVariadics_IMPL_ARITY 1
-#define EPILEPSY_UIntSub_IMPL_ARITY          2
-#define EPILEPSY_UIntSubVariadics_IMPL_ARITY 1
-#define EPILEPSY_UIntMul_IMPL_ARITY          2
-#define EPILEPSY_UIntMulVariadics_IMPL_ARITY 1
+#define EPILEPSY_UIntInc_ARITY          1
+#define EPILEPSY_UIntDec_ARITY          1
+#define EPILEPSY_UIntEq_ARITY           2
+#define EPILEPSY_UIntNeq_ARITY          2
+#define EPILEPSY_UIntGreater_ARITY      2
+#define EPILEPSY_UIntGreaterEq_ARITY    2
+#define EPILEPSY_UIntLesser_ARITY       2
+#define EPILEPSY_UIntLesserEq_ARITY     2
+#define EPILEPSY_UIntAdd_ARITY          2
+#define EPILEPSY_UIntAddVariadics_ARITY 1
+#define EPILEPSY_UIntSub_ARITY          2
+#define EPILEPSY_UIntSubVariadics_ARITY 1
+#define EPILEPSY_UIntMul_ARITY          2
+#define EPILEPSY_UIntMulVariadics_ARITY 1
 
 #define EPILEPSY_PRIV_UINT_LESSER_PROGRESS_ARITY 2
 

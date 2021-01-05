@@ -37,18 +37,18 @@
 #define EPILEPSY_EitherLeft_IMPL(x)  EPILEPSY_CHOICE(v(EitherLeft), v(x))
 #define EPILEPSY_EitherRight_IMPL(x) EPILEPSY_CHOICE(v(EitherRight), v(x))
 
-#define EPILEPSY_EitherIsLeft_IMPL(either)         EPILEPSY_MATCH(v(either), v(EPILEPSY_PRIV_EitherIsLeft_))
-#define EPILEPSY_PRIV_EitherIsLeft_EitherLeft(_x)  v(1)
-#define EPILEPSY_PRIV_EitherIsLeft_EitherRight(_x) v(0)
+#define EPILEPSY_EitherIsLeft_IMPL(either)              EPILEPSY_MATCH(v(either), v(EPILEPSY_PRIV_EitherIsLeft_))
+#define EPILEPSY_PRIV_EitherIsLeft_EitherLeft_IMPL(_x)  v(1)
+#define EPILEPSY_PRIV_EitherIsLeft_EitherRight_IMPL(_x) v(0)
 
 #define EPILEPSY_EitherIsRight_IMPL(either) EPILEPSY_NOT(EPILEPSY_EitherIsLeft(v(either)))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_EitherLeft_IMPL_ARITY    1
-#define EPILEPSY_EitherRight_IMPL_ARITY   1
-#define EPILEPSY_EitherIsLeft_IMPL_ARITY  1
-#define EPILEPSY_EitherIsRight_IMPL_ARITY 1
+#define EPILEPSY_EitherLeft_ARITY    1
+#define EPILEPSY_EitherRight_ARITY   1
+#define EPILEPSY_EitherIsLeft_ARITY  1
+#define EPILEPSY_EitherIsRight_ARITY 1
 // }
 
 #endif // DOXYGEN_IGNORE

@@ -37,18 +37,18 @@
 #define EPILEPSY_MaybeJust_IMPL(x)   EPILEPSY_CHOICE(v(MaybeJust), v(x))
 #define EPILEPSY_MaybeNothing_IMPL() EPILEPSY_CHOICE_EMPTY(v(MaybeNothing))
 
-#define EPILEPSY_MaybeIsJust_IMPL(maybe)         EPILEPSY_MATCH(v(maybe), v(EPILEPSY_PRIV_MaybeIsJust_))
-#define EPILEPSY_PRIV_MaybeIsJust_MaybeJust(_x)  v(1)
-#define EPILEPSY_PRIV_MaybeIsJust_MaybeNothing() v(0)
+#define EPILEPSY_MaybeIsJust_IMPL(maybe)              EPILEPSY_MATCH(v(maybe), v(EPILEPSY_PRIV_MaybeIsJust_))
+#define EPILEPSY_PRIV_MaybeIsJust_MaybeJust_IMPL(_x)  v(1)
+#define EPILEPSY_PRIV_MaybeIsJust_MaybeNothing_IMPL() v(0)
 
 #define EPILEPSY_MaybeIsNothing_IMPL(maybe) EPILEPSY_NOT(EPILEPSY_MaybeIsJust(v(maybe)))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_MaybeJust_IMPL_ARITY      1
-#define EPILEPSY_MaybeNothing_IMPL_ARITY   1
-#define EPILEPSY_MaybeIsJust_IMPL_ARITY    1
-#define EPILEPSY_MaybeIsNothing_IMPL_ARITY 1
+#define EPILEPSY_MaybeJust_ARITY      1
+#define EPILEPSY_MaybeNothing_ARITY   1
+#define EPILEPSY_MaybeIsJust_ARITY    1
+#define EPILEPSY_MaybeIsNothing_ARITY 1
 // }
 
 #endif // DOXYGEN_IGNORE

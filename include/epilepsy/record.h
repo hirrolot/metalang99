@@ -28,8 +28,8 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_RECORD_IMPL_ARITY 1
-#define EPILEPSY_GET_IMPL_ARITY    2
+#define EPILEPSY_RECORD_ARITY 1
+#define EPILEPSY_GET_ARITY    2
 // }
 
 #endif // DOXYGEN_IGNORE

@@ -1,5 +1,5 @@
-#ifndef EPILEPSY_PRIV_UINT_EQ_H
-#define EPILEPSY_PRIV_UINT_EQ_H
+#ifndef EPILEPSY_UINT_EQ_H
+#define EPILEPSY_UINT_EQ_H
 
 #include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
@@ -1033,4 +1033,4 @@
 #define EPILEPSY_PRIV_UINT_EQ_1022_1022() ~, 1
 #define EPILEPSY_PRIV_UINT_EQ_1023_1023() ~, 1
 
-#endif // EPILEPSY_PRIV_UINT_EQ_H
+#endif // EPILEPSY_UINT_EQ_H

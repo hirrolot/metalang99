@@ -32,7 +32,7 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_OVERLOAD_IMPL_ARITY 2
+#define EPILEPSY_OVERLOAD_ARITY      2
 #define EPILEPSY_OVERLOAD_CALL_ARITY 2
 // }
 

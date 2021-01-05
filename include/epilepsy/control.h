@@ -24,17 +24,17 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_IF_IMPL(cond, x, y)      EPILEPSY_CALL(EPILEPSY_PRIV_CONTROL_IF_##cond, v(x) v(y))
-#define EPILEPSY_PRIV_CONTROL_IF_0(_x, y) v(y)
-#define EPILEPSY_PRIV_CONTROL_IF_1(x, _y) v(x)
+#define EPILEPSY_IF_IMPL(cond, x, y)           EPILEPSY_CALL(EPILEPSY_PRIV_CONTROL_IF_##cond, v(x) v(y))
+#define EPILEPSY_PRIV_CONTROL_IF_0_IMPL(_x, y) v(y)
+#define EPILEPSY_PRIV_CONTROL_IF_1_IMPL(x, _y) v(x)
 
 #define EPILEPSY_IF_LAZY_IMPL(cond, f, g, ...)                                                     \
     EPILEPSY_VARIADICS_APPLY(EPILEPSY_IF(v(cond), v(f), v(g)), v(__VA_ARGS__))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_IF_IMPL_ARITY      3
-#define EPILEPSY_IF_LAZY_IMPL_ARITY 4
+#define EPILEPSY_IF_ARITY      3
+#define EPILEPSY_IF_LAZY_ARITY 4
 // }
 
 #endif // DOXYGEN_IGNORE

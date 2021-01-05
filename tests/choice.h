@@ -5,26 +5,26 @@
 
 #define VAL v(abc ? +-148 % "hello world")
 
-#define FooA(x) EPILEPSY_CHOICE(v(FooA), v(x))
-#define FooB(x) EPILEPSY_CHOICE(v(FooB), v(x))
-#define FooC(x) EPILEPSY_CHOICE(v(FooC), v(x))
+#define FooA_IMPL(x) EPILEPSY_CHOICE(v(FooA), v(x))
+#define FooB_IMPL(x) EPILEPSY_CHOICE(v(FooB), v(x))
+#define FooC_IMPL(x) EPILEPSY_CHOICE(v(FooC), v(x))
 
-#define MATCH(foo)        EPILEPSY_MATCH_WITH_ARGS(v(foo), v(MATCH_), v(3))
-#define MATCH_FooA(x, _3) v(EPILEPSY_ASSERT_PLAIN(x == 19); EPILEPSY_ASSERT_PLAIN(_3 == 3);)
-#define MATCH_FooB(x, _3) v(EPILEPSY_ASSERT_PLAIN(x == 1756); EPILEPSY_ASSERT_PLAIN(_3 == 3);)
-#define MATCH_FooC(x, _3) v(EPILEPSY_ASSERT_PLAIN(x == 0); EPILEPSY_ASSERT_PLAIN(_3 == 3);)
+#define MATCH_IMPL(foo)        EPILEPSY_MATCH_WITH_ARGS(v(foo), v(MATCH_), v(3))
+#define MATCH_FooA_IMPL(x, _3) v(EPILEPSY_ASSERT_PLAIN(x == 19); EPILEPSY_ASSERT_PLAIN(_3 == 3);)
+#define MATCH_FooB_IMPL(x, _3) v(EPILEPSY_ASSERT_PLAIN(x == 1756); EPILEPSY_ASSERT_PLAIN(_3 == 3);)
+#define MATCH_FooC_IMPL(x, _3) v(EPILEPSY_ASSERT_PLAIN(x == 0); EPILEPSY_ASSERT_PLAIN(_3 == 3);)
 
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooA, v(19))))
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooB, v(1756))))
 EPILEPSY_EVAL(EPILEPSY_CALL(MATCH, EPILEPSY_CALL(FooC, v(0))))
 
-#undef MATCH
-#undef MATCH_FooA
-#undef MATCH_FooB
-#undef MATCH_FooC
+#undef MATCH_IMPL
+#undef MATCH_FooA_IMPL
+#undef MATCH_FooB_IMPL
+#undef MATCH_FooC_IMPL
 
-#undef FooA
-#undef FooB
-#undef FooC
+#undef FooA_IMPL
+#undef FooB_IMPL
+#undef FooC_IMPL
 
 #undef VAL
