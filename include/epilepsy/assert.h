@@ -50,14 +50,8 @@
  * EPILEPSY_ASSERT_PLAIN(123 == 123);
  * @endcode
  */
-#define EPILEPSY_ASSERT_PLAIN(expr) EPILEPSY_PRIV_ASSERT_PLAIN(expr)
-// }
-
-#ifndef DOXYGEN_IGNORE
-
-// Implementation {
-// How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656.
-#define EPILEPSY_PRIV_ASSERT_PLAIN(expr)                                                           \
+#define EPILEPSY_ASSERT_PLAIN(expr)                                                                \
+    /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
     static const char EPILEPSY_CAT_PLAIN(                                                          \
         epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_ATTR_UNUSED
 // }
