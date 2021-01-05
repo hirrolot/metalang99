@@ -50,7 +50,7 @@ is \textbf{not} designed as a user-friendly overview -- see the official reposit
 
 <term> ::= "EPILEPSY_CALL(" <op> "," { <term> }* ")"
          | "EPILEPSY_DBG(" <preprocessor-token-list> ")"
-         | "EPILEPSY_ERROR(" <ident> "," <string-literal> ")"
+         | "EPILEPSY_FATAL(" <ident> "," <string-literal> ")"
          | "v(" <preprocessor-token-list> ")" ;
 
 <op>   ::= <ident> | { <term> }+ ;
@@ -170,7 +170,7 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
         (args): & \ \langle K; F; A; \texttt{EPILEPSY\_CALL}(ident, \overline{a}) \ \overline{t} \rangle \to \\
             & \ \ \ \ \langle \langle K; F; A; ident\texttt{\_IMPL}(?) \ \overline{t} \rangle; fcomma; (); \overline{a} \rangle \\
         (dbg): & \ \langle K; F; A; \texttt{EPILEPSY\_DBG}(\overline{tok}) \ \overline{t} \rangle \to halt(\overline{tok}) \\
-        (error): & \ \langle K; F; A; \texttt{EPILEPSY\_ERROR}(ident, str) \ \overline{t} \rangle \to \\
+        (error): & \ \langle K; F; A; \texttt{EPILEPSY\_FATAL}(ident, str) \ \overline{t} \rangle \to \\
             & \ \ \ \ halt(\texttt{!Epilepsy error} \ \texttt{(}ident\texttt{):} \ str) \\
         (end): & \ \langle K; F; A; () \rangle \to K(A) \\
         (start): & \ \texttt{EPILEPSY\_CALL}(\overline{t}) \to \langle halt; fappend; (); \overline{t} \rangle

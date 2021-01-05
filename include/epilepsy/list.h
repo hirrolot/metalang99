@@ -127,7 +127,7 @@
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListGet_), v(i))
 
 #define EPILEPSY_PRIV_ListGet_Nil_IMPL(i)                                                          \
-    EPILEPSY_ERROR(EPILEPSY_ListGet, "expected a non-empty list")
+    EPILEPSY_FATAL(EPILEPSY_ListGet, "expected a non-empty list")
 #define EPILEPSY_PRIV_ListGet_Cons_IMPL(x, xs, i)                                                  \
     EPILEPSY_IF_LAZY(                                                                              \
         EPILEPSY_UIntEq(v(i), v(0)),                                                               \
@@ -155,7 +155,7 @@
 #define EPILEPSY_ListFoldl1_IMPL(list, f)                                                          \
     EPILEPSY_MATCH_WITH_ARGS(v(list), v(EPILEPSY_PRIV_ListFoldl1_), v(f))
 #define EPILEPSY_PRIV_ListFoldl1_Nil_IMPL(_f)                                                      \
-    EPILEPSY_ERROR(EPILEPSY_ListFoldl1, "expected a non-empty list")
+    EPILEPSY_FATAL(EPILEPSY_ListFoldl1, "expected a non-empty list")
 #define EPILEPSY_PRIV_ListFoldl1_Cons_IMPL(x, xs, f) EPILEPSY_ListFoldl(v(xs), v(f), v(x))
 
 #define EPILEPSY_ListIntersperse_IMPL(list, item)                                                  \

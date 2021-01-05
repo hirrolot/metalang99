@@ -36,7 +36,7 @@
 /**
  * Emits a fatal error.
  */
-#define EPILEPSY_ERROR(f, message) (0error, f, message),
+#define EPILEPSY_FATAL(f, message) (0error, f, message),
 
 /**
  * Emits a debugging message.
