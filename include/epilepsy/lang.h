@@ -37,6 +37,11 @@
  * Emits a fatal error.
  */
 #define EPILEPSY_ERROR(f, ...) (0error, f, __VA_ARGS__),
+
+/**
+ * Emits a debugging message.
+ */
+#define EPILEPSY_DBG(...) (0dbg, __VA_ARGS__),
 // }
 
 #ifndef DOXYGEN_IGNORE
