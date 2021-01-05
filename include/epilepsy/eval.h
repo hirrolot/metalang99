@@ -58,7 +58,7 @@
 
 // clang-format off
 #define EPILEPSY_PRIV_EVAL_0error(_k, _k_cx, _lfolder, _acc, _tail, f, ...)                        \
-    EPILEPSY_PRIV_REC_CONTINUE(EPILEPSY_PRIV_REC_STOP, (~), !Epilepsy error (f): __VA_ARGS__)
+    EPILEPSY_PRIV_REC_CONTINUE(EPILEPSY_PRIV_REC_STOP, (~), !Epilepsy error (f): #__VA_ARGS__)
 // clang-format on
 
 #define EPILEPSY_PRIV_EVAL_0dbg(_k, _k_cx, _lfolder, _acc, _tail, ...)                             \
