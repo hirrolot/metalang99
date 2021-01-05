@@ -56,6 +56,11 @@
         EPILEPSY_PRIV_TERM_END(),                                                                  \
         ~)
 
+// clang-format off
+#define EPILEPSY_PRIV_EVAL_0error(_k, _k_cx, _lfolder, _acc, _tail, f, ...)                        \
+    EPILEPSY_PRIV_REC_CONTINUE(EPILEPSY_PRIV_REC_STOP, (~), !Epilepsy error (f): __VA_ARGS__)
+// clang-format on
+
 #define EPILEPSY_PRIV_EVAL_0end(k, k_cx, _lfolder, acc, _tail, _)                                  \
     EPILEPSY_PRIV_EVAL_MACHINE_CALL_K(k, k_cx, acc)
 // }

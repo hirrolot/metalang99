@@ -32,6 +32,11 @@
  * Epilepsy term.
  */
 #define v(...) (0v, __VA_ARGS__),
+
+/**
+ * Emits a fatal error.
+ */
+#define EPILEPSY_ERROR(f, ...) (0error, f, __VA_ARGS__),
 // }
 
 #ifndef DOXYGEN_IGNORE
