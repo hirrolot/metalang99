@@ -56,10 +56,14 @@
         epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_ATTR_UNUSED
 // }
 
+#ifndef DOXYGEN_IGNORE
+
 #ifdef __GNUC__
 #define EPILEPSY_PRIV_ATTR_UNUSED __attribute__((unused))
 #else
 #define EPILEPSY_PRIV_ATTR_UNUSED
 #endif
+
+#endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_ASSERT_H
