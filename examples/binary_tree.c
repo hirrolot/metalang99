@@ -2,17 +2,17 @@
 
 #include <epilepsy.h>
 
-#define TreeLeaf(x)              EPILEPSY_DESUGAR(TreeLeaf, x)
-#define TreeNode(lhs, data, rhs) EPILEPSY_DESUGAR(TreeNode, lhs data rhs)
+#define TreeLeaf(x)              EPILEPSY_CALL(TreeLeaf, x)
+#define TreeNode(lhs, data, rhs) EPILEPSY_CALL(TreeNode, lhs data rhs)
 
-#define SUM(tree) EPILEPSY_DESUGAR(SUM, tree)
+#define SUM(tree) EPILEPSY_CALL(SUM, tree)
 
 #define TreeLeaf_IMPL(x)              EPILEPSY_CHOICE(v(TreeLeaf), v(x))
 #define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_CHOICE(v(TreeNode), v(lhs, data, rhs))
 
-#define SUM_IMPL(tree)               EPILEPSY_MATCH(v(tree), v(SUM_))
-#define SUM_TreeLeaf(x)              v(x)
-#define SUM_TreeNode(lhs, data, rhs) EPILEPSY_UIntAddVariadics(SUM(v(lhs)) v(data) SUM(v(rhs)))
+#define SUM_IMPL(tree)                    EPILEPSY_MATCH(v(tree), v(SUM_))
+#define SUM_TreeLeaf_IMPL(x)              v(x)
+#define SUM_TreeNode_IMPL(lhs, data, rhs) EPILEPSY_UIntAddVariadics(SUM(v(lhs)) v(data) SUM(v(rhs)))
 
 /*
  *         4

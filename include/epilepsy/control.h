@@ -13,12 +13,12 @@
 /**
  * If @p cond is true, expands to @p x, otherwise @p y.
  */
-#define EPILEPSY_IF(cond, x, y) EPILEPSY_DESUGAR(EPILEPSY_IF, cond x y)
+#define EPILEPSY_IF(cond, x, y) EPILEPSY_CALL(EPILEPSY_IF, cond x y)
 
 /**
  * Lazy #EPILEPSY_IF.
  */
-#define EPILEPSY_IF_LAZY(cond, f, g, ...) EPILEPSY_DESUGAR(EPILEPSY_IF_LAZY, cond f g __VA_ARGS__)
+#define EPILEPSY_IF_LAZY(cond, f, g, ...) EPILEPSY_CALL(EPILEPSY_IF_LAZY, cond f g __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

@@ -14,29 +14,24 @@
 /**
  * Applies arguments to @p f.
  */
-#define EPILEPSY_APPLY(f, ...) EPILEPSY_DESUGAR(EPILEPSY_APPLY, f __VA_ARGS__)
+#define EPILEPSY_APPLY(f, ...) EPILEPSY_CALL(EPILEPSY_APPLY, f __VA_ARGS__)
 
 /**
  * Applies @p a and @p b to @p f.
  */
-#define EPILEPSY_APPLY_2(f, a, b) EPILEPSY_DESUGAR(EPILEPSY_APPLY_2, f a b)
+#define EPILEPSY_APPLY_2(f, a, b) EPILEPSY_CALL(EPILEPSY_APPLY_2, f a b)
 
 /**
  * Applies arguments to @p f with the arity @p arity.
  */
 #define EPILEPSY_APPLY_WITH_ARITY(f, arity, ...)                                                   \
-    EPILEPSY_DESUGAR(EPILEPSY_APPLY_WITH_ARITY, f arity __VA_ARGS__)
+    EPILEPSY_CALL(EPILEPSY_APPLY_WITH_ARITY, f arity __VA_ARGS__)
 
 /**
  * Represents a <a href="https://en.wikipedia.org/wiki/Beta_normal_form">normal form</a> of an
  * Epilepsy term.
  */
 #define v(...) (0v, __VA_ARGS__),
-
-/**
- * Desugars calls to @p f.
- */
-#define EPILEPSY_DESUGAR(f, ...) EPILEPSY_CALL(f, __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

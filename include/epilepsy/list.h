@@ -17,72 +17,72 @@
 /**
  * Prepends @p x to @p xs.
  */
-#define EPILEPSY_Cons(x, xs) EPILEPSY_DESUGAR(EPILEPSY_Cons, x xs)
+#define EPILEPSY_Cons(x, xs) EPILEPSY_CALL(EPILEPSY_Cons, x xs)
 
 /**
  * The empty list.
  */
-#define EPILEPSY_Nil() EPILEPSY_DESUGAR(EPILEPSY_Nil, )
+#define EPILEPSY_Nil() EPILEPSY_CALL(EPILEPSY_Nil, )
 
 /**
  * Constructs a list from its arguments.
  */
-#define EPILEPSY_List(...) EPILEPSY_DESUGAR(EPILEPSY_List, __VA_ARGS__)
+#define EPILEPSY_List(...) EPILEPSY_CALL(EPILEPSY_List, __VA_ARGS__)
 
 /**
  * Places all the items in @p list as-is.
  */
-#define EPILEPSY_ListUnwrap(list) EPILEPSY_DESUGAR(EPILEPSY_ListUnwrap, list)
+#define EPILEPSY_ListUnwrap(list) EPILEPSY_CALL(EPILEPSY_ListUnwrap, list)
 
 /**
  * Checks @p list for emptiness.
  */
-#define EPILEPSY_ListIsEmpty(list) EPILEPSY_DESUGAR(EPILEPSY_ListIsEmpty, list)
+#define EPILEPSY_ListIsEmpty(list) EPILEPSY_CALL(EPILEPSY_ListIsEmpty, list)
 
 /**
  * Gets an @p i -indexed element.
  */
-#define EPILEPSY_ListGet(list, i) EPILEPSY_DESUGAR(EPILEPSY_ListGet, list i)
+#define EPILEPSY_ListGet(list, i) EPILEPSY_CALL(EPILEPSY_ListGet, list i)
 
 /**
  * Performs a right-associative fold over @p list.
  */
-#define EPILEPSY_ListFoldr(list, f, init) EPILEPSY_DESUGAR(EPILEPSY_ListFoldr, list f init)
+#define EPILEPSY_ListFoldr(list, f, init) EPILEPSY_CALL(EPILEPSY_ListFoldr, list f init)
 
 /**
  * Performs a left-associative fold over @p list.
  */
-#define EPILEPSY_ListFoldl(list, f, init) EPILEPSY_DESUGAR(EPILEPSY_ListFoldl, list f init)
+#define EPILEPSY_ListFoldl(list, f, init) EPILEPSY_CALL(EPILEPSY_ListFoldl, list f init)
 
 /**
  * The same as #EPILEPSY_ListFoldl but treats the first element of @p list as the initial value.
  */
-#define EPILEPSY_ListFoldl1(list, f) EPILEPSY_DESUGAR(EPILEPSY_ListFoldl1, list f)
+#define EPILEPSY_ListFoldl1(list, f) EPILEPSY_CALL(EPILEPSY_ListFoldl1, list f)
 
 /**
  * Intersperses @p item between the items in @p list.
  */
-#define EPILEPSY_ListIntersperse(list, item) EPILEPSY_DESUGAR(EPILEPSY_ListIntersperse, list item)
+#define EPILEPSY_ListIntersperse(list, item) EPILEPSY_CALL(EPILEPSY_ListIntersperse, list item)
 
 /**
  * Prepends @p item to all items in @p list.
  */
-#define EPILEPSY_ListPrependToAll(list, item) EPILEPSY_DESUGAR(EPILEPSY_ListPrependToAll, list item)
+#define EPILEPSY_ListPrependToAll(list, item) EPILEPSY_CALL(EPILEPSY_ListPrependToAll, list item)
 
 /**
  * Maps all the elements in @p list with @p f.
  */
-#define EPILEPSY_ListMap(list, f) EPILEPSY_DESUGAR(EPILEPSY_ListMap, list f)
+#define EPILEPSY_ListMap(list, f) EPILEPSY_CALL(EPILEPSY_ListMap, list f)
 
 /**
  * Checks @p list and @p other for equality.
  */
-#define EPILEPSY_ListEq(list, other, compare) EPILEPSY_DESUGAR(EPILEPSY_ListEq, list other compare)
+#define EPILEPSY_ListEq(list, other, compare) EPILEPSY_CALL(EPILEPSY_ListEq, list other compare)
 
 /**
  * Applies all the items in @p list to @p f.
  */
-#define EPILEPSY_ListApply(list, f) EPILEPSY_DESUGAR(EPILEPSY_ListApply, list f)
+#define EPILEPSY_ListApply(list, f) EPILEPSY_CALL(EPILEPSY_ListApply, list f)
 // }
 
 #ifndef DOXYGEN_IGNORE

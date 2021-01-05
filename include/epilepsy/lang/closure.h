@@ -31,17 +31,17 @@
         EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure), __VA_ARGS__))
 
 #define EPILEPSY_PRIV_APPLY_WITHOUT_ARGS(closure)                                                  \
-    EPILEPSY_DESUGAR(EPILEPSY_PRIV_APPLY_WITHOUT_ARGS, closure)
+    EPILEPSY_CALL(EPILEPSY_PRIV_APPLY_WITHOUT_ARGS, closure)
 #define EPILEPSY_PRIV_APPLY_WITHOUT_ARGS_IMPL(closure)                                             \
     EPILEPSY_CALL(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure)))
 
 #define EPILEPSY_PRIV_CLOSURE(f, arity, ...)                                                       \
-    EPILEPSY_DESUGAR(EPILEPSY_PRIV_CLOSURE, f arity __VA_ARGS__)
+    EPILEPSY_CALL(EPILEPSY_PRIV_CLOSURE, f arity __VA_ARGS__)
 #define EPILEPSY_PRIV_CLOSURE_IMPL(f, arity, ...)                                                  \
     EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_CURRY_, arity)(f, __VA_ARGS__)
 
 #define EPILEPSY_PRIV_CLOSURE_UNCURRIED(f, ...)                                                    \
-    EPILEPSY_DESUGAR(EPILEPSY_PRIV_CLOSURE_UNCURRIED, f __VA_ARGS__)
+    EPILEPSY_CALL(EPILEPSY_PRIV_CLOSURE_UNCURRIED, f __VA_ARGS__)
 #define EPILEPSY_PRIV_CLOSURE_UNCURRIED_IMPL(f, ...) v(EPILEPSY_PRIV_PAIR(f, (__VA_ARGS__)))
 
 #define EPILEPSY_PRIV_CLOSURE_F EPILEPSY_PRIV_PAIR_FST

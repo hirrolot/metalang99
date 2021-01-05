@@ -13,22 +13,22 @@
 /**
  * Some value @p x.
  */
-#define EPILEPSY_MaybeJust(x) EPILEPSY_DESUGAR(EPILEPSY_MaybeJust, x)
+#define EPILEPSY_MaybeJust(x) EPILEPSY_CALL(EPILEPSY_MaybeJust, x)
 
 /**
  * No value.
  */
-#define EPILEPSY_MaybeNothing() EPILEPSY_DESUGAR(EPILEPSY_MaybeNothing, )
+#define EPILEPSY_MaybeNothing() EPILEPSY_CALL(EPILEPSY_MaybeNothing, )
 
 /**
  * 1 if @p maybe contains some value, otherwise 0.
  */
-#define EPILEPSY_MaybeIsJust(maybe) EPILEPSY_DESUGAR(EPILEPSY_MaybeIsJust, maybe)
+#define EPILEPSY_MaybeIsJust(maybe) EPILEPSY_CALL(EPILEPSY_MaybeIsJust, maybe)
 
 /**
  * 1 if @p maybe contains no value, otherwise 0.
  */
-#define EPILEPSY_MaybeIsNothing(maybe) EPILEPSY_DESUGAR(EPILEPSY_MaybeIsNothing, maybe)
+#define EPILEPSY_MaybeIsNothing(maybe) EPILEPSY_CALL(EPILEPSY_MaybeIsNothing, maybe)
 // }
 
 #ifndef DOXYGEN_IGNORE

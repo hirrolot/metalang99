@@ -12,22 +12,22 @@
 /**
  * Logical negation.
  */
-#define EPILEPSY_NOT(x) EPILEPSY_DESUGAR(EPILEPSY_NOT, x)
+#define EPILEPSY_NOT(x) EPILEPSY_CALL(EPILEPSY_NOT, x)
 
 /**
  * Logical conjunction.
  */
-#define EPILEPSY_AND(x, y) EPILEPSY_DESUGAR(EPILEPSY_AND, x y)
+#define EPILEPSY_AND(x, y) EPILEPSY_CALL(EPILEPSY_AND, x y)
 
 /**
  * Logical inclusive OR.
  */
-#define EPILEPSY_OR(x, y) EPILEPSY_DESUGAR(EPILEPSY_OR, x y)
+#define EPILEPSY_OR(x, y) EPILEPSY_CALL(EPILEPSY_OR, x y)
 
 /**
  * Logical exclusive OR.
  */
-#define EPILEPSY_XOR(x, y) EPILEPSY_DESUGAR(EPILEPSY_XOR, x y)
+#define EPILEPSY_XOR(x, y) EPILEPSY_CALL(EPILEPSY_XOR, x y)
 // }
 
 #ifndef DOXYGEN_IGNORE

@@ -12,62 +12,62 @@
 /**
  * Concatenates @p x with @p y.
  */
-#define EPILEPSY_CAT(x, y) EPILEPSY_DESUGAR(EPILEPSY_CAT, x y)
+#define EPILEPSY_CAT(x, y) EPILEPSY_CALL(EPILEPSY_CAT, x y)
 
 /**
  * Stringifies @p x.
  */
-#define EPILEPSY_STRINGIFY(x) EPILEPSY_DESUGAR(EPILEPSY_STRINGIFY, x)
+#define EPILEPSY_STRINGIFY(x) EPILEPSY_CALL(EPILEPSY_STRINGIFY, x)
 
 /**
  * Expands to nothing.
  */
-#define EPILEPSY_EMPTY() EPILEPSY_DESUGAR(EPILEPSY_EMPTY, )
+#define EPILEPSY_EMPTY() EPILEPSY_CALL(EPILEPSY_EMPTY, )
 
 /**
  * Expands to @p x.
  */
-#define EPILEPSY_ID(x) EPILEPSY_DESUGAR(EPILEPSY_ID, )
+#define EPILEPSY_ID(x) EPILEPSY_CALL(EPILEPSY_ID, )
 
 /**
  * Expands to its arguments.
  */
-#define EPILEPSY_EXPAND(...) EPILEPSY_DESUGAR(EPILEPSY_EXPAND, __VA_ARGS__)
+#define EPILEPSY_EXPAND(...) EPILEPSY_CALL(EPILEPSY_EXPAND, __VA_ARGS__)
 
 /**
  * Expands to nothing, consuming all arguments.
  */
-#define EPILEPSY_CONSUME(...) EPILEPSY_DESUGAR(EPILEPSY_CONSUME, __VA_ARGS__)
+#define EPILEPSY_CONSUME(...) EPILEPSY_CALL(EPILEPSY_CONSUME, __VA_ARGS__)
 
 /**
  * Parenthesises a sequence of arguments.
  */
-#define EPILEPSY_PARENTHESISE(...) EPILEPSY_DESUGAR(EPILEPSY_PARENTHESISE, __VA_ARGS__)
+#define EPILEPSY_PARENTHESISE(...) EPILEPSY_CALL(EPILEPSY_PARENTHESISE, __VA_ARGS__)
 
 /**
  * Unparenthesises a sequence of arguments.
  */
-#define EPILEPSY_UNPARENTHESISE(x) EPILEPSY_DESUGAR(EPILEPSY_UNPARENTHESISE, x)
+#define EPILEPSY_UNPARENTHESISE(x) EPILEPSY_CALL(EPILEPSY_UNPARENTHESISE, x)
 
 /**
  * Emits a preprocessor error, consuming all arguments.
  */
-#define EPILEPSY_ERROR(...) EPILEPSY_DESUGAR(EPILEPSY_ERROR, x)
+#define EPILEPSY_ERROR(...) EPILEPSY_CALL(EPILEPSY_ERROR, x)
 
 /**
  * Expands to @p x, skipping @p a.
  */
-#define EPILEPSY_CONST(x, a) EPILEPSY_DESUGAR(EPILEPSY_CONST, x a)
+#define EPILEPSY_CONST(x, a) EPILEPSY_CALL(EPILEPSY_CONST, x a)
 
 /**
  * Expands to @p x, skipping @p a, and @p b.
  */
-#define EPILEPSY_CONST_2(x, a, b) EPILEPSY_DESUGAR(EPILEPSY_CONST_2, x a b)
+#define EPILEPSY_CONST_2(x, a, b) EPILEPSY_CALL(EPILEPSY_CONST_2, x a b)
 
 /**
  * Expands to @p x, skipping @p a, @p b, and @p c.
  */
-#define EPILEPSY_CONST_3(x, a, b, c) EPILEPSY_DESUGAR(EPILEPSY_CONST_2, x a b c)
+#define EPILEPSY_CONST_3(x, a, b, c) EPILEPSY_CALL(EPILEPSY_CONST_2, x a b c)
 
 /**
  * The same as #EPILEPSY_CAT but implemented as an ordinary macro.
