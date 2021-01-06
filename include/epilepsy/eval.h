@@ -4,6 +4,7 @@
 #include <epilepsy/eval/acc.h>
 #include <epilepsy/eval/config.h>
 #include <epilepsy/eval/control.h>
+#include <epilepsy/eval/diagnostics.h>
 #include <epilepsy/eval/fold.h>
 #include <epilepsy/eval/machine.h>
 #include <epilepsy/eval/rec/control.h>
@@ -33,6 +34,14 @@
 #define EPILEPSY_PRIV_REC_UNROLL(...) EPILEPSY_PRIV_REC_0(__VA_ARGS__)
 
 #define EPILEPSY_PRIV_EVAL_MATCH(config, head, ...)                                                \
+    EPILEPSY_PRIV_IF(                                                                              \
+        EPILEPSY_PRIV_IS_UNPARENTHESISED(head),                                                    \
+        EPILEPSY_PRIV_EVAL_MATCH_INVALID_TERM,                                                     \
+        EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM)                                                       \
+    (config, head, __VA_ARGS__)
+#define EPILEPSY_PRIV_EVAL_MATCH_INVALID_TERM(_config, head, ...)                                  \
+    EPILEPSY_PRIV_DIAGNOSTICS_SYNTAX_ERROR(head)
+#define EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM(config, head, ...)                                     \
     EPILEPSY_PRIV_TERM_MATCH(                                                                      \
         EPILEPSY_PRIV_EVAL_, head, config, EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
 
