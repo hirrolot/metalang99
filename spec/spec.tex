@@ -87,8 +87,7 @@ Notice that variadic macros are a bit special here. Their calls should be desuga
 
 \begin{minted}{c}
 /// The documentation string.
-#define FOO(a, b, c, ...) \
-    epCall(FOO, a b c __VA_ARGS__)
+#define FOO(a, b, c, ...) epCall(FOO, a b c __VA_ARGS__)
 #define FOO_IMPL(a, b, c, ...) // The implementation.
 \end{minted}
 
