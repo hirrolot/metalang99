@@ -1,5 +1,5 @@
-#ifndef EPILEPSY_EVAL_MACHINE_H
-#define EPILEPSY_EVAL_MACHINE_H
+#ifndef epEval_MACHINE_H
+#define epEval_MACHINE_H
 
 #include <epilepsy/eval/acc.h>
 #include <epilepsy/eval/config.h>
@@ -11,4 +11,4 @@
 #define EPILEPSY_PRIV_EVAL_MACHINE_CALL_K(k, k_cx, acc)                                            \
     EPILEPSY_PRIV_REC_CONTINUE(k, k_cx, EPILEPSY_PRIV_EVAL_ACC_UNWRAP(acc))
 
-#endif // EPILEPSY_EVAL_MACHINE_H
+#endif // epEval_MACHINE_H

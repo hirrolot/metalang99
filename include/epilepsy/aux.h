@@ -12,137 +12,137 @@
 /**
  * Concatenates @p x with @p y.
  */
-#define EPILEPSY_CAT(x, y) EPILEPSY_CALL(EPILEPSY_CAT, x y)
+#define epCat(x, y) epCall(epCat, x y)
 
 /**
  * Stringifies @p x.
  */
-#define EPILEPSY_STRINGIFY(x) EPILEPSY_CALL(EPILEPSY_STRINGIFY, x)
+#define epStringify(x) epCall(epStringify, x)
 
 /**
  * Expands to nothing.
  */
-#define EPILEPSY_EMPTY() EPILEPSY_CALL(EPILEPSY_EMPTY, )
+#define epEmpty() epCall(epEmpty, )
 
 /**
  * Expands to @p x.
  */
-#define EPILEPSY_ID(x) EPILEPSY_CALL(EPILEPSY_ID, )
+#define epId(x) epCall(epId, )
 
 /**
  * Expands to its arguments.
  */
-#define EPILEPSY_EXPAND(...) EPILEPSY_CALL(EPILEPSY_EXPAND, __VA_ARGS__)
+#define epExpand(...) epCall(epExpand, __VA_ARGS__)
 
 /**
  * Expands to nothing, consuming all arguments.
  */
-#define EPILEPSY_CONSUME(...) EPILEPSY_CALL(EPILEPSY_CONSUME, __VA_ARGS__)
+#define epConsume(...) epCall(epConsume, __VA_ARGS__)
 
 /**
  * Parenthesises a sequence of arguments.
  */
-#define EPILEPSY_PARENTHESISE(...) EPILEPSY_CALL(EPILEPSY_PARENTHESISE, __VA_ARGS__)
+#define epParenthesise(...) epCall(epParenthesise, __VA_ARGS__)
 
 /**
  * Unparenthesises a sequence of arguments.
  */
-#define EPILEPSY_UNPARENTHESISE(x) EPILEPSY_CALL(EPILEPSY_UNPARENTHESISE, x)
+#define epUnparenthesise(x) epCall(epUnparenthesise, x)
 
 /**
  * Expands to @p x, skipping @p a.
  */
-#define EPILEPSY_CONST(x, a) EPILEPSY_CALL(EPILEPSY_CONST, x a)
+#define epConst(x, a) epCall(epConst, x a)
 
 /**
  * Expands to @p x, skipping @p a, and @p b.
  */
-#define EPILEPSY_CONST_2(x, a, b) EPILEPSY_CALL(EPILEPSY_CONST_2, x a b)
+#define epConst2(x, a, b) epCall(epConst2, x a b)
 
 /**
  * Expands to @p x, skipping @p a, @p b, and @p c.
  */
-#define EPILEPSY_CONST_3(x, a, b, c) EPILEPSY_CALL(EPILEPSY_CONST_2, x a b c)
+#define epConst3(x, a, b, c) epCall(epConst2, x a b c)
 
 /**
- * The same as #EPILEPSY_CAT but implemented as an ordinary macro.
+ * The same as #epCat but implemented as an ordinary macro.
  */
-#define EPILEPSY_CAT_PLAIN(x, y) EPILEPSY_CAT_PRIMITIVE(x, y)
+#define epCatPlain(x, y) epCatPrimitive(x, y)
 
 /**
  * Concatenates @p x with @p y as-is, without expanding them.
  */
-#define EPILEPSY_CAT_PRIMITIVE(x, y) x##y
+#define epCatPrimitive(x, y) x##y
 
 /**
- * The same as #EPILEPSY_STRINGIFY but implemented as an ordinary macro.
+ * The same as #epStringify but implemented as an ordinary macro.
  */
-#define EPILEPSY_STRINGIFY_PLAIN(x) EPILEPSY_STRINGIFY_PRIMITIVE(x)
+#define epStringify_PLAIN(x) epStringifyPrimitive(x)
 
 /**
  * Stringifies @p x as-is, without expanding it.
  */
-#define EPILEPSY_STRINGIFY_PRIMITIVE(x) #x
+#define epStringifyPrimitive(x) #x
 
 /**
- * The same as #EPILEPSY_EMPTY but implemented as an ordinary macro.
+ * The same as #epEmpty but implemented as an ordinary macro.
  */
-#define EPILEPSY_EMPTY_PLAIN()
+#define epEmptyPlain()
 
 /**
- * The same as #EPILEPSY_ID but implemented as an ordinary macro.
+ * The same as #epId but implemented as an ordinary macro.
  */
-#define EPILEPSY_ID_PLAIN(x) x
+#define epIdPlain(x) x
 
 /**
- * The same as #EPILEPSY_EXPAND but implemented as an ordinary macro.
+ * The same as #epExpand but implemented as an ordinary macro.
  */
-#define EPILEPSY_EXPAND_PLAIN(...) __VA_ARGS__
+#define epExpandPlain(...) __VA_ARGS__
 
 /**
- * The same as #EPILEPSY_CONSUME but implemented as an ordinary macro.
+ * The same as #epConsume but implemented as an ordinary macro.
  */
-#define EPILEPSY_CONSUME_PLAIN(...) EPILEPSY_EMPTY_PLAIN()
+#define epConsumePlain(...) epEmptyPlain()
 
 /**
- * The same as #EPILEPSY_PARENTHESISE but implemented as an ordinary macro.
+ * The same as #epParenthesise but implemented as an ordinary macro.
  */
-#define EPILEPSY_PARENTHESISE_PLAIN(...) (__VA_ARGS__)
+#define epParenthesisePlain(...) (__VA_ARGS__)
 
 /**
- * The same as #EPILEPSY_UNPARENTHESISE but implemented as an ordinary macro.
+ * The same as #epUnparenthesise but implemented as an ordinary macro.
  */
-#define EPILEPSY_UNPARENTHESISE_PLAIN(x) EPILEPSY_EXPAND_PLAIN(EPILEPSY_EXPAND_PLAIN x)
+#define epUnparenthesise_PLAIN(x) epExpandPlain(epExpandPlain x)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_CAT_IMPL(x, y)              v(x##y)
-#define EPILEPSY_STRINGIFY_IMPL(x)           v(#x)
-#define EPILEPSY_EMPTY_IMPL()                v()
-#define EPILEPSY_ID_IMPL(x)                  v(x)
-#define EPILEPSY_EXPAND_IMPL(...)            v(__VA_ARGS__)
-#define EPILEPSY_CONSUME_IMPL(...)           EPILEPSY_EMPTY()
-#define EPILEPSY_PARENTHESISE_IMPL(...)      v((__VA_ARGS__))
-#define EPILEPSY_UNPARENTHESISE_IMPL(x)      EPILEPSY_PRIV_UNPARENTHESISE(x)
-#define EPILEPSY_CONST_IMPL(x, _a)           v(x)
-#define EPILEPSY_CONST_2_IMPL(x, _a, _b)     v(x)
-#define EPILEPSY_CONST_3_IMPL(x, _a, _b, _c) v(x)
+#define epCat_IMPL(x, y)             v(x##y)
+#define epStringify_IMPL(x)          v(#x)
+#define epEmpty_IMPL()               v()
+#define epId_IMPL(x)                 v(x)
+#define epExpand_IMPL(...)           v(__VA_ARGS__)
+#define epConsume_IMPL(...)          epEmpty()
+#define epParenthesise_IMPL(...)     v((__VA_ARGS__))
+#define epUnparenthesise_IMPL(x)     EPILEPSY_PRIV_UNPARENTHESISE(x)
+#define epConst_IMPL(x, _a)          v(x)
+#define epConst2_IMPL(x, _a, _b)     v(x)
+#define epConst3_IMPL(x, _a, _b, _c) v(x)
 // }
 
 // Arity specifiers {
-#define EPILEPSY_CAT_ARITY            2
-#define EPILEPSY_STRINGIFY_ARITY      1
-#define EPILEPSY_EMPTY_ARITY          1
-#define EPILEPSY_ID_ARITY             1
-#define EPILEPSY_EXPAND_ARITY         1
-#define EPILEPSY_CONSUME_ARITY        1
-#define EPILEPSY_PARENTHESISE_ARITY   1
-#define EPILEPSY_UNPARENTHESISE_ARITY 1
-#define EPILEPSY_CONST_ARITY          2
-#define EPILEPSY_CONST_2_ARITY        3
-#define EPILEPSY_CONST_3_ARITY        4
+#define epCat_ARITY            2
+#define epStringify_ARITY      1
+#define epEmpty_ARITY          1
+#define epId_ARITY             1
+#define epExpand_ARITY         1
+#define epConsume_ARITY        1
+#define epParenthesise_ARITY   1
+#define epUnparenthesise_ARITY 1
+#define epConst_ARITY          2
+#define epConst2_ARITY         3
+#define epConst3_ARITY         4
 // }
 
 #endif // DOXYGEN_IGNORE

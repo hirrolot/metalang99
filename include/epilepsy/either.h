@@ -13,42 +13,42 @@
 /**
  * The left value @p x.
  */
-#define EPILEPSY_EitherLeft(x) EPILEPSY_CALL(EPILEPSY_EitherLeft, x)
+#define epEitherLeft(x) epCall(epEitherLeft, x)
 
 /**
  * The right value @p x.
  */
-#define EPILEPSY_EitherRight(x) EPILEPSY_CALL(EPILEPSY_EitherRight, x)
+#define epEitherRight(x) epCall(epEitherRight, x)
 
 /**
  * 1 if @p either contains a left value, otherwise 0.
  */
-#define EPILEPSY_EitherIsLeft(either) EPILEPSY_CALL(EPILEPSY_EitherIsLeft, either)
+#define epEitherIsLeft(either) epCall(epEitherIsLeft, either)
 
 /**
  * 1 if @p either contains a right value, otherwise 0.
  */
-#define EPILEPSY_EitherIsRight(either) EPILEPSY_CALL(EPILEPSY_EitherIsRight, either)
+#define epEitherIsRight(either) epCall(epEitherIsRight, either)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_EitherLeft_IMPL(x)  EPILEPSY_CHOICE(v(EitherLeft), v(x))
-#define EPILEPSY_EitherRight_IMPL(x) EPILEPSY_CHOICE(v(EitherRight), v(x))
+#define epEitherLeft_IMPL(x)  epChoice(v(EitherLeft), v(x))
+#define epEitherRight_IMPL(x) epChoice(v(EitherRight), v(x))
 
-#define EPILEPSY_EitherIsLeft_IMPL(either)              EPILEPSY_MATCH(v(either), v(EPILEPSY_PRIV_EitherIsLeft_))
+#define epEitherIsLeft_IMPL(either)                     epMatch(v(either), v(EPILEPSY_PRIV_EitherIsLeft_))
 #define EPILEPSY_PRIV_EitherIsLeft_EitherLeft_IMPL(_x)  v(1)
 #define EPILEPSY_PRIV_EitherIsLeft_EitherRight_IMPL(_x) v(0)
 
-#define EPILEPSY_EitherIsRight_IMPL(either) EPILEPSY_NOT(EPILEPSY_EitherIsLeft(v(either)))
+#define epEitherIsRight_IMPL(either) epNot(epEitherIsLeft(v(either)))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_EitherLeft_ARITY    1
-#define EPILEPSY_EitherRight_ARITY   1
-#define EPILEPSY_EitherIsLeft_ARITY  1
-#define EPILEPSY_EitherIsRight_ARITY 1
+#define epEitherLeft_ARITY    1
+#define epEitherRight_ARITY   1
+#define epEitherIsLeft_ARITY  1
+#define epEitherIsRight_ARITY 1
 // }
 
 #endif // DOXYGEN_IGNORE

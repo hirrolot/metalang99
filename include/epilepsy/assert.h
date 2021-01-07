@@ -3,8 +3,8 @@
  * Static assertions.
  */
 
-#ifndef EPILEPSY_ASSERT_H
-#define EPILEPSY_ASSERT_H
+#ifndef epAssert_H
+#define epAssert_H
 
 #include <epilepsy/aux.h>
 #include <epilepsy/eval.h>
@@ -13,30 +13,30 @@
 
 // Desugaring {
 /**
- * Asserts `EPILEPSY_EVAL(expr)` at compile-time.
+ * Asserts `epEval(expr)` at compile-time.
  *
  * # Examples
  *
  * @code
  * #include <epilepsy/assert.h>
  *
- * EPILEPSY_ASSERT(v(123 == 123));
+ * epAssert(v(123 == 123));
  * @endcode
  */
-#define EPILEPSY_ASSERT(expr) EPILEPSY_ASSERT_EQ(EPILEPSY_EXPAND(expr), v(1))
+#define epAssert(expr) epAssertEq(epExpand(expr), v(1))
 
 /**
- * Asserts the equality of `EPILEPSY_EVAL(lhs)` and `EPILEPSY_EVAL(rhs)` at compile-time.
+ * Asserts the equality of `epEval(lhs)` and `epEval(rhs)` at compile-time.
  *
  * # Examples
  *
  * @code
  * #include <epilepsy/assert.h>
  *
- * EPILEPSY_ASSERT_EQ(v(123), v(123));
+ * epAssertEq(v(123), v(123));
  * @endcode
  */
-#define EPILEPSY_ASSERT_EQ(lhs, rhs) EPILEPSY_ASSERT_PLAIN(EPILEPSY_EVAL(lhs) == EPILEPSY_EVAL(rhs))
+#define epAssertEq(lhs, rhs) epAssertPlain(epEval(lhs) == epEval(rhs))
 
 /**
  * Asserts the C constant expression @p expr; <a
@@ -47,12 +47,12 @@
  * @code
  * #include <epilepsy/assert.h>
  *
- * EPILEPSY_ASSERT_PLAIN(123 == 123);
+ * epAssertPlain(123 == 123);
  * @endcode
  */
-#define EPILEPSY_ASSERT_PLAIN(expr)                                                                \
+#define epAssertPlain(expr)                                                                        \
     /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
-    static const char EPILEPSY_CAT_PLAIN(                                                          \
+    static const char epCatPlain(                                                                  \
         epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_ATTR_UNUSED
 // }
 
@@ -66,4 +66,4 @@
 
 #endif // DOXYGEN_IGNORE
 
-#endif // EPILEPSY_ASSERT_H
+#endif // epAssert_H

@@ -12,24 +12,24 @@
 /**
  * Constructs an instance of a record type.
  */
-#define EPILEPSY_RECORD(...) EPILEPSY_CALL(EPILEPSY_RECORD, __VA_ARGS__)
+#define epRecord(...) epCall(epRecord, __VA_ARGS__)
 
 /**
  * Extracts a field of a record type.
  */
-#define EPILEPSY_GET(record, i) EPILEPSY_CALL(EPILEPSY_GET, record i)
+#define epGet(record, i) epCall(epGet, record i)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_RECORD_IMPL(...)    EPILEPSY_List(v(__VA_ARGS__))
-#define EPILEPSY_GET_IMPL(record, i) EPILEPSY_ListGet(v(record), v(i))
+#define epRecord_IMPL(...)    epList(v(__VA_ARGS__))
+#define epGet_IMPL(record, i) epListGet(v(record), v(i))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_RECORD_ARITY 1
-#define EPILEPSY_GET_ARITY    2
+#define epRecord_ARITY 1
+#define epGet_ARITY    2
 // }
 
 #endif // DOXYGEN_IGNORE

@@ -16,46 +16,45 @@
 /**
  * Constructs an instance of a choice type.
  */
-#define EPILEPSY_CHOICE(tag, ...) EPILEPSY_CALL(EPILEPSY_CHOICE, tag __VA_ARGS__)
+#define epChoice(tag, ...) epCall(epChoice, tag __VA_ARGS__)
 
 /**
- * The same as #EPILEPSY_CHOICE but does not require additional arguments.
+ * The same as #epChoice but does not require additional arguments.
  */
-#define EPILEPSY_CHOICE_EMPTY(tag) EPILEPSY_CALL(EPILEPSY_CHOICE_EMPTY, tag)
+#define epChoiceEmpty(tag) epCall(epChoiceEmpty, tag)
 
 /**
  * Matches the instance @p choice of a choice type.
  */
-#define EPILEPSY_MATCH(choice, matcher) EPILEPSY_CALL(EPILEPSY_MATCH, choice matcher)
+#define epMatch(choice, matcher) epCall(epMatch, choice matcher)
 
 /**
- * The same as #EPILEPSY_MATCH but supplies additional arguments to all branches.
+ * The same as #epMatch but supplies additional arguments to all branches.
  */
-#define EPILEPSY_MATCH_WITH_ARGS(choice, matcher, ...)                                             \
-    EPILEPSY_CALL(EPILEPSY_MATCH_WITH_ARGS, choice matcher __VA_ARGS__)
+#define epMatchWithArgs(choice, matcher, ...) epCall(epMatchWithArgs, choice matcher __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_CHOICE_IMPL(tag, ...)  v(EPILEPSY_PRIV_PAIR(tag, 0non_empty(__VA_ARGS__)))
-#define EPILEPSY_CHOICE_EMPTY_IMPL(tag) v(EPILEPSY_PRIV_PAIR(tag, 0empty()))
+#define epChoice_IMPL(tag, ...) v(EPILEPSY_PRIV_PAIR(tag, 0non_empty(__VA_ARGS__)))
+#define epChoiceEmpty_IMPL(tag) v(EPILEPSY_PRIV_PAIR(tag, 0empty()))
 
-#define EPILEPSY_MATCH_IMPL(choice, matcher)                                                       \
-    EPILEPSY_CALL(                                                                                 \
+#define epMatch_IMPL(choice, matcher)                                                              \
+    epCall(                                                                                        \
         EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice)))
 
-#define EPILEPSY_MATCH_WITH_ARGS_IMPL(choice, matcher, ...)                                        \
+#define epMatchWithArgs_IMPL(choice, matcher, ...)                                                 \
     EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_CHOICE_IS_EMPTY(choice),                                                     \
         EPILEPSY_PRIV_MATCH_WITH_ARGS_EMPTY,                                                       \
         EPILEPSY_PRIV_MATCH_WITH_ARGS_NON_EMPTY)                                                   \
     (choice, matcher, __VA_ARGS__)
 #define EPILEPSY_PRIV_MATCH_WITH_ARGS_EMPTY(choice, matcher, ...)                                  \
-    EPILEPSY_CALL(EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)), v(__VA_ARGS__))
+    epCall(EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)), v(__VA_ARGS__))
 #define EPILEPSY_PRIV_MATCH_WITH_ARGS_NON_EMPTY(choice, matcher, ...)                              \
-    EPILEPSY_CALL(                                                                                 \
+    epCall(                                                                                        \
         EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
         v(EPILEPSY_PRIV_CHOICE_DATA(choice), __VA_ARGS__))
 
@@ -73,10 +72,10 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_CHOICE_ARITY          2
-#define EPILEPSY_CHOICE_EMPTY_ARITY    1
-#define EPILEPSY_MATCH_ARITY           2
-#define EPILEPSY_MATCH_WITH_ARGS_ARITY 3
+#define epChoice_ARITY        2
+#define epChoiceEmpty_ARITY   1
+#define epMatch_ARITY         2
+#define epMatchWithArgs_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE

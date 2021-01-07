@@ -9,23 +9,22 @@
 /**
  * Invokes a metafunction with arguments.
  */
-#define EPILEPSY_CALL(...) EPILEPSY_PRIV_EPILEPSY_CALL(__VA_ARGS__)
+#define epCall(...) EPILEPSY_PRIV_epCall(__VA_ARGS__)
 
 /**
  * Applies arguments to @p f.
  */
-#define EPILEPSY_APPLY(f, ...) EPILEPSY_CALL(EPILEPSY_APPLY, f __VA_ARGS__)
+#define epApply(f, ...) epCall(epApply, f __VA_ARGS__)
 
 /**
  * Applies @p a and @p b to @p f.
  */
-#define EPILEPSY_APPLY_2(f, a, b) EPILEPSY_CALL(EPILEPSY_APPLY_2, f a b)
+#define epApply2(f, a, b) epCall(epApply2, f a b)
 
 /**
  * Applies arguments to @p f with the arity @p arity.
  */
-#define EPILEPSY_APPLY_WITH_ARITY(f, arity, ...)                                                   \
-    EPILEPSY_CALL(EPILEPSY_APPLY_WITH_ARITY, f arity __VA_ARGS__)
+#define epApplyWithArity(f, arity, ...) epCall(epApplyWithArity, f arity __VA_ARGS__)
 
 /**
  * Represents a <a href="https://en.wikipedia.org/wiki/Beta_normal_form">normal form</a> of an
@@ -36,18 +35,18 @@
 /**
  * Emits a fatal error.
  */
-#define EPILEPSY_FATAL(f, ...) (0error, f, __VA_ARGS__),
+#define epFatal(f, ...) (0error, f, __VA_ARGS__),
 
 /**
  * Emits a debugging message.
  */
-#define EPILEPSY_DBG(...) (0dbg, __VA_ARGS__),
+#define epDbg(...) (0dbg, __VA_ARGS__),
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_PRIV_EPILEPSY_CALL(op, ...)                                                       \
+#define EPILEPSY_PRIV_epCall(op, ...)                                                              \
     EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_IS_UNPARENTHESISED(op), EPILEPSY_PRIV_call_0args, EPILEPSY_PRIV_call_0op)    \
     (op, __VA_ARGS__),

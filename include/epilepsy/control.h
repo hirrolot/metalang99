@@ -13,28 +13,27 @@
 /**
  * If @p cond is true, expands to @p x, otherwise @p y.
  */
-#define EPILEPSY_IF(cond, x, y) EPILEPSY_CALL(EPILEPSY_IF, cond x y)
+#define epIf(cond, x, y) epCall(epIf, cond x y)
 
 /**
- * Lazy #EPILEPSY_IF.
+ * Lazy #epIf.
  */
-#define EPILEPSY_IF_LAZY(cond, f, g, ...) EPILEPSY_CALL(EPILEPSY_IF_LAZY, cond f g __VA_ARGS__)
+#define epIfLazy(cond, f, g, ...) epCall(epIfLazy, cond f g __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_IF_IMPL(cond, x, y)           EPILEPSY_CALL(EPILEPSY_PRIV_CONTROL_IF_##cond, v(x) v(y))
+#define epIf_IMPL(cond, x, y)                  epCall(EPILEPSY_PRIV_CONTROL_IF_##cond, v(x) v(y))
 #define EPILEPSY_PRIV_CONTROL_IF_0_IMPL(_x, y) v(y)
 #define EPILEPSY_PRIV_CONTROL_IF_1_IMPL(x, _y) v(x)
 
-#define EPILEPSY_IF_LAZY_IMPL(cond, f, g, ...)                                                     \
-    EPILEPSY_VARIADICS_APPLY(EPILEPSY_IF(v(cond), v(f), v(g)), v(__VA_ARGS__))
+#define epIfLazy_IMPL(cond, f, g, ...) epVariadicsApply(epIf(v(cond), v(f), v(g)), v(__VA_ARGS__))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_IF_ARITY      3
-#define EPILEPSY_IF_LAZY_ARITY 4
+#define epIf_ARITY     3
+#define epIfLazy_ARITY 4
 // }
 
 #endif // DOXYGEN_IGNORE

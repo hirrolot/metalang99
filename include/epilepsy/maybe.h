@@ -13,42 +13,42 @@
 /**
  * Some value @p x.
  */
-#define EPILEPSY_MaybeJust(x) EPILEPSY_CALL(EPILEPSY_MaybeJust, x)
+#define epMaybeJust(x) epCall(epMaybeJust, x)
 
 /**
  * No value.
  */
-#define EPILEPSY_MaybeNothing() EPILEPSY_CALL(EPILEPSY_MaybeNothing, )
+#define epMaybeNothing() epCall(epMaybeNothing, )
 
 /**
  * 1 if @p maybe contains some value, otherwise 0.
  */
-#define EPILEPSY_MaybeIsJust(maybe) EPILEPSY_CALL(EPILEPSY_MaybeIsJust, maybe)
+#define epMaybeIsJust(maybe) epCall(epMaybeIsJust, maybe)
 
 /**
  * 1 if @p maybe contains no value, otherwise 0.
  */
-#define EPILEPSY_MaybeIsNothing(maybe) EPILEPSY_CALL(EPILEPSY_MaybeIsNothing, maybe)
+#define epMaybeIsNothing(maybe) epCall(epMaybeIsNothing, maybe)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_MaybeJust_IMPL(x)   EPILEPSY_CHOICE(v(MaybeJust), v(x))
-#define EPILEPSY_MaybeNothing_IMPL() EPILEPSY_CHOICE_EMPTY(v(MaybeNothing))
+#define epMaybeJust_IMPL(x)   epChoice(v(MaybeJust), v(x))
+#define epMaybeNothing_IMPL() epChoiceEmpty(v(MaybeNothing))
 
-#define EPILEPSY_MaybeIsJust_IMPL(maybe)              EPILEPSY_MATCH(v(maybe), v(EPILEPSY_PRIV_MaybeIsJust_))
+#define epMaybeIsJust_IMPL(maybe)                     epMatch(v(maybe), v(EPILEPSY_PRIV_MaybeIsJust_))
 #define EPILEPSY_PRIV_MaybeIsJust_MaybeJust_IMPL(_x)  v(1)
 #define EPILEPSY_PRIV_MaybeIsJust_MaybeNothing_IMPL() v(0)
 
-#define EPILEPSY_MaybeIsNothing_IMPL(maybe) EPILEPSY_NOT(EPILEPSY_MaybeIsJust(v(maybe)))
+#define epMaybeIsNothing_IMPL(maybe) epNot(epMaybeIsJust(v(maybe)))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_MaybeJust_ARITY      1
-#define EPILEPSY_MaybeNothing_ARITY   1
-#define EPILEPSY_MaybeIsJust_ARITY    1
-#define EPILEPSY_MaybeIsNothing_ARITY 1
+#define epMaybeJust_ARITY      1
+#define epMaybeNothing_ARITY   1
+#define epMaybeIsJust_ARITY    1
+#define epMaybeIsNothing_ARITY 1
 // }
 
 #endif // DOXYGEN_IGNORE

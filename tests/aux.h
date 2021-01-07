@@ -10,53 +10,52 @@
     }                                                                                              \
     empty
 
-// EPILEPSY_STRINGIFY
+// epStringify
 
-static const char stringified[] = EPILEPSY_EVAL(EPILEPSY_STRINGIFY(v(hello)));
+static const char stringified[] = epEval(epStringify(v(hello)));
 
 // I'm not sure that the stringified version won't contain any whitespaces, so for now just check
 // that it contains _at least_ six characters.
-EPILEPSY_ASSERT_PLAIN(sizeof(stringified) >= 5 + 1);
+epAssertPlain(sizeof(stringified) >= 5 + 1);
 
-// EPILEPSY_CAT
+// epCat
 
 inline static void test_cat(void) {
     (void)test_cat;
-    int EPILEPSY_EVAL(EPILEPSY_CAT(v(ab), v(c))) = 7;
+    int epEval(epCat(v(ab), v(c))) = 7;
     abc++;
 }
 
-#define EMPTY EPILEPSY_EVAL(EPILEPSY_CAT(v(), v()))
+#define EMPTY epEval(epCat(v(), v()))
 CHECK_EMPTY(0, EMPTY)
 #undef EMPTY
 
-// EPILEPSY_CONSUME
+// epConsume
 
-EPILEPSY_EVAL(EPILEPSY_CONSUME(v(a) v(b) v(c)))
-EPILEPSY_EVAL(EPILEPSY_CONSUME(v(NULL "hey") v(131.415) v(boom)))
-EPILEPSY_EVAL(EPILEPSY_CONSUME())
+epEval(epConsume(v(a) v(b) v(c))) epEval(epConsume(v(NULL "hey") v(131.415) v(boom)))
+    epEval(epConsume())
 
-// EPILEPSY_PARENTHESISE, EPILEPSY_UNPARENTHESISE
-/*
-#define ASSERT_PARENTHESISE(a, b, c) v(ASSERT(a == 1); ASSERT(b == 2); ASSERT(c == 3);)
+    // epParenthesise, epUnparenthesise
+    /*
+    #define ASSERT_PARENTHESISE(a, b, c) v(ASSERT(a == 1); ASSERT(b == 2); ASSERT(c == 3);)
 
-EPILEPSY_EVAL(ASSERT_PARENTHESISE EPILEPSY_EVAL(EPILEPSY_CALL(EPILEPSY_PARENTHESISE, v(1) v(2)
-v(3))))
+    epEval(ASSERT_PARENTHESISE epEval(epCall(epParenthesise, v(1) v(2)
+    v(3))))
 
-enum {
-    EPILEPSY_EVAL(
-        EPILEPSY_CALL(EPILEPSY_UNPARENTHESISE,
-          v((CheckUnparenthesiseA = 9, CheckUnparenthesiseB = 4, CheckUnparenthesiseC = 18))))
-};
+    enum {
+        epEval(
+            epCall(epUnparenthesise,
+              v((CheckUnparenthesiseA = 9, CheckUnparenthesiseB = 4, CheckUnparenthesiseC = 18))))
+    };
 
-ASSERT(CheckUnparenthesiseA == 9);
-ASSERT(CheckUnparenthesiseB == 4);
-ASSERT(CheckUnparenthesiseC == 18);
+    ASSERT(CheckUnparenthesiseA == 9);
+    ASSERT(CheckUnparenthesiseB == 4);
+    ASSERT(CheckUnparenthesiseC == 18);
 
-#define EMPTY EPILEPSY_EVAL(EPILEPSY_CALL(EPILEPSY_UNPARENTHESISE,
-EPILEPSY_CALL(EPILEPSY_PARENTHESISE, ))) CHECK_EMPTY(1, EMPTY) #undef EMPTY
+    #define EMPTY epEval(epCall(epUnparenthesise,
+    epCall(epParenthesise, ))) CHECK_EMPTY(1, EMPTY) #undef EMPTY
 
-#undef ASSERT_PARENTHESISE
+    #undef ASSERT_PARENTHESISE
 
-#undef CHECK_EMPTY
-*/
+    #undef CHECK_EMPTY
+    */

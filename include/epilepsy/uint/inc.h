@@ -4,7 +4,7 @@
 #include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
 
-#define EPILEPSY_UIntInc_IMPL(x) v(EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_UINT_INC_, x)())
+#define epUIntInc_IMPL(x) v(EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_UINT_INC_, x)())
 
 #define EPILEPSY_PRIV_UINT_INC_0()    1
 #define EPILEPSY_PRIV_UINT_INC_1()    2

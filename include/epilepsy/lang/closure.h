@@ -4,8 +4,8 @@
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/pair.h>
 
-#define EPILEPSY_APPLY_IMPL(f, ...)                                                                \
-    EPILEPSY_APPLY_WITH_ARITY(v(f), v(EPILEPSY_PRIV_DETERMINE_ARITY(f)), v(__VA_ARGS__))
+#define epApply_IMPL(f, ...)                                                                       \
+    epApplyWithArity(v(f), v(EPILEPSY_PRIV_DETERMINE_ARITY(f)), v(__VA_ARGS__))
 
 #define EPILEPSY_PRIV_DETERMINE_ARITY(f)                                                           \
     EPILEPSY_PRIV_IF(                                                                              \
@@ -16,9 +16,9 @@
 #define EPILEPSY_PRIV_DETERMINE_ARITY_F(f)              f##_ARITY
 #define EPILEPSY_PRIV_DETERMINE_ARITY_CLOSURE(_closure) ~
 
-#define EPILEPSY_APPLY_2_IMPL(f, a, b) EPILEPSY_APPLY(EPILEPSY_APPLY(v(f), v(a)), v(b))
+#define epApply2_IMPL(f, a, b) epApply(epApply(v(f), v(a)), v(b))
 
-#define EPILEPSY_APPLY_WITH_ARITY_IMPL(f, arity, ...)                                              \
+#define epApplyWithArity_IMPL(f, arity, ...)                                                       \
     EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_IS_UNPARENTHESISED(f),                                                       \
         EPILEPSY_PRIV_APPLY_WITH_ARITY_F,                                                          \
@@ -27,21 +27,18 @@
 #define EPILEPSY_PRIV_APPLY_WITH_ARITY_F(f, arity, ...)                                            \
     EPILEPSY_PRIV_APPLY_WITHOUT_ARGS(EPILEPSY_PRIV_CLOSURE(v(f), v(arity), v(__VA_ARGS__)))
 #define EPILEPSY_PRIV_APPLY_WITH_ARITY_CLOSURE(closure, _arity, ...)                               \
-    EPILEPSY_CALL(                                                                                 \
-        EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure), __VA_ARGS__))
+    epCall(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure), __VA_ARGS__))
 
-#define EPILEPSY_PRIV_APPLY_WITHOUT_ARGS(closure)                                                  \
-    EPILEPSY_CALL(EPILEPSY_PRIV_APPLY_WITHOUT_ARGS, closure)
+#define EPILEPSY_PRIV_APPLY_WITHOUT_ARGS(closure) epCall(EPILEPSY_PRIV_APPLY_WITHOUT_ARGS, closure)
 #define EPILEPSY_PRIV_APPLY_WITHOUT_ARGS_IMPL(closure)                                             \
-    EPILEPSY_CALL(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure)))
+    epCall(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure)))
 
-#define EPILEPSY_PRIV_CLOSURE(f, arity, ...)                                                       \
-    EPILEPSY_CALL(EPILEPSY_PRIV_CLOSURE, f arity __VA_ARGS__)
+#define EPILEPSY_PRIV_CLOSURE(f, arity, ...) epCall(EPILEPSY_PRIV_CLOSURE, f arity __VA_ARGS__)
 #define EPILEPSY_PRIV_CLOSURE_IMPL(f, arity, ...)                                                  \
     EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_CURRY_, arity)(f, __VA_ARGS__)
 
 #define EPILEPSY_PRIV_CLOSURE_UNCURRIED(f, ...)                                                    \
-    EPILEPSY_CALL(EPILEPSY_PRIV_CLOSURE_UNCURRIED, f __VA_ARGS__)
+    epCall(EPILEPSY_PRIV_CLOSURE_UNCURRIED, f __VA_ARGS__)
 #define EPILEPSY_PRIV_CLOSURE_UNCURRIED_IMPL(f, ...) v(EPILEPSY_PRIV_PAIR(f, (__VA_ARGS__)))
 
 #define EPILEPSY_PRIV_CLOSURE_F EPILEPSY_PRIV_PAIR_FST
@@ -50,7 +47,7 @@
 
 #define EPILEPSY_PRIV_CURRY_1(f, ...)                                                              \
     EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_1_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_1_CLOSURE_IMPL(f, ...) EPILEPSY_CALL(f, v(__VA_ARGS__))
+#define EPILEPSY_PRIV_CURRY_1_CLOSURE_IMPL(f, ...) epCall(f, v(__VA_ARGS__))
 
 #define EPILEPSY_PRIV_CURRY_2(f, ...)                                                              \
     EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_2_CLOSURE), v(f, __VA_ARGS__))
