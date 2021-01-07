@@ -35,7 +35,7 @@ epAssertEq(epListEq(epList(v(0, 5, 6, 6)), epList(v(6, 7)), v(epUIntEq)), v(0));
 // }
 
 // epListMap {
-#define ADD_3 epApply(v(epUIntAdd), v(3))
+#define ADD_3 epApply(epUIntAdd, v(3))
 
 epAssert(epListEq(epListMap(epList(v(1, 2, 3)), ADD_3), epList(v(4, 5, 6)), v(epUIntEq)));
 

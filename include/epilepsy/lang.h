@@ -14,7 +14,7 @@
 /**
  * Applies arguments to @p f.
  */
-#define epApply(f, ...) epCall(epApply, f __VA_ARGS__)
+#define epApply(f, ...) EPILEPSY_PRIV_epApply(f, __VA_ARGS__)
 
 /**
  * Applies @p a and @p b to @p f.
@@ -50,9 +50,17 @@
     EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_IS_UNPARENTHESISED(op), EPILEPSY_PRIV_call_0args, EPILEPSY_PRIV_call_0op)    \
     (op, __VA_ARGS__),
-
 #define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident##_IMPL, __VA_ARGS__)
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__)
+
+#define EPILEPSY_PRIV_epApply(f, ...)                                                              \
+    EPILEPSY_PRIV_IF(                                                                              \
+        EPILEPSY_PRIV_IS_UNPARENTHESISED(f),                                                       \
+        EPILEPSY_PRIV_epApply_IDENT,                                                               \
+        EPILEPSY_PRIV_epApply_TERM)                                                                \
+    (f, __VA_ARGS__)
+#define EPILEPSY_PRIV_epApply_IDENT(f, ...)            epCall(epApply, v(f) __VA_ARGS__)
+#define EPILEPSY_PRIV_epApply_TERM(f, _emptiness, ...) epCall(epApply, f, __VA_ARGS__)
 //
 
 #endif // DOXYGEN_IGNORE
