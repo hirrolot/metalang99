@@ -1,5 +1,5 @@
-#ifndef epEval_H
-#define epEval_H
+#ifndef EPILEPSY_eval_H
+#define EPILEPSY_eval_H
 
 #include <epilepsy/eval/acc.h>
 #include <epilepsy/eval/config.h>
@@ -15,7 +15,7 @@
 /**
  * Evaluates a metaprogram.
  */
-#define epEval(...)                                                                                \
+#define EPILEPSY_eval(...)                                                                         \
     EPILEPSY_PRIV_REC_UNROLL(EPILEPSY_PRIV_EVAL_MATCH(                                             \
         EPILEPSY_PRIV_EVAL_CONFIG(                                                                 \
             EPILEPSY_PRIV_REC_STOP,                                                                \
@@ -101,10 +101,10 @@
     EPILEPSY_PRIV_INVOKE(                                                                          \
         EPILEPSY_PRIV_EVAL_MATCH,                                                                  \
         config,                                                                                    \
-        epCall(evaluated_op, EPILEPSY_PRIV_UNPARENTHESISE(args))                                   \
+        EPILEPSY_call(evaluated_op, EPILEPSY_PRIV_UNPARENTHESISE(args))                            \
             EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 // }
 
 #endif // DOXYGEN_IGNORE
 
-#endif // epEval_H
+#endif // EPILEPSY_eval_H

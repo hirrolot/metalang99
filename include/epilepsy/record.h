@@ -3,35 +3,35 @@
  * Record types.
  */
 
-#ifndef EPILEPSY_RECORD_H
-#define EPILEPSY_RECORD_H
+#ifndef EPILEPSY_record_H
+#define EPILEPSY_record_H
 
 #include <epilepsy/list.h>
 
 // Desugaring {
 /**
- * Constructs an instance of a record type.
+ * constructs an instance of a record type.
  */
-#define epRecord(...) epCall(epRecord, __VA_ARGS__)
+#define EPILEPSY_record(...) EPILEPSY_call(EPILEPSY_record, __VA_ARGS__)
 
 /**
  * Extracts a field of a record type.
  */
-#define epGet(record, i) epCall(epGet, record i)
+#define EPILEPSY_get(record, i) EPILEPSY_call(EPILEPSY_get, record i)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define epRecord_IMPL(...)    epList(v(__VA_ARGS__))
-#define epGet_IMPL(record, i) epListGet(v(record), v(i))
+#define EPILEPSY_record_IMPL(...)    EPILEPSY_list(v(__VA_ARGS__))
+#define EPILEPSY_get_IMPL(record, i) EPILEPSY_listGet(v(record), v(i))
 // }
 
 // Arity specifiers {
-#define epRecord_ARITY 1
-#define epGet_ARITY    2
+#define EPILEPSY_record_ARITY 1
+#define EPILEPSY_get_ARITY    2
 // }
 
 #endif // DOXYGEN_IGNORE
 
-#endif // EPILEPSY_RECORD_H
+#endif // EPILEPSY_record_H

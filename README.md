@@ -26,17 +26,17 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 #include <epilepsy.h>
 
-#define Rect(width, height) epCall(Rect, width height)
-#define RectWidth(rect)     epCall(RectWidth, rect)
-#define RectHeight(rect)    epCall(RectHeight, rect)
+#define Rect(width, height) EPILEPSY_call(Rect, width height)
+#define RectWidth(rect)     EPILEPSY_call(RectWidth, rect)
+#define RectHeight(rect)    EPILEPSY_call(RectHeight, rect)
 
-#define RectArea(rect) epCall(RectArea, rect)
+#define RectArea(rect) EPILEPSY_call(RectArea, rect)
 
-#define Rect_IMPL(width, height) epRecord(v(width, height))
-#define RectWidth_IMPL(rect)     epGet(v(rect), v(0))
-#define RectHeight_IMPL(rect)    epGet(v(rect), v(1))
+#define Rect_IMPL(width, height) EPILEPSY_record(v(width, height))
+#define RectWidth_IMPL(rect)     EPILEPSY_get(v(rect), v(0))
+#define RectHeight_IMPL(rect)    EPILEPSY_get(v(rect), v(1))
 
-#define RectArea_IMPL(rect) epUIntMul(RectWidth(v(rect)), RectHeight(v(rect)))
+#define RectArea_IMPL(rect) EPILEPSY_uintMul(RectWidth(v(rect)), RectHeight(v(rect)))
 
 /*
  *                15
@@ -50,7 +50,7 @@ It features a wide range of concepts, including algebraic data types, control fl
  */
 #define RECTANGLE Rect(v(15), v(7))
 
-epAssertEq(RectArea(RECTANGLE), v(15 * 7));
+EPILEPSY_assertEq(RectArea(RECTANGLE), v(15 * 7));
 
 int main(void) {}
 ```
@@ -64,17 +64,17 @@ int main(void) {}
 
 #include <epilepsy.h>
 
-#define TreeLeaf(x)              epCall(TreeLeaf, x)
-#define TreeNode(lhs, data, rhs) epCall(TreeNode, lhs data rhs)
+#define TreeLeaf(x)              EPILEPSY_call(TreeLeaf, x)
+#define TreeNode(lhs, data, rhs) EPILEPSY_call(TreeNode, lhs data rhs)
 
-#define SUM(tree) epCall(SUM, tree)
+#define SUM(tree) EPILEPSY_call(SUM, tree)
 
-#define TreeLeaf_IMPL(x)              epChoice(v(TreeLeaf), v(x))
-#define TreeNode_IMPL(lhs, data, rhs) epChoice(v(TreeNode), v(lhs, data, rhs))
+#define TreeLeaf_IMPL(x)              EPILEPSY_choice(v(TreeLeaf), v(x))
+#define TreeNode_IMPL(lhs, data, rhs) EPILEPSY_choice(v(TreeNode), v(lhs, data, rhs))
 
-#define SUM_IMPL(tree)                    epMatch(v(tree), v(SUM_))
+#define SUM_IMPL(tree)                    EPILEPSY_match(v(tree), v(SUM_))
 #define SUM_TreeLeaf_IMPL(x)              v(x)
-#define SUM_TreeNode_IMPL(lhs, data, rhs) epUIntAddVariadics(SUM(v(lhs)) v(data) SUM(v(rhs)))
+#define SUM_TreeNode_IMPL(lhs, data, rhs) EPILEPSY_uintAddVariadics(SUM(v(lhs)) v(data) SUM(v(rhs)))
 
 /*
  *         4
@@ -91,7 +91,7 @@ int main(void) {}
         v(4),                                                                                      \
         TreeNode(TreeLeaf(v(5)), v(6), TreeLeaf(v(7))))
 
-epAssertEq(SUM(TREE), v(28));
+EPILEPSY_assertEq(SUM(TREE), v(28));
 
 int main(void) {}
 ```

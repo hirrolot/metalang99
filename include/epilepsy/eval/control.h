@@ -1,9 +1,9 @@
-#ifndef epEval_CONTROL_H
-#define epEval_CONTROL_H
+#ifndef EPILEPSY_eval_CONTROL_H
+#define EPILEPSY_eval_CONTROL_H
 
 #include <epilepsy/priv/aux.h>
 
 #define EPILEPSY_PRIV_EVAL_CONTROL        EPILEPSY_PRIV_PARENTHESISE
 #define EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP EPILEPSY_PRIV_UNPARENTHESISE
 
-#endif // epEval_CONTROL_H
+#endif // EPILEPSY_eval_CONTROL_H

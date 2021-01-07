@@ -1,5 +1,5 @@
-#ifndef epEval_CONFIG_H
-#define epEval_CONFIG_H
+#ifndef EPILEPSY_eval_CONFIG_H
+#define EPILEPSY_eval_CONFIG_H
 
 #define EPILEPSY_PRIV_EVAL_CONFIG(k, k_cx, f, acc) (k, k_cx, f, acc)
 
@@ -22,4 +22,4 @@
         EPILEPSY_PRIV_EVAL_CONFIG_F(config),                                                       \
         new_acc)
 
-#endif // epEval_CONFIG_H
+#endif // EPILEPSY_eval_CONFIG_H

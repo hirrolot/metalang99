@@ -3,8 +3,8 @@
  * Static assertions.
  */
 
-#ifndef epAssert_H
-#define epAssert_H
+#ifndef EPILEPSY_assert_H
+#define EPILEPSY_assert_H
 
 #include <epilepsy/aux.h>
 #include <epilepsy/eval.h>
@@ -13,30 +13,30 @@
 
 // Desugaring {
 /**
- * Asserts `epEval(expr)` at compile-time.
+ * Asserts `EPILEPSY_eval(expr)` at compile-time.
  *
  * # Examples
  *
  * @code
  * #include <epilepsy/assert.h>
  *
- * epAssert(v(123 == 123));
+ * EPILEPSY_assert(v(123 == 123));
  * @endcode
  */
-#define epAssert(expr) epAssertEq(epExpand(expr), v(1))
+#define EPILEPSY_assert(expr) EPILEPSY_assertEq(EPILEPSY_expand(expr), v(1))
 
 /**
- * Asserts the equality of `epEval(lhs)` and `epEval(rhs)` at compile-time.
+ * Asserts the equality of `EPILEPSY_eval(lhs)` and `EPILEPSY_eval(rhs)` at compile-time.
  *
  * # Examples
  *
  * @code
  * #include <epilepsy/assert.h>
  *
- * epAssertEq(v(123), v(123));
+ * EPILEPSY_assertEq(v(123), v(123));
  * @endcode
  */
-#define epAssertEq(lhs, rhs) epAssertPlain(epEval(lhs) == epEval(rhs))
+#define EPILEPSY_assertEq(lhs, rhs) EPILEPSY_assertPlain(EPILEPSY_eval(lhs) == EPILEPSY_eval(rhs))
 
 /**
  * Asserts the C constant expression @p expr; <a
@@ -47,12 +47,12 @@
  * @code
  * #include <epilepsy/assert.h>
  *
- * epAssertPlain(123 == 123);
+ * EPILEPSY_assertPlain(123 == 123);
  * @endcode
  */
-#define epAssertPlain(expr)                                                                        \
+#define EPILEPSY_assertPlain(expr)                                                                 \
     /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
-    static const char epCatPlain(                                                                  \
+    static const char EPILEPSY_catPlain(                                                           \
         epilepsy_static_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_ATTR_UNUSED
 // }
 
@@ -66,4 +66,4 @@
 
 #endif // DOXYGEN_IGNORE
 
-#endif // epAssert_H
+#endif // EPILEPSY_assert_H

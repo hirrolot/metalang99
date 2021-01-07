@@ -1,5 +1,5 @@
-#ifndef epEval_ACC_H
-#define epEval_ACC_H
+#ifndef EPILEPSY_eval_ACC_H
+#define EPILEPSY_eval_ACC_H
 
 #include <epilepsy/priv/aux.h>
 
@@ -14,4 +14,4 @@
 #define EPILEPSY_PRIV_EVAL_ACC_UNWRAP_0seq_empty(...)     __VA_ARGS__
 #define EPILEPSY_PRIV_EVAL_ACC_UNWRAP_0seq_non_empty(...) __VA_ARGS__
 
-#endif // epEval_ACC_H
+#endif // EPILEPSY_eval_ACC_H

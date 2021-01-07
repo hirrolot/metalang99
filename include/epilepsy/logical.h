@@ -12,55 +12,55 @@
 /**
  * Logical negation.
  */
-#define epNot(x) epCall(epNot, x)
+#define EPILEPSY_not(x) EPILEPSY_call(EPILEPSY_not, x)
 
 /**
  * Logical conjunction.
  */
-#define epAnd(x, y) epCall(epAnd, x y)
+#define EPILEPSY_and(x, y) EPILEPSY_call(EPILEPSY_and, x y)
 
 /**
  * Logical inclusive OR.
  */
-#define epOr(x, y) epCall(epOr, x y)
+#define EPILEPSY_or(x, y) EPILEPSY_call(EPILEPSY_or, x y)
 
 /**
  * Logical exclusive OR.
  */
-#define epXor(x, y) epCall(epXor, x y)
+#define EPILEPSY_xor(x, y) EPILEPSY_call(EPILEPSY_xor, x y)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define epNot_IMPL(x)              epCall(EPILEPSY_PRIV_NOT_##x, )
-#define EPILEPSY_PRIV_NOT_0_IMPL() v(1)
-#define EPILEPSY_PRIV_NOT_1_IMPL() v(0)
+#define EPILEPSY_not_IMPL(x)       EPILEPSY_call(EPILEPSY_PRIV_not_##x, )
+#define EPILEPSY_PRIV_not_0_IMPL() v(1)
+#define EPILEPSY_PRIV_not_1_IMPL() v(0)
 
-#define epAnd_IMPL(x, y)            epCall(EPILEPSY_PRIV_AND_##x##y, )
-#define EPILEPSY_PRIV_AND_00_IMPL() v(0)
-#define EPILEPSY_PRIV_AND_01_IMPL() v(0)
-#define EPILEPSY_PRIV_AND_10_IMPL() v(0)
-#define EPILEPSY_PRIV_AND_11_IMPL() v(1)
+#define EPILEPSY_and_IMPL(x, y)     EPILEPSY_call(EPILEPSY_PRIV_and_##x##y, )
+#define EPILEPSY_PRIV_and_00_IMPL() v(0)
+#define EPILEPSY_PRIV_and_01_IMPL() v(0)
+#define EPILEPSY_PRIV_and_10_IMPL() v(0)
+#define EPILEPSY_PRIV_and_11_IMPL() v(1)
 
-#define epOr_IMPL(x, y)            epCall(EPILEPSY_PRIV_OR_##x##y, )
-#define EPILEPSY_PRIV_OR_00_IMPL() v(0)
-#define EPILEPSY_PRIV_OR_01_IMPL() v(1)
-#define EPILEPSY_PRIV_OR_10_IMPL() v(1)
-#define EPILEPSY_PRIV_OR_11_IMPL() v(1)
+#define EPILEPSY_or_IMPL(x, y)     EPILEPSY_call(EPILEPSY_PRIV_or_##x##y, )
+#define EPILEPSY_PRIV_or_00_IMPL() v(0)
+#define EPILEPSY_PRIV_or_01_IMPL() v(1)
+#define EPILEPSY_PRIV_or_10_IMPL() v(1)
+#define EPILEPSY_PRIV_or_11_IMPL() v(1)
 
-#define epXor_IMPL(x, y)            epCall(EPILEPSY_PRIV_XOR_##x##y, )
-#define EPILEPSY_PRIV_XOR_00_IMPL() v(0)
-#define EPILEPSY_PRIV_XOR_01_IMPL() v(1)
-#define EPILEPSY_PRIV_XOR_10_IMPL() v(1)
-#define EPILEPSY_PRIV_XOR_11_IMPL() v(0)
+#define EPILEPSY_xor_IMPL(x, y)     EPILEPSY_call(EPILEPSY_PRIV_xor_##x##y, )
+#define EPILEPSY_PRIV_xor_00_IMPL() v(0)
+#define EPILEPSY_PRIV_xor_01_IMPL() v(1)
+#define EPILEPSY_PRIV_xor_10_IMPL() v(1)
+#define EPILEPSY_PRIV_xor_11_IMPL() v(0)
 // }
 
 // Arity specifiers {
-#define epNot_ARITY 1
-#define epAnd_ARITY 2
-#define epOr_ARITY  2
-#define epXor_ARITY 2
+#define EPILEPSY_not_ARITY 1
+#define EPILEPSY_and_ARITY 2
+#define EPILEPSY_or_ARITY  2
+#define EPILEPSY_xor_ARITY 2
 // }
 
 #endif // DOXYGEN_IGNORE

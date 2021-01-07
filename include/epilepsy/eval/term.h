@@ -1,5 +1,5 @@
-#ifndef epEval_TERM_H
-#define epEval_TERM_H
+#ifndef EPILEPSY_eval_TERM_H
+#define EPILEPSY_eval_TERM_H
 
 #include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/variadics/get.h>
@@ -20,4 +20,4 @@
 
 #define EPILEPSY_PRIV_TERM_MATCH_AUX(f, ...) f(__VA_ARGS__)
 
-#endif // epEval_TERM_H
+#endif // EPILEPSY_eval_TERM_H
