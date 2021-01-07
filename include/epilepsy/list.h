@@ -30,6 +30,11 @@
 #define epList(...) epCall(epList, __VA_ARGS__)
 
 /**
+ * Evaluates a metaprogram that reduces to a list, then unwraps it.
+ */
+#define epListEval(...) epEval(epListUnwrap(__VA_ARGS__))
+
+/**
  * Places all the items in @p list as-is.
  */
 #define epListUnwrap(list) epCall(epListUnwrap, list)
