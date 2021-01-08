@@ -2,6 +2,27 @@
 #include <epilepsy/list.h>
 #include <epilepsy/uint.h>
 
+// EPILEPSY_listHead {
+EPILEPSY_assertEq(EPILEPSY_listHead(EPILEPSY_list(v(1))), v(1));
+EPILEPSY_assertEq(EPILEPSY_listHead(EPILEPSY_list(v(1, 2))), v(1));
+EPILEPSY_assertEq(EPILEPSY_listHead(EPILEPSY_list(v(1, 2, 3))), v(1));
+// }
+
+// EPILEPSY_listTail {
+EPILEPSY_assert(
+    EPILEPSY_listEq(EPILEPSY_listTail(EPILEPSY_list(v(1))), EPILEPSY_nil(), v(EPILEPSY_uintEq)));
+EPILEPSY_assert(EPILEPSY_listEq(
+    EPILEPSY_listTail(EPILEPSY_list(v(1, 2))), EPILEPSY_list(v(2)), v(EPILEPSY_uintEq)));
+EPILEPSY_assert(EPILEPSY_listEq(
+    EPILEPSY_listTail(EPILEPSY_list(v(1, 2, 3))), EPILEPSY_list(v(2, 3)), v(EPILEPSY_uintEq)));
+// }
+
+// EPILEPSY_listLast {
+EPILEPSY_assertEq(EPILEPSY_listLast(EPILEPSY_list(v(1))), v(1));
+EPILEPSY_assertEq(EPILEPSY_listLast(EPILEPSY_list(v(1, 2))), v(2));
+EPILEPSY_assertEq(EPILEPSY_listLast(EPILEPSY_list(v(1, 2, 3))), v(3));
+// }
+
 #define DIV_IMPL(x, acc)   v(acc / x)
 #define DIV_L_IMPL(x, acc) v(x / acc)
 #define SUB_IMPL(acc, x)   v(acc - x)

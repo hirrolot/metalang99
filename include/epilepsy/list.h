@@ -25,6 +25,26 @@
 #define EPILEPSY_nil() EPILEPSY_call(EPILEPSY_nil, )
 
 /**
+ * Extracts the head from @p list.
+ */
+#define EPILEPSY_listHead(list) EPILEPSY_call(EPILEPSY_listHead, list)
+
+/**
+ * Extracts the tail from @p list.
+ */
+#define EPILEPSY_listTail(list) EPILEPSY_call(EPILEPSY_listTail, list)
+
+/**
+ * Extracts the last element from @p list.
+ */
+#define EPILEPSY_listLast(list) EPILEPSY_call(EPILEPSY_listLast, list)
+
+/**
+ * Extracts all the elements of @p list except the last one.
+ */
+#define EPILEPSY_listInit(list) EPILEPSY_call(EPILEPSY_listInit, list)
+
+/**
  * constructs a list from its arguments.
  */
 #define EPILEPSY_list(...) EPILEPSY_call(EPILEPSY_list, __VA_ARGS__)
@@ -95,6 +115,39 @@
 // Implementation {
 #define EPILEPSY_cons_IMPL(x, xs) EPILEPSY_choice(v(cons), v(x, xs))
 #define EPILEPSY_nil_IMPL()       EPILEPSY_choiceEmpty(v(nil))
+
+// EPILEPSY_listHead_IMPL {
+#define EPILEPSY_listHead_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listHead_))
+// clang-format off
+#define EPILEPSY_PRIV_listHead_nil_IMPL() EPILEPSY_fatal(EPILEPSY_listHead, expected a non-empty list)
+// clang-format on
+#define EPILEPSY_PRIV_listHead_cons_IMPL(x, xs) v(x)
+// }
+
+// EPILEPSY_listTail_IMPL {
+#define EPILEPSY_listTail_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listTail_))
+// clang-format off
+#define EPILEPSY_PRIV_listTail_nil_IMPL() EPILEPSY_fatal(EPILEPSY_listTail, expected a non-empty list)
+// clang-format on
+#define EPILEPSY_PRIV_listTail_cons_IMPL(x, xs) v(xs)
+// }
+
+// EPILEPSY_listLast_IMPL {
+#define EPILEPSY_listLast_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listLast_))
+// clang-format off
+#define EPILEPSY_PRIV_listLast_nil_IMPL() EPILEPSY_fatal(EPILEPSY_listLast, expected a non-empty list)
+// clang-format on
+#define EPILEPSY_PRIV_listLast_cons_IMPL(x, xs)                                                    \
+    EPILEPSY_ifLazy(                                                                               \
+        EPILEPSY_listIsEmpty(v(xs)),                                                               \
+        EPILEPSY_appl(EPILEPSY_const, v(x)),                                                       \
+        v(EPILEPSY_listLast),                                                                      \
+        v(xs))
+// }
+
+// EPILEPSY_listInit_IMPL {
+#define EPILEPSY_listInit_IMPL(list) // TODO: implement it.
+// }
 
 // EPILEPSY_list_IMPL {
 #define EPILEPSY_list_IMPL(...)                                                                    \
@@ -207,6 +260,10 @@
 // Arity specifiers {
 #define EPILEPSY_cons_ARITY             2
 #define EPILEPSY_nil_ARITY              1
+#define EPILEPSY_listHead_ARITY         1
+#define EPILEPSY_listTail_ARITY         1
+#define EPILEPSY_listLast_ARITY         1
+#define EPILEPSY_listInit_ARITY         1
 #define EPILEPSY_list_ARITY             1
 #define EPILEPSY_listUnwrap_ARITY       1
 #define EPILEPSY_listIsEmpty_ARITY      1
