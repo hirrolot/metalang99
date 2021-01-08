@@ -1,5 +1,5 @@
-#ifndef EPILEPSY_eval_FOLD_H
-#define EPILEPSY_eval_FOLD_H
+#ifndef EPILEPSY_EVAL_FOLD_H
+#define EPILEPSY_EVAL_FOLD_H
 
 #include <epilepsy/eval/acc.h>
 #include <epilepsy/priv/aux.h>
@@ -13,4 +13,4 @@
         (__VA_ARGS__),                                                                             \
         (EPILEPSY_PRIV_EVAL_ACC_UNWRAP(acc), __VA_ARGS__))
 
-#endif // EPILEPSY_eval_FOLD_H
+#endif // EPILEPSY_EVAL_FOLD_H

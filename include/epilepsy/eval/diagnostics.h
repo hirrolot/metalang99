@@ -1,5 +1,5 @@
-#ifndef EPILEPSY_eval_DIAGNOSTICS_H
-#define EPILEPSY_eval_DIAGNOSTICS_H
+#ifndef EPILEPSY_EVAL_DIAGNOSTICS_H
+#define EPILEPSY_EVAL_DIAGNOSTICS_H
 
 #include <epilepsy/eval/rec/control.h>
 
@@ -8,4 +8,4 @@
     EPILEPSY_PRIV_REC_CONTINUE(EPILEPSY_PRIV_REC_STOP, (~), !Epilepsy syntax error: {invalid_term} is not a valid term)
 // clang-format on
 
-#endif // EPILEPSY_eval_DIAGNOSTICS_H
+#endif // EPILEPSY_EVAL_DIAGNOSTICS_H
