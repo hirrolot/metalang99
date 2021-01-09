@@ -36,6 +36,15 @@
 #define EPILEPSY_overloadCall_ARITY 2
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_overload     EPILEPSY_overload
+#define E_overloadCall EPILEPSY_overloadCall
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_overload_H

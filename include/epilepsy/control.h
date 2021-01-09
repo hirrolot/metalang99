@@ -36,6 +36,15 @@
 #define EPILEPSY_ifLazy_ARITY 4
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_if     EPILEPSY_if
+#define E_ifLazy EPILEPSY_ifLazy
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_CONTROL_H

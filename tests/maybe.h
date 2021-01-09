@@ -4,22 +4,20 @@
 
 #define VAL v(abc ? +-148 % "hello world")
 
-#define MATCH_IMPL(maybe) EPILEPSY_matchWithArgs(v(maybe), v(MATCH_), v(123))
-#define MATCH_maybeJust_IMPL(_87, _123)                                                            \
-    v(EPILEPSY_assertPlain(_87 == 87); EPILEPSY_assertPlain(_123 == 123);)
-#define MATCH_maybeNothing_IMPL(_123) v(EPILEPSY_assertPlain(_123 == 123);)
+#define MATCH_IMPL(maybe)               E_matchWithArgs(v(maybe), v(MATCH_), v(123))
+#define MATCH_maybeJust_IMPL(_87, _123) v(E_assertPlain(_87 == 87); E_assertPlain(_123 == 123);)
+#define MATCH_maybeNothing_IMPL(_123)   v(E_assertPlain(_123 == 123);)
 
-EPILEPSY_eval(EPILEPSY_call(MATCH, EPILEPSY_maybeJust(v(87))))
-    EPILEPSY_eval(EPILEPSY_call(MATCH, EPILEPSY_maybeNothing()))
+E_eval(E_call(MATCH, E_maybeJust(v(87)))) E_eval(E_call(MATCH, E_maybeNothing()))
 
 #undef MATCH_IMPL
 #undef MATCH_JUST_IMPL
 #undef MATCH_NOTHING_IMPL
 
-        EPILEPSY_assert(EPILEPSY_maybeIsJust(EPILEPSY_maybeJust(VAL)));
-EPILEPSY_assertEq(EPILEPSY_maybeIsJust(EPILEPSY_maybeNothing()), v(0));
+    E_assert(E_maybeIsJust(E_maybeJust(VAL)));
+E_assertEq(E_maybeIsJust(E_maybeNothing()), v(0));
 
-EPILEPSY_assertEq(EPILEPSY_maybeIsNothing(EPILEPSY_maybeJust(VAL)), v(0));
-EPILEPSY_assert(EPILEPSY_maybeIsNothing(EPILEPSY_maybeNothing()));
+E_assertEq(E_maybeIsNothing(E_maybeJust(VAL)), v(0));
+E_assert(E_maybeIsNothing(E_maybeNothing()));
 
 #undef VAL

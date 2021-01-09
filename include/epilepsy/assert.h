@@ -64,6 +64,16 @@
 #define EPILEPSY_PRIV_ATTR_UNUSED
 #endif
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_assert      EPILEPSY_assert
+#define E_assertEq    EPILEPSY_assertEq
+#define E_assertPlain EPILEPSY_assertPlain
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_assert_H

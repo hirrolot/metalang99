@@ -145,6 +145,35 @@
 #define EPILEPSY_const3_ARITY         4
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_cat            EPILEPSY_cat
+#define E_stringify      EPILEPSY_stringify
+#define E_empty          EPILEPSY_empty
+#define E_id             EPILEPSY_id
+#define E_expand         EPILEPSY_expand
+#define E_consume        EPILEPSY_consume
+#define E_parenthesise   EPILEPSY_parenthesise
+#define E_unparenthesise EPILEPSY_unparenthesise
+#define E_const          EPILEPSY_const
+#define E_const2         EPILEPSY_const2
+#define E_const3         EPILEPSY_const3
+
+#define E_catPlain            EPILEPSY_catPlain
+#define E_catPrimitive        EPILEPSY_catPrimitive
+#define E_stringifyPlain      EPILEPSY_stringifyPlain
+#define E_stringifyPrimitive  EPILEPSY_stringifyPrimitive
+#define E_emptyPlain          EPILEPSY_emptyPlain
+#define E_idPlain             EPILEPSY_idPlain
+#define E_expandPlain         EPILEPSY_expandPlain
+#define E_consumePlain        EPILEPSY_consumePlain
+#define E_parenthesisePlain   EPILEPSY_parenthesisePlain
+#define E_unparenthesisePlain EPILEPSY_unparenthesisePlain
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_AUX_H

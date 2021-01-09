@@ -2,44 +2,44 @@
 #include <epilepsy/overload.h>
 #include <epilepsy/uint.h>
 
-// EPILEPSY_overloadCall
+// E_overloadCall
 
-#define X_IMPL(...)    EPILEPSY_overloadCall(v(X_), v(__VA_ARGS__))
-#define X_1_IMPL(a)    v(EPILEPSY_assertPlain(a == 123);)
-#define X_2_IMPL(a, b) v(EPILEPSY_assertPlain(a == 93145); EPILEPSY_assertPlain(b == 456);)
+#define X_IMPL(...)    E_overloadCall(v(X_), v(__VA_ARGS__))
+#define X_1_IMPL(a)    v(E_assertPlain(a == 123);)
+#define X_2_IMPL(a, b) v(E_assertPlain(a == 93145); E_assertPlain(b == 456);)
 #define X_7_IMPL(a, b, c, d, e, f, g)                                                              \
-    v(EPILEPSY_assertPlain(a == 1516); EPILEPSY_assertPlain(b == 1); EPILEPSY_assertPlain(c == 9); \
-      EPILEPSY_assertPlain(d == 111);                                                              \
-      EPILEPSY_assertPlain(e == 119);                                                              \
-      EPILEPSY_assertPlain(f == 677);                                                              \
-      EPILEPSY_assertPlain(g == 62);)
+    v(E_assertPlain(a == 1516); E_assertPlain(b == 1); E_assertPlain(c == 9);                      \
+      E_assertPlain(d == 111);                                                                     \
+      E_assertPlain(e == 119);                                                                     \
+      E_assertPlain(f == 677);                                                                     \
+      E_assertPlain(g == 62);)
 
-EPILEPSY_eval(EPILEPSY_call(X, v(123))) EPILEPSY_eval(EPILEPSY_call(X, v(93145) v(456)))
-    EPILEPSY_eval(EPILEPSY_call(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
+E_eval(E_call(X, v(123))) E_eval(E_call(X, v(93145) v(456)))
+    E_eval(E_call(X, v(1516) v(1) v(9) v(111) v(119) v(677) v(62)))
 
 #undef X_IMPL
 #undef X_1_IMPL
 #undef X_2_IMPL
 #undef X_7_IMPL
 
-// EPILEPSY_overload
+// E_overload
 
-#define X_IMPL(...) EPILEPSY_overload(v(X_), v(__VA_ARGS__))
+#define X_IMPL(...) E_overload(v(X_), v(__VA_ARGS__))
 #define X_1         27
 #define X_2         12
 #define X_3         0
 #define X_8         7
 
-        EPILEPSY_assertEq(EPILEPSY_call(X, v(~)), v(27));
-EPILEPSY_assertEq(EPILEPSY_call(X, v(~) v(~)), v(12));
-EPILEPSY_assertEq(EPILEPSY_call(X, v(~) v(~) v(~)), v(0));
-EPILEPSY_assertEq(EPILEPSY_call(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
+        E_assertEq(E_call(X, v(~)), v(27));
+E_assertEq(E_call(X, v(~) v(~)), v(12));
+E_assertEq(E_call(X, v(~) v(~) v(~)), v(0));
+E_assertEq(E_call(X, v(~) v(~) v(~) v(~) v(~) v(~) v(~) v(~)), v(7));
 
 // An empty token list is also an argument.
-EPILEPSY_assertEq(EPILEPSY_call(X, v()), v(27));
-EPILEPSY_assertEq(EPILEPSY_call(X, v() v()), v(12));
-EPILEPSY_assertEq(EPILEPSY_call(X, v() v() v()), v(0));
-EPILEPSY_assertEq(EPILEPSY_call(X, v() v() v() v() v() v() v() v()), v(7));
+E_assertEq(E_call(X, v()), v(27));
+E_assertEq(E_call(X, v() v()), v(12));
+E_assertEq(E_call(X, v() v() v()), v(0));
+E_assertEq(E_call(X, v() v() v() v() v() v() v() v()), v(7));
 
 #undef X_IMPL
 #undef X_1

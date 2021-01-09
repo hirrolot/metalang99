@@ -98,6 +98,14 @@
             EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_eval EPILEPSY_eval
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_EVAL_H

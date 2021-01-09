@@ -32,6 +32,15 @@
 #define EPILEPSY_get_ARITY    2
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_record EPILEPSY_record
+#define E_get    EPILEPSY_get
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_record_H

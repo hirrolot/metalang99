@@ -183,6 +183,27 @@
 #define EPILEPSY_PRIV_uintMul_PROGRESS_ARITY 2
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_uintInc          EPILEPSY_uintInc
+#define E_uintDec          EPILEPSY_uintDec
+#define E_uintEq           EPILEPSY_uintEq
+#define E_uintNeq          EPILEPSY_uintNeq
+#define E_uintGreater      EPILEPSY_uintGreater
+#define E_uintGreaterEq    EPILEPSY_uintGreaterEq
+#define E_uintLesser       EPILEPSY_uintLesser
+#define E_uintLesserEq     EPILEPSY_uintLesserEq
+#define E_uintAdd          EPILEPSY_uintAdd
+#define E_uintAddVariadics EPILEPSY_uintAddVariadics
+#define E_uintSub          EPILEPSY_uintSub
+#define E_uintSubVariadics EPILEPSY_uintSubVariadics
+#define E_uintMul          EPILEPSY_uintMul
+#define E_uintMulVariadics EPILEPSY_uintMulVariadics
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_UINT_H

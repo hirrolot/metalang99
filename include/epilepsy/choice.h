@@ -79,6 +79,17 @@
 #define EPILEPSY_matchWithArgs_ARITY 3
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_choice        EPILEPSY_choice
+#define E_chocieEmpty   EPILEPSY_choiceEmpty
+#define E_match         EPILEPSY_match
+#define E_matchWithArgs EPILEPSY_matchWithArgs
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_choice_H

@@ -51,6 +51,17 @@
 #define EPILEPSY_maybeIsNothing_ARITY 1
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_maybeJust      EPILEPSY_maybeJust
+#define E_maybeNothing   EPILEPSY_maybeNothing
+#define E_maybeIsJust    EPILEPSY_maybeIsJust
+#define E_maybeIsNothing EPILEPSY_maybeIsNothing
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_MAYBE_H

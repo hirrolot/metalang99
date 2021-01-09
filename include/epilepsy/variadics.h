@@ -75,6 +75,18 @@
 #define EPILEPSY_variadicsApplWithArity_ARITY 3
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_variadicsCount         EPILEPSY_variadicsCount
+#define E_variadicsHead          EPILEPSY_variadicsHead
+#define E_variadicsTail          EPILEPSY_variadicsTail
+#define E_variadicsAppl          EPILEPSY_variadicsAppl
+#define E_variadicsApplWithArity EPILEPSY_variadicsApplWithArity
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_VARIADICS_H

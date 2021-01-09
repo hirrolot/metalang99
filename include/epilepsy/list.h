@@ -294,6 +294,31 @@
 #define EPILEPSY_PRIV_listGet_cons_PROGRESS_ARITY 3
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_cons             EPILEPSY_cons
+#define E_nil              EPILEPSY_nil
+#define E_listHead         EPILEPSY_listHead
+#define E_listTail         EPILEPSY_listTail
+#define E_listLast         EPILEPSY_listLast
+#define E_listInit         EPILEPSY_listInit
+#define E_list             EPILEPSY_list
+#define E_listUnwrap       EPILEPSY_listUnwrap
+#define E_listIsEmpty      EPILEPSY_listIsEmpty
+#define E_listGet          EPILEPSY_listGet
+#define E_listFoldr        EPILEPSY_listFoldr
+#define E_listFoldl        EPILEPSY_listFoldl
+#define E_listFoldl1       EPILEPSY_listFoldl1
+#define E_listIntersperse  EPILEPSY_listIntersperse
+#define E_listPrependToAll EPILEPSY_listPrependToAll
+#define E_listMap          EPILEPSY_listMap
+#define E_listEq           EPILEPSY_listEq
+#define E_listApply        EPILEPSY_listApply
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_LIST_H

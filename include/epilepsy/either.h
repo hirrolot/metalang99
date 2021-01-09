@@ -51,6 +51,17 @@
 #define EPILEPSY_eitherIsRight_ARITY 1
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_eitherLeft    EPILEPSY_eitherLeft
+#define E_eitherRight   EPILEPSY_eitherRight
+#define E_eitherIsLeft  EPILEPSY_eitherIsLeft
+#define E_eitherIsRight EPILEPSY_eitherIsRight
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_EITHER_H

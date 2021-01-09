@@ -63,6 +63,17 @@
 #define EPILEPSY_xor_ARITY 2
 // }
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_not EPILEPSY_not
+#define E_and EPILEPSY_and
+#define E_or  EPILEPSY_or
+#define E_xor EPILEPSY_xor
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_PRIV_LOGICAL_H

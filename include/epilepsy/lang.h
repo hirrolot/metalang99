@@ -62,6 +62,18 @@
 #define EPILEPSY_PRIV_appl_TERM(f, _emptiness, ...) EPILEPSY_call(EPILEPSY_appl, f, __VA_ARGS__)
 //
 
+// Aliases {
+#ifndef EPILEPSY_NO_SMALL_PREFIX
+
+#define E_call  EPILEPSY_call
+#define E_appl  EPILEPSY_appl
+#define E_appl2 EPILEPSY_appl2
+#define E_fatal EPILEPSY_fatal
+#define E_dbg   EPILEPSY_dbg
+
+#endif // EPILEPSY_NO_SMALL_PREFIX
+// }
+
 #endif // DOXYGEN_IGNORE
 
 #endif // EPILEPSY_LANG_H
