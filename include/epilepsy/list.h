@@ -146,7 +146,17 @@
 // }
 
 // EPILEPSY_listInit_IMPL {
-#define EPILEPSY_listInit_IMPL(list) // TODO: implement it.
+#define EPILEPSY_listInit_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listInit_))
+// clang-format off
+#define EPILEPSY_PRIV_listInit_nil_IMPL(_acc) EPILEPSY_fatal(EPILEPSY_listInit, expected a non-empty list)
+// clang-format on
+#define EPILEPSY_PRIV_listInit_cons_IMPL(x, xs)                                                    \
+    EPILEPSY_ifLazy(                                                                               \
+        EPILEPSY_listIsEmpty(v(xs)),                                                               \
+        EPILEPSY_appl(EPILEPSY_const, EPILEPSY_nil()),                                             \
+        EPILEPSY_appl(EPILEPSY_PRIV_listInit_PROGRESS, v(x)),                                      \
+        v(xs))
+#define EPILEPSY_PRIV_listInit_PROGRESS_IMPL(x, xs) EPILEPSY_cons(v(x), EPILEPSY_listInit(v(xs)))
 // }
 
 // EPILEPSY_list_IMPL {
@@ -277,6 +287,7 @@
 #define EPILEPSY_listEq_ARITY           3
 #define EPILEPSY_listApply_ARITY        2
 
+#define EPILEPSY_PRIV_listInit_PROGRESS_ARITY     2
 #define EPILEPSY_PRIV_list_DONE_ARITY             1
 #define EPILEPSY_PRIV_list_PROGRESS_ARITY         2
 #define EPILEPSY_PRIV_listGet_cons_DONE_ARITY     3

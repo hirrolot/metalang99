@@ -23,6 +23,15 @@ EPILEPSY_assertEq(EPILEPSY_listLast(EPILEPSY_list(v(1, 2))), v(2));
 EPILEPSY_assertEq(EPILEPSY_listLast(EPILEPSY_list(v(1, 2, 3))), v(3));
 // }
 
+// EPILEPSY_listInit {
+EPILEPSY_assert(
+    EPILEPSY_listEq(EPILEPSY_listInit(EPILEPSY_list(v(1))), EPILEPSY_nil(), v(EPILEPSY_uintEq)));
+EPILEPSY_assert(EPILEPSY_listEq(
+    EPILEPSY_listInit(EPILEPSY_list(v(1, 2))), EPILEPSY_list(v(1)), v(EPILEPSY_uintEq)));
+EPILEPSY_assert(EPILEPSY_listEq(
+    EPILEPSY_listInit(EPILEPSY_list(v(1, 2, 3))), EPILEPSY_list(v(1, 2)), v(EPILEPSY_uintEq)));
+// }
+
 #define DIV_IMPL(x, acc)   v(acc / x)
 #define DIV_L_IMPL(x, acc) v(x / acc)
 #define SUB_IMPL(acc, x)   v(acc - x)
