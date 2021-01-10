@@ -10,6 +10,7 @@
 #include <epilepsy/choice.h>
 #include <epilepsy/logical.h>
 #include <epilepsy/priv/pair.h>
+#include <epilepsy/tuple.h>
 #include <epilepsy/uint.h>
 #include <epilepsy/variadics.h>
 
@@ -156,6 +157,17 @@
  * Removes the items from @p list as long as @p f evaluates to true.
  */
 #define EPILEPSY_listDropWhile(list, f) EPILEPSY_call(EPILEPSY_listDropWhile, list f)
+
+/**
+ * Computes a list of corresponding pairs from @p list and @p other.
+ */
+#define EPILEPSY_listZip(list, other) EPILEPSY_call(EPILEPSY_listZip, list other)
+
+/**
+ * Transforms a list of pairs into a list of the first components and a list of the second
+ * components.
+ */
+#define EPILEPSY_listUnzip(list) EPILEPSY_call(EPILEPSY_listUnzip, list)
 
 /**
  * Applies all the items in @p list to @p f.
@@ -402,6 +414,32 @@
         v(f))
 #define EPILEPSY_PRIV_listDropWhile_PROGRESS_IMPL(xs, f) EPILEPSY_listDropWhile(v(xs), v(f))
 
+// EPILEPSY_listZip_IMPL {
+#define EPILEPSY_listZip_IMPL(list, other)                                                         \
+    EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listZip_), v(other))
+
+#define EPILEPSY_PRIV_listZip_nil_IMPL(_other) EPILEPSY_nil()
+#define EPILEPSY_PRIV_listZip_cons_IMPL(x, xs, other)                                              \
+    EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_listZip_cons_), v(x, xs))
+
+#define EPILEPSY_PRIV_listZip_cons_nil_IMPL(_x, _xs) EPILEPSY_nil()
+#define EPILEPSY_PRIV_listZip_cons_cons_IMPL(other_x, other_xs, x, xs)                             \
+    EPILEPSY_cons(EPILEPSY_tuple(v(x, other_x)), EPILEPSY_listZip(v(xs), v(other_xs)))
+// }
+
+// EPILEPSY_listUnzip_IMPL {
+#define EPILEPSY_listUnzip_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listUnzip_))
+
+#define EPILEPSY_PRIV_listUnzip_nil_IMPL() EPILEPSY_tuple(EPILEPSY_nil() EPILEPSY_nil())
+#define EPILEPSY_PRIV_listUnzip_cons_IMPL(x, xs)                                                   \
+    EPILEPSY_call(EPILEPSY_PRIV_listUnzip_PROGRESS, v(x) EPILEPSY_listUnzip(v(xs)))
+#define EPILEPSY_PRIV_listUnzip_PROGRESS_IMPL(x, rest)                                             \
+    EPILEPSY_tuple(EPILEPSY_call(EPILEPSY_PRIV_listUnzip_ADD, v(x, rest, 0))                       \
+                       EPILEPSY_call(EPILEPSY_PRIV_listUnzip_ADD, v(x, rest, 1)))
+#define EPILEPSY_PRIV_listUnzip_ADD_IMPL(x, rest, i)                                               \
+    EPILEPSY_cons(EPILEPSY_get(v(x), v(i)), EPILEPSY_get(v(rest), v(i)))
+// }
+
 #define EPILEPSY_listAppl_IMPL(list, f) EPILEPSY_listFoldl(v(list), v(EPILEPSY_appl), v(f))
 // } (Implementation)
 
@@ -433,6 +471,8 @@
 #define EPILEPSY_listTakeWhile_ARITY    2
 #define EPILEPSY_listDrop_ARITY         2
 #define EPILEPSY_listDropWhile_ARITY    2
+#define EPILEPSY_listZip_ARITY          2
+#define EPILEPSY_listUnzip_ARITY        1
 #define EPILEPSY_listAppl_ARITY         2
 
 #define EPILEPSY_PRIV_listInit_PROGRESS_ARITY      2
@@ -475,6 +515,8 @@
 #define E_listTakeWhile    EPILEPSY_listTakeWhile
 #define E_listDrop         EPILEPSY_listDrop
 #define E_listDropWhile    EPILEPSY_listDropWhile
+#define E_listZip          EPILEPSY_listZip
+#define E_listUnzip        EPILEPSY_listUnzip
 #define E_listAppl         EPILEPSY_listAppl
 
 #endif // EPILEPSY_NO_SMALL_PREFIX

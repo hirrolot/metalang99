@@ -109,6 +109,46 @@ E_assert(E_listEq(
     v(E_uintEq)));
 // }
 
+// E_listZip {
+#define EQ_IMPL(x, y) E_listEq(v(x), v(y), v(E_uintEq))
+#define EQ_ARITY      2
+
+E_assert(E_listEq(E_listZip(E_nil(), E_nil()), E_nil(), v(EQ)));
+E_assert(E_listEq(E_listZip(E_list(v(1, 2, 3)), E_nil()), E_nil(), v(EQ)));
+E_assert(E_listEq(E_listZip(E_nil(), E_list(v(1, 2, 3))), E_nil(), v(EQ)));
+
+E_assert(E_listEq(
+    E_listZip(E_list(v(1, 2, 3)), E_list(v(4, 5, 6))),
+    E_list(E_tuple(v(1, 4)) E_tuple(v(2, 5)) E_tuple(v(3, 6))), v(EQ)));
+
+E_assert(E_listEq(
+    E_listZip(E_list(v(1, 2, 3)), E_list(v(4, 5))), E_list(E_tuple(v(1, 4)) E_tuple(v(2, 5))),
+    v(EQ)));
+
+E_assert(E_listEq(
+    E_listZip(E_list(v(1, 2)), E_list(v(4, 5, 6))), E_list(E_tuple(v(1, 4)) E_tuple(v(2, 5))),
+    v(EQ)));
+
+#undef EQ_IMPL
+#undef EQ_ARITY
+// }
+
+// E_listUnzip & E_listZip {
+#define LIST E_listUnzip(E_nil())
+
+E_assert(E_listEq(E_get(LIST, v(0)), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_get(LIST, v(1)), E_nil(), v(E_uintEq)));
+
+#undef LIST
+
+#define LIST E_listUnzip(E_listZip(E_list(v(1, 2)), E_list(v(4, 5))))
+
+E_assert(E_listEq(E_get(LIST, v(0)), E_list(v(1, 2)), v(E_uintEq)));
+E_assert(E_listEq(E_get(LIST, v(1)), E_list(v(4, 5)), v(E_uintEq)));
+
+#undef LIST
+// }
+
 #define DIV_IMPL(x, acc)   v(acc / x)
 #define DIV_L_IMPL(x, acc) v(x / acc)
 #define SUB_IMPL(acc, x)   v(acc - x)
