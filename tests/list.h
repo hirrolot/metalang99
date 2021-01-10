@@ -54,6 +54,61 @@ E_assert(E_listEq(E_listReverse(E_nil()), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(E_listReverse(E_list(v(1, 2, 3))), E_list(v(3, 2, 1)), v(E_uintEq)));
 // }
 
+// E_listContains {
+E_assert(E_not(E_listContains(E_nil(), v(1), v(E_uintEq))));
+E_assert(E_listContains(E_list(v(1, 2, 3)), v(1), v(E_uintEq)));
+E_assert(E_listContains(E_list(v(1, 2, 3)), v(2), v(E_uintEq)));
+E_assert(E_listContains(E_list(v(1, 2, 3)), v(3), v(E_uintEq)));
+E_assert(E_not(E_listContains(E_list(v(1, 2, 3)), v(187), v(E_uintEq))));
+// }
+
+// E_listTake {
+E_assert(E_listEq(E_listTake(E_nil(), v(1)), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listTake(E_nil(), v(800)), E_nil(), v(E_uintEq)));
+
+E_assert(E_listEq(E_listTake(E_list(v(1, 2, 3)), v(1)), E_list(v(1)), v(E_uintEq)));
+E_assert(E_listEq(E_listTake(E_list(v(1, 2, 3)), v(2)), E_list(v(1, 2)), v(E_uintEq)));
+E_assert(E_listEq(E_listTake(E_list(v(1, 2, 3)), v(3)), E_list(v(1, 2, 3)), v(E_uintEq)));
+// }
+
+// E_listTakeWhile {
+E_assert(E_listEq(E_listTakeWhile(E_nil(), E_appl(E_uintLesser, v(5))), E_nil(), v(E_uintEq)));
+E_assert(
+    E_listEq(E_listTakeWhile(E_list(v(7)), E_appl(E_uintGreater, v(5))), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listTakeWhile(E_list(v(1, 9, 7)), E_appl(E_uintGreater, v(5))), E_list(v(1)), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listTakeWhile(E_list(v(4, 9, 2, 3)), E_appl(E_uintGreater, v(5))), E_list(v(4)),
+    v(E_uintEq)));
+E_assert(E_listEq(
+    E_listTakeWhile(E_list(v(2, 4, 7, 9, 28)), E_appl(E_uintGreater, v(5))), E_list(v(2, 4)),
+    v(E_uintEq)));
+// }
+
+// E_listDrop {
+E_assert(E_listEq(E_listDrop(E_nil(), v(1)), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listDrop(E_nil(), v(800)), E_nil(), v(E_uintEq)));
+
+E_assert(E_listEq(E_listDrop(E_list(v(1, 2, 3)), v(1)), E_list(v(2, 3)), v(E_uintEq)));
+E_assert(E_listEq(E_listDrop(E_list(v(1, 2, 3)), v(2)), E_list(v(3)), v(E_uintEq)));
+E_assert(E_listEq(E_listDrop(E_list(v(1, 2, 3)), v(3)), E_nil(), v(E_uintEq)));
+// }
+
+// E_listDropWhile {
+E_assert(E_listEq(E_listDropWhile(E_nil(), E_appl(E_uintLesser, v(5))), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listDropWhile(E_list(v(7)), E_appl(E_uintGreater, v(5))), E_list(v(7)), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listDropWhile(E_list(v(1, 9, 7)), E_appl(E_uintGreater, v(5))), E_list(v(9, 7)),
+    v(E_uintEq)));
+E_assert(E_listEq(
+    E_listDropWhile(E_list(v(4, 9, 2, 3)), E_appl(E_uintGreater, v(5))), E_list(v(9, 2, 3)),
+    v(E_uintEq)));
+E_assert(E_listEq(
+    E_listDropWhile(E_list(v(2, 4, 7, 9, 28)), E_appl(E_uintGreater, v(5))), E_list(v(7, 9, 28)),
+    v(E_uintEq)));
+// }
+
 #define DIV_IMPL(x, acc)   v(acc / x)
 #define DIV_L_IMPL(x, acc) v(x / acc)
 #define SUB_IMPL(acc, x)   v(acc - x)
