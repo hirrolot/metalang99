@@ -52,7 +52,7 @@
 /**
  * Evaluates a metaprogram that reduces to a list, then unwraps it.
  */
-#define EPILEPSY_listEval(...) EPILEPSY_call(EPILEPSY_listUnwrap(__VA_ARGS__))
+#define EPILEPSY_listEval(...) EPILEPSY_eval(EPILEPSY_call(EPILEPSY_listUnwrap, __VA_ARGS__))
 
 /**
  * Places all the items in @p list as-is.
