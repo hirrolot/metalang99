@@ -30,10 +30,10 @@ control.h
 .. doxygenfile:: control.h
    :project: Epilepsy
 
-record.h
+tuple.h
 ====================================
 
-.. doxygenfile:: record.h
+.. doxygenfile:: tuple.h
    :project: Epilepsy
 
 choice.h

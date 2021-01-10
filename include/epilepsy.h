@@ -15,7 +15,7 @@
 #include <epilepsy/list.h>
 #include <epilepsy/maybe.h>
 #include <epilepsy/overload.h>
-#include <epilepsy/record.h>
+#include <epilepsy/tuple.h>
 #include <epilepsy/uint.h>
 #include <epilepsy/variadics.h>
 
