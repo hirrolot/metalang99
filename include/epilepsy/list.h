@@ -55,6 +55,11 @@
 #define EPILEPSY_listEval(...) EPILEPSY_eval(EPILEPSY_call(EPILEPSY_listUnwrap, __VA_ARGS__))
 
 /**
+ * Appends @p other to @p list.
+ */
+#define EPILEPSY_listAppend(list, other) EPILEPSY_call(EPILEPSY_listAppend, list other)
+
+/**
  * Places all the items in @p list as-is.
  */
 #define EPILEPSY_listUnwrap(list) EPILEPSY_call(EPILEPSY_listUnwrap, list)
@@ -153,7 +158,7 @@
 // EPILEPSY_listInit_IMPL {
 #define EPILEPSY_listInit_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listInit_))
 // clang-format off
-#define EPILEPSY_PRIV_listInit_nil_IMPL(_acc) EPILEPSY_fatal(EPILEPSY_listInit, expected a non-empty list)
+#define EPILEPSY_PRIV_listInit_nil_IMPL() EPILEPSY_fatal(EPILEPSY_listInit, expected a non-empty list)
 // clang-format on
 #define EPILEPSY_PRIV_listInit_cons_IMPL(x, xs)                                                    \
     EPILEPSY_ifLazy(                                                                               \
@@ -185,6 +190,12 @@
     EPILEPSY_cons(                                                                                 \
         v(x), EPILEPSY_call(EPILEPSY_PRIV_list_AUX, EPILEPSY_uintDec(v(count)) v(__VA_ARGS__)))
 // }
+
+#define EPILEPSY_listAppend_IMPL(list, other)                                                      \
+    EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listAppend_), v(other))
+#define EPILEPSY_PRIV_listAppend_nil_IMPL(other) v(other)
+#define EPILEPSY_PRIV_listAppend_cons_IMPL(x, xs, other)                                           \
+    EPILEPSY_cons(v(x), EPILEPSY_listAppend(v(xs), v(other)))
 
 #define EPILEPSY_listIsEmpty_IMPL(list)              EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listIsEmpty_))
 #define EPILEPSY_PRIV_listIsEmpty_nil_IMPL()         v(1)
@@ -284,6 +295,7 @@
 #define EPILEPSY_listLast_ARITY         1
 #define EPILEPSY_listInit_ARITY         1
 #define EPILEPSY_list_ARITY             1
+#define EPILEPSY_listAppend_ARITY       2
 #define EPILEPSY_listUnwrap_ARITY       1
 #define EPILEPSY_listIsEmpty_ARITY      1
 #define EPILEPSY_listGet_ARITY          2
@@ -312,6 +324,7 @@
 #define E_listLast         EPILEPSY_listLast
 #define E_listInit         EPILEPSY_listInit
 #define E_list             EPILEPSY_list
+#define E_listAppend       EPILEPSY_listAppend
 #define E_listUnwrap       EPILEPSY_listUnwrap
 #define E_listIsEmpty      EPILEPSY_listIsEmpty
 #define E_listGet          EPILEPSY_listGet
