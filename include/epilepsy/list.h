@@ -107,7 +107,7 @@
 /**
  * Applies all the items in @p list to @p f.
  */
-#define EPILEPSY_listApply(list, f) EPILEPSY_call(EPILEPSY_listApply, list f)
+#define EPILEPSY_listAppl(list, f) EPILEPSY_call(EPILEPSY_listAppl, list f)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -192,21 +192,15 @@
 // EPILEPSY_listGet_IMPL {
 #define EPILEPSY_listGet_IMPL(list, i)                                                             \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listGet_), v(i))
-
 // clang-format off
-#define EPILEPSY_PRIV_listGet_nil_IMPL(i)                                                          \
-    EPILEPSY_fatal(EPILEPSY_listGet, expected a non-empty list)
+#define EPILEPSY_PRIV_listGet_nil_IMPL(i) EPILEPSY_fatal(EPILEPSY_listGet, expected a non-empty list)
 // clang-format on
 #define EPILEPSY_PRIV_listGet_cons_IMPL(x, xs, i)                                                  \
     EPILEPSY_ifLazy(                                                                               \
         EPILEPSY_uintEq(v(i), v(0)),                                                               \
-        v(EPILEPSY_PRIV_listGet_cons_DONE),                                                        \
-        v(EPILEPSY_PRIV_listGet_cons_PROGRESS),                                                    \
-        v(x, xs, i))
-
-#define EPILEPSY_PRIV_listGet_cons_DONE_IMPL(x, _xs, _i) v(x)
-#define EPILEPSY_PRIV_listGet_cons_PROGRESS_IMPL(_x, xs, i)                                        \
-    EPILEPSY_listGet(v(xs), EPILEPSY_uintDec(v(i)))
+        EPILEPSY_appl(EPILEPSY_const, v(x)),                                                       \
+        EPILEPSY_appl(EPILEPSY_listGet, v(xs)),                                                    \
+        EPILEPSY_uintDec(v(i)))
 // }
 
 #define EPILEPSY_listFoldr_IMPL(list, f, init)                                                     \
@@ -264,7 +258,7 @@
         v(xs, other_xs, compare))
 // }
 
-#define EPILEPSY_listApply_IMPL(list, f) EPILEPSY_listFoldl(v(list), v(EPILEPSY_appl), v(f))
+#define EPILEPSY_listAppl_IMPL(list, f) EPILEPSY_listFoldl(v(list), v(EPILEPSY_appl), v(f))
 // } (Implementation)
 
 // Arity specifiers {
@@ -285,13 +279,11 @@
 #define EPILEPSY_listPrependToAll_ARITY 2
 #define EPILEPSY_listMap_ARITY          2
 #define EPILEPSY_listEq_ARITY           3
-#define EPILEPSY_listApply_ARITY        2
+#define EPILEPSY_listAppl_ARITY         2
 
-#define EPILEPSY_PRIV_listInit_PROGRESS_ARITY     2
-#define EPILEPSY_PRIV_list_DONE_ARITY             1
-#define EPILEPSY_PRIV_list_PROGRESS_ARITY         2
-#define EPILEPSY_PRIV_listGet_cons_DONE_ARITY     3
-#define EPILEPSY_PRIV_listGet_cons_PROGRESS_ARITY 3
+#define EPILEPSY_PRIV_listInit_PROGRESS_ARITY 2
+#define EPILEPSY_PRIV_list_DONE_ARITY         1
+#define EPILEPSY_PRIV_list_PROGRESS_ARITY     2
 // }
 
 // Aliases {
@@ -314,7 +306,7 @@
 #define E_listPrependToAll EPILEPSY_listPrependToAll
 #define E_listMap          EPILEPSY_listMap
 #define E_listEq           EPILEPSY_listEq
-#define E_listApply        EPILEPSY_listApply
+#define E_listAppl         EPILEPSY_listAppl
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
