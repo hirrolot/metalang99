@@ -10,7 +10,7 @@
 
 // Desugaring {
 /**
- * constructs an instance of a record type.
+ * Constructs an instance of a record type.
  */
 #define EPILEPSY_record(...) EPILEPSY_call(EPILEPSY_record, __VA_ARGS__)
 

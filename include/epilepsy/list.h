@@ -45,9 +45,14 @@
 #define EPILEPSY_listInit(list) EPILEPSY_call(EPILEPSY_listInit, list)
 
 /**
- * constructs a list from its arguments.
+ * Constructs a list from its arguments.
  */
 #define EPILEPSY_list(...) EPILEPSY_call(EPILEPSY_list, __VA_ARGS__)
+
+/**
+ * Computes the length of @p list.
+ */
+#define EPILEPSY_listLen(list) EPILEPSY_call(EPILEPSY_listLen, list)
 
 /**
  * Evaluates a metaprogram that reduces to a list, then unwraps it.
@@ -191,6 +196,10 @@
         v(x), EPILEPSY_call(EPILEPSY_PRIV_list_AUX, EPILEPSY_uintDec(v(count)) v(__VA_ARGS__)))
 // }
 
+#define EPILEPSY_listLen_IMPL(list)            EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listLen_))
+#define EPILEPSY_PRIV_listLen_nil_IMPL()       v(0)
+#define EPILEPSY_PRIV_listLen_cons_IMPL(x, xs) EPILEPSY_uintInc(EPILEPSY_listLen(v(xs)))
+
 #define EPILEPSY_listAppend_IMPL(list, other)                                                      \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listAppend_), v(other))
 #define EPILEPSY_PRIV_listAppend_nil_IMPL(other) v(other)
@@ -295,6 +304,7 @@
 #define EPILEPSY_listLast_ARITY         1
 #define EPILEPSY_listInit_ARITY         1
 #define EPILEPSY_list_ARITY             1
+#define EPILEPSY_listLen_ARITY          1
 #define EPILEPSY_listAppend_ARITY       2
 #define EPILEPSY_listUnwrap_ARITY       1
 #define EPILEPSY_listIsEmpty_ARITY      1
@@ -324,6 +334,7 @@
 #define E_listLast         EPILEPSY_listLast
 #define E_listInit         EPILEPSY_listInit
 #define E_list             EPILEPSY_list
+#define E_listLen          EPILEPSY_listLen
 #define E_listAppend       EPILEPSY_listAppend
 #define E_listUnwrap       EPILEPSY_listUnwrap
 #define E_listIsEmpty      EPILEPSY_listIsEmpty

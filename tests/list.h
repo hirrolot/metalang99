@@ -26,6 +26,13 @@ E_assert(E_listEq(E_listInit(E_list(v(1, 2))), E_list(v(1)), v(E_uintEq)));
 E_assert(E_listEq(E_listInit(E_list(v(1, 2, 3))), E_list(v(1, 2)), v(E_uintEq)));
 // }
 
+// E_listLen {
+E_assertEq(E_listLen(E_nil()), v(0));
+E_assertEq(E_listLen(E_list(v(123))), v(1));
+E_assertEq(E_listLen(E_list(v(123, 456))), v(2));
+E_assertEq(E_listLen(E_list(v(123, 456, 789))), v(3));
+// }
+
 // E_listAppend {
 E_assert(E_listEq(E_listAppend(E_nil(), E_nil()), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(E_listAppend(E_nil(), E_list(v(1, 2, 3))), E_list(v(1, 2, 3)), v(E_uintEq)));

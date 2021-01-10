@@ -14,7 +14,7 @@
 
 // Desugaring {
 /**
- * constructs an instance of a choice type.
+ * Constructs an instance of a choice type.
  */
 #define EPILEPSY_choice(tag, ...) EPILEPSY_call(EPILEPSY_choice, tag __VA_ARGS__)
 
