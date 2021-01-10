@@ -59,3 +59,9 @@ E_eval(E_consume(v(a) v(b) v(c))) E_eval(E_consume(v(NULL "hey") v(131.415) v(bo
 
     #undef CHECK_EMPTY
     */
+
+    E_assertEq(E_if(v(1), v(24), v(848)), v(24));
+E_assertEq(E_if(v(1), v(1549), v(1678)), v(1549));
+
+E_assertEq(E_if(v(0), v(516), v(115)), v(115));
+E_assertEq(E_if(v(0), v(10), v(6)), v(6));

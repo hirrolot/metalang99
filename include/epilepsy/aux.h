@@ -65,6 +65,11 @@
 #define EPILEPSY_const3(x, a, b, c) EPILEPSY_call(EPILEPSY_const2, x a b c)
 
 /**
+ * If @p cond is true, expands to @p x, otherwise @p y.
+ */
+#define EPILEPSY_if(cond, x, y) EPILEPSY_call(EPILEPSY_if, cond x y)
+
+/**
  * The same as #EPILEPSY_cat but implemented as an ordinary macro.
  */
 #define EPILEPSY_catPlain(x, y) EPILEPSY_catPrimitive(x, y)
@@ -129,6 +134,7 @@
 #define EPILEPSY_const_IMPL(x, _a)          v(x)
 #define EPILEPSY_const2_IMPL(x, _a, _b)     v(x)
 #define EPILEPSY_const3_IMPL(x, _a, _b, _c) v(x)
+#define EPILEPSY_if_IMPL(cond, x, y)        v(EPILEPSY_PRIV_IF(cond, x, y))
 // }
 
 // Arity specifiers {
@@ -143,6 +149,7 @@
 #define EPILEPSY_const_ARITY          2
 #define EPILEPSY_const2_ARITY         3
 #define EPILEPSY_const3_ARITY         4
+#define EPILEPSY_if_ARITY             3
 // }
 
 // Aliases {
@@ -159,6 +166,7 @@
 #define E_const          EPILEPSY_const
 #define E_const2         EPILEPSY_const2
 #define E_const3         EPILEPSY_const3
+#define E_if             EPILEPSY_if
 
 #define E_catPlain            EPILEPSY_catPlain
 #define E_catPrimitive        EPILEPSY_catPrimitive

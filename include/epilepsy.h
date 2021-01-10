@@ -9,7 +9,6 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/aux.h>
 #include <epilepsy/choice.h>
-#include <epilepsy/control.h>
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/list.h>
