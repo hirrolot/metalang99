@@ -24,12 +24,6 @@ lang.h
 .. doxygenfile:: lang.h
    :project: Epilepsy
 
-control.h
-====================================
-
-.. doxygenfile:: control.h
-   :project: Epilepsy
-
 tuple.h
 ====================================
 
