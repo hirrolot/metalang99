@@ -60,14 +60,24 @@
 #define EPILEPSY_listEval(...) EPILEPSY_eval(EPILEPSY_call(EPILEPSY_listUnwrap, __VA_ARGS__))
 
 /**
- * Appends @p other to @p list.
+ * Appends the list @p other to @p list.
  */
 #define EPILEPSY_listAppend(list, other) EPILEPSY_call(EPILEPSY_listAppend, list other)
+
+/**
+ * Appends the item @p item to @p list.
+ */
+#define EPILEPSY_listAppendItem(list, item) EPILEPSY_call(EPILEPSY_listAppendItem, list item)
 
 /**
  * Places all the items in @p list as-is.
  */
 #define EPILEPSY_listUnwrap(list) EPILEPSY_call(EPILEPSY_listUnwrap, list)
+
+/**
+ * Reverses the order of items in @p list.
+ */
+#define EPILEPSY_listReverse(list) EPILEPSY_call(EPILEPSY_listReverse, list)
 
 /**
  * Checks @p list for emptiness.
@@ -206,6 +216,8 @@
 #define EPILEPSY_PRIV_listAppend_cons_IMPL(x, xs, other)                                           \
     EPILEPSY_cons(v(x), EPILEPSY_listAppend(v(xs), v(other)))
 
+#define EPILEPSY_listAppendItem_IMPL(list, item) EPILEPSY_listAppend(v(list), E_list(v(item)))
+
 #define EPILEPSY_listIsEmpty_IMPL(list)              EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listIsEmpty_))
 #define EPILEPSY_PRIV_listIsEmpty_nil_IMPL()         v(1)
 #define EPILEPSY_PRIV_listIsEmpty_cons_IMPL(_x, _xs) v(0)
@@ -213,6 +225,11 @@
 #define EPILEPSY_listUnwrap_IMPL(list)            EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listUnwrap_))
 #define EPILEPSY_PRIV_listUnwrap_nil_IMPL()       EPILEPSY_empty()
 #define EPILEPSY_PRIV_listUnwrap_cons_IMPL(x, xs) v(x) EPILEPSY_listUnwrap(v(xs))
+
+#define EPILEPSY_listReverse_IMPL(list)      EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listReverse_))
+#define EPILEPSY_PRIV_listReverse_nil_IMPL() EPILEPSY_nil()
+#define EPILEPSY_PRIV_listReverse_cons_IMPL(x, xs)                                                 \
+    EPILEPSY_listAppendItem(EPILEPSY_listReverse(v(xs)), v(x))
 
 // EPILEPSY_listGet_IMPL {
 #define EPILEPSY_listGet_IMPL(list, i)                                                             \
@@ -243,8 +260,7 @@
 #define EPILEPSY_listFoldl1_IMPL(list, f)                                                          \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFoldl1_), v(f))
 // clang-format off
-#define EPILEPSY_PRIV_listFoldl1_nil_IMPL(_f)                                                      \
-    EPILEPSY_fatal(EPILEPSY_listFoldl1, expected a non-empty list)
+#define EPILEPSY_PRIV_listFoldl1_nil_IMPL(_f) EPILEPSY_fatal(EPILEPSY_listFoldl1, expected a non-empty list)
 // clang-format on
 #define EPILEPSY_PRIV_listFoldl1_cons_IMPL(x, xs, f) EPILEPSY_listFoldl(v(xs), v(f), v(x))
 
@@ -306,7 +322,9 @@
 #define EPILEPSY_list_ARITY             1
 #define EPILEPSY_listLen_ARITY          1
 #define EPILEPSY_listAppend_ARITY       2
+#define EPILEPSY_listAppendItem_ARITY   2
 #define EPILEPSY_listUnwrap_ARITY       1
+#define EPILEPSY_listReverse_ARITY      1
 #define EPILEPSY_listIsEmpty_ARITY      1
 #define EPILEPSY_listGet_ARITY          2
 #define EPILEPSY_listFoldr_ARITY        3
@@ -336,7 +354,9 @@
 #define E_list             EPILEPSY_list
 #define E_listLen          EPILEPSY_listLen
 #define E_listAppend       EPILEPSY_listAppend
+#define E_listAppendItem   EPILEPSY_listAppendItem
 #define E_listUnwrap       EPILEPSY_listUnwrap
+#define E_listReverse      EPILEPSY_listReverse
 #define E_listIsEmpty      EPILEPSY_listIsEmpty
 #define E_listGet          EPILEPSY_listGet
 #define E_listFoldr        EPILEPSY_listFoldr

@@ -43,6 +43,17 @@ E_assert(E_listEq(
     v(E_uintEq)));
 // }
 
+// E_listAppendItem {
+E_assert(E_listEq(E_listAppendItem(E_nil(), v(123)), E_list(v(123)), v(E_uintEq)));
+E_assert(
+    E_listEq(E_listAppendItem(E_list(v(1, 2, 3)), v(456)), E_list(v(1, 2, 3, 456)), v(E_uintEq)));
+// }
+
+// E_listReverse {
+E_assert(E_listEq(E_listReverse(E_nil()), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listReverse(E_list(v(1, 2, 3))), E_list(v(3, 2, 1)), v(E_uintEq)));
+// }
+
 #define DIV_IMPL(x, acc)   v(acc / x)
 #define DIV_L_IMPL(x, acc) v(x / acc)
 #define SUB_IMPL(acc, x)   v(acc - x)
