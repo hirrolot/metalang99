@@ -62,3 +62,9 @@ E_assertEq(E_listEq(E_list(v(0, 5, 6, 6)), E_list(v(6, 7)), v(E_uintEq)), v(0));
 E_assert(E_listEq(
     E_listMap(E_list(v(1, 2, 3)), E_appl(E_uintAdd, v(3))), E_list(v(4, 5, 6)), v(E_uintEq)));
 // }
+
+// E_listFilter {
+E_assert(E_listEq(
+    E_listFilter(E_list(v(14, 0, 1, 7, 2, 65, 3)), E_appl(E_uintLesser, v(3))),
+    E_list(v(14, 7, 65)), v(E_uintEq)));
+// }

@@ -100,6 +100,11 @@
 #define EPILEPSY_listMap(list, f) EPILEPSY_call(EPILEPSY_listMap, list f)
 
 /**
+ * Filters @p list with @p f.
+ */
+#define EPILEPSY_listFilter(list, f) EPILEPSY_call(EPILEPSY_listFilter, list f)
+
+/**
  * Checks @p list and @p other for equality.
  */
 #define EPILEPSY_listEq(list, other, compare) EPILEPSY_call(EPILEPSY_listEq, list other compare)
@@ -241,6 +246,16 @@
 #define EPILEPSY_PRIV_listMap_cons_IMPL(x, xs, f)                                                  \
     EPILEPSY_cons(EPILEPSY_appl(v(f), v(x)), EPILEPSY_listMap(v(xs), v(f)))
 
+#define EPILEPSY_listFilter_IMPL(list, f)                                                          \
+    EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFilter_), v(f))
+#define EPILEPSY_PRIV_listFilter_nil_IMPL(_f) EPILEPSY_nil()
+#define EPILEPSY_PRIV_listFilter_cons_IMPL(x, xs, f)                                               \
+    EPILEPSY_ifLazy(                                                                               \
+        EPILEPSY_appl(v(f), v(x)),                                                                 \
+        EPILEPSY_appl(EPILEPSY_cons, v(x)),                                                        \
+        v(EPILEPSY_id),                                                                            \
+        EPILEPSY_listFilter(v(xs), v(f)))
+
 // EPILEPSY_listEq_IMPL {
 #define EPILEPSY_listEq_IMPL(list, other, compare)                                                 \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listEq_), v(other, compare))
@@ -278,6 +293,7 @@
 #define EPILEPSY_listIntersperse_ARITY  2
 #define EPILEPSY_listPrependToAll_ARITY 2
 #define EPILEPSY_listMap_ARITY          2
+#define EPILEPSY_listFilter_ARITY       2
 #define EPILEPSY_listEq_ARITY           3
 #define EPILEPSY_listAppl_ARITY         2
 
@@ -305,6 +321,7 @@
 #define E_listIntersperse  EPILEPSY_listIntersperse
 #define E_listPrependToAll EPILEPSY_listPrependToAll
 #define E_listMap          EPILEPSY_listMap
+#define E_listFilter       EPILEPSY_listFilter
 #define E_listEq           EPILEPSY_listEq
 #define E_listAppl         EPILEPSY_listAppl
 
