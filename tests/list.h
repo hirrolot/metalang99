@@ -1,4 +1,5 @@
 #include <epilepsy/assert.h>
+#include <epilepsy/aux.h>
 #include <epilepsy/list.h>
 #include <epilepsy/uint.h>
 
@@ -201,7 +202,7 @@ E_assert(E_listEq(
 
 // E_listFoldr {
 E_assertEq(E_listFoldr(E_nil(), v(E_cat), v(7)), v(7));
-// TODO: flip. E_assert(E_listFoldr(E_list(v(G, DEF, BC)), v(E_cat), v(A)));
+E_assert(E_listFoldr(E_list(v(G, DEF, BC)), E_appl(E_flip, v(E_cat)), v(A)));
 // }
 
 // E_listFoldl {
