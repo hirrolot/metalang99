@@ -62,6 +62,11 @@
 #define EPILEPSY_PRIV_appl_TERM(f, _emptiness, ...) EPILEPSY_call(EPILEPSY_appl, f, __VA_ARGS__)
 //
 
+// Arity specifiers {
+#define EPILEPSY_appl_ARITY  2
+#define EPILEPSY_appl2_ARITY 3
+// }
+
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 

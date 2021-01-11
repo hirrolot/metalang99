@@ -2,6 +2,8 @@
 #include <epilepsy/list.h>
 #include <epilepsy/uint.h>
 
+#include "assert_empty.h"
+
 // E_listHead {
 E_assertEq(E_listHead(E_list(v(1))), v(1));
 E_assertEq(E_listHead(E_list(v(1, 2))), v(1));
@@ -60,6 +62,22 @@ E_assert(E_listContains(E_list(v(1, 2, 3)), v(1), v(E_uintEq)));
 E_assert(E_listContains(E_list(v(1, 2, 3)), v(2), v(E_uintEq)));
 E_assert(E_listContains(E_list(v(1, 2, 3)), v(3), v(E_uintEq)));
 E_assert(E_not(E_listContains(E_list(v(1, 2, 3)), v(187), v(E_uintEq))));
+// }
+
+// E_listUnwrap {
+ASSERT_EMPTY(E_eval(E_listUnwrap(E_nil())));
+E_assertEq(E_listUnwrap(E_list(v(18, +, 3, +, 6))), v(18 + 3 + 6));
+// }
+
+// E_listIsEmpty {
+E_assert(E_listIsEmpty(E_nil()));
+E_assert(E_not(E_listIsEmpty(E_list(v(123)))));
+E_assert(E_not(E_listIsEmpty(E_list(v(8, 289, 10, 0, 122)))));
+// }
+
+// E_get {
+E_assertEq(E_listGet(E_list(v(123, 456)), v(0)), v(123));
+E_assertEq(E_listGet(E_list(v(123, 456)), v(1)), v(456));
 // }
 
 // E_listTake {
@@ -149,44 +167,58 @@ E_assert(E_listEq(E_get(LIST, v(1)), E_list(v(4, 5)), v(E_uintEq)));
 #undef LIST
 // }
 
-#define DIV_IMPL(x, acc)   v(acc / x)
-#define DIV_L_IMPL(x, acc) v(x / acc)
-#define SUB_IMPL(acc, x)   v(acc - x)
-
-#define DIV_ARITY   2
-#define DIV_L_ARITY 2
-#define SUB_ARITY   2
-
-E_assertEq(E_listFoldr(E_list(v(2) v(5) v(3)), v(DIV), v(60)), v(60 / 3 / 5 / 2));
-E_assertEq(E_listFoldl(E_list(v(3) v(4) v(1)), v(SUB), v(10)), v(10 - 3 - 4 - 1));
-E_assertEq(E_listFoldl1(E_list(v(2280) v(8) v(5) v(3)), v(DIV_L)), v(2280 / 8 / 5 / 3));
-E_assertEq(E_listGet(E_list(v(9) v(81) v(711)), v(1)), v(81));
-
-E_assertEq(v(0) E_listUnwrap(E_listPrependToAll(E_list(v(1) v(2) v(3)), v(+))), v(1 + 2 + 3));
-
-E_assertEq(E_listUnwrap(E_listIntersperse(E_list(v(1) v(2) v(3)), v(+))), v(1 + 2 + 3));
-
-#undef DIV_IMPL
-#undef DIV_L_IMPL
-#undef SUB_IMPL
-
-#undef DIV_ARITY
-#undef DIV_L_ARITY
-#undef SUB_ARITY
-
 // E_listEq {
+E_assert(E_listEq(E_nil(), E_nil(), v(E_uintEq)));
+E_assert(E_not(E_listEq(E_nil(), E_list(v(25, 88, 1)), v(E_uintEq))));
+E_assert(E_not(E_listEq(E_list(v(25, 88, 1)), E_nil(), v(E_uintEq))));
+
 E_assert(E_listEq(E_list(v(1, 2, 3)), E_list(v(1, 2, 3)), v(E_uintEq)));
-E_assertEq(E_listEq(E_list(v(1, 2, 3)), E_list(v(1)), v(E_uintEq)), v(0));
-E_assertEq(E_listEq(E_list(v(1)), E_list(v(1, 2, 3)), v(E_uintEq)), v(0));
-E_assertEq(E_listEq(E_list(v(0, 5, 6, 6)), E_list(v(6, 7)), v(E_uintEq)), v(0));
+E_assert(E_not(E_listEq(E_list(v(1, 2, 3)), E_list(v(1)), v(E_uintEq))));
+E_assert(E_not(E_listEq(E_list(v(1)), E_list(v(1, 2, 3)), v(E_uintEq))));
+E_assert(E_not(E_listEq(E_list(v(0, 5, 6, 6)), E_list(v(6, 7)), v(E_uintEq))));
 // }
 
+// E_listAppl {
+E_assertEq(E_call(E_listAppl(E_nil(), v(E_uintAdd)), v(6, 9)), v(6 + 9));
+E_assertEq(E_appl(E_listAppl(E_list(v(6)), v(E_uintAdd)), v(9)), v(6 + 9));
+E_assertEq(E_listAppl(E_list(v(6, 9)), v(E_uintAdd)), v(6 + 9));
+// }
+
+// E_listPrependToAll {
+E_assert(E_listEq(E_listPrependToAll(E_nil(), v(+)), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listPrependToAll(E_list(v(5, 9, 22)), v(888)), E_list(v(888, 5, 888, 9, 888, 22)),
+    v(E_uintEq)));
+// }
+
+// E_listIntersperse {
+E_assert(E_listEq(E_listIntersperse(E_nil(), v(+)), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listIntersperse(E_list(v(5, 9, 22)), v(888)), E_list(v(5, 888, 9, 888, 22)), v(E_uintEq)));
+// }
+
+#define ABCDEFG 1
+
+// E_listFoldr {
+E_assertEq(E_listFoldr(E_nil(), v(E_cat), v(7)), v(7));
+// TODO: flip. E_assert(E_listFoldr(E_list(v(G, DEF, BC)), v(E_cat), v(A)));
+// }
+
+// E_listFoldl {
+E_assertEq(E_listFoldl(E_nil(), v(E_cat), v(7)), v(7));
+E_assert(E_listFoldl(E_list(v(BC, DEF, G)), v(E_cat), v(A)));
+// }
+
+#undef ABCDEFG
+
 // E_listMap {
+E_assert(E_listEq(E_listMap(E_nil(), E_appl(E_uintAdd, v(3))), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
     E_listMap(E_list(v(1, 2, 3)), E_appl(E_uintAdd, v(3))), E_list(v(4, 5, 6)), v(E_uintEq)));
 // }
 
 // E_listFilter {
+E_assert(E_listEq(E_listFilter(E_nil(), E_appl(E_uintAdd, v(3))), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
     E_listFilter(E_list(v(14, 0, 1, 7, 2, 65, 3)), E_appl(E_uintLesser, v(3))),
     E_list(v(14, 7, 65)), v(E_uintEq)));

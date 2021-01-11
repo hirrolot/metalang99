@@ -293,13 +293,13 @@
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFoldr_), v(f, init))
 #define EPILEPSY_PRIV_listFoldr_nil_IMPL(_f, acc) v(acc)
 #define EPILEPSY_PRIV_listFoldr_cons_IMPL(x, xs, f, acc)                                           \
-    EPILEPSY_variadicsAppl(v(f), v(x) EPILEPSY_listFoldr(v(xs), v(f), v(acc)))
+    EPILEPSY_appl2(v(f), v(x), EPILEPSY_listFoldr(v(xs), v(f), v(acc)))
 
 #define EPILEPSY_listFoldl_IMPL(list, f, init)                                                     \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFoldl_), v(f, init))
 #define EPILEPSY_PRIV_listFoldl_nil_IMPL(_f, acc) v(acc)
 #define EPILEPSY_PRIV_listFoldl_cons_IMPL(x, xs, f, acc)                                           \
-    EPILEPSY_listFoldl(v(xs), v(f), EPILEPSY_variadicsAppl(v(f), v(acc, x)))
+    EPILEPSY_listFoldl(v(xs), v(f), EPILEPSY_appl2(v(f), v(acc), v(x)))
 
 #define EPILEPSY_listFoldl1_IMPL(list, f)                                                          \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFoldl1_), v(f))
