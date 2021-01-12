@@ -22,12 +22,6 @@
 #define EPILEPSY_appl2(f, a, b) EPILEPSY_call(EPILEPSY_appl2, f a b)
 
 /**
- * Applies arguments to @p f with the arity @p arity.
- */
-#define EPILEPSY_applWithArity(f, arity, ...)                                                      \
-    EPILEPSY_call(EPILEPSY_applWithArity, f arity __VA_ARGS__)
-
-/**
  * Represents a <a href="https://en.wikipedia.org/wiki/Beta_normal_form">normal form</a> of an
  * Epilepsy term.
  */
