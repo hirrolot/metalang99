@@ -26,9 +26,7 @@
 // Implementation {
 #define EPILEPSY_overload_IMPL(f, ...) v(EPILEPSY_PRIV_OVERLOAD(f, __VA_ARGS__))
 #define EPILEPSY_overloadCall_IMPL(f, ...)                                                         \
-    EPILEPSY_PRIV_overloadCall_AUX(f, EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__)
-#define EPILEPSY_PRIV_overloadCall_AUX(f, arity, ...)                                              \
-    EPILEPSY_variadicsApplWithArity(v(EPILEPSY_PRIV_CAT(f, arity)), v(arity), v(__VA_ARGS__))
+    EPILEPSY_call(EPILEPSY_PRIV_CAT(f, EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__)), v(__VA_ARGS__))
 // }
 
 // Arity specifiers {
