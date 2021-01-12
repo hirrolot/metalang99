@@ -33,7 +33,7 @@
  * @code
  * #include <epilepsy/assert.h>
  *
- * EPILEPSY_assertEq(v(123), v(123));
+ * E_assertEq(v(123), v(123));
  * @endcode
  */
 #define EPILEPSY_assertEq(lhs, rhs) EPILEPSY_assertPlain(EPILEPSY_eval(lhs) == EPILEPSY_eval(rhs))
@@ -47,7 +47,7 @@
  * @code
  * #include <epilepsy/assert.h>
  *
- * EPILEPSY_assertPlain(123 == 123);
+ * E_assertPlain(123 == 123);
  * @endcode
  */
 #define EPILEPSY_assertPlain(expr)                                                                 \
@@ -57,15 +57,38 @@
 
 /**
  * Asserts that `EPILEPSY_eval(expr)` is emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/assert.h>
+ *
+ * // Passes:
+ * E_assertEmpty(v());
+ *
+ * // Fails:
+ * E_assertEmpty(v(123));
+ * @endcode
  */
 #define EPILEPSY_assertEmpty(expr) EPILEPSY_assertEmptyPlain(EPILEPSY_eval(expr))
 
 /**
  * Asserts that @p expr is emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/assert.h>
+ *
+ * // Passes:
+ * E_assertEmptyPlain();
+ *
+ * // Fails:
+ * E_assertEmptyPlain(123);
+ * @endcode
  */
 #define EPILEPSY_assertEmptyPlain(expr)                                                            \
     EPILEPSY_assertPlain(EPILEPSY_catPlain(EPILEPSY_PRIV_assertEmpty_, expr))
-#define EPILEPSY_PRIV_assertEmpty_ 1
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -75,6 +98,8 @@
 #else
 #define EPILEPSY_PRIV_ATTR_UNUSED
 #endif
+
+#define EPILEPSY_PRIV_assertEmpty_ 1
 
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
