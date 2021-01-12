@@ -1,15 +1,6 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/aux.h>
 
-#define CHECK_EMPTY(unique_fn_id, empty)                                                           \
-    inline empty static empty void empty test_empty_##unique_fn_id empty(empty void empty) empty { \
-        empty const empty char empty c empty = empty 'A' empty;                                    \
-        empty(empty void empty) empty c empty;                                                     \
-        empty(empty void empty) empty test_empty_##unique_fn_id empty;                             \
-        empty                                                                                      \
-    }                                                                                              \
-    empty
-
 // E_stringify
 
 static const char stringified[] = E_eval(E_stringify(v(hello)));
@@ -26,9 +17,7 @@ inline static void test_cat(void) {
     abc++;
 }
 
-#define EMPTY E_eval(E_cat(v(), v()))
-CHECK_EMPTY(0, EMPTY)
-#undef EMPTY
+E_assertEmpty(E_cat(v(), v()));
 
 // E_consume
 

@@ -54,6 +54,18 @@
     /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
     static const char EPILEPSY_catPlain(                                                           \
         epilepsy_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_ATTR_UNUSED
+
+/**
+ * Asserts that `EPILEPSY_eval(expr)` is emptiness.
+ */
+#define EPILEPSY_assertEmpty(expr) EPILEPSY_assertEmptyPlain(EPILEPSY_eval(expr))
+
+/**
+ * Asserts that @p expr is emptiness.
+ */
+#define EPILEPSY_assertEmptyPlain(expr)                                                            \
+    EPILEPSY_assertPlain(EPILEPSY_catPlain(EPILEPSY_PRIV_assertEmpty_, expr))
+#define EPILEPSY_PRIV_assertEmpty_ 1
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -67,9 +79,11 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_assert      EPILEPSY_assert
-#define E_assertEq    EPILEPSY_assertEq
-#define E_assertPlain EPILEPSY_assertPlain
+#define E_assert           EPILEPSY_assert
+#define E_assertEq         EPILEPSY_assertEq
+#define E_assertPlain      EPILEPSY_assertPlain
+#define E_assertEmpty      EPILEPSY_assertEmpty
+#define E_assertEmptyPlain EPILEPSY_assertEmptyPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

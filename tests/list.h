@@ -3,8 +3,6 @@
 #include <epilepsy/list.h>
 #include <epilepsy/uint.h>
 
-#include "assert_empty.h"
-
 // E_listHead {
 E_assertEq(E_listHead(E_list(v(1))), v(1));
 E_assertEq(E_listHead(E_list(v(1, 2))), v(1));
@@ -66,7 +64,7 @@ E_assert(E_not(E_listContains(E_list(v(1, 2, 3)), v(187), v(E_uintEq))));
 // }
 
 // E_listUnwrap {
-ASSERT_EMPTY(E_eval(E_listUnwrap(E_nil())));
+E_assertEmpty(E_listUnwrap(E_nil()));
 E_assertEq(E_listUnwrap(E_list(v(18, +, 3, +, 6))), v(18 + 3 + 6));
 // }
 
