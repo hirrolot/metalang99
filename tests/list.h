@@ -68,6 +68,11 @@ E_assertEmpty(E_listUnwrap(E_nil()));
 E_assertEq(E_listUnwrap(E_list(v(18, +, 3, +, 6))), v(18 + 3 + 6));
 // }
 
+// E_listEval {
+E_assertEmptyPlain(E_listEval(E_nil()));
+E_assertPlain(E_listEval(E_list(v(19, +, 6))) == 19 + 6);
+// }
+
 // E_listIsEmpty {
 E_assert(E_listIsEmpty(E_nil()));
 E_assert(E_not(E_listIsEmpty(E_list(v(123)))));
