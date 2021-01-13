@@ -12,7 +12,7 @@
 
 #define SUM_IMPL(tree)                    E_match(v(tree), v(SUM_))
 #define SUM_TreeLeaf_IMPL(x)              v(x)
-#define SUM_TreeNode_IMPL(lhs, data, rhs) E_uintAddVariadics(SUM(v(lhs)) v(data) SUM(v(rhs)))
+#define SUM_TreeNode_IMPL(lhs, data, rhs) E_uintAdd3(SUM(v(lhs)), v(data), SUM(v(rhs)))
 
 /*
  *         4

@@ -186,6 +186,48 @@
  * @endcode
  */
 #define EPILEPSY_uintMul(x, y) EPILEPSY_call(EPILEPSY_uintMul, x y)
+
+/**
+ * \f$x + y + z\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 15
+ * E_uintAdd3(v(1), v(6), v(8))
+ * @endcode
+ */
+#define EPILEPSY_uintAdd3(x, y, z) EPILEPSY_call(EPILEPSY_uintAdd3, x y z)
+
+/**
+ * \f$x - y - z\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 3
+ * E_uintSub3(v(8), v(2), v(3))
+ * @endcode
+ */
+#define EPILEPSY_uintSub3(x, y, z) EPILEPSY_call(EPILEPSY_uintSub3, x y z)
+
+/**
+ * \f$x * y * z\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 24
+ * E_uintMul3(v(2), v(3), v(4))
+ * @endcode
+ */
+#define EPILEPSY_uintMul3(x, y, z) EPILEPSY_call(EPILEPSY_uintMul3, x y z)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -255,6 +297,10 @@
         v(y))
 #define EPILEPSY_PRIV_uintMul_PROGRESS_IMPL(x, y)                                                  \
     EPILEPSY_uintAdd(v(x), EPILEPSY_uintMul(v(x), EPILEPSY_uintDec(v(y))))
+
+#define EPILEPSY_uintAdd3_IMPL(x, y, z) EPILEPSY_uintAdd(EPILEPSY_uintAdd(v(x), v(y)), v(z))
+#define EPILEPSY_uintSub3_IMPL(x, y, z) EPILEPSY_uintSub(EPILEPSY_uintSub(v(x), v(y)), v(z))
+#define EPILEPSY_uintMul3_IMPL(x, y, z) EPILEPSY_uintMul(EPILEPSY_uintMul(v(x), v(y)), v(z))
 // }
 
 // Arity specifiers {
