@@ -315,6 +315,9 @@
 #define EPILEPSY_uintAdd_ARITY       2
 #define EPILEPSY_uintSub_ARITY       2
 #define EPILEPSY_uintMul_ARITY       2
+#define EPILEPSY_uintAdd3_ARITY      3
+#define EPILEPSY_uintSub3_ARITY      3
+#define EPILEPSY_uintMul3_ARITY      3
 
 #define EPILEPSY_PRIV_uintLesser_PROGRESS_ARITY 2
 #define EPILEPSY_PRIV_uintAdd_PROGRESS_ARITY    2
@@ -336,6 +339,9 @@
 #define E_uintAdd       EPILEPSY_uintAdd
 #define E_uintSub       EPILEPSY_uintSub
 #define E_uintMul       EPILEPSY_uintMul
+#define E_uintAdd3      EPILEPSY_uintAdd3
+#define E_uintSub3      EPILEPSY_uintSub3
+#define E_uintMul3      EPILEPSY_uintMul3
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
