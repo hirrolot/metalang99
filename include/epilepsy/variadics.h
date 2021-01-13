@@ -1,6 +1,9 @@
 /**
  * @file
  * Variadic macro utilities.
+ *
+ * Epilepsy does not provide a lot of stuff in this module; invoking #EPILEPSY_list and then
+ * manipulating with the resulting Cons-list is more appropriate.
  */
 
 #ifndef EPILEPSY_VARIADICS_H
@@ -12,16 +15,50 @@
 // Desugaring {
 /**
  * Computes a count of its arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/variadics.h>
+ *
+ * // 3
+ * E_variadicsCount(v(~, ~, ~))
+ *
+ * // 1
+ * E_variadicsCount()
+ * @endcode
  */
 #define EPILEPSY_variadicsCount(...) EPILEPSY_call(EPILEPSY_variadicsCount, __VA_ARGS__)
 
 /**
  * Extracts a head of its arguments.
+ *
+ * At least two arguments shall be specified.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/variadics.h>
+ *
+ * // 1
+ * E_variadicsHead(v(1, 2, 3))
+ * @endcode
  */
 #define EPILEPSY_variadicsHead(...) EPILEPSY_call(EPILEPSY_variadicsHead, __VA_ARGS__)
 
 /**
  * Extracts a tail of its arguments.
+ *
+ * At least two arguments shall be specified.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/variadics.h>
+ *
+ * // 2, 3
+ * E_variadicsTail(v(1, 2, 3))
+ * @endcode
  */
 #define EPILEPSY_variadicsTail(...) EPILEPSY_call(EPILEPSY_variadicsTail, __VA_ARGS__)
 // }
