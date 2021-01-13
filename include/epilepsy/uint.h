@@ -17,46 +17,145 @@
 // Desugaring {
 /**
  * \f$x + 1\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 6
+ * E_uintInc(v(5))
+ * @endcode
  */
 #define EPILEPSY_uintInc(x) EPILEPSY_call(EPILEPSY_uintInc, x)
 
 /**
  * \f$x - 1\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 4
+ * E_uintDec(v(5))
+ * @endcode
  */
 #define EPILEPSY_uintDec(x) EPILEPSY_call(EPILEPSY_uintDec, x)
 
 /**
  * \f$x = y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 1
+ * E_uintEq(v(5), v(5))
+ *
+ * // 0
+ * E_uintEq(v(3), v(8))
+ * @endcode
  */
 #define EPILEPSY_uintEq(x, y) EPILEPSY_call(EPILEPSY_uintEq, x y)
 
 /**
  * \f$x \neq y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 0
+ * E_uintNeq(v(5), v(5))
+ *
+ * // 1
+ * E_uintNeq(v(3), v(8))
+ * @endcode
  */
 #define EPILEPSY_uintNeq(x, y) EPILEPSY_call(EPILEPSY_uintNeq, x y)
 
 /**
  * \f$x > y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 1
+ * E_uintGreater(v(8), v(3))
+ *
+ * // 0
+ * E_uintGreater(v(3), v(8))
+ * @endcode
  */
 #define EPILEPSY_uintGreater(x, y) EPILEPSY_call(EPILEPSY_uintGreater, x y)
 
 /**
  * \f$x \geq y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 1
+ * E_uintGreaterEq(v(8), v(8))
+ *
+ * // 0
+ * E_uintGreaterEq(v(3), v(8))
+ * @endcode
  */
 #define EPILEPSY_uintGreaterEq(x, y) EPILEPSY_call(EPILEPSY_uintGreaterEq, x y)
 
 /**
  * \f$x < y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 1
+ * E_uintLesser(v(3), v(8))
+ *
+ * // 0
+ * E_uintLesser(v(8), v(3))
+ * @endcode
  */
 #define EPILEPSY_uintLesser(x, y) EPILEPSY_call(EPILEPSY_uintLesser, x y)
 
 /**
  * \f$x \leq y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 1
+ * E_uintLesserEq(v(8), v(8))
+ *
+ * // 0
+ * E_uintLesserEq(v(8), v(3))
+ * @endcode
  */
 #define EPILEPSY_uintLesserEq(x, y) EPILEPSY_call(EPILEPSY_uintLesserEq, x y)
 
 /**
  * \f$x + y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 11
+ * E_uintAdd(v(5), v(6))
+ * @endcode
  */
 #define EPILEPSY_uintAdd(x, y) EPILEPSY_call(EPILEPSY_uintAdd, x y)
 
@@ -67,6 +166,15 @@
 
 /**
  * \f$x - y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 6
+ * E_uintSub(v(11), v(5))
+ * @endcode
  */
 #define EPILEPSY_uintSub(x, y) EPILEPSY_call(EPILEPSY_uintSub, x y)
 
@@ -77,6 +185,15 @@
 
 /**
  * \f$x * y\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 12
+ * E_uintMul(v(3), v(4))
+ * @endcode
  */
 #define EPILEPSY_uintMul(x, y) EPILEPSY_call(EPILEPSY_uintMul, x y)
 
