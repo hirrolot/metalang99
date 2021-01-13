@@ -11,21 +11,61 @@
 // Desugaring {
 /**
  * Logical negation.
+ *
+ * # Examples
+ *
+ * @code
+ * // 1
+ * E_not(v(0))
+ *
+ * // 0
+ * E_not(v(1))
+ * @endcode
  */
 #define EPILEPSY_not(x) EPILEPSY_call(EPILEPSY_not, x)
 
 /**
  * Logical conjunction.
+ *
+ * # Examples
+ *
+ * @code
+ * // 1
+ * E_and(v(1), v(1))
+ *
+ * // 0
+ * E_and(v(1), v(0))
+ * @endcode
  */
 #define EPILEPSY_and(x, y) EPILEPSY_call(EPILEPSY_and, x y)
 
 /**
  * Logical inclusive OR.
+ *
+ * # Examples
+ *
+ * @code
+ * // 1
+ * E_or(v(1), v(1))
+ *
+ * // 0
+ * E_or(v(0), v(0))
+ * @endcode
  */
 #define EPILEPSY_or(x, y) EPILEPSY_call(EPILEPSY_or, x y)
 
 /**
  * Logical exclusive OR.
+ *
+ * # Examples
+ *
+ * @code
+ * // 1
+ * E_xor(v(0), v(1))
+ *
+ * // 0
+ * E_xor(v(1), v(1))
+ * @endcode
  */
 #define EPILEPSY_xor(x, y) EPILEPSY_call(EPILEPSY_xor, x y)
 // }
