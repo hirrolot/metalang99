@@ -80,31 +80,10 @@ E_assertEq(E_uintAdd(v(8), v(4)), v(8 + 4));
 // TODO: fix reaching limit. E_assertEq(E_uintAdd(v(1), v(1022)), v(1 + 1022));
 // }
 
-// E_uintAddVariadics {
-E_assertEq(E_uintAddVariadics(v(0)), v(0));
-E_assertEq(E_uintAddVariadics(v(1023)), v(1023));
-// TODO: fix reaching limit. E_assertEq(E_uintAddVariadics(v(1, 2, 3, 4, 5)), v(1 + 2
-// + 3 + 4 + 5));
-// }
-
 // E_uintSub {
 E_assertEq(E_uintSub(v(105), v(19)), v(105 - 19));
 // }
 
-// E_uintSubVariadics {
-E_assertEq(E_uintSubVariadics(v(0)), v(0));
-E_assertEq(E_uintSubVariadics(v(1023)), v(1023));
-// TODO: fix reaching limit. E_assertEq(E_uintSubVariadics(v(198, 13, 29, 10, 1)),
-// v(198 - 13 - 29 - 10 - 1));
-// }
-
 // E_uintMul {
 E_assertEq(E_uintMul(v(15), v(8)), v(15 * 8));
-// }
-
-// E_uintMulVariadics {
-E_assertEq(E_uintMulVariadics(v(0)), v(0));
-E_assertEq(E_uintMulVariadics(v(1023)), v(1023));
-// TODO: fix reaching limit. E_assertEq(E_uintMulVariadics(v(6, 1, 9, 4)), v(6 * 1 *
-// 9 * 4));
 // }
