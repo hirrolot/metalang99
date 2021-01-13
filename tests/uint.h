@@ -74,46 +74,11 @@ E_assert(E_uintLesserEq(v(901), v(1023)));
 // }
 
 // E_uintAdd {
-
-// Basic tests {
 E_assertEq(E_uintAdd(v(0), v(0)), v(0));
 E_assertEq(E_uintAdd(v(19), v(83)), v(19 + 83));
 E_assertEq(E_uintAdd(v(8), v(4)), v(8 + 4));
 // TODO: fix reaching limit. E_assertEq(E_uintAdd(v(1), v(1022)), v(1 + 1022));
 // }
-
-// Commutativity {
-E_assertEq(E_uintAdd(v(1), v(2)), E_uintAdd(v(2), v(1)));
-E_assertEq(E_uintAdd(v(18), v(14)), E_uintAdd(v(14), v(18)));
-E_assertEq(E_uintAdd(v(181), v(30)), E_uintAdd(v(30), v(181)));
-// TODO: fix reaching limit. E_assertEq(E_uintAdd(v(1), v(1022)),
-// E_uintAdd(v(1022), v(1)));
-// }
-
-// Associativity {
-// 0 + (1 + 2) = (0 + 1) + 2
-E_assertEq(E_uintAdd(v(0), E_uintAdd(v(1), v(2))), E_uintAdd(E_uintAdd(v(0), v(1)), v(2)));
-
-// 16 + (8 + 1) = (16 + 8) + 1
-E_assertEq(E_uintAdd(v(16), E_uintAdd(v(8), v(1))), E_uintAdd(E_uintAdd(v(16), v(8)), v(1)));
-
-// 1020 + (1 + 2) = (1020 + 1) + 2
-E_assertEq(E_uintAdd(v(1020), E_uintAdd(v(1), v(2))), E_uintAdd(E_uintAdd(v(1020), v(1)), v(2)));
-// }
-
-// Identity element {
-E_assertEq(E_uintAdd(v(1), v(0)), v(1));
-E_assertEq(E_uintAdd(v(78), v(0)), v(78));
-E_assertEq(E_uintAdd(v(256), v(0)), v(256));
-E_assertEq(E_uintAdd(v(1023), v(0)), v(1023));
-
-E_assertEq(E_uintAdd(v(0), v(1)), v(1));
-E_assertEq(E_uintAdd(v(0), v(78)), v(78));
-E_assertEq(E_uintAdd(v(0), v(256)), v(256));
-// TODO: fix reaching limit. E_assertEq(E_uintAdd(v(0), v(1023)), v(1023));
-// }
-
-// } (E_uintAdd)
 
 // E_uintAddVariadics {
 E_assertEq(E_uintAddVariadics(v(0)), v(0));
@@ -123,10 +88,8 @@ E_assertEq(E_uintAddVariadics(v(1023)), v(1023));
 // }
 
 // E_uintSub {
-
 E_assertEq(E_uintSub(v(105), v(19)), v(105 - 19));
-
-// } (E_uintSub)
+// }
 
 // E_uintSubVariadics {
 E_assertEq(E_uintSubVariadics(v(0)), v(0));
@@ -136,10 +99,8 @@ E_assertEq(E_uintSubVariadics(v(1023)), v(1023));
 // }
 
 // E_uintMul {
-
 E_assertEq(E_uintMul(v(15), v(8)), v(15 * 8));
-
-// } (E_uintMul)
+// }
 
 // E_uintMulVariadics {
 E_assertEq(E_uintMulVariadics(v(0)), v(0));
