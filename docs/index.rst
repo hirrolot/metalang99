@@ -9,85 +9,57 @@ The Epilepsy Standard Library
 The Epilepsy Standard library exports a set of macros implemented using the `Epilepsy metalanguage`_.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :hidden:
 
-eval.h
+   eval
+   lang
+   uint
+   logical
+   tuple
+   choice
+   either
+   maybe
+   list
+   variadics
+   aux
+   overload
+   assert
+
+Contents
 ====================================
 
-.. doxygenfile:: eval.h
-   :project: Epilepsy
+ - `eval.h`_ - The metaprogram evaluator.
+ - `lang.h`_ - The Epilepsy syntax.
+ - `uint.h`_ - Unsigned integers.
+ - `logical.h`_ - Boolean algebra.
+ - `tuple.h`_ - Tuple types.
+ - `choice.h`_ - Choice types.
+ - `either.h`_ - A choice type with two cases.
+ - `maybe.h`_ - An optional value.
+ - `list.h`_ - Lists.
+ - `variadics.h`_ - Variadic macro utilities.
+ - `aux.h`_ - Auxiliary macros.
+ - `overload.h`_ - Overloading on a number of arguments.
+ - `assert.h`_ - Static assertions.
 
-lang.h
+Indices and tables
 ====================================
 
-.. doxygenfile:: lang.h
-   :project: Epilepsy
-
-tuple.h
-====================================
-
-.. doxygenfile:: tuple.h
-   :project: Epilepsy
-
-choice.h
-====================================
-
-.. doxygenfile:: choice.h
-   :project: Epilepsy
-
-uint.h
-====================================
-
-.. doxygenfile:: uint.h
-   :project: Epilepsy
-
-logical.h
-====================================
-
-.. doxygenfile:: logical.h
-   :project: Epilepsy
-
-either.h
-====================================
-
-.. doxygenfile:: either.h
-   :project: Epilepsy
-
-maybe.h
-====================================
-
-.. doxygenfile:: maybe.h
-   :project: Epilepsy
-
-list.h
-====================================
-
-.. doxygenfile:: list.h
-   :project: Epilepsy
-
-aux.h
-====================================
-
-.. doxygenfile:: aux.h
-   :project: Epilepsy
-
-overload.h
-====================================
-
-.. doxygenfile:: overload.h
-   :project: Epilepsy
-
-variadics.h
-====================================
-
-.. doxygenfile:: variadics.h
-   :project: Epilepsy
-
-assert.h
-====================================
-
-.. doxygenfile:: assert.h
-   :project: Epilepsy
+* :ref:`genindex`
+* :ref:`search`
 
 .. _Epilepsy metalanguage: https://github.com/Hirrolot/epilepsy
+
+.. _eval.h: eval.html
+.. _lang.h: lang.html
+.. _uint.h: uint.html
+.. _logical.h: logical.html
+.. _tuple.h: tuple.html
+.. _choice.h: choice.html
+.. _either.h: either.html
+.. _maybe.h: maybe.html
+.. _list.h: list.html
+.. _variadics.h: variadics.html
+.. _aux.h: aux.html
+.. _overload.h: overload.html
+.. _assert.h: assert.html

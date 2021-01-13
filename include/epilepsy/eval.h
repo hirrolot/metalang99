@@ -1,3 +1,8 @@
+/**
+ * @file
+ * The metaprogram evaluator.
+ */
+
 #ifndef EPILEPSY_EVAL_H
 #define EPILEPSY_EVAL_H
 

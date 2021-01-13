@@ -1,3 +1,8 @@
+/**
+ * @file
+ * The Epilepsy syntax.
+ */
+
 #ifndef EPILEPSY_LANG_H
 #define EPILEPSY_LANG_H
 
