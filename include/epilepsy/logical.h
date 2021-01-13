@@ -30,11 +30,17 @@
  * # Examples
  *
  * @code
- * // 1
- * E_and(v(1), v(1))
+ * // 0
+ * E_and(v(0), v(0))
+ *
+ * // 0
+ * E_and(v(0), v(1))
  *
  * // 0
  * E_and(v(1), v(0))
+ *
+ * // 1
+ * E_and(v(1), v(1))
  * @endcode
  */
 #define EPILEPSY_and(x, y) EPILEPSY_call(EPILEPSY_and, x y)
@@ -45,11 +51,17 @@
  * # Examples
  *
  * @code
- * // 1
- * E_or(v(1), v(1))
- *
  * // 0
  * E_or(v(0), v(0))
+ *
+ * // 1
+ * E_or(v(0), v(1))
+ *
+ * // 1
+ * E_or(v(1), v(0))
+ *
+ * // 1
+ * E_or(v(1), v(1))
  * @endcode
  */
 #define EPILEPSY_or(x, y) EPILEPSY_call(EPILEPSY_or, x y)
@@ -60,8 +72,14 @@
  * # Examples
  *
  * @code
+ * // 0
+ * E_xor(v(0), v(0))
+ *
  * // 1
  * E_xor(v(0), v(1))
+ *
+ * // 1
+ * E_xor(v(1), v(0))
  *
  * // 0
  * E_xor(v(1), v(1))

@@ -17,6 +17,14 @@
 // Desugaring {
 /**
  * Prepends @p x to @p xs.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * E_cons(v(1), E_cons(v(2), E_nil()))
+ * @endcode
  */
 #define EPILEPSY_cons(x, xs) EPILEPSY_call(EPILEPSY_cons, x xs)
 
@@ -26,77 +34,240 @@
 #define EPILEPSY_nil() EPILEPSY_call(EPILEPSY_nil, )
 
 /**
- * Extracts the head from @p list.
+ * Extracts the head from the non-empty list @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1
+ * E_listHead(E_list(v(1, 2, 3)))
+ * @endcode
  */
 #define EPILEPSY_listHead(list) EPILEPSY_call(EPILEPSY_listHead, list)
 
 /**
- * Extracts the tail from @p list.
+ * Extracts the tail from the non-empty list @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 2, 3
+ * E_listTail(E_list(v(1, 2, 3)))
+ *
+ * // E_nil()
+ * E_listTail(E_list(v(1)))
+ * @endcode
  */
 #define EPILEPSY_listTail(list) EPILEPSY_call(EPILEPSY_listTail, list)
 
 /**
- * Extracts the last element from @p list.
+ * Extracts the last element from the non-empty list @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 3
+ * E_listLast(E_list(v(1, 2, 3)))
+ * @endcode
  */
 #define EPILEPSY_listLast(list) EPILEPSY_call(EPILEPSY_listLast, list)
 
 /**
- * Extracts all the elements of @p list except the last one.
+ * Extracts all the elements of the non-empty list @p list except the last one.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1, 2
+ * E_listInit(E_list(v(1, 2, 3)))
+ *
+ * // E_nil()
+ * E_listInit(E_list(v(1)))
+ * @endcode
  */
 #define EPILEPSY_listInit(list) EPILEPSY_call(EPILEPSY_listInit, list)
 
 /**
  * Constructs a list from its arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1, 2, 3
+ * E_list(v(1, 2, 3))
+ * @endcode
  */
 #define EPILEPSY_list(...) EPILEPSY_call(EPILEPSY_list, __VA_ARGS__)
 
 /**
  * Computes the length of @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 0
+ * E_listLen(E_nil())
+ *
+ * // 3
+ * E_listLen(E_list(v(1, 2, 3)))
+ * @endcode
  */
 #define EPILEPSY_listLen(list) EPILEPSY_call(EPILEPSY_listLen, list)
 
 /**
  * Evaluates a metaprogram that reduces to a list, then unwraps it.
+ *
+ * It behaves the same as the composition of <a href="#c.EPILEPSY_eval">EPILEPSY_EVAL</a> and
+ * #EPILEPSY_listUnwrap.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // Literally 1 2 3
+ * E_listEval(E_list(v(1, 2, 3)))
+ * @endcode
  */
 #define EPILEPSY_listEval(...) EPILEPSY_eval(EPILEPSY_call(EPILEPSY_listUnwrap, __VA_ARGS__))
 
 /**
  * Appends the list @p other to @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1, 2, 3
+ * E_listAppend(E_list(v(1)), E_list(v(2, 3)))
+ * @endcode
  */
 #define EPILEPSY_listAppend(list, other) EPILEPSY_call(EPILEPSY_listAppend, list other)
 
 /**
  * Appends the item @p item to @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1, 2, 3
+ * E_listAppendItem(E_list(v(1, 2)), v(3))
+ * @endcode
  */
 #define EPILEPSY_listAppendItem(list, item) EPILEPSY_call(EPILEPSY_listAppendItem, list item)
 
 /**
  * Places all the items in @p list as-is.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1 2 3
+ * E_listUnwrap(E_list(v(1, 2, 3)))
+ * @endcode
+ *
+ * @note The resulting value is still a valid Epilepsy term that need to be evaluated further.
+ * @see #EPILEPSY_listEval
  */
 #define EPILEPSY_listUnwrap(list) EPILEPSY_call(EPILEPSY_listUnwrap, list)
 
 /**
  * Reverses the order of items in @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 3, 2, 1
+ * E_listReverse(E_list(v(1, 2, 3)))
+ * @endcode
  */
 #define EPILEPSY_listReverse(list) EPILEPSY_call(EPILEPSY_listReverse, list)
 
 /**
  * Checks @p list for emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 0
+ * E_listIsEmpty(E_list(v(1, 2, 3)))
+ *
+ * // 1
+ * E_listIsEmpty(E_nil())
+ * @endcode
  */
 #define EPILEPSY_listIsEmpty(list) EPILEPSY_call(EPILEPSY_listIsEmpty, list)
 
 /**
  * Gets an @p i -indexed element.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 2
+ * E_listGet(E_list(v(1, 2, 3)), v(1))
+ * @endcode
  */
 #define EPILEPSY_listGet(list, i) EPILEPSY_call(EPILEPSY_listGet, list i)
 
 /**
  * Performs a right-associative fold over @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * #define ABCDEFG 123
+ *
+ * // 7
+ * E_listFoldr(E_nil(), v(E_cat), v(7))
+ *
+ * // 123
+ * E_listFoldr(E_list(v(G, DEF, BC)), E_appl(E_flip, v(E_cat)), v(A))
+ * @endcode
  */
 #define EPILEPSY_listFoldr(list, f, init) EPILEPSY_call(EPILEPSY_listFoldr, list f init)
 
 /**
  * Performs a left-associative fold over @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * #define ABCDEFG 123
+ *
+ * // 7
+ * E_listFoldl(E_nil(), v(E_cat), v(7))
+ *
+ * // 123
+ * E_listFoldl(E_list(v(BC, DEF, G)), v(E_cat), v(A))
+ * @endcode
  */
 #define EPILEPSY_listFoldl(list, f, init) EPILEPSY_call(EPILEPSY_listFoldl, list f init)
 
@@ -107,31 +278,95 @@
 
 /**
  * Intersperses @p item between the items in @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1, +, 2, +, 3
+ * E_listIntersperse(E_list(v(1, 2, 3)), v(+))
+ * @endcode
  */
 #define EPILEPSY_listIntersperse(list, item) EPILEPSY_call(EPILEPSY_listIntersperse, list item)
 
 /**
  * Prepends @p item to all items in @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // +, 1, +, 2, +, 3
+ * E_listPrependToAll(E_list(v(1, 2, 3)), v(+))
+ * @endcode
  */
 #define EPILEPSY_listPrependToAll(list, item) EPILEPSY_call(EPILEPSY_listPrependToAll, list item)
 
 /**
  * Maps all the elements in @p list with @p f.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 4, 5, 6
+ * E_listMap(E_list(v(1, 2, 3)), E_appl(E_uintAdd, v(3)))
+ * @endcode
  */
 #define EPILEPSY_listMap(list, f) EPILEPSY_call(EPILEPSY_listMap, list f)
 
 /**
  * Filters @p list with @p f.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 9, 11, 6
+ * E_listFilter(E_list(v(9, 1, 11, 6, 0, 4)), E_appl(E_uintLesser, v(5)))
+ * @endcode
  */
 #define EPILEPSY_listFilter(list, f) EPILEPSY_call(EPILEPSY_listFilter, list f)
 
 /**
  * Checks @p list and @p other for equality.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 0
+ * E_listEq(E_list(v(1, 2, 3)), E_list(v(4, 5, 6)), v(E_uintEq))
+ *
+ * // 1
+ * E_listEq(E_list(v(1, 2, 3)), E_list(v(1, 2, 3)), v(E_uintEq))
+ * @endcode
  */
 #define EPILEPSY_listEq(list, other, compare) EPILEPSY_call(EPILEPSY_listEq, list other compare)
 
 /**
  * Checks whether @p item resides in @p list.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 1
+ * E_listContains(E_list(v(1, 2, 3)), v(3))
+ *
+ * // 0
+ * E_listContains(E_list(v(1, 2, 3)), v(456))
+ * @endcode
  */
 #define EPILEPSY_listContains(list, item, compare)                                                 \
     EPILEPSY_call(EPILEPSY_listContains, list item compare)
@@ -139,38 +374,112 @@
 /**
  * Extracts the prefix of @p list of the length @p n. If @p n is greater than the length of @p list,
  * the whole @p list is returned.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1, 2
+ * E_listTake(E_list(v(1, 2, 3)), v(2))
+ * @endcode
  */
 #define EPILEPSY_listTake(list, n) EPILEPSY_call(EPILEPSY_listTake, list n)
 
 /**
  * Extracts the items from @p list as long as @p f evaluates to true.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 1, 2, 3
+ * E_listTakeWhile(E_list(v(1, 2, 3, 4, 5, 6)), E_appl(E_uintGreater, v(4)))
+ * @endcode
  */
 #define EPILEPSY_listTakeWhile(list, f) EPILEPSY_call(EPILEPSY_listTakeWhile, list f)
 
 /**
  * Removes the prefix of @p list of the length @p n. If @p n is greater than the length of @p list,
  * `EPILEPSY_nil()` is returned.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 2, 3
+ * E_listDrop(E_list(v(1, 2, 3)), v(1))
+ * @endcode
  */
 #define EPILEPSY_listDrop(list, n) EPILEPSY_call(EPILEPSY_listDrop, list n)
 
 /**
  * Removes the items from @p list as long as @p f evaluates to true.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 4, 5, 6
+ * E_listDropWhile(E_list(v(1, 2, 3, 4, 5, 6)), E_appl(E_uintLesser, v(4)))
+ * @endcode
  */
 #define EPILEPSY_listDropWhile(list, f) EPILEPSY_call(EPILEPSY_listDropWhile, list f)
 
 /**
  * Computes a list of corresponding pairs from @p list and @p other.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // (1, 4), (2, 5), (3, 6)
+ * E_zip(E_list(v(1, 2, 3)), E_list(v(4, 5, 6)))
+ * @endcode
  */
 #define EPILEPSY_listZip(list, other) EPILEPSY_call(EPILEPSY_listZip, list other)
 
 /**
  * Transforms a list of pairs into a list of the first components and a list of the second
  * components.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // E_tuple(E_list(v(1, 2, 3)), E_list(v(4, 5, 6)))
+ * E_listUnzip(E_list(E_tuple(v(1, 4)) E_tuple(v(2, 5)) E_tuple(v(3, 6))))
+ * @endcode
  */
 #define EPILEPSY_listUnzip(list) EPILEPSY_call(EPILEPSY_listUnzip, list)
 
 /**
  * Applies all the items in @p list to @p f.
+ *
+ * If the list is empty, results in @p f as-is.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // E_uintAdd
+ * E_listAppl(E_nil(), v(E_uintAdd))
+ *
+ * // E_appl(E_uintAdd, v(1))
+ * E_listAppl(E_list(v(1)), v(E_uintAdd))
+ *
+ * // E_appl(E_uintAdd, v(1, 2))
+ * E_listAppl(E_list(v(1, 2)), v(E_uintAdd))
+ * @endcode
  */
 #define EPILEPSY_listAppl(list, f) EPILEPSY_call(EPILEPSY_listAppl, list f)
 // }

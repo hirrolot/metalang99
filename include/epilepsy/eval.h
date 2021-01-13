@@ -15,6 +15,17 @@
 
 /**
  * Evaluates a metaprogram.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/eval.h>
+ * #include <epilepsy/lang.h>
+ *
+ * #define FOO_IMPL(x, y) v(x + y)
+ *
+ * E_eval(v(abc ~ 123) E_call(FOO, v(1, 2)))
+ * @endcode
  */
 #define EPILEPSY_eval(...)                                                                         \
     EPILEPSY_PRIV_REC_UNROLL(EPILEPSY_PRIV_EVAL_MATCH(                                             \

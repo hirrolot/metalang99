@@ -22,8 +22,7 @@
 #define EPILEPSY_appl2(f, a, b) EPILEPSY_call(EPILEPSY_appl2, f a b)
 
 /**
- * Represents a <a href="https://en.wikipedia.org/wiki/Beta_normal_form">normal form</a> of an
- * Epilepsy term.
+ * A value that is pasted as-is; no evaluation occurs on provided arguments.
  */
 #define v(...) (0v, __VA_ARGS__),
 
