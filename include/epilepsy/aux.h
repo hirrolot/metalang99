@@ -7,6 +7,7 @@
 #define EPILEPSY_AUX_H
 
 #include <epilepsy/lang.h>
+#include <epilepsy/priv/compiler_attr.h>
 
 // Desugaring {
 /**
@@ -123,6 +124,13 @@
  * The same as #EPILEPSY_unparenthesise but implemented as an ordinary macro.
  */
 #define EPILEPSY_unparenthesisePlain(x) EPILEPSY_expandPlain(EPILEPSY_expandPlain x)
+
+/**
+ * Forces to put a semicolon after itself.
+ */
+#define EPILEPSY_semicolon()                                                                       \
+    static const char EPILEPSY_catPlain(epilepsy_semicolon_, __LINE__)                             \
+        EPILEPSY_PRIV_COMPILER_ATTR_UNUSED
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -189,6 +197,7 @@
 #define E_consumePlain        EPILEPSY_consumePlain
 #define E_parenthesisePlain   EPILEPSY_parenthesisePlain
 #define E_unparenthesisePlain EPILEPSY_unparenthesisePlain
+#define E_semicolon           EPILEPSY_semicolon
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

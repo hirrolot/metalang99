@@ -3,8 +3,8 @@
 
 // Pattern matching {
 #define MATCH_IMPL(maybe)    E_match(v(maybe), v(MATCH_))
-#define MATCH_just_IMPL(x)   v(E_assertPlain(_87 == 87))
-#define MATCH_nothing_IMPL() v(E_assertPlain(1))
+#define MATCH_just_IMPL(x)   v(E_assertPlain(x == 87))
+#define MATCH_nothing_IMPL() v(E_semicolon())
 
 E_eval(E_call(MATCH, E_just(v(87))));
 E_eval(E_call(MATCH, E_nothing()));
@@ -18,7 +18,7 @@ E_eval(E_call(MATCH, E_nothing()));
 
 // E_isJust {
 E_assert(E_isJust(E_just(VAL)));
-E_assertEq(E_not(E_isJust(E_nothing())));
+E_assert(E_not(E_isJust(E_nothing())));
 // }
 
 // E_isNothing {

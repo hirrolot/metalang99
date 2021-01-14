@@ -10,6 +10,7 @@
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/logical.h>
+#include <epilepsy/priv/compiler_attr.h>
 
 // Desugaring {
 /**
@@ -53,7 +54,7 @@
 #define EPILEPSY_assertPlain(expr)                                                                 \
     /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
     static const char EPILEPSY_catPlain(                                                           \
-        epilepsy_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_ATTR_UNUSED
+        epilepsy_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_COMPILER_ATTR_UNUSED
 
 /**
  * Asserts that `EPILEPSY_eval(expr)` is emptiness.
@@ -92,12 +93,6 @@
 // }
 
 #ifndef DOXYGEN_IGNORE
-
-#ifdef __GNUC__
-#define EPILEPSY_PRIV_ATTR_UNUSED __attribute__((unused))
-#else
-#define EPILEPSY_PRIV_ATTR_UNUSED
-#endif
 
 #define EPILEPSY_PRIV_assertEmpty_ 1
 
