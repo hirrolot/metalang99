@@ -3,8 +3,8 @@
  * Choice types.
  */
 
-#ifndef EPILEPSY_choice_H
-#define EPILEPSY_choice_H
+#ifndef EPILEPSY_CHOICE_H
+#define EPILEPSY_CHOICE_H
 
 #include <epilepsy/aux.h>
 #include <epilepsy/lang.h>
@@ -92,4 +92,4 @@
 
 #endif // DOXYGEN_IGNORE
 
-#endif // EPILEPSY_choice_H
+#endif // EPILEPSY_CHOICE_H

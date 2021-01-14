@@ -3,8 +3,8 @@
  * Boolean algebra.
  */
 
-#ifndef EPILEPSY_PRIV_LOGICAL_H
-#define EPILEPSY_PRIV_LOGICAL_H
+#ifndef EPILEPSY_LOGICAL_H
+#define EPILEPSY_LOGICAL_H
 
 #include <epilepsy/lang.h>
 
@@ -134,4 +134,4 @@
 
 #endif // DOXYGEN_IGNORE
 
-#endif // EPILEPSY_PRIV_LOGICAL_H
+#endif // EPILEPSY_LOGICAL_H

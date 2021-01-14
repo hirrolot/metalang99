@@ -3,8 +3,8 @@
  * Tuple types.
  */
 
-#ifndef EPILEPSY_tuple_H
-#define EPILEPSY_tuple_H
+#ifndef EPILEPSY_TUPLE_H
+#define EPILEPSY_TUPLE_H
 
 #include <epilepsy/list.h>
 
@@ -43,4 +43,4 @@
 
 #endif // DOXYGEN_IGNORE
 
-#endif // EPILEPSY_tuple_H
+#endif // EPILEPSY_TUPLE_H

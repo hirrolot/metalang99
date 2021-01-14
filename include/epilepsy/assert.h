@@ -3,8 +3,8 @@
  * Static assertions.
  */
 
-#ifndef EPILEPSY_assert_H
-#define EPILEPSY_assert_H
+#ifndef EPILEPSY_ASSERT_H
+#define EPILEPSY_ASSERT_H
 
 #include <epilepsy/aux.h>
 #include <epilepsy/eval.h>
@@ -115,4 +115,4 @@
 
 #endif // DOXYGEN_IGNORE
 
-#endif // EPILEPSY_assert_H
+#endif // EPILEPSY_ASSERT_H
