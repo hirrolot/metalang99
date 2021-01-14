@@ -9,7 +9,7 @@
 #include <epilepsy/aux.h>
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
-#include <epilepsy/priv/overload.h>
+#include <epilepsy/logical.h>
 
 // Desugaring {
 /**
