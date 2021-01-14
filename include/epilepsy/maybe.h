@@ -13,51 +13,51 @@
 /**
  * Some value @p x.
  */
-#define EPILEPSY_maybeJust(x) EPILEPSY_call(EPILEPSY_maybeJust, x)
+#define EPILEPSY_just(x) EPILEPSY_call(EPILEPSY_just, x)
 
 /**
  * No value.
  */
-#define EPILEPSY_maybeNothing() EPILEPSY_call(EPILEPSY_maybeNothing, )
+#define EPILEPSY_nothing() EPILEPSY_call(EPILEPSY_nothing, )
 
 /**
  * 1 if @p maybe contains some value, otherwise 0.
  */
-#define EPILEPSY_maybeIsJust(maybe) EPILEPSY_call(EPILEPSY_maybeIsJust, maybe)
+#define EPILEPSY_isJust(maybe) EPILEPSY_call(EPILEPSY_isJust, maybe)
 
 /**
  * 1 if @p maybe contains no value, otherwise 0.
  */
-#define EPILEPSY_maybeIsNothing(maybe) EPILEPSY_call(EPILEPSY_maybeIsNothing, maybe)
+#define EPILEPSY_isNothing(maybe) EPILEPSY_call(EPILEPSY_isNothing, maybe)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_maybeJust_IMPL(x)   EPILEPSY_choice(v(maybeJust), v(x))
-#define EPILEPSY_maybeNothing_IMPL() EPILEPSY_choiceEmpty(v(maybeNothing))
+#define EPILEPSY_just_IMPL(x)   EPILEPSY_choice(v(just), v(x))
+#define EPILEPSY_nothing_IMPL() EPILEPSY_choiceEmpty(v(nothing))
 
-#define EPILEPSY_maybeIsJust_IMPL(maybe)              EPILEPSY_match(v(maybe), v(EPILEPSY_PRIV_maybeIsJust_))
-#define EPILEPSY_PRIV_maybeIsJust_maybeJust_IMPL(_x)  v(1)
-#define EPILEPSY_PRIV_maybeIsJust_maybeNothing_IMPL() v(0)
+#define EPILEPSY_isJust_IMPL(maybe)         EPILEPSY_match(v(maybe), v(EPILEPSY_PRIV_isJust_))
+#define EPILEPSY_PRIV_isJust_just_IMPL(_x)  v(1)
+#define EPILEPSY_PRIV_isJust_nothing_IMPL() v(0)
 
-#define EPILEPSY_maybeIsNothing_IMPL(maybe) EPILEPSY_not(EPILEPSY_maybeIsJust(v(maybe)))
+#define EPILEPSY_isNothing_IMPL(maybe) EPILEPSY_not(EPILEPSY_isJust(v(maybe)))
 // }
 
 // Arity specifiers {
-#define EPILEPSY_maybeJust_ARITY      1
-#define EPILEPSY_maybeNothing_ARITY   1
-#define EPILEPSY_maybeIsJust_ARITY    1
-#define EPILEPSY_maybeIsNothing_ARITY 1
+#define EPILEPSY_just_ARITY      1
+#define EPILEPSY_nothing_ARITY   1
+#define EPILEPSY_isJust_ARITY    1
+#define EPILEPSY_isNothing_ARITY 1
 // }
 
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_maybeJust      EPILEPSY_maybeJust
-#define E_maybeNothing   EPILEPSY_maybeNothing
-#define E_maybeIsJust    EPILEPSY_maybeIsJust
-#define E_maybeIsNothing EPILEPSY_maybeIsNothing
+#define E_just      EPILEPSY_just
+#define E_nothing   EPILEPSY_nothing
+#define E_isJust    EPILEPSY_isJust
+#define E_isNothing EPILEPSY_isNothing
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
