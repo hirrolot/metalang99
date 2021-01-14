@@ -22,11 +22,35 @@
 
 /**
  * 1 if @p maybe contains some value, otherwise 0.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/maybe.h>
+ *
+ * // 1
+ * E_isJust(E_just(v(123)))
+ *
+ * // 0
+ * E_isJust(E_nothing())
+ * @endcode
  */
 #define EPILEPSY_isJust(maybe) EPILEPSY_call(EPILEPSY_isJust, maybe)
 
 /**
  * 1 if @p maybe contains no value, otherwise 0.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/maybe.h>
+ *
+ * // 1
+ * E_isNothing(E_nothing())
+ *
+ * // 0
+ * E_isNothing(E_just(v(123)))
+ * @endcode
  */
 #define EPILEPSY_isNothing(maybe) EPILEPSY_call(EPILEPSY_isNothing, maybe)
 // }
