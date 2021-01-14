@@ -1,6 +1,13 @@
 /**
  * @file
  * Tuple types.
+ *
+ * Tuples types are essentially Cons-lists. The common pattern is to define a tuple type constructor
+ * and indices of corresponding fields:
+ *
+ * [<a
+ * href="https://github.com/Hirrolot/epilepsy/blob/master/examples/rectangle.c">examples/rectangle.c</a>]
+ * @include rectangle.c
  */
 
 #ifndef EPILEPSY_TUPLE_H
@@ -11,11 +18,15 @@
 // Desugaring {
 /**
  * Constructs an instance of a tuple type.
+ *
+ * The same as #EPILEPSY_list.
  */
 #define EPILEPSY_tuple(...) EPILEPSY_call(EPILEPSY_tuple, __VA_ARGS__)
 
 /**
  * Extracts a field of a tuple type.
+ *
+ * The same as #EPILEPSY_listGet.
  */
 #define EPILEPSY_get(tuple, i) EPILEPSY_call(EPILEPSY_get, tuple i)
 // }
