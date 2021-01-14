@@ -22,11 +22,35 @@
 
 /**
  * 1 if @p either contains a left value, otherwise 0.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/either.h>
+ *
+ * // 1
+ * E_isLeft(E_left(v(123)))
+ *
+ * // 0
+ * E_isLeft(E_right(v(123)))
+ * @endcode
  */
 #define EPILEPSY_isLeft(either) EPILEPSY_call(EPILEPSY_isLeft, either)
 
 /**
  * 1 if @p either contains a right value, otherwise 0.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/either.h>
+ *
+ * // 1
+ * E_isRight(E_right(v(123)))
+ *
+ * // 0
+ * E_isRight(E_left(v(123)))
+ * @endcode
  */
 #define EPILEPSY_isRight(either) EPILEPSY_call(EPILEPSY_isRight, either)
 // }
