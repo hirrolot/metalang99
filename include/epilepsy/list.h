@@ -273,6 +273,17 @@
 
 /**
  * The same as #EPILEPSY_listFoldl but treats the first element of @p list as the initial value.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * #define ABCDEFG 123
+ *
+ * // 123
+ * E_listFoldl1(E_list(v(AB, CDEF, G)), v(E_cat))
+ * @endcode
  */
 #define EPILEPSY_listFoldl1(list, f) EPILEPSY_call(EPILEPSY_listFoldl1, list f)
 

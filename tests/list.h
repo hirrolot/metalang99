@@ -213,6 +213,10 @@ E_assertEq(E_listFoldl(E_nil(), v(E_cat), v(7)), v(7));
 E_assert(E_listFoldl(E_list(v(BC, DEF, G)), v(E_cat), v(A)));
 // }
 
+// E_listFoldl1 {
+E_assert(E_listFoldl1(E_list(v(AB, CDEF, G)), v(E_cat)));
+// }
+
 #undef ABCDEFG
 
 // E_listMap {
