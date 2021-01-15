@@ -215,6 +215,12 @@ E_assert(E_listFoldl(E_list(v(BC, DEF, G)), v(E_cat), v(A)));
 
 #undef ABCDEFG
 
+// E_listMap {
+E_assert(E_listEq(E_listMap(E_appl(E_uintAdd, v(3)), E_nil()), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listMap(E_appl(E_uintAdd, v(3)), E_list(v(1, 2, 3))), E_list(v(4, 5, 6)), v(E_uintEq)));
+// }
+
 // E_listFor {
 E_assert(E_listEq(E_listFor(E_nil(), E_appl(E_uintAdd, v(3))), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(

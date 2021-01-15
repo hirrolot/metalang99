@@ -314,6 +314,21 @@
  * #include <epilepsy/uint.h>
  *
  * // 4, 5, 6
+ * E_listMap(E_appl(E_uintAdd, v(3)), E_list(v(1, 2, 3)))
+ * @endcode
+ */
+#define EPILEPSY_listMap(f, list) EPILEPSY_call(EPILEPSY_listMap, f list)
+
+/**
+ * The same as #EPILEPSY_listMap but with the reversed order of arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 4, 5, 6
  * E_listFor(E_list(v(1, 2, 3)), E_appl(E_uintAdd, v(3)))
  * @endcode
  */
@@ -629,11 +644,13 @@
 #define EPILEPSY_PRIV_listPrependToAll_cons_IMPL(x, xs, item)                                      \
     EPILEPSY_cons(v(item), EPILEPSY_cons(v(x), EPILEPSY_listPrependToAll(v(xs), v(item))))
 
-#define EPILEPSY_listFor_IMPL(list, f)                                                             \
-    EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFor_), v(f))
-#define EPILEPSY_PRIV_listFor_nil_IMPL(_f) EPILEPSY_nil()
-#define EPILEPSY_PRIV_listFor_cons_IMPL(x, xs, f)                                                  \
-    EPILEPSY_cons(EPILEPSY_appl(v(f), v(x)), EPILEPSY_listFor(v(xs), v(f)))
+#define EPILEPSY_listMap_IMPL(f, list)                                                             \
+    EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listMap_), v(f))
+#define EPILEPSY_PRIV_listMap_nil_IMPL(_f) EPILEPSY_nil()
+#define EPILEPSY_PRIV_listMap_cons_IMPL(x, xs, f)                                                  \
+    EPILEPSY_cons(EPILEPSY_appl(v(f), v(x)), EPILEPSY_listMap(v(f), v(xs)))
+
+#define EPILEPSY_listFor_IMPL(list, f) EPILEPSY_listMap(v(f), v(list))
 
 #define EPILEPSY_listFilter_IMPL(list, f)                                                          \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFilter_), v(f))
@@ -772,6 +789,7 @@
 #define EPILEPSY_listFoldl1_ARITY       2
 #define EPILEPSY_listIntersperse_ARITY  2
 #define EPILEPSY_listPrependToAll_ARITY 2
+#define EPILEPSY_listMap_ARITY          2
 #define EPILEPSY_listFor_ARITY          2
 #define EPILEPSY_listFilter_ARITY       2
 #define EPILEPSY_listEq_ARITY           3
@@ -816,6 +834,7 @@
 #define E_listFoldl1       EPILEPSY_listFoldl1
 #define E_listIntersperse  EPILEPSY_listIntersperse
 #define E_listPrependToAll EPILEPSY_listPrependToAll
+#define E_listMap          EPILEPSY_listMap
 #define E_listFor          EPILEPSY_listFor
 #define E_listFilter       EPILEPSY_listFilter
 #define E_listEq           EPILEPSY_listEq
