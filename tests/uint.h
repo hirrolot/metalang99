@@ -81,9 +81,15 @@ E_assertEq(E_uintAdd(v(1), v(510)), v(1 + 510));
 // }
 
 // E_uintSub {
+E_assertEq(E_uintSub(v(1), v(1)), v(1 - 1));
+E_assertEq(E_uintSub(v(5), v(3)), v(5 - 3));
 E_assertEq(E_uintSub(v(105), v(19)), v(105 - 19));
+E_assertEq(E_uintSub(v(511), v(40)), v(511 - 40));
 // }
 
 // E_uintMul {
+E_assertEq(E_uintMul(v(11), v(0)), v(0));
+E_assertEq(E_uintMul(v(0), v(11)), v(0));
 E_assertEq(E_uintMul(v(15), v(8)), v(15 * 8));
+E_assertEq(E_uintMul(v(511), v(1)), v(511 * 1));
 // }
