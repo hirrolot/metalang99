@@ -10,7 +10,9 @@
 #include <epilepsy/lang.h>
 #include <epilepsy/list.h>
 #include <epilepsy/logical.h>
+
 #include <epilepsy/uint/dec.h>
+#include <epilepsy/uint/div.h>
 #include <epilepsy/uint/eq.h>
 #include <epilepsy/uint/inc.h>
 
@@ -188,6 +190,22 @@
 #define EPILEPSY_uintMul(x, y) EPILEPSY_call(EPILEPSY_uintMul, x y)
 
 /**
+ * \f$\frac{x}{y}\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 3
+ * E_uintDiv(v(12), v(4))
+ * @endcode
+ *
+ * @note A compile-time error if \f$\frac{x}{y}\f$ is not an unsigned integer.
+ */
+#define EPILEPSY_uintDiv(x, y) EPILEPSY_call(EPILEPSY_uintDiv, x y)
+
+/**
  * \f$x + y + z\f$
  *
  * # Examples
@@ -228,6 +246,22 @@
  * @endcode
  */
 #define EPILEPSY_uintMul3(x, y, z) EPILEPSY_call(EPILEPSY_uintMul3, x y z)
+
+/**
+ * \f$\frac{(\frac{x}{y})}{z}\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 5
+ * E_uintDiv(v(30), v(3), v(2))
+ * @endcode
+ *
+ * @note A compile-time error if \f$\frac{(\frac{x}{y})}{z}\f$ is not an unsigned integer.
+ */
+#define EPILEPSY_uintDiv3(x, y, z) EPILEPSY_call(EPILEPSY_uintDiv3, x y z)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -299,6 +333,7 @@
 #define EPILEPSY_uintAdd3_IMPL(x, y, z) EPILEPSY_uintAdd(EPILEPSY_uintAdd(v(x), v(y)), v(z))
 #define EPILEPSY_uintSub3_IMPL(x, y, z) EPILEPSY_uintSub(EPILEPSY_uintSub(v(x), v(y)), v(z))
 #define EPILEPSY_uintMul3_IMPL(x, y, z) EPILEPSY_uintMul(EPILEPSY_uintMul(v(x), v(y)), v(z))
+#define EPILEPSY_uintDiv3_IMPL(x, y, z) EPILEPSY_uintDiv(EPILEPSY_uintDiv(v(x), v(y)), v(z))
 // }
 
 // Arity specifiers {
@@ -313,9 +348,11 @@
 #define EPILEPSY_uintAdd_ARITY       2
 #define EPILEPSY_uintSub_ARITY       2
 #define EPILEPSY_uintMul_ARITY       2
+#define EPILEPSY_uintDiv_ARITY       2
 #define EPILEPSY_uintAdd3_ARITY      3
 #define EPILEPSY_uintSub3_ARITY      3
 #define EPILEPSY_uintMul3_ARITY      3
+#define EPILEPSY_uintDiv3_ARITY      3
 
 #define EPILEPSY_PRIV_uintLesser_PROGRESS_ARITY 2
 #define EPILEPSY_PRIV_uintAdd_PROGRESS_ARITY    2
@@ -337,9 +374,11 @@
 #define E_uintAdd       EPILEPSY_uintAdd
 #define E_uintSub       EPILEPSY_uintSub
 #define E_uintMul       EPILEPSY_uintMul
+#define E_uintDiv       EPILEPSY_uintDiv
 #define E_uintAdd3      EPILEPSY_uintAdd3
 #define E_uintSub3      EPILEPSY_uintSub3
 #define E_uintMul3      EPILEPSY_uintMul3
+#define E_uintDiv3      EPILEPSY_uintDiv3
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
