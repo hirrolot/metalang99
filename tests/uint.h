@@ -93,3 +93,9 @@ E_assertEq(E_uintMul(v(0), v(11)), v(0));
 E_assertEq(E_uintMul(v(15), v(8)), v(15 * 8));
 E_assertEq(E_uintMul(v(511), v(1)), v(511 * 1));
 // }
+
+// E_uintAdd3, E_uintSub3, E_uintMul3 {
+E_assertEq(E_uintAdd3(v(8), v(2), v(4)), v(8 + 2 + 4));
+E_assertEq(E_uintSub3(v(14), v(1), v(7)), v(14 - 1 - 7));
+E_assertEq(E_uintMul3(v(3), v(2), v(6)), v(3 * 2 * 6));
+// }
