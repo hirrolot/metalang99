@@ -1,6 +1,13 @@
 /**
  * @file
  * Choice types.
+ *
+ * A choice type is a type with several alternatives. Perhaps the most common example of a choice
+ * type is a binary tree:
+ *
+ * [<a
+ * href="https://github.com/Hirrolot/epilepsy/blob/master/examples/binary_tree.c">examples/binary_tree.c</a>]
+ * @include binary_tree.c
  */
 
 #ifndef EPILEPSY_CHOICE_H
@@ -15,21 +22,53 @@
 // Desugaring {
 /**
  * Constructs an instance of a choice type.
+ *
+ * # Examples
+ *
+ * See <a
+ * href="https://github.com/Hirrolot/epilepsy/blob/master/examples/binary_tree.c">examples/binary_tree.c</a>.
  */
 #define EPILEPSY_choice(tag, ...) EPILEPSY_call(EPILEPSY_choice, tag __VA_ARGS__)
 
 /**
  * The same as #EPILEPSY_choice but does not require additional arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/choice.h>
+ *
+ * #define MATCH_A_IMPL() v(123)
+ *
+ * // 123
+ * E_eval(E_match(E_choiceEmpty(v(A)), v(MATCH_)))
+ * @endcode
  */
 #define EPILEPSY_choiceEmpty(tag) EPILEPSY_call(EPILEPSY_choiceEmpty, tag)
 
 /**
  * Matches the instance @p choice of a choice type.
+ *
+ * # Examples
+ *
+ * See <a
+ * href="https://github.com/Hirrolot/epilepsy/blob/master/examples/binary_tree.c">examples/binary_tree.c</a>.
  */
 #define EPILEPSY_match(choice, matcher) EPILEPSY_call(EPILEPSY_match, choice matcher)
 
 /**
  * The same as #EPILEPSY_match but supplies additional arguments to all branches.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/choice.h>
+ *
+ * #define MATCH_A_IMPL(x, y, z) v(x ~ y ~ z)
+ *
+ * // 123 ~ 456 ~ 789
+ * E_matchWithArgs(E_choice(v(A), v(123)), v(MATCH_), v(456, 789))
+ * @endcode
  */
 #define EPILEPSY_matchWithArgs(choice, matcher, ...)                                               \
     EPILEPSY_call(EPILEPSY_matchWithArgs, choice matcher __VA_ARGS__)
@@ -83,7 +122,7 @@
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
 #define E_choice        EPILEPSY_choice
-#define E_chocieEmpty   EPILEPSY_choiceEmpty
+#define E_choiceEmpty   EPILEPSY_choiceEmpty
 #define E_match         EPILEPSY_match
 #define E_matchWithArgs EPILEPSY_matchWithArgs
 
