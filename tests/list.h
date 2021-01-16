@@ -30,8 +30,8 @@ E_assert(E_listEq(E_listInit(E_list(v(1, 2, 3))), E_list(v(1, 2)), v(E_uintEq)))
 // E_listLen {
 E_assertEq(E_listLen(E_nil()), v(0));
 E_assertEq(E_listLen(E_list(v(123))), v(1));
-E_assertEq(E_listLen(E_list(v(123, 456))), v(2));
-E_assertEq(E_listLen(E_list(v(123, 456, 789))), v(3));
+E_assertEq(E_listLen(E_list(v(123, 222))), v(2));
+E_assertEq(E_listLen(E_list(v(123, 222, 18))), v(3));
 // }
 
 // E_listAppend {
@@ -47,7 +47,7 @@ E_assert(E_listEq(
 // E_listAppendItem {
 E_assert(E_listEq(E_listAppendItem(E_nil(), v(123)), E_list(v(123)), v(E_uintEq)));
 E_assert(
-    E_listEq(E_listAppendItem(E_list(v(1, 2, 3)), v(456)), E_list(v(1, 2, 3, 456)), v(E_uintEq)));
+    E_listEq(E_listAppendItem(E_list(v(1, 2, 3)), v(222)), E_list(v(1, 2, 3, 222)), v(E_uintEq)));
 // }
 
 // E_listReverse {
@@ -76,17 +76,17 @@ E_assertPlain(E_listEval(E_list(v(19, +, 6))) == 19 + 6);
 // E_listIsEmpty {
 E_assert(E_listIsEmpty(E_nil()));
 E_assert(E_not(E_listIsEmpty(E_list(v(123)))));
-E_assert(E_not(E_listIsEmpty(E_list(v(8, 289, 10, 0, 122)))));
+E_assert(E_not(E_listIsEmpty(E_list(v(8, 214, 10, 0, 122)))));
 // }
 
 // E_get {
-E_assertEq(E_listGet(E_list(v(123, 456)), v(0)), v(123));
-E_assertEq(E_listGet(E_list(v(123, 456)), v(1)), v(456));
+E_assertEq(E_listGet(E_list(v(123, 222)), v(0)), v(123));
+E_assertEq(E_listGet(E_list(v(123, 222)), v(1)), v(222));
 // }
 
 // E_listTake {
 E_assert(E_listEq(E_listTake(E_nil(), v(1)), E_nil(), v(E_uintEq)));
-E_assert(E_listEq(E_listTake(E_nil(), v(800)), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listTake(E_nil(), v(200)), E_nil(), v(E_uintEq)));
 
 E_assert(E_listEq(E_listTake(E_list(v(1, 2, 3)), v(1)), E_list(v(1)), v(E_uintEq)));
 E_assert(E_listEq(E_listTake(E_list(v(1, 2, 3)), v(2)), E_list(v(1, 2)), v(E_uintEq)));
@@ -109,7 +109,7 @@ E_assert(E_listEq(
 
 // E_listDrop {
 E_assert(E_listEq(E_listDrop(E_nil(), v(1)), E_nil(), v(E_uintEq)));
-E_assert(E_listEq(E_listDrop(E_nil(), v(800)), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listDrop(E_nil(), v(200)), E_nil(), v(E_uintEq)));
 
 E_assert(E_listEq(E_listDrop(E_list(v(1, 2, 3)), v(1)), E_list(v(2, 3)), v(E_uintEq)));
 E_assert(E_listEq(E_listDrop(E_list(v(1, 2, 3)), v(2)), E_list(v(3)), v(E_uintEq)));
@@ -191,14 +191,14 @@ E_assertEq(E_listAppl(E_list(v(6, 9)), v(E_uintAdd)), v(6 + 9));
 // E_listPrependToAll {
 E_assert(E_listEq(E_listPrependToAll(E_nil(), v(+)), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
-    E_listPrependToAll(E_list(v(5, 9, 22)), v(888)), E_list(v(888, 5, 888, 9, 888, 22)),
+    E_listPrependToAll(E_list(v(5, 9, 22)), v(111)), E_list(v(111, 5, 111, 9, 111, 22)),
     v(E_uintEq)));
 // }
 
 // E_listIntersperse {
 E_assert(E_listEq(E_listIntersperse(E_nil(), v(+)), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
-    E_listIntersperse(E_list(v(5, 9, 22)), v(888)), E_list(v(5, 888, 9, 888, 22)), v(E_uintEq)));
+    E_listIntersperse(E_list(v(5, 9, 22)), v(111)), E_list(v(5, 111, 9, 111, 22)), v(E_uintEq)));
 // }
 
 #define ABCDEFG 1
