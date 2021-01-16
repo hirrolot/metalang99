@@ -19,37 +19,32 @@ inline static void test_cat(void) {
 
 E_assertEmpty(E_cat(v(), v()));
 
-// E_consume
+// E_parenthesise, E_unparenthesise
+/*
+#define ASSERT_PARENTHESISE(a, b, c) v(ASSERT(a == 1); ASSERT(b == 2); ASSERT(c == 3);)
 
-E_eval(E_consume(v(a) v(b) v(c))) E_eval(E_consume(v(NULL "hey") v(131.415) v(boom)))
-    E_eval(E_consume())
+E_eval(ASSERT_PARENTHESISE E_eval(E_call(E_parenthesise, v(1) v(2)
+v(3))))
 
-    // E_parenthesise, E_unparenthesise
-    /*
-    #define ASSERT_PARENTHESISE(a, b, c) v(ASSERT(a == 1); ASSERT(b == 2); ASSERT(c == 3);)
+enum {
+    E_eval(
+        E_call(E_unparenthesise,
+          v((CheckUnparenthesiseA = 9, CheckUnparenthesiseB = 4, CheckUnparenthesiseC = 18))))
+};
 
-    E_eval(ASSERT_PARENTHESISE E_eval(E_call(E_parenthesise, v(1) v(2)
-    v(3))))
+ASSERT(CheckUnparenthesiseA == 9);
+ASSERT(CheckUnparenthesiseB == 4);
+ASSERT(CheckUnparenthesiseC == 18);
 
-    enum {
-        E_eval(
-            E_call(E_unparenthesise,
-              v((CheckUnparenthesiseA = 9, CheckUnparenthesiseB = 4, CheckUnparenthesiseC = 18))))
-    };
+#define EMPTY E_eval(E_call(E_unparenthesise,
+E_call(E_parenthesise, ))) CHECK_EMPTY(1, EMPTY) #undef EMPTY
 
-    ASSERT(CheckUnparenthesiseA == 9);
-    ASSERT(CheckUnparenthesiseB == 4);
-    ASSERT(CheckUnparenthesiseC == 18);
+#undef ASSERT_PARENTHESISE
 
-    #define EMPTY E_eval(E_call(E_unparenthesise,
-    E_call(E_parenthesise, ))) CHECK_EMPTY(1, EMPTY) #undef EMPTY
+#undef CHECK_EMPTY
+*/
 
-    #undef ASSERT_PARENTHESISE
-
-    #undef CHECK_EMPTY
-    */
-
-    E_assertEq(E_if(v(1), v(24), v(848)), v(24));
+E_assertEq(E_if(v(1), v(24), v(848)), v(24));
 E_assertEq(E_if(v(1), v(1549), v(1678)), v(1549));
 
 E_assertEq(E_if(v(0), v(516), v(115)), v(115));
