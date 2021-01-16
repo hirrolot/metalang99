@@ -53,6 +53,26 @@
  * @endcode
  */
 #define EPILEPSY_isNothing(maybe) EPILEPSY_call(EPILEPSY_isNothing, maybe)
+
+/**
+ * Tests @p maybe and @p other for equality.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/maybe.h>
+ *
+ * // 1
+ * E_maybeEq(E_just(v(123)), E_just(v(123)));
+ *
+ * // 0
+ * E_maybeEq(E_just(v(4)), E_just(v(6)));
+ *
+ * // 0
+ * E_maybeEq(E_just(v(4)), E_nothing());
+ * @endcode
+ */
+#define EPILEPSY_maybeEq(maybe, other, compare) EPILEPSY_call(EPILEPSY_maybeEq, maybe other compare)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -66,6 +86,19 @@
 #define EPILEPSY_PRIV_isJust_nothing_IMPL() v(0)
 
 #define EPILEPSY_isNothing_IMPL(maybe) EPILEPSY_not(EPILEPSY_isJust(v(maybe)))
+
+// EPILEPSY_maybeEq_IMPL {
+#define EPILEPSY_maybeEq_IMPL(maybe, other, compare)                                               \
+    EPILEPSY_matchWithArgs(v(maybe), v(EPILEPSY_PRIV_maybeEq_), v(other, compare))
+
+#define EPILEPSY_PRIV_maybeEq_nothing_IMPL(other, _compare) EPILEPSY_isNothing(v(other))
+#define EPILEPSY_PRIV_maybeEq_just_IMPL(x, other, compare)                                         \
+    EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_maybeEq_just_), v(x, compare))
+
+#define EPILEPSY_PRIV_maybeEq_just_nothing_IMPL(other, _compare) v(0)
+#define EPILEPSY_PRIV_maybeEq_just_just_IMPL(y, x, compare)      EPILEPSY_appl2(v(compare), v(x), v(y))
+// } (EPILEPSY_maybeEq_IMPL)
+
 // }
 
 // Arity specifiers {
@@ -73,6 +106,7 @@
 #define EPILEPSY_nothing_ARITY   1
 #define EPILEPSY_isJust_ARITY    1
 #define EPILEPSY_isNothing_ARITY 1
+#define EPILEPSY_maybeEq_ARITY   3
 // }
 
 // Aliases {
@@ -82,6 +116,7 @@
 #define E_nothing   EPILEPSY_nothing
 #define E_isJust    EPILEPSY_isJust
 #define E_isNothing EPILEPSY_isNothing
+#define E_maybeEq   EPILEPSY_maybeEq
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

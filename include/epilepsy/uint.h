@@ -358,22 +358,23 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_uintInc_ARITY       1
-#define EPILEPSY_uintDec_ARITY       1
-#define EPILEPSY_uintEq_ARITY        2
-#define EPILEPSY_uintNeq_ARITY       2
-#define EPILEPSY_uintGreater_ARITY   2
-#define EPILEPSY_uintGreaterEq_ARITY 2
-#define EPILEPSY_uintLesser_ARITY    2
-#define EPILEPSY_uintLesserEq_ARITY  2
-#define EPILEPSY_uintAdd_ARITY       2
-#define EPILEPSY_uintSub_ARITY       2
-#define EPILEPSY_uintMul_ARITY       2
-#define EPILEPSY_uintDiv_ARITY       2
-#define EPILEPSY_uintAdd3_ARITY      3
-#define EPILEPSY_uintSub3_ARITY      3
-#define EPILEPSY_uintMul3_ARITY      3
-#define EPILEPSY_uintDiv3_ARITY      3
+#define EPILEPSY_uintInc_ARITY        1
+#define EPILEPSY_uintDec_ARITY        1
+#define EPILEPSY_uintEq_ARITY         2
+#define EPILEPSY_uintNeq_ARITY        2
+#define EPILEPSY_uintGreater_ARITY    2
+#define EPILEPSY_uintGreaterEq_ARITY  2
+#define EPILEPSY_uintLesser_ARITY     2
+#define EPILEPSY_uintLesserEq_ARITY   2
+#define EPILEPSY_uintAdd_ARITY        2
+#define EPILEPSY_uintSub_ARITY        2
+#define EPILEPSY_uintMul_ARITY        2
+#define EPILEPSY_uintDiv_ARITY        2
+#define EPILEPSY_uintDivChecked_ARITY 2
+#define EPILEPSY_uintAdd3_ARITY       3
+#define EPILEPSY_uintSub3_ARITY       3
+#define EPILEPSY_uintMul3_ARITY       3
+#define EPILEPSY_uintDiv3_ARITY       3
 
 #define EPILEPSY_PRIV_uintLesser_PROGRESS_ARITY 2
 #define EPILEPSY_PRIV_uintAdd_PROGRESS_ARITY    2
@@ -384,22 +385,23 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_uintInc       EPILEPSY_uintInc
-#define E_uintDec       EPILEPSY_uintDec
-#define E_uintEq        EPILEPSY_uintEq
-#define E_uintNeq       EPILEPSY_uintNeq
-#define E_uintGreater   EPILEPSY_uintGreater
-#define E_uintGreaterEq EPILEPSY_uintGreaterEq
-#define E_uintLesser    EPILEPSY_uintLesser
-#define E_uintLesserEq  EPILEPSY_uintLesserEq
-#define E_uintAdd       EPILEPSY_uintAdd
-#define E_uintSub       EPILEPSY_uintSub
-#define E_uintMul       EPILEPSY_uintMul
-#define E_uintDiv       EPILEPSY_uintDiv
-#define E_uintAdd3      EPILEPSY_uintAdd3
-#define E_uintSub3      EPILEPSY_uintSub3
-#define E_uintMul3      EPILEPSY_uintMul3
-#define E_uintDiv3      EPILEPSY_uintDiv3
+#define E_uintInc        EPILEPSY_uintInc
+#define E_uintDec        EPILEPSY_uintDec
+#define E_uintEq         EPILEPSY_uintEq
+#define E_uintNeq        EPILEPSY_uintNeq
+#define E_uintGreater    EPILEPSY_uintGreater
+#define E_uintGreaterEq  EPILEPSY_uintGreaterEq
+#define E_uintLesser     EPILEPSY_uintLesser
+#define E_uintLesserEq   EPILEPSY_uintLesserEq
+#define E_uintAdd        EPILEPSY_uintAdd
+#define E_uintSub        EPILEPSY_uintSub
+#define E_uintMul        EPILEPSY_uintMul
+#define E_uintDiv        EPILEPSY_uintDiv
+#define E_uintDivChecked EPILEPSY_uintDivChecked
+#define E_uintAdd3       EPILEPSY_uintAdd3
+#define E_uintSub3       EPILEPSY_uintSub3
+#define E_uintMul3       EPILEPSY_uintMul3
+#define E_uintDiv3       EPILEPSY_uintDiv3
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

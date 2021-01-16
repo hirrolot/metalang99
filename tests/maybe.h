@@ -1,5 +1,6 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/maybe.h>
+#include <epilepsy/uint.h>
 
 // Pattern matching {
 #define MATCH_IMPL(maybe)    E_match(v(maybe), v(MATCH_))
@@ -24,6 +25,14 @@ E_assert(E_not(E_isJust(E_nothing())));
 // E_isNothing {
 E_assert(E_isNothing(E_nothing()));
 E_assert(E_not(E_isNothing(E_just(VAL))));
+// }
+
+// E_maybeEq {
+E_assert(E_maybeEq(E_just(v(123)), E_just(v(123)), v(E_uintEq)));
+
+E_assert(E_not(E_maybeEq(E_just(v(123)), E_just(v(4)), v(E_uintEq))));
+E_assert(E_not(E_maybeEq(E_just(v(123)), E_nothing(), v(E_uintEq))));
+E_assert(E_not(E_maybeEq(E_nothing(), E_just(v(123)), v(E_uintEq))));
 // }
 
 #undef VAL
