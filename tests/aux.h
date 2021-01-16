@@ -1,7 +1,7 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/aux.h>
 
-#define FOO(x, y) v(E_assertPlain(x == 518 && y == 1910))
+#define FOO(x, y) E_assertPlain(x == 518 && y == 1910)
 
 // E_id {
 E_eval(v(FOO) E_id(v((518, 1910))));
@@ -53,6 +53,5 @@ E_semicolon();
 
 void test_semicolon(void) {
     E_semicolon();
-    test_semicolon();
 }
 // }
