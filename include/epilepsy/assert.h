@@ -53,7 +53,7 @@
  */
 #define EPILEPSY_assertPlain(expr)                                                                 \
     /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
-    static const char EPILEPSY_catPlain(                                                           \
+    static const char EPILEPSY_PRIV_CAT(                                                           \
         epilepsy_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_COMPILER_ATTR_UNUSED
 
 /**
@@ -89,7 +89,7 @@
  * @endcode
  */
 #define EPILEPSY_assertEmptyPlain(expr)                                                            \
-    EPILEPSY_assertPlain(EPILEPSY_catPlain(EPILEPSY_PRIV_assertEmpty_, expr))
+    EPILEPSY_assertPlain(EPILEPSY_PRIV_CAT(EPILEPSY_PRIV_assertEmpty_, expr))
 // }
 
 #ifndef DOXYGEN_IGNORE
