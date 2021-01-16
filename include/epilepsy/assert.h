@@ -10,6 +10,7 @@
 #include <epilepsy/eval.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/logical.h>
+#include <epilepsy/priv/aux.h>
 #include <epilepsy/priv/compiler_attr.h>
 
 // Desugaring {
@@ -24,7 +25,7 @@
  * EPILEPSY_assert(v(123 == 123));
  * @endcode
  */
-#define EPILEPSY_assert(expr) EPILEPSY_assertEq(EPILEPSY_expand(expr), v(1))
+#define EPILEPSY_assert(expr) EPILEPSY_assertEq(EPILEPSY_PRIV_EXPAND(expr), v(1))
 
 /**
  * Asserts the equality of `EPILEPSY_eval(lhs)` and `EPILEPSY_eval(rhs)` at compile-time.
