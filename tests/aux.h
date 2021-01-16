@@ -1,51 +1,58 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/aux.h>
 
-// E_stringify
+#define FOO(x, y) v(E_assertPlain(x == 518 && y == 1910))
 
-static const char stringified[] = E_eval(E_stringify(v(hello)));
+// E_id {
+E_eval(v(FOO) E_id(v((518, 1910))));
+// }
 
-// I'm not sure that the stringified version won't contain any whitespaces, so for now just check
-// that it contains _at least_ six characters.
-E_assertPlain(sizeof(stringified) >= 5 + 1);
+// E_parenthesiseUnevaluated {
 
-// E_cat
+E_eval(v(FOO) E_parenthesiseUnevaluated(v(518, 1910)));
+// }
 
-inline static void test_cat(void) {
-    (void)test_cat;
-    int E_eval(E_cat(v(ab), v(c))) = 7;
-    abc++;
-}
+#undef FOO
 
-E_assertEmpty(E_cat(v(), v()));
+// E_unparenthesise {
+E_assertEq(E_unparenthesise(v((v(198)))), v(198));
+// }
 
-// E_parenthesise, E_unparenthesise
-/*
-#define ASSERT_PARENTHESISE(a, b, c) v(ASSERT(a == 1); ASSERT(b == 2); ASSERT(c == 3);)
+// E_unparenthesiseUnevaluated {
+E_assertEq(E_unparenthesiseUnevaluated(v((198))), v(198));
+// }
 
-E_eval(ASSERT_PARENTHESISE E_eval(E_call(E_parenthesise, v(1) v(2)
-v(3))))
+// E_parenthesise and E_unparenthesise {
+E_assertEq(E_unparenthesise(E_parenthesise(v(187))), v(187));
+// }
 
-enum {
-    E_eval(
-        E_call(E_unparenthesise,
-          v((CheckUnparenthesiseA = 9, CheckUnparenthesiseB = 4, CheckUnparenthesiseC = 18))))
-};
+// E_const, E_const2, E_const3 {
+E_assertEq(E_appl2(v(E_const), v(1810), v(~)), v(1810));
+E_assertEq(E_appl3(v(E_const2), v(1810), v(~), v(~)), v(1810));
+E_assertEq(E_appl(E_appl3(v(E_const3), v(1810), v(~), v(~)), v(~)), v(1810));
+// }
 
-ASSERT(CheckUnparenthesiseA == 9);
-ASSERT(CheckUnparenthesiseB == 4);
-ASSERT(CheckUnparenthesiseC == 18);
-
-#define EMPTY E_eval(E_call(E_unparenthesise,
-E_call(E_parenthesise, ))) CHECK_EMPTY(1, EMPTY) #undef EMPTY
-
-#undef ASSERT_PARENTHESISE
-
-#undef CHECK_EMPTY
-*/
-
+// E_if {
 E_assertEq(E_if(v(1), v(24), v(848)), v(24));
 E_assertEq(E_if(v(1), v(1549), v(1678)), v(1549));
 
 E_assertEq(E_if(v(0), v(516), v(115)), v(115));
 E_assertEq(E_if(v(0), v(10), v(6)), v(6));
+// }
+
+#define ABC 1
+
+// E_flip {
+E_assert(E_appl2(E_flip(v(E_cat)), v(C), v(AB)));
+// }
+
+#undef ABC
+
+// E_semicolon {
+E_semicolon();
+
+void test_semicolon(void) {
+    E_semicolon();
+    test_semicolon();
+}
+// }
