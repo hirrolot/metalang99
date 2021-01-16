@@ -53,6 +53,28 @@
  * @endcode
  */
 #define EPILEPSY_isRight(either) EPILEPSY_call(EPILEPSY_isRight, either)
+
+/**
+ * Tests @p maybe and @p other for equality.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/either.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 1
+ * E_eitherEq(E_left(v(123)), E_left(v(123)), v(E_uintEq))
+ *
+ * // 0
+ * E_eitherEq(E_right(v(123)), E_left(v(8)), v(E_uintEq))
+ *
+ * // 0
+ * E_eitherEq(E_right(v(123)), E_left(v(123)), v(E_uintEq))
+ * @endcode
+ */
+#define EPILEPSY_eitherEq(either, other, compare)                                                  \
+    EPILEPSY_call(EPILEPSY_eitherEq, either other compare)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -66,22 +88,40 @@
 #define EPILEPSY_PRIV_isLeft_right_IMPL(_x) v(0)
 
 #define EPILEPSY_isRight_IMPL(either) EPILEPSY_not(EPILEPSY_isLeft(v(either)))
+
+// EPILEPSY_eitherEq_IMPL {
+#define EPILEPSY_eitherEq_IMPL(maybe, other, compare)                                              \
+    EPILEPSY_matchWithArgs(v(maybe), v(EPILEPSY_PRIV_eitherEq_), v(other, compare))
+
+#define EPILEPSY_PRIV_eitherEq_left_IMPL(x, other, compare)                                        \
+    EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_eitherEq_left_), v(x, compare))
+#define EPILEPSY_PRIV_eitherEq_right_IMPL(x, other, compare)                                       \
+    EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_eitherEq_right_), v(x, compare))
+
+#define EPILEPSY_PRIV_eitherEq_left_left_IMPL(y, x, compare)  EPILEPSY_appl2(v(compare), v(x), v(y))
+#define EPILEPSY_PRIV_eitherEq_left_right_IMPL(y, x, compare) v(0)
+#define EPILEPSY_PRIV_eitherEq_right_left_IMPL(y, x, compare) v(0)
+#define EPILEPSY_PRIV_eitherEq_right_right_IMPL(y, x, compare)                                     \
+    EPILEPSY_appl2(v(compare), v(x), v(y))
+// } (EPILEPSY_eitherEq_IMPL)
 // }
 
 // Arity specifiers {
-#define EPILEPSY_left_ARITY    1
-#define EPILEPSY_right_ARITY   1
-#define EPILEPSY_isLeft_ARITY  1
-#define EPILEPSY_isRight_ARITY 1
+#define EPILEPSY_left_ARITY     1
+#define EPILEPSY_right_ARITY    1
+#define EPILEPSY_isLeft_ARITY   1
+#define EPILEPSY_isRight_ARITY  1
+#define EPILEPSY_eitherEq_ARITY 3
 // }
 
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_left    EPILEPSY_left
-#define E_right   EPILEPSY_right
-#define E_isLeft  EPILEPSY_isLeft
-#define E_isRight EPILEPSY_isRight
+#define E_left     EPILEPSY_left
+#define E_right    EPILEPSY_right
+#define E_isLeft   EPILEPSY_isLeft
+#define E_isRight  EPILEPSY_isRight
+#define E_eitherEq EPILEPSY_eitherEq
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

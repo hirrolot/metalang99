@@ -1,5 +1,6 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/either.h>
+#include <epilepsy/uint.h>
 
 // Pattern matching {
 #define MATCH_IMPL(either)  E_match(v(either), v(MATCH_))
@@ -24,6 +25,19 @@ E_assert(E_not(E_isLeft(E_right(VAL))));
 // E_isRight {
 E_assert(E_isRight(E_right(VAL)));
 E_assert(E_not(E_isRight(E_left(VAL))));
+// }
+
+// E_eitherEq {
+E_assert(E_eitherEq(E_left(v(123)), E_left(v(123)), v(E_uintEq)));
+E_assert(E_not(E_eitherEq(E_left(v(18)), E_left(v(123)), v(E_uintEq))));
+
+E_assert(E_eitherEq(E_right(v(123)), E_right(v(123)), v(E_uintEq)));
+E_assert(E_not(E_eitherEq(E_right(v(18)), E_right(v(123)), v(E_uintEq))));
+
+E_assert(E_not(E_eitherEq(E_left(v(123)), E_right(v(123)), v(E_uintEq))));
+E_assert(E_not(E_eitherEq(E_left(v(123)), E_right(v(4)), v(E_uintEq))));
+E_assert(E_not(E_eitherEq(E_right(v(123)), E_left(v(123)), v(E_uintEq))));
+E_assert(E_not(E_eitherEq(E_right(v(123)), E_left(v(4)), v(E_uintEq))));
 // }
 
 #undef VAL
