@@ -313,7 +313,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(x, y),                                                            \
-            EPILEPSY_appl(EPILEPSY_const2, v(1)),                                                  \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(1)),                                               \
             v(EPILEPSY_uintGreater)),                                                              \
         v(x),                                                                                      \
         v(y))
@@ -322,7 +322,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            EPILEPSY_appl(EPILEPSY_const2, v(0)),                                                  \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(0)),                                               \
             v(EPILEPSY_PRIV_uintLesser_PROGRESS)),                                                 \
         v(x),                                                                                      \
         v(y))
@@ -330,7 +330,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(x, EPILEPSY_PRIV_uintDec(y)),                                     \
-            EPILEPSY_appl(EPILEPSY_const2, v(1)),                                                  \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(1)),                                               \
             v(EPILEPSY_uintLesser)),                                                               \
         v(x),                                                                                      \
         EPILEPSY_uintDec(v(y)))
@@ -339,7 +339,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            EPILEPSY_appl(EPILEPSY_const2, v(x)),                                                  \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(x)),                                               \
             v(EPILEPSY_PRIV_uintAdd_PROGRESS)),                                                    \
         v(x),                                                                                      \
         v(y))
@@ -350,7 +350,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            EPILEPSY_appl(EPILEPSY_const2, v(x)),                                                  \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(x)),                                               \
             v(EPILEPSY_PRIV_uintSub_PROGRESS)),                                                    \
         v(x),                                                                                      \
         v(y))
@@ -361,7 +361,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            EPILEPSY_appl(EPILEPSY_const2, v(0)),                                                  \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(0)),                                               \
             v(EPILEPSY_PRIV_uintMul_PROGRESS)),                                                    \
         v(x),                                                                                      \
         v(y))
@@ -379,7 +379,7 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_isJust(EPILEPSY_uintDivChecked(v(x), v(y))),                                  \
-            EPILEPSY_appl(EPILEPSY_const, v(acc)),                                                 \
+            EPILEPSY_appl(v(EPILEPSY_const), v(acc)),                                              \
             EPILEPSY_appl2(v(EPILEPSY_PRIV_uintMod_PROGRESS), v(x), v(y))),                        \
         v(acc))
 
@@ -387,7 +387,7 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(x, 0),                                                            \
-            EPILEPSY_appl(EPILEPSY_const, v(acc)),                                                 \
+            EPILEPSY_appl(v(EPILEPSY_const), v(acc)),                                              \
             EPILEPSY_appl2(v(EPILEPSY_PRIV_uintMod_PROGRESS_AUX), v(x), v(y))),                    \
         v(acc))
 

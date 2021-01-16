@@ -19,7 +19,7 @@
 /**
  * Applies arguments to @p f.
  */
-#define EPILEPSY_appl(f, ...) EPILEPSY_PRIV_appl(f, __VA_ARGS__)
+#define EPILEPSY_appl(f, ...) EPILEPSY_call(EPILEPSY_appl, f __VA_ARGS__)
 
 /**
  * Applies @p a and @p b to @p f.
@@ -51,13 +51,6 @@
     (op, __VA_ARGS__)
 #define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident##_IMPL, __VA_ARGS__),
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__),
-
-#define EPILEPSY_PRIV_appl(f, ...)                                                                 \
-    EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_IS_UNPARENTHESISED(f), EPILEPSY_PRIV_appl_IDENT, EPILEPSY_PRIV_appl_TERM)    \
-    (f, __VA_ARGS__)
-#define EPILEPSY_PRIV_appl_IDENT(f, ...)            EPILEPSY_call(EPILEPSY_appl, v(f) __VA_ARGS__)
-#define EPILEPSY_PRIV_appl_TERM(f, _emptiness, ...) EPILEPSY_call(EPILEPSY_appl, f, __VA_ARGS__)
 //
 
 // Arity specifiers {

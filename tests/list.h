@@ -94,16 +94,17 @@ E_assert(E_listEq(E_listTake(E_list(v(1, 2, 3)), v(3)), E_list(v(1, 2, 3)), v(E_
 // }
 
 // E_listTakeWhile {
-E_assert(E_listEq(E_listTakeWhile(E_nil(), E_appl(E_uintLesser, v(5))), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listTakeWhile(E_nil(), E_appl(v(E_uintLesser), v(5))), E_nil(), v(E_uintEq)));
 E_assert(
-    E_listEq(E_listTakeWhile(E_list(v(7)), E_appl(E_uintGreater, v(5))), E_nil(), v(E_uintEq)));
+    E_listEq(E_listTakeWhile(E_list(v(7)), E_appl(v(E_uintGreater), v(5))), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
-    E_listTakeWhile(E_list(v(1, 9, 7)), E_appl(E_uintGreater, v(5))), E_list(v(1)), v(E_uintEq)));
-E_assert(E_listEq(
-    E_listTakeWhile(E_list(v(4, 9, 2, 3)), E_appl(E_uintGreater, v(5))), E_list(v(4)),
+    E_listTakeWhile(E_list(v(1, 9, 7)), E_appl(v(E_uintGreater), v(5))), E_list(v(1)),
     v(E_uintEq)));
 E_assert(E_listEq(
-    E_listTakeWhile(E_list(v(2, 4, 7, 9, 28)), E_appl(E_uintGreater, v(5))), E_list(v(2, 4)),
+    E_listTakeWhile(E_list(v(4, 9, 2, 3)), E_appl(v(E_uintGreater), v(5))), E_list(v(4)),
+    v(E_uintEq)));
+E_assert(E_listEq(
+    E_listTakeWhile(E_list(v(2, 4, 7, 9, 28)), E_appl(v(E_uintGreater), v(5))), E_list(v(2, 4)),
     v(E_uintEq)));
 // }
 
@@ -117,17 +118,17 @@ E_assert(E_listEq(E_listDrop(E_list(v(1, 2, 3)), v(3)), E_nil(), v(E_uintEq)));
 // }
 
 // E_listDropWhile {
-E_assert(E_listEq(E_listDropWhile(E_nil(), E_appl(E_uintLesser, v(5))), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listDropWhile(E_nil(), E_appl(v(E_uintLesser), v(5))), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
-    E_listDropWhile(E_list(v(7)), E_appl(E_uintGreater, v(5))), E_list(v(7)), v(E_uintEq)));
+    E_listDropWhile(E_list(v(7)), E_appl(v(E_uintGreater), v(5))), E_list(v(7)), v(E_uintEq)));
 E_assert(E_listEq(
-    E_listDropWhile(E_list(v(1, 9, 7)), E_appl(E_uintGreater, v(5))), E_list(v(9, 7)),
+    E_listDropWhile(E_list(v(1, 9, 7)), E_appl(v(E_uintGreater), v(5))), E_list(v(9, 7)),
     v(E_uintEq)));
 E_assert(E_listEq(
-    E_listDropWhile(E_list(v(4, 9, 2, 3)), E_appl(E_uintGreater, v(5))), E_list(v(9, 2, 3)),
+    E_listDropWhile(E_list(v(4, 9, 2, 3)), E_appl(v(E_uintGreater), v(5))), E_list(v(9, 2, 3)),
     v(E_uintEq)));
 E_assert(E_listEq(
-    E_listDropWhile(E_list(v(2, 4, 7, 9, 28)), E_appl(E_uintGreater, v(5))), E_list(v(7, 9, 28)),
+    E_listDropWhile(E_list(v(2, 4, 7, 9, 28)), E_appl(v(E_uintGreater), v(5))), E_list(v(7, 9, 28)),
     v(E_uintEq)));
 // }
 
@@ -205,7 +206,7 @@ E_assert(E_listEq(
 
 // E_listFoldr {
 E_assertEq(E_listFoldr(E_nil(), v(E_cat), v(7)), v(7));
-E_assert(E_listFoldr(E_list(v(G, DEF, BC)), E_appl(E_flip, v(E_cat)), v(A)));
+E_assert(E_listFoldr(E_list(v(G, DEF, BC)), E_appl(v(E_flip), v(E_cat)), v(A)));
 // }
 
 // E_listFoldl {
@@ -220,20 +221,20 @@ E_assert(E_listFoldl1(E_list(v(AB, CDEF, G)), v(E_cat)));
 #undef ABCDEFG
 
 // E_listMap {
-E_assert(E_listEq(E_listMap(E_appl(E_uintAdd, v(3)), E_nil()), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listMap(E_appl(v(E_uintAdd), v(3)), E_nil()), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
-    E_listMap(E_appl(E_uintAdd, v(3)), E_list(v(1, 2, 3))), E_list(v(4, 5, 6)), v(E_uintEq)));
+    E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))), E_list(v(4, 5, 6)), v(E_uintEq)));
 // }
 
 // E_listFor {
-E_assert(E_listEq(E_listFor(E_nil(), E_appl(E_uintAdd, v(3))), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listFor(E_nil(), E_appl(v(E_uintAdd), v(3))), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
-    E_listFor(E_list(v(1, 2, 3)), E_appl(E_uintAdd, v(3))), E_list(v(4, 5, 6)), v(E_uintEq)));
+    E_listFor(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3))), E_list(v(4, 5, 6)), v(E_uintEq)));
 // }
 
 // E_listFilter {
-E_assert(E_listEq(E_listFilter(E_nil(), E_appl(E_uintAdd, v(3))), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listFilter(E_nil(), E_appl(v(E_uintAdd), v(3))), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
-    E_listFilter(E_list(v(14, 0, 1, 7, 2, 65, 3)), E_appl(E_uintLesser, v(3))),
+    E_listFilter(E_list(v(14, 0, 1, 7, 2, 65, 3)), E_appl(v(E_uintLesser), v(3))),
     E_list(v(14, 7, 65)), v(E_uintEq)));
 // }

@@ -96,7 +96,7 @@
 #define EPILEPSY_const2_IMPL(x, _a, _b)            v(x)
 #define EPILEPSY_const3_IMPL(x, _a, _b, _c)        v(x)
 #define EPILEPSY_if_IMPL(cond, x, y)               v(EPILEPSY_PRIV_IF(cond, x, y))
-#define EPILEPSY_flip_IMPL(f)                      EPILEPSY_appl(EPILEPSY_PRIV_flip, v(f))
+#define EPILEPSY_flip_IMPL(f)                      EPILEPSY_appl(v(EPILEPSY_PRIV_flip), v(f))
 #define EPILEPSY_PRIV_flip_IMPL(f, a, b)           E_appl2(v(f), v(b), v(a))
 // }
 

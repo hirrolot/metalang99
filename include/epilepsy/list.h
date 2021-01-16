@@ -247,7 +247,7 @@
  * E_listFoldr(E_nil(), v(E_cat), v(7))
  *
  * // 123
- * E_listFoldr(E_list(v(G, DEF, BC)), E_appl(E_flip, v(E_cat)), v(A))
+ * E_listFoldr(E_list(v(G, DEF, BC)), E_appl(v(E_flip), v(E_cat)), v(A))
  * @endcode
  */
 #define EPILEPSY_listFoldr(list, f, init) EPILEPSY_call(EPILEPSY_listFoldr, list f init)
@@ -325,7 +325,7 @@
  * #include <epilepsy/uint.h>
  *
  * // 4, 5, 6
- * E_listMap(E_appl(E_uintAdd, v(3)), E_list(v(1, 2, 3)))
+ * E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3)))
  * @endcode
  */
 #define EPILEPSY_listMap(f, list) EPILEPSY_call(EPILEPSY_listMap, f list)
@@ -340,7 +340,7 @@
  * #include <epilepsy/uint.h>
  *
  * // 4, 5, 6
- * E_listFor(E_list(v(1, 2, 3)), E_appl(E_uintAdd, v(3)))
+ * E_listFor(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3)))
  * @endcode
  */
 #define EPILEPSY_listFor(list, f) EPILEPSY_call(EPILEPSY_listFor, list f)
@@ -355,7 +355,7 @@
  * #include <epilepsy/uint.h>
  *
  * // 9, 11, 6
- * E_listFilter(E_list(v(9, 1, 11, 6, 0, 4)), E_appl(E_uintLesser, v(5)))
+ * E_listFilter(E_list(v(9, 1, 11, 6, 0, 4)), E_appl(v(E_uintLesser), v(5)))
  * @endcode
  */
 #define EPILEPSY_listFilter(list, f) EPILEPSY_call(EPILEPSY_listFilter, list f)
@@ -422,7 +422,7 @@
  * #include <epilepsy/uint.h>
  *
  * // 1, 2, 3
- * E_listTakeWhile(E_list(v(1, 2, 3, 4, 5, 6)), E_appl(E_uintGreater, v(4)))
+ * E_listTakeWhile(E_list(v(1, 2, 3, 4, 5, 6)), E_appl(v(E_uintGreater), v(4)))
  * @endcode
  */
 #define EPILEPSY_listTakeWhile(list, f) EPILEPSY_call(EPILEPSY_listTakeWhile, list f)
@@ -452,7 +452,7 @@
  * #include <epilepsy/uint.h>
  *
  * // 4, 5, 6
- * E_listDropWhile(E_list(v(1, 2, 3, 4, 5, 6)), E_appl(E_uintLesser, v(4)))
+ * E_listDropWhile(E_list(v(1, 2, 3, 4, 5, 6)), E_appl(v(E_uintLesser), v(4)))
  * @endcode
  */
 #define EPILEPSY_listDropWhile(list, f) EPILEPSY_call(EPILEPSY_listDropWhile, list f)
@@ -500,10 +500,10 @@
  * // E_uintAdd
  * E_listAppl(E_nil(), v(E_uintAdd))
  *
- * // E_appl(E_uintAdd, v(1))
+ * // E_appl(v(E_uintAdd), v(1))
  * E_listAppl(E_list(v(1)), v(E_uintAdd))
  *
- * // E_appl(E_uintAdd, v(1, 2))
+ * // E_appl2(v(E_uintAdd), v(1), v(2))
  * E_listAppl(E_list(v(1, 2)), v(E_uintAdd))
  * @endcode
  */
@@ -541,7 +541,7 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_listIsEmpty(v(xs)),                                                           \
-            EPILEPSY_appl(EPILEPSY_const, v(x)),                                                   \
+            EPILEPSY_appl(v(EPILEPSY_const), v(x)),                                                \
             v(EPILEPSY_listLast)),                                                                 \
         v(xs))
 // }
@@ -555,8 +555,8 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_listIsEmpty(v(xs)),                                                           \
-            EPILEPSY_appl(EPILEPSY_const, EPILEPSY_nil()),                                         \
-            EPILEPSY_appl(EPILEPSY_PRIV_listInit_PROGRESS, v(x))),                                 \
+            EPILEPSY_appl(v(EPILEPSY_const), EPILEPSY_nil()),                                      \
+            EPILEPSY_appl(v(EPILEPSY_PRIV_listInit_PROGRESS), v(x))),                              \
         v(xs))
 #define EPILEPSY_PRIV_listInit_PROGRESS_IMPL(x, xs) EPILEPSY_cons(v(x), EPILEPSY_listInit(v(xs)))
 // }
@@ -620,8 +620,8 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_uintEq(v(i), v(0)),                                                           \
-            EPILEPSY_appl(EPILEPSY_const, v(x)),                                                   \
-            EPILEPSY_appl(EPILEPSY_listGet, v(xs))),                                               \
+            EPILEPSY_appl(v(EPILEPSY_const), v(x)),                                                \
+            EPILEPSY_appl(v(EPILEPSY_listGet), v(xs))),                                            \
         EPILEPSY_uintDec(v(i)))
 // }
 
@@ -670,7 +670,7 @@
 #define EPILEPSY_PRIV_listFilter_cons_IMPL(x, xs, f)                                               \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
-            EPILEPSY_appl(v(f), v(x)), EPILEPSY_appl(EPILEPSY_cons, v(x)), v(EPILEPSY_id)),        \
+            EPILEPSY_appl(v(f), v(x)), EPILEPSY_appl(v(EPILEPSY_cons), v(x)), v(EPILEPSY_id)),     \
         EPILEPSY_listFilter(v(xs), v(f)))
 
 // EPILEPSY_listEq_IMPL {
@@ -698,7 +698,7 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_appl2(v(compare), v(x), v(item)),                                             \
-            EPILEPSY_appl(EPILEPSY_const, v(1)),                                                   \
+            EPILEPSY_appl(v(EPILEPSY_const), v(1)),                                                \
             EPILEPSY_appl2(v(EPILEPSY_listContains), v(xs), v(item))),                             \
         v(compare))
 
@@ -709,7 +709,7 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_uintEq(v(i), v(0)),                                                           \
-            EPILEPSY_appl(EPILEPSY_const, EPILEPSY_nil()),                                         \
+            EPILEPSY_appl(v(EPILEPSY_const), EPILEPSY_nil()),                                      \
             EPILEPSY_appl2(v(EPILEPSY_PRIV_listTake_PROGRESS), v(x), v(xs))),                      \
         v(i))
 #define EPILEPSY_PRIV_listTake_PROGRESS_IMPL(x, xs, i)                                             \
@@ -723,7 +723,7 @@
         EPILEPSY_if(                                                                               \
             EPILEPSY_appl(v(f), v(x)),                                                             \
             EPILEPSY_appl2(v(EPILEPSY_PRIV_listTakeWhile_PROGRESS), v(x), v(xs)),                  \
-            EPILEPSY_appl(EPILEPSY_const, EPILEPSY_nil())),                                        \
+            EPILEPSY_appl(v(EPILEPSY_const), EPILEPSY_nil())),                                     \
         v(f))
 #define EPILEPSY_PRIV_listTakeWhile_PROGRESS_IMPL(x, xs, f)                                        \
     EPILEPSY_cons(v(x), EPILEPSY_listTakeWhile(v(xs), v(f)))
@@ -735,8 +735,8 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_uintEq(v(i), v(0)),                                                           \
-            EPILEPSY_appl(EPILEPSY_const, EPILEPSY_cons(v(x), v(xs))),                             \
-            EPILEPSY_appl(EPILEPSY_PRIV_listDrop_PROGRESS, v(xs))),                                \
+            EPILEPSY_appl(v(EPILEPSY_const), EPILEPSY_cons(v(x), v(xs))),                          \
+            EPILEPSY_appl(v(EPILEPSY_PRIV_listDrop_PROGRESS), v(xs))),                             \
         v(i))
 #define EPILEPSY_PRIV_listDrop_PROGRESS_IMPL(xs, i) EPILEPSY_listDrop(v(xs), EPILEPSY_uintDec(v(i)))
 
@@ -747,8 +747,8 @@
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_appl(v(f), v(x)),                                                             \
-            EPILEPSY_appl(EPILEPSY_PRIV_listDropWhile_PROGRESS, v(xs)),                            \
-            EPILEPSY_appl(EPILEPSY_const, EPILEPSY_cons(v(x), v(xs)))),                            \
+            EPILEPSY_appl(v(EPILEPSY_PRIV_listDropWhile_PROGRESS), v(xs)),                         \
+            EPILEPSY_appl(v(EPILEPSY_const), EPILEPSY_cons(v(x), v(xs)))),                         \
         v(f))
 #define EPILEPSY_PRIV_listDropWhile_PROGRESS_IMPL(xs, f) EPILEPSY_listDropWhile(v(xs), v(f))
 
