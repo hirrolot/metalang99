@@ -36,6 +36,12 @@
 #define EPILEPSY_parenthesise(...) EPILEPSY_call(EPILEPSY_parenthesise, __VA_ARGS__)
 
 /**
+ * Parenthesises a sequence of arguments.
+ */
+#define EPILEPSY_parenthesiseUnevaluated(...)                                                      \
+    EPILEPSY_call(EPILEPSY_parenthesiseUnevaluated, __VA_ARGS__)
+
+/**
  * Unparenthesises a sequence of arguments and evaluates the result.
  */
 #define EPILEPSY_unparenthesise(x) EPILEPSY_call(EPILEPSY_unparenthesise, x)
@@ -95,9 +101,10 @@
 #define EPILEPSY_stringify_IMPL(x)                 v(#x)
 #define EPILEPSY_empty_IMPL()                      v()
 #define EPILEPSY_id_IMPL(...)                      v(__VA_ARGS__)
-#define EPILEPSY_parenthesise_IMPL(...)            v((__VA_ARGS__))
+#define EPILEPSY_parenthesise_IMPL(...)            v((v(__VA_ARGS__)))
 #define EPILEPSY_unparenthesise_IMPL(x)            EPILEPSY_PRIV_UNPARENTHESISE(x)
 #define EPILEPSY_unparenthesiseUnevaluated_IMPL(x) v(EPILEPSY_PRIV_UNPARENTHESISE(x))
+#define EPILEPSY_parenthesiseUnevaluated_IMPL(...) v((__VA_ARGS__))
 #define EPILEPSY_const_IMPL(x, _a)                 v(x)
 #define EPILEPSY_const2_IMPL(x, _a, _b)            v(x)
 #define EPILEPSY_const3_IMPL(x, _a, _b, _c)        v(x)
@@ -114,6 +121,7 @@
 #define EPILEPSY_parenthesise_ARITY              1
 #define EPILEPSY_unparenthesise_ARITY            1
 #define EPILEPSY_unparenthesiseUnevaluated_ARITY 1
+#define EPILEPSY_parenthesiseUnevaluated_ARITY   1
 #define EPILEPSY_const_ARITY                     2
 #define EPILEPSY_const2_ARITY                    3
 #define EPILEPSY_const3_ARITY                    4
@@ -133,6 +141,7 @@
 #define E_parenthesise              EPILEPSY_parenthesise
 #define E_unparenthesise            EPILEPSY_unparenthesise
 #define E_unparenthesiseUnevaluated EPILEPSY_unparenthesiseUnevaluated
+#define E_parenthesiseUnevaluated   EPILEPSY_parenthesiseUnevaluated
 #define E_const                     EPILEPSY_const
 #define E_const2                    EPILEPSY_const2
 #define E_const3                    EPILEPSY_const3
