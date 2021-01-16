@@ -31,6 +31,11 @@
 #define EPILEPSY_id(...) EPILEPSY_call(EPILEPSY_id, __VA_ARGS__)
 
 /**
+ * Parenthesises a sequence of arguments.
+ */
+#define EPILEPSY_parenthesise(...) EPILEPSY_call(EPILEPSY_parenthesise, __VA_ARGS__)
+
+/**
  * Unparenthesises a sequence of arguments and evaluates the result.
  */
 #define EPILEPSY_unparenthesise(x) EPILEPSY_call(EPILEPSY_unparenthesise, x)
@@ -90,6 +95,7 @@
 #define EPILEPSY_stringify_IMPL(x)                 v(#x)
 #define EPILEPSY_empty_IMPL()                      v()
 #define EPILEPSY_id_IMPL(...)                      v(__VA_ARGS__)
+#define EPILEPSY_parenthesise_IMPL(...)            v((__VA_ARGS__))
 #define EPILEPSY_unparenthesise_IMPL(x)            EPILEPSY_PRIV_UNPARENTHESISE(x)
 #define EPILEPSY_unparenthesiseUnevaluated_IMPL(x) v(EPILEPSY_PRIV_UNPARENTHESISE(x))
 #define EPILEPSY_const_IMPL(x, _a)                 v(x)
@@ -105,6 +111,7 @@
 #define EPILEPSY_stringify_ARITY                 1
 #define EPILEPSY_empty_ARITY                     1
 #define EPILEPSY_id_ARITY                        1
+#define EPILEPSY_parenthesise_ARITY              1
 #define EPILEPSY_unparenthesise_ARITY            1
 #define EPILEPSY_unparenthesiseUnevaluated_ARITY 1
 #define EPILEPSY_const_ARITY                     2
@@ -123,6 +130,7 @@
 #define E_stringify                 EPILEPSY_stringify
 #define E_empty                     EPILEPSY_empty
 #define E_id                        EPILEPSY_id
+#define E_parenthesise              EPILEPSY_parenthesise
 #define E_unparenthesise            EPILEPSY_unparenthesise
 #define E_unparenthesiseUnevaluated EPILEPSY_unparenthesiseUnevaluated
 #define E_const                     EPILEPSY_const
