@@ -28,16 +28,16 @@ E_assert(E_not(E_isRight(E_left(VAL))));
 // }
 
 // E_eitherEq {
-E_assert(E_eitherEq(E_left(v(123)), E_left(v(123)), v(E_uintEq)));
-E_assert(E_not(E_eitherEq(E_left(v(18)), E_left(v(123)), v(E_uintEq))));
+E_assert(E_eitherEq(v(E_uintEq), E_left(v(123)), E_left(v(123))));
+E_assert(E_not(E_eitherEq(v(E_uintEq), E_left(v(18)), E_left(v(123)))));
 
-E_assert(E_eitherEq(E_right(v(123)), E_right(v(123)), v(E_uintEq)));
-E_assert(E_not(E_eitherEq(E_right(v(18)), E_right(v(123)), v(E_uintEq))));
+E_assert(E_eitherEq(v(E_uintEq), E_right(v(123)), E_right(v(123))));
+E_assert(E_not(E_eitherEq(v(E_uintEq), E_right(v(18)), E_right(v(123)))));
 
-E_assert(E_not(E_eitherEq(E_left(v(123)), E_right(v(123)), v(E_uintEq))));
-E_assert(E_not(E_eitherEq(E_left(v(123)), E_right(v(4)), v(E_uintEq))));
-E_assert(E_not(E_eitherEq(E_right(v(123)), E_left(v(123)), v(E_uintEq))));
-E_assert(E_not(E_eitherEq(E_right(v(123)), E_left(v(4)), v(E_uintEq))));
+E_assert(E_not(E_eitherEq(v(E_uintEq), E_left(v(123)), E_right(v(123)))));
+E_assert(E_not(E_eitherEq(v(E_uintEq), E_left(v(123)), E_right(v(4)))));
+E_assert(E_not(E_eitherEq(v(E_uintEq), E_right(v(123)), E_left(v(123)))));
+E_assert(E_not(E_eitherEq(v(E_uintEq), E_right(v(123)), E_left(v(4)))));
 // }
 
 #undef VAL

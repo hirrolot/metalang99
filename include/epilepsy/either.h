@@ -64,17 +64,17 @@
  * #include <epilepsy/uint.h>
  *
  * // 1
- * E_eitherEq(E_left(v(123)), E_left(v(123)), v(E_uintEq))
+ * E_eitherEq(v(E_uintEq), E_left(v(123)), E_left(v(123)))
  *
  * // 0
- * E_eitherEq(E_right(v(123)), E_left(v(8)), v(E_uintEq))
+ * E_eitherEq(v(E_uintEq), E_right(v(123)), E_left(v(8)))
  *
  * // 0
- * E_eitherEq(E_right(v(123)), E_left(v(123)), v(E_uintEq))
+ * E_eitherEq(v(E_uintEq), E_right(v(123)), E_left(v(123)))
  * @endcode
  */
-#define EPILEPSY_eitherEq(either, other, compare)                                                  \
-    EPILEPSY_call(EPILEPSY_eitherEq, either other compare)
+#define EPILEPSY_eitherEq(compare, either, other)                                                  \
+    EPILEPSY_call(EPILEPSY_eitherEq, compare either other)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -90,7 +90,7 @@
 #define EPILEPSY_isRight_IMPL(either) EPILEPSY_not(EPILEPSY_isLeft(v(either)))
 
 // EPILEPSY_eitherEq_IMPL {
-#define EPILEPSY_eitherEq_IMPL(maybe, other, compare)                                              \
+#define EPILEPSY_eitherEq_IMPL(compare, maybe, other)                                              \
     EPILEPSY_matchWithArgs(v(maybe), v(EPILEPSY_PRIV_eitherEq_), v(other, compare))
 
 #define EPILEPSY_PRIV_eitherEq_left_IMPL(x, other, compare)                                        \

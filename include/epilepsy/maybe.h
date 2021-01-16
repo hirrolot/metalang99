@@ -61,18 +61,19 @@
  *
  * @code
  * #include <epilepsy/maybe.h>
+ * #include <epilepsy/uint.h>
  *
  * // 1
- * E_maybeEq(E_just(v(123)), E_just(v(123)));
+ * E_maybeEq(v(E_uintEq), E_just(v(123)), E_just(v(123)));
  *
  * // 0
- * E_maybeEq(E_just(v(4)), E_just(v(6)));
+ * E_maybeEq(v(E_uintEq), E_just(v(4)), E_just(v(6)));
  *
  * // 0
- * E_maybeEq(E_just(v(4)), E_nothing());
+ * E_maybeEq(v(E_uintEq), E_just(v(4)), E_nothing());
  * @endcode
  */
-#define EPILEPSY_maybeEq(maybe, other, compare) EPILEPSY_call(EPILEPSY_maybeEq, maybe other compare)
+#define EPILEPSY_maybeEq(compare, maybe, other) EPILEPSY_call(EPILEPSY_maybeEq, compare maybe other)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -88,7 +89,7 @@
 #define EPILEPSY_isNothing_IMPL(maybe) EPILEPSY_not(EPILEPSY_isJust(v(maybe)))
 
 // EPILEPSY_maybeEq_IMPL {
-#define EPILEPSY_maybeEq_IMPL(maybe, other, compare)                                               \
+#define EPILEPSY_maybeEq_IMPL(compare, maybe, other)                                               \
     EPILEPSY_matchWithArgs(v(maybe), v(EPILEPSY_PRIV_maybeEq_), v(other, compare))
 
 #define EPILEPSY_PRIV_maybeEq_nothing_IMPL(other, _compare) EPILEPSY_isNothing(v(other))

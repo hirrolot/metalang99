@@ -28,11 +28,11 @@ E_assert(E_not(E_isNothing(E_just(VAL))));
 // }
 
 // E_maybeEq {
-E_assert(E_maybeEq(E_just(v(123)), E_just(v(123)), v(E_uintEq)));
+E_assert(E_maybeEq(v(E_uintEq), E_just(v(123)), E_just(v(123))));
 
-E_assert(E_not(E_maybeEq(E_just(v(123)), E_just(v(4)), v(E_uintEq))));
-E_assert(E_not(E_maybeEq(E_just(v(123)), E_nothing(), v(E_uintEq))));
-E_assert(E_not(E_maybeEq(E_nothing(), E_just(v(123)), v(E_uintEq))));
+E_assert(E_not(E_maybeEq(v(E_uintEq), E_just(v(123)), E_just(v(4)))));
+E_assert(E_not(E_maybeEq(v(E_uintEq), E_just(v(123)), E_nothing())));
+E_assert(E_not(E_maybeEq(v(E_uintEq), E_nothing(), E_just(v(123)))));
 // }
 
 #undef VAL
