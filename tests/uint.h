@@ -102,15 +102,15 @@ E_assertEq(E_uintDiv(v(255), v(5)), v(255 / 5));
 // }
 
 // E_uintDivChecked {
-E_assert(E_maybeEq(E_uintDivChecked(v(15), v(1)), E_just(v(15)), v(E_uintEq)));
-E_assert(E_maybeEq(E_uintDivChecked(v(15), v(15)), E_just(v(1)), v(E_uintEq)));
-E_assert(E_maybeEq(E_uintDivChecked(v(45), v(3)), E_just(v(15)), v(E_uintEq)));
-E_assert(E_maybeEq(E_uintDivChecked(v(255), v(5)), E_just(v(51)), v(E_uintEq)));
+E_assert(E_maybeEq(v(E_uintEq), E_uintDivChecked(v(15), v(1)), E_just(v(15))));
+E_assert(E_maybeEq(v(E_uintEq), E_uintDivChecked(v(15), v(15)), E_just(v(1))));
+E_assert(E_maybeEq(v(E_uintEq), E_uintDivChecked(v(45), v(3)), E_just(v(15))));
+E_assert(E_maybeEq(v(E_uintEq), E_uintDivChecked(v(255), v(5)), E_just(v(51))));
 
-E_assert(E_maybeEq(E_uintDivChecked(v(4), v(0)), E_nothing(), v(E_uintEq)));
-E_assert(E_maybeEq(E_uintDivChecked(v(3), v(27)), E_nothing(), v(E_uintEq)));
-E_assert(E_maybeEq(E_uintDivChecked(v(166), v(9)), E_nothing(), v(E_uintEq)));
-E_assert(E_maybeEq(E_uintDivChecked(v(0), v(11)), E_nothing(), v(E_uintEq)));
+E_assert(E_maybeEq(v(E_uintEq), E_uintDivChecked(v(4), v(0)), E_nothing()));
+E_assert(E_maybeEq(v(E_uintEq), E_uintDivChecked(v(3), v(27)), E_nothing()));
+E_assert(E_maybeEq(v(E_uintEq), E_uintDivChecked(v(166), v(9)), E_nothing()));
+E_assert(E_maybeEq(v(E_uintEq), E_uintDivChecked(v(0), v(11)), E_nothing()));
 // }
 
 // E_uintMod {
