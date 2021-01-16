@@ -21,19 +21,14 @@
 #define EPILEPSY_stringify(x) EPILEPSY_call(EPILEPSY_stringify, x)
 
 /**
- * Expands to nothing.
+ * Evaluates to nothing.
  */
 #define EPILEPSY_empty() EPILEPSY_call(EPILEPSY_empty, )
 
 /**
- * Expands to @p x.
+ * Evaluates to its arguments.
  */
-#define EPILEPSY_id(x) EPILEPSY_call(EPILEPSY_id, )
-
-/**
- * Expands to its arguments.
- */
-#define EPILEPSY_expand(...) EPILEPSY_call(EPILEPSY_expand, __VA_ARGS__)
+#define EPILEPSY_id(...) EPILEPSY_call(EPILEPSY_id, __VA_ARGS__)
 
 /**
  * Unparenthesises a sequence of arguments and evaluates the result.
@@ -46,22 +41,22 @@
 #define EPILEPSY_unparenthesiseUnevaluated(x) EPILEPSY_call(EPILEPSY_unparenthesiseUnevaluated, x)
 
 /**
- * Expands to @p x, skipping @p a.
+ * Evaluates to @p x, skipping @p a.
  */
 #define EPILEPSY_const(x, a) EPILEPSY_call(EPILEPSY_const, x a)
 
 /**
- * Expands to @p x, skipping @p a, and @p b.
+ * Evaluates to @p x, skipping @p a, and @p b.
  */
 #define EPILEPSY_const2(x, a, b) EPILEPSY_call(EPILEPSY_const2, x a b)
 
 /**
- * Expands to @p x, skipping @p a, @p b, and @p c.
+ * Evaluates to @p x, skipping @p a, @p b, and @p c.
  */
 #define EPILEPSY_const3(x, a, b, c) EPILEPSY_call(EPILEPSY_const2, x a b c)
 
 /**
- * If @p cond is true, expands to @p x, otherwise @p y.
+ * If @p cond is true, evaluates to @p x, otherwise @p y.
  */
 #define EPILEPSY_if(cond, x, y) EPILEPSY_call(EPILEPSY_if, cond x y)
 
@@ -94,8 +89,7 @@
 #define EPILEPSY_cat_IMPL(x, y)                    v(x##y)
 #define EPILEPSY_stringify_IMPL(x)                 v(#x)
 #define EPILEPSY_empty_IMPL()                      v()
-#define EPILEPSY_id_IMPL(x)                        v(x)
-#define EPILEPSY_expand_IMPL(...)                  v(__VA_ARGS__)
+#define EPILEPSY_id_IMPL(...)                      v(__VA_ARGS__)
 #define EPILEPSY_unparenthesise_IMPL(x)            EPILEPSY_PRIV_UNPARENTHESISE(x)
 #define EPILEPSY_unparenthesiseUnevaluated_IMPL(x) v(EPILEPSY_PRIV_UNPARENTHESISE(x))
 #define EPILEPSY_const_IMPL(x, _a)                 v(x)
@@ -111,7 +105,6 @@
 #define EPILEPSY_stringify_ARITY                 1
 #define EPILEPSY_empty_ARITY                     1
 #define EPILEPSY_id_ARITY                        1
-#define EPILEPSY_expand_ARITY                    1
 #define EPILEPSY_unparenthesise_ARITY            1
 #define EPILEPSY_unparenthesiseUnevaluated_ARITY 1
 #define EPILEPSY_const_ARITY                     2
@@ -130,7 +123,6 @@
 #define E_stringify                 EPILEPSY_stringify
 #define E_empty                     EPILEPSY_empty
 #define E_id                        EPILEPSY_id
-#define E_expand                    EPILEPSY_expand
 #define E_unparenthesise            EPILEPSY_unparenthesise
 #define E_unparenthesiseUnevaluated EPILEPSY_unparenthesiseUnevaluated
 #define E_const                     EPILEPSY_const
@@ -138,10 +130,9 @@
 #define E_const3                    EPILEPSY_const3
 #define E_if                        EPILEPSY_if
 #define E_flip                      EPILEPSY_flip
-
-#define E_catPrimitive       EPILEPSY_catPrimitive
-#define E_stringifyPrimitive EPILEPSY_stringifyPrimitive
-#define E_semicolon          EPILEPSY_semicolon
+#define E_catPrimitive              EPILEPSY_catPrimitive
+#define E_stringifyPrimitive        EPILEPSY_stringifyPrimitive
+#define E_semicolon                 EPILEPSY_semicolon
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
