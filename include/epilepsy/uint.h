@@ -206,6 +206,27 @@
 #define EPILEPSY_uintDiv(x, y) EPILEPSY_call(EPILEPSY_uintDiv, x y)
 
 /**
+ * Like #EPILEPSY_uintDiv but returns #EPILEPSY_nothing is @p x is not divisible by @p y, otherwise,
+ * #EPILEPSY_just.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // E_just(3)
+ * E_uintDivChecked(v(12), v(4))
+ *
+ * // E_nothing()
+ * E_uintDivChecked(v(14), v(5))
+ *
+ * // E_nothing()
+ * E_uintDivChecked(v(1), v(0))
+ * @endcode
+ */
+#define EPILEPSY_uintDivChecked(x, y) EPILEPSY_call(EPILEPSY_uintDivChecked, x y)
+
+/**
  * \f$x + y + z\f$
  *
  * # Examples
