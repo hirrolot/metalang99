@@ -10,6 +10,7 @@
 #include <epilepsy/lang.h>
 #include <epilepsy/list.h>
 #include <epilepsy/logical.h>
+#include <epilepsy/maybe.h>
 
 #include <epilepsy/uint/dec.h>
 #include <epilepsy/uint/div.h>
@@ -227,6 +228,22 @@
 #define EPILEPSY_uintDivChecked(x, y) EPILEPSY_call(EPILEPSY_uintDivChecked, x y)
 
 /**
+ * Computes the remainder of division.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * // 2
+ * E_uintMod(v(8), v(3))
+ * @endcode
+ *
+ * @note A compile-time error if @p y is 0.
+ */
+#define EPILEPSY_uintMod(x, y) EPILEPSY_call(EPILEPSY_uintMod, x y)
+
+/**
  * \f$x + y + z\f$
  *
  * # Examples
@@ -351,6 +368,34 @@
 #define EPILEPSY_PRIV_uintMul_PROGRESS_IMPL(x, y)                                                  \
     EPILEPSY_uintAdd(v(x), EPILEPSY_uintMul(v(x), EPILEPSY_uintDec(v(y))))
 
+// EPILEPSY_uintMod_IMPL {
+#define EPILEPSY_uintMod_IMPL(x, y)                                                                \
+    EPILEPSY_PRIV_IF(                                                                              \
+        EPILEPSY_PRIV_uintEq(y, 0),                                                                \
+        EPILEPSY_fatal(EPILEPSY_uintMod, modulo by 0),                                             \
+        EPILEPSY_call(EPILEPSY_PRIV_uintMod_AUX, v(x, y, 0)))
+
+#define EPILEPSY_PRIV_uintMod_AUX_IMPL(x, y, acc)                                                  \
+    EPILEPSY_appl(                                                                                 \
+        EPILEPSY_if(                                                                               \
+            EPILEPSY_isJust(EPILEPSY_uintDivChecked(v(x), v(y))),                                  \
+            EPILEPSY_appl(EPILEPSY_const, v(acc)),                                                 \
+            EPILEPSY_appl2(v(EPILEPSY_PRIV_uintMod_PROGRESS), v(x), v(y))),                        \
+        v(acc))
+
+#define EPILEPSY_PRIV_uintMod_PROGRESS_IMPL(x, y, acc)                                             \
+    EPILEPSY_appl(                                                                                 \
+        EPILEPSY_PRIV_IF(                                                                          \
+            EPILEPSY_PRIV_uintEq(x, 0),                                                            \
+            EPILEPSY_appl(EPILEPSY_const, v(acc)),                                                 \
+            EPILEPSY_appl2(v(EPILEPSY_PRIV_uintMod_PROGRESS_AUX), v(x), v(y))),                    \
+        v(acc))
+
+#define EPILEPSY_PRIV_uintMod_PROGRESS_AUX_IMPL(x, y, acc)                                         \
+    EPILEPSY_call(                                                                                 \
+        EPILEPSY_PRIV_uintMod_AUX, v(EPILEPSY_PRIV_uintDec(x), y, EPILEPSY_PRIV_uintInc(acc)))
+// }
+
 #define EPILEPSY_uintAdd3_IMPL(x, y, z) EPILEPSY_uintAdd(EPILEPSY_uintAdd(v(x), v(y)), v(z))
 #define EPILEPSY_uintSub3_IMPL(x, y, z) EPILEPSY_uintSub(EPILEPSY_uintSub(v(x), v(y)), v(z))
 #define EPILEPSY_uintMul3_IMPL(x, y, z) EPILEPSY_uintMul(EPILEPSY_uintMul(v(x), v(y)), v(z))
@@ -371,15 +416,18 @@
 #define EPILEPSY_uintMul_ARITY        2
 #define EPILEPSY_uintDiv_ARITY        2
 #define EPILEPSY_uintDivChecked_ARITY 2
+#define EPILEPSY_uintMod_ARITY        2
 #define EPILEPSY_uintAdd3_ARITY       3
 #define EPILEPSY_uintSub3_ARITY       3
 #define EPILEPSY_uintMul3_ARITY       3
 #define EPILEPSY_uintDiv3_ARITY       3
 
-#define EPILEPSY_PRIV_uintLesser_PROGRESS_ARITY 2
-#define EPILEPSY_PRIV_uintAdd_PROGRESS_ARITY    2
-#define EPILEPSY_PRIV_uintSub_PROGRESS_ARITY    2
-#define EPILEPSY_PRIV_uintMul_PROGRESS_ARITY    2
+#define EPILEPSY_PRIV_uintLesser_PROGRESS_ARITY  2
+#define EPILEPSY_PRIV_uintAdd_PROGRESS_ARITY     2
+#define EPILEPSY_PRIV_uintSub_PROGRESS_ARITY     2
+#define EPILEPSY_PRIV_uintMul_PROGRESS_ARITY     2
+#define EPILEPSY_PRIV_uintMod_PROGRESS_ARITY     3
+#define EPILEPSY_PRIV_uintMod_PROGRESS_AUX_ARITY 3
 // }
 
 // Aliases {
@@ -398,6 +446,7 @@
 #define E_uintMul        EPILEPSY_uintMul
 #define E_uintDiv        EPILEPSY_uintDiv
 #define E_uintDivChecked EPILEPSY_uintDivChecked
+#define E_uintMod        EPILEPSY_uintMod
 #define E_uintAdd3       EPILEPSY_uintAdd3
 #define E_uintSub3       EPILEPSY_uintSub3
 #define E_uintMul3       EPILEPSY_uintMul3
