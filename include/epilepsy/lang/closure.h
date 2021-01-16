@@ -22,7 +22,8 @@
     EPILEPSY_call(                                                                                 \
         EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure), __VA_ARGS__))
 
-#define EPILEPSY_appl2_IMPL(f, a, b) EPILEPSY_appl(EPILEPSY_appl(v(f), v(a)), v(b))
+#define EPILEPSY_appl2_IMPL(f, a, b)    EPILEPSY_appl(EPILEPSY_appl(v(f), v(a)), v(b))
+#define EPILEPSY_appl3_IMPL(f, a, b, c) EPILEPSY_appl(EPILEPSY_appl2(v(f), v(a), v(b)), v(c))
 
 #define EPILEPSY_PRIV_CLOSURE_APPLY_ENV_IMPL(closure)                                              \
     EPILEPSY_call(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure)))

@@ -27,6 +27,11 @@
 #define EPILEPSY_appl2(f, a, b) EPILEPSY_call(EPILEPSY_appl2, f a b)
 
 /**
+ * Applies @p a, @p b, and @p c @p f.
+ */
+#define EPILEPSY_appl3(f, a, b, c) EPILEPSY_call(EPILEPSY_appl3, f a b c)
+
+/**
  * A value that is pasted as-is; no evaluation occurs on provided arguments.
  */
 #define v(...) (0v, __VA_ARGS__),
@@ -56,6 +61,7 @@
 // Arity specifiers {
 #define EPILEPSY_appl_ARITY  2
 #define EPILEPSY_appl2_ARITY 3
+#define EPILEPSY_appl3_ARITY 4
 // }
 
 // Aliases {
@@ -64,6 +70,7 @@
 #define E_call  EPILEPSY_call
 #define E_appl  EPILEPSY_appl
 #define E_appl2 EPILEPSY_appl2
+#define E_appl3 EPILEPSY_appl3
 #define E_fatal EPILEPSY_fatal
 #define E_dbg   EPILEPSY_dbg
 
