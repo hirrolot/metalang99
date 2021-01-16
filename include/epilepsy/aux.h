@@ -119,19 +119,19 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_cat_ARITY            2
-#define EPILEPSY_stringify_ARITY      1
-#define EPILEPSY_empty_ARITY          1
-#define EPILEPSY_id_ARITY             1
-#define EPILEPSY_expand_ARITY         1
-#define EPILEPSY_consume_ARITY        1
-#define EPILEPSY_parenthesise_ARITY   1
-#define EPILEPSY_unparenthesise_ARITY 1
-#define EPILEPSY_const_ARITY          2
-#define EPILEPSY_const2_ARITY         3
-#define EPILEPSY_const3_ARITY         4
-#define EPILEPSY_if_ARITY             3
-#define EPILEPSY_flip_ARITY           1
+#define EPILEPSY_cat_ARITY                       2
+#define EPILEPSY_stringify_ARITY                 1
+#define EPILEPSY_empty_ARITY                     1
+#define EPILEPSY_id_ARITY                        1
+#define EPILEPSY_expand_ARITY                    1
+#define EPILEPSY_consume_ARITY                   1
+#define EPILEPSY_unparenthesise_ARITY            1
+#define EPILEPSY_unparenthesiseUnevaluated_ARITY 1
+#define EPILEPSY_const_ARITY                     2
+#define EPILEPSY_const2_ARITY                    3
+#define EPILEPSY_const3_ARITY                    4
+#define EPILEPSY_if_ARITY                        3
+#define EPILEPSY_flip_ARITY                      1
 
 #define EPILEPSY_PRIV_flip_ARITY 3
 // }

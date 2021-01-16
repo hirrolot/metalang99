@@ -571,12 +571,13 @@
             EPILEPSY_uintEq(v(count), v(1)),                                                       \
             v(EPILEPSY_PRIV_list_DONE),                                                            \
             EPILEPSY_appl(v(EPILEPSY_PRIV_list_PROGRESS), v(count))),                              \
-        EPILEPSY_parenthesise(v(__VA_ARGS__)))
+        v((__VA_ARGS__)))
 
 #define EPILEPSY_PRIV_list_DONE_IMPL(rest)                                                         \
-    EPILEPSY_call(EPILEPSY_PRIV_list_DONE_AUX, v(EPILEPSY_unparenthesisePlain(rest)))
+    EPILEPSY_call(EPILEPSY_PRIV_list_DONE_AUX, EPILEPSY_unparenthesiseUnevaluated(v(rest)))
 #define EPILEPSY_PRIV_list_PROGRESS_IMPL(count, rest)                                              \
-    EPILEPSY_call(EPILEPSY_PRIV_list_PROGRESS_AUX, v(count, EPILEPSY_unparenthesisePlain(rest)))
+    EPILEPSY_call(                                                                                 \
+        EPILEPSY_PRIV_list_PROGRESS_AUX, v(count) EPILEPSY_unparenthesiseUnevaluated(v(rest)))
 
 #define EPILEPSY_PRIV_list_DONE_AUX_IMPL(last, _) EPILEPSY_cons(v(last), EPILEPSY_nil())
 #define EPILEPSY_PRIV_list_PROGRESS_AUX_IMPL(count, x, ...)                                        \
