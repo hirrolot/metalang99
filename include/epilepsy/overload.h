@@ -34,6 +34,7 @@
  *
  * @note This function calls @p f with #EPILEPSY_call, so no partial application occurs, and so
  * arity specifiers are not needed.
+ * @note Currently, this function can accept at most 256 variadic arguments.
  */
 #define EPILEPSY_overload(f, ...) EPILEPSY_call(EPILEPSY_overload, f __VA_ARGS__)
 // }
