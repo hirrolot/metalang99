@@ -11,9 +11,14 @@
 
 // Desugaring {
 /**
- * Concatenates @p x with @p y.
+ * Concatenates @p x with @p y and evaluates the result.
  */
 #define EPILEPSY_cat(x, y) EPILEPSY_call(EPILEPSY_cat, x y)
+
+/**
+ * Concatenates @p x with @p y, leaving the result unevaluated.
+ */
+#define EPILEPSY_catUnevaluated(x, y) EPILEPSY_call(EPILEPSY_catUnevaluated, x y)
 
 /**
  * Stringifies @p x.
@@ -47,7 +52,7 @@
 #define EPILEPSY_unparenthesise(x) EPILEPSY_call(EPILEPSY_unparenthesise, x)
 
 /**
- * Unparenthesises a sequence of arguments and leaves the result unevaluated.
+ * Unparenthesises a sequence of arguments, leaving the result unevaluated.
  */
 #define EPILEPSY_unparenthesiseUnevaluated(x) EPILEPSY_call(EPILEPSY_unparenthesiseUnevaluated, x)
 
@@ -97,7 +102,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_cat_IMPL(x, y)                    v(x##y)
+#define EPILEPSY_cat_IMPL(x, y)                    x##y
+#define EPILEPSY_catUnevaluated_IMPL(x, y)         v(x##y)
 #define EPILEPSY_stringify_IMPL(x)                 v(#x)
 #define EPILEPSY_empty_IMPL()                      v()
 #define EPILEPSY_id_IMPL(...)                      v(__VA_ARGS__)
@@ -115,6 +121,7 @@
 
 // Arity specifiers {
 #define EPILEPSY_cat_ARITY                       2
+#define EPILEPSY_catUnevaluated_ARITY            2
 #define EPILEPSY_stringify_ARITY                 1
 #define EPILEPSY_empty_ARITY                     1
 #define EPILEPSY_id_ARITY                        1
@@ -135,6 +142,7 @@
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
 #define E_cat                       EPILEPSY_cat
+#define E_catUnevaluated            EPILEPSY_catUnevaluated
 #define E_stringify                 EPILEPSY_stringify
 #define E_empty                     EPILEPSY_empty
 #define E_id                        EPILEPSY_id

@@ -40,7 +40,7 @@ E_assertEq(E_if(v(0), v(516), v(115)), v(115));
 E_assertEq(E_if(v(0), v(10), v(6)), v(6));
 // }
 
-#define ABC 1
+#define ABC v(1)
 
 // E_flip {
 E_assert(E_appl2(E_flip(v(E_cat)), v(C), v(AB)));
@@ -50,8 +50,20 @@ E_assert(E_appl2(E_flip(v(E_cat)), v(C), v(AB)));
 
 // E_semicolon {
 E_semicolon();
+E_semicolon();
 
 void test_semicolon(void) {
     E_semicolon();
+    E_semicolon();
+
+    {
+        E_semicolon();
+        E_semicolon();
+
+        {
+            E_semicolon();
+            E_semicolon();
+        }
+    }
 }
 // }
