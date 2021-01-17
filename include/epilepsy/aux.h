@@ -72,11 +72,6 @@
 #define EPILEPSY_const3(x, a, b, c) EPILEPSY_call(EPILEPSY_const2, x a b c)
 
 /**
- * If @p cond is true, evaluates to @p x, otherwise @p y.
- */
-#define EPILEPSY_if(cond, x, y) EPILEPSY_call(EPILEPSY_if, cond x y)
-
-/**
  * Reverses the order of arguments of the binary function @p f.
  */
 #define EPILEPSY_flip(f) EPILEPSY_call(EPILEPSY_flip, f)
@@ -114,7 +109,6 @@
 #define EPILEPSY_const_IMPL(x, _a)                 v(x)
 #define EPILEPSY_const2_IMPL(x, _a, _b)            v(x)
 #define EPILEPSY_const3_IMPL(x, _a, _b, _c)        v(x)
-#define EPILEPSY_if_IMPL(cond, x, y)               v(EPILEPSY_PRIV_IF(cond, x, y))
 #define EPILEPSY_flip_IMPL(f)                      EPILEPSY_appl(v(EPILEPSY_PRIV_flip), v(f))
 #define EPILEPSY_PRIV_flip_IMPL(f, a, b)           E_appl2(v(f), v(b), v(a))
 // }
@@ -132,7 +126,6 @@
 #define EPILEPSY_const_ARITY                     2
 #define EPILEPSY_const2_ARITY                    3
 #define EPILEPSY_const3_ARITY                    4
-#define EPILEPSY_if_ARITY                        3
 #define EPILEPSY_flip_ARITY                      1
 
 #define EPILEPSY_PRIV_flip_ARITY 3
@@ -153,7 +146,6 @@
 #define E_const                     EPILEPSY_const
 #define E_const2                    EPILEPSY_const2
 #define E_const3                    EPILEPSY_const3
-#define E_if                        EPILEPSY_if
 #define E_flip                      EPILEPSY_flip
 #define E_catPrimitive              EPILEPSY_catPrimitive
 #define E_stringifyPrimitive        EPILEPSY_stringifyPrimitive
