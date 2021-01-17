@@ -598,8 +598,8 @@
 #define EPILEPSY_listAppendItem_IMPL(list, item) EPILEPSY_listAppend(v(list), E_list(v(item)))
 
 #define EPILEPSY_listIsEmpty_IMPL(list)              EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listIsEmpty_))
-#define EPILEPSY_PRIV_listIsEmpty_nil_IMPL()         v(1)
-#define EPILEPSY_PRIV_listIsEmpty_cons_IMPL(_x, _xs) v(0)
+#define EPILEPSY_PRIV_listIsEmpty_nil_IMPL()         v(EPILEPSY_true)
+#define EPILEPSY_PRIV_listIsEmpty_cons_IMPL(_x, _xs) v(EPILEPSY_false)
 
 #define EPILEPSY_listUnwrap_IMPL(list)            EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listUnwrap_))
 #define EPILEPSY_PRIV_listUnwrap_nil_IMPL()       EPILEPSY_empty()
@@ -681,24 +681,24 @@
 #define EPILEPSY_PRIV_listEq_cons_IMPL(x, xs, other, compare)                                      \
     EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_listEq_cons_), v(x, xs, compare))
 
-#define EPILEPSY_PRIV_listEq_cons_nil_IMPL(_x, _xs, _compare) v(0)
+#define EPILEPSY_PRIV_listEq_cons_nil_IMPL(_x, _xs, _compare) v(EPILEPSY_false)
 #define EPILEPSY_PRIV_listEq_cons_cons_IMPL(other_x, other_xs, x, xs, compare)                     \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_appl2(v(compare), v(x), v(other_x)),                                          \
             EPILEPSY_appl2(v(EPILEPSY_listEq), v(xs), v(other_xs)),                                \
-            EPILEPSY_appl(v(EPILEPSY_const), v(0))),                                               \
+            EPILEPSY_appl(v(EPILEPSY_const), v(EPILEPSY_false))),                                  \
         v(compare))
 // }
 
 #define EPILEPSY_listContains_IMPL(list, item, compare)                                            \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listContains_), v(item, compare))
-#define EPILEPSY_PRIV_listContains_nil_IMPL(_item, _compare) v(0)
+#define EPILEPSY_PRIV_listContains_nil_IMPL(_item, _compare) v(EPILEPSY_false)
 #define EPILEPSY_PRIV_listContains_cons_IMPL(x, xs, item, compare)                                 \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_appl2(v(compare), v(x), v(item)),                                             \
-            EPILEPSY_appl(v(EPILEPSY_const), v(1)),                                                \
+            EPILEPSY_appl(v(EPILEPSY_const), v(EPILEPSY_true)),                                    \
             EPILEPSY_appl2(v(EPILEPSY_listContains), v(xs), v(item))),                             \
         v(compare))
 

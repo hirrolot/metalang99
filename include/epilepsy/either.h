@@ -84,8 +84,8 @@
 #define EPILEPSY_right_IMPL(x) EPILEPSY_choice(v(right), v(x))
 
 #define EPILEPSY_isLeft_IMPL(either)        EPILEPSY_match(v(either), v(EPILEPSY_PRIV_isLeft_))
-#define EPILEPSY_PRIV_isLeft_left_IMPL(_x)  v(1)
-#define EPILEPSY_PRIV_isLeft_right_IMPL(_x) v(0)
+#define EPILEPSY_PRIV_isLeft_left_IMPL(_x)  v(EPILEPSY_true)
+#define EPILEPSY_PRIV_isLeft_right_IMPL(_x) v(EPILEPSY_false)
 
 #define EPILEPSY_isRight_IMPL(either) EPILEPSY_not(EPILEPSY_isLeft(v(either)))
 
@@ -99,8 +99,8 @@
     EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_eitherEq_right_), v(x, compare))
 
 #define EPILEPSY_PRIV_eitherEq_left_left_IMPL(y, x, compare)  EPILEPSY_appl2(v(compare), v(x), v(y))
-#define EPILEPSY_PRIV_eitherEq_left_right_IMPL(y, x, compare) v(0)
-#define EPILEPSY_PRIV_eitherEq_right_left_IMPL(y, x, compare) v(0)
+#define EPILEPSY_PRIV_eitherEq_left_right_IMPL(y, x, compare) v(EPILEPSY_false)
+#define EPILEPSY_PRIV_eitherEq_right_left_IMPL(y, x, compare) v(EPILEPSY_false)
 #define EPILEPSY_PRIV_eitherEq_right_right_IMPL(y, x, compare)                                     \
     EPILEPSY_appl2(v(compare), v(x), v(y))
 // } (EPILEPSY_eitherEq_IMPL)

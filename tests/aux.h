@@ -33,14 +33,14 @@ E_assertEq(E_appl(E_appl3(v(E_const3), v(1810), v(~), v(~)), v(~)), v(1810));
 // }
 
 // E_if {
-E_assertEq(E_if(v(1), v(24), v(848)), v(24));
-E_assertEq(E_if(v(1), v(1549), v(1678)), v(1549));
+E_assertEq(E_if(v(E_true), v(24), v(848)), v(24));
+E_assertEq(E_if(v(E_true), v(1549), v(1678)), v(1549));
 
-E_assertEq(E_if(v(0), v(516), v(115)), v(115));
-E_assertEq(E_if(v(0), v(10), v(6)), v(6));
+E_assertEq(E_if(v(E_false), v(516), v(115)), v(115));
+E_assertEq(E_if(v(E_false), v(10), v(6)), v(6));
 // }
 
-#define ABC v(1)
+#define ABC v(E_true)
 
 // E_flip {
 E_assert(E_appl2(E_flip(v(E_cat)), v(C), v(AB)));

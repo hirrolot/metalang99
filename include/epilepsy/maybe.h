@@ -83,8 +83,8 @@
 #define EPILEPSY_nothing_IMPL() EPILEPSY_choiceEmpty(v(nothing))
 
 #define EPILEPSY_isJust_IMPL(maybe)         EPILEPSY_match(v(maybe), v(EPILEPSY_PRIV_isJust_))
-#define EPILEPSY_PRIV_isJust_just_IMPL(_x)  v(1)
-#define EPILEPSY_PRIV_isJust_nothing_IMPL() v(0)
+#define EPILEPSY_PRIV_isJust_just_IMPL(_x)  v(EPILEPSY_true)
+#define EPILEPSY_PRIV_isJust_nothing_IMPL() v(EPILEPSY_false)
 
 #define EPILEPSY_isNothing_IMPL(maybe) EPILEPSY_not(EPILEPSY_isJust(v(maybe)))
 
@@ -96,7 +96,7 @@
 #define EPILEPSY_PRIV_maybeEq_just_IMPL(x, other, compare)                                         \
     EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_maybeEq_just_), v(x, compare))
 
-#define EPILEPSY_PRIV_maybeEq_just_nothing_IMPL(other, _compare) v(0)
+#define EPILEPSY_PRIV_maybeEq_just_nothing_IMPL(other, _compare) v(EPILEPSY_false)
 #define EPILEPSY_PRIV_maybeEq_just_just_IMPL(y, x, compare)      EPILEPSY_appl2(v(compare), v(x), v(y))
 // } (EPILEPSY_maybeEq_IMPL)
 

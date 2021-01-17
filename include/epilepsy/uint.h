@@ -313,7 +313,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(x, y),                                                            \
-            EPILEPSY_appl(v(EPILEPSY_const2), v(1)),                                               \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(EPILEPSY_true)),                                   \
             v(EPILEPSY_uintGreater)),                                                              \
         v(x),                                                                                      \
         v(y))
@@ -322,7 +322,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            EPILEPSY_appl(v(EPILEPSY_const2), v(0)),                                               \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(EPILEPSY_false)),                                  \
             v(EPILEPSY_PRIV_uintLesser_PROGRESS)),                                                 \
         v(x),                                                                                      \
         v(y))
@@ -330,7 +330,7 @@
     EPILEPSY_appl2(                                                                                \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(x, EPILEPSY_PRIV_uintDec(y)),                                     \
-            EPILEPSY_appl(v(EPILEPSY_const2), v(1)),                                               \
+            EPILEPSY_appl(v(EPILEPSY_const2), v(EPILEPSY_true)),                                   \
             v(EPILEPSY_uintLesser)),                                                               \
         v(x),                                                                                      \
         EPILEPSY_uintDec(v(y)))

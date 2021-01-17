@@ -10,6 +10,16 @@
 
 // Desugaring {
 /**
+ * The alias to 0.
+ */
+#define EPILEPSY_false 0
+
+/**
+ * The alias to 1.
+ */
+#define EPILEPSY_true 1
+
+/**
  * Logical negation.
  *
  * # Examples
@@ -124,10 +134,12 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_not EPILEPSY_not
-#define E_and EPILEPSY_and
-#define E_or  EPILEPSY_or
-#define E_xor EPILEPSY_xor
+#define E_true  EPILEPSY_true
+#define E_false EPILEPSY_false
+#define E_not   EPILEPSY_not
+#define E_and   EPILEPSY_and
+#define E_or    EPILEPSY_or
+#define E_xor   EPILEPSY_xor
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

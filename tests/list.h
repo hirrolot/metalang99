@@ -202,20 +202,20 @@ E_assert(E_listEq(
     E_listIntersperse(E_list(v(5, 9, 22)), v(111)), E_list(v(5, 111, 9, 111, 22)), v(E_uintEq)));
 // }
 
-#define ABCDEFG 1
+#define ABCDEFG E_true
 
 // E_listFoldr {
-E_assertEq(E_listFoldr(E_nil(), v(E_cat), v(7)), v(7));
-E_assert(E_listFoldr(E_list(v(G, DEF, BC)), E_appl(v(E_flip), v(E_cat)), v(A)));
+E_assertEq(E_listFoldr(E_nil(), v(E_catUnevaluated), v(7)), v(7));
+E_assert(E_listFoldr(E_list(v(G, DEF, BC)), E_appl(v(E_flip), v(E_catUnevaluated)), v(A)));
 // }
 
 // E_listFoldl {
-E_assertEq(E_listFoldl(E_nil(), v(E_cat), v(7)), v(7));
-E_assert(E_listFoldl(E_list(v(BC, DEF, G)), v(E_cat), v(A)));
+E_assertEq(E_listFoldl(E_nil(), v(E_catUnevaluated), v(7)), v(7));
+E_assert(E_listFoldl(E_list(v(BC, DEF, G)), v(E_catUnevaluated), v(A)));
 // }
 
 // E_listFoldl1 {
-E_assert(E_listFoldl1(E_list(v(AB, CDEF, G)), v(E_cat)));
+E_assert(E_listFoldl1(E_list(v(AB, CDEF, G)), v(E_catUnevaluated)));
 // }
 
 #undef ABCDEFG

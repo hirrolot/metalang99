@@ -25,7 +25,7 @@
  * EPILEPSY_assert(v(123 == 123));
  * @endcode
  */
-#define EPILEPSY_assert(expr) EPILEPSY_assertEq(EPILEPSY_PRIV_EXPAND(expr), v(1))
+#define EPILEPSY_assert(expr) EPILEPSY_assertEq(EPILEPSY_PRIV_EXPAND(expr), v(EPILEPSY_true))
 
 /**
  * Asserts the equality of `EPILEPSY_eval(lhs)` and `EPILEPSY_eval(rhs)` at compile-time.
