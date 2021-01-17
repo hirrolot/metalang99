@@ -27,6 +27,8 @@
  * // 1
  * E_variadicsCount()
  * @endcode
+ *
+ * @note Currently, this function can accept at most 256 arguments.
  */
 #define EPILEPSY_variadicsCount(...) EPILEPSY_call(EPILEPSY_variadicsCount, __VA_ARGS__)
 
