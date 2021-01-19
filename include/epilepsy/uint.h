@@ -56,8 +56,8 @@
  * @code
  * #include <epilepsy/uint.h>
  *
- * #define MATCH_0_IMPL()  v(Billie)
- * #define MATCH_N_IMPL(x) v(Jean ~ x)
+ * #define MATCH_Z_IMPL()  v(Billie)
+ * #define MATCH_S_IMPL(x) v(Jean ~ x)
  *
  * // Billie
  * E_uintMatch(v(0), v(MATCH_))
@@ -79,8 +79,8 @@
  * @code
  * #include <epilepsy/uint.h>
  *
- * #define MATCH_0_IMPL(x, y, z)    v(Billie ~ x y z)
- * #define MATCH_N_IMPL(n, x, y, z) v(Jean ~ n ~ x y z)
+ * #define MATCH_Z_IMPL(x, y, z)    v(Billie ~ x y z)
+ * #define MATCH_S_IMPL(n, x, y, z) v(Jean ~ n ~ x y z)
  *
  * // Billie ~ 1 2 3
  * E_uintMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3))
@@ -356,13 +356,13 @@
 // Implementation {
 #define EPILEPSY_uintMatch_IMPL(x, matcher)                                                        \
     EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_uintEq(x, 0), EPILEPSY_call(matcher##0, ), EPILEPSY_call(matcher##N, v(x)))
+        EPILEPSY_PRIV_uintEq(x, 0), EPILEPSY_call(matcher##Z, ), EPILEPSY_call(matcher##S, v(x)))
 
 #define EPILEPSY_uintMatchWithArgs_IMPL(x, matcher, ...)                                           \
     EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_uintEq(x, 0),                                                                \
-        EPILEPSY_call(matcher##0, v(__VA_ARGS__)),                                                 \
-        EPILEPSY_call(matcher##N, v(x) v(__VA_ARGS__)))
+        EPILEPSY_call(matcher##Z, v(__VA_ARGS__)),                                                 \
+        EPILEPSY_call(matcher##S, v(x) v(__VA_ARGS__)))
 
 #define EPILEPSY_uintNeq_IMPL(x, y)      EPILEPSY_not(EPILEPSY_uintEq(v(x), v(y)))
 #define EPILEPSY_uintGreater_IMPL(x, y)  EPILEPSY_uintLesser(v(y), v(x))

@@ -2,8 +2,8 @@
 #include <epilepsy/uint.h>
 
 // E_uintMatch {
-#define MATCH_0_IMPL()  v(88)
-#define MATCH_N_IMPL(x) v(x)
+#define MATCH_Z_IMPL()  v(88)
+#define MATCH_S_IMPL(x) v(x)
 
 E_assertEq(E_uintMatch(v(0), v(MATCH_)), v(88));
 E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(123));
@@ -13,8 +13,8 @@ E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(123));
 // }
 
 // E_uintMatchWithArgs {
-#define MATCH_0_IMPL(x, y, z)    v(E_assertPlain(x == 1 && y == 2 && z == 3))
-#define MATCH_N_IMPL(n, x, y, z) v(E_assertPlain(n == 123 && x == 1 && y == 2 && z == 3))
+#define MATCH_Z_IMPL(x, y, z)    v(E_assertPlain(x == 1 && y == 2 && z == 3))
+#define MATCH_S_IMPL(n, x, y, z) v(E_assertPlain(n == 123 && x == 1 && y == 2 && z == 3))
 
 E_eval(E_uintMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
 E_eval(E_uintMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
