@@ -5,6 +5,8 @@ include_directories(../include)
 
 add_executable(binary_tree binary_tree.c)
 add_executable(rectangle rectangle.c)
+
+add_executable(factorial factorial.c)
 add_executable(ackermann ackermann.c)
 
 foreach(TARGET ${BUILDSYSTEM_TARGETS})
