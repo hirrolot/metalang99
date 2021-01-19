@@ -10,6 +10,4 @@
 #include "uint.h"
 #include "variadics.h"
 
-#include "misc.h"
-
 int main(void) {}
