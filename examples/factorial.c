@@ -2,12 +2,9 @@
 
 #define factorial(n) E_call(factorial, n)
 
-#define factorial_IMPL(n)                                                                          \
-    E_appl(E_if(E_uintEq(v(n), v(0)), E_appl(v(E_const), v(1)), v(factorialNPositive)), v(n))
-
-#define factorialNPositive_IMPL(n) E_uintMul(v(n), factorial(E_uintDec(v(n))))
-
-#define factorialNPositive_ARITY 1
+#define factorial_IMPL(n)   E_uintMatch(v(n), v(factorial_))
+#define factorial_0_IMPL(n) v(1)
+#define factorial_N_IMPL(n) E_uintMul(v(n), factorial(E_uintDec(v(n))))
 
 E_assertEq(factorial(v(0)), v(1));
 E_assertEq(factorial(v(1)), v(1));

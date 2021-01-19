@@ -49,6 +49,29 @@
 #define EPILEPSY_uintDec(x) EPILEPSY_call(EPILEPSY_uintDec, x)
 
 /**
+ * Matches @p x to the two cases: if it is zero or positive.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * #define MATCH_0_IMPL(x) v(Billie ~ x)
+ * #define MATCH_N_IMPL(x) v(Jean ~ x)
+ *
+ * // Billie ~ 0
+ * E_uintMatch(v(0), v(MATCH_))
+ *
+ * // Jean ~ 123
+ * E_uintMatch(v(123), v(MATCH_))
+ * @endcode
+ *
+ * @note This function calls @p f with #EPILEPSY_call, so no partial application occurs, and so
+ * arity specifiers are not needed.
+ */
+#define EPILEPSY_uintMatch(x, matcher) EPILEPSY_call(EPILEPSY_uintMatch, x matcher)
+
+/**
  * \f$x = y\f$
  *
  * # Examples
@@ -307,6 +330,9 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
+#define EPILEPSY_uintMatch_IMPL(x, matcher)                                                        \
+    EPILEPSY_call(EPILEPSY_PRIV_IF(EPILEPSY_PRIV_uintEq(x, 0), matcher##0, matcher##N), v(x))
+
 #define EPILEPSY_uintNeq_IMPL(x, y)      EPILEPSY_not(EPILEPSY_uintEq(v(x), v(y)))
 #define EPILEPSY_uintGreater_IMPL(x, y)  EPILEPSY_uintLesser(v(y), v(x))
 #define EPILEPSY_uintLesserEq_IMPL(x, y) EPILEPSY_uintGreaterEq(v(y), v(x))
@@ -407,6 +433,7 @@
 // Arity specifiers {
 #define EPILEPSY_uintInc_ARITY        1
 #define EPILEPSY_uintDec_ARITY        1
+#define EPILEPSY_uintMatch_ARITY      2
 #define EPILEPSY_uintEq_ARITY         2
 #define EPILEPSY_uintNeq_ARITY        2
 #define EPILEPSY_uintGreater_ARITY    2
@@ -437,6 +464,7 @@
 
 #define E_uintInc        EPILEPSY_uintInc
 #define E_uintDec        EPILEPSY_uintDec
+#define E_uintMatch      EPILEPSY_uintMatch
 #define E_uintEq         EPILEPSY_uintEq
 #define E_uintNeq        EPILEPSY_uintNeq
 #define E_uintGreater    EPILEPSY_uintGreater

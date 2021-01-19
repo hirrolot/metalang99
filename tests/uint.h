@@ -1,6 +1,17 @@
 #include <epilepsy/assert.h>
 #include <epilepsy/uint.h>
 
+// E_uintMatch {
+#define MATCH_0_IMPL(x) v(88)
+#define MATCH_N_IMPL(x) v(x)
+
+E_assertEq(E_uintMatch(v(0), v(MATCH_)), v(88));
+E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(123));
+
+#undef MATCH_0_IMPL
+#undef MATCH_N_IMPL
+// }
+
 // E_uintInc {
 E_assertEq(E_uintInc(v(0)), v(1));
 E_assertEq(E_uintInc(v(15)), v(16));
