@@ -12,6 +12,17 @@ E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(123));
 #undef MATCH_N_IMPL
 // }
 
+// E_uintMatchWithArgs {
+#define MATCH_0_IMPL(x, y, z)    v(E_assertPlain(x == 1 && y == 2 && z == 3))
+#define MATCH_N_IMPL(n, x, y, z) v(E_assertPlain(n == 123 && x == 1 && y == 2 && z == 3))
+
+E_eval(E_uintMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
+E_eval(E_uintMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
+
+#undef MATCH_0_IMPL
+#undef MATCH_N_IMPL
+// }
+
 // E_uintInc {
 E_assertEq(E_uintInc(v(0)), v(1));
 E_assertEq(E_uintInc(v(15)), v(16));

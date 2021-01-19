@@ -2,21 +2,11 @@
 
 #define ack(m, n) E_call(ack, m n)
 
-#define ack_IMPL(m, n)                                                                             \
-    E_appl2(                                                                                       \
-        E_if(E_uintEq(v(m), v(0)), E_appl(v(E_const2), E_uintInc(v(n))), v(ackMPositive)),         \
-        v(m),                                                                                      \
-        v(n))
-
-#define ackMPositive_IMPL(m, n)                                                                    \
-    ack(E_uintDec(v(m)),                                                                           \
-        E_appl2(                                                                                   \
-            E_if(E_uintEq(v(n), v(0)), E_appl(v(E_const2), v(1)), v(ackNPositive)), v(m), v(n)))
-
-#define ackNPositive_IMPL(m, n) ack(v(m), E_uintDec(v(n)))
-
-#define ackMPositive_ARITY 2
-#define ackNPositive_ARITY 2
+#define ack_IMPL(m, n)     E_uintMatchWithArgs(v(m), v(ack_), v(n))
+#define ack_0_IMPL(n)      E_uintInc(v(n))
+#define ack_N_IMPL(m, n)   E_uintMatchWithArgs(v(n), v(ack_N_), v(m))
+#define ack_N_0_IMPL(m)    ack(E_uintDec(v(m)), v(1))
+#define ack_N_N_IMPL(n, m) ack(E_uintDec(v(m)), ack(v(m), E_uintDec(v(n))))
 
 E_assertEq(ack(v(0), v(0)), v(1));
 E_assertEq(ack(v(0), v(1)), v(2));
