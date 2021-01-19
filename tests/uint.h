@@ -2,7 +2,7 @@
 #include <epilepsy/uint.h>
 
 // E_uintMatch {
-#define MATCH_0_IMPL(x) v(88)
+#define MATCH_0_IMPL()  v(88)
 #define MATCH_N_IMPL(x) v(x)
 
 E_assertEq(E_uintMatch(v(0), v(MATCH_)), v(88));

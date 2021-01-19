@@ -56,10 +56,10 @@
  * @code
  * #include <epilepsy/uint.h>
  *
- * #define MATCH_0_IMPL(x) v(Billie ~ x)
+ * #define MATCH_0_IMPL()  v(Billie)
  * #define MATCH_N_IMPL(x) v(Jean ~ x)
  *
- * // Billie ~ 0
+ * // Billie
  * E_uintMatch(v(0), v(MATCH_))
  *
  * // Jean ~ 123
@@ -331,7 +331,8 @@
 
 // Implementation {
 #define EPILEPSY_uintMatch_IMPL(x, matcher)                                                        \
-    EPILEPSY_call(EPILEPSY_PRIV_IF(EPILEPSY_PRIV_uintEq(x, 0), matcher##0, matcher##N), v(x))
+    EPILEPSY_PRIV_IF(                                                                              \
+        EPILEPSY_PRIV_uintEq(x, 0), EPILEPSY_call(matcher##0, ), EPILEPSY_call(matcher##N, v(x)))
 
 #define EPILEPSY_uintNeq_IMPL(x, y)      EPILEPSY_not(EPILEPSY_uintEq(v(x), v(y)))
 #define EPILEPSY_uintGreater_IMPL(x, y)  EPILEPSY_uintLesser(v(y), v(x))
