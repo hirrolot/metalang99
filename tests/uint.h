@@ -6,7 +6,7 @@
 #define MATCH_S_IMPL(x) v(x)
 
 E_assertEq(E_uintMatch(v(0), v(MATCH_)), v(88));
-E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(123));
+E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(122));
 
 #undef MATCH_0_IMPL
 #undef MATCH_N_IMPL
@@ -14,7 +14,7 @@ E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(123));
 
 // E_uintMatchWithArgs {
 #define MATCH_Z_IMPL(x, y, z)    v(E_assertPlain(x == 1 && y == 2 && z == 3))
-#define MATCH_S_IMPL(n, x, y, z) v(E_assertPlain(n == 123 && x == 1 && y == 2 && z == 3))
+#define MATCH_S_IMPL(n, x, y, z) v(E_assertPlain(n == 122 && x == 1 && y == 2 && z == 3))
 
 E_eval(E_uintMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
 E_eval(E_uintMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
@@ -28,9 +28,11 @@ E_assertEq(E_uintInc(v(0)), v(1));
 E_assertEq(E_uintInc(v(15)), v(16));
 E_assertEq(E_uintInc(v(198)), v(199));
 E_assertEq(E_uintInc(v(254)), v(255));
+E_assertEq(E_uintInc(v(255)), v(0));
 // }
 
 // E_uintDec {
+E_assertEq(E_uintDec(v(0)), v(255));
 E_assertEq(E_uintDec(v(1)), v(0));
 E_assertEq(E_uintDec(v(71)), v(70));
 E_assertEq(E_uintDec(v(201)), v(200));
