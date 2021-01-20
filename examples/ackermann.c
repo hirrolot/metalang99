@@ -2,9 +2,10 @@
 
 #define ack(m, n) E_call(ack, m n)
 
-#define ack_IMPL(m, n)     E_uintMatchWithArgs(v(m), v(ack_), v(n))
+#define ack_IMPL(m, n)   E_uintMatchWithArgs(v(m), v(ack_), v(n))
+#define ack_S_IMPL(m, n) E_uintMatchWithArgs(v(n), v(ack_S_), v(m))
+
 #define ack_Z_IMPL(n)      E_uintInc(v(n))
-#define ack_S_IMPL(m, n)   E_uintMatchWithArgs(v(n), v(ack_S_), v(m))
 #define ack_S_Z_IMPL(m)    ack(v(m), v(1))
 #define ack_S_S_IMPL(n, m) ack(v(m), ack(E_uintInc(v(m)), v(n)))
 
