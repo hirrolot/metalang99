@@ -31,6 +31,8 @@
  * // 6
  * E_uintInc(v(5))
  * @endcode
+ *
+ * @note If @p x is 255, the result is 0.
  */
 #define EPILEPSY_uintInc(x) EPILEPSY_call(EPILEPSY_uintInc, x)
 
@@ -45,6 +47,8 @@
  * // 4
  * E_uintDec(v(5))
  * @endcode
+ *
+ * @note If @p x is 0, the result is 255.
  */
 #define EPILEPSY_uintDec(x) EPILEPSY_call(EPILEPSY_uintDec, x)
 
