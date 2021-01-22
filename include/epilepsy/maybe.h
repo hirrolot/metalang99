@@ -74,6 +74,23 @@
  * @endcode
  */
 #define EPILEPSY_maybeEq(compare, maybe, other) EPILEPSY_call(EPILEPSY_maybeEq, compare maybe other)
+
+/**
+ * Returns the contained value if #EPILEPSY_just or emits a fatal error on #EPILEPSY_nothing.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/maybe.h>
+ *
+ * // 123
+ * E_maybeUnwrap(E_just(v(123)))
+ *
+ * // Emits a fatal error.
+ * E_maybeUnwrap(E_nothing())
+ * @endcode
+ */
+#define EPILEPSY_maybeUnwrap(maybe) EPILEPSY_call(EPILEPSY_maybeUnwrap, maybe)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -100,24 +117,30 @@
 #define EPILEPSY_PRIV_maybeEq_just_just_IMPL(y, x, compare)      EPILEPSY_appl2(v(compare), v(x), v(y))
 // } (EPILEPSY_maybeEq_IMPL)
 
+#define EPILEPSY_maybeUnwrap_IMPL(maybe) EPILEPSY_match(v(maybe), v(EPILEPSY_PRIV_maybeUnwrap_))
+#define EPILEPSY_PRIV_maybeUnwrap_nothing_IMPL()                                                   \
+    EPILEPSY_fatal(EPILEPSY_maybeUnwrap, expected EPILEPSY_just but found EPILEPSY_nothing)
+#define EPILEPSY_PRIV_maybeUnwrap_just_IMPL(x) v(x)
 // }
 
 // Arity specifiers {
-#define EPILEPSY_just_ARITY      1
-#define EPILEPSY_nothing_ARITY   1
-#define EPILEPSY_isJust_ARITY    1
-#define EPILEPSY_isNothing_ARITY 1
-#define EPILEPSY_maybeEq_ARITY   3
+#define EPILEPSY_just_ARITY        1
+#define EPILEPSY_nothing_ARITY     1
+#define EPILEPSY_isJust_ARITY      1
+#define EPILEPSY_isNothing_ARITY   1
+#define EPILEPSY_maybeEq_ARITY     3
+#define EPILEPSY_maybeUnwrap_ARITY 1
 // }
 
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_just      EPILEPSY_just
-#define E_nothing   EPILEPSY_nothing
-#define E_isJust    EPILEPSY_isJust
-#define E_isNothing EPILEPSY_isNothing
-#define E_maybeEq   EPILEPSY_maybeEq
+#define E_just        EPILEPSY_just
+#define E_nothing     EPILEPSY_nothing
+#define E_isJust      EPILEPSY_isJust
+#define E_isNothing   EPILEPSY_isNothing
+#define E_maybeEq     EPILEPSY_maybeEq
+#define E_maybeUnwrap EPILEPSY_maybeUnwrap
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
