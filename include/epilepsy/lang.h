@@ -26,15 +26,16 @@
  * example, see this <a href="https://stackoverflow.com/a/12414292/13166656">SO answer</a>).
  *
  * @p f shall be either a term reducing to a macro name or a term obtained via another call to
- * #EPILEPSY_appl. If @p f is a macro name, then `<f>_ARITY` shall denote the arity of @p f (e.g.,
- * the number of parameters it accepts), by the following rules:
+ * #EPILEPSY_appl. If @p f is a macro name, then `<f>_ARITY` (its arity specifier) shall denote the
+ * arity of @p f (e.g., the number of parameters it accepts), by the following rules:
  *
  *  - A metafunction with no parameters has the arity 1 (because `E_appl(v(F), v())` shall has the
  * meaning of an application of the single empty argument `v()`).
  *  - A single named parameter, as well as an ellipsis denoting variadic arguments, increases the
  * arity of a metafunction by 1.
  *
- * These are some examples of correspondence between the macro signatures and their arities:
+ * These are some examples of correspondence between the macro signatures and their arity
+ * specifiers:
  *
  * @code
  * #define F() // ...
@@ -67,6 +68,8 @@
  * // ab
  * E_appl(E_appl(v(F), v(a)), v(b))
  * @endcode
+ *
+ * @note Currently, the maximum arity is 16.
  */
 #define EPILEPSY_appl(f, ...) EPILEPSY_call(EPILEPSY_appl, f __VA_ARGS__)
 
