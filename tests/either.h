@@ -40,4 +40,12 @@ E_assert(E_not(E_eitherEq(v(E_uintEq), E_right(v(123)), E_left(v(123)))));
 E_assert(E_not(E_eitherEq(v(E_uintEq), E_right(v(123)), E_left(v(4)))));
 // }
 
+// E_unwrapLeft {
+E_assertEq(E_unwrapLeft(E_left(v(123))), v(123));
+// }
+
+// E_unwrapRight {
+E_assertEq(E_unwrapRight(E_right(v(123))), v(123));
+// }
+
 #undef VAL
