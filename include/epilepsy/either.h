@@ -77,7 +77,7 @@
     EPILEPSY_call(EPILEPSY_eitherEq, compare either other)
 
 /**
- * Returns the left value if #EPILEPSY_left or emits a fatal error if #EPILEPSY_right.
+ * Returns the left value on #EPILEPSY_left or emits a fatal error on #EPILEPSY_right.
  *
  * # Examples
  *
@@ -94,7 +94,7 @@
 #define EPILEPSY_unwrapLeft(either) EPILEPSY_call(EPILEPSY_unwrapLeft, either)
 
 /**
- * Returns the right value if #EPILEPSY_right or emits a fatal error if #EPILEPSY_left.
+ * Returns the right value on #EPILEPSY_right or emits a fatal error on #EPILEPSY_left.
  *
  * # Examples
  *

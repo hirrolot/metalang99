@@ -76,7 +76,7 @@
 #define EPILEPSY_maybeEq(compare, maybe, other) EPILEPSY_call(EPILEPSY_maybeEq, compare maybe other)
 
 /**
- * Returns the contained value if #EPILEPSY_just or emits a fatal error on #EPILEPSY_nothing.
+ * Returns the contained value on #EPILEPSY_just or emits a fatal error on #EPILEPSY_nothing.
  *
  * # Examples
  *
