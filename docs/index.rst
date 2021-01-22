@@ -36,7 +36,7 @@ Contents
  - `choice.h`_ - Choice types.
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
- - `list.h`_ - Lists.
+ - `list.h`_ - List manipulation.
  - `variadics.h`_ - Variadic macro utilities.
  - `aux.h`_ - Auxiliary macros.
  - `overload.h`_ - Overloading on a number of arguments.
