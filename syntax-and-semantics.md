@@ -1,2 +1,0 @@
-# Syntax and semantics
-
