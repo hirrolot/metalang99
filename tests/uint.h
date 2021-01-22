@@ -8,8 +8,8 @@
 E_assertEq(E_uintMatch(v(0), v(MATCH_)), v(88));
 E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(122));
 
-#undef MATCH_0_IMPL
-#undef MATCH_N_IMPL
+#undef MATCH_Z_IMPL
+#undef MATCH_S_IMPL
 // }
 
 // E_uintMatchWithArgs {
@@ -19,8 +19,8 @@ E_assertEq(E_uintMatch(v(123), v(MATCH_)), v(122));
 E_eval(E_uintMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
 E_eval(E_uintMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
 
-#undef MATCH_0_IMPL
-#undef MATCH_N_IMPL
+#undef MATCH_Z_IMPL
+#undef MATCH_S_IMPL
 // }
 
 // E_uintInc {
