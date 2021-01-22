@@ -5,6 +5,7 @@
 [![CI](https://github.com/Hirrolot/epilepsy/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/epilepsy/actions)
 [![docs](https://img.shields.io/badge/docs-readthedocs.io-blue)](https://epilepsy.readthedocs.io/en/latest/)
 [![spec](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf)
+[![book](https://img.shields.io/badge/book-gitbook.io-pink)](https://hirrolot.gitbook.io/epilepsy/)
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp; &emsp; <b>-- Darth Sidious</b>
 
@@ -14,84 +15,7 @@ Epilepsy is a functional language aimed at full-blown C/C++ preprocessor metapro
 
 It features a wide range of concepts, including algebraic data types, control flow operators, collections, general recursion, and auto-currying -- to make metaprograms of all sizes maintainable.
 
-## Overview
-
-### Data model
-
-#### Tuple types
-
-[[ `examples/rectangle.c` ](examples/rectangle.c)]
-```c
-// Computes the area of a rectangle.
-
-#include <epilepsy.h>
-
-#define Rect(width, height) E_call(Rect, width height)
-#define RectWidth           v(0)
-#define RectHeight          v(1)
-
-#define RectArea(rect) E_call(RectArea, rect)
-
-#define Rect_IMPL(width, height) E_tuple(v(width, height))
-#define RectArea_IMPL(rect)      E_uintMul(E_get(v(rect), RectWidth), E_get(v(rect), RectHeight))
-
-/*
- *                15
- * +------------------------------+
- * |                              |
- * |                              |
- * |                              | 7
- * |                              |
- * |                              |
- * +------------------------------+
- */
-#define RECTANGLE Rect(v(15), v(7))
-
-E_assertEq(RectArea(RECTANGLE), v(15 * 7));
-
-int main(void) {}
-```
-
-#### Choice types
-
-[[ `examples/binary_tree.c` ](examples/binary_tree.c)] [ [Playground >>](https://godbolt.org/z/5xW5ne) ]
-
-```c
-// Sums all nodes of a binary tree, recursively.
-
-#include <epilepsy.h>
-
-#define TreeLeaf(x)              E_call(TreeLeaf, x)
-#define TreeNode(lhs, data, rhs) E_call(TreeNode, lhs data rhs)
-
-#define SUM(tree) E_call(SUM, tree)
-
-#define TreeLeaf_IMPL(x)              E_choice(v(TreeLeaf), v(x))
-#define TreeNode_IMPL(lhs, data, rhs) E_choice(v(TreeNode), v(lhs, data, rhs))
-
-#define SUM_IMPL(tree)                    E_match(v(tree), v(SUM_))
-#define SUM_TreeLeaf_IMPL(x)              v(x)
-#define SUM_TreeNode_IMPL(lhs, data, rhs) E_uintAdd3(SUM(v(lhs)), v(data), SUM(v(rhs)))
-
-/*
- *         4
- *        / \
- *       /   \
- *      /     \
- *     2       6
- *    / \     / \
- *   1   3   5   7
- */
-#define TREE                                                                                       \
-    TreeNode(                                                                                      \
-        TreeNode(TreeLeaf(v(1)), v(2), TreeLeaf(v(3))),                                            \
-        v(4),                                                                                      \
-        TreeNode(TreeLeaf(v(5)), v(6), TreeLeaf(v(7))))
-
-E_assertEq(SUM(TREE), v(28));
-
-int main(void) {}
-```
+## Motivation
 
 ## FAQ
 
