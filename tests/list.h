@@ -73,10 +73,10 @@ E_assertEmptyPlain(E_listEval(E_nil()));
 E_assertPlain(E_listEval(E_list(v(19, +, 6))) == 19 + 6);
 // }
 
-// E_listIsEmpty {
-E_assert(E_listIsEmpty(E_nil()));
-E_assert(E_not(E_listIsEmpty(E_list(v(123)))));
-E_assert(E_not(E_listIsEmpty(E_list(v(8, 214, 10, 0, 122)))));
+// E_isNil {
+E_assert(E_isNil(E_nil()));
+E_assert(E_not(E_isNil(E_list(v(123)))));
+E_assert(E_not(E_isNil(E_list(v(8, 214, 10, 0, 122)))));
 // }
 
 // E_get {
