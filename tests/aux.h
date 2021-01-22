@@ -8,7 +8,6 @@ E_eval(v(FOO) E_id(v((518, 1910))));
 // }
 
 // E_parenthesiseUnevaluated {
-
 E_eval(v(FOO) E_parenthesiseUnevaluated(v(518, 1910)));
 // }
 
@@ -22,8 +21,12 @@ E_assertEq(E_unparenthesise(v((v(198)))), v(198));
 E_assertEq(E_unparenthesiseUnevaluated(v((198))), v(198));
 // }
 
-// E_parenthesise and E_unparenthesise {
+// E_parenthesise + E_unparenthesise {
 E_assertEq(E_unparenthesise(E_parenthesise(v(187))), v(187));
+// }
+
+// E_parenthesiseUnevaluated + E_unparenthesiseUnevaluated {
+E_assertEq(E_unparenthesiseUnevaluated(E_parenthesiseUnevaluated(v(187))), v(187));
 // }
 
 // E_const, E_const2, E_const3 {
