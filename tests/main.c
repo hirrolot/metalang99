@@ -1,8 +1,8 @@
+#include "eval.h"
+
 #include "aux.h"
 #include "choice.h"
 #include "either.h"
-#include "eval.h"
-#include "lang.h"
 #include "list.h"
 #include "logical.h"
 #include "maybe.h"
