@@ -353,6 +353,34 @@
  * @note A compile-time error if \f$\frac{(\frac{x}{y})}{z}\f$ is not an unsigned integer.
  */
 #define EPILEPSY_uintDiv3(x, y, z) EPILEPSY_call(EPILEPSY_uintDiv3, x y z)
+
+/**
+ * \f$min(x, y)\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * 5
+ * E_uintMin(v(5), v(7))
+ * @endcode
+ */
+#define EPILEPSY_uintMin(x, y) EPILEPSY_call(EPILEPSY_uintMin, x y)
+
+/**
+ * \f$max(x, y)\f$
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/uint.h>
+ *
+ * 7
+ * E_uintMax(v(5), v(7))
+ * @endcode
+ */
+#define EPILEPSY_uintMax(x, y) EPILEPSY_call(EPILEPSY_uintMax, x y)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -465,6 +493,9 @@
 #define EPILEPSY_uintSub3_IMPL(x, y, z) EPILEPSY_uintSub(EPILEPSY_uintSub(v(x), v(y)), v(z))
 #define EPILEPSY_uintMul3_IMPL(x, y, z) EPILEPSY_uintMul(EPILEPSY_uintMul(v(x), v(y)), v(z))
 #define EPILEPSY_uintDiv3_IMPL(x, y, z) EPILEPSY_uintDiv(EPILEPSY_uintDiv(v(x), v(y)), v(z))
+
+#define EPILEPSY_uintMin_IMPL(x, y) EPILEPSY_if(EPILEPSY_uintLesser(v(x), v(y)), v(x), v(y))
+#define EPILEPSY_uintMax_IMPL(x, y) EPILEPSY_if(EPILEPSY_uintLesser(v(x), v(y)), v(y), v(x))
 // }
 
 // Arity specifiers {
@@ -488,6 +519,8 @@
 #define EPILEPSY_uintSub3_ARITY          3
 #define EPILEPSY_uintMul3_ARITY          3
 #define EPILEPSY_uintDiv3_ARITY          3
+#define EPILEPSY_uintMin_ARITY           2
+#define EPILEPSY_uintMax_ARITY           2
 
 #define EPILEPSY_PRIV_uintLesser_PROGRESS_ARITY  2
 #define EPILEPSY_PRIV_uintAdd_PROGRESS_ARITY     2
@@ -520,6 +553,8 @@
 #define E_uintSub3          EPILEPSY_uintSub3
 #define E_uintMul3          EPILEPSY_uintMul3
 #define E_uintDiv3          EPILEPSY_uintDiv3
+#define E_uintMin           EPILEPSY_uintMin
+#define E_uintMax           EPILEPSY_uintMax
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

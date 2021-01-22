@@ -163,3 +163,15 @@ E_assertEq(E_uintSub3(v(14), v(1), v(7)), v(14 - 1 - 7));
 E_assertEq(E_uintMul3(v(3), v(2), v(6)), v(3 * 2 * 6));
 E_assertEq(E_uintDiv3(v(30), v(2), v(3)), v(30 / 2 / 3));
 // }
+
+// E_uintMin {
+E_assertEq(E_uintMin(v(0), v(1)), v(0));
+E_assertEq(E_uintMin(v(5), v(7)), v(5));
+E_assertEq(E_uintMin(v(200), v(255)), v(200));
+// }
+
+// E_uintMax {
+E_assertEq(E_uintMax(v(0), v(1)), v(1));
+E_assertEq(E_uintMax(v(5), v(7)), v(7));
+E_assertEq(E_uintMax(v(200), v(255)), v(255));
+// }
