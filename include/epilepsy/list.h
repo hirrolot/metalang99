@@ -1,6 +1,6 @@
 /**
  * @file
- * Lists.
+ * List manipulation.
  */
 
 #ifndef EPILEPSY_LIST_H
