@@ -3,10 +3,8 @@
 #include <epilepsy.h>
 
 // Compile-time list manipulation {
-// puts("c");
-// puts("b");
-// puts("a");
-E_listEval(E_listReverse(E_list(v(puts("a");, puts("b");, puts("c");))));
+// "C" "B" "A"
+E_listEval(E_listReverse(E_list(v("A", "B", "C"))));
 
 // 9 2 5
 E_listEval(E_listFilter(E_list(v(9, 2, 11, 13, 5)), E_appl(v(E_uintGreater), v(10))));
