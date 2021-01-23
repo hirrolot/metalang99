@@ -202,7 +202,7 @@
  * @code
  * #include <epilepsy/aux.h>
  *
- * // !0
+ * // ! 0
  * E_putBefore(v(0), v(!))
  * @endcode
  */
@@ -216,7 +216,7 @@
  * @code
  * #include <epilepsy/aux.h>
  *
- * // !0
+ * // ! 0
  * E_putAfter(v(!), v(0))
  * @endcode
  */

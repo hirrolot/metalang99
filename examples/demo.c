@@ -2,11 +2,16 @@
 
 #include <epilepsy.h>
 
-#define FIELDS(type, idents)                                                                       \
-    E_listEval(E_listForInitLast(                                                                  \
-        E_list(v idents),                                                                          \
-        E_appl2(v(E_putBetween), v(type), v(;)),                                                   \
-        E_appl(v(E_putAfter), v(type))))
+#define STATICS(...)                                                                               \
+    E_listEval(E_listFor(E_list(v(__VA_ARGS__)), E_appl2(v(E_putBetween), v(static), v(;))))       \
+        E_semicolon()
+
+/*
+ * static int a;
+ * static const char *b = "abc";
+ * static double c = 123.456;
+ */
+STATICS(int a, const char *b = "abc", double c = 123.456);
 
 #define IGNORE(...)
 
@@ -21,11 +26,6 @@ E_listEval(E_listFilter(E_list(v(18, 2, 24, 38, 5)), E_appl(v(E_uintGreater), v(
 
 // 4 5 6
 E_listEval(E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))))
-
-struct Rect {
-    FIELDS(double, (width, height));
-};
-
 )
 // clang-format on
 
