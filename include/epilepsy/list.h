@@ -140,8 +140,28 @@
  * // Literally 1 2 3
  * E_listEval(E_list(v(1, 2, 3)))
  * @endcode
+ *
+ * @note This macro does not result in an Epilepsy term; it literally pastes list elements into a
+ * source file.
  */
 #define EPILEPSY_listEval(...) EPILEPSY_eval(EPILEPSY_call(EPILEPSY_listUnwrap, __VA_ARGS__))
+
+/**
+ * The same as #EPILEPSY_listEval but intersperses a comma between list items.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/aux.h>
+ *
+ * // Literally 1, 2, 3
+ * E_listEvalCommaSep(E_list(v(1, 2, 3)))
+ * @endcode
+ *
+ * @note This macro does not result in an Epilepsy term; it literally pastes comma-separated list
+ * elements into a source file.
+ */
+#define EPILEPSY_listEvalCommaSep(...) EPILEPSY_PRIV_listEvalCommaSep(__VA_ARGS__)
 
 /**
  * Appends the list @p other to @p list.
@@ -811,6 +831,21 @@
 // }
 
 #define EPILEPSY_listAppl_IMPL(list, f) EPILEPSY_listFoldl(v(list), v(EPILEPSY_appl), v(f))
+
+// EPILEPSY_PRIV_listEvalCommaSep {
+#define EPILEPSY_PRIV_listEvalCommaSep(...)                                                        \
+    EPILEPSY_eval(EPILEPSY_call(EPILEPSY_match, __VA_ARGS__ v(EPILEPSY_PRIV_listEvalCommaSep_)))
+#define EPILEPSY_PRIV_listEvalCommaSep_nil_IMPL() EPILEPSY_empty()
+#define EPILEPSY_PRIV_listEvalCommaSep_cons_IMPL(x, xs)                                            \
+    v(x) EPILEPSY_call(EPILEPSY_PRIV_listEvalCommaSepAux, v(xs))
+
+#define EPILEPSY_PRIV_listEvalCommaSepAux_IMPL(xs)                                                 \
+    EPILEPSY_match(v(xs), v(EPILEPSY_PRIV_listEvalCommaSepAux_))
+#define EPILEPSY_PRIV_listEvalCommaSepAux_nil_IMPL() EPILEPSY_empty()
+#define EPILEPSY_PRIV_listEvalCommaSepAux_cons_IMPL(x, xs)                                         \
+    v(, x) EPILEPSY_call(EPILEPSY_PRIV_listEvalCommaSepAux, v(xs))
+// }
+
 // } (Implementation)
 
 // Arity specifiers {
@@ -869,6 +904,7 @@
 #define E_list             EPILEPSY_list
 #define E_listLen          EPILEPSY_listLen
 #define E_listEval         EPILEPSY_listEval
+#define E_listEvalCommaSep EPILEPSY_listEvalCommaSep
 #define E_listAppend       EPILEPSY_listAppend
 #define E_listAppendItem   EPILEPSY_listAppendItem
 #define E_listUnwrap       EPILEPSY_listUnwrap
