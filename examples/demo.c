@@ -2,17 +2,6 @@
 
 #include <epilepsy.h>
 
-#define STATICS(...)                                                                               \
-    E_listEval(E_listFor(E_list(v(__VA_ARGS__)), E_appl2(v(E_putBetween), v(static), v(;))))       \
-        E_semicolon()
-
-/*
- * static int a;
- * static const char *b = "abc";
- * static double c = 123.456;
- */
-STATICS(int a, const char *b = "abc", double c = 123.456);
-
 #define IGNORE(...)
 
 // clang-format off
@@ -30,4 +19,16 @@ E_listEval(E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))))
 )
 // clang-format on
 
-int main(void) {}
+int main(void) {
+    int x = 0;
+
+    // Unroll loops at compile-time without code clutter.
+    E_eval(E_times(v(3), v(x += 5;)));
+
+    /*
+     * It is equivalent to:
+     * x += 5;
+     * x += 5;
+     * x += 5;
+     */
+}

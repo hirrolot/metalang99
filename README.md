@@ -22,18 +22,19 @@ E_listEval(E_listFilter(E_list(v(9, 2, 11, 13, 5)), E_appl(v(E_uintGreater), v(1
 // 4 5 6
 E_listEval(E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))))
 
-#define STATICS(...)                                                                               \
-    E_listEval(E_listFor(E_list(v(__VA_ARGS__)), E_appl2(v(E_putBetween), v(static), v(;))))       \
-        E_semicolon()
+int main(void) {
+    int x = 0;
 
-/*
- * static int a;
- * static const char *b = "abc";
- * static double c = 123.456;
- */
-STATICS(int a, const char *b = "abc", double c = 123.456);
+    // Unroll loops at compile-time without code clutter.
+    E_eval(E_times(v(3), v(x += 5;)));
 
-int main(void) {}
+    /*
+     * It is equivalent to:
+     * x += 5;
+     * x += 5;
+     * x += 5;
+     */
+}
 ```
 
 Epilepsy is a functional language aimed at full-blown C/C++ preprocessor metaprogramming.
