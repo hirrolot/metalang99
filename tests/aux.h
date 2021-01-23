@@ -41,6 +41,10 @@ E_assertEq(E_appl(E_appl3(v(E_const3), v(1810), v(~), v(~)), v(~)), v(1810));
 E_assert(E_appl2(E_flip(v(E_cat)), v(C), v(AB)));
 // }
 
+// E_putBetween {
+E_assertEq(E_putBetween(v(16), v(9), v(+)), v(16 + 9));
+// }
+
 #undef ABC
 
 // E_semicolon {

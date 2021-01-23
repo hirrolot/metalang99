@@ -195,6 +195,20 @@
 #define EPILEPSY_flip(f) EPILEPSY_call(EPILEPSY_flip, f)
 
 /**
+ * Puts @p x between @p left and @p right.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/aux.h>
+ *
+ * // 16 + 9
+ * E_putBetween(v(16), v(9), v(+))
+ * @endcode
+ */
+#define EPILEPSY_putBetween(left, right, x) EPILEPSY_call(EPILEPSY_putBetween, left right x)
+
+/**
  * Concatenates @p x with @p y as-is, without expanding them.
  *
  * # Examples
@@ -284,6 +298,7 @@
 #define EPILEPSY_const3_IMPL(x, _a, _b, _c)        v(x)
 #define EPILEPSY_flip_IMPL(f)                      EPILEPSY_appl(v(EPILEPSY_PRIV_flip), v(f))
 #define EPILEPSY_PRIV_flip_IMPL(f, a, b)           E_appl2(v(f), v(b), v(a))
+#define EPILEPSY_putBetween_IMPL(left, right, x)   v(left x right)
 // }
 
 // Arity specifiers {
@@ -300,6 +315,7 @@
 #define EPILEPSY_const2_ARITY                    3
 #define EPILEPSY_const3_ARITY                    4
 #define EPILEPSY_flip_ARITY                      1
+#define EPILEPSY_putBetween_ARITY                3
 
 #define EPILEPSY_PRIV_flip_ARITY 3
 // }
@@ -320,6 +336,7 @@
 #define E_const2                    EPILEPSY_const2
 #define E_const3                    EPILEPSY_const3
 #define E_flip                      EPILEPSY_flip
+#define E_putBetween                EPILEPSY_putBetween
 #define E_catPrimitive              EPILEPSY_catPrimitive
 #define E_stringifyPrimitive        EPILEPSY_stringifyPrimitive
 #define E_semicolon                 EPILEPSY_semicolon
