@@ -303,7 +303,7 @@
  * macro.
  * @note This macro can be used both inside and outside of function bodies, in contrast to the `do {
  * ... } while(0)` idiom. Technically, this macro just expands to an unused static variable
- * definition.
+ * declaration.
  */
 #define EPILEPSY_semicolon()                                                                       \
     static const char EPILEPSY_PRIV_CAT(epilepsy_semicolon_, __LINE__)                             \
