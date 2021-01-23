@@ -3,8 +3,6 @@ project(examples LANGUAGES C)
 
 include_directories(../include)
 
-# TODO: fix it. add_executable(demo demo.c)
-
 add_executable(binary_tree binary_tree.c)
 add_executable(rectangle rectangle.c)
 
