@@ -26,6 +26,7 @@ E_listEval(E_listFilter(E_list(v(9, 2, 11, 13, 5)), E_appl(v(E_uintGreater), v(1
 
 // 4 5 6
 E_listEval(E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))))
+
 )
 // clang-format on
 
