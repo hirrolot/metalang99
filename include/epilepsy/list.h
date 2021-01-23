@@ -587,7 +587,9 @@
 #define EPILEPSY_PRIV_listLast_cons_IMPL(x, xs)                                                    \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
-            EPILEPSY_isNil(v(xs)), EPILEPSY_appl(v(EPILEPSY_const), v(x)), v(EPILEPSY_listLast)),  \
+            EPILEPSY_isNil(v(xs)),                                                                 \
+            EPILEPSY_appl(v(EPILEPSY_const), v(x)),                                                \
+            v(EPILEPSY_listLast)),                                                                 \
         v(xs))
 // }
 
@@ -622,12 +624,14 @@
     EPILEPSY_call(EPILEPSY_PRIV_list_DONE_AUX, EPILEPSY_unparenthesiseUnevaluated(v(rest)))
 #define EPILEPSY_PRIV_list_PROGRESS_IMPL(count, rest)                                              \
     EPILEPSY_call(                                                                                 \
-        EPILEPSY_PRIV_list_PROGRESS_AUX, v(count) EPILEPSY_unparenthesiseUnevaluated(v(rest)))
+        EPILEPSY_PRIV_list_PROGRESS_AUX,                                                           \
+        v(count) EPILEPSY_unparenthesiseUnevaluated(v(rest)))
 
 #define EPILEPSY_PRIV_list_DONE_AUX_IMPL(last, _) EPILEPSY_cons(v(last), EPILEPSY_nil())
 #define EPILEPSY_PRIV_list_PROGRESS_AUX_IMPL(count, x, ...)                                        \
     EPILEPSY_cons(                                                                                 \
-        v(x), EPILEPSY_call(EPILEPSY_PRIV_list_AUX, EPILEPSY_uintDec(v(count)) v(__VA_ARGS__)))
+        v(x),                                                                                      \
+        EPILEPSY_call(EPILEPSY_PRIV_list_AUX, EPILEPSY_uintDec(v(count)) v(__VA_ARGS__)))
 // }
 
 #define EPILEPSY_listLen_IMPL(list)            EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listLen_))
@@ -711,7 +715,8 @@
 
 #define EPILEPSY_listMapInitLast_IMPL(f_init, f_last, list)                                        \
     E_listAppendItem(                                                                              \
-        E_listMap(v(f_init), E_listInit(v(list))), E_appl(v(f_last), E_listLast(v(list))))
+        E_listMap(v(f_init), E_listInit(v(list))),                                                 \
+        E_appl(v(f_last), E_listLast(v(list))))
 
 #define EPILEPSY_listForInitLast_IMPL(list, f_init, f_last)                                        \
     EPILEPSY_listMapInitLast(v(f_init), v(f_last), v(list))
@@ -722,7 +727,9 @@
 #define EPILEPSY_PRIV_listFilter_cons_IMPL(x, xs, f)                                               \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
-            EPILEPSY_appl(v(f), v(x)), EPILEPSY_appl(v(EPILEPSY_cons), v(x)), v(EPILEPSY_id)),     \
+            EPILEPSY_appl(v(f), v(x)),                                                             \
+            EPILEPSY_appl(v(EPILEPSY_cons), v(x)),                                                 \
+            v(EPILEPSY_id)),                                                                       \
         EPILEPSY_listFilter(v(xs), v(f)))
 
 // EPILEPSY_listEq_IMPL {

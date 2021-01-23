@@ -486,7 +486,8 @@
 
 #define EPILEPSY_PRIV_uintMod_PROGRESS_AUX_IMPL(x, y, acc)                                         \
     EPILEPSY_call(                                                                                 \
-        EPILEPSY_PRIV_uintMod_AUX, v(EPILEPSY_PRIV_uintDec(x), y, EPILEPSY_PRIV_uintInc(acc)))
+        EPILEPSY_PRIV_uintMod_AUX,                                                                 \
+        v(EPILEPSY_PRIV_uintDec(x), y, EPILEPSY_PRIV_uintInc(acc)))
 // }
 
 #define EPILEPSY_uintAdd3_IMPL(x, y, z) EPILEPSY_uintAdd(EPILEPSY_uintAdd(v(x), v(y)), v(z))

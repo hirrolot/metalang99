@@ -130,7 +130,9 @@
 // Implementation {
 #define EPILEPSY_PRIV_call(op, ...)                                                                \
     EPILEPSY_PRIV_IF(                                                                              \
-        EPILEPSY_PRIV_IS_UNPARENTHESISED(op), EPILEPSY_PRIV_call_0args, EPILEPSY_PRIV_call_0op)    \
+        EPILEPSY_PRIV_IS_UNPARENTHESISED(op),                                                      \
+        EPILEPSY_PRIV_call_0args,                                                                  \
+        EPILEPSY_PRIV_call_0op)                                                                    \
     (op, __VA_ARGS__)
 #define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident##_IMPL, __VA_ARGS__),
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__),

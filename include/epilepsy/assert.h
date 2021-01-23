@@ -55,7 +55,8 @@
 #define EPILEPSY_assertPlain(expr)                                                                 \
     /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
     static const char EPILEPSY_PRIV_CAT(                                                           \
-        epilepsy_assert_, __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_COMPILER_ATTR_UNUSED
+        epilepsy_assert_,                                                                          \
+        __LINE__)[(expr) ? 1 : -1] EPILEPSY_PRIV_COMPILER_ATTR_UNUSED
 
 /**
  * Asserts that `EPILEPSY_eval(expr)` is emptiness.

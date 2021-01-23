@@ -20,7 +20,8 @@
     EPILEPSY_PRIV_CLOSURE_APPLY_ENV(EPILEPSY_PRIV_CLOSURE(v(f), v(__VA_ARGS__)))
 #define EPILEPSY_PRIV_APPLY_WITH_ARITY_CLOSURE(closure, ...)                                       \
     EPILEPSY_call(                                                                                 \
-        EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure), __VA_ARGS__))
+        EPILEPSY_PRIV_CLOSURE_F(closure),                                                          \
+        v(EPILEPSY_PRIV_CLOSURE_ENV(closure), __VA_ARGS__))
 
 #define EPILEPSY_appl2_IMPL(f, a, b)    EPILEPSY_appl(EPILEPSY_appl(v(f), v(a)), v(b))
 #define EPILEPSY_appl3_IMPL(f, a, b, c) EPILEPSY_appl(EPILEPSY_appl2(v(f), v(a), v(b)), v(c))

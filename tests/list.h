@@ -79,7 +79,7 @@ E_assert(E_not(E_isNil(E_list(v(123)))));
 E_assert(E_not(E_isNil(E_list(v(8, 214, 10, 0, 122)))));
 // }
 
-// E_get {
+// E_get {f
 E_assertEq(E_listGet(E_list(v(123, 222)), v(0)), v(123));
 E_assertEq(E_listGet(E_list(v(123, 222)), v(1)), v(222));
 // }
