@@ -11,8 +11,6 @@
 
 [[`examples/demo.c`](examples/demo.c)]
 ```c
-// To see the result of preprocessing, comment `IGNORE(` with `)` and compile with -E.
-
 #include <epilepsy.h>
 
 // "Rachmaninoff" "Bach" "Chopin"
@@ -35,7 +33,6 @@ struct Rect {
 };
 
 int main(void) {}
-
 ```
 
 Epilepsy is a functional language aimed at full-blown C/C++ preprocessor metaprogramming.
