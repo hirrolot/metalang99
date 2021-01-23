@@ -34,7 +34,7 @@ int main(void) {
 #define Rect_new_1_IMPL(x)    v(((Rect){.width = x, .height = x}))
 #define Rect_new_2_IMPL(x, y) v(((Rect){.width = x, .height = y}))
 
-    Rect rect = Rect_new(10), square = Rect_new(7, 8);
+    Rect _7x8 = Rect_new(7, 8), _10x10 = Rect_new(10);
     // }
 
     // Loop unrolling {
