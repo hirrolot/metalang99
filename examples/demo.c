@@ -33,4 +33,6 @@ int main(void) {
 
     static Rect _7x8 = Rect_new(7, 8), _10x10 = Rect_new(10);
     // }
+
+    // ... and more!
 }
