@@ -1,3 +1,5 @@
+// CAUTION: compile only with -E.
+
 #include <epilepsy.h>
 
 // Compile-time list manipulation {
