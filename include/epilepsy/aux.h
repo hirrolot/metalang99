@@ -195,7 +195,7 @@
 #define EPILEPSY_flip(f) EPILEPSY_call(EPILEPSY_flip, f)
 
 /**
- * Puts @p x before @p left.
+ * Puts @p x before @p right.
  *
  * # Examples
  *
