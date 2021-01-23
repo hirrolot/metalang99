@@ -33,15 +33,4 @@ int main(void) {
 
     static Rect _7x8 = Rect_new(7, 8), _10x10 = Rect_new(10);
     // }
-
-    // Loop unrolling {
-    int x = 0;
-
-    /*
-     * x += 5;
-     * x += 5;
-     * x += 5;
-     */
-    E_eval(E_times(v(3), v(x += 5;)));
-    // }
 }
