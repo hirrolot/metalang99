@@ -1,26 +1,26 @@
-// To see the result of preprocessing, comment `IGNORE(` with `)` and compile with -E.
-
 #include <epilepsy.h>
 
-#define IGNORE(...)
-
 int main(void) {
-    // clang-format off
-    IGNORE(
-
-    // List manipulation {
+    // Compile-time list manipulation {
     // "Rachmaninoff" "Bach" "Chopin"
-    E_listEval(E_listReverse(E_list(v("Chopin", "Bach", "Rachmaninoff"))))
+    E_listEval(E_listReverse(E_list(v("Chopin", "Bach", "Rachmaninoff"))));
 
     // 9 2 5
-    E_listEval(E_listFilter(E_list(v(9, 2, 11, 13, 5)), E_appl(v(E_uintGreater), v(10))))
+    E_listEval(E_listFilter(E_list(v(9, 2, 11, 13, 5)), E_appl(v(E_uintGreater), v(10))));
 
     // 4 5 6
-    E_listEval(E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))))
+    E_listEval(E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))));
     // }
 
-    )
-    // clang-format on
+    // General macro recursion {
+#define factorial(n) E_call(factorial, n)
+
+#define factorial_IMPL(n)   E_uintMatch(v(n), v(factorial_))
+#define factorial_Z_IMPL()  v(1)
+#define factorial_S_IMPL(n) E_uintMul(E_uintInc(v(n)), factorial(v(n)))
+
+    static int _24 = E_eval(factorial(v(4)));
+    // }
 
     // Overloading on a number of arguments {
     typedef struct {
@@ -31,7 +31,7 @@ int main(void) {
 #define Rect_new_1_IMPL(x)    v(((Rect){.width = x, .height = x}))
 #define Rect_new_2_IMPL(x, y) v(((Rect){.width = x, .height = y}))
 
-    Rect _7x8 = Rect_new(7, 8), _10x10 = Rect_new(10);
+    static Rect _7x8 = Rect_new(7, 8), _10x10 = Rect_new(10);
     // }
 
     // Loop unrolling {
