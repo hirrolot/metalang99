@@ -2,6 +2,7 @@
 
 #include "aux.h"
 #include "choice.h"
+#include "control.h"
 #include "either.h"
 #include "list.h"
 #include "logical.h"
