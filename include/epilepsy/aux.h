@@ -195,6 +195,34 @@
 #define EPILEPSY_flip(f) EPILEPSY_call(EPILEPSY_flip, f)
 
 /**
+ * Puts @p x before @p left.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/aux.h>
+ *
+ * // !0
+ * E_putBefore(v(0), v(!))
+ * @endcode
+ */
+#define EPILEPSY_putBefore(right, x) EPILEPSY_call(EPILEPSY_putBefore, right x)
+
+/**
+ * Puts @p x after @p left.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/aux.h>
+ *
+ * // !0
+ * E_putAfter(v(!), v(0))
+ * @endcode
+ */
+#define EPILEPSY_putAfter(left, x) EPILEPSY_call(EPILEPSY_putAfter, left x)
+
+/**
  * Puts @p x between @p left and @p right.
  *
  * # Examples
@@ -298,6 +326,8 @@
 #define EPILEPSY_const3_IMPL(x, _a, _b, _c)        v(x)
 #define EPILEPSY_flip_IMPL(f)                      EPILEPSY_appl(v(EPILEPSY_PRIV_flip), v(f))
 #define EPILEPSY_PRIV_flip_IMPL(f, a, b)           E_appl2(v(f), v(b), v(a))
+#define EPILEPSY_putBefore_IMPL(right, x)          v(x right)
+#define EPILEPSY_putAfter_IMPL(left, x)            v(left x)
 #define EPILEPSY_putBetween_IMPL(left, right, x)   v(left x right)
 // }
 
@@ -315,6 +345,8 @@
 #define EPILEPSY_const2_ARITY                    3
 #define EPILEPSY_const3_ARITY                    4
 #define EPILEPSY_flip_ARITY                      1
+#define EPILEPSY_putBefore_ARITY                 2
+#define EPILEPSY_putAfter_ARITY                  2
 #define EPILEPSY_putBetween_ARITY                3
 
 #define EPILEPSY_PRIV_flip_ARITY 3
@@ -336,6 +368,8 @@
 #define E_const2                    EPILEPSY_const2
 #define E_const3                    EPILEPSY_const3
 #define E_flip                      EPILEPSY_flip
+#define E_putBefore                 EPILEPSY_putBefore
+#define E_putAfter                  EPILEPSY_putAfter
 #define E_putBetween                EPILEPSY_putBetween
 #define E_catPrimitive              EPILEPSY_catPrimitive
 #define E_stringifyPrimitive        EPILEPSY_stringifyPrimitive

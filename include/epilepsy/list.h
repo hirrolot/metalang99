@@ -346,6 +346,33 @@
 #define EPILEPSY_listFor(list, f) EPILEPSY_call(EPILEPSY_listFor, list f)
 
 /**
+ * Maps the initial elements of the non-empty list @p list with @p f_init and the last element with
+ * @p f_last.
+ *
+ * # Examples
+ *
+ * @code
+ * // 4, 5, 10
+ * E_listMapInitLast(E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(7)), E_list(v(1, 2, 3)))
+ * @endcode
+ */
+#define EPILEPSY_listMapInitLast(f_init, f_last, list)                                             \
+    EPILEPSY_call(EPILEPSY_listMapInitLast, f_init f_last list)
+
+/**
+ * The same as #EPILEPSY_listMapInitLast but accepts @p list as the first parameter.
+ *
+ * # Examples
+ *
+ * @code
+ * // 4, 5, 10
+ * E_listForInitLast(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(7)))
+ * @endcode
+ */
+#define EPILEPSY_listForInitLast(list, f_init, f_last)                                             \
+    EPILEPSY_call(EPILEPSY_listForInitLast, list f_init f_last)
+
+/**
  * Filters @p list with @p f.
  *
  * # Examples
@@ -662,6 +689,13 @@
 
 #define EPILEPSY_listFor_IMPL(list, f) EPILEPSY_listMap(v(f), v(list))
 
+#define EPILEPSY_listMapInitLast_IMPL(f_init, f_last, list)                                        \
+    E_listAppendItem(                                                                              \
+        E_listMap(v(f_init), E_listInit(v(list))), E_appl(v(f_last), E_listLast(v(list))))
+
+#define EPILEPSY_listForInitLast_IMPL(list, f_init, f_last)                                        \
+    EPILEPSY_listMapInitLast(v(f_init), v(f_last), v(list))
+
 #define EPILEPSY_listFilter_IMPL(list, f)                                                          \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFilter_), v(f))
 #define EPILEPSY_PRIV_listFilter_nil_IMPL(_f) EPILEPSY_nil()
@@ -801,6 +835,8 @@
 #define EPILEPSY_listPrependToAll_ARITY 2
 #define EPILEPSY_listMap_ARITY          2
 #define EPILEPSY_listFor_ARITY          2
+#define EPILEPSY_listMapInitLast_ARITY  3
+#define EPILEPSY_listForInitLast_ARITY  3
 #define EPILEPSY_listFilter_ARITY       2
 #define EPILEPSY_listEq_ARITY           3
 #define EPILEPSY_listContains_ARITY     3
@@ -846,6 +882,8 @@
 #define E_listPrependToAll EPILEPSY_listPrependToAll
 #define E_listMap          EPILEPSY_listMap
 #define E_listFor          EPILEPSY_listFor
+#define E_listMapInitLast  EPILEPSY_listMapInitLast
+#define E_listForInitLast  EPILEPSY_listForInitLast
 #define E_listFilter       EPILEPSY_listFilter
 #define E_listEq           EPILEPSY_listEq
 #define E_listContains     EPILEPSY_listContains

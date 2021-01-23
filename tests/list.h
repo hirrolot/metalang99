@@ -232,6 +232,24 @@ E_assert(E_listEq(
     E_listFor(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3))), E_list(v(4, 5, 6)), v(E_uintEq)));
 // }
 
+// E_listMapInitLast {
+E_assert(E_listEq(
+    E_listMapInitLast(E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(19)), E_list(v(4))),
+    E_list(v(23)), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listMapInitLast(E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(7)), E_list(v(1, 2, 3))),
+    E_list(v(4, 5, 10)), v(E_uintEq)));
+// }
+
+// E_listForInitLast {
+E_assert(E_listEq(
+    E_listForInitLast(E_list(v(4)), E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(19))),
+    E_list(v(23)), v(E_uintEq)));
+E_assert(E_listEq(
+    E_listForInitLast(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(7))),
+    E_list(v(4, 5, 10)), v(E_uintEq)));
+// }
+
 // E_listFilter {
 E_assert(E_listEq(E_listFilter(E_nil(), E_appl(v(E_uintAdd), v(3))), E_nil(), v(E_uintEq)));
 E_assert(E_listEq(
