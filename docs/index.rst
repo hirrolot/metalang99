@@ -23,7 +23,6 @@ The Epilepsy Standard library exports a set of macros implemented using the `Epi
    variadics
    aux
    control
-   overload
    assert
 
 Contents
@@ -41,7 +40,6 @@ Contents
  - `variadics.h`_ - Variadic macro utilities.
  - `aux.h`_ - Auxiliary macros.
  - `control.h`_ - Control expressions.
- - `overload.h`_ - Overloading on a number of arguments.
  - `assert.h`_ - Static assertions.
 
 Indices and tables
@@ -64,5 +62,4 @@ Indices and tables
 .. _variadics.h: variadics.html
 .. _aux.h: aux.html
 .. _control.h: control.html
-.. _overload.h: overload.html
 .. _assert.h: assert.html
