@@ -17,6 +17,7 @@
  * # Examples
  *
  * @code
+ * #include <epilepsy/control.h>
  * #include <epilepsy/logical.h>
  *
  * // 123
@@ -37,7 +38,7 @@
  * # Examples
  *
  * @code
- * #include <epilepsy/overload.h>
+ * #include <epilepsy/control.h>
  *
  * #define X_IMPL(...)    E_overload(v(X_), v(__VA_ARGS__))
  * #define X_1_IMPL(a)    v(Billie & a)
