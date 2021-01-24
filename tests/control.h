@@ -25,16 +25,3 @@ E_eval(E_call(X, v(1516, 1, 9, 111, 119, 677, 62)));
 #undef X_2_IMPL
 #undef X_7_IMPL
 // }
-
-// E_replicate {
-E_assertEmpty(E_replicate(v(0), v(~, ~, ~)));
-
-#define CHECK(...) CHECK_AUX(__VA_ARGS__)
-#define CHECK_AUX(a, b, c, d, e, f)                                                                \
-    E_assertPlain(a == 3 && b == 3 && c == 3 && d == 3 && e == 3 && f == 7)
-
-CHECK(E_eval(E_replicate(v(5), v(3, ))) 7);
-
-#undef CHECK
-#undef CHECK_AUX
-// }

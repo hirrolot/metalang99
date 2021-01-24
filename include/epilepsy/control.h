@@ -55,31 +55,11 @@
  * @note Currently, this function can accept at most 256 variadic arguments.
  */
 #define EPILEPSY_overload(f, ...) EPILEPSY_call(EPILEPSY_overload, f __VA_ARGS__)
-
-/**
- * Repeats supplied arguments @p n times.
- *
- * # Examples
- *
- * @code
- * #include <epilepsy/control.h>
- *
- * // ~ ~ ~ ~ ~
- * E_replicate(v(5), v(~))
- * @endcode
- */
-#define EPILEPSY_replicate(n, ...) EPILEPSY_call(EPILEPSY_replicate, n __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_replicate_IMPL(n, ...)                                                            \
-    EPILEPSY_uintMatchWithArgs(v(n), v(EPILEPSY_PRIV_replicate_), v(__VA_ARGS__))
-#define EPILEPSY_PRIV_replicate_Z_IMPL(...) EPILEPSY_empty()
-#define EPILEPSY_PRIV_replicate_S_IMPL(n, ...)                                                     \
-    v(__VA_ARGS__) EPILEPSY_replicate(v(n), v(__VA_ARGS__))
-
 #define EPILEPSY_overload_IMPL(f, ...)                                                             \
     EPILEPSY_call(EPILEPSY_PRIV_CAT(f, EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__)), v(__VA_ARGS__))
 
@@ -87,17 +67,15 @@
 // }
 
 // Arity specifiers {
-#define EPILEPSY_replicate_ARITY 2
-#define EPILEPSY_overload_ARITY  2
-#define EPILEPSY_if_ARITY        3
+#define EPILEPSY_overload_ARITY 2
+#define EPILEPSY_if_ARITY       3
 // }
 
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_replicate EPILEPSY_replicate
-#define E_overload  EPILEPSY_overload
-#define E_if        EPILEPSY_if
+#define E_overload EPILEPSY_overload
+#define E_if       EPILEPSY_if
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
