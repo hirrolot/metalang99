@@ -8,6 +8,7 @@
 
 #include <epilepsy/aux.h>
 #include <epilepsy/choice.h>
+#include <epilepsy/control.h>
 #include <epilepsy/logical.h>
 #include <epilepsy/priv/pair.h>
 #include <epilepsy/tuple.h>

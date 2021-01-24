@@ -102,23 +102,6 @@
  * @endcode
  */
 #define EPILEPSY_xor(x, y) EPILEPSY_call(EPILEPSY_xor, x y)
-
-/**
- * If @p cond is true, evaluates to @p x, otherwise @p y.
- *
- * # Examples
- *
- * @code
- * #include <epilepsy/logical.h>
- *
- * // 123
- * E_if(v(E_true), v(123), v(18))
- *
- * // 18
- * E_if(v(E_false), v(123), v(18))
- * @endcode
- */
-#define EPILEPSY_if(cond, x, y) EPILEPSY_call(EPILEPSY_if, cond x y)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -145,8 +128,6 @@
 #define EPILEPSY_PRIV_xor_01_IMPL() v(1)
 #define EPILEPSY_PRIV_xor_10_IMPL() v(1)
 #define EPILEPSY_PRIV_xor_11_IMPL() v(0)
-
-#define EPILEPSY_if_IMPL(cond, x, y) v(EPILEPSY_PRIV_IF(cond, x, y))
 // }
 
 // Arity specifiers {
@@ -154,7 +135,6 @@
 #define EPILEPSY_and_ARITY 2
 #define EPILEPSY_or_ARITY  2
 #define EPILEPSY_xor_ARITY 2
-#define EPILEPSY_if_ARITY  3
 // }
 
 // Aliases {
@@ -166,7 +146,6 @@
 #define E_and   EPILEPSY_and
 #define E_or    EPILEPSY_or
 #define E_xor   EPILEPSY_xor
-#define E_if    EPILEPSY_if
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

@@ -9,6 +9,7 @@
 #define EPILEPSY_UINT_H
 
 #include <epilepsy/aux.h>
+#include <epilepsy/control.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/list.h>
 #include <epilepsy/logical.h>
