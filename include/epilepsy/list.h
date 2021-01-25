@@ -535,6 +535,23 @@
 #define EPILEPSY_listUnzip(list) EPILEPSY_call(EPILEPSY_listUnzip, list)
 
 /**
+ * Computes a list of length @p n with each element @p item.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * ~, ~, ~, ~, ~
+ * E_listReplicate(v(5), v(~))
+ *
+ * E_nil()
+ * E_listReplicate(v(0), v(~))
+ * @endcode
+ */
+#define EPILEPSY_listReplicate(n, item) EPILEPSY_call(EPILEPSY_listReplicate, n item)
+
+/**
  * Applies all the items in @p list to @p f.
  *
  * If the list is empty, results in @p f as-is.
@@ -838,6 +855,12 @@
     EPILEPSY_cons(EPILEPSY_get(v(x), v(i)), EPILEPSY_get(v(rest), v(i)))
 // }
 
+#define EPILEPSY_listReplicate_IMPL(n, item)                                                       \
+    EPILEPSY_uintMatchWithArgs(v(n), v(EPILEPSY_PRIV_listReplicate_), v(item))
+#define EPILEPSY_PRIV_listReplicate_Z_IMPL(item) EPILEPSY_nil()
+#define EPILEPSY_PRIV_listReplicate_S_IMPL(n, item)                                                \
+    EPILEPSY_cons(v(item), EPILEPSY_listReplicate(v(n), v(item)))
+
 #define EPILEPSY_listAppl_IMPL(list, f) EPILEPSY_listFoldl(v(list), v(EPILEPSY_appl), v(f))
 
 // EPILEPSY_PRIV_listEvalCommaSep {
@@ -889,6 +912,7 @@
 #define EPILEPSY_listDropWhile_ARITY    2
 #define EPILEPSY_listZip_ARITY          2
 #define EPILEPSY_listUnzip_ARITY        1
+#define EPILEPSY_listReplicate_ARITY    2
 #define EPILEPSY_listAppl_ARITY         2
 
 #define EPILEPSY_PRIV_listInit_PROGRESS_ARITY      2
@@ -937,6 +961,7 @@
 #define E_listDropWhile    EPILEPSY_listDropWhile
 #define E_listZip          EPILEPSY_listZip
 #define E_listUnzip        EPILEPSY_listUnzip
+#define E_listReplicate    EPILEPSY_listReplicate
 #define E_listAppl         EPILEPSY_listAppl
 
 #endif // EPILEPSY_NO_SMALL_PREFIX

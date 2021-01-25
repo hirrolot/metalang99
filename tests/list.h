@@ -256,3 +256,8 @@ E_assert(E_listEq(
     E_listFilter(E_list(v(14, 0, 1, 7, 2, 65, 3)), E_appl(v(E_uintLesser), v(3))),
     E_list(v(14, 7, 65)), v(E_uintEq)));
 // }
+
+// E_listReplicate {
+E_assert(E_listEq(E_listReplicate(v(0), v(7)), E_nil(), v(E_uintEq)));
+E_assert(E_listEq(E_listReplicate(v(3), v(7)), E_list(v(7, 7, 7)), v(E_uintEq)));
+// }
