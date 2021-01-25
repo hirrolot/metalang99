@@ -5,6 +5,8 @@ include_directories(../include)
 
 add_executable(demo demo.c)
 
+add_executable(overload overload.c)
+
 add_executable(binary_tree binary_tree.c)
 add_executable(rectangle rectangle.c)
 
