@@ -581,26 +581,20 @@
 #define EPILEPSY_nil_IMPL()       EPILEPSY_choiceEmpty(v(nil))
 
 // EPILEPSY_listHead_IMPL {
-#define EPILEPSY_listHead_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listHead_))
-// clang-format off
-#define EPILEPSY_PRIV_listHead_nil_IMPL() EPILEPSY_fatal(EPILEPSY_listHead, expected a non-empty list)
-// clang-format on
+#define EPILEPSY_listHead_IMPL(list)            EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listHead_))
+#define EPILEPSY_PRIV_listHead_nil_IMPL()       EPILEPSY_PRIV_EMPTY_LIST_ERROR(listHead)
 #define EPILEPSY_PRIV_listHead_cons_IMPL(x, xs) v(x)
 // }
 
 // EPILEPSY_listTail_IMPL {
-#define EPILEPSY_listTail_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listTail_))
-// clang-format off
-#define EPILEPSY_PRIV_listTail_nil_IMPL() EPILEPSY_fatal(EPILEPSY_listTail, expected a non-empty list)
-// clang-format on
+#define EPILEPSY_listTail_IMPL(list)            EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listTail_))
+#define EPILEPSY_PRIV_listTail_nil_IMPL()       EPILEPSY_PRIV_EMPTY_LIST_ERROR(listTail)
 #define EPILEPSY_PRIV_listTail_cons_IMPL(x, xs) v(xs)
 // }
 
 // EPILEPSY_listLast_IMPL {
-#define EPILEPSY_listLast_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listLast_))
-// clang-format off
-#define EPILEPSY_PRIV_listLast_nil_IMPL() EPILEPSY_fatal(EPILEPSY_listLast, expected a non-empty list)
-// clang-format on
+#define EPILEPSY_listLast_IMPL(list)      EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listLast_))
+#define EPILEPSY_PRIV_listLast_nil_IMPL() EPILEPSY_PRIV_EMPTY_LIST_ERROR(listLast)
 #define EPILEPSY_PRIV_listLast_cons_IMPL(x, xs)                                                    \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
@@ -611,10 +605,8 @@
 // }
 
 // EPILEPSY_listInit_IMPL {
-#define EPILEPSY_listInit_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listInit_))
-// clang-format off
-#define EPILEPSY_PRIV_listInit_nil_IMPL() EPILEPSY_fatal(EPILEPSY_listInit, expected a non-empty list)
-// clang-format on
+#define EPILEPSY_listInit_IMPL(list)      EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listInit_))
+#define EPILEPSY_PRIV_listInit_nil_IMPL() EPILEPSY_PRIV_EMPTY_LIST_ERROR(listInit)
 #define EPILEPSY_PRIV_listInit_cons_IMPL(x, xs)                                                    \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
@@ -677,10 +669,8 @@
     EPILEPSY_listAppendItem(v(x), EPILEPSY_listReverse(v(xs)))
 
 // EPILEPSY_get_IMPL {
-#define EPILEPSY_get_IMPL(i, list) EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_get_), v(i))
-// clang-format off
-#define EPILEPSY_PRIV_get_nil_IMPL(i) EPILEPSY_fatal(EPILEPSY_get, expected a non-empty list)
-// clang-format on
+#define EPILEPSY_get_IMPL(i, list)    EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_get_), v(i))
+#define EPILEPSY_PRIV_get_nil_IMPL(i) EPILEPSY_PRIV_EMPTY_LIST_ERROR(EPILEPSY_get)
 #define EPILEPSY_PRIV_get_cons_IMPL(x, xs, i)                                                      \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
@@ -704,9 +694,7 @@
 
 #define EPILEPSY_listFoldl1_IMPL(f, list)                                                          \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFoldl1_), v(f))
-// clang-format off
-#define EPILEPSY_PRIV_listFoldl1_nil_IMPL(_f) EPILEPSY_fatal(EPILEPSY_listFoldl1, expected a non-empty list)
-// clang-format on
+#define EPILEPSY_PRIV_listFoldl1_nil_IMPL(_f)        EPILEPSY_PRIV_EMPTY_LIST_ERROR(EPILEPSY_listFoldl1)
 #define EPILEPSY_PRIV_listFoldl1_cons_IMPL(x, xs, f) EPILEPSY_listFoldl(v(f), v(x), v(xs))
 
 #define EPILEPSY_listIntersperse_IMPL(item, list)                                                  \
@@ -874,6 +862,10 @@
 #define EPILEPSY_PRIV_listEvalCommaSepAux_cons_IMPL(x, xs)                                         \
     v(, x) EPILEPSY_call(EPILEPSY_PRIV_listEvalCommaSepAux, v(xs))
 // }
+
+// clang-format off
+#define EPILEPSY_PRIV_EMPTY_LIST_ERROR(f) EPILEPSY_fatal(EPILEPSY_##f, expected a non-empty list)
+// clang-format on
 
 // } (Implementation)
 
