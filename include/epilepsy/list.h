@@ -541,10 +541,10 @@
  * @code
  * #include <epilepsy/list.h>
  *
- * ~, ~, ~, ~, ~
+ * // ~, ~, ~, ~, ~
  * E_listReplicate(v(5), v(~))
  *
- * E_nil()
+ * // E_nil()
  * E_listReplicate(v(0), v(~))
  * @endcode
  */
