@@ -363,7 +363,7 @@
  * @code
  * #include <epilepsy/uint.h>
  *
- * 5
+ * // 5
  * E_uintMin(v(5), v(7))
  * @endcode
  */
@@ -377,7 +377,7 @@
  * @code
  * #include <epilepsy/uint.h>
  *
- * 7
+ * // 7
  * E_uintMax(v(5), v(7))
  * @endcode
  */
