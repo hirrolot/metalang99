@@ -3,23 +3,23 @@
 // Compile-time list manipulation {
 // clang-format off
 E_assert(E_listEq(
+    v(E_uintEq),
     E_listReverse(E_list(v(1, 2, 3))),
-    E_list(v(3, 2, 1)),
-    v(E_uintEq)));
+    E_list(v(3, 2, 1))));
 // clang-format on
 
 // clang-format off
 E_assert(E_listEq(
+    v(E_uintEq),
     E_listFilter(E_list(v(9, 2, 11, 13, 5)), E_appl(v(E_uintGreater), v(10))),
-    E_list(v(9, 2, 5)),
-    v(E_uintEq)));
+    E_list(v(9, 2, 5))));
 // clang-format on
 
 // clang-format off
 E_assert(E_listEq(
+    v(E_uintEq),
     E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))),
-    E_list(v(4, 5, 6)),
-    v(E_uintEq)));
+    E_list(v(4, 5, 6))));
 // clang-format on
 // }
 
