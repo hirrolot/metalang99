@@ -90,8 +90,8 @@ E_assert(E_not(E_isNil(E_list(v(8, 214, 10, 0, 122)))));
 // }
 
 // E_get {
-E_assertEq(E_listGet(v(0), E_list(v(123, 222))), v(123));
-E_assertEq(E_listGet(v(1), E_list(v(123, 222))), v(222));
+E_assertEq(E_get(v(0), E_list(v(123, 222))), v(123));
+E_assertEq(E_get(v(1), E_list(v(123, 222))), v(222));
 // }
 
 // E_listTake {
@@ -152,15 +152,15 @@ E_assert(E_listEq(v(EQ), E_listZip(E_nil(), E_list(v(1, 2, 3))), E_nil()));
 
 E_assert(E_listEq(
     v(EQ), E_listZip(E_list(v(1, 2, 3)), E_list(v(4, 5, 6))),
-    E_list(E_tuple(v(1, 4)) E_tuple(v(2, 5)) E_tuple(v(3, 6)))));
+    E_list(E_list(v(1, 4)) E_list(v(2, 5)) E_list(v(3, 6)))));
 
 E_assert(E_listEq(
     v(EQ), E_listZip(E_list(v(1, 2, 3)), E_list(v(4, 5))),
-    E_list(E_tuple(v(1, 4)) E_tuple(v(2, 5)))));
+    E_list(E_list(v(1, 4)) E_list(v(2, 5)))));
 
 E_assert(E_listEq(
     v(EQ), E_listZip(E_list(v(1, 2)), E_list(v(4, 5, 6))),
-    E_list(E_tuple(v(1, 4)) E_tuple(v(2, 5)))));
+    E_list(E_list(v(1, 4)) E_list(v(2, 5)))));
 
 #undef EQ_IMPL
 #undef EQ_ARITY

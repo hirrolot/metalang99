@@ -11,7 +11,7 @@ E_assert(E_listEq(
 // clang-format off
 E_assert(E_listEq(
     v(E_uintEq),
-    E_listFilter(E_list(v(9, 2, 11, 13, 5)), E_appl(v(E_uintGreater), v(10))),
+    E_listFilter(E_appl(v(E_uintGreater), v(10)), E_list(v(9, 2, 11, 13, 5))),
     E_list(v(9, 2, 5))));
 // clang-format on
 

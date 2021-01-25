@@ -11,7 +11,6 @@
 #include <epilepsy/control.h>
 #include <epilepsy/logical.h>
 #include <epilepsy/priv/pair.h>
-#include <epilepsy/tuple.h>
 #include <epilepsy/uint.h>
 #include <epilepsy/variadics.h>
 
@@ -249,10 +248,10 @@
  * #include <epilepsy/list.h>
  *
  * // 2
- * E_listGet(v(1), E_list(v(1, 2, 3)))
+ * E_get(v(1), E_list(v(1, 2, 3)))
  * @endcode
  */
-#define EPILEPSY_listGet(i, list) EPILEPSY_call(EPILEPSY_listGet, i list)
+#define EPILEPSY_get(i, list) EPILEPSY_call(EPILEPSY_get, i list)
 
 /**
  * Performs a right-associative fold over @p list.
@@ -528,8 +527,8 @@
  * @code
  * #include <epilepsy/list.h>
  *
- * // E_tuple(E_list(v(1, 2, 3)), E_list(v(4, 5, 6)))
- * E_listUnzip(E_list(E_tuple(v(1, 4)) E_tuple(v(2, 5)) E_tuple(v(3, 6))))
+ * // E_list(E_list(v(1, 2, 3)), E_list(v(4, 5, 6)))
+ * E_listUnzip(E_list(E_list(v(1, 4)) E_list(v(2, 5)) E_list(v(3, 6))))
  * @endcode
  */
 #define EPILEPSY_listUnzip(list) EPILEPSY_call(EPILEPSY_listUnzip, list)
@@ -677,18 +676,17 @@
 #define EPILEPSY_PRIV_listReverse_cons_IMPL(x, xs)                                                 \
     EPILEPSY_listAppendItem(v(x), EPILEPSY_listReverse(v(xs)))
 
-// EPILEPSY_listGet_IMPL {
-#define EPILEPSY_listGet_IMPL(i, list)                                                             \
-    EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listGet_), v(i))
+// EPILEPSY_get_IMPL {
+#define EPILEPSY_get_IMPL(i, list) EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_get_), v(i))
 // clang-format off
-#define EPILEPSY_PRIV_listGet_nil_IMPL(i) EPILEPSY_fatal(EPILEPSY_listGet, expected a non-empty list)
+#define EPILEPSY_PRIV_get_nil_IMPL(i) EPILEPSY_fatal(EPILEPSY_get, expected a non-empty list)
 // clang-format on
-#define EPILEPSY_PRIV_listGet_cons_IMPL(x, xs, i)                                                  \
+#define EPILEPSY_PRIV_get_cons_IMPL(x, xs, i)                                                      \
     EPILEPSY_appl(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_uintEq(v(i), v(0)),                                                           \
             EPILEPSY_appl(v(EPILEPSY_const), v(x)),                                                \
-            EPILEPSY_appl(v(EPILEPSY_listGet), EPILEPSY_uintDec(v(i)))),                           \
+            EPILEPSY_appl(v(EPILEPSY_get), EPILEPSY_uintDec(v(i)))),                               \
         v(xs))
 // }
 
@@ -839,18 +837,18 @@
 
 #define EPILEPSY_PRIV_listZip_cons_nil_IMPL(_x, _xs) EPILEPSY_nil()
 #define EPILEPSY_PRIV_listZip_cons_cons_IMPL(other_x, other_xs, x, xs)                             \
-    EPILEPSY_cons(EPILEPSY_tuple(v(x, other_x)), EPILEPSY_listZip(v(xs), v(other_xs)))
+    EPILEPSY_cons(EPILEPSY_list(v(x, other_x)), EPILEPSY_listZip(v(xs), v(other_xs)))
 // }
 
 // EPILEPSY_listUnzip_IMPL {
 #define EPILEPSY_listUnzip_IMPL(list) EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listUnzip_))
 
-#define EPILEPSY_PRIV_listUnzip_nil_IMPL() EPILEPSY_tuple(EPILEPSY_nil() EPILEPSY_nil())
+#define EPILEPSY_PRIV_listUnzip_nil_IMPL() EPILEPSY_list(EPILEPSY_nil() EPILEPSY_nil())
 #define EPILEPSY_PRIV_listUnzip_cons_IMPL(x, xs)                                                   \
     EPILEPSY_call(EPILEPSY_PRIV_listUnzip_PROGRESS, v(x) EPILEPSY_listUnzip(v(xs)))
 #define EPILEPSY_PRIV_listUnzip_PROGRESS_IMPL(x, rest)                                             \
-    EPILEPSY_tuple(EPILEPSY_call(EPILEPSY_PRIV_listUnzip_ADD, v(x, rest, 0))                       \
-                       EPILEPSY_call(EPILEPSY_PRIV_listUnzip_ADD, v(x, rest, 1)))
+    EPILEPSY_list(EPILEPSY_call(EPILEPSY_PRIV_listUnzip_ADD, v(x, rest, 0))                        \
+                      EPILEPSY_call(EPILEPSY_PRIV_listUnzip_ADD, v(x, rest, 1)))
 #define EPILEPSY_PRIV_listUnzip_ADD_IMPL(x, rest, i)                                               \
     EPILEPSY_cons(EPILEPSY_get(v(i), v(x)), EPILEPSY_get(v(i), v(rest)))
 // }
@@ -893,7 +891,7 @@
 #define EPILEPSY_listUnwrap_ARITY       1
 #define EPILEPSY_listReverse_ARITY      1
 #define EPILEPSY_isNil_ARITY            1
-#define EPILEPSY_listGet_ARITY          2
+#define EPILEPSY_get_ARITY              2
 #define EPILEPSY_listFoldr_ARITY        3
 #define EPILEPSY_listFoldl_ARITY        3
 #define EPILEPSY_listFoldl1_ARITY       2
@@ -942,7 +940,7 @@
 #define E_listUnwrap       EPILEPSY_listUnwrap
 #define E_listReverse      EPILEPSY_listReverse
 #define E_isNil            EPILEPSY_isNil
-#define E_listGet          EPILEPSY_listGet
+#define E_get              EPILEPSY_get
 #define E_listFoldr        EPILEPSY_listFoldr
 #define E_listFoldl        EPILEPSY_listFoldl
 #define E_listFoldl1       EPILEPSY_listFoldl1

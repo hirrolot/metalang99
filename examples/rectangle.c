@@ -8,8 +8,8 @@
 
 #define RectArea(rect) E_call(RectArea, rect)
 
-#define Rect_IMPL(width, height) E_tuple(v(width, height))
-#define RectArea_IMPL(rect)      E_uintMul(E_get(v(rect), RectWidth), E_get(v(rect), RectHeight))
+#define Rect_IMPL(width, height) E_list(v(width, height))
+#define RectArea_IMPL(rect)      E_uintMul(E_get(RectWidth, v(rect)), E_get(RectHeight, v(rect)))
 
 /*
  *                15
