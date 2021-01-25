@@ -1,26 +1,20 @@
 #include <epilepsy.h>
 
 // Compile-time list manipulation {
-// clang-format off
-E_assert(E_listEq(
-    v(E_uintEq),
-    E_listReverse(E_list(v(1, 2, 3))),
-    E_list(v(3, 2, 1))));
-// clang-format on
+// 3, 3, 3, 3, 3
+static int five_threes[] = {
+    E_listEvalCommaSep(E_listReplicate(v(5), v(3))),
+};
 
-// clang-format off
-E_assert(E_listEq(
-    v(E_uintEq),
-    E_listFilter(E_appl(v(E_uintGreater), v(10)), E_list(v(9, 2, 11, 13, 5))),
-    E_list(v(9, 2, 5))));
-// clang-format on
+// 5, 4, 3, 2, 1
+static int from_5_to_1[] = {
+    E_listEvalCommaSep(E_listReverse(E_list(v(1, 2, 3, 4, 5)))),
+};
 
-// clang-format off
-E_assert(E_listEq(
-    v(E_uintEq),
-    E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))),
-    E_list(v(4, 5, 6))));
-// clang-format on
+// 9, 2, 5
+static int lesser_than_10[] = {
+    E_listEvalCommaSep(E_listFilter(E_appl(v(E_uintGreater), v(10)), E_list(v(9, 2, 11, 13, 5)))),
+};
 // }
 
 // General macro recursion {
@@ -47,4 +41,6 @@ static Rect _7x8 = Rect_new(7, 8), _10x10 = Rect_new(10);
 
 // ... and more!
 
-int main(void) {}
+int main(void) {
+    // Yeah. All is done at compile time.
+}
