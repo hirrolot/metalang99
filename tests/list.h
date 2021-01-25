@@ -2,7 +2,6 @@
 #include <epilepsy/aux.h>
 #include <epilepsy/list.h>
 #include <epilepsy/uint.h>
-
 // E_listHead {
 E_assertEq(E_listHead(E_list(v(1))), v(1));
 E_assertEq(E_listHead(E_list(v(1, 2))), v(1));
@@ -215,17 +214,17 @@ E_assert(E_listEq(
 #define ABCDEFG E_true
 
 // E_listFoldr {
-E_assertEq(E_listFoldr(E_nil(), v(E_catUnevaluated), v(7)), v(7));
-E_assert(E_listFoldr(E_list(v(G, DEF, BC)), E_appl(v(E_flip), v(E_catUnevaluated)), v(A)));
+E_assertEq(E_listFoldr(v(E_catUnevaluated), v(7), E_nil()), v(7));
+E_assert(E_listFoldr(E_appl(v(E_flip), v(E_catUnevaluated)), v(A), E_list(v(G, DEF, BC))));
 // }
 
 // E_listFoldl {
-E_assertEq(E_listFoldl(E_nil(), v(E_catUnevaluated), v(7)), v(7));
-E_assert(E_listFoldl(E_list(v(BC, DEF, G)), v(E_catUnevaluated), v(A)));
+E_assertEq(E_listFoldl(v(E_catUnevaluated), v(7), E_nil()), v(7));
+E_assert(E_listFoldl(v(E_catUnevaluated), v(A), E_list(v(BC, DEF, G))));
 // }
 
 // E_listFoldl1 {
-E_assert(E_listFoldl1(E_list(v(AB, CDEF, G)), v(E_catUnevaluated)));
+E_assert(E_listFoldl1(v(E_catUnevaluated), E_list(v(AB, CDEF, G))));
 // }
 
 #undef ABCDEFG

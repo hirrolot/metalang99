@@ -265,13 +265,13 @@
  * #define ABCDEFG 123
  *
  * // 7
- * E_listFoldr(E_nil(), v(E_cat), v(7))
+ * E_listFoldr(v(E_cat), v(7), E_nil())
  *
  * // 123
- * E_listFoldr(E_list(v(G, DEF, BC)), E_appl(v(E_flip), v(E_cat)), v(A))
+ * E_listFoldr(E_appl(v(E_flip), v(E_cat)), v(A), E_list(v(G, DEF, BC)))
  * @endcode
  */
-#define EPILEPSY_listFoldr(list, f, init) EPILEPSY_call(EPILEPSY_listFoldr, list f init)
+#define EPILEPSY_listFoldr(f, init, list) EPILEPSY_call(EPILEPSY_listFoldr, f init list)
 
 /**
  * Performs a left-associative fold over @p list.
@@ -284,13 +284,13 @@
  * #define ABCDEFG 123
  *
  * // 7
- * E_listFoldl(E_nil(), v(E_cat), v(7))
+ * E_listFoldl(v(E_cat), v(7), E_nil())
  *
  * // 123
- * E_listFoldl(E_list(v(BC, DEF, G)), v(E_cat), v(A))
+ * E_listFoldl(v(E_cat), v(A), E_list(v(BC, DEF, G)))
  * @endcode
  */
-#define EPILEPSY_listFoldl(list, f, init) EPILEPSY_call(EPILEPSY_listFoldl, list f init)
+#define EPILEPSY_listFoldl(f, init, list) EPILEPSY_call(EPILEPSY_listFoldl, f init list)
 
 /**
  * The same as #EPILEPSY_listFoldl but treats the first element of @p list as the initial value.
@@ -303,10 +303,10 @@
  * #define ABCDEFG 123
  *
  * // 123
- * E_listFoldl1(E_list(v(AB, CDEF, G)), v(E_cat))
+ * E_listFoldl1(v(E_cat), E_list(v(AB, CDEF, G)))
  * @endcode
  */
-#define EPILEPSY_listFoldl1(list, f) EPILEPSY_call(EPILEPSY_listFoldl1, list f)
+#define EPILEPSY_listFoldl1(f, list) EPILEPSY_call(EPILEPSY_listFoldl1, f list)
 
 /**
  * Intersperses @p item between the items in @p list.
@@ -692,24 +692,24 @@
         EPILEPSY_uintDec(v(i)))
 // }
 
-#define EPILEPSY_listFoldr_IMPL(list, f, init)                                                     \
+#define EPILEPSY_listFoldr_IMPL(f, init, list)                                                     \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFoldr_), v(f, init))
 #define EPILEPSY_PRIV_listFoldr_nil_IMPL(_f, acc) v(acc)
 #define EPILEPSY_PRIV_listFoldr_cons_IMPL(x, xs, f, acc)                                           \
-    EPILEPSY_appl2(v(f), v(x), EPILEPSY_listFoldr(v(xs), v(f), v(acc)))
+    EPILEPSY_appl2(v(f), v(x), EPILEPSY_listFoldr(v(f), v(acc), v(xs)))
 
-#define EPILEPSY_listFoldl_IMPL(list, f, init)                                                     \
+#define EPILEPSY_listFoldl_IMPL(f, init, list)                                                     \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFoldl_), v(f, init))
 #define EPILEPSY_PRIV_listFoldl_nil_IMPL(_f, acc) v(acc)
 #define EPILEPSY_PRIV_listFoldl_cons_IMPL(x, xs, f, acc)                                           \
-    EPILEPSY_listFoldl(v(xs), v(f), EPILEPSY_appl2(v(f), v(acc), v(x)))
+    EPILEPSY_listFoldl(v(f), EPILEPSY_appl2(v(f), v(acc), v(x)), v(xs))
 
-#define EPILEPSY_listFoldl1_IMPL(list, f)                                                          \
+#define EPILEPSY_listFoldl1_IMPL(f, list)                                                          \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listFoldl1_), v(f))
 // clang-format off
 #define EPILEPSY_PRIV_listFoldl1_nil_IMPL(_f) EPILEPSY_fatal(EPILEPSY_listFoldl1, expected a non-empty list)
 // clang-format on
-#define EPILEPSY_PRIV_listFoldl1_cons_IMPL(x, xs, f) EPILEPSY_listFoldl(v(xs), v(f), v(x))
+#define EPILEPSY_PRIV_listFoldl1_cons_IMPL(x, xs, f) EPILEPSY_listFoldl(v(f), v(x), v(xs))
 
 #define EPILEPSY_listIntersperse_IMPL(list, item)                                                  \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listIntersperse_), v(item))
