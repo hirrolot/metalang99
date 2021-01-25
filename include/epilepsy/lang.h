@@ -117,7 +117,7 @@
 /**
  * Emits a fatal error.
  */
-#define EPILEPSY_fatal(f, ...) (0error, f, __VA_ARGS__),
+#define EPILEPSY_fatal(f, ...) (0fatal, f, #__VA_ARGS__),
 
 /**
  * Emits a debugging message.

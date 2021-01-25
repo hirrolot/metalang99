@@ -8,9 +8,9 @@
 
 #define EPILEPSY_uintDiv_IMPL(x, y)                                                                \
     EPILEPSY_matchWithArgs(EPILEPSY_uintDivChecked(v(x), v(y)), v(EPILEPSY_PRIV_uintDiv_), v(x, y))
-#define EPILEPSY_PRIV_uintDiv_nothing_IMPL(x, y)                                                   \
-    EPILEPSY_fatal(EPILEPSY_uintDiv, `x` is not divisible by `y`)
+#define EPILEPSY_PRIV_uintDiv_nothing_IMPL(x, y)   EPILEPSY_PRIV_uintDiv_ERROR(x, y)
 #define EPILEPSY_PRIV_uintDiv_just_IMPL(n, _x, _y) v(n)
+#define EPILEPSY_PRIV_uintDiv_ERROR(x, y)          EPILEPSY_fatal(EPILEPSY_uintDiv, x is not divisible by y)
 
 #define EPILEPSY_uintDivChecked_IMPL(x, y)                                                         \
     EPILEPSY_PRIV_UNPARENTHESISE(EPILEPSY_PRIV_VARIADICS_SND(                                      \
