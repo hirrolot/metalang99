@@ -15,7 +15,6 @@ The Epilepsy Standard library exports a set of macros implemented using the `Epi
    lang
    uint
    logical
-   tuple
    choice
    either
    maybe
@@ -32,7 +31,6 @@ Contents
  - `lang.h`_ - The Epilepsy syntax.
  - `uint.h`_ - Unsigned integers.
  - `logical.h`_ - Boolean algebra.
- - `tuple.h`_ - Tuple types.
  - `choice.h`_ - Choice types.
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
@@ -54,7 +52,6 @@ Indices and tables
 .. _lang.h: lang.html
 .. _uint.h: uint.html
 .. _logical.h: logical.html
-.. _tuple.h: tuple.html
 .. _choice.h: choice.html
 .. _either.h: either.html
 .. _maybe.h: maybe.html
