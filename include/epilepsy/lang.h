@@ -110,6 +110,26 @@
 #define EPILEPSY_appl3(f, a, b, c) EPILEPSY_call(EPILEPSY_appl3, f a b c)
 
 /**
+ * Functional composition of @p f and @p g.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/lang.h>
+ *
+ * #define F_IMPL(x) v((x + 1))
+ * #define G_IMPL(x) v((x * 8))
+ *
+ * #define F_ARITY 1
+ * #define G_ARITY 1
+ *
+ * // ((3 * 8) + 1)
+ * E_appl(E_compose(v(F), v(G)), v(3))
+ * @endcode
+ */
+#define EPILEPSY_compose(f, g) EPILEPSY_call(EPILEPSY_compose, f g)
+
+/**
  * A value that is pasted as-is; no evaluation occurs on provided arguments.
  */
 #define v(...) (0v, __VA_ARGS__),
@@ -136,23 +156,30 @@
     (op, __VA_ARGS__)
 #define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident##_IMPL, __VA_ARGS__),
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__),
+
+#define EPILEPSY_compose_IMPL(f, g)                 EPILEPSY_appl2(v(EPILEPSY_PRIV_compose_CLOSURE), v(f), v(g))
+#define EPILEPSY_PRIV_compose_CLOSURE_IMPL(f, g, x) EPILEPSY_appl(v(f), EPILEPSY_appl(v(g), v(x)))
 //
 
 // Arity specifiers {
-#define EPILEPSY_appl_ARITY  2
-#define EPILEPSY_appl2_ARITY 3
-#define EPILEPSY_appl3_ARITY 4
+#define EPILEPSY_appl_ARITY    2
+#define EPILEPSY_appl2_ARITY   3
+#define EPILEPSY_appl3_ARITY   4
+#define EPILEPSY_compose_ARITY 2
+
+#define EPILEPSY_PRIV_compose_CLOSURE_ARITY 3
 // }
 
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_call  EPILEPSY_call
-#define E_appl  EPILEPSY_appl
-#define E_appl2 EPILEPSY_appl2
-#define E_appl3 EPILEPSY_appl3
-#define E_fatal EPILEPSY_fatal
-#define E_dbg   EPILEPSY_dbg
+#define E_call    EPILEPSY_call
+#define E_appl    EPILEPSY_appl
+#define E_appl2   EPILEPSY_appl2
+#define E_appl3   EPILEPSY_appl3
+#define E_compose EPILEPSY_compose
+#define E_fatal   EPILEPSY_fatal
+#define E_dbg     EPILEPSY_dbg
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

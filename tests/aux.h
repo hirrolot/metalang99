@@ -5,6 +5,7 @@
 
 // E_id {
 E_eval(v(FOO) E_id(v((518, 1910))));
+E_assertEq(E_appl(E_compose(v(E_id), v(E_id)), v(181)), v(181));
 // }
 
 // E_parenthesiseUnevaluated {

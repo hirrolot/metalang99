@@ -81,3 +81,19 @@ E_assertEq(E_appl3(v(F), v(10), v(5), v(7)), v(1057));
 // }
 
 // } (Partial application)
+
+// E_compose {
+#define F_IMPL(x) v((x + 1))
+#define G_IMPL(x) v((x * 8))
+
+#define F_ARITY 1
+#define G_ARITY 1
+
+E_assertEq(E_appl(E_compose(v(F), v(G)), v(3)), v((3 * 8) + 1));
+
+#undef F_IMPL
+#undef G_IMPL
+
+#undef F_ARITY
+#undef G_ARITY
+// }
