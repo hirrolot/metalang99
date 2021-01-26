@@ -21,8 +21,8 @@
     }
 
 #define GEN_BRANCH_IMPL(str, ...) E_call(GEN_BRANCH_AUX, v(str) v(__VA_ARGS__))
-#define GEN_BRANCH_AUX_IMPL(str, branch_str, ...)                                                  \
-    v(if (strcmp(str, branch_str) == 0) { __VA_ARGS__ goto out; })
+#define GEN_BRANCH_AUX_IMPL(str, pattern, ...)                                                     \
+    v(if (strcmp(str, pattern) == 0) { __VA_ARGS__ goto out; })
 
 #define GEN_BRANCH_ARITY 2
 
