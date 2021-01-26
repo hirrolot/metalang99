@@ -12,18 +12,20 @@
 #include <epilepsy.h>
 
 #define MATCH(str, ...)                                                                            \
-    { E_listEval(E_listMap(E_appl(v(GEN_BRANCH), v(str)), E_list(v(__VA_ARGS__)))) out:; }
-#define GEN_BRANCH_IMPL(str, branch)                                                               \
-    GEN_BRANCH_AUX(                                                                                \
-        v(str),                                                                                    \
-        E_variadicsHead(E_unparenthesiseUnevaluated(v(branch))),                                   \
-        E_variadicsTail(E_unparenthesiseUnevaluated(v(branch))))
+    {                                                                                              \
+        const char *matched_str = (const char *)(str);                                             \
+                                                                                                   \
+        E_listEval(E_listMap(                                                                      \
+            E_compose(v(GEN_BRANCH), v(E_unparenthesiseUnevaluated)),                              \
+            E_list(v(__VA_ARGS__))))                                                               \
+                                                                                                   \
+            out:;                                                                                  \
+    }
 
-#define GEN_BRANCH_AUX(str, branch_str, body) E_call(GEN_BRANCH_AUX, str branch_str body)
-#define GEN_BRANCH_AUX_IMPL(str, branch_str, body)                                                 \
-    v(if (strcmp(str, branch_str) == 0) { body goto out; })
+#define GEN_BRANCH_IMPL(branch_str, ...)                                                           \
+    v(if (strcmp(matched_str, branch_str) == 0) { __VA_ARGS__ goto out; })
 
-#define GEN_BRANCH_ARITY 2
+#define GEN_BRANCH_ARITY 1
 
 int main(void) {
     const char *reason = "OK";
