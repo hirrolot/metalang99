@@ -15,9 +15,11 @@
     {                                                                                              \
         E_listEval(E_listMap(                                                                      \
             E_compose(E_appl(v(GEN_BRANCH), v(str)), v(E_unparenthesiseUnevaluated)),              \
-            E_list(v(__VA_ARGS__))))                                                               \
+            E_listInit(E_list(v(__VA_ARGS__)))))                                                   \
                                                                                                    \
-            out:;                                                                                  \
+            GEN_DEFAULT_CASE(__VA_ARGS__)                                                          \
+                                                                                                   \
+                out:;                                                                              \
     }
 
 #define GEN_BRANCH_IMPL(str, ...) E_call(GEN_BRANCH_AUX, v(str) v(__VA_ARGS__))
@@ -25,6 +27,9 @@
     v(if (strcmp(str, pattern) == 0) { __VA_ARGS__ goto out; })
 
 #define GEN_BRANCH_ARITY 2
+
+#define GEN_DEFAULT_CASE(...)                                                                      \
+    E_eval(E_unparenthesiseUnevaluated(E_listLast(E_list(v(__VA_ARGS__)))))
 
 int main(void) {
     const char *reason = "OK";
@@ -35,5 +40,6 @@ int main(void) {
         reason,
         ("OK", { status_code = 200; }),
         ("Moved Permanently", { status_code = 301; }),
-        ("Not Found", { status_code = 404; }));
+        ("Not Found", { status_code = 404; }),
+        ({ status_code = -1; }));
 }
