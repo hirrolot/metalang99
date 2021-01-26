@@ -22,10 +22,11 @@
             out:;                                                                                  \
     }
 
-#define GEN_BRANCH_IMPL(branch_str, ...)                                                           \
-    v(if (strcmp(matched_str, branch_str) == 0) { __VA_ARGS__ goto out; })
+#define GEN_BRANCH_IMPL(...) E_call(GEN_BRANCH_AUX, v(__VA_ARGS__))
+#define GEN_BRANCH_ARITY     1
 
-#define GEN_BRANCH_ARITY 1
+#define GEN_BRANCH_AUX_IMPL(branch_str, ...)                                                       \
+    v(if (strcmp(matched_str, branch_str) == 0) { __VA_ARGS__ goto out; })
 
 int main(void) {
     const char *reason = "OK";
