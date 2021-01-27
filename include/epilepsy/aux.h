@@ -21,13 +21,13 @@
  * #define ABC123 v(Billie Jean)
  *
  * // Billie Jean
- * E_cat(v(ABC), v(123))
+ * E_catEval(v(ABC), v(123))
  *
  * // ERROR: 123ABC is not a valid Epilepsy term.
- * E_cat(v(123), v(ABC))
+ * E_catEval(v(123), v(ABC))
  * @endcode
  */
-#define EPILEPSY_cat(x, y) EPILEPSY_call(EPILEPSY_cat, x y)
+#define EPILEPSY_catEval(x, y) EPILEPSY_call(EPILEPSY_catEval, x y)
 
 /**
  * Concatenates @p x with @p y, leaving the result unevaluated.
@@ -40,13 +40,13 @@
  * #define ABC123 Billie Jean
  *
  * // Billie Jean
- * E_catUnevaluated(v(ABC), v(123))
+ * E_cat(v(ABC), v(123))
  *
  * // 123ABC
- * E_catUnevaluated(v(123), v(ABC))
+ * E_cat(v(123), v(ABC))
  * @endcode
  */
-#define EPILEPSY_catUnevaluated(x, y) EPILEPSY_call(EPILEPSY_catUnevaluated, x y)
+#define EPILEPSY_cat(x, y) EPILEPSY_call(EPILEPSY_cat, x y)
 
 /**
  * Stringifies @p x.
@@ -312,8 +312,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_cat_IMPL(x, y)                  x##y
-#define EPILEPSY_catUnevaluated_IMPL(x, y)       v(x##y)
+#define EPILEPSY_catEval_IMPL(x, y)              x##y
+#define EPILEPSY_cat_IMPL(x, y)                  v(x##y)
 #define EPILEPSY_stringify_IMPL(x)               v(#x)
 #define EPILEPSY_empty_IMPL()                    v()
 #define EPILEPSY_id_IMPL(...)                    v(__VA_ARGS__)
@@ -332,8 +332,8 @@
 // }
 
 // Arity specifiers {
+#define EPILEPSY_catEval_ARITY            2
 #define EPILEPSY_cat_ARITY                2
-#define EPILEPSY_catUnevaluated_ARITY     2
 #define EPILEPSY_stringify_ARITY          1
 #define EPILEPSY_empty_ARITY              1
 #define EPILEPSY_id_ARITY                 1
@@ -355,8 +355,8 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
+#define E_catEval            EPILEPSY_catEval
 #define E_cat                EPILEPSY_cat
-#define E_catUnevaluated     EPILEPSY_catUnevaluated
 #define E_stringify          EPILEPSY_stringify
 #define E_empty              EPILEPSY_empty
 #define E_id                 EPILEPSY_id
