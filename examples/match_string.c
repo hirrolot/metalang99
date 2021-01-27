@@ -11,23 +11,21 @@
 
 #include <epilepsy.h>
 
-#define MATCH(str, ...) MATCH_AUX(str, E_eval(E_list(v(__VA_ARGS__))))
+#define MATCH(str, ...)                                                                            \
+    {                                                                                              \
+        E_listEval(E_listMapInitLast(                                                              \
+            E_compose(E_appl(v(GEN_BRANCH), v(str)), v(E_unparenthesise)),                         \
+            v(GEN_DEFAULT_BRANCH),                                                                 \
+            E_list(v(__VA_ARGS__)))) out:;                                                         \
+    }
 
-#define MATCH_AUX(str, branches)                                                                   \
-    { GEN_BRANCHES(str, branches) GEN_DEFAULT_BRANCH(branches) out:; }
-
-#define GEN_BRANCHES(str, branches)                                                                \
-    E_listEval(E_listMap(E_appl(v(GEN_BRANCH), v(str)), E_listInit(v(branches))))
-
-#define GEN_BRANCH_IMPL(str, branch) E_call(GEN_BRANCH_AUX, v(str) E_unparenthesise(v(branch)))
+#define GEN_BRANCH_IMPL(str, ...) E_call(GEN_BRANCH_AUX, v(str, __VA_ARGS__))
 #define GEN_BRANCH_AUX_IMPL(str, pattern, ...)                                                     \
     v(if (strcmp(str, pattern) == 0) { __VA_ARGS__ goto out; })
 
-#define GEN_DEFAULT_BRANCH(branches) E_eval(E_unparenthesise(E_listLast(v(branches))))
-
-// Arity specifiers {
 #define GEN_BRANCH_ARITY 2
-// }
+
+#define GEN_DEFAULT_BRANCH E_unparenthesise
 
 int main(void) {
     const char *reason = "OK";
