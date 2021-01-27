@@ -20,6 +20,22 @@ CHECK_TAIL(E_eval(E_variadicsTail(v(9191, 51, 21, 1, 7378))));
 #undef CHECK_TAIL_AUX
 // }
 
+// E_variadicsMatch {
+#define FOO_IMPL(head, ...) v(E_assertPlain(head == 1);) E_variadicsMatch(v(BAR), v(__VA_ARGS__))
+#define BAR_IMPL(head, x)   v(E_assertPlain(head == 2 && x == 3))
+
+#define FOO_ARITY 2
+#define BAR_ARITY 2
+
+E_eval(E_variadicsMatch(v(FOO), v(1, 2, 3)));
+
+#undef FOO_IMPL
+#undef BAR_IMPL
+
+#undef FOO_ARITY
+#undef BAR_ARITY
+// }
+
 // E_variadicsCount {
 #define _5_ARGS   v(~) v(~) v(~) v(~) v(~)
 #define _10_ARGS  _5_ARGS _5_ARGS
