@@ -8,9 +8,7 @@
 #define MATCH(str, ...)                                                                            \
     {                                                                                              \
         E_listEval(E_listMapInitLast(                                                              \
-            E_compose(                                                                             \
-                E_appl(v(E_variadicsMatch), E_appl(v(GEN_BRANCH), v(str))),                        \
-                v(E_unparenthesise)),                                                              \
+            E_compose(E_appl(v(GEN_BRANCH), v(str)), v(E_unparenthesise)),                         \
             v(GEN_DEFAULT_BRANCH),                                                                 \
             E_list(v(__VA_ARGS__)))) out:;                                                         \
     }
@@ -20,7 +18,7 @@
 
 #define GEN_DEFAULT_BRANCH E_unparenthesise
 
-#define GEN_BRANCH_ARITY 3
+#define GEN_BRANCH_ARITY 2
 
 int main(void) {
     const char *reason = "OK";

@@ -63,24 +63,6 @@
  * @endcode
  */
 #define EPILEPSY_variadicsTail(...) EPILEPSY_call(EPILEPSY_variadicsTail, __VA_ARGS__)
-
-/**
- * First applies #EPILEPSY_variadicsHead and then #EPILEPSY_variadicsTail of provided arguments to
- * @p f.
- *
- * # Examples
- *
- * @code
- * #include <epilepsy/variadics.h>
- *
- * #define FOO_IMPL(head, ...) v(head ~ __VA_ARGS__)
- * #define FOO_ARITY           2
- *
- * // 1 ~ 2, 3
- * E_variadicsMatch(v(FOO), v(1, 2, 3))
- * @endcode
- */
-#define EPILEPSY_variadicsMatch(f, ...) EPILEPSY_call(EPILEPSY_variadicsMatch, f __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -89,17 +71,12 @@
 #define EPILEPSY_variadicsCount_IMPL(...)   v(EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__))
 #define EPILEPSY_variadicsHead_IMPL(x, ...) v(x)
 #define EPILEPSY_variadicsTail_IMPL(x, ...) v(__VA_ARGS__)
-#define EPILEPSY_variadicsMatch_IMPL(f, ...)                                                       \
-    EPILEPSY_appl(                                                                                 \
-        EPILEPSY_appl(v(f), EPILEPSY_variadicsHead(v(__VA_ARGS__))),                               \
-        EPILEPSY_variadicsTail(v(__VA_ARGS__)))
 // }
 
 // Arity specifiers {
 #define EPILEPSY_variadicsCount_ARITY 1
 #define EPILEPSY_variadicsHead_ARITY  1
 #define EPILEPSY_variadicsTail_ARITY  1
-#define EPILEPSY_variadicsMatch_ARITY 2
 // }
 
 // Aliases {
@@ -108,7 +85,6 @@
 #define E_variadicsCount EPILEPSY_variadicsCount
 #define E_variadicsHead  EPILEPSY_variadicsHead
 #define E_variadicsTail  EPILEPSY_variadicsTail
-#define E_variadicsMatch EPILEPSY_variadicsMatch
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

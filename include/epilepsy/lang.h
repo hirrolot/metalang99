@@ -26,35 +26,30 @@
  * example, see this <a href="https://stackoverflow.com/a/12414292/13166656">SO answer</a>).
  *
  * @p f shall be either a term reducing to a macro name or a term obtained via another call to
- * #EPILEPSY_appl. If @p f is a macro name, then `<f>_ARITY` (its arity specifier) shall denote the
- * arity of @p f (e.g., the number of parameters it accepts), by the following rules:
+ * #EPILEPSY_appl. If @p f is a macro name, then a macro named `<f>_ARITY` (its arity specifier)
+ * shall denote the arity of @p f. (In Epilepsy, an arity is an intentionally more flexible concept
+ * than just a number of parameters, see below.) Each time #EPILEPSY_appl is invoked, it accumulates
+ * provided variadic arguments and reduces the arity of @p f by 1; when the arity of @p f is already
+ * 1, it eventually calls the initial @p f with all the accumulated arguments and provided variadic
+ * arguments. Each time except the last #EPILEPSY_appl returns a term that can be passed further to
+ * #EPILEPSY_appl to specify the next arguments. If a metafunction under partial application is
+ * variadic, then all variadic arguments shall be specified at once.
  *
- *  - A metafunction with no parameters has the arity 1 (because `E_appl(v(F), v())` shall has the
- * meaning of an application of the single empty argument `v()`).
- *  - A single named parameter, as well as an ellipsis denoting variadic arguments, increases the
- * arity of a metafunction by 1.
- *
- * These are some examples of correspondence between the macro signatures and their arity
- * specifiers:
+ * Most often, an arity specifier denote a count of all named parameters plus 1 if a macro is
+ * variadic. However, feel free to specify arities as you wish, with regard to the aforementioned
+ * semantics; for example, you can have a macro accepting `x, y, z` with an arity specifier `2`,
+ * then you must invoke #EPILEPSY_appl exactly 2 times (either `x` + `y, z` or `x, y` + `z`). One
+ * common pattern is to match a head and a tail of variadic arguments:
  *
  * @code
- * #define F() // ...
- * #define F_ARITY 1
+ * #include <epilepsy/lang.h>
+ * #include <epilepsy/eval.h>
  *
- * #define F(a, b, c) // ...
- * #define F_ARITY 3
- *
- * #define F(...) // ...
- * #define F_ARITY 1
- *
- * #define F(a, b, c, ...) // ...
+ * #define F_IMPL(x, y, z, head, ...) // ...
  * #define F_ARITY 4
  * @endcode
  *
- * Each time except the last #EPILEPSY_appl returns a term that can be passed further to
- * #EPILEPSY_appl to specify the next argument; when the last argument has been specified, the
- * initial metafunction is invoked with all the accumulated arguments. If a metafunction under
- * partial application is variadic, then all variadic arguments shall be specified at once.
+ * In this case, `x`, `y`, and `z` can be specified separately but other arguments at once.
  *
  * # Examples
  *
