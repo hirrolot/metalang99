@@ -90,10 +90,10 @@
  * #include <epilepsy/aux.h>
  *
  * // (v(1, 2, 3))
- * E_parenthesise(v(1, 2, 3))
+ * E_parenthesiseEval(v(1, 2, 3))
  * @endcode
  */
-#define EPILEPSY_parenthesise(...) EPILEPSY_call(EPILEPSY_parenthesise, __VA_ARGS__)
+#define EPILEPSY_parenthesiseEval(...) EPILEPSY_call(EPILEPSY_parenthesiseEval, __VA_ARGS__)
 
 /**
  * Parenthesises a sequence of arguments.
@@ -104,11 +104,10 @@
  * #include <epilepsy/aux.h>
  *
  * // (1, 2, 3)
- * E_parenthesiseUnevaluated(v(1, 2, 3))
+ * E_parenthesise(v(1, 2, 3))
  * @endcode
  */
-#define EPILEPSY_parenthesiseUnevaluated(...)                                                      \
-    EPILEPSY_call(EPILEPSY_parenthesiseUnevaluated, __VA_ARGS__)
+#define EPILEPSY_parenthesise(...) EPILEPSY_call(EPILEPSY_parenthesise, __VA_ARGS__)
 
 /**
  * Unparenthesises a sequence of arguments and evaluates the result.
@@ -119,10 +118,10 @@
  * #include <epilepsy/aux.h>
  *
  * // 1, 2, 3
- * E_unparenthesise(v((v(1, 2, 3))))
+ * E_unparenthesiseEval(v((v(1, 2, 3))))
  * @endcode
  */
-#define EPILEPSY_unparenthesise(x) EPILEPSY_call(EPILEPSY_unparenthesise, x)
+#define EPILEPSY_unparenthesiseEval(x) EPILEPSY_call(EPILEPSY_unparenthesiseEval, x)
 
 /**
  * Unparenthesises a sequence of arguments, leaving the result unevaluated.
@@ -133,10 +132,10 @@
  * #include <epilepsy/aux.h>
  *
  * // 1, 2, 3
- * E_unparenthesiseUnevaluated(v((1, 2, 3)))
+ * E_unparenthesise(v((1, 2, 3)))
  * @endcode
  */
-#define EPILEPSY_unparenthesiseUnevaluated(x) EPILEPSY_call(EPILEPSY_unparenthesiseUnevaluated, x)
+#define EPILEPSY_unparenthesise(x) EPILEPSY_call(EPILEPSY_unparenthesise, x)
 
 /**
  * Evaluates to @p x, skipping @p a.
@@ -313,42 +312,42 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_cat_IMPL(x, y)                    x##y
-#define EPILEPSY_catUnevaluated_IMPL(x, y)         v(x##y)
-#define EPILEPSY_stringify_IMPL(x)                 v(#x)
-#define EPILEPSY_empty_IMPL()                      v()
-#define EPILEPSY_id_IMPL(...)                      v(__VA_ARGS__)
-#define EPILEPSY_parenthesise_IMPL(...)            v((v(__VA_ARGS__)))
-#define EPILEPSY_parenthesiseUnevaluated_IMPL(...) v((__VA_ARGS__))
-#define EPILEPSY_unparenthesise_IMPL(x)            EPILEPSY_PRIV_UNPARENTHESISE(x)
-#define EPILEPSY_unparenthesiseUnevaluated_IMPL(x) v(EPILEPSY_PRIV_UNPARENTHESISE(x))
-#define EPILEPSY_const_IMPL(x, _a)                 v(x)
-#define EPILEPSY_const2_IMPL(x, _a, _b)            v(x)
-#define EPILEPSY_const3_IMPL(x, _a, _b, _c)        v(x)
-#define EPILEPSY_flip_IMPL(f)                      EPILEPSY_appl(v(EPILEPSY_PRIV_flip), v(f))
-#define EPILEPSY_PRIV_flip_IMPL(f, a, b)           E_appl2(v(f), v(b), v(a))
-#define EPILEPSY_putBefore_IMPL(right, x)          v(x right)
-#define EPILEPSY_putAfter_IMPL(left, x)            v(left x)
-#define EPILEPSY_putBetween_IMPL(left, right, x)   v(left x right)
+#define EPILEPSY_cat_IMPL(x, y)                  x##y
+#define EPILEPSY_catUnevaluated_IMPL(x, y)       v(x##y)
+#define EPILEPSY_stringify_IMPL(x)               v(#x)
+#define EPILEPSY_empty_IMPL()                    v()
+#define EPILEPSY_id_IMPL(...)                    v(__VA_ARGS__)
+#define EPILEPSY_parenthesiseEval_IMPL(...)      v((v(__VA_ARGS__)))
+#define EPILEPSY_parenthesise_IMPL(...)          v((__VA_ARGS__))
+#define EPILEPSY_unparenthesiseEval_IMPL(x)      EPILEPSY_PRIV_UNPARENTHESISE(x)
+#define EPILEPSY_unparenthesise_IMPL(x)          v(EPILEPSY_PRIV_UNPARENTHESISE(x))
+#define EPILEPSY_const_IMPL(x, _a)               v(x)
+#define EPILEPSY_const2_IMPL(x, _a, _b)          v(x)
+#define EPILEPSY_const3_IMPL(x, _a, _b, _c)      v(x)
+#define EPILEPSY_flip_IMPL(f)                    EPILEPSY_appl(v(EPILEPSY_PRIV_flip), v(f))
+#define EPILEPSY_PRIV_flip_IMPL(f, a, b)         E_appl2(v(f), v(b), v(a))
+#define EPILEPSY_putBefore_IMPL(right, x)        v(x right)
+#define EPILEPSY_putAfter_IMPL(left, x)          v(left x)
+#define EPILEPSY_putBetween_IMPL(left, right, x) v(left x right)
 // }
 
 // Arity specifiers {
-#define EPILEPSY_cat_ARITY                       2
-#define EPILEPSY_catUnevaluated_ARITY            2
-#define EPILEPSY_stringify_ARITY                 1
-#define EPILEPSY_empty_ARITY                     1
-#define EPILEPSY_id_ARITY                        1
-#define EPILEPSY_parenthesise_ARITY              1
-#define EPILEPSY_unparenthesise_ARITY            1
-#define EPILEPSY_unparenthesiseUnevaluated_ARITY 1
-#define EPILEPSY_parenthesiseUnevaluated_ARITY   1
-#define EPILEPSY_const_ARITY                     2
-#define EPILEPSY_const2_ARITY                    3
-#define EPILEPSY_const3_ARITY                    4
-#define EPILEPSY_flip_ARITY                      1
-#define EPILEPSY_putBefore_ARITY                 2
-#define EPILEPSY_putAfter_ARITY                  2
-#define EPILEPSY_putBetween_ARITY                3
+#define EPILEPSY_cat_ARITY                2
+#define EPILEPSY_catUnevaluated_ARITY     2
+#define EPILEPSY_stringify_ARITY          1
+#define EPILEPSY_empty_ARITY              1
+#define EPILEPSY_id_ARITY                 1
+#define EPILEPSY_parenthesise_ARITY       1
+#define EPILEPSY_unparenthesise_ARITY     1
+#define EPILEPSY_unparenthesiseEval_ARITY 1
+#define EPILEPSY_parenthesiseEval_ARITY   1
+#define EPILEPSY_const_ARITY              2
+#define EPILEPSY_const2_ARITY             3
+#define EPILEPSY_const3_ARITY             4
+#define EPILEPSY_flip_ARITY               1
+#define EPILEPSY_putBefore_ARITY          2
+#define EPILEPSY_putAfter_ARITY           2
+#define EPILEPSY_putBetween_ARITY         3
 
 #define EPILEPSY_PRIV_flip_ARITY 3
 // }
@@ -356,25 +355,25 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_cat                       EPILEPSY_cat
-#define E_catUnevaluated            EPILEPSY_catUnevaluated
-#define E_stringify                 EPILEPSY_stringify
-#define E_empty                     EPILEPSY_empty
-#define E_id                        EPILEPSY_id
-#define E_parenthesise              EPILEPSY_parenthesise
-#define E_unparenthesise            EPILEPSY_unparenthesise
-#define E_unparenthesiseUnevaluated EPILEPSY_unparenthesiseUnevaluated
-#define E_parenthesiseUnevaluated   EPILEPSY_parenthesiseUnevaluated
-#define E_const                     EPILEPSY_const
-#define E_const2                    EPILEPSY_const2
-#define E_const3                    EPILEPSY_const3
-#define E_flip                      EPILEPSY_flip
-#define E_putBefore                 EPILEPSY_putBefore
-#define E_putAfter                  EPILEPSY_putAfter
-#define E_putBetween                EPILEPSY_putBetween
-#define E_catPrimitive              EPILEPSY_catPrimitive
-#define E_stringifyPrimitive        EPILEPSY_stringifyPrimitive
-#define E_semicolon                 EPILEPSY_semicolon
+#define E_cat                EPILEPSY_cat
+#define E_catUnevaluated     EPILEPSY_catUnevaluated
+#define E_stringify          EPILEPSY_stringify
+#define E_empty              EPILEPSY_empty
+#define E_id                 EPILEPSY_id
+#define E_parenthesiseEval   EPILEPSY_parenthesiseEval
+#define E_unparenthesiseEval EPILEPSY_unparenthesiseEval
+#define E_unparenthesise     EPILEPSY_unparenthesise
+#define E_parenthesise       EPILEPSY_parenthesise
+#define E_const              EPILEPSY_const
+#define E_const2             EPILEPSY_const2
+#define E_const3             EPILEPSY_const3
+#define E_flip               EPILEPSY_flip
+#define E_putBefore          EPILEPSY_putBefore
+#define E_putAfter           EPILEPSY_putAfter
+#define E_putBetween         EPILEPSY_putBetween
+#define E_catPrimitive       EPILEPSY_catPrimitive
+#define E_stringifyPrimitive EPILEPSY_stringifyPrimitive
+#define E_semicolon          EPILEPSY_semicolon
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

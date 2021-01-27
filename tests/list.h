@@ -78,7 +78,7 @@ E_assertEmptyPlain(E_listEvalCommaSep(E_nil()));
 
 #define FOO(a, b, c) E_assertPlain(a == 1 && b == 2 && c == 3)
 
-E_eval(v(FOO) E_parenthesiseUnevaluated(v(E_listEvalCommaSep(E_list(v(1, 2, 3))))));
+E_eval(v(FOO) E_parenthesise(v(E_listEvalCommaSep(E_list(v(1, 2, 3))))));
 
 #undef FOO
 // }

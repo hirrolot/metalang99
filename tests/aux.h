@@ -8,26 +8,26 @@ E_eval(v(FOO) E_id(v((518, 1910))));
 E_assertEq(E_appl(E_compose(v(E_id), v(E_id)), v(181)), v(181));
 // }
 
-// E_parenthesiseUnevaluated {
-E_eval(v(FOO) E_parenthesiseUnevaluated(v(518, 1910)));
+// E_parenthesise {
+E_eval(v(FOO) E_parenthesise(v(518, 1910)));
 // }
 
 #undef FOO
 
-// E_unparenthesise {
-E_assertEq(E_unparenthesise(v((v(198)))), v(198));
+// E_unparenthesiseEval {
+E_assertEq(E_unparenthesiseEval(v((v(198)))), v(198));
 // }
 
-// E_unparenthesiseUnevaluated {
-E_assertEq(E_unparenthesiseUnevaluated(v((198))), v(198));
+// E_unparenthesise {
+E_assertEq(E_unparenthesise(v((198))), v(198));
+// }
+
+// E_parenthesiseEval + E_unparenthesiseEval {
+E_assertEq(E_unparenthesiseEval(E_parenthesiseEval(v(187))), v(187));
 // }
 
 // E_parenthesise + E_unparenthesise {
 E_assertEq(E_unparenthesise(E_parenthesise(v(187))), v(187));
-// }
-
-// E_parenthesiseUnevaluated + E_unparenthesiseUnevaluated {
-E_assertEq(E_unparenthesiseUnevaluated(E_parenthesiseUnevaluated(v(187))), v(187));
 // }
 
 // E_const, E_const2, E_const3 {
