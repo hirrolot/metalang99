@@ -11,25 +11,24 @@
 
 #include <epilepsy.h>
 
-#define MATCH(str, ...)                                                                            \
-    {                                                                                              \
-        E_listEval(E_listMap(                                                                      \
-            E_compose(E_appl(v(GEN_BRANCH), v(str)), v(E_unparenthesiseUnevaluated)),              \
-            E_listInit(E_list(v(__VA_ARGS__)))))                                                   \
-                                                                                                   \
-            GEN_DEFAULT_CASE(__VA_ARGS__)                                                          \
-                                                                                                   \
-                out:;                                                                              \
-    }
+#define MATCH(str, ...) MATCH_AUX(str, E_eval(E_list(v(__VA_ARGS__))))
 
-#define GEN_BRANCH_IMPL(str, ...) E_call(GEN_BRANCH_AUX, v(str) v(__VA_ARGS__))
+#define MATCH_AUX(str, branches)                                                                   \
+    { GEN_BRANCHES(str, branches) GEN_DEFAULT_BRANCH(branches) out:; }
+
+#define GEN_BRANCHES(str, branches)                                                                \
+    E_listEval(E_listMap(E_appl(v(GEN_BRANCH), v(str)), E_listInit(v(branches))))
+
+#define GEN_BRANCH_IMPL(str, branch)                                                               \
+    E_call(GEN_BRANCH_AUX, v(str) E_unparenthesiseUnevaluated(v(branch)))
 #define GEN_BRANCH_AUX_IMPL(str, pattern, ...)                                                     \
     v(if (strcmp(str, pattern) == 0) { __VA_ARGS__ goto out; })
 
-#define GEN_BRANCH_ARITY 2
+#define GEN_DEFAULT_BRANCH(branches) E_eval(E_unparenthesiseUnevaluated(E_listLast(v(branches))))
 
-#define GEN_DEFAULT_CASE(...)                                                                      \
-    E_eval(E_unparenthesiseUnevaluated(E_listLast(E_list(v(__VA_ARGS__)))))
+// Arity specifiers {
+#define GEN_BRANCH_ARITY 2
+// }
 
 int main(void) {
     const char *reason = "OK";
