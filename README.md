@@ -63,13 +63,36 @@ Epilepsy is a functional language aimed at full-blown C/C++ preprocessor metapro
 
 It features a wide range of concepts, including algebraic data types, control flow operators, collections, general recursion, and auto-currying -- to make metaprograms of all sizes maintainable.
 
+## Table of contents
+
+ - [Installation](#installation)
+ - [Motivation](#motivation)
+ - [Tutorial](#tutorial)
+ - [Contributing](#contributing)
+ - [Source code structure](#source-code-structure)
+ - [FAQ](#faq)
+
+## Installation
+
+You have two options: download either this repository or the [amalgamated header](https://github.com/Hirrolot/epilepsy-amalgamation):
+
+```sh
+# Download this repository:
+$ git clone https://github.com/Hirrolot/epilepsy.git
+
+# Download the amalgamated header:
+$ wget https://raw.githubusercontent.com/Hirrolot/epilepsy-amalgamation/master/epilepsy.h
+```
+
+In the first case, you must add one more include path `epilepsy/include`. No additional setup is needed: Epilepsy is implemented using only preprocessor macros.
+
 ## Motivation
 
 The C macro system is a tool to extend the host language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with an unbounded sequence of tokens, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-This is what Epilepsy tries to fix -- it enriches the standard-confirming (C99/C++11 and onwards) preprocessor with the great variosity of metaprogramming abilities, to be able to painlessly develop even complex metaprograms, such as [datatype99].
+This is what Epilepsy tries to fix -- it enriches the standard-confirming (C99/C++11 and onwards) preprocessor with the great variosity of metaprogramming abilities, to make development of both small and complex metaprograms painless (see [datatype99] -- type-safe [algebraic data types] for pure C).
 
-Now, to make the discussion concrete, I shall demonstrate Epilepsy on the example of one small metaprogram: a switch statement for strings. The problem can be stated as follows: given a null-terminated string `str`, match it against a set of patterns. If `str` matches a pattern `pat`, then execute the corresponding body and jump to the next instruction; if all the patterns have failed, execute the default case. We can solve it via if-then-else statements:
+Now, to make the discussion concrete, we are about to implement a switch statement for strings! The problem can be stated as follows: given a null-terminated string `str`, match it against a set of patterns. If `str` matches a pattern `pat`, then execute the corresponding body and jump to the next instruction; if all the patterns have failed, execute the default case. We can solve it via if-then-else statements:
 
 ```c
 if (strcmp(str, pat1) == 0) { /* ... */ }
@@ -101,21 +124,16 @@ Clearly, this approach induces a lot of boilerplate which we shall avoid. A bett
 Having the above macros defined, pattern matching for strings is easy:
 
 ```c
-#include <stdio.h>
-#include <string.h>
+const char *reason = "OK";
+int status_code;
 
-int main(void) {
-    const char *reason = "OK";
-    int status_code;
-
-    // status_code = 200;
-    MATCH(
-        reason,
-        ("OK", { status_code = 200; }),
-        ("Moved Permanently", { status_code = 301; }),
-        ("Not Found", { status_code = 404; }),
-        ({ status_code = -1; }));
-}
+// status_code = 200;
+MATCH(
+    reason,
+    ("OK", { status_code = 200; }),
+    ("Moved Permanently", { status_code = 301; }),
+    ("Not Found", { status_code = 404; }),
+    ({ status_code = -1; }));
 ```
 
 <details>
@@ -132,22 +150,68 @@ else { status_code = -1; }
 
 It works as follows:
 
- 1. `E_list(v(__VA_ARGS__))` constructs an internal representation of a list of branches to operate on.
- 2. `E_listMapInitLast` accepts the two functions and the list of branches. The first function (see below) maps all the elements except the last, and the second function maps the last element (the default case).
- 3. The first function is a [composition] of `E_appl(v(GEN_BRANCH), v(str))` and `E_unparenthesise`:
-    1. `E_unparenthesise` unparenthesises a branch; for example, `("OK", { status_code = 200; })` becomes `"OK", { status_code = 200; }`.
-    2. `E_appl(v(GEN_BRANCH), v(str))` is `GEN_BRANCH` [partially applied] to the matched string `"OK"`.
- 4. The second function is `GEN_DEFAULT_BRANCH`, which just unparenthesises the default case body.
- 5. `E_listEval` evaluates the list and unwraps all its elements right into the source file.
- 6. `GEN_BRANCH_ARITY` is a number of parameters that `GEN_BRANCH` accepts: `str` and an unparenthesised branch (see [`EPILEPSY_appl`](https://epilepsy.readthedocs.io/en/latest/lang.html#c.EPILEPSY_appl)).
+ 1. `E_list(v(__VA_ARGS__))` is a list of the branches to operate on.
+ 2. `E_listMapInitLast` accepts the two functions and the list of the branches. The first function (see below) maps all the elements except the last, and the second function maps the last element (the default case):
+    1. The first function is a [composition] of `E_appl(v(GEN_BRANCH), v(str))` and `E_unparenthesise`:
+       1. `E_unparenthesise` transforms `(pat, body)` into `pat, body`.
+       2. `E_appl(v(GEN_BRANCH), v(str))` is `GEN_BRANCH` [partially applied] to the matched string `"OK"`.
+    2. The second function, `GEN_DEFAULT_BRANCH`, just unparenthesises the default case body.
+ 3. `E_listEval` evaluates the list and pastes all its elements right into the source file.
+ 4. `GEN_BRANCH_ARITY` is how many times `GEN_BRANCH` will be applied: first to `str`, second to an unparenthesised branch.
 
-As you can see, code written in Epilepsy consists of combined functions -- this is why Epilepsy is called functional.
+As you can see, code written in Epilepsy consists of combined functions -- this is why Epilepsy is called _functional_.
 
 [datatype99]: https://github.com/Hirrolot/datatype99
+[algebraic data types]: https://en.wikipedia.org/wiki/Algebraic_data_type
 [composition]: https://en.wikipedia.org/wiki/Function_composition
 [partially applied]: https://en.wikipedia.org/wiki/Partial_application
 
+## Tutorial
+
+See [our GitBook] as a user-friendly guide.
+
+[our GitBook]: https://hirrolot.gitbook.io/epilepsy/
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Source code structure
+
+Epilepsy is split into two parts: the interpreter and the standard library.
+
+The interpreter interprets the core metalanguage described in the [specification]. It is located in [`eval.h`] and [`eval/`]. The former file contains a machine written in [continuation-passing style] which is described in the specification too. [`eval/rec/`] contains a macro recursion engine upon which everything executes.
+
+All the other files except [`priv/`] (private auxiliary stuff) comprise the standard library. 
+
+[continuation-passing style]: https://en.wikipedia.org/wiki/Continuation-passing_style
+[specification]: https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf
+[`eval.h`]: include/epilepsy/eval.h
+[`eval/`]: include/epilepsy/eval/
+[`eval/rec/`]: include/epilepsy/eval/rec/
+[`priv/`]: include/epilepsy/priv/
+
 ## FAQ
+
+### Q: Why not just use third-party code generators?
+
+A:
+
+ - Preprocessor macros are far more seamlessly integrated with a code base: you can invoke them in the same source files where ordinary code in C is written.
+ - IDE support.
+ - Avoid additional burden with distribution and setup of third-party code generators.
+
+### Q: In what aspects Epilepsy differs from other preprocessor libraries?
+
+A: In short, it provides more functionality, it is well-tested, and actively maintained. In particular, [Boost/Preprocessor] is well-tested and actively maintained too, but lacks general metarecursion, partial application, choice types, graceful error reporting, and debugging facilities.
+
+[Boost/Preprocessor]: http://boost.org/libs/preprocessor
+
+### Q: Compilation times?
+
+A: No benchmarks yet but you can take a look at the [CI] or measure compilation time of each test/example separately.
+
+[CI]: https://github.com/Hirrolot/epilepsy/actions
 
 ### Q: Why formal specification?
 
@@ -162,3 +226,7 @@ A:
  - **Distinctness.** With a formal specification, it is much easier to answer questions like "Is it a bug of the implementation or it is a valid behaviour according to the specification?".
 
 That is, the development flow is "specification-driven", if you prefer.
+
+### Q: Is Epilepsy Turing-complete?
+
+A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit (see this [SO question](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete)). For Epilepsy, this limit is defined in terms of reductions steps (see the [specification]).
