@@ -203,9 +203,9 @@ Notes:
 Take the following code:
 
 \begin{minted}{c}
-#define X(op)        call(op, v(123))
-#define CALL_X(_123) call(X, v(ID))
-#define ID(x)        v(x)
+#define X_IMPL(op)        EPILEPSY_call(op, v(123))
+#define CALL_X_IMPL(_123) EPILEPSY_call(X, v(ID))
+#define ID_IMPL(x)        v(x)
 \end{minted}
 
 See how \texttt{EPILEPSY\_call(X, v(CALL\_X))} is evaluated:
