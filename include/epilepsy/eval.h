@@ -93,8 +93,15 @@
     EPILEPSY_PRIV_REC_CONTINUE(EPILEPSY_PRIV_REC_STOP, (~), !"Epilepsy error" (f): message)
 // clang-format on
 
-#define EPILEPSY_PRIV_EVAL_0dbg(_cfg, _tail, ...)                                                  \
-    EPILEPSY_PRIV_REC_CONTINUE(EPILEPSY_PRIV_REC_STOP, (~), __VA_ARGS__)
+#define EPILEPSY_PRIV_EVAL_0abort(_cfg, _tail, ...)                                                \
+    EPILEPSY_PRIV_EVAL_MACHINE_REDUCE(                                                             \
+        EPILEPSY_PRIV_EVAL_CFG(                                                                    \
+            EPILEPSY_PRIV_REC_STOP,                                                                \
+            (~),                                                                                   \
+            EPILEPSY_PRIV_EVAL_FOLD_APPEND,                                                        \
+            EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
+        __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
+        ~)
 
 #define EPILEPSY_PRIV_EVAL_0end(cfg, _tail, _)                                                     \
     EPILEPSY_PRIV_EVAL_MACHINE_CALL_K(                                                             \

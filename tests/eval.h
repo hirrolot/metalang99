@@ -40,13 +40,13 @@ E_assertEq(E_call(FOO, v(OP)), v(123));
 #undef OP_IMPL
 #undef ID_IMPL
 
-// E_dbg {
-E_assertEq(E_dbg(815057), v(815057));
+// E_abort {
+E_assertEq(E_abort(v(815057)), v(815057));
 
-// Ensure that `E_dbg` also works correctly after some evaluations.
+// Ensure that `E_abort` also works correctly after some evaluations.
 #define F_IMPL() E_call(G, v(1, 2) E_call(H, v(123)))
 #define G_IMPL(_1, _2, _123_plus_1)                                                                \
-    E_dbg(E_assertPlain(_1 == 1 && _2 == 2 && _123_plus_1 == 123 + 1))
+    E_abort(v(E_assertPlain(_1 == 1 && _2 == 2 && _123_plus_1 == 123 + 1)))
 #define H_IMPL(a) v(a + 1)
 
 E_eval(E_call(F, ));
@@ -54,6 +54,13 @@ E_eval(E_call(F, ));
 #undef F_IMPL
 #undef G_IMPL
 #undef H_IMPL
+
+// Ensure that `E_abort` immediately aborts interpretation even in an argument position.
+#define F_IMPL(x) v(~)
+
+E_assertEq(E_call(F, E_abort(v(123))), v(123));
+
+#undef F_IMPL
 // }
 
 // Partial application {

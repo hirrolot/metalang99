@@ -134,9 +134,21 @@
 #define EPILEPSY_fatal(f, ...) (0fatal, f, #__VA_ARGS__),
 
 /**
- * Emits a debugging message.
+ * Immediately aborts the interpretation with evaluated arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/eval.h>
+ * #include <epilepsy/lang.h>
+ *
+ * #define FOO_IMPL(x) v(~)
+ *
+ * // 123
+ * E_call(E_abort(v(123)))
+ * @endcode
  */
-#define EPILEPSY_dbg(...) (0dbg, __VA_ARGS__),
+#define EPILEPSY_abort(...) (0abort, __VA_ARGS__),
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -173,7 +185,7 @@
 #define E_appl3   EPILEPSY_appl3
 #define E_compose EPILEPSY_compose
 #define E_fatal   EPILEPSY_fatal
-#define E_dbg     EPILEPSY_dbg
+#define E_abort   EPILEPSY_abort
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
