@@ -105,6 +105,8 @@ Clearly, this approach induces a lot of boilerplate which we shall avoid. A bett
 
 [[`examples/match_string.c`](examples/match_string.c)]
 ```c
+#include <epilepsy.h>
+
 #define MATCH(str, ...)                                                                            \
     {                                                                                              \
         E_listEval(E_listMapInitLast(                                                              \

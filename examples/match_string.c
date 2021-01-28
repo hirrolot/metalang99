@@ -1,6 +1,5 @@
 // Pattern matching for strings (like a switch statement).
 
-#include <stdio.h>
 #include <string.h>
 
 #include <epilepsy.h>
