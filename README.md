@@ -84,7 +84,9 @@ $ git clone https://github.com/Hirrolot/epilepsy.git
 $ wget https://raw.githubusercontent.com/Hirrolot/epilepsy-amalgamation/master/epilepsy.h
 ```
 
-In the first case, you must add one more include path `epilepsy/include`. No additional setup is needed: Epilepsy is implemented using only preprocessor macros.
+In the first case, you must add one more include path `epilepsy/include`.
+
+To use Epilepsy, just `#include <epilepsy.h>` beforehand. No additional setup is needed: Epilepsy is implemented using only preprocessor macros.
 
 ## Motivation
 
