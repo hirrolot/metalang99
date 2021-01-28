@@ -27,19 +27,18 @@
  *
  * @p f shall be either a term reducing to a macro name or a term obtained via another call to
  * #EPILEPSY_appl. If @p f is a macro name, then a macro named `<f>_ARITY` (its arity specifier)
- * shall denote the arity of @p f. (In Epilepsy, an arity is an intentionally more flexible concept
- * than just a number of parameters, see below.) Each time #EPILEPSY_appl is invoked, it accumulates
- * provided variadic arguments and reduces the arity of @p f by 1; when the arity of @p f is already
- * 1, it eventually calls the initial @p f with all the accumulated arguments and provided variadic
- * arguments. Each time except the last #EPILEPSY_appl returns a term that can be passed further to
- * #EPILEPSY_appl to specify the next arguments. If a metafunction under partial application is
- * variadic, then all variadic arguments shall be specified at once.
+ * shall denote how many times @p f will be applied to its arguments. (In Epilepsy, an arity is an
+ * intentionally more flexible concept than just a number of parameters, see below.) Each time
+ * #EPILEPSY_appl is invoked, it accumulates provided variadic arguments and reduces the arity of @p
+ * f by 1; when the arity of @p f is already 1, it eventually calls the initial @p f with all the
+ * accumulated arguments and provided variadic arguments.
  *
- * Most often, an arity specifier denote a count of all named parameters plus 1 if a macro is
- * variadic. However, feel free to specify arities as you wish, with regard to the aforementioned
- * semantics; for example, you can have a macro accepting `x, y, z` with an arity specifier `2`,
- * then you must invoke #EPILEPSY_appl exactly 2 times (either `x` + `y, z` or `x, y` + `z`). One
- * common pattern is to match a head and a tail of variadic arguments:
+ * Most often, an arity specifier denotes a count of all named parameters plus 1 if a macro is
+ * variadic (all the functions in the standard library follow this pattern). However, feel free to
+ * specify arities as you wish, with regard to the aforementioned semantics; for example, you can
+ * have a macro accepting `x, y, z` with an arity specifier `2`, then you must invoke #EPILEPSY_appl
+ * exactly 2 times (either `x` + `y, z` or `x, y` + `z`). One common pattern is to match a head and
+ * a tail of variadic arguments:
  *
  * @code
  * #include <epilepsy/lang.h>
