@@ -41,6 +41,8 @@ E_assertEq(E_call(FOO, v(OP)), v(123));
 #undef ID_IMPL
 
 // E_abort {
+E_assertEmpty(E_abort());
+E_assertEmpty(E_abort(v()));
 E_assertEq(E_abort(v(815057)), v(815057));
 
 // Ensure that `E_abort` also works correctly after some evaluations.
