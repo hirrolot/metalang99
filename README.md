@@ -94,83 +94,10 @@ To use Epilepsy, just `#include <epilepsy.h>` beforehand. No additional setup is
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-This is what Epilepsy tries to fix -- it enriches the standard-confirming (C99/C++11 and onwards) preprocessor with the great variosity of metaprogramming abilities, to make development of both small and complex metaprograms painless (see [datatype99] -- type-safe [algebraic data types] for pure C).
-
-Now, to make the discussion concrete, we are about to implement a switch statement for strings! The problem can be stated as follows: given a null-terminated string `str`, match it against a set of patterns. If `str` matches a pattern `pat`, then execute the corresponding body and jump to the next instruction; if all the patterns have failed, execute the default case. We can solve it via if-then-else statements:
-
-```c
-if (strcmp(str, pat1) == 0) { /* ... */ }
-else if (strcmp(str, pat2) == 0) { /* ... */ }
-...
-else { /* ... */ }
-```
-
-Clearly, this approach induces a lot of boilerplate which we shall avoid. A better way is to reify this kind of syntactic abstraction into a metaprogram, now using Epilepsy:
-
-[[`examples/match_string.c`](examples/match_string.c)]
-```c
-#include <epilepsy.h>
-
-#define MATCH(str, ...)                                                                            \
-    {                                                                                              \
-        E_listEval(E_listMapInitLast(                                                              \
-            E_compose(E_appl(v(GEN_BRANCH), v(str)), v(E_unparenthesise)),                         \
-            v(GEN_DEFAULT_BRANCH),                                                                 \
-            E_list(v(__VA_ARGS__)))) out:;                                                         \
-    }
-
-#define GEN_BRANCH_IMPL(str, pattern, ...)                                                         \
-    v(if (strcmp(str, pattern) == 0) { __VA_ARGS__ goto out; })
-
-#define GEN_DEFAULT_BRANCH E_unparenthesise
-
-#define GEN_BRANCH_ARITY 2
-```
-
-Having the above macros defined, pattern matching for strings is easy:
-
-```c
-const char *reason = "OK";
-int status_code;
-
-// status_code = 200;
-MATCH(
-    reason,
-    ("OK", { status_code = 200; }),
-    ("Moved Permanently", { status_code = 301; }),
-    ("Not Found", { status_code = 404; }),
-    ({ status_code = -1; }));
-```
-
-<details>
-    <summary>Compare with if-then-else</summary>
-
-```c
-if (strcmp(reason, "OK") == 0) { status_code = 200; }
-else if (strcmp(reason, "Moved Permanently") == 0) { status_code = 301; }
-else if (strcmp(reason, "Not Found") == 0) { status_code = 404; }
-else { status_code = -1; }
-```
-
-</details>
-
-It works as follows:
-
- 1. `E_list(v(__VA_ARGS__))` is a list of the branches to operate on.
- 2. `E_listMapInitLast` accepts the two functions and the list of the branches. The first function (see below) maps all the elements except the last, and the second function maps the last element (the default case):
-    1. The first function is a [composition] of `E_appl(v(GEN_BRANCH), v(str))` and `E_unparenthesise`:
-       1. `E_unparenthesise` transforms `(pat, body)` into `pat, body`.
-       2. `E_appl(v(GEN_BRANCH), v(str))` is `GEN_BRANCH` [partially applied] to the matched string `"OK"`.
-    2. The second function, `GEN_DEFAULT_BRANCH`, just unparenthesises the default case body.
- 3. `E_listEval` evaluates the list and pastes all its elements right into the source file.
- 4. `GEN_BRANCH_ARITY` is how many times `GEN_BRANCH` will be applied: first to `str`, second to an unparenthesised branch.
-
-As you can see, code written in Epilepsy consists of combined functions -- this is why Epilepsy is called _functional_.
+This is what Epilepsy tries to fix -- it enriches the standard-confirming (C99/C++11 and onwards) preprocessor with the great variosity of metaprogramming abilities, to make development of both small and complex metaprograms painless. For example, consider [datatype99] -- type-safe [algebraic data types] for pure C, which is implemented upon Epilepsy:
 
 [datatype99]: https://github.com/Hirrolot/datatype99
 [algebraic data types]: https://en.wikipedia.org/wiki/Algebraic_data_type
-[composition]: https://en.wikipedia.org/wiki/Function_composition
-[partially applied]: https://en.wikipedia.org/wiki/Partial_application
 
 ## Tutorial
 
