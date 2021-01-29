@@ -59,6 +59,8 @@ int main(void) {
 }
 ```
 
+(Hint: `v(something)` evaluates to `something`.)
+
 Epilepsy is a functional language aimed at full-blown C/C++ preprocessor metaprogramming.
 
 It features a wide range of concepts, including algebraic data types, control flow operators, collections, general recursion, and auto-currying -- to make metaprograms of all sizes maintainable.
@@ -90,7 +92,7 @@ To use Epilepsy, just `#include <epilepsy.h>` beforehand. No additional setup is
 
 ## Motivation
 
-The C macro system is a tool to extend the host language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with an unbounded sequence of tokens, thereby throwing a lot of hypothetically useful metaprograms out of scope.
+The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
 This is what Epilepsy tries to fix -- it enriches the standard-confirming (C99/C++11 and onwards) preprocessor with the great variosity of metaprogramming abilities, to make development of both small and complex metaprograms painless (see [datatype99] -- type-safe [algebraic data types] for pure C).
 
