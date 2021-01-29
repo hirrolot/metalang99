@@ -94,7 +94,7 @@ To use Epilepsy, just `#include <epilepsy.h>` beforehand. No additional setup is
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-This is what Epilepsy tries to fix -- it enriches the standard-confirming (C99/C++11 and onwards) preprocessor with the great variosity of metaprogramming abilities, to make development of both small and complex metaprograms painless. For example, consider [datatype99] -- type-safe [algebraic data types] for pure C, which is implemented upon Epilepsy:
+To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor (C99/C++11 and onwards). Its goal is to make development of both small and complex metaprograms painless. [datatype99] clearly demonstrates the power of Epilepsy:
 
 [datatype99]: https://github.com/Hirrolot/datatype99
 [algebraic data types]: https://en.wikipedia.org/wiki/Algebraic_data_type
