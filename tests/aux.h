@@ -50,6 +50,14 @@ E_assertEq(E_putBetween(v(16), v(9), v(+)), v(16 + 9));
 
 #undef ABC
 
+// E_isParenthesised, E_isUnparenthesised {
+E_assert(E_isParenthesised(v((1, 2, 3))));
+E_assert(E_not(E_isParenthesised(v(123))));
+
+E_assert(E_not(E_isUnparenthesised(v((1, 2, 3)))));
+E_assert(E_isUnparenthesised(v(123)));
+// }
+
 // E_semicolon {
 E_semicolon();
 E_semicolon();
