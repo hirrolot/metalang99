@@ -26,3 +26,10 @@ E_assertEq(E_xor(v(0), v(1)), v(1));
 E_assertEq(E_xor(v(1), v(0)), v(1));
 E_assertEq(E_xor(v(1), v(1)), v(0));
 // }
+
+// E_boolEq {
+E_assertEq(E_boolEq(v(0), v(0)), v(1));
+E_assertEq(E_boolEq(v(0), v(1)), v(0));
+E_assertEq(E_boolEq(v(1), v(0)), v(0));
+E_assertEq(E_boolEq(v(1), v(1)), v(1));
+// }
