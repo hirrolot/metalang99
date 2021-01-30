@@ -1,6 +1,18 @@
 # Contributing
 
-To introduce changes, fork this repository, work in your own branch, and then open a PR to `master`.
+To introduce changes:
+
+ 1. fork this repository,
+ 2. create your own branch from `master`,
+ 3. make required changes,
+ 4. open a PR to `master` from your branch,
+ 5. wait until it gets reviewed.
+
+To be able to work with low-level stuff such as the interpreter, I highly recommend to first observe the [Cloak Wiki].
+
+To be able to work with the metalanguage itself, some basic familiarity with programming language theory is expected. For learning materials, see https://github.com/steshaw/plt.
+
+[Cloak Wiki]: https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms
 
 Some useful scripts are:
 
