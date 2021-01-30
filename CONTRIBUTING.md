@@ -8,9 +8,10 @@ Some useful scripts are:
 |----------|----------|
 | Format all the code base | `./scripts/fmt.sh` |
 | Check code formatting | `./scripts/check-fmt.sh` |
-| Launch the tests, including the examples | `./scripts/test.sh`  |
-| Test only the examples | `./scripts/test_examples.sh` |
+| Test only `tests/` | `./scripts/test.sh` |
+| Test only `examples/` | `./scripts/test-examples.sh` |
+| Test both `tests/` and `examples/` | `./scripts/test-all.sh`  |
 | Generate the documentation | `./scripts/docs.sh` |
-| Open the documentation | `./scripts/open_docs.sh` |
+| Open the documentation | `./scripts/open-docs.sh` |
 
 Happy hacking!
