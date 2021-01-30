@@ -6,7 +6,7 @@
 The Epilepsy Standard Library
 ====================================
 
-The Epilepsy Standard library exports a set of macros implemented using the `Epilepsy metalanguage`_.
+The Epilepsy standard library exports a set of macros implemented using the `Epilepsy metalanguage`_.
 
 If `EPILEPSY_NO_SMALL_PREFIX` is defined, all macros will have only one name: `EPILEPSY_appl`, `EPILEPSY_call`, etc. Otherwise, shortening aliases will be defined: `EPILEPSY_appl`, `E_appl`, `EPILEPSY_call`, `E_call`, etc (the default behaviour).
 
