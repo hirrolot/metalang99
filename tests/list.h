@@ -73,12 +73,14 @@ E_assertEmptyPlain(E_listEval(E_nil()));
 E_assertPlain(E_listEval(E_list(v(19, +, 6))) == 19 + 6);
 // }
 
-// E_listEvalCommaSep {
-E_assertEmptyPlain(E_listEvalCommaSep(E_nil()));
-
+// E_listEvalCommaSep, E_listUnwrapCommaSep {
 #define FOO(a, b, c) E_assertPlain(a == 1 && b == 2 && c == 3)
 
+E_assertEmptyPlain(E_listEvalCommaSep(E_nil()));
+E_assertEmpty(E_listUnwrapCommaSep(E_nil()));
+
 E_eval(v(FOO) E_parenthesise(v(E_listEvalCommaSep(E_list(v(1, 2, 3))))));
+E_eval(v(FOO) E_parenthesise(E_listUnwrapCommaSep(E_list(v(1, 2, 3)))));
 
 #undef FOO
 // }

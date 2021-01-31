@@ -161,7 +161,8 @@
  * @note This macro does not result in an Epilepsy term; it literally pastes comma-separated list
  * elements into a source file.
  */
-#define EPILEPSY_listEvalCommaSep(...) EPILEPSY_PRIV_listEvalCommaSep(__VA_ARGS__)
+#define EPILEPSY_listEvalCommaSep(...)                                                             \
+    EPILEPSY_eval(EPILEPSY_call(EPILEPSY_listUnwrapCommaSep, __VA_ARGS__))
 
 /**
  * Appends the list @p other to @p list.
@@ -205,8 +206,27 @@
  *
  * @note The resulting value is still a valid Epilepsy term that need to be evaluated further.
  * @see #EPILEPSY_listEval
+ * @see #EPILEPSY_listEvalCommaSep
  */
 #define EPILEPSY_listUnwrap(list) EPILEPSY_call(EPILEPSY_listUnwrap, list)
+
+/**
+ * Places all the items in @p list as-is, separated by commas.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * // 1, 2, 3
+ * E_listUnwrap(E_list(v(1, 2, 3)))
+ * @endcode
+ *
+ * @note The resulting value is still a valid Epilepsy term that need to be evaluated further.
+ * @see #EPILEPSY_listEval
+ * @see #EPILEPSY_listEvalCommaSep
+ */
+#define EPILEPSY_listUnwrapCommaSep(list) EPILEPSY_call(EPILEPSY_listUnwrapCommaSep, list)
 
 /**
  * Reverses the order of items in @p list.
@@ -847,18 +867,18 @@
 
 #define EPILEPSY_listAppl_IMPL(f, list) EPILEPSY_listFoldl(v(EPILEPSY_appl), v(f), v(list))
 
-// EPILEPSY_PRIV_listEvalCommaSep {
-#define EPILEPSY_PRIV_listEvalCommaSep(...)                                                        \
-    EPILEPSY_eval(EPILEPSY_call(EPILEPSY_match, __VA_ARGS__ v(EPILEPSY_PRIV_listEvalCommaSep_)))
-#define EPILEPSY_PRIV_listEvalCommaSep_nil_IMPL() EPILEPSY_empty()
-#define EPILEPSY_PRIV_listEvalCommaSep_cons_IMPL(x, xs)                                            \
-    v(x) EPILEPSY_call(EPILEPSY_PRIV_listEvalCommaSepAux, v(xs))
+// EPILEPSY_listUnwrapCommaSep {
+#define EPILEPSY_listUnwrapCommaSep_IMPL(list)                                                     \
+    EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listUnwrapCommaSep_))
+#define EPILEPSY_PRIV_listUnwrapCommaSep_nil_IMPL() EPILEPSY_empty()
+#define EPILEPSY_PRIV_listUnwrapCommaSep_cons_IMPL(x, xs)                                          \
+    v(x) EPILEPSY_call(EPILEPSY_PRIV_listUnwrapCommaSepAux, v(xs))
 
-#define EPILEPSY_PRIV_listEvalCommaSepAux_IMPL(xs)                                                 \
-    EPILEPSY_match(v(xs), v(EPILEPSY_PRIV_listEvalCommaSepAux_))
-#define EPILEPSY_PRIV_listEvalCommaSepAux_nil_IMPL() EPILEPSY_empty()
-#define EPILEPSY_PRIV_listEvalCommaSepAux_cons_IMPL(x, xs)                                         \
-    v(, x) EPILEPSY_call(EPILEPSY_PRIV_listEvalCommaSepAux, v(xs))
+#define EPILEPSY_PRIV_listUnwrapCommaSepAux_IMPL(xs)                                               \
+    EPILEPSY_match(v(xs), v(EPILEPSY_PRIV_listUnwrapCommaSepAux_))
+#define EPILEPSY_PRIV_listUnwrapCommaSepAux_nil_IMPL() EPILEPSY_empty()
+#define EPILEPSY_PRIV_listUnwrapCommaSepAux_cons_IMPL(x, xs)                                       \
+    v(, x) EPILEPSY_call(EPILEPSY_PRIV_listUnwrapCommaSepAux, v(xs))
 // }
 
 // clang-format off
@@ -868,40 +888,41 @@
 // } (Implementation)
 
 // Arity specifiers {
-#define EPILEPSY_cons_ARITY             2
-#define EPILEPSY_nil_ARITY              1
-#define EPILEPSY_listHead_ARITY         1
-#define EPILEPSY_listTail_ARITY         1
-#define EPILEPSY_listLast_ARITY         1
-#define EPILEPSY_listInit_ARITY         1
-#define EPILEPSY_list_ARITY             1
-#define EPILEPSY_listLen_ARITY          1
-#define EPILEPSY_listAppend_ARITY       2
-#define EPILEPSY_listAppendItem_ARITY   2
-#define EPILEPSY_listUnwrap_ARITY       1
-#define EPILEPSY_listReverse_ARITY      1
-#define EPILEPSY_isNil_ARITY            1
-#define EPILEPSY_get_ARITY              2
-#define EPILEPSY_listFoldr_ARITY        3
-#define EPILEPSY_listFoldl_ARITY        3
-#define EPILEPSY_listFoldl1_ARITY       2
-#define EPILEPSY_listIntersperse_ARITY  2
-#define EPILEPSY_listPrependToAll_ARITY 2
-#define EPILEPSY_listMap_ARITY          2
-#define EPILEPSY_listFor_ARITY          2
-#define EPILEPSY_listMapInitLast_ARITY  3
-#define EPILEPSY_listForInitLast_ARITY  3
-#define EPILEPSY_listFilter_ARITY       2
-#define EPILEPSY_listEq_ARITY           3
-#define EPILEPSY_listContains_ARITY     3
-#define EPILEPSY_listTake_ARITY         2
-#define EPILEPSY_listTakeWhile_ARITY    2
-#define EPILEPSY_listDrop_ARITY         2
-#define EPILEPSY_listDropWhile_ARITY    2
-#define EPILEPSY_listZip_ARITY          2
-#define EPILEPSY_listUnzip_ARITY        1
-#define EPILEPSY_listReplicate_ARITY    2
-#define EPILEPSY_listAppl_ARITY         2
+#define EPILEPSY_cons_ARITY               2
+#define EPILEPSY_nil_ARITY                1
+#define EPILEPSY_listHead_ARITY           1
+#define EPILEPSY_listTail_ARITY           1
+#define EPILEPSY_listLast_ARITY           1
+#define EPILEPSY_listInit_ARITY           1
+#define EPILEPSY_list_ARITY               1
+#define EPILEPSY_listLen_ARITY            1
+#define EPILEPSY_listAppend_ARITY         2
+#define EPILEPSY_listAppendItem_ARITY     2
+#define EPILEPSY_listUnwrap_ARITY         1
+#define EPILEPSY_listUnwrapCommaSep_ARITY 1
+#define EPILEPSY_listReverse_ARITY        1
+#define EPILEPSY_isNil_ARITY              1
+#define EPILEPSY_get_ARITY                2
+#define EPILEPSY_listFoldr_ARITY          3
+#define EPILEPSY_listFoldl_ARITY          3
+#define EPILEPSY_listFoldl1_ARITY         2
+#define EPILEPSY_listIntersperse_ARITY    2
+#define EPILEPSY_listPrependToAll_ARITY   2
+#define EPILEPSY_listMap_ARITY            2
+#define EPILEPSY_listFor_ARITY            2
+#define EPILEPSY_listMapInitLast_ARITY    3
+#define EPILEPSY_listForInitLast_ARITY    3
+#define EPILEPSY_listFilter_ARITY         2
+#define EPILEPSY_listEq_ARITY             3
+#define EPILEPSY_listContains_ARITY       3
+#define EPILEPSY_listTake_ARITY           2
+#define EPILEPSY_listTakeWhile_ARITY      2
+#define EPILEPSY_listDrop_ARITY           2
+#define EPILEPSY_listDropWhile_ARITY      2
+#define EPILEPSY_listZip_ARITY            2
+#define EPILEPSY_listUnzip_ARITY          1
+#define EPILEPSY_listReplicate_ARITY      2
+#define EPILEPSY_listAppl_ARITY           2
 
 #define EPILEPSY_PRIV_listInit_PROGRESS_ARITY      2
 #define EPILEPSY_PRIV_list_DONE_ARITY              1
@@ -915,42 +936,43 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_cons             EPILEPSY_cons
-#define E_nil              EPILEPSY_nil
-#define E_listHead         EPILEPSY_listHead
-#define E_listTail         EPILEPSY_listTail
-#define E_listLast         EPILEPSY_listLast
-#define E_listInit         EPILEPSY_listInit
-#define E_list             EPILEPSY_list
-#define E_listLen          EPILEPSY_listLen
-#define E_listEval         EPILEPSY_listEval
-#define E_listEvalCommaSep EPILEPSY_listEvalCommaSep
-#define E_listAppend       EPILEPSY_listAppend
-#define E_listAppendItem   EPILEPSY_listAppendItem
-#define E_listUnwrap       EPILEPSY_listUnwrap
-#define E_listReverse      EPILEPSY_listReverse
-#define E_isNil            EPILEPSY_isNil
-#define E_get              EPILEPSY_get
-#define E_listFoldr        EPILEPSY_listFoldr
-#define E_listFoldl        EPILEPSY_listFoldl
-#define E_listFoldl1       EPILEPSY_listFoldl1
-#define E_listIntersperse  EPILEPSY_listIntersperse
-#define E_listPrependToAll EPILEPSY_listPrependToAll
-#define E_listMap          EPILEPSY_listMap
-#define E_listFor          EPILEPSY_listFor
-#define E_listMapInitLast  EPILEPSY_listMapInitLast
-#define E_listForInitLast  EPILEPSY_listForInitLast
-#define E_listFilter       EPILEPSY_listFilter
-#define E_listEq           EPILEPSY_listEq
-#define E_listContains     EPILEPSY_listContains
-#define E_listTake         EPILEPSY_listTake
-#define E_listTakeWhile    EPILEPSY_listTakeWhile
-#define E_listDrop         EPILEPSY_listDrop
-#define E_listDropWhile    EPILEPSY_listDropWhile
-#define E_listZip          EPILEPSY_listZip
-#define E_listUnzip        EPILEPSY_listUnzip
-#define E_listReplicate    EPILEPSY_listReplicate
-#define E_listAppl         EPILEPSY_listAppl
+#define E_cons               EPILEPSY_cons
+#define E_nil                EPILEPSY_nil
+#define E_listHead           EPILEPSY_listHead
+#define E_listTail           EPILEPSY_listTail
+#define E_listLast           EPILEPSY_listLast
+#define E_listInit           EPILEPSY_listInit
+#define E_list               EPILEPSY_list
+#define E_listLen            EPILEPSY_listLen
+#define E_listEval           EPILEPSY_listEval
+#define E_listEvalCommaSep   EPILEPSY_listEvalCommaSep
+#define E_listAppend         EPILEPSY_listAppend
+#define E_listAppendItem     EPILEPSY_listAppendItem
+#define E_listUnwrap         EPILEPSY_listUnwrap
+#define E_listUnwrapCommaSep EPILEPSY_listUnwrapCommaSep
+#define E_listReverse        EPILEPSY_listReverse
+#define E_isNil              EPILEPSY_isNil
+#define E_get                EPILEPSY_get
+#define E_listFoldr          EPILEPSY_listFoldr
+#define E_listFoldl          EPILEPSY_listFoldl
+#define E_listFoldl1         EPILEPSY_listFoldl1
+#define E_listIntersperse    EPILEPSY_listIntersperse
+#define E_listPrependToAll   EPILEPSY_listPrependToAll
+#define E_listMap            EPILEPSY_listMap
+#define E_listFor            EPILEPSY_listFor
+#define E_listMapInitLast    EPILEPSY_listMapInitLast
+#define E_listForInitLast    EPILEPSY_listForInitLast
+#define E_listFilter         EPILEPSY_listFilter
+#define E_listEq             EPILEPSY_listEq
+#define E_listContains       EPILEPSY_listContains
+#define E_listTake           EPILEPSY_listTake
+#define E_listTakeWhile      EPILEPSY_listTakeWhile
+#define E_listDrop           EPILEPSY_listDrop
+#define E_listDropWhile      EPILEPSY_listDropWhile
+#define E_listZip            EPILEPSY_listZip
+#define E_listUnzip          EPILEPSY_listUnzip
+#define E_listReplicate      EPILEPSY_listReplicate
+#define E_listAppl           EPILEPSY_listAppl
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

@@ -20,13 +20,22 @@ E_assertEq(E_call(v(FOO), v()), v(123));
 E_assertEq(E_call(BAR, v(5) v(7)), v(5 + 7));
 E_assertEq(E_call(E_call(FOO, v(B) v(A) v(R)), v(6) v(11)), v(6 + 11));
 
-// v(x0) ... v(xN) shall be the same as v(x1, ..., xN).
 E_assertEq(E_call(BAR, v(5, 7)), v(5 + 7));
 E_assertEq(E_call(E_call(FOO, v(B, A, R)), v(6, 11)), v(6 + 11));
 
 #undef FOO_IMPL
 #undef BAR_IMPL
-// } (Basic tests)
+// }
+
+// Even if a term in the argument position evaluates to more than one terms, they should be appended
+// to each other but not interspersed with a comma.
+#define FOO_IMPL()  v(1) v(2) v(3)
+#define BAR_IMPL(x) v(E_semicolon())
+
+E_eval(E_call(BAR, E_call(FOO, )));
+
+#undef FOO_IMPL
+#undef BAR_IMPL
 
 // Recursion might arise from a higher-order macro, if `op` invokes `FOO`, but nonetheless the
 // second call to `FOO` must be performed as expected.

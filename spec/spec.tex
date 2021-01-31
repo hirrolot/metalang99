@@ -167,7 +167,7 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
         (op): & \ \langle K; F; A; \texttt{EPILEPSY\_call}(\overline{t}, \overline{a}) \ \overline{t'} \rangle \to \\
             & \ \ \ \ \langle \langle K; F; A; \texttt{EPILEPSY\_call}(?, \overline{a}) \ \overline{t'} \rangle; fappend; (); \overline{t} \rangle \\
         (args): & \ \langle K; F; A; \texttt{EPILEPSY\_call}(ident, \overline{a}) \ \overline{t} \rangle \to \\
-            & \ \ \ \ \langle \langle K; F; A; ident\texttt{\_IMPL}(?) \ \overline{t} \rangle; fcomma; (); \overline{a} \rangle \\
+            & \ \ \ \ \langle \langle \langle K; F; F(A, ?); \overline{t} \rangle; fappend; (); ident\texttt{\_IMPL}(?) \rangle; fcomma; (); \overline{a} \rangle \\
         (abort): & \ \langle K; F; A; \texttt{EPILEPSY\_abort}(\overline{t}) \ \overline{t'} \rangle \to \langle halt; fappend; (); \overline{t} \rangle \\
         (fatal): & \ \langle K; F; A; \texttt{EPILEPSY\_fatal}(ident, \overline{tok}) \ \overline{t} \rangle \to halt(\ldots) \\
         (end): & \ \langle K; F; A; () \rangle \to K(A) \\

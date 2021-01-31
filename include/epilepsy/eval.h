@@ -44,9 +44,10 @@
 
 #ifndef DOXYGEN_IGNORE
 
-#define EPILEPSY_PRIV_EVAL_MATCH_HOOK()   EPILEPSY_PRIV_EVAL_MATCH
-#define EPILEPSY_PRIV_EVAL_0op_K_HOOK()   EPILEPSY_PRIV_EVAL_0op_K
-#define EPILEPSY_PRIV_EVAL_0args_K_HOOK() EPILEPSY_PRIV_EVAL_0args_K
+#define EPILEPSY_PRIV_EVAL_MATCH_HOOK()     EPILEPSY_PRIV_EVAL_MATCH
+#define EPILEPSY_PRIV_EVAL_0op_K_HOOK()     EPILEPSY_PRIV_EVAL_0op_K
+#define EPILEPSY_PRIV_EVAL_0args_K_HOOK()   EPILEPSY_PRIV_EVAL_0args_K
+#define EPILEPSY_PRIV_EVAL_0args_K_K_HOOK() EPILEPSY_PRIV_EVAL_0args_K_K
 
 #define EPILEPSY_PRIV_REC_UNROLL(...) EPILEPSY_PRIV_REC_0(__VA_ARGS__)
 
@@ -114,8 +115,21 @@
 #define EPILEPSY_PRIV_EVAL_0args_K(cfg, tail, evaluated_op, ...)                                   \
     EPILEPSY_PRIV_INVOKE(                                                                          \
         EPILEPSY_PRIV_EVAL_MATCH,                                                                  \
-        cfg,                                                                                       \
-        evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
+        EPILEPSY_PRIV_EVAL_CFG(                                                                    \
+            EPILEPSY_PRIV_EVAL_0args_K_K,                                                          \
+            (cfg, tail),                                                                           \
+            EPILEPSY_PRIV_EVAL_FOLD_APPEND,                                                        \
+            EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
+        evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_TERM_END(),                                        \
+        ~)
+
+#define EPILEPSY_PRIV_EVAL_0args_K_K(cfg, tail, ...)                                               \
+    EPILEPSY_PRIV_INVOKE(                                                                          \
+        EPILEPSY_PRIV_EVAL_MATCH,                                                                  \
+        EPILEPSY_PRIV_EVAL_CFG_UPDATE_ACC(                                                         \
+            cfg,                                                                                   \
+            EPILEPSY_PRIV_EVAL_CFG_F(cfg)(EPILEPSY_PRIV_EVAL_CFG_ACC(cfg), __VA_ARGS__)),          \
+        EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
 #define EPILEPSY_PRIV_EVAL_0op_K(cfg, tail, args, evaluated_op)                                    \
     EPILEPSY_PRIV_INVOKE(                                                                          \
