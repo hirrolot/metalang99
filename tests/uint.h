@@ -56,18 +56,18 @@ E_assert(E_uintNeq(v(3), v(101)));
 
 // E_uintGreater {
 E_assert(E_uintGreater(v(1), v(0)));
-// E_assert(E_uintGreater(v(255), v(0)));
-// E_assert(E_uintGreater(v(5), v(4)));
-// E_assert(E_uintGreater(v(147), v(80)));
-// E_assert(E_uintGreater(v(217), v(209)));
+E_assert(E_uintGreater(v(255), v(0)));
+E_assert(E_uintGreater(v(5), v(4)));
+E_assert(E_uintGreater(v(147), v(80)));
+E_assert(E_uintGreater(v(217), v(209)));
 // }
 
 // E_uintLesser {
-// E_assert(E_uintLesser(v(0), v(1)));
-// E_assert(E_uintLesser(v(0), v(255)));
-// E_assert(E_uintLesser(v(19), v(25)));
-// E_assert(E_uintLesser(v(109), v(110)));
-// E_assert(E_uintLesser(v(10), v(208)));
+E_assert(E_uintLesser(v(0), v(1)));
+E_assert(E_uintLesser(v(0), v(255)));
+E_assert(E_uintLesser(v(19), v(25)));
+E_assert(E_uintLesser(v(109), v(110)));
+E_assert(E_uintLesser(v(10), v(208)));
 // }
 
 // E_uintGreaterEq {
@@ -76,10 +76,10 @@ E_assert(E_uintGreaterEq(v(18), v(18)));
 E_assert(E_uintGreaterEq(v(175), v(175)));
 E_assert(E_uintGreaterEq(v(255), v(255)));
 
-// E_assert(E_uintGreaterEq(v(1), v(0)));
-// E_assert(E_uintGreaterEq(v(255), v(0)));
-// E_assert(E_uintGreaterEq(v(19), v(10)));
-// E_assert(E_uintGreaterEq(v(178), v(177)));
+E_assert(E_uintGreaterEq(v(1), v(0)));
+E_assert(E_uintGreaterEq(v(255), v(0)));
+E_assert(E_uintGreaterEq(v(19), v(10)));
+E_assert(E_uintGreaterEq(v(178), v(177)));
 // }
 
 // E_uintLesserEq {
@@ -89,40 +89,40 @@ E_assert(E_uintLesserEq(v(1), v(1)));
 E_assert(E_uintLesserEq(v(25), v(25)));
 E_assert(E_uintLesserEq(v(198), v(198)));
 
-// E_assert(E_uintLesserEq(v(0), v(1)));
-// E_assert(E_uintLesserEq(v(0), v(255)));
-// E_assert(E_uintLesserEq(v(18), v(27)));
-// E_assert(E_uintLesserEq(v(82), v(90)));
-// E_assert(E_uintLesserEq(v(145), v(146)));
-// E_assert(E_uintLesserEq(v(181), v(255)));
+E_assert(E_uintLesserEq(v(0), v(1)));
+E_assert(E_uintLesserEq(v(0), v(255)));
+E_assert(E_uintLesserEq(v(18), v(27)));
+E_assert(E_uintLesserEq(v(82), v(90)));
+E_assert(E_uintLesserEq(v(145), v(146)));
+E_assert(E_uintLesserEq(v(181), v(255)));
 // }
 
 // E_uintAdd {
-// E_assertEq(E_uintAdd(v(0), v(0)), v(0));
-// E_assertEq(E_uintAdd(v(19), v(83)), v(19 + 83));
-// E_assertEq(E_uintAdd(v(8), v(4)), v(8 + 4));
-// E_assertEq(E_uintAdd(v(1), v(254)), v(1 + 254));
+E_assertEq(E_uintAdd(v(0), v(0)), v(0));
+E_assertEq(E_uintAdd(v(19), v(83)), v(19 + 83));
+E_assertEq(E_uintAdd(v(8), v(4)), v(8 + 4));
+E_assertEq(E_uintAdd(v(1), v(254)), v(1 + 254));
 // }
 
 // E_uintSub {
-// E_assertEq(E_uintSub(v(1), v(1)), v(1 - 1));
-// E_assertEq(E_uintSub(v(5), v(3)), v(5 - 3));
-// E_assertEq(E_uintSub(v(105), v(19)), v(105 - 19));
-// E_assertEq(E_uintSub(v(255), v(40)), v(255 - 40));
+E_assertEq(E_uintSub(v(1), v(1)), v(1 - 1));
+E_assertEq(E_uintSub(v(5), v(3)), v(5 - 3));
+E_assertEq(E_uintSub(v(105), v(19)), v(105 - 19));
+E_assertEq(E_uintSub(v(255), v(40)), v(255 - 40));
 // }
 
 // E_uintMul {
-// E_assertEq(E_uintMul(v(11), v(0)), v(0));
-// E_assertEq(E_uintMul(v(0), v(11)), v(0));
-// E_assertEq(E_uintMul(v(15), v(8)), v(15 * 8));
-// E_assertEq(E_uintMul(v(255), v(1)), v(255 * 1));
+E_assertEq(E_uintMul(v(11), v(0)), v(0));
+E_assertEq(E_uintMul(v(0), v(11)), v(0));
+E_assertEq(E_uintMul(v(15), v(8)), v(15 * 8));
+E_assertEq(E_uintMul(v(255), v(1)), v(255 * 1));
 // }
 
 // E_uintDiv {
-// E_assertEq(E_uintDiv(v(15), v(1)), v(15));
-// E_assertEq(E_uintDiv(v(15), v(15)), v(1));
-// E_assertEq(E_uintDiv(v(45), v(3)), v(45 / 3));
-// E_assertEq(E_uintDiv(v(255), v(5)), v(255 / 5));
+E_assertEq(E_uintDiv(v(15), v(1)), v(15));
+E_assertEq(E_uintDiv(v(15), v(15)), v(1));
+E_assertEq(E_uintDiv(v(45), v(3)), v(45 / 3));
+E_assertEq(E_uintDiv(v(255), v(5)), v(255 / 5));
 // }
 
 // E_uintDivChecked {
