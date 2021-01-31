@@ -63,7 +63,7 @@ int main(void) {
 
 Epilepsy is a functional language aimed at full-blown C/C++ preprocessor metaprogramming.
 
-It features a wide range of concepts, including algebraic data types, control flow operators, collections, general recursion, and auto-currying -- to make metaprograms of all sizes maintainable.
+It features a wide range of concepts, including algebraic data types, control flow operators, collections, general recursion, and auto-currying -- to develop both small and complex metaprograms painlessly.
 
 ## Table of contents
 
@@ -77,7 +77,9 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor (C99/C++11 and onwards). Its goal is to make development of both small and complex metaprograms painless. [datatype99] clearly demonstrates what can be done with Epilepsy:
+To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor. Most importantly, it is designed in such a way to permit metarecursion so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] due to some mysterious reason. It also exports a bouquet of nice features like partial application, error reporting, and all the stuff.
+
+As a practical example of what is possible with Epilepsy, consider [datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
 
 ```c
 // Sums all nodes of a binary tree.
@@ -102,13 +104,11 @@ int sum(const BinaryTree *tree) {
 }
 ```
 
-That's how dealing with alternative data representations look like. Despite the fact that datatype99 is not a trivial metaprogram, its implementation is straightforward and the interface is type-safe.
-
 So, in summary, Epilepsy allows to do advanced metaprogramming in C. It allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
 
+[blueprinted]: https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms#recursion
 [datatype99]: https://github.com/Hirrolot/datatype99
-[algebraic data types]: https://en.wikipedia.org/wiki/Algebraic_data_type
-[sum type]: https://en.wikipedia.org/wiki/Tagged_union
+[sum types]: https://en.wikipedia.org/wiki/Tagged_union
 
 ## Getting started
 
@@ -190,3 +190,11 @@ That is, the development flow is "specification-driven", if you prefer.
 ### Q: Is Epilepsy Turing-complete?
 
 A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit (see this [SO question](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete)). For Epilepsy, this limit is defined in terms of reductions steps (see the [specification]).
+
+### Q: Why do we need powerful preprocessor macros in the presence of templates?
+
+A: Epilepsy is primarily targeted at pure C, and C lacks templates. But anyway, you can find the argumentation for C++ at the website of [Boost/Preprocessor].
+
+### Q: What standards are supported?
+
+A: C99/C++11 and onwards.
