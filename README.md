@@ -77,10 +77,29 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor (C99/C++11 and onwards). Its goal is to make development of both small and complex metaprograms painless. [datatype99] clearly demonstrates the power of Epilepsy:
+To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor (C99/C++11 and onwards). Its goal is to make development of both small and complex metaprograms painless. [datatype99] clearly demonstrates what can be done with Epilepsy:
 
 ```c
+// Sums all nodes of a binary tree.
 
+#include <datatype99.h>
+
+datatype(
+    BinaryTree,
+    (Leaf, int),
+    (Node, struct BinaryTree *, int, struct BinaryTree *)
+);
+
+int sum(const BinaryTree *tree) {
+    match(*tree) {
+        of(Leaf, x) {
+            return *x;
+        }
+        of(Node, lhs, x, rhs) {
+            return sum(*lhs) + *x + sum(*rhs);
+        }
+    }
+}
 ```
 
 That's how dealing with alternative data representations look like. Despite the fact that datatype99 is not a trivial metaprogram, its implementation is straightforward and the interface is type-safe.
@@ -150,7 +169,7 @@ A: In short, it provides more functionality, it is well-tested, and actively mai
 
 ### Q: Compilation times?
 
-A: No benchmarks yet but you can take a look at the [CI] or measure compilation time of each test/example separately.
+A: No benchmarks yet but you can take a look at the [CI] or measure compilation time of each test/example separately. Currently, compilation times of unsigned integers suffer ([issue 7](https://github.com/Hirrolot/epilepsy/issues/7)).
 
 [CI]: https://github.com/Hirrolot/epilepsy/actions
 
