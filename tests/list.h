@@ -238,6 +238,19 @@ E_assert(E_listEq(
     v(E_uintEq), E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))), E_list(v(4, 5, 6))));
 // }
 
+// E_listMapI {
+#define A0 19
+#define B1 6
+#define C2 11
+
+E_assert(E_listEq(v(E_uintEq), E_listMapI(v(E_cat), E_nil()), E_nil()));
+E_assert(E_listEq(v(E_uintEq), E_listMapI(v(E_cat), E_list(v(A, B, C))), E_list(v(19, 6, 11))));
+
+#undef A0
+#undef B1
+#undef C2
+// }
+
 // E_listFor {
 E_assert(E_listEq(v(E_uintEq), E_listFor(E_nil(), E_appl(v(E_uintAdd), v(3))), E_nil()));
 E_assert(E_listEq(

@@ -371,6 +371,23 @@
 #define EPILEPSY_listMap(f, list) EPILEPSY_call(EPILEPSY_listMap, f list)
 
 /**
+ * The same as #EPILEPSY_listMap but provides an index of an element to @p f.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ *
+ * #define F_IMPL(x, i) v(x[i])
+ * #define F_ARITY      2
+ *
+ * // a[0], b[1], c[2]
+ * E_listMapI(v(F), E_list(v(a, b, c)))
+ * @endcode
+ */
+#define EPILEPSY_listMapI(f, list) EPILEPSY_call(EPILEPSY_listMapI, f list)
+
+/**
  * The same as #EPILEPSY_listMap but with the reversed order of arguments.
  *
  * # Examples
@@ -733,6 +750,15 @@
 #define EPILEPSY_PRIV_listMap_cons_IMPL(x, xs, f)                                                  \
     EPILEPSY_cons(EPILEPSY_appl(v(f), v(x)), EPILEPSY_listMap(v(f), v(xs)))
 
+#define EPILEPSY_listMapI_IMPL(f, list) EPILEPSY_call(EPILEPSY_PRIV_listMapI_AUX, v(f, list, 0))
+#define EPILEPSY_PRIV_listMapI_AUX_IMPL(f, list, i)                                                \
+    EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listMapI_), v(f, i))
+#define EPILEPSY_PRIV_listMapI_nil_IMPL(_f, _i) EPILEPSY_nil()
+#define EPILEPSY_PRIV_listMapI_cons_IMPL(x, xs, f, i)                                              \
+    EPILEPSY_cons(                                                                                 \
+        EPILEPSY_appl2(v(f), v(x), v(i)),                                                          \
+        EPILEPSY_call(EPILEPSY_PRIV_listMapI_AUX, v(f, xs) EPILEPSY_uintInc(v(i))))
+
 #define EPILEPSY_listFor_IMPL(list, f) EPILEPSY_listMap(v(f), v(list))
 
 #define EPILEPSY_listMapInitLast_IMPL(f_init, f_last, list)                                        \
@@ -909,6 +935,7 @@
 #define EPILEPSY_listIntersperse_ARITY    2
 #define EPILEPSY_listPrependToAll_ARITY   2
 #define EPILEPSY_listMap_ARITY            2
+#define EPILEPSY_listMapI_ARITY           2
 #define EPILEPSY_listFor_ARITY            2
 #define EPILEPSY_listMapInitLast_ARITY    3
 #define EPILEPSY_listForInitLast_ARITY    3
@@ -959,6 +986,7 @@
 #define E_listIntersperse    EPILEPSY_listIntersperse
 #define E_listPrependToAll   EPILEPSY_listPrependToAll
 #define E_listMap            EPILEPSY_listMap
+#define E_listMapI           EPILEPSY_listMapI
 #define E_listFor            EPILEPSY_listFor
 #define E_listMapInitLast    EPILEPSY_listMapInitLast
 #define E_listForInitLast    EPILEPSY_listForInitLast
