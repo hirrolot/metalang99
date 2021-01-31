@@ -77,7 +77,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor (C99/C++11 and onwards). Its goal is to make development of both small and complex metaprograms painless. [datatype99] clearly demonstrates the power of Epilepsy:
+To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor (C99/C++11 and onwards). Its goal is to make development of both small and complex metaprograms painless. [datatype99] clearly demonstrates what can be done with Epilepsy:
 
 ```c
 // Sums all nodes of a binary tree.
@@ -102,7 +102,7 @@ int sum(const BinaryTree *tree) {
 }
 ```
 
-That's how dealing with alternative data representations look like. Despite the fact that datatype99 is not a trivial metaprogram, its implementation in Epilepsy is straightforward and the interface is type-safe.
+That's how dealing with alternative data representations look like. Despite the fact that datatype99 is not a trivial metaprogram, its implementation is straightforward and the interface is type-safe.
 
 So, in summary, Epilepsy allows to do advanced metaprogramming in C. It allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
 
