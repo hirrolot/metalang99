@@ -112,17 +112,11 @@ So, in summary, Epilepsy allows to do advanced metaprogramming in C. It allows t
 
 ## Getting started
 
-To setup Epilepsy, download either this repository or the [amalgamated header](https://github.com/Hirrolot/epilepsy-amalgamation):
-
 ```sh
-# Download this repository:
 $ git clone https://github.com/Hirrolot/epilepsy.git
-
-# OR download the amalgamated header:
-$ wget https://raw.githubusercontent.com/Hirrolot/epilepsy-amalgamation/master/epilepsy.h
 ```
 
-In the first case, you must add one more include path `epilepsy/include`.
+After that, you must add one more include path `epilepsy/include`.
 
 To use execute Epilepsy in your code, just `#include <epilepsy.h>` beforehand (or, alternatively, include separate header files described in the documentation).
 
@@ -196,3 +190,9 @@ A: Epilepsy is primarily targeted at pure C, and C lacks templates. But anyway, 
 ### Q: What standards are supported?
 
 A: C99/C++11 and onwards.
+
+### Q: Why not generate an amalgamated header?
+
+A: I don't like amalgamated headers because they induce additional hassle with updating and so on. In contrast to this, you can just add Epilepsy as a [Git submodule] and update it with `git submodule update --remote`.
+
+[Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
