@@ -7,7 +7,6 @@
 #define EPILEPSY_EVAL_H
 
 #include <epilepsy/eval/acc.h>
-#include <epilepsy/eval/cfg.h>
 #include <epilepsy/eval/control.h>
 #include <epilepsy/eval/diagnostics.h>
 #include <epilepsy/eval/fold.h>
@@ -34,11 +33,10 @@
  */
 #define EPILEPSY_eval(...)                                                                         \
     EPILEPSY_PRIV_REC_UNROLL(EPILEPSY_PRIV_EVAL_MATCH(                                             \
-        EPILEPSY_PRIV_EVAL_CFG(                                                                    \
-            EPILEPSY_PRIV_REC_STOP,                                                                \
-            (~),                                                                                   \
-            EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
-            EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
+        EPILEPSY_PRIV_REC_STOP,                                                                    \
+        (~),                                                                                       \
+        EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
+        EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
         __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
         ~))
 
@@ -51,84 +49,93 @@
 
 #define EPILEPSY_PRIV_REC_UNROLL(...) EPILEPSY_PRIV_REC_0(__VA_ARGS__)
 
-#define EPILEPSY_PRIV_EVAL_MATCH(cfg, head, ...)                                                   \
-    EPILEPSY_PRIV_CHECK_TERM(head, EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM, cfg, __VA_ARGS__)
-#define EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM(head, cfg, ...)                                        \
-    EPILEPSY_PRIV_TERM_MATCH(head, cfg, EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
+#define EPILEPSY_PRIV_EVAL_MATCH(k, k_cx, f, acc, head, ...)                                       \
+    EPILEPSY_PRIV_CHECK_TERM(                                                                      \
+        head,                                                                                      \
+        EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM,                                                       \
+        k,                                                                                         \
+        k_cx,                                                                                      \
+        f,                                                                                         \
+        acc,                                                                                       \
+        __VA_ARGS__)
+#define EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM(head, k, k_cx, f, acc, ...)                            \
+    EPILEPSY_PRIV_TERM_MATCH(head, k, k_cx, f, acc, EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
 
 // Reduction rules {
-#define EPILEPSY_PRIV_EVAL_0v(cfg, tail, ...)                                                      \
+#define EPILEPSY_PRIV_EVAL_0v(k, k_cx, f, acc, tail, ...)                                          \
     EPILEPSY_PRIV_EVAL_MACHINE_REDUCE(                                                             \
-        EPILEPSY_PRIV_EVAL_CFG_UPDATE_ACC(                                                         \
-            cfg,                                                                                   \
-            EPILEPSY_PRIV_EVAL_CFG_F(cfg)(EPILEPSY_PRIV_EVAL_CFG_ACC(cfg), __VA_ARGS__)),          \
+        k,                                                                                         \
+        k_cx,                                                                                      \
+        f,                                                                                         \
+        f(acc, __VA_ARGS__),                                                                       \
         EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
-#define EPILEPSY_PRIV_EVAL_0args(cfg, tail, op, ...)                                               \
+#define EPILEPSY_PRIV_EVAL_0args(k, k_cx, f, acc, tail, op, ...)                                   \
     EPILEPSY_PRIV_EVAL_MACHINE_REDUCE(                                                             \
-        EPILEPSY_PRIV_EVAL_CFG(                                                                    \
-            EPILEPSY_PRIV_EVAL_0args_K,                                                            \
-            (cfg, tail, op),                                                                       \
-            EPILEPSY_PRIV_EVAL_FCOMMA,                                                             \
-            EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
+        EPILEPSY_PRIV_EVAL_0args_K,                                                                \
+        (k, k_cx, f, acc, tail, op),                                                               \
+        EPILEPSY_PRIV_EVAL_FCOMMA,                                                                 \
+        EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
         __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
         ~)
 
-#define EPILEPSY_PRIV_EVAL_0op(cfg, tail, op, ...)                                                 \
+#define EPILEPSY_PRIV_EVAL_0op(k, k_cx, f, acc, tail, op, ...)                                     \
     EPILEPSY_PRIV_EVAL_MACHINE_REDUCE(                                                             \
-        EPILEPSY_PRIV_EVAL_CFG(                                                                    \
-            EPILEPSY_PRIV_EVAL_0op_K,                                                              \
-            (cfg, tail, (__VA_ARGS__)),                                                            \
-            EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
-            EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
+        EPILEPSY_PRIV_EVAL_0op_K,                                                                  \
+        (k, k_cx, f, acc, tail, (__VA_ARGS__)),                                                    \
+        EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
+        EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
         op,                                                                                        \
         EPILEPSY_PRIV_TERM_END(),                                                                  \
         ~)
 
 // clang-format off
-#define EPILEPSY_PRIV_EVAL_0fatal(_cfg, _tail, f, message)                        \
+#define EPILEPSY_PRIV_EVAL_0fatal(_k, k_cx, folder, acc, _tail, f, message)                        \
     EPILEPSY_PRIV_REC_CONTINUE(EPILEPSY_PRIV_REC_STOP, (~), !"Epilepsy error" (f): message)
 // clang-format on
 
-#define EPILEPSY_PRIV_EVAL_0abort(_cfg, _tail, ...)                                                \
+#define EPILEPSY_PRIV_EVAL_0abort(_k, k_cx, f, acc, _tail, ...)                                    \
     EPILEPSY_PRIV_EVAL_MACHINE_REDUCE(                                                             \
-        EPILEPSY_PRIV_EVAL_CFG(                                                                    \
-            EPILEPSY_PRIV_REC_STOP,                                                                \
-            (~),                                                                                   \
-            EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
-            EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
+        EPILEPSY_PRIV_REC_STOP,                                                                    \
+        (~),                                                                                       \
+        EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
+        EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
         __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
         ~)
 
-#define EPILEPSY_PRIV_EVAL_0end(cfg, _tail, _)                                                     \
-    EPILEPSY_PRIV_EVAL_MACHINE_CALL_K(                                                             \
-        EPILEPSY_PRIV_EVAL_CFG_K(cfg),                                                             \
-        EPILEPSY_PRIV_EVAL_CFG_K_CX(cfg),                                                          \
-        EPILEPSY_PRIV_EVAL_CFG_ACC(cfg))
+#define EPILEPSY_PRIV_EVAL_0end(k, k_cx, _f, acc, _tail, _)                                        \
+    EPILEPSY_PRIV_EVAL_MACHINE_CALL_K(k, k_cx, acc)
 // }
 
 // Continuations {
-#define EPILEPSY_PRIV_EVAL_0args_K(cfg, tail, evaluated_op, ...)                                   \
+#define EPILEPSY_PRIV_EVAL_0args_K(k, k_cx, f, acc, tail, evaluated_op, ...)                       \
     EPILEPSY_PRIV_INVOKE(                                                                          \
         EPILEPSY_PRIV_EVAL_MATCH,                                                                  \
-        EPILEPSY_PRIV_EVAL_CFG(                                                                    \
-            EPILEPSY_PRIV_EVAL_0args_K_K,                                                          \
-            (cfg, tail),                                                                           \
-            EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
-            EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
+        EPILEPSY_PRIV_EVAL_0args_K_K,                                                              \
+        (k, k_cx, f, acc, tail),                                                                   \
+        EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
+        EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
         evaluated_op##_IMPL(__VA_ARGS__) EPILEPSY_PRIV_TERM_END(),                                 \
         ~)
 
-#define EPILEPSY_PRIV_EVAL_0args_K_K(cfg, tail, ...)                                               \
+#define EPILEPSY_PRIV_EVAL_0args_K_K(k, k_cx, f, acc, tail, ...)                                   \
     EPILEPSY_PRIV_INVOKE(                                                                          \
         EPILEPSY_PRIV_EVAL_MATCH,                                                                  \
-        EPILEPSY_PRIV_EVAL_CFG_UPDATE_ACC(                                                         \
-            cfg,                                                                                   \
-            EPILEPSY_PRIV_EVAL_CFG_F(cfg)(EPILEPSY_PRIV_EVAL_CFG_ACC(cfg), __VA_ARGS__)),          \
+        k,                                                                                         \
+        k_cx,                                                                                      \
+        f,                                                                                         \
+        f(acc, __VA_ARGS__),                                                                       \
         EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
-#define EPILEPSY_PRIV_EVAL_0op_K(cfg, tail, args, evaluated_op)                                    \
-    EPILEPSY_PRIV_EVAL_0args(cfg, tail, evaluated_op, EPILEPSY_PRIV_UNPARENTHESISE(args))
+#define EPILEPSY_PRIV_EVAL_0op_K(k, k_cx, f, acc, tail, args, evaluated_op)                        \
+    EPILEPSY_PRIV_EVAL_0args(                                                                      \
+        k,                                                                                         \
+        k_cx,                                                                                      \
+        f,                                                                                         \
+        acc,                                                                                       \
+        tail,                                                                                      \
+        evaluated_op,                                                                              \
+        EPILEPSY_PRIV_UNPARENTHESISE(args))
 // }
 
 // Aliases {
