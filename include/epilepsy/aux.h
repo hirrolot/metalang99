@@ -276,6 +276,20 @@
 #define EPILEPSY_isUnparenthesised(x) EPILEPSY_call(EPILEPSY_isUnparenthesised, x)
 
 /**
+ * Consumes all its arguments and expands to emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/aux.h>
+ *
+ * // E_empty()
+ * E_consume(v(1, 2, 3))
+ * @endcode
+ */
+#define EPILEPSY_consume(...) EPILEPSY_call(EPILEPSY_consume, __VA_ARGS__)
+
+/**
  * Concatenates @p x with @p y as-is, without expanding them.
  *
  * # Examples
@@ -365,12 +379,13 @@
 #define EPILEPSY_const2_IMPL(x, _a, _b)          v(x)
 #define EPILEPSY_const3_IMPL(x, _a, _b, _c)      v(x)
 #define EPILEPSY_flip_IMPL(f)                    EPILEPSY_appl(v(EPILEPSY_PRIV_flip), v(f))
-#define EPILEPSY_PRIV_flip_IMPL(f, a, b)         E_appl2(v(f), v(b), v(a))
+#define EPILEPSY_PRIV_flip_IMPL(f, a, b)         EPILEPSY_appl2(v(f), v(b), v(a))
 #define EPILEPSY_putBefore_IMPL(right, x)        v(x right)
 #define EPILEPSY_putAfter_IMPL(left, x)          v(left x)
 #define EPILEPSY_putBetween_IMPL(left, right, x) v(left x right)
 #define EPILEPSY_isParenthesised_IMPL(x)         v(EPILEPSY_PRIV_NOT(EPILEPSY_PRIV_IS_UNPARENTHESISED(x)))
 #define EPILEPSY_isUnparenthesised_IMPL(x)       v(EPILEPSY_PRIV_IS_UNPARENTHESISED(x))
+#define EPILEPSY_consume_IMPL(...)               EPILEPSY_empty()
 // }
 
 // Arity specifiers {
@@ -392,6 +407,7 @@
 #define EPILEPSY_putBetween_ARITY         3
 #define EPILEPSY_isParenthesised_ARITY    1
 #define EPILEPSY_isUnparenthesised_ARITY  1
+#define EPILEPSY_consume_ARITY            1
 
 #define EPILEPSY_PRIV_flip_ARITY 3
 // }
@@ -417,6 +433,7 @@
 #define E_putBetween         EPILEPSY_putBetween
 #define E_isParenthesised    EPILEPSY_isParenthesised
 #define E_isUnparenthesised  EPILEPSY_isUnparenthesised
+#define E_consume            EPILEPSY_consume
 #define E_catPrimitive       EPILEPSY_catPrimitive
 #define E_stringifyPrimitive EPILEPSY_stringifyPrimitive
 #define E_semicolon          EPILEPSY_semicolon

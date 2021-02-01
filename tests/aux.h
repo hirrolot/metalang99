@@ -58,6 +58,10 @@ E_assert(E_not(E_isUnparenthesised(v((1, 2, 3)))));
 E_assert(E_isUnparenthesised(v(123)));
 // }
 
+// E_consume {
+E_assertEmpty(E_consume(v(1, 2, 3)));
+// }
+
 // E_semicolon {
 E_semicolon();
 E_semicolon();
