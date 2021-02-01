@@ -132,11 +132,7 @@
         EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
 #define EPILEPSY_PRIV_EVAL_0op_K(cfg, tail, args, evaluated_op)                                    \
-    EPILEPSY_PRIV_INVOKE(                                                                          \
-        EPILEPSY_PRIV_EVAL_MATCH,                                                                  \
-        cfg,                                                                                       \
-        EPILEPSY_call(evaluated_op, EPILEPSY_PRIV_UNPARENTHESISE(args))                            \
-            EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
+    EPILEPSY_PRIV_EVAL_0args(cfg, tail, evaluated_op##_IMPL, EPILEPSY_PRIV_UNPARENTHESISE(args))
 // }
 
 // Aliases {
