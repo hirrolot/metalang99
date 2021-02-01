@@ -54,11 +54,7 @@
 #define EPILEPSY_PRIV_EVAL_MATCH(cfg, head, ...)                                                   \
     EPILEPSY_PRIV_CHECK_TERM(head, EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM, cfg, __VA_ARGS__)
 #define EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM(head, cfg, ...)                                        \
-    EPILEPSY_PRIV_TERM_MATCH(                                                                      \
-        EPILEPSY_PRIV_EVAL_,                                                                       \
-        head,                                                                                      \
-        cfg,                                                                                       \
-        EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
+    EPILEPSY_PRIV_TERM_MATCH(head, cfg, EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
 
 // Reduction rules {
 #define EPILEPSY_PRIV_EVAL_0v(cfg, tail, ...)                                                      \
