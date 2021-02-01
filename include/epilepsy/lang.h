@@ -160,7 +160,7 @@
         EPILEPSY_PRIV_call_0args,                                                                  \
         EPILEPSY_PRIV_call_0op)                                                                    \
     (op, __VA_ARGS__)
-#define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident##_IMPL, __VA_ARGS__),
+#define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident, __VA_ARGS__),
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__),
 
 #define EPILEPSY_compose_IMPL(f, g)                 EPILEPSY_appl2(v(EPILEPSY_PRIV_compose_CLOSURE), v(f), v(g))

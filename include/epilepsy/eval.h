@@ -116,7 +116,7 @@
             (cfg, tail),                                                                           \
             EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
             EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
-        evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_TERM_END(),                                        \
+        evaluated_op##_IMPL(__VA_ARGS__) EPILEPSY_PRIV_TERM_END(),                                 \
         ~)
 
 #define EPILEPSY_PRIV_EVAL_0args_K_K(cfg, tail, ...)                                               \
@@ -128,7 +128,7 @@
         EPILEPSY_PRIV_EVAL_CONTROL_UNWRAP(tail))
 
 #define EPILEPSY_PRIV_EVAL_0op_K(cfg, tail, args, evaluated_op)                                    \
-    EPILEPSY_PRIV_EVAL_0args(cfg, tail, evaluated_op##_IMPL, EPILEPSY_PRIV_UNPARENTHESISE(args))
+    EPILEPSY_PRIV_EVAL_0args(cfg, tail, evaluated_op, EPILEPSY_PRIV_UNPARENTHESISE(args))
 // }
 
 // Aliases {

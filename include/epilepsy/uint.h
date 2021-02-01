@@ -407,7 +407,7 @@
     EPILEPSY_call(                                                                                 \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(x, y),                                                            \
-            v(EPILEPSY_PRIV_UINT_CONST_TRUE2),                                                     \
+            v(EPILEPSY_PRIV_UINT_CONST_TRUE),                                                      \
             v(EPILEPSY_uintGreater)),                                                              \
         v(x, y))
 
@@ -415,47 +415,44 @@
     EPILEPSY_call(                                                                                 \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            v(EPILEPSY_PRIV_UINT_CONST_FALSE2),                                                    \
-            v(EPILEPSY_PRIV_uintLesser_PROGRESS)),                                                 \
+            EPILEPSY_PRIV_UINT_CONST_FALSE,                                                        \
+            EPILEPSY_PRIV_uintLesser_PROGRESS),                                                    \
         v(x, y))
 #define EPILEPSY_PRIV_uintLesser_PROGRESS_IMPL(x, y)                                               \
     EPILEPSY_call(                                                                                 \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(x, EPILEPSY_PRIV_uintDec(y)),                                     \
-            v(EPILEPSY_PRIV_UINT_CONST_TRUE2),                                                     \
-            v(EPILEPSY_uintLesser)),                                                               \
+            EPILEPSY_PRIV_UINT_CONST_TRUE,                                                         \
+            EPILEPSY_uintLesser),                                                                  \
         v(x, EPILEPSY_PRIV_uintDec(y)))
 
 #define EPILEPSY_uintAdd_IMPL(x, y)                                                                \
-    EPILEPSY_appl2(                                                                                \
+    EPILEPSY_call(                                                                                 \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            EPILEPSY_appl(v(EPILEPSY_const2), v(x)),                                               \
-            v(EPILEPSY_PRIV_uintAdd_PROGRESS)),                                                    \
-        v(x),                                                                                      \
-        v(y))
+            EPILEPSY_const,                                                                        \
+            EPILEPSY_PRIV_uintAdd_PROGRESS),                                                       \
+        v(x, y))
 #define EPILEPSY_PRIV_uintAdd_PROGRESS_IMPL(x, y)                                                  \
     EPILEPSY_call(EPILEPSY_uintAdd, v(EPILEPSY_PRIV_uintInc(x), EPILEPSY_PRIV_uintDec(y)))
 
 #define EPILEPSY_uintSub_IMPL(x, y)                                                                \
-    EPILEPSY_appl2(                                                                                \
+    EPILEPSY_call(                                                                                 \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            EPILEPSY_appl(v(EPILEPSY_const2), v(x)),                                               \
-            v(EPILEPSY_PRIV_uintSub_PROGRESS)),                                                    \
-        v(x),                                                                                      \
-        v(y))
+            EPILEPSY_const,                                                                        \
+            EPILEPSY_PRIV_uintSub_PROGRESS),                                                       \
+        v(x, y))
 #define EPILEPSY_PRIV_uintSub_PROGRESS_IMPL(x, y)                                                  \
     EPILEPSY_call(EPILEPSY_uintSub, v(EPILEPSY_PRIV_uintDec(x), EPILEPSY_PRIV_uintDec(y)))
 
 #define EPILEPSY_uintMul_IMPL(x, y)                                                                \
-    EPILEPSY_appl2(                                                                                \
+    EPILEPSY_call(                                                                                 \
         EPILEPSY_PRIV_IF(                                                                          \
             EPILEPSY_PRIV_uintEq(y, 0),                                                            \
-            EPILEPSY_appl(v(EPILEPSY_const2), v(0)),                                               \
-            v(EPILEPSY_PRIV_uintMul_PROGRESS)),                                                    \
-        v(x),                                                                                      \
-        v(y))
+            EPILEPSY_PRIV_UINT_CONST_0,                                                            \
+            EPILEPSY_PRIV_uintMul_PROGRESS),                                                       \
+        v(x, y))
 #define EPILEPSY_PRIV_uintMul_PROGRESS_IMPL(x, y)                                                  \
     EPILEPSY_uintAdd(v(x), EPILEPSY_call(EPILEPSY_uintMul, v(x, EPILEPSY_PRIV_uintDec(y))))
 
@@ -496,8 +493,9 @@
 #define EPILEPSY_uintMin_IMPL(x, y) EPILEPSY_if(EPILEPSY_uintLesser(v(x), v(y)), v(x), v(y))
 #define EPILEPSY_uintMax_IMPL(x, y) EPILEPSY_if(EPILEPSY_uintLesser(v(x), v(y)), v(y), v(x))
 
-#define EPILEPSY_PRIV_UINT_CONST_TRUE2_IMPL(_x, _y)  v(EPILEPSY_true)
-#define EPILEPSY_PRIV_UINT_CONST_FALSE2_IMPL(_x, _y) v(EPILEPSY_false)
+#define EPILEPSY_PRIV_UINT_CONST_TRUE_IMPL(...)  v(EPILEPSY_true)
+#define EPILEPSY_PRIV_UINT_CONST_FALSE_IMPL(...) v(EPILEPSY_false)
+#define EPILEPSY_PRIV_UINT_CONST_0_IMPL(...)     v(0)
 // }
 
 // Arity specifiers {
