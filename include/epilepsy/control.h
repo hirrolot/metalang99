@@ -64,7 +64,9 @@
 #define EPILEPSY_overload_IMPL(f, ...)                                                             \
     EPILEPSY_call(EPILEPSY_PRIV_CAT(f, EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__)), v(__VA_ARGS__))
 
-#define EPILEPSY_if_IMPL(cond, x, y) v(EPILEPSY_PRIV_IF(cond, x, y))
+#define EPILEPSY_if_IMPL(cond, x, y) EPILEPSY_PRIV_if_##cond(x, y)
+#define EPILEPSY_PRIV_if_0(_x, y)    v(y)
+#define EPILEPSY_PRIV_if_1(x, _y)    v(x)
 // }
 
 // Arity specifiers {
