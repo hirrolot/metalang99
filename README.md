@@ -130,6 +130,8 @@ Happy hacking!
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+At this moment, contributions that optimise the interpreter and the standard library are highly appreciated.
+
 ## Source code structure
 
 Epilepsy is split into two parts: the interpreter and the standard library.
