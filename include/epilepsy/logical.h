@@ -154,6 +154,9 @@
 #define EPILEPSY_PRIV_boolEq_01_IMPL() v(0)
 #define EPILEPSY_PRIV_boolEq_10_IMPL() v(0)
 #define EPILEPSY_PRIV_boolEq_11_IMPL() v(1)
+
+#define EPILEPSY_PRIV_CONST_TRUE_IMPL(...)  v(EPILEPSY_true)
+#define EPILEPSY_PRIV_CONST_FALSE_IMPL(...) v(EPILEPSY_false)
 // }
 
 // Arity specifiers {

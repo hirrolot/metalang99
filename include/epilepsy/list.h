@@ -790,24 +790,24 @@
 
 #define EPILEPSY_PRIV_listEq_cons_nil_IMPL(_x, _xs, _compare) v(EPILEPSY_false)
 #define EPILEPSY_PRIV_listEq_cons_cons_IMPL(other_x, other_xs, x, xs, compare)                     \
-    EPILEPSY_appl(                                                                                 \
+    EPILEPSY_call(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_appl2(v(compare), v(x), v(other_x)),                                          \
-            EPILEPSY_appl2(v(EPILEPSY_listEq), v(compare), v(xs)),                                 \
-            EPILEPSY_appl(v(EPILEPSY_const), v(EPILEPSY_false))),                                  \
-        v(other_xs))
+            v(EPILEPSY_listEq),                                                                    \
+            v(EPILEPSY_PRIV_CONST_FALSE)),                                                         \
+        v(compare, xs, other_xs))
 // }
 
 #define EPILEPSY_listContains_IMPL(compare, item, list)                                            \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listContains_), v(item, compare))
 #define EPILEPSY_PRIV_listContains_nil_IMPL(_item, _compare) v(EPILEPSY_false)
 #define EPILEPSY_PRIV_listContains_cons_IMPL(x, xs, item, compare)                                 \
-    EPILEPSY_appl(                                                                                 \
+    EPILEPSY_call(                                                                                 \
         EPILEPSY_if(                                                                               \
             EPILEPSY_appl2(v(compare), v(x), v(item)),                                             \
-            EPILEPSY_appl(v(EPILEPSY_const), v(EPILEPSY_true)),                                    \
-            EPILEPSY_appl2(v(EPILEPSY_listContains), v(compare), v(item))),                        \
-        v(xs))
+            v(EPILEPSY_PRIV_CONST_TRUE),                                                           \
+            v(EPILEPSY_listContains)),                                                             \
+        v(compare, item, xs))
 
 #define EPILEPSY_listTake_IMPL(n, list)                                                            \
     EPILEPSY_matchWithArgs(v(list), v(EPILEPSY_PRIV_listTake_), v(n))
