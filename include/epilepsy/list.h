@@ -659,23 +659,23 @@
     EPILEPSY_call(EPILEPSY_PRIV_list_AUX, EPILEPSY_variadicsCount(v(__VA_ARGS__)) v(__VA_ARGS__, ~))
 
 #define EPILEPSY_PRIV_list_AUX_IMPL(count, ...)                                                    \
-    EPILEPSY_appl(                                                                                 \
-        EPILEPSY_if(                                                                               \
-            EPILEPSY_uintEq(v(count), v(1)),                                                       \
-            v(EPILEPSY_PRIV_list_DONE),                                                            \
-            EPILEPSY_appl(v(EPILEPSY_PRIV_list_PROGRESS), v(count))),                              \
-        v((__VA_ARGS__)))
+    EPILEPSY_call(                                                                                 \
+        EPILEPSY_PRIV_IF(                                                                          \
+            EPILEPSY_PRIV_uintEq(count, 1),                                                        \
+            EPILEPSY_PRIV_list_DONE,                                                               \
+            EPILEPSY_PRIV_list_PROGRESS),                                                          \
+        v(count, (__VA_ARGS__)))
 
-#define EPILEPSY_PRIV_list_DONE_IMPL(rest)                                                         \
+#define EPILEPSY_PRIV_list_DONE_IMPL(_count, rest)                                                 \
     EPILEPSY_call(EPILEPSY_PRIV_list_DONE_AUX, EPILEPSY_unparenthesise(v(rest)))
 #define EPILEPSY_PRIV_list_PROGRESS_IMPL(count, rest)                                              \
-    EPILEPSY_call(EPILEPSY_PRIV_list_PROGRESS_AUX, v(count) EPILEPSY_unparenthesise(v(rest)))
+    EPILEPSY_call(EPILEPSY_PRIV_list_PROGRESS_AUX, v(count, EPILEPSY_PRIV_UNPARENTHESISE(rest)))
 
 #define EPILEPSY_PRIV_list_DONE_AUX_IMPL(last, _) EPILEPSY_cons(v(last), EPILEPSY_nil())
 #define EPILEPSY_PRIV_list_PROGRESS_AUX_IMPL(count, x, ...)                                        \
     EPILEPSY_cons(                                                                                 \
         v(x),                                                                                      \
-        EPILEPSY_call(EPILEPSY_PRIV_list_AUX, EPILEPSY_uintDec(v(count)) v(__VA_ARGS__)))
+        EPILEPSY_call(EPILEPSY_PRIV_list_AUX, v(EPILEPSY_PRIV_uintDec(count), __VA_ARGS__)))
 // }
 
 #define EPILEPSY_listLen_IMPL(list)            EPILEPSY_match(v(list), v(EPILEPSY_PRIV_listLen_))
