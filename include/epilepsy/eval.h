@@ -37,7 +37,7 @@
         EPILEPSY_PRIV_EVAL_CFG(                                                                    \
             EPILEPSY_PRIV_REC_STOP,                                                                \
             (~),                                                                                   \
-            EPILEPSY_PRIV_EVAL_FOLD_APPEND,                                                        \
+            EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
             EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
         __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
         ~))
@@ -73,7 +73,7 @@
         EPILEPSY_PRIV_EVAL_CFG(                                                                    \
             EPILEPSY_PRIV_EVAL_0args_K,                                                            \
             (cfg, tail, op),                                                                       \
-            EPILEPSY_PRIV_EVAL_FOLD_COMMA,                                                         \
+            EPILEPSY_PRIV_EVAL_FCOMMA,                                                             \
             EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
         __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
         ~)
@@ -83,7 +83,7 @@
         EPILEPSY_PRIV_EVAL_CFG(                                                                    \
             EPILEPSY_PRIV_EVAL_0op_K,                                                              \
             (cfg, tail, (__VA_ARGS__)),                                                            \
-            EPILEPSY_PRIV_EVAL_FOLD_APPEND,                                                        \
+            EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
             EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
         op,                                                                                        \
         EPILEPSY_PRIV_TERM_END(),                                                                  \
@@ -99,7 +99,7 @@
         EPILEPSY_PRIV_EVAL_CFG(                                                                    \
             EPILEPSY_PRIV_REC_STOP,                                                                \
             (~),                                                                                   \
-            EPILEPSY_PRIV_EVAL_FOLD_APPEND,                                                        \
+            EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
             EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
         __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
         ~)
@@ -118,7 +118,7 @@
         EPILEPSY_PRIV_EVAL_CFG(                                                                    \
             EPILEPSY_PRIV_EVAL_0args_K_K,                                                          \
             (cfg, tail),                                                                           \
-            EPILEPSY_PRIV_EVAL_FOLD_APPEND,                                                        \
+            EPILEPSY_PRIV_EVAL_FAPPEND,                                                            \
             EPILEPSY_PRIV_EVAL_ACC_EMPTY()),                                                       \
         evaluated_op(__VA_ARGS__) EPILEPSY_PRIV_TERM_END(),                                        \
         ~)
