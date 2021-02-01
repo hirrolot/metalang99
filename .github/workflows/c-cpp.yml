@@ -20,5 +20,8 @@ jobs:
     - name: Test
       run: bash scripts/test-all.sh
 
+    - name: Bench
+      run: bash scripts/bench.sh
+
     - name: Check code formatting
       run: bash scripts/check-fmt.sh
