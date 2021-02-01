@@ -169,9 +169,7 @@ A: In short, it provides more functionality, it is well-tested, and actively mai
 
 ### Q: Compilation times?
 
-A: See our benchmarks in the [CI].
-
-[CI]: https://github.com/Hirrolot/epilepsy/actions
+A: To run the benchmarks, execute `./scripts/bench.sh` from the root directory.
 
 ### Q: Why formal specification?
 
