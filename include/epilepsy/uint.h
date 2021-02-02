@@ -391,17 +391,17 @@
     EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_uintEq(x, 0),                                                                \
         EPILEPSY_call(matcher##Z, ),                                                               \
-        EPILEPSY_call(matcher##S, v(EPILEPSY_PRIV_uintDec(x))))
+        EPILEPSY_callTrivial(matcher##S, EPILEPSY_PRIV_uintDec(x)))
 
 #define EPILEPSY_uintMatchWithArgs_IMPL(x, matcher, ...)                                           \
     EPILEPSY_PRIV_IF(                                                                              \
         EPILEPSY_PRIV_uintEq(x, 0),                                                                \
-        EPILEPSY_call(matcher##Z, v(__VA_ARGS__)),                                                 \
-        EPILEPSY_call(matcher##S, v(EPILEPSY_PRIV_uintDec(x)) v(__VA_ARGS__)))
+        EPILEPSY_callTrivial(matcher##Z, __VA_ARGS__),                                             \
+        EPILEPSY_callTrivial(matcher##S, EPILEPSY_PRIV_uintDec(x), __VA_ARGS__))
 
-#define EPILEPSY_uintNeq_IMPL(x, y)      EPILEPSY_not(EPILEPSY_uintEq(v(x), v(y)))
-#define EPILEPSY_uintGreater_IMPL(x, y)  EPILEPSY_uintLesser(v(y), v(x))
-#define EPILEPSY_uintLesserEq_IMPL(x, y) EPILEPSY_uintGreaterEq(v(y), v(x))
+#define EPILEPSY_uintNeq_IMPL(x, y)      EPILEPSY_not(EPILEPSY_callTrivial(EPILEPSY_uintEq, x, y))
+#define EPILEPSY_uintGreater_IMPL(x, y)  EPILEPSY_callTrivial(EPILEPSY_uintLesser, y, x)
+#define EPILEPSY_uintLesserEq_IMPL(x, y) EPILEPSY_callTrivial(EPILEPSY_uintGreaterEq, y, x)
 
 #define EPILEPSY_uintGreaterEq_IMPL(x, y)                                                          \
     EPILEPSY_callTrivial(                                                                          \
