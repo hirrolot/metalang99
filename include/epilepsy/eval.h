@@ -37,7 +37,7 @@
         (~),                                                                                       \
         EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
-        __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
+        __VA_ARGS__(0end, ~),                                                                      \
         ~))
 
 #ifndef DOXYGEN_IGNORE
@@ -76,7 +76,7 @@
         (k, k_cx, folder, acc, tail, op),                                                          \
         EPILEPSY_PRIV_EVAL_FCOMMA,                                                                 \
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
-        __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
+        __VA_ARGS__(0end, ~),                                                                      \
         ~)
 
 #define EPILEPSY_PRIV_EVAL_0op(k, k_cx, folder, acc, tail, op, ...)                                \
@@ -86,7 +86,7 @@
         EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
         op,                                                                                        \
-        EPILEPSY_PRIV_TERM_END(),                                                                  \
+        (0end, ~),                                                                                 \
         ~)
 
 #define EPILEPSY_PRIV_EVAL_0callTrivial(k, k_cx, folder, acc, tail, ident, ...)                    \
@@ -95,7 +95,7 @@
         (k, k_cx, folder, acc, tail),                                                              \
         EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
-        ident##_IMPL(__VA_ARGS__) EPILEPSY_PRIV_TERM_END(),                                        \
+        ident##_IMPL(__VA_ARGS__)(0end, ~),                                                        \
         ~)
 
 // clang-format off
@@ -109,7 +109,7 @@
         (~),                                                                                       \
         EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
-        __VA_ARGS__ EPILEPSY_PRIV_TERM_END(),                                                      \
+        __VA_ARGS__(0end, ~),                                                                      \
         ~)
 
 #define EPILEPSY_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                   \
@@ -124,7 +124,7 @@
         (k, k_cx, folder, acc, tail),                                                              \
         EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
         EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
-        evaluated_op##_IMPL(__VA_ARGS__) EPILEPSY_PRIV_TERM_END(),                                 \
+        evaluated_op##_IMPL(__VA_ARGS__)(0end, ~),                                                 \
         ~)
 
 #define EPILEPSY_PRIV_EVAL_0args_K_K(k, k_cx, folder, acc, tail, ...)                              \

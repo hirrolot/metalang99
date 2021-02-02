@@ -2,9 +2,6 @@
 #define EPILEPSY_EVAL_TERM_H
 
 #include <epilepsy/priv/aux.h>
-#include <epilepsy/priv/variadics/get.h>
-
-#define EPILEPSY_PRIV_TERM_END() (0end, ~)
 
 #define EPILEPSY_PRIV_TERM_MATCH(term, k, k_cx, folder, acc, control)                              \
     EPILEPSY_PRIV_TERM_MATCH_AUX(k, k_cx, folder, acc, control, EPILEPSY_PRIV_UNPARENTHESISE(term))

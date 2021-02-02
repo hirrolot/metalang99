@@ -7,7 +7,6 @@
 #define EPILEPSY_CONTROL_H
 
 #include <epilepsy/lang.h>
-#include <epilepsy/priv/overload.h>
 #include <epilepsy/uint.h>
 
 // Desugaring {

@@ -3,8 +3,6 @@
 
 #include <epilepsy/priv/variadics/get.h>
 
-#define EPILEPSY_PRIV_PAIR(fst, snd) (fst, snd)
-
 #define EPILEPSY_PRIV_PAIR_FST(pair)                                                               \
     EPILEPSY_PRIV_PAIR_FST_EXPAND(EPILEPSY_PRIV_VARIADICS_HEAD pair)
 #define EPILEPSY_PRIV_PAIR_FST_EXPAND(...) __VA_ARGS__

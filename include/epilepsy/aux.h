@@ -383,7 +383,7 @@
 #define EPILEPSY_putBefore_IMPL(right, x)        v(x right)
 #define EPILEPSY_putAfter_IMPL(left, x)          v(left x)
 #define EPILEPSY_putBetween_IMPL(left, right, x) v(left x right)
-#define EPILEPSY_isParenthesised_IMPL(x)         v(EPILEPSY_PRIV_NOT(EPILEPSY_PRIV_IS_UNPARENTHESISED(x)))
+#define EPILEPSY_isParenthesised_IMPL(x)         v(EPILEPSY_PRIV_IS_PARENTHESISED(x))
 #define EPILEPSY_isUnparenthesised_IMPL(x)       v(EPILEPSY_PRIV_IS_UNPARENTHESISED(x))
 #define EPILEPSY_consume_IMPL(...)               EPILEPSY_empty()
 // }

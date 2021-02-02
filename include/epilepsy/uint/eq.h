@@ -7,8 +7,9 @@
 
 #define EPILEPSY_uintEq_IMPL(x, y) v(EPILEPSY_PRIV_uintEq(x, y))
 
-#define EPILEPSY_PRIV_uintEq(x, y)                                                                 \
-    EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_CAT_4(EPILEPSY_PRIV_UINT_EQ_, x, _, y)(), 0, ~)
+#define EPILEPSY_PRIV_uintEq(x, y) EPILEPSY_PRIV_uintEq_AUX(x, y)
+#define EPILEPSY_PRIV_uintEq_AUX(x, y)                                                             \
+    EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_UINT_EQ_##x##_##y(), 0, ~)
 
 #define EPILEPSY_PRIV_UINT_EQ_0_0()     ~, 1
 #define EPILEPSY_PRIV_UINT_EQ_1_1()     ~, 1

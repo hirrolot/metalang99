@@ -16,7 +16,6 @@
 #include <epilepsy/aux.h>
 #include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
-#include <epilepsy/priv/overload.h>
 #include <epilepsy/priv/pair.h>
 
 // Desugaring {
@@ -77,12 +76,12 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_choice_IMPL(tag, ...) v(EPILEPSY_PRIV_PAIR(tag, 0non_empty(__VA_ARGS__)))
-#define EPILEPSY_choiceEmpty_IMPL(tag) v(EPILEPSY_PRIV_PAIR(tag, 0empty()))
+#define EPILEPSY_choice_IMPL(tag, ...) v((tag, 0non_empty(__VA_ARGS__)))
+#define EPILEPSY_choiceEmpty_IMPL(tag) v((tag, 0empty()))
 
 #define EPILEPSY_match_IMPL(choice, matcher)                                                       \
     EPILEPSY_callTrivial(                                                                          \
-        EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
+        EPILEPSY_PRIV_CAT(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                              \
         EPILEPSY_PRIV_CHOICE_DATA(choice))
 
 #define EPILEPSY_matchWithArgs_IMPL(choice, matcher, ...)                                          \
@@ -92,24 +91,22 @@
         EPILEPSY_PRIV_matchWithArgs_NON_EMPTY)                                                     \
     (choice, matcher, __VA_ARGS__)
 #define EPILEPSY_PRIV_matchWithArgs_EMPTY(choice, matcher, ...)                                    \
-    EPILEPSY_callTrivial(                                                                          \
-        EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
-        __VA_ARGS__)
+    EPILEPSY_callTrivial(EPILEPSY_PRIV_CAT(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)), __VA_ARGS__)
 #define EPILEPSY_PRIV_matchWithArgs_NON_EMPTY(choice, matcher, ...)                                \
     EPILEPSY_callTrivial(                                                                          \
-        EPILEPSY_PRIV_MATCH(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                            \
+        EPILEPSY_PRIV_CAT(matcher, EPILEPSY_PRIV_CHOICE_TAG(choice)),                              \
         EPILEPSY_PRIV_CHOICE_DATA(choice),                                                         \
         __VA_ARGS__)
 
 #define EPILEPSY_PRIV_CHOICE_IS_EMPTY(choice)                                                      \
-    EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_CHOICE_IS_EMPTY_, EPILEPSY_PRIV_PAIR_SND(choice))
+    EPILEPSY_PRIV_CAT(EPILEPSY_PRIV_CHOICE_IS_EMPTY_, EPILEPSY_PRIV_PAIR_SND(choice))
 #define EPILEPSY_PRIV_CHOICE_IS_EMPTY_0non_empty(...) 0
 #define EPILEPSY_PRIV_CHOICE_IS_EMPTY_0empty(...)     1
 
 #define EPILEPSY_PRIV_CHOICE_TAG EPILEPSY_PRIV_PAIR_FST
 
 #define EPILEPSY_PRIV_CHOICE_DATA(choice)                                                          \
-    EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_CHOICE_DATA_, EPILEPSY_PRIV_PAIR_SND(choice))
+    EPILEPSY_PRIV_CAT(EPILEPSY_PRIV_CHOICE_DATA_, EPILEPSY_PRIV_PAIR_SND(choice))
 #define EPILEPSY_PRIV_CHOICE_DATA_0non_empty(...) __VA_ARGS__
 #define EPILEPSY_PRIV_CHOICE_DATA_0empty(...)     __VA_ARGS__
 // }

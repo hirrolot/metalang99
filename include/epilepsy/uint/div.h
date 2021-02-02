@@ -13,10 +13,8 @@
 #define EPILEPSY_PRIV_uintDiv_ERROR(x, y)          EPILEPSY_fatal(EPILEPSY_uintDiv, x is not divisible by y)
 
 #define EPILEPSY_uintDivChecked_IMPL(x, y)                                                         \
-    EPILEPSY_PRIV_UNPARENTHESISE(EPILEPSY_PRIV_VARIADICS_SND(                                      \
-        EPILEPSY_PRIV_CAT_4(EPILEPSY_PRIV_UINT_DIV_, x, _, y)(),                                   \
-        (EPILEPSY_nothing()),                                                                      \
-        ~))
+    EPILEPSY_PRIV_UNPARENTHESISE(                                                                  \
+        EPILEPSY_PRIV_VARIADICS_SND(EPILEPSY_PRIV_UINT_DIV_##x##_##y(), (EPILEPSY_nothing()), ~))
 
 #define EPILEPSY_PRIV_UINT_DIV_0_1() ~, (EPILEPSY_just(v(0)))
 

@@ -4,9 +4,8 @@
 #define EPILEPSY_PRIV_REC_STOP_HOOK()      EPILEPSY_PRIV_REC_STOP
 #define EPILEPSY_PRIV_REC_STOP(_k_cx, ...) 0stop, __VA_ARGS__
 
-#define EPILEPSY_PRIV_REC_CONTINUE(k, k_cx, ...)                                                   \
-    0continue,                                                                                     \
-        EPILEPSY_PRIV_REC_DEFER(k##_HOOK)()(EPILEPSY_PRIV_REC_UNPARENTHESISE(k_cx), __VA_ARGS__)
+#define EPILEPSY_PRIV_REC_CONTINUE(k, ...)                                                         \
+    0continue, EPILEPSY_PRIV_REC_DEFER(k##_HOOK)()(__VA_ARGS__)
 
 #define EPILEPSY_PRIV_REC_DEFER(op) op EPILEPSY_PRIV_REC_EMPTY()
 
