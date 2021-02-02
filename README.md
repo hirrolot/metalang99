@@ -118,14 +118,17 @@ $ git clone https://github.com/Hirrolot/epilepsy.git
 
 After that, you must add one more include path `epilepsy/include`.
 
-To use execute Epilepsy in your code, just `#include <epilepsy.h>` beforehand (or, alternatively, include separate header files described in the documentation).
+To use execute Epilepsy in your code, just `#include <epilepsy.h>` beforehand (or include separate header files described in the documentation). To speed up compilation, consider using [precompiled headers].
 
-[Our small GitBook] and the [examples](examples/) will gain the necessary intuition to use Epilepsy. The user documentation is here: https://epilepsy.readthedocs.io/en/latest/.
+Resources:
+
+ - [Tutorial](https://hirrolot.gitbook.io/epilepsy/)
+ - [Examples](examples/)
+ - [User documentation](https://epilepsy.readthedocs.io/en/latest/)
 
 Happy hacking!
 
-[Our small GitBook]: https://hirrolot.gitbook.io/epilepsy/
-
+[precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
 ## Contributing
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
