@@ -4,10 +4,10 @@
 #include <epilepsy/eval/acc.h>
 #include <epilepsy/priv/aux.h>
 
-#define EPILEPSY_PRIV_EVAL_0FAPPEND(acc, ...)                                                      \
+#define EPILEPSY_PRIV_EVAL_FAPPEND(acc, ...)                                                       \
     0seq_non_empty(EPILEPSY_PRIV_EVAL_ACC_UNWRAP(acc) __VA_ARGS__)
 
-#define EPILEPSY_PRIV_EVAL_0FCOMMA(acc, ...)                                                       \
+#define EPILEPSY_PRIV_EVAL_FCOMMA(acc, ...)                                                        \
     0seq_non_empty EPILEPSY_PRIV_IF(                                                               \
         EPILEPSY_PRIV_EVAL_ACC_IS_EMPTY(acc),                                                      \
         (__VA_ARGS__),                                                                             \
