@@ -68,10 +68,13 @@ Notes:
 \begin{itemize}
     \item \texttt{<pp-token-list>} stands for a list of preprocessor tokens (e.g., \texttt{a 123, hello!}).
     \item The grammar above describes metaprograms already expanded by the preprocessor,
-    except for \texttt{EPILEPSY\_eval}, \texttt{EPILEPSY\_call}, and \texttt{v}.
+    except for \texttt{EPILEPSY\_eval}, \texttt{EPILEPSY\_call},\\\texttt{EPILEPSY\_callTrivial},
+    \texttt{EPILEPSY\_abort}, \texttt{EPILEPSY\_fatal}, and \texttt{v}.
     \item \texttt{EPILEPSY\_call} accepts \texttt{op} either as an identifier or as a non-empty
     sequence of terms that reduces to an identifier.
-    \item \texttt{EPILEPSY\_call} accepts arguments of \texttt{op} without a separator.
+    \item \texttt{EPILEPSY\_callTrivial} accepts an operation strictly as an identifier.
+    \item Both \texttt{EPILEPSY\_call} and \texttt{EPILEPSY\_callTrivial} accept arguments of \texttt{op}
+    without a comma separator (e.g., \texttt{v(1) v(2) v(3)} and not \texttt{v(1), v(2), v(3)}).
 \end{itemize}
 
 The \texttt{EPILEPSY\_call} syntax hurts IDE support: bad code formatting, no parameters
