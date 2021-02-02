@@ -96,8 +96,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_just_IMPL(x)   EPILEPSY_callTrivial(EPILEPSY_choice, just, x)
-#define EPILEPSY_nothing_IMPL() EPILEPSY_callTrivial(EPILEPSY_choiceEmpty, nothing)
+#define EPILEPSY_just_IMPL(x)   EPILEPSY_PRIV_choice(just, x)
+#define EPILEPSY_nothing_IMPL() EPILEPSY_PRIV_choiceEmpty(nothing)
 
 #define EPILEPSY_isJust_IMPL(maybe)                                                                \
     EPILEPSY_callTrivial(EPILEPSY_match, maybe, EPILEPSY_PRIV_isJust_)

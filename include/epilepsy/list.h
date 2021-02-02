@@ -614,8 +614,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_cons_IMPL(x, xs) EPILEPSY_callTrivial(EPILEPSY_choice, cons, x, xs)
-#define EPILEPSY_nil_IMPL()       EPILEPSY_callTrivial(EPILEPSY_choiceEmpty, nil)
+#define EPILEPSY_cons_IMPL(x, xs) EPILEPSY_PRIV_choice(cons, x, xs)
+#define EPILEPSY_nil_IMPL()       EPILEPSY_PRIV_choiceEmpty(nil)
 
 #define EPILEPSY_listHead_IMPL(list)                                                               \
     EPILEPSY_callTrivial(EPILEPSY_match, list, EPILEPSY_PRIV_listHead_)
