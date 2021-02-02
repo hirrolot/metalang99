@@ -118,7 +118,9 @@ $ git clone https://github.com/Hirrolot/epilepsy.git
 
 After that, you must add one more include path `epilepsy/include`.
 
-To use execute Epilepsy in your code, just `#include <epilepsy.h>` beforehand (or include separate header files described in the documentation). To speed up compilation, consider using [precompiled headers].
+To use execute Epilepsy in your code, just `#include <epilepsy.h>` beforehand (or include separate header files described in the documentation).
+
+To speed up compilation, consider using [precompiled headers] and `-ftrack-macro-expansion=0` (GCC-only).
 
 Resources:
 
