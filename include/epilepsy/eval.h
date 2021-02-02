@@ -50,16 +50,8 @@
 #define EPILEPSY_PRIV_REC_UNROLL(...) EPILEPSY_PRIV_REC_0(__VA_ARGS__)
 
 #define EPILEPSY_PRIV_EVAL_MATCH(k, k_cx, folder, acc, head, ...)                                  \
-    EPILEPSY_PRIV_CHECK_TERM(                                                                      \
-        head,                                                                                      \
-        EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM,                                                       \
-        k,                                                                                         \
-        k_cx,                                                                                      \
-        folder,                                                                                    \
-        acc,                                                                                       \
-        __VA_ARGS__)
-#define EPILEPSY_PRIV_EVAL_MATCH_VALID_TERM(head, k, k_cx, folder, acc, ...)                       \
-    EPILEPSY_PRIV_TERM_MATCH(head, k, k_cx, folder, acc, EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
+    EPILEPSY_PRIV_CHECK_TERM(head, EPILEPSY_PRIV_TERM_MATCH)                                       \
+    (head, k, k_cx, folder, acc, EPILEPSY_PRIV_EVAL_CONTROL(__VA_ARGS__))
 
 // Reduction rules {
 #define EPILEPSY_PRIV_EVAL_0v(k, k_cx, folder, acc, tail, ...)                                     \
