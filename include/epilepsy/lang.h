@@ -17,6 +17,14 @@
 #define EPILEPSY_call(...) EPILEPSY_PRIV_call(__VA_ARGS__)
 
 /**
+ * Invokes a metafunction @p ident with unevaluated arguments.
+ *
+ * It is semantically the same as `EPILEPSY_call(ident, v(...))` but performs one less reduction
+ * steps.
+ */
+#define EPILEPSY_callTrivial(ident, ...) (0callTrivial, ident, __VA_ARGS__),
+
+/**
  * Applies arguments to @p f.
  *
  * This function implements <a href="https://en.wikipedia.org/wiki/Partial_application">partial
@@ -163,8 +171,10 @@
 #define EPILEPSY_PRIV_call_0args(ident, ...)        (0args, ident, __VA_ARGS__),
 #define EPILEPSY_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__),
 
-#define EPILEPSY_compose_IMPL(f, g)                 EPILEPSY_appl2(v(EPILEPSY_PRIV_compose_CLOSURE), v(f), v(g))
-#define EPILEPSY_PRIV_compose_CLOSURE_IMPL(f, g, x) EPILEPSY_appl(v(f), EPILEPSY_appl(v(g), v(x)))
+#define EPILEPSY_compose_IMPL(f, g)                                                                \
+    EPILEPSY_callTrivial(EPILEPSY_appl2, EPILEPSY_PRIV_compose_CLOSURE, f, g)
+#define EPILEPSY_PRIV_compose_CLOSURE_IMPL(f, g, x)                                                \
+    EPILEPSY_appl(v(f), EPILEPSY_callTrivial(EPILEPSY_appl, g, x))
 //
 
 // Arity specifiers {
@@ -179,13 +189,14 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_call    EPILEPSY_call
-#define E_appl    EPILEPSY_appl
-#define E_appl2   EPILEPSY_appl2
-#define E_appl3   EPILEPSY_appl3
-#define E_compose EPILEPSY_compose
-#define E_fatal   EPILEPSY_fatal
-#define E_abort   EPILEPSY_abort
+#define E_call        EPILEPSY_call
+#define E_callTrivial EPILEPSY_callTrivial
+#define E_appl        EPILEPSY_appl
+#define E_appl2       EPILEPSY_appl2
+#define E_appl3       EPILEPSY_appl3
+#define E_compose     EPILEPSY_compose
+#define E_fatal       EPILEPSY_fatal
+#define E_abort       EPILEPSY_abort
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

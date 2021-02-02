@@ -19,15 +19,17 @@
 #define EPILEPSY_PRIV_APPLY_WITH_ARITY_F(f, ...)                                                   \
     EPILEPSY_PRIV_CLOSURE_APPLY_ENV(EPILEPSY_PRIV_CLOSURE(v(f), v(__VA_ARGS__)))
 #define EPILEPSY_PRIV_APPLY_WITH_ARITY_CLOSURE(closure, ...)                                       \
-    EPILEPSY_call(                                                                                 \
+    EPILEPSY_callTrivial(                                                                          \
         EPILEPSY_PRIV_CLOSURE_F(closure),                                                          \
-        v(EPILEPSY_PRIV_CLOSURE_ENV(closure), __VA_ARGS__))
+        EPILEPSY_PRIV_CLOSURE_ENV(closure),                                                        \
+        __VA_ARGS__)
 
-#define EPILEPSY_appl2_IMPL(f, a, b)    EPILEPSY_appl(EPILEPSY_appl(v(f), v(a)), v(b))
-#define EPILEPSY_appl3_IMPL(f, a, b, c) EPILEPSY_appl(EPILEPSY_appl2(v(f), v(a), v(b)), v(c))
+#define EPILEPSY_appl2_IMPL(f, a, b) EPILEPSY_appl(EPILEPSY_callTrivial(EPILEPSY_appl, f, a), v(b))
+#define EPILEPSY_appl3_IMPL(f, a, b, c)                                                            \
+    EPILEPSY_appl(EPILEPSY_callTrivial(EPILEPSY_appl2, f, a, b), v(c))
 
 #define EPILEPSY_PRIV_CLOSURE_APPLY_ENV_IMPL(closure)                                              \
-    EPILEPSY_call(EPILEPSY_PRIV_CLOSURE_F(closure), v(EPILEPSY_PRIV_CLOSURE_ENV(closure)))
+    EPILEPSY_callTrivial(EPILEPSY_PRIV_CLOSURE_F(closure), EPILEPSY_PRIV_CLOSURE_ENV(closure))
 
 #define EPILEPSY_PRIV_CLOSURE_IMPL(f, ...)                                                         \
     EPILEPSY_PRIV_MATCH(EPILEPSY_PRIV_CURRY_, f##_ARITY)(f, __VA_ARGS__)
@@ -40,7 +42,7 @@
 
 #define EPILEPSY_PRIV_CURRY_1(f, ...)                                                              \
     EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_1_CLOSURE), v(f, __VA_ARGS__))
-#define EPILEPSY_PRIV_CURRY_1_CLOSURE_IMPL(f, ...) EPILEPSY_call(f, v(__VA_ARGS__))
+#define EPILEPSY_PRIV_CURRY_1_CLOSURE_IMPL(f, ...) EPILEPSY_callTrivial(f, __VA_ARGS__)
 
 #define EPILEPSY_PRIV_CURRY_2(f, ...)                                                              \
     EPILEPSY_PRIV_CLOSURE_UNCURRIED(v(EPILEPSY_PRIV_CURRY_2_CLOSURE), v(f, __VA_ARGS__))

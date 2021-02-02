@@ -89,6 +89,15 @@
         EPILEPSY_PRIV_TERM_END(),                                                                  \
         ~)
 
+#define EPILEPSY_PRIV_EVAL_0callTrivial(k, k_cx, folder, acc, tail, ident, ...)                    \
+    EPILEPSY_PRIV_EVAL_MACHINE_REDUCE(                                                             \
+        EPILEPSY_PRIV_EVAL_0args_K_K,                                                              \
+        (k, k_cx, folder, acc, tail),                                                              \
+        EPILEPSY_PRIV_EVAL_FAPPEND,                                                                \
+        EPILEPSY_PRIV_EVAL_ACC_EMPTY(),                                                            \
+        ident##_IMPL(__VA_ARGS__) EPILEPSY_PRIV_TERM_END(),                                        \
+        ~)
+
 // clang-format off
 #define EPILEPSY_PRIV_EVAL_0fatal(_k, k_cx, folder, acc, _tail, f, message)                        \
     EPILEPSY_PRIV_REC_CONTINUE(EPILEPSY_PRIV_REC_STOP, (~), !"Epilepsy error" (f): message)

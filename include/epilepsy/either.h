@@ -114,37 +114,41 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_left_IMPL(x)  EPILEPSY_choice(v(left), v(x))
-#define EPILEPSY_right_IMPL(x) EPILEPSY_choice(v(right), v(x))
+#define EPILEPSY_left_IMPL(x)  EPILEPSY_callTrivial(EPILEPSY_choice, left, x)
+#define EPILEPSY_right_IMPL(x) EPILEPSY_callTrivial(EPILEPSY_choice, right, x)
 
-#define EPILEPSY_isLeft_IMPL(either)        EPILEPSY_match(v(either), v(EPILEPSY_PRIV_isLeft_))
+#define EPILEPSY_isLeft_IMPL(either)                                                               \
+    EPILEPSY_callTrivial(EPILEPSY_match, either, EPILEPSY_PRIV_isLeft_)
 #define EPILEPSY_PRIV_isLeft_left_IMPL(_x)  v(EPILEPSY_true)
 #define EPILEPSY_PRIV_isLeft_right_IMPL(_x) v(EPILEPSY_false)
 
-#define EPILEPSY_isRight_IMPL(either) EPILEPSY_not(EPILEPSY_isLeft(v(either)))
+#define EPILEPSY_isRight_IMPL(either) EPILEPSY_not(EPILEPSY_callTrivial(EPILEPSY_isLeft, either))
 
 // EPILEPSY_eitherEq_IMPL {
 #define EPILEPSY_eitherEq_IMPL(compare, maybe, other)                                              \
-    EPILEPSY_matchWithArgs(v(maybe), v(EPILEPSY_PRIV_eitherEq_), v(other, compare))
+    EPILEPSY_callTrivial(EPILEPSY_matchWithArgs, maybe, EPILEPSY_PRIV_eitherEq_, other, compare)
 
 #define EPILEPSY_PRIV_eitherEq_left_IMPL(x, other, compare)                                        \
-    EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_eitherEq_left_), v(x, compare))
+    EPILEPSY_callTrivial(EPILEPSY_matchWithArgs, other, EPILEPSY_PRIV_eitherEq_left_, x, compare)
 #define EPILEPSY_PRIV_eitherEq_right_IMPL(x, other, compare)                                       \
-    EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_eitherEq_right_), v(x, compare))
+    EPILEPSY_callTrivial(EPILEPSY_matchWithArgs, other, EPILEPSY_PRIV_eitherEq_right_, x, compare)
 
-#define EPILEPSY_PRIV_eitherEq_left_left_IMPL(y, x, compare)  EPILEPSY_appl2(v(compare), v(x), v(y))
+#define EPILEPSY_PRIV_eitherEq_left_left_IMPL(y, x, compare)                                       \
+    EPILEPSY_callTrivial(EPILEPSY_appl2, compare, x, y)
 #define EPILEPSY_PRIV_eitherEq_left_right_IMPL(y, x, compare) v(EPILEPSY_false)
 #define EPILEPSY_PRIV_eitherEq_right_left_IMPL(y, x, compare) v(EPILEPSY_false)
 #define EPILEPSY_PRIV_eitherEq_right_right_IMPL(y, x, compare)                                     \
-    EPILEPSY_appl2(v(compare), v(x), v(y))
+    EPILEPSY_callTrivial(EPILEPSY_appl2, compare, x, y)
 // } (EPILEPSY_eitherEq_IMPL)
 
-#define EPILEPSY_unwrapLeft_IMPL(either)      EPILEPSY_match(v(either), v(EPILEPSY_PRIV_unwrapLeft_))
+#define EPILEPSY_unwrapLeft_IMPL(either)                                                           \
+    EPILEPSY_callTrivial(EPILEPSY_match, either, EPILEPSY_PRIV_unwrapLeft_)
 #define EPILEPSY_PRIV_unwrapLeft_left_IMPL(x) v(x)
 #define EPILEPSY_PRIV_unwrapLeft_right_IMPL(_x)                                                    \
     EPILEPSY_fatal(EPILEPSY_unwrapLeft, expected EPILEPSY_left but found EPILEPSY_right)
 
-#define EPILEPSY_unwrapRight_IMPL(either) EPILEPSY_match(v(either), v(EPILEPSY_PRIV_unwrapRight_))
+#define EPILEPSY_unwrapRight_IMPL(either)                                                          \
+    EPILEPSY_callTrivial(EPILEPSY_match, either, EPILEPSY_PRIV_unwrapRight_)
 #define EPILEPSY_PRIV_unwrapRight_left_IMPL(_x)                                                    \
     EPILEPSY_fatal(EPILEPSY_unwrapRight, expected EPILEPSY_right but found EPILEPSY_left)
 #define EPILEPSY_PRIV_unwrapRight_right_IMPL(x) v(x)

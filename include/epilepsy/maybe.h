@@ -96,28 +96,32 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_just_IMPL(x)   EPILEPSY_choice(v(just), v(x))
-#define EPILEPSY_nothing_IMPL() EPILEPSY_choiceEmpty(v(nothing))
+#define EPILEPSY_just_IMPL(x)   EPILEPSY_callTrivial(EPILEPSY_choice, just, x)
+#define EPILEPSY_nothing_IMPL() EPILEPSY_callTrivial(EPILEPSY_choiceEmpty, nothing)
 
-#define EPILEPSY_isJust_IMPL(maybe)         EPILEPSY_match(v(maybe), v(EPILEPSY_PRIV_isJust_))
+#define EPILEPSY_isJust_IMPL(maybe)                                                                \
+    EPILEPSY_callTrivial(EPILEPSY_match, maybe, EPILEPSY_PRIV_isJust_)
 #define EPILEPSY_PRIV_isJust_just_IMPL(_x)  v(EPILEPSY_true)
 #define EPILEPSY_PRIV_isJust_nothing_IMPL() v(EPILEPSY_false)
 
-#define EPILEPSY_isNothing_IMPL(maybe) EPILEPSY_not(EPILEPSY_isJust(v(maybe)))
+#define EPILEPSY_isNothing_IMPL(maybe) EPILEPSY_not(EPILEPSY_callTrivial(EPILEPSY_isJust, maybe))
 
 // EPILEPSY_maybeEq_IMPL {
 #define EPILEPSY_maybeEq_IMPL(compare, maybe, other)                                               \
-    EPILEPSY_matchWithArgs(v(maybe), v(EPILEPSY_PRIV_maybeEq_), v(other, compare))
+    EPILEPSY_callTrivial(EPILEPSY_matchWithArgs, maybe, EPILEPSY_PRIV_maybeEq_, other, compare)
 
-#define EPILEPSY_PRIV_maybeEq_nothing_IMPL(other, _compare) EPILEPSY_isNothing(v(other))
+#define EPILEPSY_PRIV_maybeEq_nothing_IMPL(other, _compare)                                        \
+    EPILEPSY_callTrivial(EPILEPSY_isNothing, other)
 #define EPILEPSY_PRIV_maybeEq_just_IMPL(x, other, compare)                                         \
-    EPILEPSY_matchWithArgs(v(other), v(EPILEPSY_PRIV_maybeEq_just_), v(x, compare))
+    EPILEPSY_callTrivial(EPILEPSY_matchWithArgs, other, EPILEPSY_PRIV_maybeEq_just_, x, compare)
 
 #define EPILEPSY_PRIV_maybeEq_just_nothing_IMPL(other, _compare) v(EPILEPSY_false)
-#define EPILEPSY_PRIV_maybeEq_just_just_IMPL(y, x, compare)      EPILEPSY_appl2(v(compare), v(x), v(y))
+#define EPILEPSY_PRIV_maybeEq_just_just_IMPL(y, x, compare)                                        \
+    EPILEPSY_callTrivial(EPILEPSY_appl2, compare, x, y)
 // } (EPILEPSY_maybeEq_IMPL)
 
-#define EPILEPSY_maybeUnwrap_IMPL(maybe) EPILEPSY_match(v(maybe), v(EPILEPSY_PRIV_maybeUnwrap_))
+#define EPILEPSY_maybeUnwrap_IMPL(maybe)                                                           \
+    EPILEPSY_callTrivial(EPILEPSY_match, maybe, EPILEPSY_PRIV_maybeUnwrap_)
 #define EPILEPSY_PRIV_maybeUnwrap_nothing_IMPL()                                                   \
     EPILEPSY_fatal(EPILEPSY_maybeUnwrap, expected EPILEPSY_just but found EPILEPSY_nothing)
 #define EPILEPSY_PRIV_maybeUnwrap_just_IMPL(x) v(x)
