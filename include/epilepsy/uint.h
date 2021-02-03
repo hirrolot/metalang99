@@ -389,6 +389,11 @@
 #define EPILEPSY_uintEqPlain(x, y) EPILEPSY_PRIV_uintEq(x, y)
 
 /**
+ * The plain version of #EPILEPSY_uintNeq.
+ */
+#define EPILEPSY_uintNeqPlain(x, y) EPILEPSY_notPlain(EPILEPSY_uintEqPlain(x, y))
+
+/**
  * The plain version of #EPILEPSY_uintIncPlain.
  */
 #define EPILEPSY_uintIncPlain(x) EPILEPSY_PRIV_uintInc(x)
@@ -414,7 +419,11 @@
         EPILEPSY_callTrivial(matcher##Z, __VA_ARGS__),                                             \
         EPILEPSY_callTrivial(matcher##S, EPILEPSY_PRIV_uintDec(x), __VA_ARGS__))
 
-#define EPILEPSY_uintNeq_IMPL(x, y)      EPILEPSY_not(EPILEPSY_callTrivial(EPILEPSY_uintEq, x, y))
+#define EPILEPSY_uintEq_IMPL(x, y)  v(EPILEPSY_uintEqPlain(x, y))
+#define EPILEPSY_uintNeq_IMPL(x, y) v(EPILEPSY_uintNeqPlain(x, y))
+#define EPILEPSY_uintInc_IMPL(x)    v(EPILEPSY_uintIncPlain(x))
+#define EPILEPSY_uintDec_IMPL(x)    v(EPILEPSY_uintDecPlain(x))
+
 #define EPILEPSY_uintGreater_IMPL(x, y)  EPILEPSY_callTrivial(EPILEPSY_uintLesser, y, x)
 #define EPILEPSY_uintLesserEq_IMPL(x, y) EPILEPSY_callTrivial(EPILEPSY_uintGreaterEq, y, x)
 
@@ -562,12 +571,9 @@
 
 #define E_uintInc           EPILEPSY_uintInc
 #define E_uintDec           EPILEPSY_uintDec
-#define E_uintIncPlain      EPILEPSY_uintIncPlain
-#define E_uintDecPlain      EPILEPSY_uintDecPlain
 #define E_uintMatch         EPILEPSY_uintMatch
 #define E_uintMatchWithArgs EPILEPSY_uintMatchWithArgs
 #define E_uintEq            EPILEPSY_uintEq
-#define E_uintEqPlain       EPILEPSY_uintEqPlain
 #define E_uintNeq           EPILEPSY_uintNeq
 #define E_uintGreater       EPILEPSY_uintGreater
 #define E_uintGreaterEq     EPILEPSY_uintGreaterEq
@@ -585,6 +591,11 @@
 #define E_uintDiv3          EPILEPSY_uintDiv3
 #define E_uintMin           EPILEPSY_uintMin
 #define E_uintMax           EPILEPSY_uintMax
+
+#define E_uintEqPlain  EPILEPSY_uintEqPlain
+#define E_uintNeqPlain EPILEPSY_uintNeqPlain
+#define E_uintIncPlain EPILEPSY_uintIncPlain
+#define E_uintDecPlain EPILEPSY_uintDecPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

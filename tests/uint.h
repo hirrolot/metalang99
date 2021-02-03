@@ -23,27 +23,23 @@ E_eval(E_uintMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
 #undef MATCH_S_IMPL
 // }
 
-// E_uintInc, E_uintIncPlain {
+// E_uintInc {
 E_assertEq(E_uintInc(v(0)), v(1));
 E_assertEq(E_uintInc(v(15)), v(16));
 E_assertEq(E_uintInc(v(198)), v(199));
 E_assertEq(E_uintInc(v(254)), v(255));
 E_assertEq(E_uintInc(v(255)), v(0));
-
-E_assertEq(v(E_uintIncPlain(17)), v(18));
 // }
 
-// E_uintDec, E_uintDecPlain {
+// E_uintDec {
 E_assertEq(E_uintDec(v(0)), v(255));
 E_assertEq(E_uintDec(v(1)), v(0));
 E_assertEq(E_uintDec(v(71)), v(70));
 E_assertEq(E_uintDec(v(201)), v(200));
 E_assertEq(E_uintDec(v(255)), v(254));
-
-E_assertEq(v(E_uintDecPlain(17)), v(16));
 // }
 
-// E_uintEq, E_uintEqPlain {
+// E_uintEq {
 E_assert(E_uintEq(v(0), v(0)));
 E_assert(E_uintEq(v(18), v(18)));
 E_assert(E_uintEq(v(183), v(183)));
@@ -51,9 +47,6 @@ E_assert(E_uintEq(v(255), v(255)));
 
 E_assert(E_not(E_uintEq(v(0), v(1))));
 E_assert(E_not(E_uintEq(v(198), v(91))));
-
-E_assert(v(E_uintEqPlain(19, 19)));
-E_assert(E_not(v(E_uintEqPlain(19, 0))));
 // }
 
 // E_uintNeq {
@@ -70,6 +63,9 @@ E_assert(E_uintGreater(v(255), v(0)));
 E_assert(E_uintGreater(v(5), v(4)));
 E_assert(E_uintGreater(v(147), v(80)));
 E_assert(E_uintGreater(v(217), v(209)));
+
+E_assert(E_not(E_uintGreater(v(0), v(13))));
+E_assert(E_not(E_uintGreater(v(17), v(120))));
 // }
 
 // E_uintLesser {
@@ -78,6 +74,9 @@ E_assert(E_uintLesser(v(0), v(255)));
 E_assert(E_uintLesser(v(19), v(25)));
 E_assert(E_uintLesser(v(109), v(110)));
 E_assert(E_uintLesser(v(10), v(208)));
+
+E_assert(E_not(E_uintLesser(v(12), v(0))));
+E_assert(E_not(E_uintLesser(v(123), v(123))));
 // }
 
 // E_uintGreaterEq {
@@ -90,6 +89,9 @@ E_assert(E_uintGreaterEq(v(1), v(0)));
 E_assert(E_uintGreaterEq(v(255), v(0)));
 E_assert(E_uintGreaterEq(v(19), v(10)));
 E_assert(E_uintGreaterEq(v(178), v(177)));
+
+E_assert(E_not(E_uintGreaterEq(v(0), v(7))));
+E_assert(E_not(E_uintGreaterEq(v(1), v(19))));
 // }
 
 // E_uintLesserEq {
@@ -105,6 +107,9 @@ E_assert(E_uintLesserEq(v(18), v(27)));
 E_assert(E_uintLesserEq(v(82), v(90)));
 E_assert(E_uintLesserEq(v(145), v(146)));
 E_assert(E_uintLesserEq(v(181), v(255)));
+
+E_assert(E_not(E_uintLesserEq(v(7), v(0))));
+E_assert(E_not(E_uintLesserEq(v(182), v(181))));
 // }
 
 // E_uintAdd {

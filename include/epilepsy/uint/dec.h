@@ -1,10 +1,7 @@
 #ifndef EPILEPSY_UINT_DEC_H
 #define EPILEPSY_UINT_DEC_H
 
-#include <epilepsy/lang.h>
 #include <epilepsy/priv/aux.h>
-
-#define EPILEPSY_uintDec_IMPL(x) v(EPILEPSY_PRIV_uintDec(x))
 
 #define EPILEPSY_PRIV_uintDec(x) EPILEPSY_PRIV_CAT(EPILEPSY_PRIV_UINT_DEC_, x)()
 
