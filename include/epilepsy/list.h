@@ -289,6 +289,8 @@
  * // 123
  * E_listFoldr(E_appl(v(E_flip), v(E_cat)), v(A), E_list(v(G, DEF, BC)))
  * @endcode
+ *
+ * @note @p f must always return a single Epilepsy term.
  */
 #define EPILEPSY_listFoldr(f, init, list) EPILEPSY_call(EPILEPSY_listFoldr, f init list)
 
@@ -308,6 +310,8 @@
  * // 123
  * E_listFoldl(v(E_cat), v(A), E_list(v(BC, DEF, G)))
  * @endcode
+ *
+ * @note @p f must always return a single Epilepsy term.
  */
 #define EPILEPSY_listFoldl(f, init, list) EPILEPSY_call(EPILEPSY_listFoldl, f init list)
 
@@ -324,6 +328,8 @@
  * // 123
  * E_listFoldl1(v(E_cat), E_list(v(AB, CDEF, G)))
  * @endcode
+ *
+ * @note @p f must always return a single Epilepsy term.
  */
 #define EPILEPSY_listFoldl1(f, list) EPILEPSY_call(EPILEPSY_listFoldl1, f list)
 
@@ -367,6 +373,8 @@
  * // 4, 5, 6
  * E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3)))
  * @endcode
+ *
+ * @note @p f must always return a single Epilepsy term.
  */
 #define EPILEPSY_listMap(f, list) EPILEPSY_call(EPILEPSY_listMap, f list)
 
@@ -384,6 +392,8 @@
  * // a[0], b[1], c[2]
  * E_listMapI(v(F), E_list(v(a, b, c)))
  * @endcode
+ *
+ * @note @p f must always return a single Epilepsy term.
  */
 #define EPILEPSY_listMapI(f, list) EPILEPSY_call(EPILEPSY_listMapI, f list)
 
@@ -399,6 +409,8 @@
  * // 4, 5, 6
  * E_listFor(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3)))
  * @endcode
+ *
+ * @note @p f must always return a single Epilepsy term.
  */
 #define EPILEPSY_listFor(list, f) EPILEPSY_call(EPILEPSY_listFor, list f)
 
@@ -412,6 +424,8 @@
  * // 4, 5, 10
  * E_listMapInitLast(E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(7)), E_list(v(1, 2, 3)))
  * @endcode
+ *
+ * @note @p f must always return a single Epilepsy term.
  */
 #define EPILEPSY_listMapInitLast(f_init, f_last, list)                                             \
     EPILEPSY_call(EPILEPSY_listMapInitLast, f_init f_last list)
@@ -425,6 +439,8 @@
  * // 4, 5, 10
  * E_listForInitLast(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(7)))
  * @endcode
+ *
+ * @note @p f must always return a single Epilepsy term.
  */
 #define EPILEPSY_listForInitLast(list, f_init, f_last)                                             \
     EPILEPSY_call(EPILEPSY_listForInitLast, list f_init f_last)
