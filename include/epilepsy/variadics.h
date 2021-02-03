@@ -80,6 +80,8 @@
  * // 2 3 4
  * E_variadicsMap(E_appl(v(E_uintAdd), v(1)), v(1, 2, 3))
  * @endcode
+ *
+ * @note @p f can evaluate to many Epilepsy terms.
  */
 #define EPILEPSY_variadicsMap(f, ...) EPILEPSY_call(EPILEPSY_variadicsMap, f __VA_ARGS__)
 
@@ -97,6 +99,8 @@
  * // 2, 3, 4
  * E_variadicsMapCommaSep(E_appl(v(E_uintAdd), v(1)), v(1, 2, 3))
  * @endcode
+ *
+ * @note @p f can evaluate to many Epilepsy terms.
  */
 #define EPILEPSY_variadicsMapCommaSep(f, ...)                                                      \
     EPILEPSY_call(EPILEPSY_variadicsMapCommaSep, f __VA_ARGS__)
@@ -105,6 +109,8 @@
  * The same as #EPILEPSY_listMapI but for variadics.
  *
  * The result is `EPILEPSY_appl2(v(f), v(x1), v(0)) ... EPILEPSY_appl2(v(f), v(xN), v(N))`.
+ *
+ * @note Unlike #EPILEPSY_listMapI, @p f can evaluate to many Epilepsy terms.
  */
 #define EPILEPSY_variadicsMapI(f, ...) EPILEPSY_call(EPILEPSY_variadicsMapI, f __VA_ARGS__)
 
@@ -113,6 +119,8 @@
  *
  * The result is `EPILEPSY_appl2(v(f), v(x1), v(0)) v(,) ... v(,) EPILEPSY_appl2(v(f), v(xN),
  * v(N))`.
+ *
+ * @note @p f can evaluate to many Epilepsy terms.
  */
 #define EPILEPSY_variadicsMapICommaSep(f, ...)                                                     \
     EPILEPSY_call(EPILEPSY_variadicsMapICommaSep, f __VA_ARGS__)

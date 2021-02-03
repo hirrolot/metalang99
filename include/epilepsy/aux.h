@@ -290,6 +290,23 @@
 #define EPILEPSY_consume(...) EPILEPSY_call(EPILEPSY_consume, __VA_ARGS__)
 
 /**
+ * Puts provided arguments into braces.
+ *
+ * Some code formatters behave strangely when encounter braces in macros (in different places) --
+ * this is why this macro exists.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/aux.h>
+ *
+ * // { int a, b, c; }
+ * E_braced(v(int a, b, c;))
+ * @endcode
+ */
+#define EPILEPSY_braced(...) EPILEPSY_call(EPILEPSY_braced, __VA_ARGS__)
+
+/**
  * Concatenates @p x with @p y as-is, without expanding them.
  *
  * # Examples
@@ -396,6 +413,7 @@
 #define EPILEPSY_isParenthesised_IMPL(x)         v(EPILEPSY_PRIV_IS_PARENTHESISED(x))
 #define EPILEPSY_isUnparenthesised_IMPL(x)       v(EPILEPSY_PRIV_IS_UNPARENTHESISED(x))
 #define EPILEPSY_consume_IMPL(...)               EPILEPSY_empty()
+#define EPILEPSY_braced_IMPL(...)                v({__VA_ARGS__})
 // }
 
 // Arity specifiers {
@@ -418,6 +436,7 @@
 #define EPILEPSY_isParenthesised_ARITY    1
 #define EPILEPSY_isUnparenthesised_ARITY  1
 #define EPILEPSY_consume_ARITY            1
+#define EPILEPSY_braced_ARITY             1
 
 #define EPILEPSY_PRIV_flip_ARITY 3
 // }
@@ -444,6 +463,7 @@
 #define E_isParenthesised     EPILEPSY_isParenthesised
 #define E_isUnparenthesised   EPILEPSY_isUnparenthesised
 #define E_consume             EPILEPSY_consume
+#define E_braced              EPILEPSY_braced
 #define E_catPrimitive        EPILEPSY_catPrimitive
 #define E_stringifyPrimitive  EPILEPSY_stringifyPrimitive
 #define E_semicolon           EPILEPSY_semicolon

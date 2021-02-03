@@ -81,3 +81,7 @@ void test_semicolon(void) {
     }
 }
 // }
+
+// E_braced {
+struct TestBraced E_eval(E_braced(v(int a, b, c;)));
+// }
