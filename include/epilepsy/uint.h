@@ -572,6 +572,7 @@
 #define E_uintDiv3          EPILEPSY_uintDiv3
 #define E_uintMin           EPILEPSY_uintMin
 #define E_uintMax           EPILEPSY_uintMax
+#define E_uintEqPlain       EPILEPSY_uintEqPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

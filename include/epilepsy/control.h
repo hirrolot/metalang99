@@ -55,6 +55,11 @@
  * @note Currently, this function can accept at most 256 variadic arguments.
  */
 #define EPILEPSY_overload(f, ...) EPILEPSY_call(EPILEPSY_overload, f __VA_ARGS__)
+
+/**
+ * The plain version of #EPILEPSY_if.
+ */
+#define EPILEPSY_ifPlain(cond, x, y) EPILEPSY_PRIV_CAT(EPILEPSY_PRIV_ifPlain_, cond)(x, y)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -65,9 +70,10 @@
         EPILEPSY_PRIV_CAT(f, EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__)),                          \
         __VA_ARGS__)
 
-#define EPILEPSY_if_IMPL(cond, x, y) EPILEPSY_PRIV_if_##cond(x, y)
-#define EPILEPSY_PRIV_if_0(_x, y)    v(y)
-#define EPILEPSY_PRIV_if_1(x, _y)    v(x)
+#define EPILEPSY_if_IMPL(cond, x, y) v(EPILEPSY_ifPlain(cond, x, y))
+
+#define EPILEPSY_PRIV_ifPlain_0(_x, y) y
+#define EPILEPSY_PRIV_ifPlain_1(x, _y) x
 // }
 
 // Arity specifiers {
@@ -80,6 +86,7 @@
 
 #define E_overload EPILEPSY_overload
 #define E_if       EPILEPSY_if
+#define E_ifPlain  EPILEPSY_ifPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

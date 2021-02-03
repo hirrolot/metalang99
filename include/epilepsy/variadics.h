@@ -87,9 +87,10 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_variadicsCount EPILEPSY_variadicsCount
-#define E_variadicsHead  EPILEPSY_variadicsHead
-#define E_variadicsTail  EPILEPSY_variadicsTail
+#define E_variadicsCount      EPILEPSY_variadicsCount
+#define E_variadicsHead       EPILEPSY_variadicsHead
+#define E_variadicsTail       EPILEPSY_variadicsTail
+#define E_variadicsCountPlain EPILEPSY_variadicsCountPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

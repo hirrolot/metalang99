@@ -420,28 +420,29 @@
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_catEval            EPILEPSY_catEval
-#define E_cat                EPILEPSY_cat
-#define E_stringify          EPILEPSY_stringify
-#define E_empty              EPILEPSY_empty
-#define E_id                 EPILEPSY_id
-#define E_parenthesiseEval   EPILEPSY_parenthesiseEval
-#define E_unparenthesiseEval EPILEPSY_unparenthesiseEval
-#define E_unparenthesise     EPILEPSY_unparenthesise
-#define E_parenthesise       EPILEPSY_parenthesise
-#define E_const              EPILEPSY_const
-#define E_const2             EPILEPSY_const2
-#define E_const3             EPILEPSY_const3
-#define E_flip               EPILEPSY_flip
-#define E_putBefore          EPILEPSY_putBefore
-#define E_putAfter           EPILEPSY_putAfter
-#define E_putBetween         EPILEPSY_putBetween
-#define E_isParenthesised    EPILEPSY_isParenthesised
-#define E_isUnparenthesised  EPILEPSY_isUnparenthesised
-#define E_consume            EPILEPSY_consume
-#define E_catPrimitive       EPILEPSY_catPrimitive
-#define E_stringifyPrimitive EPILEPSY_stringifyPrimitive
-#define E_semicolon          EPILEPSY_semicolon
+#define E_catEval             EPILEPSY_catEval
+#define E_cat                 EPILEPSY_cat
+#define E_stringify           EPILEPSY_stringify
+#define E_empty               EPILEPSY_empty
+#define E_id                  EPILEPSY_id
+#define E_parenthesiseEval    EPILEPSY_parenthesiseEval
+#define E_unparenthesiseEval  EPILEPSY_unparenthesiseEval
+#define E_unparenthesise      EPILEPSY_unparenthesise
+#define E_parenthesise        EPILEPSY_parenthesise
+#define E_const               EPILEPSY_const
+#define E_const2              EPILEPSY_const2
+#define E_const3              EPILEPSY_const3
+#define E_flip                EPILEPSY_flip
+#define E_putBefore           EPILEPSY_putBefore
+#define E_putAfter            EPILEPSY_putAfter
+#define E_putBetween          EPILEPSY_putBetween
+#define E_isParenthesised     EPILEPSY_isParenthesised
+#define E_isUnparenthesised   EPILEPSY_isUnparenthesised
+#define E_consume             EPILEPSY_consume
+#define E_catPrimitive        EPILEPSY_catPrimitive
+#define E_stringifyPrimitive  EPILEPSY_stringifyPrimitive
+#define E_semicolon           EPILEPSY_semicolon
+#define E_unparenthesisePlain EPILEPSY_unparenthesisePlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
