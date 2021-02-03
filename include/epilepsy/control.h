@@ -64,7 +64,7 @@
 /**
  * The plain version of #EPILEPSY_overload.
  *
- * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `<f>_<count of
+ * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `<f><count of
  * ...>(...)`.
  */
 #define EPILEPSY_overloadPlain(f, ...)                                                             \
