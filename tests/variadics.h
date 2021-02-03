@@ -73,3 +73,27 @@ E_eval(v(CHECK) E_parenthesise(E_variadicsMapCommaSep(E_appl(v(E_uintAdd), v(1))
 
 #undef CHECK
 // }
+
+// E_variadicsMapI {
+#define CHECK(_, x, y, z) E_assertPlain(x == 1 + 0 && y == 2 + 1 && z == 3 + 2)
+#define F_IMPL(i, x)      v(, ) EPILEPSY_uintAdd(v(x), v(i))
+#define F_ARITY           2
+
+E_eval(v(CHECK) E_parenthesise(E_variadicsMapI(v(F), v(1, 2, 3))));
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
+// }
+
+// E_variadicsMapI {
+#define CHECK(x, y, z) E_assertPlain(x == 1 + 0 && y == 2 + 1 && z == 3 + 2)
+#define F_IMPL(i, x)   EPILEPSY_uintAdd(v(x), v(i))
+#define F_ARITY        2
+
+E_eval(v(CHECK) E_parenthesise(E_variadicsMapICommaSep(v(F), v(1, 2, 3))));
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
+// }
