@@ -27,6 +27,7 @@ Macros which are postfixed with `Plain` are called the plain versions of others,
    aux
    control
    assert
+   misc
 
 Contents
 ====================================
@@ -43,6 +44,7 @@ Contents
  - `aux.h`_ - Auxiliary macros.
  - `control.h`_ - Control expressions.
  - `assert.h`_ - Static assertions.
+ - `misc.h`_ - Miscellaneous stuff.
 
 Indices and tables
 ====================================
@@ -64,3 +66,4 @@ Indices and tables
 .. _aux.h: aux.html
 .. _control.h: control.html
 .. _assert.h: assert.html
+.. _misc.h: misc.html

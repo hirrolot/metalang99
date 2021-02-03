@@ -14,6 +14,7 @@
 #include <epilepsy/lang.h>
 #include <epilepsy/list.h>
 #include <epilepsy/maybe.h>
+#include <epilepsy/misc.h>
 #include <epilepsy/uint.h>
 #include <epilepsy/variadics.h>
 
