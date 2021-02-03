@@ -2,8 +2,8 @@
  * @file
  * Variadic macro utilities.
  *
- * Epilepsy does not provide a lot of stuff in this module; invoking #EPILEPSY_list and then
- * manipulating with the resulting Cons-list is more appropriate.
+ * Epilepsy does not provide a lot of stuff in this module; if a needed function is missed, invoking
+ * #EPILEPSY_list and then manipulating with the resulting Cons-list might be helpful.
  */
 
 #ifndef EPILEPSY_VARIADICS_H
@@ -11,6 +11,8 @@
 
 #include <epilepsy/lang.h>
 #include <epilepsy/priv/variadics/count.h>
+#include <epilepsy/uint/dec.h>
+#include <epilepsy/uint/eq.h>
 
 // Desugaring {
 /**
@@ -65,6 +67,41 @@
 #define EPILEPSY_variadicsTail(...) EPILEPSY_call(EPILEPSY_variadicsTail, __VA_ARGS__)
 
 /**
+ * Maps a sequence of arguments with @p f.
+ *
+ * The result is `EPILEPSY_appl(v(f), v(x1)) ... EPILEPSY_appl(v(f), v(xN))`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/variadics.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 2 3 4
+ * E_variadicsMap(E_appl(v(E_uintAdd), v(1)), v(1, 2, 3))
+ * @endcode
+ */
+#define EPILEPSY_variadicsMap(f, ...) EPILEPSY_call(EPILEPSY_variadicsMap, f __VA_ARGS__)
+
+/**
+ * The same as #EPILEPSY_variadicsMap but intersperses a comma between invocations of @p f.
+ *
+ * The result is `EPILEPSY_appl(v(f), v(x1)) v(,) ... v(,) EPILEPSY_appl(v(f), v(xN))`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/variadics.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // 2, 3, 4
+ * E_variadicsMapCommaSep(E_appl(v(E_uintAdd), v(1)), v(1, 2, 3))
+ * @endcode
+ */
+#define EPILEPSY_variadicsMapCommaSep(f, ...)                                                      \
+    EPILEPSY_call(EPILEPSY_variadicsMapCommaSep, f __VA_ARGS__)
+
+/**
  * The plain version of #EPILEPSY_variadicsCount.
  */
 #define EPILEPSY_variadicsCountPlain(...) EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__)
@@ -76,21 +113,77 @@
 #define EPILEPSY_variadicsCount_IMPL(...)   v(EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__))
 #define EPILEPSY_variadicsHead_IMPL(x, ...) v(x)
 #define EPILEPSY_variadicsTail_IMPL(x, ...) v(__VA_ARGS__)
+
+// EPILEPSY_variadicsMap_IMPL {
+#define EPILEPSY_variadicsMap_IMPL(f, ...)                                                         \
+    EPILEPSY_variadicsMap_AUX_IMPL(f, EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
+
+#define EPILEPSY_variadicsMap_AUX_IMPL(f, count, ...)                                              \
+    EPILEPSY_callTrivial(                                                                          \
+        EPILEPSY_PRIV_IF(                                                                          \
+            EPILEPSY_PRIV_uintEq(count, 1),                                                        \
+            EPILEPSY_variadicsMap_DONE,                                                            \
+            EPILEPSY_variadicsMap_PROGRESS),                                                       \
+        f,                                                                                         \
+        count,                                                                                     \
+        __VA_ARGS__)
+
+#define EPILEPSY_variadicsMap_DONE_IMPL(f, _count, x, _) EPILEPSY_callTrivial(EPILEPSY_appl, f, x)
+#define EPILEPSY_variadicsMap_PROGRESS_IMPL(f, count, x, ...)                                      \
+    EPILEPSY_callTrivial(EPILEPSY_appl, f, x) EPILEPSY_callTrivial(                                \
+        EPILEPSY_variadicsMap_AUX,                                                                 \
+        f,                                                                                         \
+        EPILEPSY_PRIV_uintDec(count),                                                              \
+        __VA_ARGS__)
 // }
 
+// EPILEPSY_variadicsMapCommaSep_IMPL {
+#define EPILEPSY_variadicsMapCommaSep_IMPL(f, ...)                                                 \
+    EPILEPSY_variadicsMapCommaSep_AUX_IMPL(                                                        \
+        f,                                                                                         \
+        EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__),                                                \
+        __VA_ARGS__,                                                                               \
+        ~)
+
+#define EPILEPSY_variadicsMapCommaSep_AUX_IMPL(f, count, ...)                                      \
+    EPILEPSY_callTrivial(                                                                          \
+        EPILEPSY_PRIV_IF(                                                                          \
+            EPILEPSY_PRIV_uintEq(count, 1),                                                        \
+            EPILEPSY_variadicsMapCommaSep_DONE,                                                    \
+            EPILEPSY_variadicsMapCommaSep_PROGRESS),                                               \
+        f,                                                                                         \
+        count,                                                                                     \
+        __VA_ARGS__)
+
+#define EPILEPSY_variadicsMapCommaSep_DONE_IMPL(f, _count, x, _)                                   \
+    EPILEPSY_callTrivial(EPILEPSY_appl, f, x)
+#define EPILEPSY_variadicsMapCommaSep_PROGRESS_IMPL(f, count, x, ...)                              \
+    EPILEPSY_callTrivial(EPILEPSY_appl, f, x) v(, ) EPILEPSY_callTrivial(                          \
+        EPILEPSY_variadicsMapCommaSep_AUX,                                                         \
+        f,                                                                                         \
+        EPILEPSY_PRIV_uintDec(count),                                                              \
+        __VA_ARGS__)
+// }
+
+// } (Implementation)
+
 // Arity specifiers {
-#define EPILEPSY_variadicsCount_ARITY 1
-#define EPILEPSY_variadicsHead_ARITY  1
-#define EPILEPSY_variadicsTail_ARITY  1
+#define EPILEPSY_variadicsCount_ARITY       1
+#define EPILEPSY_variadicsHead_ARITY        1
+#define EPILEPSY_variadicsTail_ARITY        1
+#define EPILEPSY_variadicsMap_ARITY         2
+#define EPILEPSY_variadicsMapCommaSep_ARITY 2
 // }
 
 // Aliases {
 #ifndef EPILEPSY_NO_SMALL_PREFIX
 
-#define E_variadicsCount      EPILEPSY_variadicsCount
-#define E_variadicsHead       EPILEPSY_variadicsHead
-#define E_variadicsTail       EPILEPSY_variadicsTail
-#define E_variadicsCountPlain EPILEPSY_variadicsCountPlain
+#define E_variadicsCount       EPILEPSY_variadicsCount
+#define E_variadicsHead        EPILEPSY_variadicsHead
+#define E_variadicsTail        EPILEPSY_variadicsTail
+#define E_variadicsMap         EPILEPSY_variadicsMap
+#define E_variadicsMapCommaSep EPILEPSY_variadicsMapCommaSep
+#define E_variadicsCountPlain  EPILEPSY_variadicsCountPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }

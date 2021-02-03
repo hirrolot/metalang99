@@ -1,4 +1,5 @@
 #include <epilepsy/assert.h>
+#include <epilepsy/uint.h>
 #include <epilepsy/variadics.h>
 
 // E_variadicsHead {
@@ -51,4 +52,24 @@ E_assertEq(v(E_variadicsCountPlain(~, ~, ~)), v(3));
 #undef _10_ARGS
 #undef _50_ARGS
 #undef _100_ARGS
+// }
+
+// E_variadicsMap {
+#define CHECK(_, x, y, z) E_assertPlain(x == 2 && y == 3 && z == 4)
+#define F_IMPL(x)         v(, EPILEPSY_uintIncPlain(x))
+#define F_ARITY           1
+
+E_eval(v(CHECK) E_parenthesise(E_variadicsMap(v(F), v(1, 2, 3))));
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
+// }
+
+// E_variadicsMapCommaSep {
+#define CHECK(x, y, z) E_assertPlain(x == 2 && y == 3 && z == 4)
+
+E_eval(v(CHECK) E_parenthesise(E_variadicsMapCommaSep(E_appl(v(E_uintAdd), v(1)), v(1, 2, 3))));
+
+#undef CHECK
 // }
