@@ -63,6 +63,11 @@
  * @endcode
  */
 #define EPILEPSY_variadicsTail(...) EPILEPSY_call(EPILEPSY_variadicsTail, __VA_ARGS__)
+
+/**
+ * The plain version of #EPILEPSY_variadicsCount.
+ */
+#define EPILEPSY_variadicsCountPlain(...) EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

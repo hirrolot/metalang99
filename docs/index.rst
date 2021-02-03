@@ -10,6 +10,8 @@ The Epilepsy standard library exports a set of macros implemented using the `Epi
 
 If `EPILEPSY_NO_SMALL_PREFIX` is defined, all macros will have only one name: `EPILEPSY_appl`, `EPILEPSY_call`, etc. Otherwise, shortening aliases will be defined: `EPILEPSY_appl`, `E_appl`, `EPILEPSY_call`, `E_call`, etc (the default behaviour).
 
+Macros which are postfixed with `Plain` are called the plain versions of others, i.e. they can be used as ordinary macros, they are not written in Epilepsy. They are used to save some reduction steps, thereby making metaprograms faster.
+
 .. toctree::
    :hidden:
 

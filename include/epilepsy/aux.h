@@ -361,6 +361,11 @@
 #define EPILEPSY_semicolon()                                                                       \
     static const char EPILEPSY_PRIV_CAT(epilepsy_semicolon_, __LINE__)                             \
         EPILEPSY_PRIV_COMPILER_ATTR_UNUSED
+
+/**
+ * The plain version of #EPILEPSY_unparenthesise.
+ */
+#define EPILEPSY_unparenthesisePlain(x) EPILEPSY_PRIV_UNPARENTHESISE(x)
 // }
 
 #ifndef DOXYGEN_IGNORE

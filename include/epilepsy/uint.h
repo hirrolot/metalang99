@@ -382,6 +382,11 @@
  * @endcode
  */
 #define EPILEPSY_uintMax(x, y) EPILEPSY_call(EPILEPSY_uintMax, x y)
+
+/**
+ * The plain version of #EPILEPSY_uintEq.
+ */
+#define EPILEPSY_uintEqPlain(x, y) EPILEPSY_PRIV_uintEq(x, y)
 // }
 
 #ifndef DOXYGEN_IGNORE
