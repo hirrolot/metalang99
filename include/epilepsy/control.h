@@ -60,6 +60,15 @@
  * The plain version of #EPILEPSY_if.
  */
 #define EPILEPSY_ifPlain(cond, x, y) EPILEPSY_PRIV_IF(cond, x, y)
+
+/**
+ * The plain version of #EPILEPSY_overload.
+ *
+ * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `<f>_<count of
+ * ...>(...)`.
+ */
+#define EPILEPSY_overloadPlain(f, ...)                                                             \
+    EPILEPSY_PRIV_CAT(f, EPILEPSY_variadicsCountPlain(__VA_ARGS__))(__VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -67,7 +76,7 @@
 // Implementation {
 #define EPILEPSY_overload_IMPL(f, ...)                                                             \
     EPILEPSY_callTrivial(                                                                          \
-        EPILEPSY_PRIV_CAT(f, EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__)),                          \
+        EPILEPSY_PRIV_CAT(f, EPILEPSY_variadicsCountPlain(__VA_ARGS__)),                           \
         __VA_ARGS__)
 
 #define EPILEPSY_if_IMPL(cond, x, y) v(EPILEPSY_PRIV_if_##cond(x, y))
@@ -85,7 +94,9 @@
 
 #define E_overload EPILEPSY_overload
 #define E_if       EPILEPSY_if
-#define E_ifPlain  EPILEPSY_ifPlain
+
+#define E_ifPlain       EPILEPSY_ifPlain
+#define E_overloadPlain EPILEPSY_overloadPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
