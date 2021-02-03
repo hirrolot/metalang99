@@ -131,6 +131,7 @@ Resources:
 Happy hacking!
 
 [precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
+
 ## Contributing
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
