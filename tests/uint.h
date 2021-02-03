@@ -23,27 +23,37 @@ E_eval(E_uintMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
 #undef MATCH_S_IMPL
 // }
 
-// E_uintInc {
+// E_uintInc, E_uintIncPlain {
 E_assertEq(E_uintInc(v(0)), v(1));
 E_assertEq(E_uintInc(v(15)), v(16));
 E_assertEq(E_uintInc(v(198)), v(199));
 E_assertEq(E_uintInc(v(254)), v(255));
 E_assertEq(E_uintInc(v(255)), v(0));
+
+E_assertEq(v(E_uintIncPlain(17)), v(18));
 // }
 
-// E_uintDec {
+// E_uintDec, E_uintDecPlain {
 E_assertEq(E_uintDec(v(0)), v(255));
 E_assertEq(E_uintDec(v(1)), v(0));
 E_assertEq(E_uintDec(v(71)), v(70));
 E_assertEq(E_uintDec(v(201)), v(200));
 E_assertEq(E_uintDec(v(255)), v(254));
+
+E_assertEq(v(E_uintDecPlain(17)), v(16));
 // }
 
-// E_uintEq {
+// E_uintEq, E_uintEqPlain {
 E_assert(E_uintEq(v(0), v(0)));
 E_assert(E_uintEq(v(18), v(18)));
 E_assert(E_uintEq(v(183), v(183)));
 E_assert(E_uintEq(v(255), v(255)));
+
+E_assert(E_not(E_uintEq(v(0), v(1))));
+E_assert(E_not(E_uintEq(v(198), v(91))));
+
+E_assert(v(E_uintEqPlain(19, 19)));
+E_assert(E_not(v(E_uintEqPlain(19, 0))));
 // }
 
 // E_uintNeq {

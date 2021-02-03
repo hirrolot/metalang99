@@ -387,6 +387,16 @@
  * The plain version of #EPILEPSY_uintEq.
  */
 #define EPILEPSY_uintEqPlain(x, y) EPILEPSY_PRIV_uintEq(x, y)
+
+/**
+ * The plain version of #EPILEPSY_uintIncPlain.
+ */
+#define EPILEPSY_uintIncPlain(x) EPILEPSY_PRIV_uintInc(x)
+
+/**
+ * The plain version of #EPILEPSY_uintDecPlain.
+ */
+#define EPILEPSY_uintDecPlain(x) EPILEPSY_PRIV_uintDec(x)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -552,9 +562,12 @@
 
 #define E_uintInc           EPILEPSY_uintInc
 #define E_uintDec           EPILEPSY_uintDec
+#define E_uintIncPlain      EPILEPSY_uintIncPlain
+#define E_uintDecPlain      EPILEPSY_uintDecPlain
 #define E_uintMatch         EPILEPSY_uintMatch
 #define E_uintMatchWithArgs EPILEPSY_uintMatchWithArgs
 #define E_uintEq            EPILEPSY_uintEq
+#define E_uintEqPlain       EPILEPSY_uintEqPlain
 #define E_uintNeq           EPILEPSY_uintNeq
 #define E_uintGreater       EPILEPSY_uintGreater
 #define E_uintGreaterEq     EPILEPSY_uintGreaterEq
@@ -572,7 +585,6 @@
 #define E_uintDiv3          EPILEPSY_uintDiv3
 #define E_uintMin           EPILEPSY_uintMin
 #define E_uintMax           EPILEPSY_uintMax
-#define E_uintEqPlain       EPILEPSY_uintEqPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
