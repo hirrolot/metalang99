@@ -366,6 +366,11 @@
  * The plain version of #EPILEPSY_unparenthesise.
  */
 #define EPILEPSY_unparenthesisePlain(x) EPILEPSY_PRIV_UNPARENTHESISE(x)
+
+/**
+ * The plain version of #EPILEPSY_consume.
+ */
+#define EPILEPSY_consumePlain(...)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -443,6 +448,7 @@
 #define E_stringifyPrimitive  EPILEPSY_stringifyPrimitive
 #define E_semicolon           EPILEPSY_semicolon
 #define E_unparenthesisePlain EPILEPSY_unparenthesisePlain
+#define E_consumePlain        EPILEPSY_consumePlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
