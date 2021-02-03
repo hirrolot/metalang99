@@ -104,15 +104,15 @@
 /**
  * The same as #EPILEPSY_listMapI but for variadics.
  *
- * The result is `EPILEPSY_appl2(v(f), v(0), v(x1)) ... EPILEPSY_appl2(v(f), v(N), v(xN))`.
+ * The result is `EPILEPSY_appl2(v(f), v(x1), v(0)) ... EPILEPSY_appl2(v(f), v(xN), v(N))`.
  */
 #define EPILEPSY_variadicsMapI(f, ...) EPILEPSY_call(EPILEPSY_variadicsMapI, f __VA_ARGS__)
 
 /**
  * The same as #EPILEPSY_variadicsMapI but intersperses a comma between invocations of @p f.
  *
- * The result is `EPILEPSY_appl2(v(f), v(0), v(x1)) v(,) ... v(,) EPILEPSY_appl2(v(f), v(N),
- * v(xN))`.
+ * The result is `EPILEPSY_appl2(v(f), v(x1), v(0)) v(,) ... v(,) EPILEPSY_appl2(v(f), v(xN),
+ * v(N))`.
  */
 #define EPILEPSY_variadicsMapICommaSep(f, ...)                                                     \
     EPILEPSY_call(EPILEPSY_variadicsMapICommaSep, f __VA_ARGS__)
@@ -204,9 +204,9 @@
         __VA_ARGS__)
 
 #define EPILEPSY_variadicsMapI_DONE_IMPL(f, i, _count, x, _)                                       \
-    EPILEPSY_callTrivial(EPILEPSY_appl2, f, i, x)
+    EPILEPSY_callTrivial(EPILEPSY_appl2, f, x, i)
 #define EPILEPSY_variadicsMapI_PROGRESS_IMPL(f, i, count, x, ...)                                  \
-    EPILEPSY_callTrivial(EPILEPSY_appl2, f, i, x) EPILEPSY_callTrivial(                            \
+    EPILEPSY_callTrivial(EPILEPSY_appl2, f, x, i) EPILEPSY_callTrivial(                            \
         EPILEPSY_variadicsMapI_AUX,                                                                \
         f,                                                                                         \
         EPILEPSY_PRIV_uintInc(i),                                                                  \
@@ -235,9 +235,9 @@
         __VA_ARGS__)
 
 #define EPILEPSY_variadicsMapICommaSep_DONE_IMPL(f, i, _count, x, _)                               \
-    EPILEPSY_callTrivial(EPILEPSY_appl2, f, i, x)
+    EPILEPSY_callTrivial(EPILEPSY_appl2, f, x, i)
 #define EPILEPSY_variadicsMapICommaSep_PROGRESS_IMPL(f, i, count, x, ...)                          \
-    EPILEPSY_callTrivial(EPILEPSY_appl2, f, i, x) v(, ) EPILEPSY_callTrivial(                      \
+    EPILEPSY_callTrivial(EPILEPSY_appl2, f, x, i) v(, ) EPILEPSY_callTrivial(                      \
         EPILEPSY_variadicsMapICommaSep_AUX,                                                        \
         f,                                                                                         \
         EPILEPSY_PRIV_uintInc(i),                                                                  \
