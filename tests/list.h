@@ -290,3 +290,42 @@ E_assert(E_listEq(
 E_assert(E_listEq(v(E_uintEq), E_listReplicate(v(0), v(~)), E_nil()));
 E_assert(E_listEq(v(E_uintEq), E_listReplicate(v(3), v(7)), E_list(v(7, 7, 7))));
 // }
+
+// E_listPartition {
+// Partitioning E_nil() {
+#define LIST E_listPartition(E_appl(v(E_uintGreater), v(10)), E_nil())
+
+E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_nil()));
+E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_nil()));
+
+#undef LIST
+// }
+
+// Only the second list contains items {
+#define LIST E_listPartition(E_appl(v(E_uintGreater), v(10)), E_list(v(11, 12, 13)))
+
+E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_nil()));
+E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_list(v(11, 12, 13))));
+
+#undef LIST
+// }
+
+// Only the first list contains items {
+#define LIST E_listPartition(E_appl(v(E_uintGreater), v(10)), E_list(v(4, 7)))
+
+E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_list(v(4, 7))));
+E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_nil()));
+
+#undef LIST
+// }
+
+// Both lists contain items {
+#define LIST E_listPartition(E_appl(v(E_uintGreater), v(10)), E_list(v(11, 4, 12, 13, 7)))
+
+E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_list(v(4, 7))));
+E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_list(v(11, 12, 13))));
+
+#undef LIST
+// }
+
+// } (E_listPartition)

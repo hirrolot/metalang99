@@ -604,6 +604,22 @@
 #define EPILEPSY_listReplicate(n, item) EPILEPSY_call(EPILEPSY_listReplicate, n item)
 
 /**
+ * Returns a pair of list: those items of @p list the do and do not satisfy the predicate @p f,
+ * respectively.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <epilepsy/list.h>
+ * #include <epilepsy/uint.h>
+ *
+ * // E_list(E_list(v(4, 7)) E_list(v(11, 12, 13)))
+ * E_listPartition(E_appl(v(E_uintGreater), v(10)), E_list(v(11, 4, 12, 13, 7)))
+ * @endcode
+ */
+#define EPILEPSY_listPartition(f, list) EPILEPSY_call(EPILEPSY_listPartition, f list)
+
+/**
  * Applies all the items in @p list to @p f.
  *
  * If the list is empty, results in @p f as-is.
@@ -630,8 +646,11 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_cons_IMPL(x, xs) EPILEPSY_PRIV_choice(cons, x, xs)
-#define EPILEPSY_nil_IMPL()       EPILEPSY_PRIV_choiceEmpty(nil)
+#define EPILEPSY_cons_IMPL(x, xs) v(EPILEPSY_PRIV_cons(x, xs))
+#define EPILEPSY_nil_IMPL()       v(EPILEPSY_PRIV_nil())
+
+#define EPILEPSY_PRIV_cons(x, xs) EPILEPSY_PRIV_choice(cons, x, xs)
+#define EPILEPSY_PRIV_nil()       EPILEPSY_PRIV_choiceEmpty(nil)
 
 #define EPILEPSY_listHead_IMPL(list)                                                               \
     EPILEPSY_callTrivial(EPILEPSY_match, list, EPILEPSY_PRIV_listHead_)
@@ -934,6 +953,29 @@
 #define EPILEPSY_PRIV_listReplicate_S_IMPL(n, item)                                                \
     EPILEPSY_cons(v(item), EPILEPSY_callTrivial(EPILEPSY_listReplicate, n, item))
 
+// EPILEPSY_listPartition_IMPL {
+#define EPILEPSY_listPartition_IMPL(f, list)                                                       \
+    EPILEPSY_listFoldr(                                                                            \
+        EPILEPSY_callTrivial(EPILEPSY_appl, EPILEPSY_PRIV_listPartition_AUX, f),                   \
+        EPILEPSY_callTrivial(EPILEPSY_list, EPILEPSY_PRIV_nil(), EPILEPSY_PRIV_nil()),             \
+        v(list))
+
+#define EPILEPSY_PRIV_listPartition_AUX_IMPL(f, x, acc)                                            \
+    EPILEPSY_call(                                                                                 \
+        EPILEPSY_call(                                                                             \
+            EPILEPSY_if,                                                                           \
+            EPILEPSY_callTrivial(EPILEPSY_appl, f, x)                                              \
+                v(EPILEPSY_PRIV_listPartition_AUX_EXTEND_FST,                                      \
+                  EPILEPSY_PRIV_listPartition_AUX_EXTEND_SND)),                                    \
+        v(x) EPILEPSY_callTrivial(EPILEPSY_get, 0, acc)                                            \
+            EPILEPSY_callTrivial(EPILEPSY_get, 1, acc))
+
+#define EPILEPSY_PRIV_listPartition_AUX_EXTEND_FST_IMPL(x, fst, snd)                               \
+    EPILEPSY_callTrivial(EPILEPSY_list, EPILEPSY_PRIV_cons(x, fst), snd)
+#define EPILEPSY_PRIV_listPartition_AUX_EXTEND_SND_IMPL(x, fst, snd)                               \
+    EPILEPSY_callTrivial(EPILEPSY_list, fst, EPILEPSY_PRIV_cons(x, snd))
+// }
+
 #define EPILEPSY_listAppl_IMPL(f, list)                                                            \
     EPILEPSY_callTrivial(EPILEPSY_listFoldl, EPILEPSY_appl, f, list)
 
@@ -995,6 +1037,7 @@
 #define EPILEPSY_listZip_ARITY            2
 #define EPILEPSY_listUnzip_ARITY          1
 #define EPILEPSY_listReplicate_ARITY      2
+#define EPILEPSY_listPartition_ARITY      2
 #define EPILEPSY_listAppl_ARITY           2
 
 #define EPILEPSY_PRIV_listInit_PROGRESS_ARITY      2
@@ -1004,6 +1047,7 @@
 #define EPILEPSY_PRIV_listTakeWhile_PROGRESS_ARITY 3
 #define EPILEPSY_PRIV_listDrop_PROGRESS_ARITY      2
 #define EPILEPSY_PRIV_listDropWhile_PROGRESS_ARITY 2
+#define EPILEPSY_PRIV_listPartition_AUX_ARITY      3
 // }
 
 // Aliases {
@@ -1046,6 +1090,7 @@
 #define E_listZip            EPILEPSY_listZip
 #define E_listUnzip          EPILEPSY_listUnzip
 #define E_listReplicate      EPILEPSY_listReplicate
+#define E_listPartition      EPILEPSY_listPartition
 #define E_listAppl           EPILEPSY_listAppl
 
 #endif // EPILEPSY_NO_SMALL_PREFIX

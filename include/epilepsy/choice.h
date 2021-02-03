@@ -76,11 +76,11 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_choice_IMPL(tag, ...) EPILEPSY_PRIV_choice(tag, __VA_ARGS__)
-#define EPILEPSY_choiceEmpty_IMPL(tag) EPILEPSY_PRIV_choiceEmpty(tag)
+#define EPILEPSY_choice_IMPL(tag, ...) v(EPILEPSY_PRIV_choice(tag, __VA_ARGS__))
+#define EPILEPSY_choiceEmpty_IMPL(tag) v(EPILEPSY_PRIV_choiceEmpty(tag))
 
-#define EPILEPSY_PRIV_choice(tag, ...) v((tag, 0non_empty(__VA_ARGS__)))
-#define EPILEPSY_PRIV_choiceEmpty(tag) v((tag, 0empty()))
+#define EPILEPSY_PRIV_choice(tag, ...) (tag, 0non_empty(__VA_ARGS__))
+#define EPILEPSY_PRIV_choiceEmpty(tag) (tag, 0empty())
 
 #define EPILEPSY_match_IMPL(choice, matcher)                                                       \
     EPILEPSY_callTrivial(                                                                          \

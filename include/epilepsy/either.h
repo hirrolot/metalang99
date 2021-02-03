@@ -114,8 +114,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_left_IMPL(x)  EPILEPSY_PRIV_choice(left, x)
-#define EPILEPSY_right_IMPL(x) EPILEPSY_PRIV_choice(right, x)
+#define EPILEPSY_left_IMPL(x)  v(EPILEPSY_PRIV_choice(left, x))
+#define EPILEPSY_right_IMPL(x) v(EPILEPSY_PRIV_choice(right, x))
 
 #define EPILEPSY_isLeft_IMPL(either)                                                               \
     EPILEPSY_callTrivial(EPILEPSY_match, either, EPILEPSY_PRIV_isLeft_)
