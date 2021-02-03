@@ -20,7 +20,7 @@ CHECK_TAIL(E_eval(E_variadicsTail(v(9191, 51, 21, 1, 7378))));
 #undef CHECK_TAIL_AUX
 // }
 
-// E_variadicsCount {
+// E_variadicsCount, E_variadicsCountPlain {
 #define _5_ARGS   v(~) v(~) v(~) v(~) v(~)
 #define _10_ARGS  _5_ARGS _5_ARGS
 #define _50_ARGS  _10_ARGS _10_ARGS _10_ARGS _10_ARGS _10_ARGS
@@ -41,6 +41,11 @@ E_assertEq(E_variadicsCount(_10_ARGS v(~)), v(11));
 E_assertEq(E_variadicsCount(_50_ARGS _10_ARGS _5_ARGS v(~)), v(66));
 E_assertEq(E_variadicsCount(_100_ARGS _50_ARGS v(~) v(~)), v(152));
 E_assertEq(E_variadicsCount(_100_ARGS _100_ARGS _50_ARGS _5_ARGS v(~)), v(256));
+
+E_assertEq(v(E_variadicsCountPlain()), v(1));
+E_assertEq(v(E_variadicsCountPlain(~)), v(1));
+E_assertEq(v(E_variadicsCountPlain(~, ~)), v(2));
+E_assertEq(v(E_variadicsCountPlain(~, ~, ~)), v(3));
 
 #undef _5_ARGS
 #undef _10_ARGS

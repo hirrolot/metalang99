@@ -18,8 +18,9 @@ E_eval(v(FOO) E_parenthesise(v(518, 1910)));
 E_assertEq(E_unparenthesiseEval(v((v(198)))), v(198));
 // }
 
-// E_unparenthesise {
+// E_unparenthesise, E_unparenthesisePlain {
 E_assertEq(E_unparenthesise(v((198))), v(198));
+E_assertEq(v(E_unparenthesisePlain((198))), v(198));
 // }
 
 // E_parenthesiseEval + E_unparenthesiseEval {
@@ -58,8 +59,9 @@ E_assert(E_not(E_isUnparenthesised(v((1, 2, 3)))));
 E_assert(E_isUnparenthesised(v(123)));
 // }
 
-// E_consume {
+// E_consume, E_consumePlain {
 E_assertEmpty(E_consume(v(1, 2, 3)));
+E_assertEmptyPlain(E_consumePlain(1, 2, 3));
 // }
 
 // E_semicolon {
