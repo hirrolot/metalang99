@@ -86,7 +86,7 @@ E_eval(v(CHECK) E_parenthesise(E_variadicsMapI(v(F), v(1, 2, 3))));
 #undef F_ARITY
 // }
 
-// E_variadicsMapI {
+// E_variadicsMapICommaSep {
 #define CHECK(x, y, z) E_assertPlain(x == 1 + 0 && y == 2 + 1 && z == 3 + 2)
 #define F_IMPL(i, x)   EPILEPSY_uintAdd(v(x), v(i))
 #define F_ARITY        2
