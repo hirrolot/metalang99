@@ -129,14 +129,24 @@
  * The plain version of #EPILEPSY_variadicsCount.
  */
 #define EPILEPSY_variadicsCountPlain(...) EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__)
+
+/**
+ * The plain version of #EPILEPSY_variadicsHead.
+ */
+#define EPILEPSY_variadicsHeadPlain(...) EPILEPSY_PRIV_VARIADICS_HEAD(__VA_ARGS__)
+
+/**
+ * The plain version of #EPILEPSY_variadicsTail.
+ */
+#define EPILEPSY_variadicsTailPlain(...) EPILEPSY_PRIV_VARIADICS_TAIL(__VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define EPILEPSY_variadicsCount_IMPL(...)   v(EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__))
-#define EPILEPSY_variadicsHead_IMPL(x, ...) v(x)
-#define EPILEPSY_variadicsTail_IMPL(x, ...) v(__VA_ARGS__)
+#define EPILEPSY_variadicsCount_IMPL(...) v(EPILEPSY_PRIV_VARIADICS_COUNT(__VA_ARGS__))
+#define EPILEPSY_variadicsHead_IMPL(...)  v(EPILEPSY_variadicsHeadPlain(__VA_ARGS__))
+#define EPILEPSY_variadicsTail_IMPL(...)  v(EPILEPSY_variadicsTailPlain(__VA_ARGS__))
 
 // TODO: refactor this boilerplate.
 
@@ -275,7 +285,10 @@
 #define E_variadicsMapCommaSep  EPILEPSY_variadicsMapCommaSep
 #define E_variadicsMapI         EPILEPSY_variadicsMapI
 #define E_variadicsMapICommaSep EPILEPSY_variadicsMapICommaSep
-#define E_variadicsCountPlain   EPILEPSY_variadicsCountPlain
+
+#define E_variadicsCountPlain EPILEPSY_variadicsCountPlain
+#define E_variadicsHeadPlain  EPILEPSY_variadicsHeadPlain
+#define E_variadicsTailPlain  EPILEPSY_variadicsTailPlain
 
 #endif // EPILEPSY_NO_SMALL_PREFIX
 // }
