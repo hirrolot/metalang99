@@ -1,87 +1,87 @@
-#include <epilepsy/assert.h>
-#include <epilepsy/aux.h>
+#include <metalang99/assert.h>
+#include <metalang99/aux.h>
 
-#define FOO(x, y) E_assertPlain(x == 518 && y == 1910)
+#define FOO(x, y) M_assertPlain(x == 518 && y == 1910)
 
-// E_id {
-E_eval(v(FOO) E_id(v((518, 1910))));
-E_assertEq(E_appl(E_compose(v(E_id), v(E_id)), v(181)), v(181));
+// M_id {
+M_eval(v(FOO) M_id(v((518, 1910))));
+M_assertEq(M_appl(M_compose(v(M_id), v(M_id)), v(181)), v(181));
 // }
 
-// E_parenthesise {
-E_eval(v(FOO) E_parenthesise(v(518, 1910)));
+// M_parenthesise {
+M_eval(v(FOO) M_parenthesise(v(518, 1910)));
 // }
 
 #undef FOO
 
-// E_unparenthesiseEval {
-E_assertEq(E_unparenthesiseEval(v((v(198)))), v(198));
+// M_unparenthesiseEval {
+M_assertEq(M_unparenthesiseEval(v((v(198)))), v(198));
 // }
 
-// E_unparenthesise {
-E_assertEq(E_unparenthesise(v((198))), v(198));
+// M_unparenthesise {
+M_assertEq(M_unparenthesise(v((198))), v(198));
 // }
 
-// E_parenthesiseEval + E_unparenthesiseEval {
-E_assertEq(E_unparenthesiseEval(E_parenthesiseEval(v(187))), v(187));
+// M_parenthesiseEval + M_unparenthesiseEval {
+M_assertEq(M_unparenthesiseEval(M_parenthesiseEval(v(187))), v(187));
 // }
 
-// E_parenthesise + E_unparenthesise {
-E_assertEq(E_unparenthesise(E_parenthesise(v(187))), v(187));
+// M_parenthesise + M_unparenthesise {
+M_assertEq(M_unparenthesise(M_parenthesise(v(187))), v(187));
 // }
 
-// E_const, E_const2, E_const3 {
-E_assertEq(E_appl2(v(E_const), v(1810), v(~)), v(1810));
-E_assertEq(E_appl3(v(E_const2), v(1810), v(~), v(~)), v(1810));
-E_assertEq(E_appl(E_appl3(v(E_const3), v(1810), v(~), v(~)), v(~)), v(1810));
+// M_const, M_const2, M_const3 {
+M_assertEq(M_appl2(v(M_const), v(1810), v(~)), v(1810));
+M_assertEq(M_appl3(v(M_const2), v(1810), v(~), v(~)), v(1810));
+M_assertEq(M_appl(M_appl3(v(M_const3), v(1810), v(~), v(~)), v(~)), v(1810));
 // }
 
-#define ABC v(E_true)
+#define ABC v(M_true)
 
-// E_flip {
-E_assert(E_appl2(E_flip(v(E_catEval)), v(C), v(AB)));
+// M_flip {
+M_assert(M_appl2(M_flip(v(M_catEval)), v(C), v(AB)));
 // }
 
-// E_putBefore, E_putAfter, E_putBetween {
-E_assertEq(E_putBefore(v(0), v(!)), v(!0));
-E_assertEq(E_putAfter(v(!), v(0)), v(!0));
-E_assertEq(E_putBetween(v(16), v(9), v(+)), v(16 + 9));
+// M_putBefore, M_putAfter, M_putBetween {
+M_assertEq(M_putBefore(v(0), v(!)), v(!0));
+M_assertEq(M_putAfter(v(!), v(0)), v(!0));
+M_assertEq(M_putBetween(v(16), v(9), v(+)), v(16 + 9));
 // }
 
 #undef ABC
 
-// E_isParenthesised, E_isUnparenthesised {
-E_assert(E_isParenthesised(v((1, 2, 3))));
-E_assert(E_not(E_isParenthesised(v(123))));
+// M_isParenthesised, M_isUnparenthesised {
+M_assert(M_isParenthesised(v((1, 2, 3))));
+M_assert(M_not(M_isParenthesised(v(123))));
 
-E_assert(E_not(E_isUnparenthesised(v((1, 2, 3)))));
-E_assert(E_isUnparenthesised(v(123)));
+M_assert(M_not(M_isUnparenthesised(v((1, 2, 3)))));
+M_assert(M_isUnparenthesised(v(123)));
 // }
 
-// E_consume {
-E_assertEmpty(E_consume(v(1, 2, 3)));
+// M_consume {
+M_assertEmpty(M_consume(v(1, 2, 3)));
 // }
 
-// E_semicolon {
-E_semicolon();
-E_semicolon();
+// M_semicolon {
+M_semicolon();
+M_semicolon();
 
 void test_semicolon(void) {
-    E_semicolon();
-    E_semicolon();
+    M_semicolon();
+    M_semicolon();
 
     {
-        E_semicolon();
-        E_semicolon();
+        M_semicolon();
+        M_semicolon();
 
         {
-            E_semicolon();
-            E_semicolon();
+            M_semicolon();
+            M_semicolon();
         }
     }
 }
 // }
 
-// E_braced {
-struct TestBraced E_eval(E_braced(v(int a, b, c;)));
+// M_braced {
+struct TestBraced M_eval(M_braced(v(int a, b, c;)));
 // }

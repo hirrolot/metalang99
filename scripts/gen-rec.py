@@ -16,14 +16,14 @@ with open(output_file_name, "w") as f:
 #ifndef {header_guard}
 #define {header_guard}
 
-#include <epilepsy/eval/rec/progress.h>
+#include <metalang99/eval/rec/progress.h>
 
 """
     )
 
     for i in range(start_lvl, start_lvl + count):
         f.write(
-            f"#define EPILEPSY_PRIV_REC_{i}(choice, ...) EPILEPSY_PRIV_REC_NEXT({i + 1}, choice)(__VA_ARGS__)\n")
+            f"#define METALANG99_PRIV_REC_{i}(choice, ...) METALANG99_PRIV_REC_NEXT({i + 1}, choice)(__VA_ARGS__)\n")
 
     f.write(f"\n#endif // {header_guard}\n")
 

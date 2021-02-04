@@ -1,6 +1,6 @@
-#include <epilepsy.h>
+#include <metalang99.h>
 
 #define NUMBERS                                                                                    \
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
 
-E_assert(E_listEq(v(E_uintEq), E_list(v(NUMBERS)), E_list(v(NUMBERS))));
+M_assert(M_listEq(v(M_uintEq), M_list(v(NUMBERS)), M_list(v(NUMBERS))));

@@ -20,7 +20,7 @@ import subprocess
 
 subprocess.call("cd .. ; doxygen", shell=True)
 
-project = 'Epilepsy'
+project = 'Metalang99'
 copyright = '2021, Hirrolot'
 author = 'Hirrolot'
 
@@ -51,7 +51,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 html_theme = "haiku"
 
-breathe_projects = {"Epilepsy": "../xml"}
-breathe_default_project = "Epilepsy"
+breathe_projects = {"Metalang99": "../xml"}
+breathe_default_project = "Metalang99"
 primary_domain = 'c'
 highlight_language = 'c'

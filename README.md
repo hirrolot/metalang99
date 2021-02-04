@@ -1,44 +1,44 @@
 > WARNING: still under v0.1.0 active development.
 
-# Epilepsy
+# Metalang99
 
-[![CI](https://github.com/Hirrolot/epilepsy/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/epilepsy/actions)
-[![docs](https://img.shields.io/badge/docs-readthedocs.io-blue)](https://epilepsy.readthedocs.io/en/latest/)
-[![book](https://img.shields.io/badge/book-gitbook.io-pink)](https://hirrolot.gitbook.io/epilepsy/)
-[![spec](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf)
+[![CI](https://github.com/Hirrolot/metalang99/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/metalang99/actions)
+[![docs](https://img.shields.io/badge/docs-readthedocs.io-blue)](https://metalang99.readthedocs.io/en/latest/)
+[![book](https://img.shields.io/badge/book-gitbook.io-pink)](https://hirrolot.gitbook.io/metalang99/)
+[![spec](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf)
 [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dhirrolot%26type%3Dpatrons&style=flat)](https://patreon.com/hirrolot)
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp; &emsp; <b>-- Darth Sidious</b>
 
 [[`examples/demo.c`](examples/demo.c)]
 ```c
-#include <epilepsy.h>
+#include <metalang99.h>
 
 // Compile-time list manipulation {
 // 3, 3, 3, 3, 3
 static int five_threes[] = {
-    E_listEvalCommaSep(E_listReplicate(v(5), v(3))),
+    M_listEvalCommaSep(M_listReplicate(v(5), v(3))),
 };
 
 // 5, 4, 3, 2, 1
 static int from_5_to_1[] = {
-    E_listEvalCommaSep(E_listReverse(E_list(v(1, 2, 3, 4, 5)))),
+    M_listEvalCommaSep(M_listReverse(M_list(v(1, 2, 3, 4, 5)))),
 };
 
 // 9, 2, 5
 static int lesser_than_10[] = {
-    E_listEvalCommaSep(E_listFilter(E_appl(v(E_uintGreater), v(10)), E_list(v(9, 2, 11, 13, 5)))),
+    M_listEvalCommaSep(M_listFilter(M_appl(v(M_uintGreater), v(10)), M_list(v(9, 2, 11, 13, 5)))),
 };
 // }
 
 // General macro recursion {
-#define factorial(n) E_call(factorial, n)
+#define factorial(n) M_call(factorial, n)
 
-#define factorial_IMPL(n)   E_uintMatch(v(n), v(factorial_))
+#define factorial_IMPL(n)   M_uintMatch(v(n), v(factorial_))
 #define factorial_Z_IMPL()  v(1)
-#define factorial_S_IMPL(n) E_uintMul(E_uintInc(v(n)), factorial(v(n)))
+#define factorial_S_IMPL(n) M_uintMul(M_uintInc(v(n)), factorial(v(n)))
 
-E_assertEq(factorial(v(4)), v(24));
+M_assertEq(factorial(v(4)), v(24));
 // }
 
 // Overloading on a number of arguments {
@@ -46,7 +46,7 @@ typedef struct {
     double width, height;
 } Rect;
 
-#define Rect_new(...)    E_overloadPlain(Rect_new_, __VA_ARGS__)
+#define Rect_new(...)    M_overloadPlain(Rect_new_, __VA_ARGS__)
 #define Rect_new_1(x)    ((Rect){.width = x, .height = x})
 #define Rect_new_2(x, y) ((Rect){.width = x, .height = y})
 
@@ -62,7 +62,7 @@ int main(void) {
 
 (Hint: `v(something)` evaluates to `something`.)
 
-Epilepsy is a functional language aimed at full-blown C/C++ preprocessor metaprogramming.
+Metalang99 is a functional language aimed at full-blown C99 preprocessor metaprogramming.
 
 It features a wide range of concepts, including algebraic data types, control flow operators, collections, general recursion, and auto-currying -- to develop both small and complex metaprograms painlessly.
 
@@ -79,9 +79,9 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor. Most importantly, it is designed in such a way to permit metarecursion so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] for some mysterious reason. It also exports a bouquet of nice features like partial application, error reporting, and all the stuff.
+To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. Most importantly, it is designed in such a way to permit metarecursion so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] for some mysterious reason. It also exports a bouquet of nice features like partial application, error reporting, and all the stuff.
 
-As a practical example of what is possible with Epilepsy, consider [datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
+As a practical example of what is possible with Metalang99, consider [datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
 
 ```c
 // Sums all nodes of a binary tree.
@@ -106,7 +106,7 @@ int sum(const BinaryTree *tree) {
 }
 ```
 
-So, in summary, Epilepsy allows to do advanced metaprogramming in C. It allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
+So, in summary, Metalang99 allows to do advanced metaprogramming in C. It allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
 
 [blueprinted]: https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms#recursion
 [datatype99]: https://github.com/Hirrolot/datatype99
@@ -115,20 +115,20 @@ So, in summary, Epilepsy allows to do advanced metaprogramming in C. It allows t
 ## Getting started
 
 ```sh
-$ git clone https://github.com/Hirrolot/epilepsy.git
+$ git clone https://github.com/Hirrolot/metalang99.git
 ```
 
-After that, you must add one more include path `epilepsy/include`.
+After that, you must add one more include path `metalang99/include`.
 
-To use execute Epilepsy in your code, just `#include <epilepsy.h>` beforehand (or include separate header files described in the documentation).
+To use execute Metalang99 in your code, just `#include <metalang99.h>` beforehand (or include separate header files described in the documentation).
 
 To speed up compilation, consider using [precompiled headers] and `-ftrack-macro-expansion=0` (GCC-only).
 
 Resources:
 
- - [Tutorial](https://hirrolot.gitbook.io/epilepsy/)
+ - [Tutorial](https://hirrolot.gitbook.io/metalang99/)
  - [Examples](examples/)
- - [User documentation](https://epilepsy.readthedocs.io/en/latest/)
+ - [User documentation](https://metalang99.readthedocs.io/en/latest/)
 
 Happy hacking!
 
@@ -139,9 +139,9 @@ Happy hacking!
 Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here's its informal (and imprecise) description:
 
  - Every `v(...)` is a reduction step.
- - Every `E_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
+ - Every `M_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
 
-To perform fewer reduction steps, consider using `E_trivialCall` as well as the plain versions (e.g., `E_consumePlain` instead of `E_consume`), when possible.
+To perform fewer reduction steps, consider using `M_callTrivial` as well as the plain versions (e.g., `M_consumePlain` instead of `M_consume`), when possible.
 
 ## Contributing
 
@@ -151,18 +151,18 @@ At this moment, contributions that optimise the interpreter and the standard lib
 
 ## Source code structure
 
-Epilepsy is split into two parts: the interpreter and the standard library.
+Metalang99 is split into two parts: the interpreter and the standard library.
 
 The interpreter interprets the core metalanguage described in the [specification]. It is located in [`eval.h`] and [`eval/`]. The former file contains a machine written in [continuation-passing style] which is described in the specification too. [`eval/rec/`] contains a macro recursion engine upon which everything executes.
 
 All the other files except [`priv/`] (private auxiliary stuff) comprise the standard library. 
 
 [continuation-passing style]: https://en.wikipedia.org/wiki/Continuation-passing_style
-[specification]: https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf
-[`eval.h`]: include/epilepsy/eval.h
-[`eval/`]: include/epilepsy/eval/
-[`eval/rec/`]: include/epilepsy/eval/rec/
-[`priv/`]: include/epilepsy/priv/
+[specification]: https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf
+[`eval.h`]: include/metalang99/eval.h
+[`eval/`]: include/metalang99/eval/
+[`eval/rec/`]: include/metalang99/eval/rec/
+[`priv/`]: include/metalang99/priv/
 
 ## FAQ
 
@@ -174,7 +174,7 @@ A:
  - IDE support.
  - Avoid additional burden with distribution and setup of third-party code generators.
 
-### Q: In what aspects Epilepsy differs from other preprocessor libraries?
+### Q: In what aspects Metalang99 differs from other preprocessor libraries?
 
 A: In short, it provides more functionality, it is well-tested, and actively maintained. In particular, [Boost/Preprocessor] is well-tested and actively maintained too, but lacks general metarecursion, partial application, choice types, graceful error reporting, and debugging facilities.
 
@@ -188,7 +188,7 @@ A: To run the benchmarks, execute `./scripts/bench.sh` from the root directory.
 
 A:
 
- - **Formal proofs.** With a mathematical model it becomes possible to prove things about Epilepsy formally; for example, the progress theorem, which can be stated as "the interpreter always knows what to do next".
+ - **Formal proofs.** With a mathematical model it becomes possible to prove things about Metalang99 formally; for example, the progress theorem, which can be stated as "the interpreter always knows what to do next".
 
  - **It guides the implementation.** The implementation gets adjusted with the specification (i.e. reflects the formal syntax and semantics), thereby making itself easier to reason about.
 
@@ -198,13 +198,13 @@ A:
 
 That is, the development flow is "specification-driven", if you prefer.
 
-### Q: Is Epilepsy Turing-complete?
+### Q: Is Metalang99 Turing-complete?
 
-A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit (see this [SO question](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete)). For Epilepsy, this limit is defined in terms of reductions steps (see the [specification]).
+A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit (see this [SO question](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete)). For Metalang99, this limit is defined in terms of reductions steps (see the [specification]).
 
 ### Q: Why do we need powerful preprocessor macros in the presence of templates?
 
-A: Epilepsy is primarily targeted at pure C, and C lacks templates. But anyway, you can find the argumentation for C++ at the website of [Boost/Preprocessor].
+A: Metalang99 is primarily targeted at pure C, and C lacks templates. But anyway, you can find the argumentation for C++ at the website of [Boost/Preprocessor].
 
 ### Q: What standards are supported?
 
@@ -212,6 +212,6 @@ A: C99/C++11 and onwards.
 
 ### Q: Why not generate an amalgamated header?
 
-A: I don't like amalgamated headers because they induce burden with updating. In contrast to this, you can just add Epilepsy as a [Git submodule] and update it with `git submodule update --remote`.
+A: I don't like amalgamated headers because they induce burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules

@@ -2,4 +2,4 @@ aux.h
 ====================================
 
 .. doxygenfile:: aux.h
-   :project: Epilepsy
+   :project: Metalang99

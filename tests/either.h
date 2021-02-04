@@ -1,14 +1,14 @@
-#include <epilepsy/assert.h>
-#include <epilepsy/either.h>
-#include <epilepsy/uint.h>
+#include <metalang99/assert.h>
+#include <metalang99/either.h>
+#include <metalang99/uint.h>
 
 // Pattern matching {
-#define MATCH_IMPL(either)  E_match(v(either), v(MATCH_))
-#define MATCH_left_IMPL(x)  v(E_assertPlain(x == 18))
-#define MATCH_right_IMPL(x) v(E_assertPlain(x == 4))
+#define MATCH_IMPL(either)  M_match(v(either), v(MATCH_))
+#define MATCH_left_IMPL(x)  v(M_assertPlain(x == 18))
+#define MATCH_right_IMPL(x) v(M_assertPlain(x == 4))
 
-E_eval(E_call(MATCH, E_left(v(18))));
-E_eval(E_call(MATCH, E_right(v(4))));
+M_eval(M_call(MATCH, M_left(v(18))));
+M_eval(M_call(MATCH, M_right(v(4))));
 
 #undef MATCH_IMPL
 #undef MATCH_left_IMPL
@@ -17,35 +17,35 @@ E_eval(E_call(MATCH, E_right(v(4))));
 
 #define VAL v(abc ? +-148 % "hello world")
 
-// E_isLeft {
-E_assert(E_isLeft(E_left(VAL)));
-E_assert(E_not(E_isLeft(E_right(VAL))));
+// M_isLeft {
+M_assert(M_isLeft(M_left(VAL)));
+M_assert(M_not(M_isLeft(M_right(VAL))));
 // }
 
-// E_isRight {
-E_assert(E_isRight(E_right(VAL)));
-E_assert(E_not(E_isRight(E_left(VAL))));
+// M_isRight {
+M_assert(M_isRight(M_right(VAL)));
+M_assert(M_not(M_isRight(M_left(VAL))));
 // }
 
-// E_eitherEq {
-E_assert(E_eitherEq(v(E_uintEq), E_left(v(123)), E_left(v(123))));
-E_assert(E_not(E_eitherEq(v(E_uintEq), E_left(v(18)), E_left(v(123)))));
+// M_eitherEq {
+M_assert(M_eitherEq(v(M_uintEq), M_left(v(123)), M_left(v(123))));
+M_assert(M_not(M_eitherEq(v(M_uintEq), M_left(v(18)), M_left(v(123)))));
 
-E_assert(E_eitherEq(v(E_uintEq), E_right(v(123)), E_right(v(123))));
-E_assert(E_not(E_eitherEq(v(E_uintEq), E_right(v(18)), E_right(v(123)))));
+M_assert(M_eitherEq(v(M_uintEq), M_right(v(123)), M_right(v(123))));
+M_assert(M_not(M_eitherEq(v(M_uintEq), M_right(v(18)), M_right(v(123)))));
 
-E_assert(E_not(E_eitherEq(v(E_uintEq), E_left(v(123)), E_right(v(123)))));
-E_assert(E_not(E_eitherEq(v(E_uintEq), E_left(v(123)), E_right(v(4)))));
-E_assert(E_not(E_eitherEq(v(E_uintEq), E_right(v(123)), E_left(v(123)))));
-E_assert(E_not(E_eitherEq(v(E_uintEq), E_right(v(123)), E_left(v(4)))));
+M_assert(M_not(M_eitherEq(v(M_uintEq), M_left(v(123)), M_right(v(123)))));
+M_assert(M_not(M_eitherEq(v(M_uintEq), M_left(v(123)), M_right(v(4)))));
+M_assert(M_not(M_eitherEq(v(M_uintEq), M_right(v(123)), M_left(v(123)))));
+M_assert(M_not(M_eitherEq(v(M_uintEq), M_right(v(123)), M_left(v(4)))));
 // }
 
-// E_unwrapLeft {
-E_assertEq(E_unwrapLeft(E_left(v(123))), v(123));
+// M_unwrapLeft {
+M_assertEq(M_unwrapLeft(M_left(v(123))), v(123));
 // }
 
-// E_unwrapRight {
-E_assertEq(E_unwrapRight(E_right(v(123))), v(123));
+// M_unwrapRight {
+M_assertEq(M_unwrapRight(M_right(v(123))), v(123));
 // }
 
 #undef VAL

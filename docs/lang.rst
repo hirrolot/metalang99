@@ -2,4 +2,4 @@ lang.h
 ====================================
 
 .. doxygenfile:: lang.h
-   :project: Epilepsy
+   :project: Metalang99

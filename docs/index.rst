@@ -1,16 +1,16 @@
-.. Epilepsy documentation master file, created by
+.. Metalang99 documentation master file, created by
    sphinx-quickstart on Mon Jan  4 08:10:23 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-The Epilepsy Standard Library
+The Metalang99 Standard Library
 ====================================
 
-The Epilepsy standard library exports a set of macros implemented using the `Epilepsy metalanguage`_.
+The Metalang99 standard library exports a set of macros implemented using the `Metalang99 metalanguage`_.
 
-If `EPILEPSY_NO_SMALL_PREFIX` is defined, all macros will have only one name: `EPILEPSY_appl`, `EPILEPSY_call`, etc. Otherwise, shortening aliases will be defined: `EPILEPSY_appl`, `E_appl`, `EPILEPSY_call`, `E_call`, etc (the default behaviour).
+If `METALANG99_NO_SMALL_PREFIX` is defined, all macros will have only one name: `METALANG99_appl`, `METALANG99_call`, etc. Otherwise, shortening aliases will be defined: `METALANG99_appl`, `M_appl`, `METALANG99_call`, `M_call`, etc (the default behaviour).
 
-Macros which are postfixed with `Plain` are called the plain versions of others, i.e. they can be used as ordinary macros, they are not written in Epilepsy. They are used to save some reduction steps, thereby making metaprograms faster.
+Macros which are postfixed with `Plain` are called the plain versions of others, i.e. they can be used as ordinary macros, they are not written in Metalang99. They are used to save some reduction steps, thereby making metaprograms faster.
 
 .. toctree::
    :hidden:
@@ -33,7 +33,7 @@ Contents
 ====================================
 
  - `eval.h`_ - The metaprogram evaluator.
- - `lang.h`_ - The Epilepsy syntax.
+ - `lang.h`_ - The Metalang99 syntax.
  - `uint.h`_ - Unsigned integers.
  - `logical.h`_ - Boolean algebra.
  - `choice.h`_ - Choice types.
@@ -52,7 +52,7 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`search`
 
-.. _Epilepsy metalanguage: https://github.com/Hirrolot/epilepsy
+.. _Metalang99 metalanguage: https://github.com/Hirrolot/metalang99
 
 .. _eval.h: eval.html
 .. _lang.h: lang.html

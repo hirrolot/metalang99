@@ -2,4 +2,4 @@ choice.h
 ====================================
 
 .. doxygenfile:: choice.h
-   :project: Epilepsy
+   :project: Metalang99

@@ -2,4 +2,4 @@ list.h
 ====================================
 
 .. doxygenfile:: list.h
-   :project: Epilepsy
+   :project: Metalang99

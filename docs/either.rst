@@ -2,4 +2,4 @@ either.h
 ====================================
 
 .. doxygenfile:: either.h
-   :project: Epilepsy
+   :project: Metalang99

@@ -2,4 +2,4 @@ misc.h
 ====================================
 
 .. doxygenfile:: misc.h
-   :project: Epilepsy
+   :project: Metalang99

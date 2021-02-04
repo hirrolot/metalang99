@@ -2,4 +2,4 @@ maybe.h
 ====================================
 
 .. doxygenfile:: maybe.h
-   :project: Epilepsy
+   :project: Metalang99

@@ -1,331 +1,331 @@
-#include <epilepsy/assert.h>
-#include <epilepsy/aux.h>
-#include <epilepsy/list.h>
-#include <epilepsy/uint.h>
+#include <metalang99/assert.h>
+#include <metalang99/aux.h>
+#include <metalang99/list.h>
+#include <metalang99/uint.h>
 
-// E_listHead {
-E_assertEq(E_listHead(E_list(v(1))), v(1));
-E_assertEq(E_listHead(E_list(v(1, 2))), v(1));
-E_assertEq(E_listHead(E_list(v(1, 2, 3))), v(1));
+// M_listHead {
+M_assertEq(M_listHead(M_list(v(1))), v(1));
+M_assertEq(M_listHead(M_list(v(1, 2))), v(1));
+M_assertEq(M_listHead(M_list(v(1, 2, 3))), v(1));
 // }
 
-// E_listTail {
-E_assert(E_listEq(v(E_uintEq), E_listTail(E_list(v(1))), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_listTail(E_list(v(1, 2))), E_list(v(2))));
-E_assert(E_listEq(v(E_uintEq), E_listTail(E_list(v(1, 2, 3))), E_list(v(2, 3))));
+// M_listTail {
+M_assert(M_listEq(v(M_uintEq), M_listTail(M_list(v(1))), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listTail(M_list(v(1, 2))), M_list(v(2))));
+M_assert(M_listEq(v(M_uintEq), M_listTail(M_list(v(1, 2, 3))), M_list(v(2, 3))));
 // }
 
-// E_listLast {
-E_assertEq(E_listLast(E_list(v(1))), v(1));
-E_assertEq(E_listLast(E_list(v(1, 2))), v(2));
-E_assertEq(E_listLast(E_list(v(1, 2, 3))), v(3));
+// M_listLast {
+M_assertEq(M_listLast(M_list(v(1))), v(1));
+M_assertEq(M_listLast(M_list(v(1, 2))), v(2));
+M_assertEq(M_listLast(M_list(v(1, 2, 3))), v(3));
 // }
 
-// E_listInit {
-E_assert(E_listEq(v(E_uintEq), E_listInit(E_list(v(1))), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_listInit(E_list(v(1, 2))), E_list(v(1))));
-E_assert(E_listEq(v(E_uintEq), E_listInit(E_list(v(1, 2, 3))), E_list(v(1, 2))));
+// M_listInit {
+M_assert(M_listEq(v(M_uintEq), M_listInit(M_list(v(1))), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listInit(M_list(v(1, 2))), M_list(v(1))));
+M_assert(M_listEq(v(M_uintEq), M_listInit(M_list(v(1, 2, 3))), M_list(v(1, 2))));
 // }
 
-// E_listLen {
-E_assertEq(E_listLen(E_nil()), v(0));
-E_assertEq(E_listLen(E_list(v(123))), v(1));
-E_assertEq(E_listLen(E_list(v(123, 222))), v(2));
-E_assertEq(E_listLen(E_list(v(123, 222, 18))), v(3));
+// M_listLen {
+M_assertEq(M_listLen(M_nil()), v(0));
+M_assertEq(M_listLen(M_list(v(123))), v(1));
+M_assertEq(M_listLen(M_list(v(123, 222))), v(2));
+M_assertEq(M_listLen(M_list(v(123, 222, 18))), v(3));
 // }
 
-// E_listAppend {
-E_assert(E_listEq(v(E_uintEq), E_listAppend(E_nil(), E_nil()), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_listAppend(E_nil(), E_list(v(1, 2, 3))), E_list(v(1, 2, 3))));
-E_assert(E_listEq(v(E_uintEq), E_listAppend(E_list(v(1, 2, 3)), E_nil()), E_list(v(1, 2, 3))));
+// M_listAppend {
+M_assert(M_listEq(v(M_uintEq), M_listAppend(M_nil(), M_nil()), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listAppend(M_nil(), M_list(v(1, 2, 3))), M_list(v(1, 2, 3))));
+M_assert(M_listEq(v(M_uintEq), M_listAppend(M_list(v(1, 2, 3)), M_nil()), M_list(v(1, 2, 3))));
 
-E_assert(E_listEq(
-    v(E_uintEq), E_listAppend(E_list(v(1, 2, 3)), E_list(v(4, 5, 6))),
-    E_list(v(1, 2, 3, 4, 5, 6))));
+M_assert(M_listEq(
+    v(M_uintEq), M_listAppend(M_list(v(1, 2, 3)), M_list(v(4, 5, 6))),
+    M_list(v(1, 2, 3, 4, 5, 6))));
 // }
 
-// E_listAppendItem {
-E_assert(E_listEq(v(E_uintEq), E_listAppendItem(v(123), E_nil()), E_list(v(123))));
-E_assert(
-    E_listEq(v(E_uintEq), E_listAppendItem(v(222), E_list(v(1, 2, 3))), E_list(v(1, 2, 3, 222))));
+// M_listAppendItem {
+M_assert(M_listEq(v(M_uintEq), M_listAppendItem(v(123), M_nil()), M_list(v(123))));
+M_assert(
+    M_listEq(v(M_uintEq), M_listAppendItem(v(222), M_list(v(1, 2, 3))), M_list(v(1, 2, 3, 222))));
 // }
 
-// E_listReverse {
-E_assert(E_listEq(v(E_uintEq), E_listReverse(E_nil()), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_listReverse(E_list(v(1, 2, 3))), E_list(v(3, 2, 1))));
+// M_listReverse {
+M_assert(M_listEq(v(M_uintEq), M_listReverse(M_nil()), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listReverse(M_list(v(1, 2, 3))), M_list(v(3, 2, 1))));
 // }
 
-// E_listContains {
-E_assert(E_not(E_listContains(v(E_uintEq), v(1), E_nil())));
-E_assert(E_listContains(v(E_uintEq), v(1), E_list(v(1, 2, 3))));
-E_assert(E_listContains(v(E_uintEq), v(2), E_list(v(1, 2, 3))));
-E_assert(E_listContains(v(E_uintEq), v(3), E_list(v(1, 2, 3))));
-E_assert(E_not(E_listContains(v(E_uintEq), v(187), E_list(v(1, 2, 3)))));
+// M_listContains {
+M_assert(M_not(M_listContains(v(M_uintEq), v(1), M_nil())));
+M_assert(M_listContains(v(M_uintEq), v(1), M_list(v(1, 2, 3))));
+M_assert(M_listContains(v(M_uintEq), v(2), M_list(v(1, 2, 3))));
+M_assert(M_listContains(v(M_uintEq), v(3), M_list(v(1, 2, 3))));
+M_assert(M_not(M_listContains(v(M_uintEq), v(187), M_list(v(1, 2, 3)))));
 // }
 
-// E_listUnwrap {
-E_assertEmpty(E_listUnwrap(E_nil()));
-E_assertEq(E_listUnwrap(E_list(v(18, +, 3, +, 6))), v(18 + 3 + 6));
+// M_listUnwrap {
+M_assertEmpty(M_listUnwrap(M_nil()));
+M_assertEq(M_listUnwrap(M_list(v(18, +, 3, +, 6))), v(18 + 3 + 6));
 // }
 
-// E_listEval {
-E_assertEmptyPlain(E_listEval(E_nil()));
-E_assertPlain(E_listEval(E_list(v(19, +, 6))) == 19 + 6);
+// M_listEval {
+M_assertEmptyPlain(M_listEval(M_nil()));
+M_assertPlain(M_listEval(M_list(v(19, +, 6))) == 19 + 6);
 // }
 
-// E_listEvalCommaSep, E_listUnwrapCommaSep {
-#define FOO(a, b, c) E_assertPlain(a == 1 && b == 2 && c == 3)
+// M_listEvalCommaSep, M_listUnwrapCommaSep {
+#define FOO(a, b, c) M_assertPlain(a == 1 && b == 2 && c == 3)
 
-E_assertEmptyPlain(E_listEvalCommaSep(E_nil()));
-E_assertEmpty(E_listUnwrapCommaSep(E_nil()));
+M_assertEmptyPlain(M_listEvalCommaSep(M_nil()));
+M_assertEmpty(M_listUnwrapCommaSep(M_nil()));
 
-E_eval(v(FOO) E_parenthesise(v(E_listEvalCommaSep(E_list(v(1, 2, 3))))));
-E_eval(v(FOO) E_parenthesise(E_listUnwrapCommaSep(E_list(v(1, 2, 3)))));
+M_eval(v(FOO) M_parenthesise(v(M_listEvalCommaSep(M_list(v(1, 2, 3))))));
+M_eval(v(FOO) M_parenthesise(M_listUnwrapCommaSep(M_list(v(1, 2, 3)))));
 
 #undef FOO
 // }
 
-// E_isNil {
-E_assert(E_isNil(E_nil()));
-E_assert(E_not(E_isNil(E_list(v(123)))));
-E_assert(E_not(E_isNil(E_list(v(8, 214, 10, 0, 122)))));
+// M_isNil {
+M_assert(M_isNil(M_nil()));
+M_assert(M_not(M_isNil(M_list(v(123)))));
+M_assert(M_not(M_isNil(M_list(v(8, 214, 10, 0, 122)))));
 // }
 
-// E_get {
-E_assertEq(E_get(v(0), E_list(v(123, 222))), v(123));
-E_assertEq(E_get(v(1), E_list(v(123, 222))), v(222));
+// M_get {
+M_assertEq(M_get(v(0), M_list(v(123, 222))), v(123));
+M_assertEq(M_get(v(1), M_list(v(123, 222))), v(222));
 // }
 
-// E_listTake {
-E_assert(E_listEq(v(E_uintEq), E_listTake(v(1), E_nil()), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_listTake(v(200), E_nil()), E_nil()));
+// M_listTake {
+M_assert(M_listEq(v(M_uintEq), M_listTake(v(1), M_nil()), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listTake(v(200), M_nil()), M_nil()));
 
-E_assert(E_listEq(v(E_uintEq), E_listTake(v(1), E_list(v(1, 2, 3))), E_list(v(1))));
-E_assert(E_listEq(v(E_uintEq), E_listTake(v(2), E_list(v(1, 2, 3))), E_list(v(1, 2))));
-E_assert(E_listEq(v(E_uintEq), E_listTake(v(3), E_list(v(1, 2, 3))), E_list(v(1, 2, 3))));
+M_assert(M_listEq(v(M_uintEq), M_listTake(v(1), M_list(v(1, 2, 3))), M_list(v(1))));
+M_assert(M_listEq(v(M_uintEq), M_listTake(v(2), M_list(v(1, 2, 3))), M_list(v(1, 2))));
+M_assert(M_listEq(v(M_uintEq), M_listTake(v(3), M_list(v(1, 2, 3))), M_list(v(1, 2, 3))));
 // }
 
-// E_listTakeWhile {
-E_assert(E_listEq(v(E_uintEq), E_listTakeWhile(E_appl(v(E_uintLesser), v(5)), E_nil()), E_nil()));
-E_assert(
-    E_listEq(v(E_uintEq), E_listTakeWhile(E_appl(v(E_uintGreater), v(5)), E_list(v(7))), E_nil()));
-E_assert(E_listEq(
-    v(E_uintEq), E_listTakeWhile(E_appl(v(E_uintGreater), v(5)), E_list(v(1, 9, 7))),
-    E_list(v(1))));
-E_assert(E_listEq(
-    v(E_uintEq), E_listTakeWhile(E_appl(v(E_uintGreater), v(5)), E_list(v(4, 9, 2, 3))),
-    E_list(v(4))));
-E_assert(E_listEq(
-    v(E_uintEq), E_listTakeWhile(E_appl(v(E_uintGreater), v(5)), E_list(v(2, 4, 7, 9, 28))),
-    E_list(v(2, 4))));
+// M_listTakeWhile {
+M_assert(M_listEq(v(M_uintEq), M_listTakeWhile(M_appl(v(M_uintLesser), v(5)), M_nil()), M_nil()));
+M_assert(
+    M_listEq(v(M_uintEq), M_listTakeWhile(M_appl(v(M_uintGreater), v(5)), M_list(v(7))), M_nil()));
+M_assert(M_listEq(
+    v(M_uintEq), M_listTakeWhile(M_appl(v(M_uintGreater), v(5)), M_list(v(1, 9, 7))),
+    M_list(v(1))));
+M_assert(M_listEq(
+    v(M_uintEq), M_listTakeWhile(M_appl(v(M_uintGreater), v(5)), M_list(v(4, 9, 2, 3))),
+    M_list(v(4))));
+M_assert(M_listEq(
+    v(M_uintEq), M_listTakeWhile(M_appl(v(M_uintGreater), v(5)), M_list(v(2, 4, 7, 9, 28))),
+    M_list(v(2, 4))));
 // }
 
-// E_listDrop {
-E_assert(E_listEq(v(E_uintEq), E_listDrop(v(1), E_nil()), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_listDrop(v(200), E_nil()), E_nil()));
+// M_listDrop {
+M_assert(M_listEq(v(M_uintEq), M_listDrop(v(1), M_nil()), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listDrop(v(200), M_nil()), M_nil()));
 
-E_assert(E_listEq(v(E_uintEq), E_listDrop(v(1), E_list(v(1, 2, 3))), E_list(v(2, 3))));
-E_assert(E_listEq(v(E_uintEq), E_listDrop(v(2), E_list(v(1, 2, 3))), E_list(v(3))));
-E_assert(E_listEq(v(E_uintEq), E_listDrop(v(3), E_list(v(1, 2, 3))), E_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listDrop(v(1), M_list(v(1, 2, 3))), M_list(v(2, 3))));
+M_assert(M_listEq(v(M_uintEq), M_listDrop(v(2), M_list(v(1, 2, 3))), M_list(v(3))));
+M_assert(M_listEq(v(M_uintEq), M_listDrop(v(3), M_list(v(1, 2, 3))), M_nil()));
 // }
 
-// E_listDropWhile {
-E_assert(E_listEq(v(E_uintEq), E_listDropWhile(E_appl(v(E_uintLesser), v(5)), E_nil()), E_nil()));
-E_assert(E_listEq(
-    v(E_uintEq), E_listDropWhile(E_appl(v(E_uintGreater), v(5)), E_list(v(7))), E_list(v(7))));
-E_assert(E_listEq(
-    v(E_uintEq), E_listDropWhile(E_appl(v(E_uintGreater), v(5)), E_list(v(1, 9, 7))),
-    E_list(v(9, 7))));
-E_assert(E_listEq(
-    v(E_uintEq), E_listDropWhile(E_appl(v(E_uintGreater), v(5)), E_list(v(4, 9, 2, 3))),
-    E_list(v(9, 2, 3))));
-E_assert(E_listEq(
-    v(E_uintEq), E_listDropWhile(E_appl(v(E_uintGreater), v(5)), E_list(v(2, 4, 7, 9, 28))),
-    E_list(v(7, 9, 28))));
+// M_listDropWhile {
+M_assert(M_listEq(v(M_uintEq), M_listDropWhile(M_appl(v(M_uintLesser), v(5)), M_nil()), M_nil()));
+M_assert(M_listEq(
+    v(M_uintEq), M_listDropWhile(M_appl(v(M_uintGreater), v(5)), M_list(v(7))), M_list(v(7))));
+M_assert(M_listEq(
+    v(M_uintEq), M_listDropWhile(M_appl(v(M_uintGreater), v(5)), M_list(v(1, 9, 7))),
+    M_list(v(9, 7))));
+M_assert(M_listEq(
+    v(M_uintEq), M_listDropWhile(M_appl(v(M_uintGreater), v(5)), M_list(v(4, 9, 2, 3))),
+    M_list(v(9, 2, 3))));
+M_assert(M_listEq(
+    v(M_uintEq), M_listDropWhile(M_appl(v(M_uintGreater), v(5)), M_list(v(2, 4, 7, 9, 28))),
+    M_list(v(7, 9, 28))));
 // }
 
-// E_listZip {
-#define EQ_IMPL(x, y) E_listEq(v(E_uintEq), v(x), v(y))
+// M_listZip {
+#define EQ_IMPL(x, y) M_listEq(v(M_uintEq), v(x), v(y))
 #define EQ_ARITY      2
 
-E_assert(E_listEq(v(EQ), E_listZip(E_nil(), E_nil()), E_nil()));
-E_assert(E_listEq(v(EQ), E_listZip(E_list(v(1, 2, 3)), E_nil()), E_nil()));
-E_assert(E_listEq(v(EQ), E_listZip(E_nil(), E_list(v(1, 2, 3))), E_nil()));
+M_assert(M_listEq(v(EQ), M_listZip(M_nil(), M_nil()), M_nil()));
+M_assert(M_listEq(v(EQ), M_listZip(M_list(v(1, 2, 3)), M_nil()), M_nil()));
+M_assert(M_listEq(v(EQ), M_listZip(M_nil(), M_list(v(1, 2, 3))), M_nil()));
 
-E_assert(E_listEq(
-    v(EQ), E_listZip(E_list(v(1, 2, 3)), E_list(v(4, 5, 6))),
-    E_list(E_list(v(1, 4)) E_list(v(2, 5)) E_list(v(3, 6)))));
+M_assert(M_listEq(
+    v(EQ), M_listZip(M_list(v(1, 2, 3)), M_list(v(4, 5, 6))),
+    M_list(M_list(v(1, 4)) M_list(v(2, 5)) M_list(v(3, 6)))));
 
-E_assert(E_listEq(
-    v(EQ), E_listZip(E_list(v(1, 2, 3)), E_list(v(4, 5))),
-    E_list(E_list(v(1, 4)) E_list(v(2, 5)))));
+M_assert(M_listEq(
+    v(EQ), M_listZip(M_list(v(1, 2, 3)), M_list(v(4, 5))),
+    M_list(M_list(v(1, 4)) M_list(v(2, 5)))));
 
-E_assert(E_listEq(
-    v(EQ), E_listZip(E_list(v(1, 2)), E_list(v(4, 5, 6))),
-    E_list(E_list(v(1, 4)) E_list(v(2, 5)))));
+M_assert(M_listEq(
+    v(EQ), M_listZip(M_list(v(1, 2)), M_list(v(4, 5, 6))),
+    M_list(M_list(v(1, 4)) M_list(v(2, 5)))));
 
 #undef EQ_IMPL
 #undef EQ_ARITY
 // }
 
-// E_listUnzip & E_listZip {
-#define LIST E_listUnzip(E_nil())
+// M_listUnzip & M_listZip {
+#define LIST M_listUnzip(M_nil())
 
-E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_nil()));
-
-#undef LIST
-
-#define LIST E_listUnzip(E_listZip(E_list(v(1, 2)), E_list(v(4, 5))))
-
-E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_list(v(1, 2))));
-E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_list(v(4, 5))));
+M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_nil()));
 
 #undef LIST
+
+#define LIST M_listUnzip(M_listZip(M_list(v(1, 2)), M_list(v(4, 5))))
+
+M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_list(v(1, 2))));
+M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_list(v(4, 5))));
+
+#undef LIST
 // }
 
-// E_listEq {
-E_assert(E_listEq(v(E_uintEq), E_nil(), E_nil()));
-E_assert(E_not(E_listEq(v(E_uintEq), E_nil(), E_list(v(25, 88, 1)))));
-E_assert(E_not(E_listEq(v(E_uintEq), E_list(v(25, 88, 1)), E_nil())));
+// M_listEq {
+M_assert(M_listEq(v(M_uintEq), M_nil(), M_nil()));
+M_assert(M_not(M_listEq(v(M_uintEq), M_nil(), M_list(v(25, 88, 1)))));
+M_assert(M_not(M_listEq(v(M_uintEq), M_list(v(25, 88, 1)), M_nil())));
 
-E_assert(E_listEq(v(E_uintEq), E_list(v(1, 2, 3)), E_list(v(1, 2, 3))));
-E_assert(E_not(E_listEq(v(E_uintEq), E_list(v(1, 2, 3)), E_list(v(1)))));
-E_assert(E_not(E_listEq(v(E_uintEq), E_list(v(1)), E_list(v(1, 2, 3)))));
-E_assert(E_not(E_listEq(v(E_uintEq), E_list(v(0, 5, 6, 6)), E_list(v(6, 7)))));
+M_assert(M_listEq(v(M_uintEq), M_list(v(1, 2, 3)), M_list(v(1, 2, 3))));
+M_assert(M_not(M_listEq(v(M_uintEq), M_list(v(1, 2, 3)), M_list(v(1)))));
+M_assert(M_not(M_listEq(v(M_uintEq), M_list(v(1)), M_list(v(1, 2, 3)))));
+M_assert(M_not(M_listEq(v(M_uintEq), M_list(v(0, 5, 6, 6)), M_list(v(6, 7)))));
 // }
 
-// E_listAppl {
-E_assertEq(E_call(E_listAppl(v(E_uintAdd), E_nil()), v(6, 9)), v(6 + 9));
-E_assertEq(E_appl(E_listAppl(v(E_uintAdd), E_list(v(6))), v(9)), v(6 + 9));
-E_assertEq(E_listAppl(v(E_uintAdd), E_list(v(6, 9))), v(6 + 9));
+// M_listAppl {
+M_assertEq(M_call(M_listAppl(v(M_uintAdd), M_nil()), v(6, 9)), v(6 + 9));
+M_assertEq(M_appl(M_listAppl(v(M_uintAdd), M_list(v(6))), v(9)), v(6 + 9));
+M_assertEq(M_listAppl(v(M_uintAdd), M_list(v(6, 9))), v(6 + 9));
 // }
 
-// E_listPrependToAll {
-E_assert(E_listEq(v(E_uintEq), E_listPrependToAll(v(+), E_nil()), E_nil()));
-E_assert(E_listEq(
-    v(E_uintEq), E_listPrependToAll(v(111), E_list(v(5, 9, 22))),
-    E_list(v(111, 5, 111, 9, 111, 22))));
+// M_listPrependToAll {
+M_assert(M_listEq(v(M_uintEq), M_listPrependToAll(v(+), M_nil()), M_nil()));
+M_assert(M_listEq(
+    v(M_uintEq), M_listPrependToAll(v(111), M_list(v(5, 9, 22))),
+    M_list(v(111, 5, 111, 9, 111, 22))));
 // }
 
-// E_listIntersperse {
-E_assert(E_listEq(v(E_uintEq), E_listIntersperse(v(+), E_nil()), E_nil()));
-E_assert(E_listEq(
-    v(E_uintEq), E_listIntersperse(v(111), E_list(v(5, 9, 22))), E_list(v(5, 111, 9, 111, 22))));
+// M_listIntersperse {
+M_assert(M_listEq(v(M_uintEq), M_listIntersperse(v(+), M_nil()), M_nil()));
+M_assert(M_listEq(
+    v(M_uintEq), M_listIntersperse(v(111), M_list(v(5, 9, 22))), M_list(v(5, 111, 9, 111, 22))));
 // }
 
-#define ABCDEFG E_true
+#define ABCDEFG M_true
 
-// E_listFoldr {
-E_assertEq(E_listFoldr(v(E_cat), v(7), E_nil()), v(7));
-E_assert(E_listFoldr(E_appl(v(E_flip), v(E_cat)), v(A), E_list(v(G, DEF, BC))));
+// M_listFoldr {
+M_assertEq(M_listFoldr(v(M_cat), v(7), M_nil()), v(7));
+M_assert(M_listFoldr(M_appl(v(M_flip), v(M_cat)), v(A), M_list(v(G, DEF, BC))));
 // }
 
-// E_listFoldl {
-E_assertEq(E_listFoldl(v(E_cat), v(7), E_nil()), v(7));
-E_assert(E_listFoldl(v(E_cat), v(A), E_list(v(BC, DEF, G))));
+// M_listFoldl {
+M_assertEq(M_listFoldl(v(M_cat), v(7), M_nil()), v(7));
+M_assert(M_listFoldl(v(M_cat), v(A), M_list(v(BC, DEF, G))));
 // }
 
-// E_listFoldl1 {
-E_assert(E_listFoldl1(v(E_cat), E_list(v(AB, CDEF, G))));
+// M_listFoldl1 {
+M_assert(M_listFoldl1(v(M_cat), M_list(v(AB, CDEF, G))));
 // }
 
 #undef ABCDEFG
 
-// E_listMap {
-E_assert(E_listEq(v(E_uintEq), E_listMap(E_appl(v(E_uintAdd), v(3)), E_nil()), E_nil()));
-E_assert(E_listEq(
-    v(E_uintEq), E_listMap(E_appl(v(E_uintAdd), v(3)), E_list(v(1, 2, 3))), E_list(v(4, 5, 6))));
+// M_listMap {
+M_assert(M_listEq(v(M_uintEq), M_listMap(M_appl(v(M_uintAdd), v(3)), M_nil()), M_nil()));
+M_assert(M_listEq(
+    v(M_uintEq), M_listMap(M_appl(v(M_uintAdd), v(3)), M_list(v(1, 2, 3))), M_list(v(4, 5, 6))));
 // }
 
-// E_listMapI {
+// M_listMapI {
 #define A0 19
 #define B1 6
 #define C2 11
 
-E_assert(E_listEq(v(E_uintEq), E_listMapI(v(E_cat), E_nil()), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_listMapI(v(E_cat), E_list(v(A, B, C))), E_list(v(19, 6, 11))));
+M_assert(M_listEq(v(M_uintEq), M_listMapI(v(M_cat), M_nil()), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listMapI(v(M_cat), M_list(v(A, B, C))), M_list(v(19, 6, 11))));
 
 #undef A0
 #undef B1
 #undef C2
 // }
 
-// E_listFor {
-E_assert(E_listEq(v(E_uintEq), E_listFor(E_nil(), E_appl(v(E_uintAdd), v(3))), E_nil()));
-E_assert(E_listEq(
-    v(E_uintEq), E_listFor(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3))), E_list(v(4, 5, 6))));
+// M_listFor {
+M_assert(M_listEq(v(M_uintEq), M_listFor(M_nil(), M_appl(v(M_uintAdd), v(3))), M_nil()));
+M_assert(M_listEq(
+    v(M_uintEq), M_listFor(M_list(v(1, 2, 3)), M_appl(v(M_uintAdd), v(3))), M_list(v(4, 5, 6))));
 // }
 
-// E_listMapInitLast {
-E_assert(E_listEq(
-    v(E_uintEq),
-    E_listMapInitLast(E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(19)), E_list(v(4))),
-    E_list(v(23))));
-E_assert(E_listEq(
-    v(E_uintEq),
-    E_listMapInitLast(E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(7)), E_list(v(1, 2, 3))),
-    E_list(v(4, 5, 10))));
+// M_listMapInitLast {
+M_assert(M_listEq(
+    v(M_uintEq),
+    M_listMapInitLast(M_appl(v(M_uintAdd), v(3)), M_appl(v(M_uintAdd), v(19)), M_list(v(4))),
+    M_list(v(23))));
+M_assert(M_listEq(
+    v(M_uintEq),
+    M_listMapInitLast(M_appl(v(M_uintAdd), v(3)), M_appl(v(M_uintAdd), v(7)), M_list(v(1, 2, 3))),
+    M_list(v(4, 5, 10))));
 // }
 
-// E_listForInitLast {
-E_assert(E_listEq(
-    v(E_uintEq),
-    E_listForInitLast(E_list(v(4)), E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(19))),
-    E_list(v(23))));
-E_assert(E_listEq(
-    v(E_uintEq),
-    E_listForInitLast(E_list(v(1, 2, 3)), E_appl(v(E_uintAdd), v(3)), E_appl(v(E_uintAdd), v(7))),
-    E_list(v(4, 5, 10))));
+// M_listForInitLast {
+M_assert(M_listEq(
+    v(M_uintEq),
+    M_listForInitLast(M_list(v(4)), M_appl(v(M_uintAdd), v(3)), M_appl(v(M_uintAdd), v(19))),
+    M_list(v(23))));
+M_assert(M_listEq(
+    v(M_uintEq),
+    M_listForInitLast(M_list(v(1, 2, 3)), M_appl(v(M_uintAdd), v(3)), M_appl(v(M_uintAdd), v(7))),
+    M_list(v(4, 5, 10))));
 // }
 
-// E_listFilter {
-E_assert(E_listEq(v(E_uintEq), E_listFilter(E_appl(v(E_uintAdd), v(3)), E_nil()), E_nil()));
-E_assert(E_listEq(
-    v(E_uintEq), E_listFilter(E_appl(v(E_uintLesser), v(3)), E_list(v(14, 0, 1, 7, 2, 65, 3))),
-    E_list(v(14, 7, 65))));
+// M_listFilter {
+M_assert(M_listEq(v(M_uintEq), M_listFilter(M_appl(v(M_uintAdd), v(3)), M_nil()), M_nil()));
+M_assert(M_listEq(
+    v(M_uintEq), M_listFilter(M_appl(v(M_uintLesser), v(3)), M_list(v(14, 0, 1, 7, 2, 65, 3))),
+    M_list(v(14, 7, 65))));
 // }
 
-// E_listReplicate {
-E_assert(E_listEq(v(E_uintEq), E_listReplicate(v(0), v(~)), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_listReplicate(v(3), v(7)), E_list(v(7, 7, 7))));
+// M_listReplicate {
+M_assert(M_listEq(v(M_uintEq), M_listReplicate(v(0), v(~)), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listReplicate(v(3), v(7)), M_list(v(7, 7, 7))));
 // }
 
-// E_listPartition {
-// Partitioning E_nil() {
-#define LIST E_listPartition(E_appl(v(E_uintGreater), v(10)), E_nil())
+// M_listPartition {
+// Partitioning M_nil() {
+#define LIST M_listPartition(M_appl(v(M_uintGreater), v(10)), M_nil())
 
-E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_nil()));
+M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_nil()));
 
 #undef LIST
 // }
 
 // Only the second list contains items {
-#define LIST E_listPartition(E_appl(v(E_uintGreater), v(10)), E_list(v(11, 12, 13)))
+#define LIST M_listPartition(M_appl(v(M_uintGreater), v(10)), M_list(v(11, 12, 13)))
 
-E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_nil()));
-E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_list(v(11, 12, 13))));
+M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_list(v(11, 12, 13))));
 
 #undef LIST
 // }
 
 // Only the first list contains items {
-#define LIST E_listPartition(E_appl(v(E_uintGreater), v(10)), E_list(v(4, 7)))
+#define LIST M_listPartition(M_appl(v(M_uintGreater), v(10)), M_list(v(4, 7)))
 
-E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_list(v(4, 7))));
-E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_nil()));
+M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_list(v(4, 7))));
+M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_nil()));
 
 #undef LIST
 // }
 
 // Both lists contain items {
-#define LIST E_listPartition(E_appl(v(E_uintGreater), v(10)), E_list(v(11, 4, 12, 13, 7)))
+#define LIST M_listPartition(M_appl(v(M_uintGreater), v(10)), M_list(v(11, 4, 12, 13, 7)))
 
-E_assert(E_listEq(v(E_uintEq), E_get(v(0), LIST), E_list(v(4, 7))));
-E_assert(E_listEq(v(E_uintEq), E_get(v(1), LIST), E_list(v(11, 12, 13))));
+M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_list(v(4, 7))));
+M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_list(v(11, 12, 13))));
 
 #undef LIST
 // }
 
-// } (E_listPartition)
+// } (M_listPartition)

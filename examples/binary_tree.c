@@ -1,18 +1,18 @@
 // Sums all nodes of a binary tree, recursively.
 
-#include <epilepsy.h>
+#include <metalang99.h>
 
-#define TreeLeaf(x)              E_call(TreeLeaf, x)
-#define TreeNode(lhs, data, rhs) E_call(TreeNode, lhs data rhs)
+#define TreeLeaf(x)              M_call(TreeLeaf, x)
+#define TreeNode(lhs, data, rhs) M_call(TreeNode, lhs data rhs)
 
-#define SUM(tree) E_call(SUM, tree)
+#define SUM(tree) M_call(SUM, tree)
 
-#define TreeLeaf_IMPL(x)              E_choice(v(TreeLeaf), v(x))
-#define TreeNode_IMPL(lhs, data, rhs) E_choice(v(TreeNode), v(lhs, data, rhs))
+#define TreeLeaf_IMPL(x)              M_choice(v(TreeLeaf), v(x))
+#define TreeNode_IMPL(lhs, data, rhs) M_choice(v(TreeNode), v(lhs, data, rhs))
 
-#define SUM_IMPL(tree)                    E_match(v(tree), v(SUM_))
+#define SUM_IMPL(tree)                    M_match(v(tree), v(SUM_))
 #define SUM_TreeLeaf_IMPL(x)              v(x)
-#define SUM_TreeNode_IMPL(lhs, data, rhs) E_uintAdd3(SUM(v(lhs)), v(data), SUM(v(rhs)))
+#define SUM_TreeNode_IMPL(lhs, data, rhs) M_uintAdd3(SUM(v(lhs)), v(data), SUM(v(rhs)))
 
 /*
  *         4
@@ -29,6 +29,6 @@
         v(4),                                                                                      \
         TreeNode(TreeLeaf(v(5)), v(6), TreeLeaf(v(7))))
 
-E_assertEq(SUM(TREE), v(28));
+M_assertEq(SUM(TREE), v(28));
 
 int main(void) {}

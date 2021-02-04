@@ -2,4 +2,4 @@ assert.h
 ====================================
 
 .. doxygenfile:: assert.h
-   :project: Epilepsy
+   :project: Metalang99

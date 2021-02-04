@@ -2,4 +2,4 @@ variadics.h
 ====================================
 
 .. doxygenfile:: variadics.h
-   :project: Epilepsy
+   :project: Metalang99

@@ -1,15 +1,15 @@
 // Computes the area of a rectangle.
 
-#include <epilepsy.h>
+#include <metalang99.h>
 
-#define Rect(width, height) E_call(Rect, width height)
+#define Rect(width, height) M_call(Rect, width height)
 #define RectWidth           v(0)
 #define RectHeight          v(1)
 
-#define RectArea(rect) E_call(RectArea, rect)
+#define RectArea(rect) M_call(RectArea, rect)
 
-#define Rect_IMPL(width, height) E_list(v(width, height))
-#define RectArea_IMPL(rect)      E_uintMul(E_get(RectWidth, v(rect)), E_get(RectHeight, v(rect)))
+#define Rect_IMPL(width, height) M_list(v(width, height))
+#define RectArea_IMPL(rect)      M_uintMul(M_get(RectWidth, v(rect)), M_get(RectHeight, v(rect)))
 
 /*
  *                15
@@ -23,6 +23,6 @@
  */
 #define RECTANGLE Rect(v(15), v(7))
 
-E_assertEq(RectArea(RECTANGLE), v(15 * 7));
+M_assertEq(RectArea(RECTANGLE), v(15 * 7));
 
 int main(void) {}

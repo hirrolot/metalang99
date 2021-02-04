@@ -1,11 +1,11 @@
-#include <epilepsy.h>
+#include <metalang99.h>
 
 // Overloading on a number of arguments {
 typedef struct {
     double width, height;
 } Rect;
 
-#define Rect_new(...)    E_overloadPlain(Rect_new_, __VA_ARGS__)
+#define Rect_new(...)    M_overloadPlain(Rect_new_, __VA_ARGS__)
 #define Rect_new_1(x)    ((Rect){.width = x, .height = x})
 #define Rect_new_2(x, y) ((Rect){.width = x, .height = y})
 

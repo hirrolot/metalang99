@@ -1,10 +1,10 @@
-#include <epilepsy.h>
+#include <metalang99.h>
 
 #define F_IMPL(x) v(x)
 
-#define CALL E_call(F, E_call(F, E_call(F, v(~~~~~))))
+#define CALL M_call(F, M_call(F, M_call(F, v(~~~~~))))
 #define _5   CALL CALL CALL CALL CALL
 #define _10  _5 _5
 #define _100 _10 _10 _10 _10 _10 _10 _10 _10 _10 _10
 
-E_eval(E_consume(_100))
+M_eval(M_consume(_100))

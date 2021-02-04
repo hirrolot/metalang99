@@ -2,4 +2,4 @@ logical.h
 ====================================
 
 .. doxygenfile:: logical.h
-   :project: Epilepsy
+   :project: Metalang99
