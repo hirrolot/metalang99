@@ -8,7 +8,7 @@ The Metalang99 Standard Library
 
 The Metalang99 standard library exports a set of macros implemented using the `Metalang99 metalanguage`_.
 
-If `METALANG99_NO_SMALL_PREFIX` is defined, all macros will have only one name: `METALANG99_appl`, `METALANG99_call`, etc. Otherwise, shortening aliases will be defined: `METALANG99_appl`, `M_appl`, `METALANG99_call`, `M_call`, etc (the default behaviour).
+If `METALANG99_NO_SMALL_PREFIX` is defined, all macros will have only one name: `METALANG99_appl`, `METALANG99_call`, etc. Otherwise, shortening aliases will also be defined: `METALANG99_appl`, `M_appl`, `METALANG99_call`, `M_call`, etc (the default behaviour).
 
 Macros which are postfixed with `Plain` are called the plain versions of others, i.e. they can be used as ordinary macros, they are not written in Metalang99. They are used to save some reduction steps, thereby making metaprograms faster.
 
