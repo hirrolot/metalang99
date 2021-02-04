@@ -4,8 +4,9 @@
 
 [![CI](https://github.com/Hirrolot/epilepsy/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/epilepsy/actions)
 [![docs](https://img.shields.io/badge/docs-readthedocs.io-blue)](https://epilepsy.readthedocs.io/en/latest/)
-[![spec](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf)
 [![book](https://img.shields.io/badge/book-gitbook.io-pink)](https://hirrolot.gitbook.io/epilepsy/)
+[![spec](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/epilepsy/blob/master/spec/spec.pdf)
+[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dhirrolot%26type%3Dpatrons&style=flat)](https://patreon.com/hirrolot)
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp; &emsp; <b>-- Darth Sidious</b>
 
@@ -69,6 +70,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
  - [Motivation](#motivation)
  - [Getting started](#getting-started)
+ - [Optimisation guide](#optimisation-guide)
  - [Contributing](#contributing)
  - [Source code structure](#source-code-structure)
  - [FAQ](#faq)
@@ -77,7 +79,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor. Most importantly, it is designed in such a way to permit metarecursion so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] due to some mysterious reason. It also exports a bouquet of nice features like partial application, error reporting, and all the stuff.
+To solve the problem, I have implemented Epilepsy -- a functional programming language executing on any standard-confirming preprocessor. Most importantly, it is designed in such a way to permit metarecursion so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] for some mysterious reason. It also exports a bouquet of nice features like partial application, error reporting, and all the stuff.
 
 As a practical example of what is possible with Epilepsy, consider [datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
 
@@ -131,6 +133,15 @@ Resources:
 Happy hacking!
 
 [precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
+
+## Optimisation guide
+
+Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here's its informal (and imprecise) description:
+
+ - Every `v(...)` is a reduction step.
+ - Every `E_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
+
+To perform fewer reduction steps, consider using `E_trivialCall` as well as the plain versions (e.g., `E_consumePlain` instead of `E_consume`), when possible.
 
 ## Contributing
 
