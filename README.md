@@ -192,7 +192,7 @@ A:
 
  - **It guides the tests.** We immediately see many, if not all corner cases, which are ought to be tested.
 
- - **Distinctness.** With a formal specification, it is much easier to answer questions like "Is it a bug of the implementation or it is a valid behaviour according to the specification?".
+ - **Distinctness.** It is much easier to answer questions like "Is it a bug of the implementation or it is a valid behaviour according to the specification?".
 
 That is, the development flow is "specification-driven", if you prefer.
 
