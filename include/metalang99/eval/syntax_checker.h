@@ -10,6 +10,8 @@
         METALANG99_PRIV_SYNTAX_CHECKER_EMIT_ERROR,                                                 \
         default)
 #define METALANG99_PRIV_SYNTAX_CHECKER_EMIT_ERROR(term, ...)                                       \
-    METALANG99_PRIV_DIAGNOSTICS_SYNTAX_ERROR(term)
+    METALANG99_PRIV_DIAGNOSTICS_SYNTAX_ERROR(term)                                                 \
+    /* Consume arguments passed to METALANG99_PRIV_TERM_MATCH, see eval.h. */                      \
+    METALANG99_PRIV_CONSUME
 
 #endif // METALANG99_EVAL_SYNTAX_CHECKER_H

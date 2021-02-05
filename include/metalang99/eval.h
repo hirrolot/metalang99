@@ -55,7 +55,7 @@
 
 #define METALANG99_PRIV_EVAL_MATCH(k, k_cx, folder, acc, head, ...)                                \
     METALANG99_PRIV_CHECK_TERM(head, METALANG99_PRIV_TERM_MATCH)                                   \
-    (METALANG99_PRIV_EVAL_, head)(                                                                 \
+    (head, METALANG99_PRIV_EVAL_)(                                                                 \
         k,                                                                                         \
         k_cx,                                                                                      \
         folder,                                                                                    \
