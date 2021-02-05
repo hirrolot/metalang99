@@ -37,8 +37,6 @@
 /**
  * Extracts a head of its arguments.
  *
- * At least two arguments shall be specified.
- *
  * # Examples
  *
  * @code
@@ -46,6 +44,9 @@
  *
  * // 1
  * M_variadicsHead(v(1, 2, 3))
+ *
+ * // 1
+ * M_variadicsHead(v(1))
  * @endcode
  */
 #define METALANG99_variadicsHead(...) METALANG99_call(METALANG99_variadicsHead, __VA_ARGS__)

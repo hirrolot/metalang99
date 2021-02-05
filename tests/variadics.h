@@ -3,6 +3,8 @@
 #include <metalang99/variadics.h>
 
 // M_variadicsHead {
+M_assertEmpty(M_variadicsHead(v()));
+M_assertEq(M_variadicsHead(v(19)), v(19));
 M_assertEq(M_variadicsHead(v(19, 8)), v(19));
 M_assertEq(M_variadicsHead(v(19, 8, 7378)), v(19));
 // }
