@@ -81,7 +81,7 @@ To solve the problem, I have implemented Metalang99 -- a functional programming 
 
  - **General recursion.** The syntax of recursive and non-recursive calls is the same so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] for some mysterious reason (macro blueprinting is a very hard-to-debug disaster). In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on built-in deduction; Metalang99 is free from such drawbacks.
 
- - **Partial application.** Besides easier use of higher-order metafunctions, partial application helps to capture an environment for a macro, thus avoiding the need in auxiliary parameters.
+ - **Partial application.** Besides easier use of higher-order metafunctions, partial application helps to capture an environment for a macro, thus avoiding the need in packing & unpacking auxiliary parameters.
 
  - **Debugging and error reporting.** You can conveniently debug your macros with `M_abort` and report fatal errors with `M_fatal`. The interpreter will immediately finish its work and do the trick.
 
