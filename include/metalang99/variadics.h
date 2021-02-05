@@ -83,6 +83,7 @@
  * @endcode
  *
  * @note @p f can evaluate to many Metalang99 terms.
+ * @note Currently, this function can accept at most 256 arguments.
  */
 #define METALANG99_variadicsMap(f, ...) METALANG99_call(METALANG99_variadicsMap, f __VA_ARGS__)
 
@@ -102,6 +103,7 @@
  * @endcode
  *
  * @note @p f can evaluate to many Metalang99 terms.
+ * @note Currently, this function can accept at most 256 arguments.
  */
 #define METALANG99_variadicsMapCommaSep(f, ...)                                                    \
     METALANG99_call(METALANG99_variadicsMapCommaSep, f __VA_ARGS__)
@@ -112,6 +114,7 @@
  * The result is `METALANG99_appl2(v(f), v(x1), v(0)) ... METALANG99_appl2(v(f), v(xN), v(N))`.
  *
  * @note Unlike #METALANG99_listMapI, @p f can evaluate to many Metalang99 terms.
+ * @note Currently, this function can accept at most 256 arguments.
  */
 #define METALANG99_variadicsMapI(f, ...) METALANG99_call(METALANG99_variadicsMapI, f __VA_ARGS__)
 
@@ -122,6 +125,7 @@
  * v(N))`.
  *
  * @note @p f can evaluate to many Metalang99 terms.
+ * @note Currently, this function can accept at most 256 arguments.
  */
 #define METALANG99_variadicsMapICommaSep(f, ...)                                                   \
     METALANG99_call(METALANG99_variadicsMapICommaSep, f __VA_ARGS__)
