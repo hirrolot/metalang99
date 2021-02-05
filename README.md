@@ -1,5 +1,3 @@
-> WARNING: still under v0.1.0 active development.
-
 # Metalang99
 
 [![CI](https://github.com/Hirrolot/metalang99/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/metalang99/actions)
