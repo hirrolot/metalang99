@@ -77,7 +77,13 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. Most importantly, it is designed in such a way to permit metarecursion so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] for some mysterious reason. It also exports a bouquet of nice features like partial application, error reporting, and all the stuff.
+To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. Unlike other metaprogramming libraries, Metalang99 features:
+
+ - **General recursion.** It means that recursive calls are expressed in the same syntax as usual calls so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] for some mysterious reason. In particular, [Boost/Preprocessor] just copy-pastes necessary levels for all recursive functions and forces to either keep track of recursion depth or rely on built-in deduction; Metalang99 is free from such drawbacks.
+ - **Partial application.** Besides easier use of higher-order metafunctions, partial application helps to capture an environment for a macro, thus avoiding the need in auxiliary parameters.
+ - **Debugging and error reporting.** You can conveniently debug your macros with `M_abort` and report fatal errors with `M_fatal`. The interpreter will immediately finish its work and do the trick.
+
+[Boost/Preprocessor]: http://boost.org/libs/preprocessor
 
 As a practical example of what is possible with Metalang99, consider [datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
 
@@ -171,12 +177,6 @@ A:
  - Preprocessor macros are far more seamlessly integrated with a code base: you can invoke them in the same source files where ordinary code in C is written.
  - IDE support.
  - Avoid additional burden with distribution and setup of third-party code generators.
-
-### Q: In what aspects Metalang99 differs from other preprocessor libraries?
-
-A: In short, it provides more functionality, it is well-tested, and actively maintained. In particular, [Boost/Preprocessor] is well-tested and actively maintained too, but lacks general metarecursion, partial application, choice types, graceful error reporting, and debugging facilities.
-
-[Boost/Preprocessor]: http://boost.org/libs/preprocessor
 
 ### Q: Compilation times?
 
