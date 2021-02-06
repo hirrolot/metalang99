@@ -79,7 +79,7 @@ The C macro system can be viewed as a tool to extend the language with custom sy
 
 To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. Unlike other metaprogramming libraries, Metalang99 features:
 
- - **General recursion.** The syntax of recursive and non-recursive calls is the same so typically you will not find yourself in a sutiation where some macro accidentally gets [blueprinted] for some mysterious reason (macro blueprinting is a very hard-to-debug disaster). In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on built-in deduction; Metalang99 is free from such drawbacks.
+ - **General recursion.** The syntax of recursive and non-recursive calls is the same so typically you will not find yourself in a situation where some macro accidentally gets [blueprinted] for some mysterious reason (macro blueprinting is a very hard-to-debug disaster). In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on built-in deduction; Metalang99 is free from such drawbacks.
 
  - **Partial application.** Besides easier use of higher-order metafunctions, partial application helps to capture an environment for a macro, thus avoiding the need in packing & unpacking auxiliary parameters.
 
