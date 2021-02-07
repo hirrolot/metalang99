@@ -70,7 +70,7 @@ It features a wide range of concepts, including algebraic data types, control fl
  - [Getting started](#getting-started)
  - [Optimisation guide](#optimisation-guide)
  - [Contributing](#contributing)
- - [Source code structure](#source-code-structure)
+ - [Architecture](#architecture)
  - [FAQ](#faq)
 
 ## Motivation
@@ -155,20 +155,9 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 At this moment, contributions that optimise the interpreter and the standard library are highly appreciated.
 
-## Source code structure
+## Architecture
 
-Metalang99 is split into two parts: the interpreter and the standard library.
-
-The interpreter interprets the core metalanguage described in the [specification]. It is located in [`eval.h`] and [`eval/`]. The former file contains a machine written in [continuation-passing style] which is described in the specification too. [`eval/rec/`] contains a macro recursion engine upon which everything executes.
-
-All the other files except [`priv/`] (private auxiliary stuff) comprise the standard library. 
-
-[continuation-passing style]: https://en.wikipedia.org/wiki/Continuation-passing_style
-[specification]: https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf
-[`eval.h`]: include/metalang99/eval.h
-[`eval/`]: include/metalang99/eval/
-[`eval/rec/`]: include/metalang99/eval/rec/
-[`priv/`]: include/metalang99/priv/
+See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ## FAQ
 
