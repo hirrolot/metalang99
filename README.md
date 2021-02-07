@@ -68,9 +68,9 @@ It features a wide range of concepts, including algebraic data types, control fl
 
  - [Motivation](#motivation)
  - [Getting started](#getting-started)
- - [Optimisation guide](#optimisation-guide)
  - [Contributing](#contributing)
  - [Architecture](#architecture)
+ - [Optimisation guide](#optimisation-guide)
  - [FAQ](#faq)
 
 ## Motivation
@@ -140,15 +140,6 @@ Happy hacking!
 
 [precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
 
-## Optimisation guide
-
-Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here's its informal (and imprecise) description:
-
- - Every `v(...)` is a reduction step.
- - Every `M_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
-
-To perform fewer reduction steps, consider using `M_callTrivial` as well as the plain versions (e.g., `M_consumePlain` instead of `M_consume`), when possible.
-
 ## Contributing
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
@@ -158,6 +149,15 @@ At this moment, contributions that optimise the interpreter and the standard lib
 ## Architecture
 
 See [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
+## Optimisation guide
+
+Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here's its informal (and imprecise) description:
+
+ - Every `v(...)` is a reduction step.
+ - Every `M_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
+
+To perform fewer reduction steps, consider using `M_callTrivial` as well as the plain versions (e.g., `M_consumePlain` instead of `M_consume`), when possible.
 
 ## FAQ
 
