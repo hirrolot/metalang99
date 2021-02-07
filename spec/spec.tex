@@ -288,13 +288,13 @@ By inspection of \ref{ReductionSemantics}.
 \section{Caveats}
 
 \begin{itemize}
-\item consider this scenario:
+\item Consider this scenario:
     \begin{itemize}
         \item You call \texttt{FOO(1, 2, 3)}
         \item It gets expanded by the preprocessor (not by Metalang99)
         \item Its expansion contains \texttt{FOO}
     \end{itemize}
-Then \texttt{FOO} gets blocked \cite{Blueprinting} by the preprocessor, e.g. Metalang99 cannot handle ordinary
+Then \texttt{FOO} gets blocked \cite{Blueprinting} by the preprocessor, i.e. Metalang99 cannot handle ordinary
 macro recursion; you must use \texttt{METALANG99\_call} to be sure that recursive calls
 will behave as expected. I therefore recommend to use only primitive C-style macros, e.g.
 for performance reasons or because of you cannot express them in terms of Metalang99.
