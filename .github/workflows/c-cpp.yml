@@ -8,8 +8,11 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v2
@@ -17,11 +20,22 @@ jobs:
     - name: Update Git submodules
       run: git submodule update --init --recursive
 
-    - name: Test
-      run: bash scripts/test-all.sh
+    - name: Tests
+      run: |
+        mkdir tests/build
+        cd tests/build
+        cmake ..
+        cmake --build .
+
+    - name: Examples
+      run: |
+        mkdir examples/build
+        cd examples/build
+        cmake ..
+        cmake --build .
 
     - name: Bench
-      run: bash scripts/bench.sh
+      run: scripts/bench.sh
 
     - name: Check code formatting
-      run: bash scripts/check-fmt.sh
+      run: scripts/check-fmt.sh
