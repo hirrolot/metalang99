@@ -35,7 +35,7 @@ jobs:
         cmake --build .
 
     - name: Bench
-      run: scripts/bench.sh
+      run: bash scripts/bench.sh
 
     - name: Check code formatting
-      run: scripts/check-fmt.sh
+      run: bash scripts/check-fmt.sh
