@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
  - Make `METALANG99_variadicsHead` accept a single argument too.
+ - All the `aux.h` files renamed to `util.h` for compatibility with Windows.
 
 ## [0.2.0] - 2020-02-05
 
