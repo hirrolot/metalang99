@@ -49,3 +49,5 @@ M_assertEq(M_unwrapRight(M_right(v(123))), v(123));
 // }
 
 #undef VAL
+
+int main(void) {}

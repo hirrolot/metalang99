@@ -7,6 +7,13 @@ endif()
 
 include_directories(../include)
 
-file(GLOB HEADERS *.h)
-add_executable(test main.c ${HEADERS})
-set_target_properties(test PROPERTIES C_STANDARD 99 C_STANDARD_REQUIRED ON)
+file(GLOB TESTS *.c)
+
+foreach(TEST ${TESTS})
+  get_filename_component(TEST_NAME ${TEST} NAME_WE)
+  add_executable(${TEST_NAME} ${TEST})
+endforeach()
+
+foreach(TARGET ${BUILDSYSTEM_TARGETS})
+  set_target_properties(TARGET PROPERTIES C_STANDARD 99 C_STANDARD_REQUIRED ON)
+endforeach()

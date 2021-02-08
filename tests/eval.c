@@ -115,3 +115,5 @@ M_assertEq(M_appl(M_compose(v(F), v(G)), v(3)), v((3 * 8) + 1));
 #undef F_ARITY
 #undef G_ARITY
 // }
+
+int main(void) {}

@@ -329,3 +329,5 @@ M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_list(v(11, 12, 13))));
 // }
 
 // } (M_listPartition)
+
+int main(void) {}

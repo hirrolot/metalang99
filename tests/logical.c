@@ -33,3 +33,5 @@ M_assertEq(M_boolEq(v(0), v(1)), v(0));
 M_assertEq(M_boolEq(v(1), v(0)), v(0));
 M_assertEq(M_boolEq(v(1), v(1)), v(1));
 // }
+
+int main(void) {}

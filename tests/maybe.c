@@ -40,3 +40,5 @@ M_assertEq(M_maybeUnwrap(M_just(v(123))), v(123));
 // }
 
 #undef VAL
+
+int main(void) {}

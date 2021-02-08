@@ -11,3 +11,5 @@ M_eval(v(CHECK) M_parenthesise(M_repeat(v(F), v(3))));
 #undef CHECK
 #undef F_IMPL
 #undef F_ARITY
+
+int main(void) {}

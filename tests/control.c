@@ -25,3 +25,5 @@ M_eval(M_call(X, v(1516, 1, 9, 111, 119, 677, 62)));
 #undef X_2_IMPL
 #undef X_7_IMPL
 // }
+
+int main(void) {}

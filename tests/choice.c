@@ -33,3 +33,5 @@ M_eval(M_call(MATCH, M_choiceEmpty(v(FooC))));
 #undef MATCH_FooB_IMPL
 #undef MATCH_FooC_IMPL
 // }
+
+int main(void) {}

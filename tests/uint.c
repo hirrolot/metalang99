@@ -190,3 +190,5 @@ M_assertEq(M_uintMax(v(0), v(1)), v(1));
 M_assertEq(M_uintMax(v(5), v(7)), v(7));
 M_assertEq(M_uintMax(v(200), v(255)), v(255));
 // }
+
+int main(void) {}
