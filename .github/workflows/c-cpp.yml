@@ -33,7 +33,10 @@ jobs:
 
   bench:
     runs-on: ubuntu-latest
+
     steps:
+      - uses: actions/checkout@v2
+
       - name: Bench
         run: bash scripts/bench.sh
 
@@ -41,6 +44,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+
       - name: Download run-clang-format
         run: git submodule update --init run-clang-format
 
