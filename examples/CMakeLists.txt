@@ -7,14 +7,12 @@ endif()
 
 include_directories(../include)
 
-add_executable(demo demo.c)
-add_executable(overload overload.c)
+file(GLOB EXAMPLES *.c)
 
-add_executable(factorial factorial.c)
-add_executable(ackermann ackermann.c)
-
-add_executable(binary_tree binary_tree.c)
-add_executable(rectangle rectangle.c)
+foreach(EXAMPLE ${EXAMPLES})
+  get_filename_component(EXAMPLE_NAME ${EXAMPLE} NAME_WE)
+  add_executable(${EXAMPLE_NAME} ${EXAMPLE})
+endforeach()
 
 foreach(TARGET ${BUILDSYSTEM_TARGETS})
   set_target_properties(TARGET PROPERTIES C_STANDARD 99 C_STANDARD_REQUIRED ON)
