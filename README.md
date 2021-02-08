@@ -74,6 +74,7 @@ It features a wide range of concepts, including algebraic data types, control fl
  - [Architecture](#architecture)
  - [Optimisation guide](#optimisation-guide)
  - [FAQ](#faq)
+ - [Troubleshooting](#troubleshooting)
 
 ## Motivation
 
@@ -193,6 +194,8 @@ That is, the development flow is "specification-driven", if you prefer.
 
 A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit (see this [SO question](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete)). For Metalang99, this limit is defined in terms of reductions steps (see the [specification]).
 
+[specification]: https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf
+
 ### Q: Why do we need powerful preprocessor macros in the presence of templates?
 
 A: Metalang99 is primarily targeted at pure C, and C lacks templates. But anyway, you can find the argumentation for C++ at the website of [Boost/Preprocessor].
@@ -206,3 +209,9 @@ A: C99/C++11 and onwards.
 A: I don't like amalgamated headers because they induce burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+## Troubleshooting
+
+### Problem: I can't make it work on MSVC
+
+Solution: specify either `/std:c11` or `/std:c17`. [More information >>](https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version?view=msvc-160#c-standards-support-1)
