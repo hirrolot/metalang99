@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p examples/build
+mkdir -p tests/build
 cd tests/build
 cmake ..
 cmake --build .
