@@ -17,9 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Update Git submodules
-      run: git submodule update --init --recursive
-
     - name: Tests
       run: |
         mkdir tests/build
@@ -42,6 +39,10 @@ jobs:
 
   check-fmt:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Download run-clang-format
+        run: git submodule update --init run-clang-format
+
       - name: Check code formatting
         run: bash scripts/check-fmt.sh
