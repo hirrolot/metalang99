@@ -93,7 +93,7 @@ To solve the problem, I have implemented Metalang99 -- a functional programming 
 [Boost/Preprocessor]: http://boost.org/libs/preprocessor
 [Order PP]: https://github.com/rofl0r/order-pp
 
-As a practical example of what is possible with Metalang99, consider [datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
+As a practical example of what is possible with Metalang99, consider [Datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
 
 ```c
 // Sums all nodes of a binary tree.
@@ -120,7 +120,7 @@ int sum(const BinaryTree *tree) {
 
 So, in summary, Metalang99 allows to do advanced metaprogramming in C. It allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
 
-[datatype99]: https://github.com/Hirrolot/datatype99
+[Datatype99]: https://github.com/Hirrolot/datatype99
 [sum types]: https://en.wikipedia.org/wiki/Tagged_union
 
 ## Getting started
