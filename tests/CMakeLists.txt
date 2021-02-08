@@ -3,6 +3,9 @@ project(test LANGUAGES C)
 
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
   add_compile_options(-Wall -Wextra -pedantic -ftrack-macro-expansion=0)
+elseif(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+  # Enable a standard-confirming preprocessor.
+  add_compile_options("/Zc:preprocessor")
 endif()
 
 include_directories(../include)
