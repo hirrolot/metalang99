@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 project(test LANGUAGES C)
 
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
-  add_compile_options(-Wall -Wextra -ftrack-macro-expansion=0)
+  add_compile_options(-Wall -Wextra -pedantic -ftrack-macro-expansion=0)
 endif()
 
 include_directories(../include)

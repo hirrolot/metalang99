@@ -1,3 +1,6 @@
 #!/bin/bash
 
-gcc tests/main.c -std=c99 -Wall -Wextra -pedantic -Iinclude -ftrack-macro-expansion=0
+mkdir -p examples/build
+cd tests/build
+cmake ..
+cmake --build .
