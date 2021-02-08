@@ -29,7 +29,7 @@ static int lesser_than_10[] = {
 };
 // }
 
-// General macro recursion {
+// Macro recursion {
 #define factorial(n) M_call(factorial, n)
 
 #define factorial_IMPL(n)   M_uintMatch(v(n), v(factorial_))
@@ -62,7 +62,7 @@ int main(void) {
 
 Metalang99 is a functional language aimed at full-blown C99 preprocessor metaprogramming.
 
-It features a wide range of concepts, including algebraic data types, control flow operators, collections, general recursion, and auto-currying -- to develop both small and complex metaprograms painlessly.
+It features a wide range of concepts, including algebraic data types, control flow operators, collections, recursion, and auto-currying -- to develop both small and complex metaprograms painlessly.
 
 ## Table of contents
 
@@ -79,7 +79,7 @@ The C macro system can be viewed as a tool to extend the language with custom sy
 
 To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. Unlike other metaprogramming libraries, Metalang99 features:
 
- - **General recursion.** The syntax of recursive and non-recursive calls is the same so typically you will not find yourself in a situation where some macro accidentally gets [blueprinted] for some mysterious reason (macro blueprinting is a very hard-to-debug disaster). In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on built-in deduction; Metalang99 is free from such drawbacks.
+ - **Recursion.** The syntax of recursive and non-recursive calls is the same so typically you will not find yourself in a situation where some macro accidentally gets [blueprinted] for some mysterious reason (macro blueprinting is a very hard-to-debug disaster). In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on built-in deduction; Metalang99 is free from such drawbacks.
 
  - **Partial application.** Besides easier use of higher-order metafunctions, partial application helps to capture an environment for a macro, thus avoiding the need in packing & unpacking auxiliary parameters.
 
