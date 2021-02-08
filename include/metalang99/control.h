@@ -7,6 +7,7 @@
 #define METALANG99_CONTROL_H
 
 #include <metalang99/lang.h>
+#include <metalang99/priv/util.h>
 #include <metalang99/uint.h>
 
 // Desugaring {
