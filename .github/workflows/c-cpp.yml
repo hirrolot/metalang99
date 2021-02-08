@@ -35,14 +35,12 @@ jobs:
         cmake --build .
 
   bench:
-    if: matrix.os == ubuntu-latest
     runs-on: ubuntu-latest
     steps:
       - name: Bench
         run: bash scripts/bench.sh
 
   check-fmt:
-    if: matrix.os == ubuntu-latest
     runs-on: ubuntu-latest
     steps:
       - name: Check code formatting
