@@ -84,11 +84,14 @@ To solve the problem, I have implemented Metalang99 -- a functional programming 
 
  - **Macro recursion.** The syntax of recursive and non-recursive calls is the same so typically you will not find yourself in a situation where some macro accidentally gets [blueprinted] for some mysterious reason (macro blueprinting is a very hard-to-debug disaster). In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on built-in deduction; Metalang99 is free from such drawbacks.
 
+ - **Almost the same syntax.** Metalang99 does not look too alien in comparison with [Order PP] because the syntax differs insignificantly from usual preprocessor code.
+
  - **Partial application.** Besides easier use of higher-order metafunctions, partial application helps to capture an environment for a macro, thus avoiding the need in packing & unpacking auxiliary parameters.
 
  - **Debugging and error reporting.** You can conveniently debug your macros with `M_abort` and report fatal errors with `M_fatal`. The interpreter will immediately finish its work and do the trick.
 
 [Boost/Preprocessor]: http://boost.org/libs/preprocessor
+[Order PP]: https://github.com/rofl0r/order-pp
 
 As a practical example of what is possible with Metalang99, consider [datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
 
