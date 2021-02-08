@@ -17,7 +17,7 @@ static int lesser_than_10[] = {
 };
 // }
 
-// General macro recursion {
+// Macro recursion {
 #define factorial(n) M_call(factorial, n)
 
 #define factorial_IMPL(n)   M_uintMatch(v(n), v(factorial_))
@@ -32,9 +32,11 @@ typedef struct {
     double width, height;
 } Rect;
 
-#define Rect_new(...)    M_overloadPlain(Rect_new_, __VA_ARGS__)
-#define Rect_new_1(x)    ((Rect){.width = x, .height = x})
-#define Rect_new_2(x, y) ((Rect){.width = x, .height = y})
+#define Rect_new(...) M_overloadPlain(Rect_new_, __VA_ARGS__)
+#define Rect_new_1(x)                                                                              \
+    { x, x }
+#define Rect_new_2(x, y)                                                                           \
+    { x, y }
 
 static Rect _7x8 = Rect_new(7, 8), _10x10 = Rect_new(10);
 // }
