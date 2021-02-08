@@ -8,7 +8,7 @@
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp; &emsp; <b>-- Darth Sidious</b>
 
-[[`examples/demo.c`](examples/demo.c)]
+[ [`examples/demo.c`](examples/demo.c) ]
 ```c
 #include <metalang99.h>
 
