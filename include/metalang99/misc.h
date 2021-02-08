@@ -17,7 +17,7 @@
  *
  * @code
  * #include <metalang99/misc.h>
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // _0 _1 _2
  * M_repeat(M_appl(v(M_cat), v(_)), v(3))

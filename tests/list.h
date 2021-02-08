@@ -1,7 +1,7 @@
 #include <metalang99/assert.h>
-#include <metalang99/aux.h>
 #include <metalang99/list.h>
 #include <metalang99/uint.h>
+#include <metalang99/util.h>
 
 // M_listHead {
 M_assertEq(M_listHead(M_list(v(1))), v(1));

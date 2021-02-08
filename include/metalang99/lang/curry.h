@@ -1,7 +1,7 @@
 #ifndef METALANG99_LANG_CURRY_H
 #define METALANG99_LANG_CURRY_H
 
-#include <metalang99/priv/aux.h>
+#include <metalang99/priv/util.h>
 
 #define METALANG99_PRIV_CURRY(f, ...)                                                              \
     (METALANG99_PRIV_CAT(METALANG99_PRIV_CAT(METALANG99_PRIV_CURRY_, f##_ARITY), _CLOSURE),        \

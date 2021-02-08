@@ -1,7 +1,7 @@
 #ifndef METALANG99_UINT_INC_H
 #define METALANG99_UINT_INC_H
 
-#include <metalang99/priv/aux.h>
+#include <metalang99/priv/util.h>
 
 #define METALANG99_PRIV_uintInc(x) METALANG99_PRIV_CAT(METALANG99_PRIV_UINT_INC_, x)()
 

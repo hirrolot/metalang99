@@ -14,7 +14,7 @@
 #include <metalang99/eval/rec/unroll.h>
 #include <metalang99/eval/syntax_checker.h>
 #include <metalang99/eval/term.h>
-#include <metalang99/priv/aux.h>
+#include <metalang99/priv/util.h>
 
 /**
  * Evaluates a metaprogram.

@@ -1,6 +1,6 @@
 #include <metalang99/assert.h>
-#include <metalang99/aux.h>
 #include <metalang99/choice.h>
+#include <metalang99/util.h>
 
 // M_match {
 #define MATCH_IMPL(foo)    M_match(v(foo), v(MATCH_))

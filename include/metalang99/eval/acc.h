@@ -1,7 +1,7 @@
 #ifndef METALANG99_EVAL_ACC_H
 #define METALANG99_EVAL_ACC_H
 
-#include <metalang99/priv/aux.h>
+#include <metalang99/priv/util.h>
 
 #define METALANG99_PRIV_EVAL_ACC_EMPTY() 0empty()
 

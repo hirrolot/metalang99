@@ -2,7 +2,7 @@
 #define METALANG99_EVAL_SYNTAX_CHECKER_H
 
 #include <metalang99/eval/diagnostics.h>
-#include <metalang99/priv/aux.h>
+#include <metalang99/priv/util.h>
 
 #define METALANG99_PRIV_CHECK_TERM(term, default)                                                  \
     METALANG99_PRIV_IF(                                                                            \

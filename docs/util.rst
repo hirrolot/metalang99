@@ -1,5 +1,5 @@
-aux.h
+util.h
 ====================================
 
-.. doxygenfile:: aux.h
+.. doxygenfile:: util.h
    :project: Metalang99

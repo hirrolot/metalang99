@@ -1,5 +1,5 @@
 #include <metalang99/assert.h>
-#include <metalang99/aux.h>
+#include <metalang99/util.h>
 
 #define FOO(x, y) M_assertPlain(x == 518 && y == 1910)
 

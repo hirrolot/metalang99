@@ -6,12 +6,12 @@
 #ifndef METALANG99_ASSERT_H
 #define METALANG99_ASSERT_H
 
-#include <metalang99/aux.h>
 #include <metalang99/eval.h>
 #include <metalang99/lang.h>
 #include <metalang99/logical.h>
-#include <metalang99/priv/aux.h>
 #include <metalang99/priv/compiler_attr.h>
+#include <metalang99/priv/util.h>
+#include <metalang99/util.h>
 
 // Desugaring {
 /**

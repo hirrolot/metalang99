@@ -24,7 +24,7 @@ Macros which are postfixed with `Plain` are called the plain versions of others,
    maybe
    list
    variadics
-   aux
+   util
    control
    assert
    misc
@@ -41,9 +41,9 @@ Contents
  - `maybe.h`_ - An optional value.
  - `list.h`_ - List manipulation.
  - `variadics.h`_ - Variadic macro utilities.
- - `aux.h`_ - Auxiliary macros.
  - `control.h`_ - Control expressions.
  - `assert.h`_ - Static assertions.
+ - `util.h`_ - Utilitary stuff.
  - `misc.h`_ - Miscellaneous stuff.
 
 Indices and tables
@@ -63,7 +63,7 @@ Indices and tables
 .. _maybe.h: maybe.html
 .. _list.h: list.html
 .. _variadics.h: variadics.html
-.. _aux.h: aux.html
 .. _control.h: control.html
 .. _assert.h: assert.html
 .. _misc.h: misc.html
+.. _util.h: util.html

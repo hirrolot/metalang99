@@ -13,10 +13,10 @@
 #ifndef METALANG99_CHOICE_H
 #define METALANG99_CHOICE_H
 
-#include <metalang99/aux.h>
 #include <metalang99/lang.h>
-#include <metalang99/priv/aux.h>
 #include <metalang99/priv/pair.h>
+#include <metalang99/priv/util.h>
+#include <metalang99/util.h>
 
 // Desugaring {
 /**

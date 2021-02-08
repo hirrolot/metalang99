@@ -1,10 +1,10 @@
 /**
  * @file
- * Auxiliary macros.
+ * Utilitary stuff.
  */
 
-#ifndef METALANG99_AUX_H
-#define METALANG99_AUX_H
+#ifndef METALANG99_UTIL_H
+#define METALANG99_UTIL_H
 
 #include <metalang99/lang.h>
 #include <metalang99/priv/compiler_attr.h>
@@ -16,7 +16,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * #define ABC123 v(Billie Jean)
  *
@@ -35,7 +35,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * #define ABC123 Billie Jean
  *
@@ -54,7 +54,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // "Billie Jean"
  * M_stringify(v(Billie Jean))
@@ -73,7 +73,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 1, 2, 3
  * M_id(v(1, 2, 3))
@@ -87,7 +87,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // (v(1, 2, 3))
  * M_parenthesiseEval(v(1, 2, 3))
@@ -101,7 +101,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // (1, 2, 3)
  * M_parenthesise(v(1, 2, 3))
@@ -118,7 +118,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 1, 2, 3
  * M_unparenthesiseEval(v((v(1, 2, 3))))
@@ -135,7 +135,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 1, 2, 3
  * M_unparenthesise(v((1, 2, 3)))
@@ -152,7 +152,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 0
  * M_isParenthesised(v(123))
@@ -172,7 +172,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 1
  * M_isUnparenthesised(v(123))
@@ -189,7 +189,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 123
  * M_const(v(123), v(5))
@@ -203,7 +203,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 123
  * M_const2(v(123), v(5), v(6))
@@ -217,7 +217,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 123
  * M_const3(v(123), v(5), v(6), v(7))
@@ -231,7 +231,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // ABC123
  * M_appl2(M_flip(v(M_catUnevaluated)), v(123), v(ABC))
@@ -245,7 +245,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // ! 0
  * M_putBefore(v(0), v(!))
@@ -259,7 +259,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // ! 0
  * M_putAfter(v(!), v(0))
@@ -273,7 +273,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // 16 + 9
  * M_putBetween(v(16), v(9), v(+))
@@ -287,7 +287,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // M_empty()
  * M_consume(v(1, 2, 3))
@@ -304,7 +304,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // { int a, b, c; }
  * M_braced(v(int a, b, c;))
@@ -318,7 +318,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // This macro will not be expanded.
  * #define ABC 7
@@ -338,7 +338,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // This macro will not be expanded.
  * #define ABC 7
@@ -358,7 +358,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * M_semicolon();
  * @endcode
@@ -367,7 +367,7 @@
  * macro:
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * #define WHEN(command, handler, ...) \
  *     if (incoming_command == command) { handler(__VA_ARGS__); } M_semicolon()
@@ -524,4 +524,4 @@
 
 #endif // DOXYGEN_IGNORE
 
-#endif // METALANG99_AUX_H
+#endif // METALANG99_UTIL_H

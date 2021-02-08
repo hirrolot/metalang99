@@ -1,6 +1,6 @@
 #include <metalang99/assert.h>
-#include <metalang99/aux.h>
 #include <metalang99/misc.h>
+#include <metalang99/util.h>
 
 #define CHECK(_, x, y, z) M_assertPlain(x == 0 && y == 1 && z == 2)
 #define F_IMPL(x)         v(, x)

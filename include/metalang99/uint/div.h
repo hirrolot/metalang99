@@ -3,7 +3,7 @@
 
 #include <metalang99/lang.h>
 #include <metalang99/maybe.h>
-#include <metalang99/priv/aux.h>
+#include <metalang99/priv/util.h>
 #include <metalang99/priv/variadics/get.h>
 
 #define METALANG99_uintDiv_IMPL(x, y)                                                              \

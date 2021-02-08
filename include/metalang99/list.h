@@ -6,12 +6,12 @@
 #ifndef METALANG99_LIST_H
 #define METALANG99_LIST_H
 
-#include <metalang99/aux.h>
 #include <metalang99/choice.h>
 #include <metalang99/control.h>
 #include <metalang99/logical.h>
 #include <metalang99/priv/pair.h>
 #include <metalang99/uint.h>
+#include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
 // Desugaring {
@@ -153,7 +153,7 @@
  * # Examples
  *
  * @code
- * #include <metalang99/aux.h>
+ * #include <metalang99/util.h>
  *
  * // Literally 1, 2, 3
  * M_listEvalCommaSep(M_list(v(1, 2, 3)))
