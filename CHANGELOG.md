@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
- - Make `METALANG99_variadicsHead` accept a single argument too.
- - All the `aux.h` files renamed to `util.h` for compatibility with Windows.
+ - Make `METALANG99_variadicsHead` accept only a single argument too.
+ - `aux.*` -> `util.*` for compatibility with Windows.
+ - Now at most 63 variadic arguments are acceptable by `METALANG99_list`, `METALANG99_variadicsCount`, `METALANG99_variadicsCountPlain`, `METALANG99_variadicsMap`, `METALANG99_variadicsMapI`, `METALANG99_variadicsMapCommaSep`, `METALANG99_variadicsMapICommaSep`.
 
 ## [0.2.0] - 2020-02-05
 
