@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
- - `METALANG99_when`, `METALANG99_whenPlain`
+ - `METALANG99_when`, `METALANG99_whenPlain`, `METALANG99_whenOrConsume`, `METALANG99_whenOrConsumePlain`
 
 ### Changed
 

@@ -1,5 +1,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/control.h>
+#include <metalang99/util.h>
 
 // M_if {
 M_assertEq(M_if(v(M_true), v(24), v(848)), v(24));
@@ -12,6 +13,16 @@ M_assertEq(M_if(v(M_false), v(10), v(6)), v(6));
 // M_when {
 M_assertEq(M_when(v(M_true), v(123)), v(123));
 M_assertEmpty(M_when(v(M_false), v(123)));
+// }
+
+// M_whenOrConsume {
+M_assertEq(M_call(M_whenOrConsume(v(M_true), v(M_id)), v(123)), v(123));
+M_assertEmpty(M_call(M_whenOrConsume(v(M_false), v(M_id)), v(123)));
+// }
+
+// M_whenOrConsumePlain {
+M_assertPlain(M_whenOrConsumePlain(M_true, M_idPlain)(123) == 123);
+M_assertEmpty(v(M_whenOrConsumePlain(M_false, M_idPlain)(123)));
 // }
 
 // M_overload {

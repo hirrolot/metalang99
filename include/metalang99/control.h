@@ -9,6 +9,7 @@
 #include <metalang99/lang.h>
 #include <metalang99/priv/util.h>
 #include <metalang99/uint.h>
+#include <metalang99/util.h>
 
 // Desugaring {
 /**
@@ -36,16 +37,33 @@
  *
  * @code
  * #include <metalang99/control.h>
- * #include <metalang99/logical.h>
  *
  * // 123
- * M_when(v(M_true), v(123))
+ * M_when(v(1), v(123))
  *
  * // M_empty()
- * M_when(v(M_false), v(123))
+ * M_when(v(0), v(123))
  * @endcode
  */
 #define METALANG99_when(cond, x) METALANG99_call(METALANG99_when, cond x)
+
+/**
+ * If @p cond is true, evaluates to @p f, otherwise to #METALANG99_consume.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/control.h>
+ * #include <metalang99/util.h>
+ *
+ * // 123
+ * M_call(M_whenOrConsume(v(1), v(M_id)), v(123))
+ *
+ * // M_empty()
+ * M_call(M_whenOrConsume(v(0), v(M_id)), v(123))
+ * @endcode
+ */
+#define METALANG99_whenOrConsume(cond, f) METALANG99_call(METALANG99_whenOrConsume, cond f)
 
 /**
  * Overloads @p f on a number of arguments.
@@ -86,6 +104,11 @@
 #define METALANG99_whenPlain(cond, x) METALANG99_ifPlain(cond, x, METALANG99_PRIV_EMPTY())
 
 /**
+ * The plain version of #METALANG99_whenOrConsume.
+ */
+#define METALANG99_whenOrConsumePlain(cond, f) METALANG99_ifPlain(cond, f, METALANG99_PRIV_CONSUME)
+
+/**
  * The plain version of #METALANG99_overload.
  *
  * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `<f><count of
@@ -108,24 +131,29 @@
 #define METALANG99_PRIV_if_1(x, _y)    x
 
 #define METALANG99_when_IMPL(cond, x) v(METALANG99_whenPlain(cond, x))
+#define METALANG99_whenOrConsume_IMPL(cond, f)                                                     \
+    METALANG99_callTrivial(METALANG99_if, cond, f, METALANG99_consume)
 // }
 
 // Arity specifiers {
-#define METALANG99_overload_ARITY 2
-#define METALANG99_if_ARITY       3
-#define METALANG99_when_ARITY     2
+#define METALANG99_overload_ARITY      2
+#define METALANG99_if_ARITY            3
+#define METALANG99_when_ARITY          2
+#define METALANG99_whenOrConsume_ARITY 2
 // }
 
 // Aliases {
 #ifndef METALANG99_NO_SMALL_PREFIX
 
-#define M_overload METALANG99_overload
-#define M_if       METALANG99_if
-#define M_when     METALANG99_when
+#define M_overload      METALANG99_overload
+#define M_if            METALANG99_if
+#define M_when          METALANG99_when
+#define M_whenOrConsume METALANG99_whenOrConsume
 
-#define M_ifPlain       METALANG99_ifPlain
-#define M_overloadPlain METALANG99_overloadPlain
-#define M_whenPlain     METALANG99_whenPlain
+#define M_ifPlain            METALANG99_ifPlain
+#define M_overloadPlain      METALANG99_overloadPlain
+#define M_whenPlain          METALANG99_whenPlain
+#define M_whenOrConsumePlain METALANG99_whenOrConsumePlain
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }
