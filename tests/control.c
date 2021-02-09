@@ -15,14 +15,14 @@ M_assertEq(M_when(v(M_true), v(123)), v(123));
 M_assertEmpty(M_when(v(M_false), v(123)));
 // }
 
-// M_whenOrConsume {
-M_assertEq(M_call(M_whenOrConsume(v(M_true), v(M_id)), v(123)), v(123));
-M_assertEmpty(M_call(M_whenOrConsume(v(M_false), v(M_id)), v(123)));
+// M_whenLazy {
+M_assertEq(M_call(M_whenLazy(v(M_true), v(M_id)), v(123)), v(123));
+M_assertEmpty(M_call(M_whenLazy(v(M_false), v(M_id)), v(123)));
 // }
 
-// M_whenOrConsumePlain {
-M_assertPlain(M_whenOrConsumePlain(M_true, M_idPlain)(123) == 123);
-M_assertEmpty(v(M_whenOrConsumePlain(M_false, M_idPlain)(123)));
+// M_whenLazyPlain {
+M_assertPlain(M_whenLazyPlain(M_true, M_idPlain)(123) == 123);
+M_assertEmpty(v(M_whenLazyPlain(M_false, M_idPlain)(123)));
 // }
 
 // M_overload {
