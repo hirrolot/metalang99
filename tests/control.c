@@ -9,6 +9,11 @@ M_assertEq(M_if(v(M_false), v(516), v(115)), v(115));
 M_assertEq(M_if(v(M_false), v(10), v(6)), v(6));
 // }
 
+// M_when {
+M_assertEq(M_when(v(M_true), v(123)), v(123));
+M_assertEmpty(M_when(v(M_false), v(123)));
+// }
+
 // M_overload {
 #define X_IMPL(...)    M_overload(v(X_), v(__VA_ARGS__))
 #define X_1_IMPL(a)    v(M_assertPlain(a == 123))

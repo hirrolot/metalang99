@@ -30,6 +30,24 @@
 #define METALANG99_if(cond, x, y) METALANG99_call(METALANG99_if, cond x y)
 
 /**
+ * If @p cond is true, evaluates to @p x, otherwise to emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/control.h>
+ * #include <metalang99/logical.h>
+ *
+ * // 123
+ * M_when(v(M_true), v(123))
+ *
+ * // M_empty()
+ * M_when(v(M_false), v(123))
+ * @endcode
+ */
+#define METALANG99_when(cond, x) METALANG99_call(METALANG99_when, cond x)
+
+/**
  * Overloads @p f on a number of arguments.
  *
  * This function counts the number of provided arguments, appends it to @p f and calls the resulting
@@ -63,6 +81,11 @@
 #define METALANG99_ifPlain(cond, x, y) METALANG99_PRIV_IF(cond, x, y)
 
 /**
+ * The plain version of #METALANG99_when.
+ */
+#define METALANG99_whenPlain(cond, x) METALANG99_ifPlain(cond, x, METALANG99_PRIV_EMPTY())
+
+/**
  * The plain version of #METALANG99_overload.
  *
  * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `<f><count of
@@ -83,11 +106,14 @@
 #define METALANG99_if_IMPL(cond, x, y) v(METALANG99_PRIV_if_##cond(x, y))
 #define METALANG99_PRIV_if_0(_x, y)    y
 #define METALANG99_PRIV_if_1(x, _y)    x
+
+#define METALANG99_when_IMPL(cond, x) v(METALANG99_whenPlain(cond, x))
 // }
 
 // Arity specifiers {
 #define METALANG99_overload_ARITY 2
 #define METALANG99_if_ARITY       3
+#define METALANG99_when_ARITY     2
 // }
 
 // Aliases {
@@ -95,9 +121,11 @@
 
 #define M_overload METALANG99_overload
 #define M_if       METALANG99_if
+#define M_when     METALANG99_when
 
 #define M_ifPlain       METALANG99_ifPlain
 #define M_overloadPlain METALANG99_overloadPlain
+#define M_whenPlain     METALANG99_whenPlain
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }

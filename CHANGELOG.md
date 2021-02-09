@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `METALANG99_when`, `METALANG99_whenPlain`
+
 ### Changed
 
  - Make `METALANG99_variadicsHead` accept only a single argument too.
