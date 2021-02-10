@@ -86,7 +86,7 @@ To solve the problem, I have implemented Metalang99 -- a functional programming 
 
  - **Almost the same syntax.** Metalang99 does not look too alien in comparison with [Order PP] because the syntax differs insignificantly from usual preprocessor code.
 
- - **Partial application.** Besides reuse of existing metafunctions, partial application helps to capture an environment for a macro, thus avoiding the need in packing & unpacking auxiliary parameters.
+ - **Partial application.** Besides better reuse of existing metafunctions, partial application helps to capture an environment for a macro, thus avoiding the need in packing & unpacking auxiliary parameters.
 
  - **Debugging and error reporting.** You can conveniently debug your macros with `M_abort` and report fatal errors with `M_fatal`. The interpreter will immediately finish its work and do the trick.
 
