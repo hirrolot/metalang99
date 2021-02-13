@@ -36,10 +36,12 @@ M_assertEq(M_appl3(v(M_const2), v(1810), v(~), v(~)), v(1810));
 M_assertEq(M_appl(M_appl3(v(M_const3), v(1810), v(~), v(~)), v(~)), v(1810));
 // }
 
+// M_flip {
 #define ABC v(M_true)
 
-// M_flip {
 M_assert(M_appl2(M_flip(v(M_catEval)), v(C), v(AB)));
+
+#undef ABC
 // }
 
 // M_putBefore, M_putAfter, M_putBetween {
@@ -48,7 +50,16 @@ M_assertEq(M_putAfter(v(!), v(0)), v(!0));
 M_assertEq(M_putBetween(v(16), v(9), v(+)), v(16 + 9));
 // }
 
-#undef ABC
+// M_leftUnderscored, M_rightUnderscored {
+#define _FOO 123
+#define FOO_ 456
+
+M_assertEq(M_leftUnderscored(v(FOO)), v(123));
+M_assertEq(M_rightUnderscored(v(FOO)), v(456));
+
+#undef _FOO
+#undef FOO_
+// }
 
 // M_isParenthesised, M_isUnparenthesised {
 M_assert(M_isParenthesised(v((1, 2, 3))));

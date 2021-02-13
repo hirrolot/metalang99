@@ -282,6 +282,34 @@
 #define METALANG99_putBetween(left, right, x) METALANG99_call(METALANG99_putBetween, left right x)
 
 /**
+ * Evaluates to `_x`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // _123
+ * M_leftUnderscored(v(123))
+ * @endcode
+ */
+#define METALANG99_leftUnderscored(x) METALANG99_call(METALANG99_leftUnderscored, x)
+
+/**
+ * Evaluates to `x_`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // 123_
+ * M_rightUnderscored(v(123))
+ * @endcode
+ */
+#define METALANG99_rightUnderscored(x) METALANG99_call(METALANG99_rightUnderscored, x)
+
+/**
  * Consumes all its arguments and expands to emptiness.
  *
  * # Examples
@@ -453,6 +481,8 @@
 #define METALANG99_putBefore_IMPL(right, x)        v(x right)
 #define METALANG99_putAfter_IMPL(left, x)          v(left x)
 #define METALANG99_putBetween_IMPL(left, right, x) v(left x right)
+#define METALANG99_leftUnderscored_IMPL(x)         v(_##x)
+#define METALANG99_rightUnderscored_IMPL(x)        v(x##_)
 #define METALANG99_consume_IMPL(...)               v(METALANG99_consumePlain(__VA_ARGS__))
 #define METALANG99_braced_IMPL(...)                v({__VA_ARGS__})
 // }
@@ -476,6 +506,8 @@
 #define METALANG99_putBefore_ARITY          2
 #define METALANG99_putAfter_ARITY           2
 #define METALANG99_putBetween_ARITY         3
+#define METALANG99_leftUnderscored_ARITY    1
+#define METALANG99_rightUnderscored_ARITY   1
 #define METALANG99_consume_ARITY            1
 #define METALANG99_braced_ARITY             1
 
@@ -503,6 +535,8 @@
 #define M_putBefore          METALANG99_putBefore
 #define M_putAfter           METALANG99_putAfter
 #define M_putBetween         METALANG99_putBetween
+#define M_leftUnderscored    METALANG99_leftUnderscored
+#define M_rightUnderscored   METALANG99_rightUnderscored
 #define M_consume            METALANG99_consume
 #define M_braced             METALANG99_braced
 #define M_catPrimitive       METALANG99_catPrimitive
