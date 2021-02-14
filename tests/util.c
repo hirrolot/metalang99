@@ -95,13 +95,15 @@ void test_semicolon(void) {
 
 // M_let {
 void test_let(void) {
-#include <stdio.h>
-
     // clang-format off
     for (int i = 0; i < 10; i++)
         M_let(double x = 5.0)
-        M_let(double y = 7.0)
-            printf("i = %d, x = %f, y = %f\n", i, x, y);
+        M_let(double y = 7.0) {
+            x = y = 123.456;
+            int z = y;
+            (void)x;
+            (void)z;
+        }
     // clang-format on
 }
 // }
