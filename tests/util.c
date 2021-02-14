@@ -93,6 +93,19 @@ void test_semicolon(void) {
 }
 // }
 
+// M_let {
+void test_let(void) {
+#include <stdio.h>
+
+    // clang-format off
+    for (int i = 0; i < 10; i++)
+        M_let(double x = 5.0)
+        M_let(double y = 7.0)
+            printf("i = %d, x = %f, y = %f\n", i, x, y);
+    // clang-format on
+}
+// }
+
 // M_braced {
 struct TestBraced M_eval(M_braced(v(int a, b, c;)));
 // }

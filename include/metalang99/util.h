@@ -457,6 +457,37 @@
  * The plain version of #METALANG99_consume.
  */
 #define METALANG99_consumePlain(...)
+
+/**
+ * Introduces the variable definition @p var_def to a statement right after its invocation.
+ *
+ * The resulting construction is a single statement.
+ *
+ * This macro is useful if you want to generate a sequence of variable definitions inside your
+ * macro, but at the same time stick to the following syntax:
+ *
+ * @code
+ * macro(a, b, c) { ... }
+ * @endcode
+ *
+ * Provided that `a`, `b`, and `c` stand for the identifiers of the defined variables, they will be
+ * visible only inside a user-supplied statement `{ ... }` and not outside of it.
+ *
+ * # Example
+ *
+ * @code
+ * for (int i = 0; i < 10; i++)
+ *     M_let(double x = 5.0)
+ *     M_let(double y = 7.0)
+ *         printf("i = %d, x = %f, y = %f\n", i, x, y);
+ * @endcode
+ *
+ * @note This macro does not expand to an Metalang99 term: it is rather an ordinary preprocessor
+ * macro.
+ */
+#define METALANG99_let(var_def)                                                                    \
+    for (int metalang99_priv_break_for = 0; metalang99_priv_break_for != 1;)                       \
+        for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -542,6 +573,7 @@
 #define M_catPrimitive       METALANG99_catPrimitive
 #define M_stringifyPrimitive METALANG99_stringifyPrimitive
 #define M_semicolon          METALANG99_semicolon
+#define M_let                METALANG99_let
 
 #define M_catPlain               METALANG99_catPlain
 #define M_stringifyPlain         METALANG99_stringifyPlain
