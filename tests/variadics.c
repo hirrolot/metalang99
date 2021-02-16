@@ -9,7 +9,14 @@ M_assertEq(M_variadicsHead(v(19, 8)), v(19));
 M_assertEq(M_variadicsHead(v(19, 8, 7378)), v(19));
 // }
 
-// M_variadicsTail {
+// M_parenthesisedVariadicsHead {
+M_assertEmpty(M_parenthesisedVariadicsHead(v(())));
+M_assertEq(M_parenthesisedVariadicsHead(v((19))), v(19));
+M_assertEq(M_parenthesisedVariadicsHead(v((19, 8))), v(19));
+M_assertEq(M_parenthesisedVariadicsHead(v((19, 8, 7378))), v(19));
+// }
+
+// M_variadicsTail, M_parenthesisedVariadicsTail {
 #define CHECK_TAIL(...) CHECK_TAIL_AUX(__VA_ARGS__)
 #define CHECK_TAIL_AUX(a, b, c, d)                                                                 \
     M_assertPlain(a == 51);                                                                        \
@@ -18,10 +25,11 @@ M_assertEq(M_variadicsHead(v(19, 8, 7378)), v(19));
     M_assertPlain(d == 7378)
 
 CHECK_TAIL(M_eval(M_variadicsTail(v(9191, 51, 21, 1, 7378))));
+CHECK_TAIL(M_eval(M_parenthesisedVariadicsTail(v((9191, 51, 21, 1, 7378)))));
+// }
 
 #undef CHECK_TAIL
 #undef CHECK_TAIL_AUX
-// }
 
 // M_variadicsCount, M_variadicsCountPlain {
 #define _5_ARGS  v(~, ~, ~, ~, ~)

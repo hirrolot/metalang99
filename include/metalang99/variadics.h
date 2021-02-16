@@ -10,6 +10,7 @@
 #define METALANG99_VARIADICS_H
 
 #include <metalang99/lang.h>
+#include <metalang99/priv/util.h>
 #include <metalang99/priv/variadics/count.h>
 #include <metalang99/uint/dec.h>
 #include <metalang99/uint/eq.h>
@@ -66,6 +67,36 @@
  * @endcode
  */
 #define METALANG99_variadicsTail(...) METALANG99_call(METALANG99_variadicsTail, __VA_ARGS__)
+
+/**
+ * The same as #METALANG99_variadicsHead but accepts parenthesised variadics.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/variadics.h>
+ *
+ * // 1
+ * M_parenthesisedVariadicsHead(v((1, 2, 3)))
+ * @endcode
+ */
+#define METALANG99_parenthesisedVariadicsHead(x)                                                   \
+    METALANG99_call(METALANG99_parenthesisedVariadicsHead, x)
+
+/**
+ * The same as #METALANG99_variadicsTail but accepts parenthesised variadics.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/variadics.h>
+ *
+ * // 2, 3
+ * M_parenthesisedVariadicsTail(v((1, 2, 3)))
+ * @endcode
+ */
+#define METALANG99_parenthesisedVariadicsTail(x)                                                   \
+    METALANG99_call(METALANG99_parenthesisedVariadicsTail, x)
 
 /**
  * Maps a sequence of arguments with @p f.
@@ -144,6 +175,18 @@
  * The plain version of #METALANG99_variadicsTail.
  */
 #define METALANG99_variadicsTailPlain(...) METALANG99_PRIV_VARIADICS_TAIL(__VA_ARGS__)
+
+/**
+ * The plain version of #METALANG99_parenthesisedVariadicsHead.
+ */
+#define METALANG99_parenthesisedVariadicsHeadPlain(x)                                              \
+    METALANG99_PRIV_VARIADICS_HEAD(METALANG99_PRIV_UNPARENTHESISE(x))
+
+/**
+ * The plain version of #METALANG99_parenthesisedVariadicsTail.
+ */
+#define METALANG99_parenthesisedVariadicsTailPlain(x)                                              \
+    METALANG99_PRIV_VARIADICS_TAIL(METALANG99_PRIV_UNPARENTHESISE(x))
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -152,6 +195,10 @@
 #define METALANG99_variadicsCount_IMPL(...) v(METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__))
 #define METALANG99_variadicsHead_IMPL(...)  v(METALANG99_variadicsHeadPlain(__VA_ARGS__))
 #define METALANG99_variadicsTail_IMPL(...)  v(METALANG99_variadicsTailPlain(__VA_ARGS__))
+#define METALANG99_parenthesisedVariadicsHead_IMPL(x)                                              \
+    v(METALANG99_parenthesisedVariadicsHeadPlain(x))
+#define METALANG99_parenthesisedVariadicsTail_IMPL(x)                                              \
+    v(METALANG99_parenthesisedVariadicsTailPlain(x))
 
 // TODO: refactor this boilerplate.
 
@@ -276,29 +323,35 @@
 // } (Implementation)
 
 // Arity specifiers {
-#define METALANG99_variadicsCount_ARITY        1
-#define METALANG99_variadicsHead_ARITY         1
-#define METALANG99_variadicsTail_ARITY         1
-#define METALANG99_variadicsMap_ARITY          2
-#define METALANG99_variadicsMapCommaSep_ARITY  2
-#define METALANG99_variadicsMapI_ARITY         2
-#define METALANG99_variadicsMapICommaSep_ARITY 2
+#define METALANG99_variadicsCount_ARITY             1
+#define METALANG99_variadicsHead_ARITY              1
+#define METALANG99_variadicsTail_ARITY              1
+#define METALANG99_parenthesisedVariadicsHead_ARITY 1
+#define METALANG99_parenthesisedVariadicsTail_ARITY 1
+#define METALANG99_variadicsMap_ARITY               2
+#define METALANG99_variadicsMapCommaSep_ARITY       2
+#define METALANG99_variadicsMapI_ARITY              2
+#define METALANG99_variadicsMapICommaSep_ARITY      2
 // }
 
 // Aliases {
 #ifndef METALANG99_NO_SMALL_PREFIX
 
-#define M_variadicsCount        METALANG99_variadicsCount
-#define M_variadicsHead         METALANG99_variadicsHead
-#define M_variadicsTail         METALANG99_variadicsTail
-#define M_variadicsMap          METALANG99_variadicsMap
-#define M_variadicsMapCommaSep  METALANG99_variadicsMapCommaSep
-#define M_variadicsMapI         METALANG99_variadicsMapI
-#define M_variadicsMapICommaSep METALANG99_variadicsMapICommaSep
+#define M_variadicsCount             METALANG99_variadicsCount
+#define M_variadicsHead              METALANG99_variadicsHead
+#define M_variadicsTail              METALANG99_variadicsTail
+#define M_parenthesisedVariadicsHead METALANG99_parenthesisedVariadicsHead
+#define M_parenthesisedVariadicsTail METALANG99_parenthesisedVariadicsTail
+#define M_variadicsMap               METALANG99_variadicsMap
+#define M_variadicsMapCommaSep       METALANG99_variadicsMapCommaSep
+#define M_variadicsMapI              METALANG99_variadicsMapI
+#define M_variadicsMapICommaSep      METALANG99_variadicsMapICommaSep
 
-#define M_variadicsCountPlain METALANG99_variadicsCountPlain
-#define M_variadicsHeadPlain  METALANG99_variadicsHeadPlain
-#define M_variadicsTailPlain  METALANG99_variadicsTailPlain
+#define M_variadicsCountPlain             METALANG99_variadicsCountPlain
+#define M_variadicsHeadPlain              METALANG99_variadicsHeadPlain
+#define M_variadicsTailPlain              METALANG99_variadicsTailPlain
+#define M_parenthesisedVariadicsHeadPlain METALANG99_parenthesisedVariadicsHeadPlain
+#define M_parenthesisedVariadicsTailPlain METALANG99_parenthesisedVariadicsTailPlain
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }

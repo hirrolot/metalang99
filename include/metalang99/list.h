@@ -384,6 +384,12 @@
 #define METALANG99_listMap(f, list) METALANG99_call(METALANG99_listMap, f list)
 
 /**
+ * The state-aware version of #METALANG99_listMapStateful.
+ */
+#define METALANG99_listMapStateful(state, f, list)                                                 \
+    METALANG99_call(METALANG99_listMapStateful, state f list)
+
+/**
  * The same as #METALANG99_listMap but provides an index of an element to @p f.
  *
  * # Examples
@@ -815,6 +821,30 @@
         METALANG99_callTrivial(METALANG99_appl, f, x),                                             \
         METALANG99_callTrivial(METALANG99_listMap, f, xs))
 
+// METALANG99_listMapStateful_IMPL {
+#define METALANG99_listMapStateful_IMPL(state, f, list)                                            \
+    METALANG99_callTrivial(                                                                        \
+        METALANG99_matchWithArgs,                                                                  \
+        list,                                                                                      \
+        METALANG99_PRIV_listMapStateful_,                                                          \
+        state,                                                                                     \
+        f)
+#define METALANG99_PRIV_listMapStateful_nil_IMPL(_state, _f) METALANG99_nil()
+#define METALANG99_PRIV_listMapStateful_cons_IMPL(x, xs, state, f)                                 \
+    METALANG99_call(                                                                               \
+        METALANG99_PRIV_listMapStateful_consAux,                                                   \
+        METALANG99_callTrivial(METALANG99_appl2, f, METALANG99_unparenthesisePlain(state), x)      \
+            v(f, xs))
+#define METALANG99_PRIV_listMapStateful_consAux_IMPL(result, f, xs)                                \
+    METALANG99_cons(                                                                               \
+        v(METALANG99_extractResultPlain(result)),                                                  \
+        METALANG99_callTrivial(                                                                    \
+            METALANG99_listMapStateful,                                                            \
+            METALANG99_extractStatePlain(result),                                                  \
+            f,                                                                                     \
+            xs))
+// }
+
 #define METALANG99_listMapI_IMPL(f, list)                                                          \
     METALANG99_callTrivial(METALANG99_PRIV_listMapI_AUX, f, list, 0)
 #define METALANG99_PRIV_listMapI_AUX_IMPL(f, list, i)                                              \
@@ -1055,6 +1085,7 @@
 #define METALANG99_listIntersperse_ARITY    2
 #define METALANG99_listPrependToAll_ARITY   2
 #define METALANG99_listMap_ARITY            2
+#define METALANG99_listMapStateful_ARITY    3
 #define METALANG99_listMapI_ARITY           2
 #define METALANG99_listFor_ARITY            2
 #define METALANG99_listMapInitLast_ARITY    3
@@ -1108,6 +1139,7 @@
 #define M_listIntersperse    METALANG99_listIntersperse
 #define M_listPrependToAll   METALANG99_listPrependToAll
 #define M_listMap            METALANG99_listMap
+#define M_listMapStateful    METALANG99_listMapStateful
 #define M_listMapI           METALANG99_listMapI
 #define M_listFor            METALANG99_listFor
 #define M_listMapInitLast    METALANG99_listMapInitLast
