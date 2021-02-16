@@ -4,13 +4,29 @@
    contain the root `toctree` directive.
 
 The Metalang99 Standard Library
-====================================
+===============================
 
 The Metalang99 standard library exports a set of macros implemented using the `Metalang99 metalanguage`_.
 
 If `METALANG99_NO_SMALL_PREFIX` is defined, all macros will have only one name: `METALANG99_appl`, `METALANG99_call`, etc. Otherwise, shortening aliases will also be defined: `METALANG99_appl`, `M_appl`, `METALANG99_call`, `M_call`, etc (the default behaviour).
 
-Macros which are postfixed with `Plain` are called the plain versions of others, i.e. they can be used as ordinary macros, they are not written in Metalang99. They are used to save some reduction steps, thereby making metaprograms faster.
+\*Plain macros
+--------------
+
+
+A macro named `<X>Plain` stands for the "plain" version of `<X>`. Plain macros are implemented as ordinary preprocessor macros, without use of the Metalang99 metalanguage. They are used to save some reduction steps, thereby making metaprograms faster.
+
+For example, here are two complete metaprograms, one using `M_unparenthesise` and the second one using `M_unparenthesisePlain`:
+
+.. code:: c
+
+   M_eval(M_unparenthesise(v((1, 2, 3))))
+
+.. code:: c
+
+   M_unparenthesisePlain((1, 2, 3))
+
+Both metaprograms result in `1, 2, 3`.
 
 .. toctree::
    :hidden:
