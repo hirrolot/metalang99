@@ -238,6 +238,20 @@ M_assert(M_listEq(
     v(M_uintEq), M_listMap(M_appl(v(M_uintAdd), v(3)), M_list(v(1, 2, 3))), M_list(v(4, 5, 6))));
 // }
 
+// M_listMapStateful {
+#define F_IMPL(i, x)            M_call(F_FINAL, M_uintInc(v(i)) M_uintAdd(v(x), v(i)))
+#define F_FINAL_IMPL(i, result) v((i), result)
+#define F_ARITY                 2
+
+M_assert(M_listEq(v(M_uintEq), M_listMapStateful(v((0)), v(F), M_nil()), M_nil()));
+M_assert(
+    M_listEq(v(M_uintEq), M_listMapStateful(v((0)), v(F), M_list(v(1, 2, 3))), M_list(v(1, 3, 5))));
+
+#undef F_IMPL
+#undef F_FINAL_IMPL
+#undef F_ARITY
+// }
+
 // M_listMapI {
 #define A0 19
 #define B1 6

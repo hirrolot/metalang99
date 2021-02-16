@@ -835,14 +835,8 @@
         METALANG99_PRIV_listMapStateful_consAux,                                                   \
         METALANG99_callTrivial(METALANG99_appl2, f, METALANG99_unparenthesisePlain(state), x)      \
             v(f, xs))
-#define METALANG99_PRIV_listMapStateful_consAux_IMPL(result, f, xs)                                \
-    METALANG99_cons(                                                                               \
-        v(METALANG99_extractResultPlain(result)),                                                  \
-        METALANG99_callTrivial(                                                                    \
-            METALANG99_listMapStateful,                                                            \
-            METALANG99_extractStatePlain(result),                                                  \
-            f,                                                                                     \
-            xs))
+#define METALANG99_PRIV_listMapStateful_consAux_IMPL(new_state, result, f, xs)                     \
+    METALANG99_cons(v(result), METALANG99_callTrivial(METALANG99_listMapStateful, new_state, f, xs))
 // }
 
 #define METALANG99_listMapI_IMPL(f, list)                                                          \

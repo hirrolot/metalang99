@@ -28,6 +28,11 @@ For example, here are two complete metaprograms, one using `M_unparenthesise` an
 
 Both metaprograms result in `1, 2, 3`.
 
+\*Stateful macros
+-----------------
+
+A macro named `<X>Stateful` stands for the "stateful" version of `<X>`. Stateful macros are typically higher-order -- they explicitly track states of their functional arguments, thus giving rise to stateful computations.
+
 .. toctree::
    :hidden:
 
