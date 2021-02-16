@@ -814,12 +814,10 @@
         METALANG99_cons(v(x), METALANG99_callTrivial(METALANG99_listPrependToAll, item, xs)))
 
 #define METALANG99_listMap_IMPL(f, list)                                                           \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listMap_, f)
-#define METALANG99_PRIV_listMap_nil_IMPL(_f) METALANG99_nil()
-#define METALANG99_PRIV_listMap_cons_IMPL(x, xs, f)                                                \
-    METALANG99_cons(                                                                               \
-        METALANG99_callTrivial(METALANG99_appl, f, x),                                             \
-        METALANG99_callTrivial(METALANG99_listMap, f, xs))
+    METALANG99_listMapStateful(                                                                    \
+        v((~)),                                                                                    \
+        METALANG99_callTrivial(METALANG99_appl, METALANG99_stateless, f),                          \
+        v(list))
 
 // METALANG99_listMapStateful_IMPL {
 #define METALANG99_listMapStateful_IMPL(state, f, list)                                            \

@@ -8,8 +8,7 @@
 
 #include <metalang99/lang.h>
 #include <metalang99/priv/util.h>
-#include <metalang99/uint.h>
-#include <metalang99/util.h>
+#include <metalang99/priv/variadics/count.h>
 
 // Desugaring {
 /**
@@ -115,7 +114,7 @@
  * ...>(...)`.
  */
 #define METALANG99_overloadPlain(f, ...)                                                           \
-    METALANG99_PRIV_CAT(f, METALANG99_variadicsCountPlain(__VA_ARGS__))(__VA_ARGS__)
+    METALANG99_PRIV_CAT(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -123,7 +122,7 @@
 // Implementation {
 #define METALANG99_overload_IMPL(f, ...)                                                           \
     METALANG99_callTrivial(                                                                        \
-        METALANG99_PRIV_CAT(f, METALANG99_variadicsCountPlain(__VA_ARGS__)),                       \
+        METALANG99_PRIV_CAT(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__)),                      \
         __VA_ARGS__)
 
 #define METALANG99_if_IMPL(cond, x, y) v(METALANG99_PRIV_if_##cond(x, y))

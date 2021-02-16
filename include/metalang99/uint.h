@@ -10,10 +10,8 @@
 
 #include <metalang99/control.h>
 #include <metalang99/lang.h>
-#include <metalang99/list.h>
 #include <metalang99/logical.h>
 #include <metalang99/maybe.h>
-#include <metalang99/util.h>
 
 #include <metalang99/uint/dec.h>
 #include <metalang99/uint/div.h>

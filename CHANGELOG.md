@@ -9,16 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
- - `METALANG99_when`, `METALANG99_whenPlain`, `METALANG99_whenLazy`, `METALANG99_whenLazyPlain`
- - `METALANG99_let_leftUnderscored`, `METALANG99_let_rightUnderscored`
- - `METALANG99_let`
- - `METALANG99_parenthesisedVariadicsHead`, `METALANG99_parenthesisedVariadicsHeadPlain`, `METALANG99_parenthesisedVariadicsTail`, `METALANG99_parenthesisedVariadicsTailPlain`,
- - Stateful computations: `METALANG99_listMapStateful`.
+ - `when`, `whenPlain`, `whenLazy`, `whenLazyPlain`
+ - `let_leftUnderscored`, `let_rightUnderscored`
+ - `let`
+ - `parenthesisedVariadicsHead`, `parenthesisedVariadicsHeadPlain`, `parenthesisedVariadicsTail`, `parenthesisedVariadicsTailPlain`,
+ - Stateful computations:
+   - `stateless`, `stateless2`, `stateless3`
+   - `listMapStateful`
 
 ### Changed
 
- - Make `METALANG99_variadicsHead` accept a single argument too.
- - Now at most 63 variadic arguments are acceptable by `METALANG99_list`, `METALANG99_variadicsCount`, `METALANG99_variadicsCountPlain`, `METALANG99_variadicsMap`, `METALANG99_variadicsMapI`, `METALANG99_variadicsMapCommaSep`, `METALANG99_variadicsMapICommaSep`.
+ - Make `variadicsHead` accept a single argument too.
+ - Now at most 63 variadic arguments are acceptable by `list`, `variadicsCount`, `variadicsCountPlain`, `variadicsMap`, `variadicsMapI`, `variadicsMapCommaSep`, `variadicsMapICommaSep`.
 
 ### Fixed
 

@@ -341,6 +341,23 @@
 #define METALANG99_braced(...) METALANG99_call(METALANG99_braced, __VA_ARGS__)
 
 /**
+ * Constructs a stateful function out of the stateless @p f.
+ *
+ * @note the returned metafunction has the arity of 1.
+ */
+#define METALANG99_stateless(f) METALANG99_call(METALANG99_stateless, f)
+
+/**
+ * The same as #METALANG99_stateless but the returned metafunction has the arity of 2.
+ */
+#define METALANG99_stateless2(f) METALANG99_call(METALANG99_stateless2, f)
+
+/**
+ * The same as #METALANG99_stateless but the returned metafunction has the arity of 3.
+ */
+#define METALANG99_stateless3(f) METALANG99_call(METALANG99_stateless3, f)
+
+/**
  * Concatenates @p x with @p y as-is, without expanding them.
  *
  * # Examples
@@ -516,6 +533,21 @@
 #define METALANG99_rightUnderscored_IMPL(x)        v(x##_)
 #define METALANG99_consume_IMPL(...)               v(METALANG99_consumePlain(__VA_ARGS__))
 #define METALANG99_braced_IMPL(...)                v({__VA_ARGS__})
+
+#define METALANG99_stateless_IMPL(f)                                                               \
+    METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless, f)
+#define METALANG99_PRIV_stateless_IMPL(f, _state, ...)                                             \
+    v((~), ) METALANG99_callTrivial(METALANG99_appl, f, __VA_ARGS__)
+
+#define METALANG99_stateless2_IMPL(f)                                                              \
+    METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless2, f)
+#define METALANG99_PRIV_stateless2_IMPL(f, _state, a, ...)                                         \
+    v((~), ) METALANG99_callTrivial(METALANG99_appl2, f, a, __VA_ARGS__)
+
+#define METALANG99_stateless3_IMPL(f)                                                              \
+    METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless3, f)
+#define METALANG99_PRIV_stateless3_IMPL(f, _state, a, b, ...)                                      \
+    v((~), ) METALANG99_callTrivial(METALANG99_appl3, f, a, b, __VA_ARGS__)
 // }
 
 // Arity specifiers {
@@ -541,8 +573,14 @@
 #define METALANG99_rightUnderscored_ARITY   1
 #define METALANG99_consume_ARITY            1
 #define METALANG99_braced_ARITY             1
+#define METALANG99_stateless_ARITY          1
+#define METALANG99_stateless2_ARITY         1
+#define METALANG99_stateless3_ARITY         1
 
-#define METALANG99_PRIV_flip_ARITY 3
+#define METALANG99_PRIV_flip_ARITY       3
+#define METALANG99_PRIV_stateless_ARITY  3
+#define METALANG99_PRIV_stateless2_ARITY 4
+#define METALANG99_PRIV_stateless3_ARITY 5
 // }
 
 // Aliases {
@@ -570,6 +608,9 @@
 #define M_rightUnderscored   METALANG99_rightUnderscored
 #define M_consume            METALANG99_consume
 #define M_braced             METALANG99_braced
+#define M_stateless          METALANG99_stateless
+#define M_stateless2         METALANG99_stateless2
+#define M_stateless3         METALANG99_stateless3
 #define M_catPrimitive       METALANG99_catPrimitive
 #define M_stringifyPrimitive METALANG99_stringifyPrimitive
 #define M_semicolon          METALANG99_semicolon
