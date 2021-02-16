@@ -831,8 +831,7 @@
 #define METALANG99_PRIV_listMapStateful_cons_IMPL(x, xs, state, f)                                 \
     METALANG99_call(                                                                               \
         METALANG99_PRIV_listMapStateful_consAux,                                                   \
-        METALANG99_callTrivial(METALANG99_appl2, f, METALANG99_unparenthesisePlain(state), x)      \
-            v(f, xs))
+        METALANG99_callTrivial(METALANG99_appl2, f, state, x) v(f, xs))
 #define METALANG99_PRIV_listMapStateful_consAux_IMPL(new_state, result, f, xs)                     \
     METALANG99_cons(v(result), METALANG99_callTrivial(METALANG99_listMapStateful, new_state, f, xs))
 // }

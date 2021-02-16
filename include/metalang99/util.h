@@ -343,17 +343,19 @@
 /**
  * Constructs a stateful function out of the stateless @p f.
  *
- * @note the returned metafunction has the arity of 1.
+ * @note the returned metafunction has the arity of 2 (a state + variadic arguments).
  */
 #define METALANG99_stateless(f) METALANG99_call(METALANG99_stateless, f)
 
 /**
- * The same as #METALANG99_stateless but the returned metafunction has the arity of 2.
+ * The same as #METALANG99_stateless but the returned metafunction has the arity of 3 (a state + `a`
+ * + variadic arguments).
  */
 #define METALANG99_stateless2(f) METALANG99_call(METALANG99_stateless2, f)
 
 /**
- * The same as #METALANG99_stateless but the returned metafunction has the arity of 3.
+ * The same as #METALANG99_stateless but the returned metafunction has the arity of 4 (a state + `a`
+ * + `b` + variadic arguments).
  */
 #define METALANG99_stateless3(f) METALANG99_call(METALANG99_stateless3, f)
 
