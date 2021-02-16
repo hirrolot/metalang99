@@ -12,7 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `METALANG99_when`, `METALANG99_whenPlain`, `METALANG99_whenLazy`, `METALANG99_whenLazyPlain`
  - `METALANG99_let_leftUnderscored`, `METALANG99_let_rightUnderscored`
  - `METALANG99_let`
- - `METALANG99_parenthesisedVariadicsHead`, `METALANG99_parenthesisedVariadicsHeadPlain`, `METALANG99_parenthesisedVariadicsTail`, `METALANG99_parenthesisedVariadicsTailPlain`
+ - `METALANG99_parenthesisedVariadicsHead`, `METALANG99_parenthesisedVariadicsHeadPlain`, `METALANG99_parenthesisedVariadicsTail`, `METALANG99_parenthesisedVariadicsTailPlain`,
+ - Stateful computations: `METALANG99_listMapStateful`.
 
 ### Changed
 

@@ -384,7 +384,7 @@
 #define METALANG99_listMap(f, list) METALANG99_call(METALANG99_listMap, f list)
 
 /**
- * The state-aware version of #METALANG99_listMapStateful.
+ * The state-aware version of #METALANG99_listMap.
  */
 #define METALANG99_listMapStateful(state, f, list)                                                 \
     METALANG99_call(METALANG99_listMapStateful, state f list)
