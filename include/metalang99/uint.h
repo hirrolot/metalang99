@@ -405,6 +405,7 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
+
 #define METALANG99_uintMatch_IMPL(x, matcher)                                                      \
     METALANG99_PRIV_IF(                                                                            \
         METALANG99_PRIV_uintEq(x, 0),                                                              \
@@ -434,15 +435,16 @@
         x,                                                                                         \
         y)
 
+// METALANG99_uintLesser_IMPL {
 #define METALANG99_uintLesser_IMPL(x, y)                                                           \
     METALANG99_callTrivial(                                                                        \
         METALANG99_PRIV_IF(                                                                        \
             METALANG99_PRIV_uintEq(y, 0),                                                          \
             METALANG99_PRIV_CONST_FALSE,                                                           \
-            METALANG99_PRIV_uintLesser_PROGRESS),                                                  \
+            METALANG99_PRIV_uintLesserProgress),                                                   \
         x,                                                                                         \
         y)
-#define METALANG99_PRIV_uintLesser_PROGRESS_IMPL(x, y)                                             \
+#define METALANG99_PRIV_uintLesserProgress_IMPL(x, y)                                              \
     METALANG99_callTrivial(                                                                        \
         METALANG99_PRIV_IF(                                                                        \
             METALANG99_PRIV_uintEq(x, METALANG99_PRIV_uintDec(y)),                                 \
@@ -450,74 +452,81 @@
             METALANG99_uintLesser),                                                                \
         x,                                                                                         \
         METALANG99_PRIV_uintDec(y))
+// }
 
+// METALANG99_uintAdd_IMPL {
 #define METALANG99_uintAdd_IMPL(x, y)                                                              \
     METALANG99_callTrivial(                                                                        \
         METALANG99_PRIV_IF(                                                                        \
             METALANG99_PRIV_uintEq(y, 0),                                                          \
             METALANG99_const,                                                                      \
-            METALANG99_PRIV_uintAdd_PROGRESS),                                                     \
+            METALANG99_PRIV_uintAddProgress),                                                      \
         x,                                                                                         \
         y)
-#define METALANG99_PRIV_uintAdd_PROGRESS_IMPL(x, y)                                                \
+#define METALANG99_PRIV_uintAddProgress_IMPL(x, y)                                                 \
     METALANG99_callTrivial(                                                                        \
         METALANG99_uintAdd,                                                                        \
         METALANG99_PRIV_uintInc(x),                                                                \
         METALANG99_PRIV_uintDec(y))
+// }
 
+// METALANG99_uintSub_IMPL {
 #define METALANG99_uintSub_IMPL(x, y)                                                              \
     METALANG99_callTrivial(                                                                        \
         METALANG99_PRIV_IF(                                                                        \
             METALANG99_PRIV_uintEq(y, 0),                                                          \
             METALANG99_const,                                                                      \
-            METALANG99_PRIV_uintSub_PROGRESS),                                                     \
+            METALANG99_PRIV_uintSubProgress),                                                      \
         x,                                                                                         \
         y)
-#define METALANG99_PRIV_uintSub_PROGRESS_IMPL(x, y)                                                \
+#define METALANG99_PRIV_uintSubProgress_IMPL(x, y)                                                 \
     METALANG99_callTrivial(                                                                        \
         METALANG99_uintSub,                                                                        \
         METALANG99_PRIV_uintDec(x),                                                                \
         METALANG99_PRIV_uintDec(y))
+// }
 
+// METALANG99_uintMul_IMPL {
 #define METALANG99_uintMul_IMPL(x, y)                                                              \
     METALANG99_callTrivial(                                                                        \
         METALANG99_PRIV_IF(                                                                        \
             METALANG99_PRIV_uintEq(y, 0),                                                          \
             METALANG99_PRIV_UINT_CONST_0,                                                          \
-            METALANG99_PRIV_uintMul_PROGRESS),                                                     \
+            METALANG99_PRIV_uintMulProgress),                                                      \
         x,                                                                                         \
         y)
-#define METALANG99_PRIV_uintMul_PROGRESS_IMPL(x, y)                                                \
+#define METALANG99_PRIV_uintMulProgress_IMPL(x, y)                                                 \
     METALANG99_uintAdd(                                                                            \
         v(x),                                                                                      \
         METALANG99_callTrivial(METALANG99_uintMul, x, METALANG99_PRIV_uintDec(y)))
+// }
 
 // METALANG99_uintMod_IMPL {
 #define METALANG99_uintMod_IMPL(x, y)                                                              \
     METALANG99_PRIV_IF(                                                                            \
         METALANG99_PRIV_uintEq(y, 0),                                                              \
         METALANG99_fatal(METALANG99_uintMod, modulo by 0),                                         \
-        METALANG99_callTrivial(METALANG99_PRIV_uintMod_AUX, x, y, 0))
+        METALANG99_callTrivial(METALANG99_PRIV_uintModAux, x, y, 0))
 
-#define METALANG99_PRIV_uintMod_AUX_IMPL(x, y, acc)                                                \
+#define METALANG99_PRIV_uintModAux_IMPL(x, y, acc)                                                 \
     METALANG99_appl(                                                                               \
         METALANG99_if(                                                                             \
             METALANG99_isJust(METALANG99_callTrivial(METALANG99_uintDivChecked, x, y)),            \
             METALANG99_callTrivial(METALANG99_appl, METALANG99_const, acc),                        \
-            METALANG99_callTrivial(METALANG99_appl2, METALANG99_PRIV_uintMod_PROGRESS, x, y)),     \
+            METALANG99_callTrivial(METALANG99_appl2, METALANG99_PRIV_uintModProgress, x, y)),      \
         v(acc))
 
-#define METALANG99_PRIV_uintMod_PROGRESS_IMPL(x, y, acc)                                           \
+#define METALANG99_PRIV_uintModProgress_IMPL(x, y, acc)                                            \
     METALANG99_appl(                                                                               \
         METALANG99_PRIV_IF(                                                                        \
             METALANG99_PRIV_uintEq(x, 0),                                                          \
             METALANG99_callTrivial(METALANG99_appl, METALANG99_const, acc),                        \
-            METALANG99_callTrivial(METALANG99_appl2, METALANG99_PRIV_uintMod_PROGRESS_AUX, x, y)), \
+            METALANG99_callTrivial(METALANG99_appl2, METALANG99_PRIV_uintModProgressAux, x, y)),   \
         v(acc))
 
-#define METALANG99_PRIV_uintMod_PROGRESS_AUX_IMPL(x, y, acc)                                       \
+#define METALANG99_PRIV_uintModProgressAux_IMPL(x, y, acc)                                         \
     METALANG99_callTrivial(                                                                        \
-        METALANG99_PRIV_uintMod_AUX,                                                               \
+        METALANG99_PRIV_uintModAux,                                                                \
         METALANG99_PRIV_uintDec(x),                                                                \
         y,                                                                                         \
         METALANG99_PRIV_uintInc(acc))
@@ -564,12 +573,12 @@
 #define METALANG99_uintMin_ARITY           2
 #define METALANG99_uintMax_ARITY           2
 
-#define METALANG99_PRIV_uintLesser_PROGRESS_ARITY  2
-#define METALANG99_PRIV_uintAdd_PROGRESS_ARITY     2
-#define METALANG99_PRIV_uintSub_PROGRESS_ARITY     2
-#define METALANG99_PRIV_uintMul_PROGRESS_ARITY     2
-#define METALANG99_PRIV_uintMod_PROGRESS_ARITY     3
-#define METALANG99_PRIV_uintMod_PROGRESS_AUX_ARITY 3
+#define METALANG99_PRIV_uintLesserProgress_ARITY 2
+#define METALANG99_PRIV_uintAddProgress_ARITY    2
+#define METALANG99_PRIV_uintSubProgress_ARITY    2
+#define METALANG99_PRIV_uintMulProgress_ARITY    2
+#define METALANG99_PRIV_uintModProgress_ARITY    3
+#define METALANG99_PRIV_uintModProgressAux_ARITY 3
 // }
 
 // Aliases {
