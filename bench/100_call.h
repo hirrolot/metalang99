@@ -3,9 +3,9 @@
 #define F_IMPL(x, y, z) v(x + y + z)
 
 #define _5                                                                                         \
-    M_call(F, v(1) v(2) v(3)) M_call(F, v(1) v(2) v(3)) M_call(F, v(1) v(2) v(3))                  \
-        M_call(F, v(1) v(2) v(3)) M_call(F, v(1) v(2) v(3))
-#define _10  _5 _5
-#define _100 _10 _10 _10 _10 _10 _10 _10 _10 _10 _10
+    M_call(F, v(1), v(2), v(3)), M_call(F, v(1), v(2), v(3)), M_call(F, v(1), v(2), v(3)),         \
+        M_call(F, v(1), v(2), v(3)), M_call(F, v(1), v(2), v(3))
+#define _10  _5, _5
+#define _100 _10, _10, _10, _10, _10, _10, _10, _10, _10, _10
 
 M_eval(M_consume(_100))
