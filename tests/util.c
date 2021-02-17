@@ -4,12 +4,12 @@
 #define FOO(x, y) M_assertPlain(x == 518 && y == 1910)
 
 // M_id {
-M_eval(v(FOO) M_id(v((518, 1910))));
+M_eval(v(FOO), M_id(v((518, 1910))));
 M_assertEq(M_appl(M_compose(v(M_id), v(M_id)), v(181)), v(181));
 // }
 
 // M_parenthesise {
-M_eval(v(FOO) M_parenthesise(v(518, 1910)));
+M_eval(v(FOO), M_parenthesise(v(518, 1910)));
 // }
 
 #undef FOO

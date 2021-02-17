@@ -30,10 +30,9 @@
 \maketitle
 
 \begin{abstract}
-This paper formally describes the form and execution of metaprograms written in
-Metalang99, a metalanguage aimed at full-blown C/C++ preprocessor metaprogramming. This paper
-is \textbf{not} designed as a user-friendly overview -- see the official repository
-\cite{Metalang99}.
+This paper formally describes the syntax and semantics of metaprograms written in Metalang99,
+a metalanguage aimed at full-blown C99 preprocessor metaprogramming. For the motivation and
+a user-friendly overview, please see the official repository \cite{Metalang99}.
 \end{abstract}
 
 \tableofcontents
@@ -46,22 +45,21 @@ is \textbf{not} designed as a user-friendly overview -- see the official reposit
     \caption{Grammar rules}
 
 \begin{minted}{bnf}
-<eval> ::= "METALANG99_eval(" { <term> }* ")" ;
+<eval> ::= "METALANG99_eval(" <term-seq> ")" ;
 
 <term> ::=
-      "METALANG99_call(" <op> "," { <term> }* ")"
+      "METALANG99_call(" <op> "," <term-seq> ")"
     | "METALANG99_callTrivial(" <ident> "," <pp-token-list> ")"
-    | "METALANG99_abort(" { <term> }* ")"
+    | "METALANG99_abort(" <term-seq> ")"
     | "METALANG99_fatal(" <ident> "," <pp-token-list> ")"
     | "v(" <pp-token-list> ")" ;
 
-<op>   ::= <ident> | { <term> }+ ;
+<op> ::= <ident> | <term> ;
+
+<term-seq> ::= <term> { "," <term> }* ;
 \end{minted}
 
 \end{figure}
-
-A metaprogram in Metalang99 consists of a possibly empty sequence of terms, each of which
-is either a macro call or just a value.
 
 Notes:
 
@@ -70,36 +68,21 @@ Notes:
     \item The grammar above describes metaprograms already expanded by the preprocessor,
     except for \texttt{METALANG99\_eval}, \texttt{METALANG99\_call},\\\texttt{METALANG99\_callTrivial},
     \texttt{METALANG99\_abort}, \texttt{METALANG99\_fatal},\\and \texttt{v}.
-    \item \texttt{METALANG99\_call} accepts \texttt{op} either as an identifier or as a non-empty
-    sequence of terms that reduces to an identifier.
+    \item \texttt{METALANG99\_call} accepts \texttt{op} either as an identifier or as a term that
+    reduces to an identifier.
     \item \texttt{METALANG99\_callTrivial} accepts an operation strictly as an identifier.
-    \item Both \texttt{METALANG99\_call} and \texttt{METALANG99\_callTrivial} accept \\ arguments of \texttt{op}
-    without a comma separator (e.g., \texttt{v(1) v(2) v(3)} and not \texttt{v(1), v(2), v(3)}).
 \end{itemize}
 
-The \texttt{METALANG99\_call} syntax hurts IDE support: bad code formatting, no parameters
-documentation highlighting, et cetera. The workaround is to define a wrapper around
-an implementation macro like this:
+The \texttt{METALANG99\_call} syntax hurts IDE support (no parameters documentation highlighting) and is also
+less natural. The workaround is to define a wrapper around an implementation macro like this:
 
 \begin{minted}{c}
 /// The documentation string.
-#define FOO(a, b, c) METALANG99_call(FOO, a b c)
+#define FOO(a, b, c) METALANG99_call(FOO, a, b, c)
 #define FOO_IMPL(a, b, c) // The implementation.
 \end{minted}
 
 Then \texttt{FOO} can be conveniently called as \texttt{FOO(v(1), v(2), v(3))}.
-
-Notice that variadic macros are a bit special here. Their calls should be desugared as follows:
-
-\begin{minted}{c}
-/// The documentation string.
-#define FOO(a, b, c, ...) \
-    METALANG99_call(FOO, a b c __VA_ARGS__)
-#define FOO_IMPL(a, b, c, ...) // The implementation.
-\end{minted}
-
-Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3), v(5) v(6) v(7))};
-\texttt{v(5) v(6) v(7)} are \textbf{not} separated by commas.
 
 \section{Notations}
 
@@ -107,7 +90,7 @@ Then \texttt{FOO} can be called as \texttt{FOO(v(1), v(2), v(3), v(5) v(6) v(7))
     \begin{itemize}
         \item $\overline{x} \coloneqq x_1 \ldots x_n$. Examples:
         \begin{itemize}
-            \item Metalang99 terms: \texttt{v(abc) METALANG99\_call(FOO, v(123)) \\ v(u 8 9)}
+            \item Metalang99 terms: \texttt{v(abc), METALANG99\_call(FOO, v(123)), v(u 8 9)}
             \item Preprocessor tokens: \texttt{abc 13 "hello" + -}
         \end{itemize}
         \item $()$ denotes the empty sequence.
@@ -143,9 +126,9 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
 
 \begin{itemize}
     \item $K$ is a continuation of the form $\langle K; F; A; C \rangle$, where
-    $C$ includes the $?$ sign denoting a result passed into a continuation.
-    For example, let $K$ be $\langle K'; (1, 2, 3); v(x) \ ? \rangle$,
-    then $K(v(y))$ is $\langle K'; (1, 2, 3); v(x) \ v(y) \rangle$. A special
+    $C$ includes the $?$ sign denoting a result passed into the continuation.
+    For example, let $K$ be $\langle K'; (1, 2, 3); v(x), \ ? \rangle$,
+    then $K(v(y))$ is $\langle K'; (1, 2, 3); v(x), v(y) \rangle$. A special
     continuation $halt$ terminates the abstract machine and substitutes itself
     with a provided result. For example, when the abstract machine encounters
     $halt(1 + 2)$, it will just stop and paste $1 + 2$.
@@ -168,25 +151,25 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
     \caption{Reduction Semantics}
 
     \begin{align*}
-        (v): & \ \langle K; F; A; \texttt{v}(\overline{tok}) \ \overline{t} \rangle \to
+        (v): & \ \langle K; F; A; \texttt{v}(\overline{tok}), \overline{t} \rangle \to
             \langle K; F; F(A, \overline{tok}); \overline{t} \rangle \\
-        (op): & \ \langle K; F; A; \texttt{METALANG99\_call}(\overline{t}, \overline{a}) \ \overline{t'} \rangle \to \langle \\
-            & \ \ \ \ \langle K; F; A; \texttt{METALANG99\_call}(?, \overline{a}) \ \overline{t'} \rangle; \\
+        (op): & \ \langle K; F; A; \texttt{METALANG99\_call}(\overline{t}, \overline{a}), \overline{t'} \rangle \to \langle \\
+            & \ \ \ \ \langle K; F; A; \texttt{METALANG99\_call}(?, \overline{a}), \overline{t'} \rangle; \\
             & \ \ \ \ fappend; \\
             & \ \ \ \ (); \\
             & \ \ \ \ \overline{t} \rangle \\
-        (args): & \ \langle K; F; A; \texttt{METALANG99\_call}(ident, \overline{a}) \ \overline{t} \rangle \to \langle \\
+        (args): & \ \langle K; F; A; \texttt{METALANG99\_call}(ident, \overline{a}), \overline{t} \rangle \to \langle \\
             & \ \ \ \ \langle \langle K; F; F(A, ?); \overline{t} \rangle; fappend; (); ident\texttt{\_IMPL}(?) \rangle; \\
             & \ \ \ \ fcomma; \\
             & \ \ \ \ (); \\
             & \ \ \ \ \overline{a} \rangle \\
-        (callTrivial): & \ \langle K; F; A; \texttt{METALANG99\_callTrivial}(ident, \overline{tok}) \ \overline{t} \rangle \to \langle \\
+        (callTrivial): & \ \langle K; F; A; \texttt{METALANG99\_callTrivial}(ident, \overline{tok}), \overline{t} \rangle \to \langle \\
             & \ \ \ \ \langle K; F; F(A, ?); \overline{t} \rangle; \\
             & \ \ \ \ fappend; \\
             & \ \ \ \ (); \\
             & \ \ \ \ ident\texttt{\_IMPL}(\overline{tok}) \rangle \\
-        (abort): & \ \langle K; F; A; \texttt{METALANG99\_abort}(\overline{t}) \ \overline{t'} \rangle \to \langle halt; fappend; (); \overline{t} \rangle \\
-        (fatal): & \ \langle K; F; A; \texttt{METALANG99\_fatal}(ident, \overline{tok}) \ \overline{t} \rangle \to halt(\ldots) \\
+        (abort): & \ \langle K; F; A; \texttt{METALANG99\_abort}(\overline{t}), \overline{t'} \rangle \to \langle halt; fappend; (); \overline{t} \rangle \\
+        (fatal): & \ \langle K; F; A; \texttt{METALANG99\_fatal}(ident, \overline{tok}), \overline{t} \rangle \to halt(\ldots) \\
         (end): & \ \langle K; F; A; () \rangle \to K(A) \\
         (start): & \ \texttt{METALANG99\_call}(\overline{t}) \to \langle halt; fappend; (); \overline{t} \rangle
     \end{align*}
@@ -204,7 +187,7 @@ Notes:
     rules.
     \item $(args)$ Metalang99 appends \texttt{\_IMPL} to every macro identifier called using
     \texttt{METALANG99\_call} -- it makes easier to follow the convention that all implementations
-    of metafunctions shall have the postfix \texttt{\_IMPL}.
+    of metafunctions must have the postfix \texttt{\_IMPL}.
     \item $(callTrivial)$ \texttt{METALANG99\_callTrivial} is used when an operation and all
     arguments are already evaluated. It is semantically the same as \texttt{METALANG99\_call(ident, v(...))}
     but performs one less reduction steps to benefit in performance.
@@ -232,21 +215,21 @@ See how \texttt{METALANG99\_call(X, v(CALL\_X))} is evaluated:
 
 \begin{example}[Evaluation of terms]
 \begin{align*}
-    \texttt{METALANG99\_eval}(\texttt{METALANG99\_call}(X, \texttt{v}(\texttt{CALL\_X}))) & \to (start) \\
-    \langle halt; fappend; (); \texttt{METALANG99\_call}(X, \texttt{v}(\texttt{CALL\_X})) \rangle & \to (args) \\
-    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{CALL\_X}) \rangle & \to (v) \\
-    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; \texttt{CALL\_X}; () \rangle & \to (end) \\
-    \langle halt; fappend; (); \texttt{METALANG99\_call}(\texttt{CALL\_X}, \texttt{v}(123)) \rangle & \to (args) \\
-    \langle \langle halt; fappend; (); \texttt{CALL\_X}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \to (v) \\
-    \langle \langle halt; fappend; (); \texttt{CALL\_X}(?) \rangle; fcomma; 123; () \rangle & \to (end) \\
-    \langle halt; fappend; (); \texttt{METALANG99\_call}(X, \texttt{v}(\texttt{ID})) \rangle & \to (args) \\
-    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{ID}) \rangle & \to (v) \\
-    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; \texttt{ID}; \rangle & \to (end) \\
-    \langle halt; fappend; (); \texttt{METALANG99\_call}(\texttt{ID}, \texttt{v}(123)) \rangle & \to (args) \\
-    \langle \langle halt; fappend; (); \texttt{ID}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \to (v) \\
-    \langle \langle halt; fappend; (); \texttt{ID}(?) \rangle; fcomma; 123; () \rangle & \to (end) \\
-    \langle halt; fappend; (); \texttt{v}(123) \rangle & \to (v) \\
-    \langle halt; fappend; 123; () \rangle & \to (end) \\
+    \texttt{METALANG99\_eval}(\texttt{METALANG99\_call}(X, \texttt{v}(\texttt{CALL\_X}))) & \ \underrightarrow{(start)} \\
+    \langle halt; fappend; (); \texttt{METALANG99\_call}(X, \texttt{v}(\texttt{CALL\_X})) \rangle & \ \underrightarrow{(args)} \\
+    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{CALL\_X}) \rangle & \ \underrightarrow{(v)} \\
+    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; \texttt{CALL\_X}; () \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fappend; (); \texttt{METALANG99\_call}(\texttt{CALL\_X}, \texttt{v}(123)) \rangle & \ \underrightarrow{(args)} \\
+    \langle \langle halt; fappend; (); \texttt{CALL\_X}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
+    \langle \langle halt; fappend; (); \texttt{CALL\_X}(?) \rangle; fcomma; 123; () \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fappend; (); \texttt{METALANG99\_call}(X, \texttt{v}(\texttt{ID})) \rangle & \ \underrightarrow{(args)} \\
+    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{ID}) \rangle & \ \underrightarrow{(v)} \\
+    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; \texttt{ID}; \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fappend; (); \texttt{METALANG99\_call}(\texttt{ID}, \texttt{v}(123)) \rangle & \ \underrightarrow{(args)} \\
+    \langle \langle halt; fappend; (); \texttt{ID}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
+    \langle \langle halt; fappend; (); \texttt{ID}(?) \rangle; fcomma; 123; () \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fappend; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
+    \langle halt; fappend; 123; () \rangle & \ \underrightarrow{(end)} \\
     halt(123) &
 \end{align*}
 \end{example}

@@ -59,7 +59,7 @@
  * M_and(v(1), v(1))
  * @endcode
  */
-#define METALANG99_and(x, y) METALANG99_call(METALANG99_and, x y)
+#define METALANG99_and(x, y) METALANG99_call(METALANG99_and, x, y)
 
 /**
  * Logical inclusive OR.
@@ -80,7 +80,7 @@
  * M_or(v(1), v(1))
  * @endcode
  */
-#define METALANG99_or(x, y) METALANG99_call(METALANG99_or, x y)
+#define METALANG99_or(x, y) METALANG99_call(METALANG99_or, x, y)
 
 /**
  * Logical exclusive OR.
@@ -101,7 +101,7 @@
  * M_xor(v(1), v(1))
  * @endcode
  */
-#define METALANG99_xor(x, y) METALANG99_call(METALANG99_xor, x y)
+#define METALANG99_xor(x, y) METALANG99_call(METALANG99_xor, x, y)
 
 /**
  * Tests @p x and @p y for equality.
@@ -121,7 +121,7 @@
  * M_boolEq(v(1), v(1))
  * @endcode
  */
-#define METALANG99_boolEq(x, y) METALANG99_call(METALANG99_boolEq, x y)
+#define METALANG99_boolEq(x, y) METALANG99_call(METALANG99_boolEq, x, y)
 
 /**
  * The plain version of #METALANG99_not.

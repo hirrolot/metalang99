@@ -27,7 +27,7 @@
  * M_if(v(M_false), v(123), v(18))
  * @endcode
  */
-#define METALANG99_if(cond, x, y) METALANG99_call(METALANG99_if, cond x y)
+#define METALANG99_if(cond, x, y) METALANG99_call(METALANG99_if, cond, x, y)
 
 /**
  * If @p cond is true, evaluates to @p x, otherwise to emptiness.
@@ -44,7 +44,7 @@
  * M_when(v(0), v(123))
  * @endcode
  */
-#define METALANG99_when(cond, x) METALANG99_call(METALANG99_when, cond x)
+#define METALANG99_when(cond, x) METALANG99_call(METALANG99_when, cond, x)
 
 /**
  * If @p cond is true, evaluates to @p f, otherwise to #METALANG99_consume.
@@ -62,7 +62,7 @@
  * M_call(M_whenLazy(v(0), v(M_id)), v(123))
  * @endcode
  */
-#define METALANG99_whenLazy(cond, f) METALANG99_call(METALANG99_whenLazy, cond f)
+#define METALANG99_whenLazy(cond, f) METALANG99_call(METALANG99_whenLazy, cond, f)
 
 /**
  * Overloads @p f on a number of arguments.
@@ -90,7 +90,7 @@
  * arity specifiers are not needed.
  * @note Currently, this function can accept at most 256 variadic arguments.
  */
-#define METALANG99_overload(f, ...) METALANG99_call(METALANG99_overload, f __VA_ARGS__)
+#define METALANG99_overload(f, ...) METALANG99_call(METALANG99_overload, f, __VA_ARGS__)
 
 /**
  * The plain version of #METALANG99_if.

@@ -2,7 +2,7 @@
 
 #include <metalang99.h>
 
-#define Rect(width, height) M_call(Rect, width height)
+#define Rect(width, height) M_call(Rect, width, height)
 #define RectWidth           v(0)
 #define RectHeight          v(1)
 

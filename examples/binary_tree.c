@@ -3,7 +3,7 @@
 #include <metalang99.h>
 
 #define TreeLeaf(x)              M_call(TreeLeaf, x)
-#define TreeNode(lhs, data, rhs) M_call(TreeNode, lhs data rhs)
+#define TreeNode(lhs, data, rhs) M_call(TreeNode, lhs, data, rhs)
 
 #define SUM(tree) M_call(SUM, tree)
 

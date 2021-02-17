@@ -27,7 +27,7 @@
  * M_catEval(v(123), v(ABC))
  * @endcode
  */
-#define METALANG99_catEval(x, y) METALANG99_call(METALANG99_catEval, x y)
+#define METALANG99_catEval(x, y) METALANG99_call(METALANG99_catEval, x, y)
 
 /**
  * Concatenates @p x with @p y, leaving the result unevaluated.
@@ -46,7 +46,7 @@
  * M_cat(v(123), v(ABC))
  * @endcode
  */
-#define METALANG99_cat(x, y) METALANG99_call(METALANG99_cat, x y)
+#define METALANG99_cat(x, y) METALANG99_call(METALANG99_cat, x, y)
 
 /**
  * Stringifies provided arguments.
@@ -65,7 +65,7 @@
 /**
  * Evaluates to nothing.
  */
-#define METALANG99_empty() METALANG99_call(METALANG99_empty, )
+#define METALANG99_empty() METALANG99_callTrivial(METALANG99_empty, )
 
 /**
  * Evaluates to its arguments.
@@ -195,7 +195,7 @@
  * M_const(v(123), v(5))
  * @endcode
  */
-#define METALANG99_const(x, a) METALANG99_call(METALANG99_const, x a)
+#define METALANG99_const(x, a) METALANG99_call(METALANG99_const, x, a)
 
 /**
  * Evaluates to @p x, skipping @p a, and @p b.
@@ -209,7 +209,7 @@
  * M_const2(v(123), v(5), v(6))
  * @endcode
  */
-#define METALANG99_const2(x, a, b) METALANG99_call(METALANG99_const2, x a b)
+#define METALANG99_const2(x, a, b) METALANG99_call(METALANG99_const2, x, a, b)
 
 /**
  * Evaluates to @p x, skipping @p a, @p b, and @p c.
@@ -223,7 +223,7 @@
  * M_const3(v(123), v(5), v(6), v(7))
  * @endcode
  */
-#define METALANG99_const3(x, a, b, c) METALANG99_call(METALANG99_const3, x a b c)
+#define METALANG99_const3(x, a, b, c) METALANG99_call(METALANG99_const3, x, a, b, c)
 
 /**
  * Reverses the order of arguments of the binary function @p f.
@@ -251,7 +251,7 @@
  * M_putBefore(v(0), v(!))
  * @endcode
  */
-#define METALANG99_putBefore(right, x) METALANG99_call(METALANG99_putBefore, right x)
+#define METALANG99_putBefore(right, x) METALANG99_call(METALANG99_putBefore, right, x)
 
 /**
  * Puts @p x after @p left.
@@ -265,7 +265,7 @@
  * M_putAfter(v(!), v(0))
  * @endcode
  */
-#define METALANG99_putAfter(left, x) METALANG99_call(METALANG99_putAfter, left x)
+#define METALANG99_putAfter(left, x) METALANG99_call(METALANG99_putAfter, left, x)
 
 /**
  * Puts @p x between @p left and @p right.
@@ -279,7 +279,7 @@
  * M_putBetween(v(16), v(9), v(+))
  * @endcode
  */
-#define METALANG99_putBetween(left, right, x) METALANG99_call(METALANG99_putBetween, left right x)
+#define METALANG99_putBetween(left, right, x) METALANG99_call(METALANG99_putBetween, left, right, x)
 
 /**
  * Evaluates to `_x`.
@@ -539,17 +539,17 @@
 #define METALANG99_stateless_IMPL(f)                                                               \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless, f)
 #define METALANG99_PRIV_stateless_IMPL(f, _state, ...)                                             \
-    v((~), ) METALANG99_callTrivial(METALANG99_appl, f, __VA_ARGS__)
+    v((~), ), METALANG99_callTrivial(METALANG99_appl, f, __VA_ARGS__)
 
 #define METALANG99_stateless2_IMPL(f)                                                              \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless2, f)
 #define METALANG99_PRIV_stateless2_IMPL(f, _state, a, ...)                                         \
-    v((~), ) METALANG99_callTrivial(METALANG99_appl2, f, a, __VA_ARGS__)
+    v((~), ), METALANG99_callTrivial(METALANG99_appl2, f, a, __VA_ARGS__)
 
 #define METALANG99_stateless3_IMPL(f)                                                              \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless3, f)
 #define METALANG99_PRIV_stateless3_IMPL(f, _state, a, b, ...)                                      \
-    v((~), ) METALANG99_callTrivial(METALANG99_appl3, f, a, b, __VA_ARGS__)
+    v((~), ), METALANG99_callTrivial(METALANG99_appl3, f, a, b, __VA_ARGS__)
 // }
 
 // Arity specifiers {

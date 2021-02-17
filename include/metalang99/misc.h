@@ -23,7 +23,7 @@
  * M_repeat(M_appl(v(M_cat), v(_)), v(3))
  * @endcode
  */
-#define METALANG99_repeat(f, n) METALANG99_call(METALANG99_repeat, f n)
+#define METALANG99_repeat(f, n) METALANG99_call(METALANG99_repeat, f, n)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -33,7 +33,7 @@
     METALANG99_callTrivial(METALANG99_uintMatchWithArgs, n, METALANG99_PRIV_repeat_, f)
 #define METALANG99_PRIV_repeat_Z_IMPL(_f) METALANG99_empty()
 #define METALANG99_PRIV_repeat_S_IMPL(i, f)                                                        \
-    METALANG99_callTrivial(METALANG99_repeat, f, i) METALANG99_callTrivial(METALANG99_appl, f, i)
+    METALANG99_callTrivial(METALANG99_repeat, f, i), METALANG99_callTrivial(METALANG99_appl, f, i)
 // }
 
 // Arity specifiers {

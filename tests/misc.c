@@ -6,7 +6,7 @@
 #define F_IMPL(x)         v(, x)
 #define F_ARITY           1
 
-M_eval(v(CHECK) M_parenthesise(M_repeat(v(F), v(3))));
+M_eval(v(CHECK), M_parenthesise(M_repeat(v(F), v(3))));
 
 #undef CHECK
 #undef F_IMPL

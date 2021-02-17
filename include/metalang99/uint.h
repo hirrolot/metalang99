@@ -72,7 +72,7 @@
  * @note This function calls @p f with #METALANG99_call, so no partial application occurs, and so
  * arity specifiers are not needed.
  */
-#define METALANG99_uintMatch(x, matcher) METALANG99_call(METALANG99_uintMatch, x matcher)
+#define METALANG99_uintMatch(x, matcher) METALANG99_call(METALANG99_uintMatch, x, matcher)
 
 /**
  * The same as #METALANG99_uintMatch but provides additional arguments to all branches.
@@ -96,7 +96,7 @@
  * arity specifiers are not needed.
  */
 #define METALANG99_uintMatchWithArgs(x, matcher, ...)                                              \
-    METALANG99_call(METALANG99_uintMatchWithArgs, x matcher __VA_ARGS__)
+    METALANG99_call(METALANG99_uintMatchWithArgs, x, matcher, __VA_ARGS__)
 
 /**
  * \f$x = y\f$
@@ -113,7 +113,7 @@
  * M_uintEq(v(3), v(8))
  * @endcode
  */
-#define METALANG99_uintEq(x, y) METALANG99_call(METALANG99_uintEq, x y)
+#define METALANG99_uintEq(x, y) METALANG99_call(METALANG99_uintEq, x, y)
 
 /**
  * \f$x \neq y\f$
@@ -130,7 +130,7 @@
  * M_uintNeq(v(3), v(8))
  * @endcode
  */
-#define METALANG99_uintNeq(x, y) METALANG99_call(METALANG99_uintNeq, x y)
+#define METALANG99_uintNeq(x, y) METALANG99_call(METALANG99_uintNeq, x, y)
 
 /**
  * \f$x > y\f$
@@ -147,7 +147,7 @@
  * M_uintGreater(v(3), v(8))
  * @endcode
  */
-#define METALANG99_uintGreater(x, y) METALANG99_call(METALANG99_uintGreater, x y)
+#define METALANG99_uintGreater(x, y) METALANG99_call(METALANG99_uintGreater, x, y)
 
 /**
  * \f$x \geq y\f$
@@ -164,7 +164,7 @@
  * M_uintGreaterEq(v(3), v(8))
  * @endcode
  */
-#define METALANG99_uintGreaterEq(x, y) METALANG99_call(METALANG99_uintGreaterEq, x y)
+#define METALANG99_uintGreaterEq(x, y) METALANG99_call(METALANG99_uintGreaterEq, x, y)
 
 /**
  * \f$x < y\f$
@@ -181,7 +181,7 @@
  * M_uintLesser(v(8), v(3))
  * @endcode
  */
-#define METALANG99_uintLesser(x, y) METALANG99_call(METALANG99_uintLesser, x y)
+#define METALANG99_uintLesser(x, y) METALANG99_call(METALANG99_uintLesser, x, y)
 
 /**
  * \f$x \leq y\f$
@@ -198,7 +198,7 @@
  * M_uintLesserEq(v(8), v(3))
  * @endcode
  */
-#define METALANG99_uintLesserEq(x, y) METALANG99_call(METALANG99_uintLesserEq, x y)
+#define METALANG99_uintLesserEq(x, y) METALANG99_call(METALANG99_uintLesserEq, x, y)
 
 /**
  * \f$x + y\f$
@@ -212,7 +212,7 @@
  * M_uintAdd(v(5), v(6))
  * @endcode
  */
-#define METALANG99_uintAdd(x, y) METALANG99_call(METALANG99_uintAdd, x y)
+#define METALANG99_uintAdd(x, y) METALANG99_call(METALANG99_uintAdd, x, y)
 
 /**
  * \f$x - y\f$
@@ -226,7 +226,7 @@
  * M_uintSub(v(11), v(5))
  * @endcode
  */
-#define METALANG99_uintSub(x, y) METALANG99_call(METALANG99_uintSub, x y)
+#define METALANG99_uintSub(x, y) METALANG99_call(METALANG99_uintSub, x, y)
 
 /**
  * \f$x * y\f$
@@ -240,7 +240,7 @@
  * M_uintMul(v(3), v(4))
  * @endcode
  */
-#define METALANG99_uintMul(x, y) METALANG99_call(METALANG99_uintMul, x y)
+#define METALANG99_uintMul(x, y) METALANG99_call(METALANG99_uintMul, x, y)
 
 /**
  * \f$\frac{x}{y}\f$
@@ -256,7 +256,7 @@
  *
  * @note A compile-time error if \f$\frac{x}{y}\f$ is not an unsigned integer.
  */
-#define METALANG99_uintDiv(x, y) METALANG99_call(METALANG99_uintDiv, x y)
+#define METALANG99_uintDiv(x, y) METALANG99_call(METALANG99_uintDiv, x, y)
 
 /**
  * Like #METALANG99_uintDiv but returns #METALANG99_nothing is @p x is not divisible by @p y,
@@ -277,7 +277,7 @@
  * M_uintDivChecked(v(1), v(0))
  * @endcode
  */
-#define METALANG99_uintDivChecked(x, y) METALANG99_call(METALANG99_uintDivChecked, x y)
+#define METALANG99_uintDivChecked(x, y) METALANG99_call(METALANG99_uintDivChecked, x, y)
 
 /**
  * Computes the remainder of division.
@@ -293,7 +293,7 @@
  *
  * @note A compile-time error if @p y is 0.
  */
-#define METALANG99_uintMod(x, y) METALANG99_call(METALANG99_uintMod, x y)
+#define METALANG99_uintMod(x, y) METALANG99_call(METALANG99_uintMod, x, y)
 
 /**
  * \f$x + y + z\f$
@@ -307,7 +307,7 @@
  * M_uintAdd3(v(1), v(6), v(8))
  * @endcode
  */
-#define METALANG99_uintAdd3(x, y, z) METALANG99_call(METALANG99_uintAdd3, x y z)
+#define METALANG99_uintAdd3(x, y, z) METALANG99_call(METALANG99_uintAdd3, x, y, z)
 
 /**
  * \f$x - y - z\f$
@@ -321,7 +321,7 @@
  * M_uintSub3(v(8), v(2), v(3))
  * @endcode
  */
-#define METALANG99_uintSub3(x, y, z) METALANG99_call(METALANG99_uintSub3, x y z)
+#define METALANG99_uintSub3(x, y, z) METALANG99_call(METALANG99_uintSub3, x, y, z)
 
 /**
  * \f$x * y * z\f$
@@ -335,7 +335,7 @@
  * M_uintMul3(v(2), v(3), v(4))
  * @endcode
  */
-#define METALANG99_uintMul3(x, y, z) METALANG99_call(METALANG99_uintMul3, x y z)
+#define METALANG99_uintMul3(x, y, z) METALANG99_call(METALANG99_uintMul3, x, y, z)
 
 /**
  * \f$\frac{(\frac{x}{y})}{z}\f$
@@ -351,7 +351,7 @@
  *
  * @note A compile-time error if \f$\frac{(\frac{x}{y})}{z}\f$ is not an unsigned integer.
  */
-#define METALANG99_uintDiv3(x, y, z) METALANG99_call(METALANG99_uintDiv3, x y z)
+#define METALANG99_uintDiv3(x, y, z) METALANG99_call(METALANG99_uintDiv3, x, y, z)
 
 /**
  * \f$min(x, y)\f$
@@ -365,7 +365,7 @@
  * M_uintMin(v(5), v(7))
  * @endcode
  */
-#define METALANG99_uintMin(x, y) METALANG99_call(METALANG99_uintMin, x y)
+#define METALANG99_uintMin(x, y) METALANG99_call(METALANG99_uintMin, x, y)
 
 /**
  * \f$max(x, y)\f$
@@ -379,7 +379,7 @@
  * M_uintMax(v(5), v(7))
  * @endcode
  */
-#define METALANG99_uintMax(x, y) METALANG99_call(METALANG99_uintMax, x y)
+#define METALANG99_uintMax(x, y) METALANG99_call(METALANG99_uintMax, x, y)
 
 /**
  * The plain version of #METALANG99_uintEq.
@@ -408,7 +408,7 @@
 #define METALANG99_uintMatch_IMPL(x, matcher)                                                      \
     METALANG99_PRIV_IF(                                                                            \
         METALANG99_PRIV_uintEq(x, 0),                                                              \
-        METALANG99_call(matcher##Z, ),                                                             \
+        METALANG99_callTrivial(matcher##Z, ),                                                      \
         METALANG99_callTrivial(matcher##S, METALANG99_PRIV_uintDec(x)))
 
 #define METALANG99_uintMatchWithArgs_IMPL(x, matcher, ...)                                         \

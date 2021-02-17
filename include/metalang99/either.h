@@ -74,7 +74,7 @@
  * @endcode
  */
 #define METALANG99_eitherEq(compare, either, other)                                                \
-    METALANG99_call(METALANG99_eitherEq, compare either other)
+    METALANG99_call(METALANG99_eitherEq, compare, either, other)
 
 /**
  * Returns the left value on #METALANG99_left or emits a fatal error on #METALANG99_right.

@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - Make `variadicsHead` accept a single argument too.
  - Now at most 63 variadic arguments are acceptable by `list`, `variadicsCount`, `variadicsCountPlain`, `variadicsMap`, `variadicsMapI`, `variadicsMapCommaSep`, `variadicsMapICommaSep`.
+ - Terms now need to be separated by commas, e.g. instead of `v(1) M_call(F, v(2)) v(3)`, write `v(1), M_call(F, v(2)), v(3)`.
+ - The empty sequence is prohibited by `eval` and `abort`.
 
 ### Fixed
 

@@ -18,7 +18,7 @@
 /**
  * No value.
  */
-#define METALANG99_nothing() METALANG99_call(METALANG99_nothing, )
+#define METALANG99_nothing() METALANG99_callTrivial(METALANG99_nothing, )
 
 /**
  * 1 if @p maybe contains some value, otherwise 0.
@@ -74,7 +74,7 @@
  * @endcode
  */
 #define METALANG99_maybeEq(compare, maybe, other)                                                  \
-    METALANG99_call(METALANG99_maybeEq, compare maybe other)
+    METALANG99_call(METALANG99_maybeEq, compare, maybe, other)
 
 /**
  * Returns the contained value on #METALANG99_just or emits a fatal error on #METALANG99_nothing.

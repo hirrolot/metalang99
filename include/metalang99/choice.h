@@ -26,7 +26,7 @@
  * See <a
  * href="https://github.com/Hirrolot/metalang99/blob/master/examples/binary_tree.c">examples/binary_tree.c</a>.
  */
-#define METALANG99_choice(tag, ...) METALANG99_call(METALANG99_choice, tag __VA_ARGS__)
+#define METALANG99_choice(tag, ...) METALANG99_call(METALANG99_choice, tag, __VA_ARGS__)
 
 /**
  * The same as #METALANG99_choice but does not require additional arguments.
@@ -52,7 +52,7 @@
  * See <a
  * href="https://github.com/Hirrolot/metalang99/blob/master/examples/binary_tree.c">examples/binary_tree.c</a>.
  */
-#define METALANG99_match(choice, matcher) METALANG99_call(METALANG99_match, choice matcher)
+#define METALANG99_match(choice, matcher) METALANG99_call(METALANG99_match, choice, matcher)
 
 /**
  * The same as #METALANG99_match but supplies additional arguments to all branches.
@@ -69,7 +69,7 @@
  * @endcode
  */
 #define METALANG99_matchWithArgs(choice, matcher, ...)                                             \
-    METALANG99_call(METALANG99_matchWithArgs, choice matcher __VA_ARGS__)
+    METALANG99_call(METALANG99_matchWithArgs, choice, matcher, __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

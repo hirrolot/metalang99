@@ -13,7 +13,8 @@
 /**
  * Invokes a metafunction with arguments.
  */
-#define METALANG99_call(...) METALANG99_PRIV_call(__VA_ARGS__)
+#define METALANG99_call(op, ...)                                                                   \
+    (METALANG99_PRIV_IF(METALANG99_PRIV_IS_UNPARENTHESISED(op), 0args, 0op), op, __VA_ARGS__)
 
 /**
  * Invokes a metafunction @p ident with unevaluated arguments.
@@ -21,7 +22,7 @@
  * It is semantically the same as `METALANG99_call(ident, v(...))` but performs one less reduction
  * steps.
  */
-#define METALANG99_callTrivial(ident, ...) (0callTrivial, ident, __VA_ARGS__),
+#define METALANG99_callTrivial(ident, ...) (0callTrivial, ident, __VA_ARGS__)
 
 /**
  * Applies arguments to @p f.
@@ -72,7 +73,7 @@
  *
  * @note Currently, the maximum arity is 16.
  */
-#define METALANG99_appl(f, ...) METALANG99_call(METALANG99_appl, f __VA_ARGS__)
+#define METALANG99_appl(f, ...) METALANG99_call(METALANG99_appl, f, __VA_ARGS__)
 
 /**
  * Applies @p a and @p b to @p f.
@@ -90,7 +91,7 @@
  * M_appl2(v(F), v(a), v(b))
  * @endcode
  */
-#define METALANG99_appl2(f, a, b) METALANG99_call(METALANG99_appl2, f a b)
+#define METALANG99_appl2(f, a, b) METALANG99_call(METALANG99_appl2, f, a, b)
 
 /**
  * Applies @p a, @p b, and @p c @p f.
@@ -108,7 +109,7 @@
  * M_appl3(v(F), v(a), v(b), v(c))
  * @endcode
  */
-#define METALANG99_appl3(f, a, b, c) METALANG99_call(METALANG99_appl3, f a b c)
+#define METALANG99_appl3(f, a, b, c) METALANG99_call(METALANG99_appl3, f, a, b, c)
 
 /**
  * Functional composition of @p f and @p g.
@@ -128,17 +129,17 @@
  * M_appl(M_compose(v(F), v(G)), v(3))
  * @endcode
  */
-#define METALANG99_compose(f, g) METALANG99_call(METALANG99_compose, f g)
+#define METALANG99_compose(f, g) METALANG99_call(METALANG99_compose, f, g)
 
 /**
  * A value that is pasted as-is; no evaluation occurs on provided arguments.
  */
-#define v(...) (0v, __VA_ARGS__),
+#define v(...) (0v, __VA_ARGS__)
 
 /**
  * Emits a fatal error.
  */
-#define METALANG99_fatal(f, ...) (0fatal, f, #__VA_ARGS__),
+#define METALANG99_fatal(f, ...) (0fatal, f, #__VA_ARGS__)
 
 /**
  * Immediately aborts the interpretation with evaluated arguments.
@@ -161,15 +162,6 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_PRIV_call(op, ...)                                                              \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_IS_UNPARENTHESISED(op),                                                    \
-        METALANG99_PRIV_call_0args,                                                                \
-        METALANG99_PRIV_call_0op)                                                                  \
-    (op, __VA_ARGS__)
-#define METALANG99_PRIV_call_0args(ident, ...)        (0args, ident, __VA_ARGS__),
-#define METALANG99_PRIV_call_0op(op, _emptiness, ...) (0op, op, __VA_ARGS__),
-
 #define METALANG99_compose_IMPL(f, g)                                                              \
     METALANG99_callTrivial(METALANG99_appl2, METALANG99_PRIV_compose_CLOSURE, f, g)
 #define METALANG99_PRIV_compose_CLOSURE_IMPL(f, g, x)                                              \

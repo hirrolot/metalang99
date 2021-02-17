@@ -27,7 +27,7 @@
  *
  * #define FOO_IMPL(x, y) v(x + y)
  *
- * M_eval(v(abc ~ 123) M_call(FOO, v(1, 2)))
+ * M_eval(v(abc ~ 123), M_call(FOO, v(1, 2)))
  * @endcode
  */
 #define METALANG99_eval(...)                                                                       \
@@ -36,7 +36,8 @@
         (~),                                                                                       \
         METALANG99_PRIV_EVAL_FAPPEND,                                                              \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
-        __VA_ARGS__(0end, ~),                                                                      \
+        __VA_ARGS__,                                                                               \
+        (0end, ~),                                                                                 \
         ~))
 
 #ifndef DOXYGEN_IGNORE
@@ -78,7 +79,8 @@
         (k, k_cx, folder, acc, tail, op),                                                          \
         METALANG99_PRIV_EVAL_FCOMMA,                                                               \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
-        __VA_ARGS__(0end, ~),                                                                      \
+        __VA_ARGS__,                                                                               \
+        (0end, ~),                                                                                 \
         ~)
 
 #define METALANG99_PRIV_EVAL_0op_AUX(k, k_cx, folder, acc, tail, op, ...)                          \
@@ -97,7 +99,8 @@
         (k, k_cx, folder, acc, tail),                                                              \
         METALANG99_PRIV_EVAL_FAPPEND,                                                              \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
-        ident##_IMPL(__VA_ARGS__)(0end, ~),                                                        \
+        ident##_IMPL(__VA_ARGS__),                                                                 \
+        (0end, ~),                                                                                 \
         ~)
 
 // clang-format off
@@ -111,7 +114,8 @@
         (~),                                                                                       \
         METALANG99_PRIV_EVAL_FAPPEND,                                                              \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
-        __VA_ARGS__(0end, ~),                                                                      \
+        __VA_ARGS__,                                                                               \
+        (0end, ~),                                                                                 \
         ~)
 
 #define METALANG99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                 \
@@ -127,7 +131,8 @@
         (k, k_cx, folder, acc, tail),                                                              \
         METALANG99_PRIV_EVAL_FAPPEND,                                                              \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
-        evaluated_op##_IMPL(__VA_ARGS__)(0end, ~),                                                 \
+        evaluated_op##_IMPL(__VA_ARGS__),                                                          \
+        (0end, ~),                                                                                 \
         ~)
 
 #define METALANG99_PRIV_EVAL_0args_K_K(k, k_cx, folder, acc, tail, ...)                            \

@@ -1,13 +1,11 @@
 #include <metalang99/assert.h>
 
-M_assertEmptyPlain(M_eval());
+M_assertEmptyPlain(M_eval(v()));
 
 // A function with zero arguments {
 #define FOO_IMPL() v(123)
 
-M_assertEq(M_call(FOO, ), v(123));
 M_assertEq(M_call(FOO, v()), v(123));
-M_assertEq(M_call(v(FOO), ), v(123));
 M_assertEq(M_call(v(FOO), v()), v(123));
 
 #undef FOO_IMPL
@@ -17,8 +15,8 @@ M_assertEq(M_call(v(FOO), v()), v(123));
 #define FOO_IMPL(x, y, z) v(x##y##z)
 #define BAR_IMPL(x, y)    v(x + y)
 
-M_assertEq(M_call(BAR, v(5) v(7)), v(5 + 7));
-M_assertEq(M_call(M_call(FOO, v(B) v(A) v(R)), v(6) v(11)), v(6 + 11));
+M_assertEq(M_call(BAR, v(5), v(7)), v(5 + 7));
+M_assertEq(M_call(M_call(FOO, v(B), v(A), v(R)), v(6), v(11)), v(6 + 11));
 
 M_assertEq(M_call(BAR, v(5, 7)), v(5 + 7));
 M_assertEq(M_call(M_call(FOO, v(B, A, R)), v(6, 11)), v(6 + 11));
@@ -29,10 +27,10 @@ M_assertEq(M_call(M_call(FOO, v(B, A, R)), v(6, 11)), v(6 + 11));
 
 // Even if a term in the argument position evaluates to more than one terms, they should be appended
 // to each other but not interspersed with a comma.
-#define FOO_IMPL()  v(1) v(2) v(3)
+#define FOO_IMPL()  v(1), v(2), v(3)
 #define BAR_IMPL(x) v(M_semicolon())
 
-M_eval(M_call(BAR, M_call(FOO, )));
+M_eval(M_call(BAR, M_call(FOO, v())));
 
 #undef FOO_IMPL
 #undef BAR_IMPL
@@ -50,17 +48,16 @@ M_assertEq(M_call(FOO, v(OP)), v(123));
 #undef ID_IMPL
 
 // M_abort {
-M_assertEmpty(M_abort());
 M_assertEmpty(M_abort(v()));
 M_assertEq(M_abort(v(815057)), v(815057));
 
 // Ensure that `M_abort` also works correctly after some evaluations.
-#define F_IMPL() M_call(G, v(1, 2) M_call(H, v(123)))
+#define F_IMPL() M_call(G, v(1, 2), M_call(H, v(123)))
 #define G_IMPL(_1, _2, _123_plus_1)                                                                \
     M_abort(v(M_assertPlain(_1 == 1 && _2 == 2 && _123_plus_1 == 123 + 1)))
 #define H_IMPL(a) v(a + 1)
 
-M_eval(M_call(F, ));
+M_eval(M_call(F, v()));
 
 #undef F_IMPL
 #undef G_IMPL
