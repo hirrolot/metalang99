@@ -33,9 +33,9 @@
  * arguments immediately, and the other arguments later, even in different execution contexts (for
  * example, see this <a href="https://stackoverflow.com/a/12414292/13166656">SO answer</a>).
  *
- * @p f shall be either a term reducing to a macro name or a term obtained via another call to
+ * @p f must be either a term reducing to a macro name or a term obtained via another call to
  * #METALANG99_appl. If @p f is a macro name, then a macro named `<f>_ARITY` (its arity specifier)
- * shall denote how many times @p f will be applied to its arguments. (In Metalang99, an arity is an
+ * must denote how many times @p f will be applied to its arguments. (In Metalang99, an arity is an
  * intentionally more flexible concept than just a number of parameters, see below.) Each time
  * #METALANG99_appl is invoked, it accumulates provided variadic arguments and reduces the arity of
  * @p f by 1; when the arity of @p f is already 1, it eventually calls the initial @p f with all the

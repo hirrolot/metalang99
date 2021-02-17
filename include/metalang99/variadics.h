@@ -55,7 +55,7 @@
 /**
  * Extracts a tail of its arguments.
  *
- * At least two arguments shall be specified.
+ * At least two arguments must be specified.
  *
  * # Examples
  *
@@ -223,11 +223,13 @@
 #define METALANG99_variadicsMap_DONE_IMPL(f, _count, x, _)                                         \
     METALANG99_callTrivial(METALANG99_appl, f, x)
 #define METALANG99_variadicsMap_PROGRESS_IMPL(f, count, x, ...)                                    \
-    METALANG99_callTrivial(METALANG99_appl, f, x), METALANG99_callTrivial(                         \
-                                                       METALANG99_variadicsMap_AUX,                \
-                                                       f,                                          \
-                                                       METALANG99_PRIV_uintDec(count),             \
-                                                       __VA_ARGS__)
+    METALANG99_terms(                                                                              \
+        METALANG99_callTrivial(METALANG99_appl, f, x),                                             \
+        METALANG99_callTrivial(                                                                    \
+            METALANG99_variadicsMap_AUX,                                                           \
+            f,                                                                                     \
+            METALANG99_PRIV_uintDec(count),                                                        \
+            __VA_ARGS__))
 // }
 
 // METALANG99_variadicsMapCommaSep_IMPL {
@@ -251,12 +253,14 @@
 #define METALANG99_variadicsMapCommaSep_DONE_IMPL(f, _count, x, _)                                 \
     METALANG99_callTrivial(METALANG99_appl, f, x)
 #define METALANG99_variadicsMapCommaSep_PROGRESS_IMPL(f, count, x, ...)                            \
-    METALANG99_callTrivial(METALANG99_appl, f, x), v(, ),                                          \
+    METALANG99_terms(                                                                              \
+        METALANG99_callTrivial(METALANG99_appl, f, x),                                             \
+        v(, ),                                                                                     \
         METALANG99_callTrivial(                                                                    \
             METALANG99_variadicsMapCommaSep_AUX,                                                   \
             f,                                                                                     \
             METALANG99_PRIV_uintDec(count),                                                        \
-            __VA_ARGS__)
+            __VA_ARGS__))
 // }
 
 // METALANG99_variadicsMapI_IMPL {
@@ -282,12 +286,14 @@
 #define METALANG99_variadicsMapI_DONE_IMPL(f, i, _count, x, _)                                     \
     METALANG99_callTrivial(METALANG99_appl2, f, x, i)
 #define METALANG99_variadicsMapI_PROGRESS_IMPL(f, i, count, x, ...)                                \
-    METALANG99_callTrivial(METALANG99_appl2, f, x, i), METALANG99_callTrivial(                     \
-                                                           METALANG99_variadicsMapI_AUX,           \
-                                                           f,                                      \
-                                                           METALANG99_PRIV_uintInc(i),             \
-                                                           METALANG99_PRIV_uintDec(count),         \
-                                                           __VA_ARGS__)
+    METALANG99_terms(                                                                              \
+        METALANG99_callTrivial(METALANG99_appl2, f, x, i),                                         \
+        METALANG99_callTrivial(                                                                    \
+            METALANG99_variadicsMapI_AUX,                                                          \
+            f,                                                                                     \
+            METALANG99_PRIV_uintInc(i),                                                            \
+            METALANG99_PRIV_uintDec(count),                                                        \
+            __VA_ARGS__))
 // }
 
 // METALANG99_variadicsMapICommaSep_IMPL {
@@ -313,13 +319,15 @@
 #define METALANG99_variadicsMapICommaSep_DONE_IMPL(f, i, _count, x, _)                             \
     METALANG99_callTrivial(METALANG99_appl2, f, x, i)
 #define METALANG99_variadicsMapICommaSep_PROGRESS_IMPL(f, i, count, x, ...)                        \
-    METALANG99_callTrivial(METALANG99_appl2, f, x, i), v(, ),                                      \
+    METALANG99_terms(                                                                              \
+        METALANG99_callTrivial(METALANG99_appl2, f, x, i),                                         \
+        v(, ),                                                                                     \
         METALANG99_callTrivial(                                                                    \
             METALANG99_variadicsMapICommaSep_AUX,                                                  \
             f,                                                                                     \
             METALANG99_PRIV_uintInc(i),                                                            \
             METALANG99_PRIV_uintDec(count),                                                        \
-            __VA_ARGS__)
+            __VA_ARGS__))
 // }
 
 // } (Implementation)

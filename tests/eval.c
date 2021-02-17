@@ -73,7 +73,7 @@ M_assertEq(M_call(F, M_abort(v(123))), v(123));
 
 // Partial application {
 
-// The arity of a function with zero arguments shall be 1 {
+// The arity of a function with zero arguments must be 1 {
 #define F_IMPL() v(123)
 #define F_ARITY  1
 

@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `when`, `whenPlain`, `whenLazy`, `whenLazyPlain`
  - `let_leftUnderscored`, `let_rightUnderscored`
  - `let`
+ - `terms`
  - `parenthesisedVariadicsHead`, `parenthesisedVariadicsHeadPlain`, `parenthesisedVariadicsTail`, `parenthesisedVariadicsTailPlain`,
  - Stateful computations:
    - `stateless`, `stateless2`, `stateless3`

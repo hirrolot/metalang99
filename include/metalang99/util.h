@@ -341,6 +341,19 @@
 #define METALANG99_braced(...) METALANG99_call(METALANG99_braced, __VA_ARGS__)
 
 /**
+ * A convenience macro to emphasise that your metafunction expands to more than one term.
+ *
+ * This macro just expands to provided arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #define F_IMPL(x) M_terms(v(1), v(x), v(2))
+ * @endcode
+ */
+#define METALANG99_terms(...) __VA_ARGS__
+
+/**
  * Constructs a stateful function out of the stateless @p f.
  *
  * @note the returned metafunction has the arity of 2 (a state + variadic arguments).
@@ -539,17 +552,17 @@
 #define METALANG99_stateless_IMPL(f)                                                               \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless, f)
 #define METALANG99_PRIV_stateless_IMPL(f, _state, ...)                                             \
-    v((~), ), METALANG99_callTrivial(METALANG99_appl, f, __VA_ARGS__)
+    METALANG99_terms(v((~), ), METALANG99_callTrivial(METALANG99_appl, f, __VA_ARGS__))
 
 #define METALANG99_stateless2_IMPL(f)                                                              \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless2, f)
 #define METALANG99_PRIV_stateless2_IMPL(f, _state, a, ...)                                         \
-    v((~), ), METALANG99_callTrivial(METALANG99_appl2, f, a, __VA_ARGS__)
+    METALANG99_terms(v((~), ), METALANG99_callTrivial(METALANG99_appl2, f, a, __VA_ARGS__))
 
 #define METALANG99_stateless3_IMPL(f)                                                              \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless3, f)
 #define METALANG99_PRIV_stateless3_IMPL(f, _state, a, b, ...)                                      \
-    v((~), ), METALANG99_callTrivial(METALANG99_appl3, f, a, b, __VA_ARGS__)
+    METALANG99_terms(v((~), ), METALANG99_callTrivial(METALANG99_appl3, f, a, b, __VA_ARGS__))
 // }
 
 // Arity specifiers {
@@ -610,6 +623,7 @@
 #define M_rightUnderscored   METALANG99_rightUnderscored
 #define M_consume            METALANG99_consume
 #define M_braced             METALANG99_braced
+#define M_terms              METALANG99_terms
 #define M_stateless          METALANG99_stateless
 #define M_stateless2         METALANG99_stateless2
 #define M_stateless3         METALANG99_stateless3
