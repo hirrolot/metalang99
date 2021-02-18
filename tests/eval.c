@@ -3,47 +3,47 @@
 M_assertEmptyPlain(M_eval(v()));
 
 // A function with zero arguments {
-#define FOO_IMPL() v(123)
+#define F_IMPL() v(123)
 
-M_assertEq(M_call(FOO, v()), v(123));
-M_assertEq(M_call(v(FOO), v()), v(123));
+M_assertEq(M_call(F, v()), v(123));
+M_assertEq(M_call(v(F), v()), v(123));
 
-#undef FOO_IMPL
+#undef F_IMPL
 // }
 
 // Regular usage of the metalanguage {
-#define FOO_IMPL(x, y, z) v(x##y##z)
-#define BAR_IMPL(x, y)    v(x + y)
+#define F_IMPL(x, y, z) v(x##y##z)
+#define BAR_IMPL(x, y)  v(x + y)
 
 M_assertEq(M_call(BAR, v(5), v(7)), v(5 + 7));
-M_assertEq(M_call(M_call(FOO, v(B), v(A), v(R)), v(6), v(11)), v(6 + 11));
+M_assertEq(M_call(M_call(F, v(B), v(A), v(R)), v(6), v(11)), v(6 + 11));
 
 M_assertEq(M_call(BAR, v(5, 7)), v(5 + 7));
-M_assertEq(M_call(M_call(FOO, v(B, A, R)), v(6, 11)), v(6 + 11));
+M_assertEq(M_call(M_call(F, v(B, A, R)), v(6, 11)), v(6 + 11));
 
-#undef FOO_IMPL
+#undef F_IMPL
 #undef BAR_IMPL
 // }
 
 // Even if a term in the argument position evaluates to more than one terms, they should be appended
 // to each other but not interspersed with a comma.
-#define FOO_IMPL()  v(1), v(2), v(3)
+#define F_IMPL()    v(1), v(2), v(3)
 #define BAR_IMPL(x) v(M_semicolon())
 
-M_eval(M_call(BAR, M_call(FOO, v())));
+M_eval(M_call(BAR, M_call(F, v())));
 
-#undef FOO_IMPL
+#undef F_IMPL
 #undef BAR_IMPL
 
-// Recursion might arise from a higher-order macro, if `op` invokes `FOO`, but nonetheless the
-// second call to `FOO` must be performed as expected.
-#define FOO_IMPL(op) M_call(op, v(123))
-#define OP_IMPL(x)   M_call(FOO, v(ID))
-#define ID_IMPL(x)   v(x)
+// Recursion might arise from a higher-order macro, if `op` invokes `F`, but nonetheless the
+// second call to `F` must be performed as expected.
+#define F_IMPL(op) M_call(op, v(123))
+#define OP_IMPL(x) M_call(F, v(ID))
+#define ID_IMPL(x) v(x)
 
-M_assertEq(M_call(FOO, v(OP)), v(123));
+M_assertEq(M_call(F, v(OP)), v(123));
 
-#undef FOO_IMPL
+#undef F_IMPL
 #undef OP_IMPL
 #undef ID_IMPL
 

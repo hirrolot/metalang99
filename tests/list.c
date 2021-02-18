@@ -74,15 +74,15 @@ M_assertPlain(M_listEval(M_list(v(19, +, 6))) == 19 + 6);
 // }
 
 // M_listEvalCommaSep, M_listUnwrapCommaSep {
-#define FOO(a, b, c) M_assertPlain(a == 1 && b == 2 && c == 3)
+#define CHECK(a, b, c) M_assertPlain(a == 1 && b == 2 && c == 3)
 
 M_assertEmptyPlain(M_listEvalCommaSep(M_nil()));
 M_assertEmpty(M_listUnwrapCommaSep(M_nil()));
 
-M_eval(v(FOO), M_parenthesise(v(M_listEvalCommaSep(M_list(v(1, 2, 3))))));
-M_eval(v(FOO), M_parenthesise(M_listUnwrapCommaSep(M_list(v(1, 2, 3)))));
+M_eval(v(CHECK), M_parenthesise(v(M_listEvalCommaSep(M_list(v(1, 2, 3))))));
+M_eval(v(CHECK), M_parenthesise(M_listUnwrapCommaSep(M_list(v(1, 2, 3)))));
 
-#undef FOO
+#undef CHECK
 // }
 
 // M_isNil {
@@ -145,27 +145,23 @@ M_assert(M_listEq(
 // }
 
 // M_listZip {
-#define EQ_IMPL(x, y) M_listEq(v(M_uintEq), v(x), v(y))
-#define EQ_ARITY      2
+#define EQ M_appl(v(M_listEq), v(M_uintEq))
 
-M_assert(M_listEq(v(EQ), M_listZip(M_nil(), M_nil()), M_nil()));
-M_assert(M_listEq(v(EQ), M_listZip(M_list(v(1, 2, 3)), M_nil()), M_nil()));
-M_assert(M_listEq(v(EQ), M_listZip(M_nil(), M_list(v(1, 2, 3))), M_nil()));
+M_assert(M_listEq(EQ, M_listZip(M_nil(), M_nil()), M_nil()));
+M_assert(M_listEq(EQ, M_listZip(M_list(v(1, 2, 3)), M_nil()), M_nil()));
+M_assert(M_listEq(EQ, M_listZip(M_nil(), M_list(v(1, 2, 3))), M_nil()));
 
 M_assert(M_listEq(
-    v(EQ), M_listZip(M_list(v(1, 2, 3)), M_list(v(4, 5, 6))),
+    EQ, M_listZip(M_list(v(1, 2, 3)), M_list(v(4, 5, 6))),
     M_list(M_list(v(1, 4)), M_list(v(2, 5)), M_list(v(3, 6)))));
 
 M_assert(M_listEq(
-    v(EQ), M_listZip(M_list(v(1, 2, 3)), M_list(v(4, 5))),
-    M_list(M_list(v(1, 4)), M_list(v(2, 5)))));
+    EQ, M_listZip(M_list(v(1, 2, 3)), M_list(v(4, 5))), M_list(M_list(v(1, 4)), M_list(v(2, 5)))));
 
 M_assert(M_listEq(
-    v(EQ), M_listZip(M_list(v(1, 2)), M_list(v(4, 5, 6))),
-    M_list(M_list(v(1, 4)), M_list(v(2, 5)))));
+    EQ, M_listZip(M_list(v(1, 2)), M_list(v(4, 5, 6))), M_list(M_list(v(1, 4)), M_list(v(2, 5)))));
 
-#undef EQ_IMPL
-#undef EQ_ARITY
+#undef EQ
 // }
 
 // M_listUnzip & M_listZip {
@@ -239,9 +235,9 @@ M_assert(M_listEq(
 // }
 
 // M_listMapStateful {
-#define F_IMPL(i, x)            M_call(F_FINAL, M_uintInc(v(i)), M_uintAdd(v(x), v(i)))
-#define F_FINAL_IMPL(i, result) v(i, result)
-#define F_ARITY                 2
+#define F_IMPL(i, x)                M_call(F_FINAL, M_uintInc(v(i)), M_uintAdd(v(x), v(i)))
+#define F_FINAL_IMPL(state, result) v(state, result)
+#define F_ARITY                     2
 
 M_assert(M_listEq(v(M_uintEq), M_listMapStateful(v(0), v(F), M_nil()), M_nil()));
 M_assert(
@@ -301,9 +297,9 @@ M_assert(M_listEq(
 // }
 
 // M_listFilterStateful {
-#define F_IMPL(i, x)            M_call(F_FINAL, M_uintInc(v(i)), M_uintEq(v(i), v(x)))
-#define F_FINAL_IMPL(i, result) v(i, result)
-#define F_ARITY                 2
+#define F_IMPL(i, x)                M_call(F_FINAL, M_uintInc(v(i)), M_uintEq(v(i), v(x)))
+#define F_FINAL_IMPL(state, result) v(state, result)
+#define F_ARITY                     2
 
 M_assert(M_listEq(v(M_uintEq), M_listFilterStateful(v(0), v(F), M_nil()), M_nil()));
 M_assert(M_listEq(

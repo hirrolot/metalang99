@@ -150,10 +150,10 @@
  * #include <metalang99/eval.h>
  * #include <metalang99/lang.h>
  *
- * #define FOO_IMPL(x) v(~)
+ * #define F_IMPL(x) v(~)
  *
  * // 123
- * M_call(M_abort(v(123)))
+ * M_call(F, M_abort(v(123)))
  * @endcode
  */
 #define METALANG99_abort(...) (0abort, __VA_ARGS__),

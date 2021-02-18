@@ -25,9 +25,9 @@
  * #include <metalang99/eval.h>
  * #include <metalang99/lang.h>
  *
- * #define FOO_IMPL(x, y) v(x + y)
+ * #define F_IMPL(x, y) v(x + y)
  *
- * M_eval(v(abc ~ 123), M_call(FOO, v(1, 2)))
+ * M_eval(v(abc ~ 123), M_call(F, v(1, 2)))
  * @endcode
  */
 #define METALANG99_eval(...)                                                                       \

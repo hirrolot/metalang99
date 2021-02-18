@@ -1,18 +1,18 @@
 #include <metalang99/assert.h>
 #include <metalang99/util.h>
 
-#define FOO(x, y) M_assertPlain(x == 518 && y == 1910)
+#define CHECK(x, y) M_assertPlain(x == 518 && y == 1910)
 
 // M_id {
-M_eval(v(FOO), M_id(v((518, 1910))));
+M_eval(v(CHECK), M_id(v((518, 1910))));
 M_assertEq(M_appl(M_compose(v(M_id), v(M_id)), v(181)), v(181));
 // }
 
 // M_parenthesise {
-M_eval(v(FOO), M_parenthesise(v(518, 1910)));
+M_eval(v(CHECK), M_parenthesise(v(518, 1910)));
 // }
 
-#undef FOO
+#undef CHECK
 
 // M_unparenthesiseEval {
 M_assertEq(M_unparenthesiseEval(v((v(198)))), v(198));
