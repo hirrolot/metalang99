@@ -97,7 +97,6 @@ M_eval(v(CHECK), M_parenthesise(M_appl(M_appl3(M_stateless3(v(F3)), v(~), v(4), 
 #undef CHECK
 // }
 
-/*
 // M_semicolon {
 M_semicolon();
 M_semicolon();
@@ -138,4 +137,3 @@ struct TestBraced M_eval(M_braced(v(int a, b, c;)));
 // }
 
 int main(void) {}
-*/
