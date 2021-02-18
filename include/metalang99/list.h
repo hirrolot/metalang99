@@ -870,14 +870,15 @@
 
 // METALANG99_listMapI_IMPL {
 #define METALANG99_listMapI_IMPL(f, list)                                                          \
-    METALANG99_callTrivial(METALANG99_PRIV_listMapIAux, f, list, 0)
-#define METALANG99_PRIV_listMapIAux_IMPL(f, list, i)                                               \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listMapI_, f, i)
-#define METALANG99_PRIV_listMapI_nil_IMPL(_f, _i) METALANG99_nil()
-#define METALANG99_PRIV_listMapI_cons_IMPL(x, xs, f, i)                                            \
-    METALANG99_cons(                                                                               \
-        METALANG99_callTrivial(METALANG99_appl2, f, x, i),                                         \
-        METALANG99_callTrivial(METALANG99_PRIV_listMapIAux, f, xs, METALANG99_PRIV_uintInc(i)))
+    METALANG99_listMapStateful(                                                                    \
+        v(0),                                                                                      \
+        METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_listMapIProvideIdx, f),            \
+        v(list))
+
+#define METALANG99_PRIV_listMapIProvideIdx_IMPL(f, i, x)                                           \
+    METALANG99_terms(                                                                              \
+        v(METALANG99_PRIV_uintInc(i), ),                                                           \
+        METALANG99_callTrivial(METALANG99_appl2, f, x, i))
 // }
 
 // METALANG99_listFor_IMPL {
@@ -1175,6 +1176,7 @@
 #define METALANG99_PRIV_listInitProgress_ARITY      2
 #define METALANG99_PRIV_listDone_ARITY              1
 #define METALANG99_PRIV_listProgress_ARITY          2
+#define METALANG99_PRIV_listMapIProvideIdx_ARITY    3
 #define METALANG99_PRIV_listTakeProgress_ARITY      3
 #define METALANG99_PRIV_listTakeWhileProgress_ARITY 3
 #define METALANG99_PRIV_listDropProgress_ARITY      2
