@@ -553,17 +553,17 @@
 #define METALANG99_stateless_IMPL(f)                                                               \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless, f)
 #define METALANG99_PRIV_stateless_IMPL(f, _state, ...)                                             \
-    METALANG99_terms(v((~), ), METALANG99_callTrivial(METALANG99_appl, f, __VA_ARGS__))
+    METALANG99_terms(v(~, ), METALANG99_callTrivial(METALANG99_appl, f, __VA_ARGS__))
 
 #define METALANG99_stateless2_IMPL(f)                                                              \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless2, f)
 #define METALANG99_PRIV_stateless2_IMPL(f, _state, a, ...)                                         \
-    METALANG99_terms(v((~), ), METALANG99_callTrivial(METALANG99_appl2, f, a, __VA_ARGS__))
+    METALANG99_terms(v(~, ), METALANG99_callTrivial(METALANG99_appl2, f, a, __VA_ARGS__))
 
 #define METALANG99_stateless3_IMPL(f)                                                              \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless3, f)
 #define METALANG99_PRIV_stateless3_IMPL(f, _state, a, b, ...)                                      \
-    METALANG99_terms(v((~), ), METALANG99_callTrivial(METALANG99_appl3, f, a, b, __VA_ARGS__))
+    METALANG99_terms(v(~, ), METALANG99_callTrivial(METALANG99_appl3, f, a, b, __VA_ARGS__))
 // }
 
 // Arity specifiers {
