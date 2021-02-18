@@ -847,10 +847,7 @@
 
 // METALANG99_listMap_IMPL {
 #define METALANG99_listMap_IMPL(f, list)                                                           \
-    METALANG99_listMapStateful(                                                                    \
-        v(~),                                                                                      \
-        METALANG99_callTrivial(METALANG99_appl, METALANG99_stateless, f),                          \
-        v(list))
+    METALANG99_listMapStateful(v(~), METALANG99_callTrivial(METALANG99_stateless, f), v(list))
 // }
 
 // METALANG99_listMapStateful_IMPL {
@@ -904,7 +901,7 @@
     METALANG99_call(                                                                               \
         METALANG99_listFilterStateful,                                                             \
         v(~),                                                                                      \
-        METALANG99_callTrivial(METALANG99_appl, METALANG99_stateless, f),                          \
+        METALANG99_callTrivial(METALANG99_stateless, f),                                           \
         v(list))
 // }
 

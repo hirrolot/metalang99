@@ -33,6 +33,30 @@ Both metaprograms result in `1, 2, 3`.
 
 A macro named `<X>Stateful` stands for the "stateful" version of `<X>`. Stateful macros are typically higher-order -- they explicitly track states of their functional arguments, thus giving rise to stateful computations.
 
+A metafunction passed to a higher-order stateful counterpart must accept its current state as a first argument and evaluate to `<new-state>, <result>`. `<new-state>` will be provided to a subsequent invocation of that metafunction.
+
+`<result>` can comprise of multiple commas, however, if you want your state to contain at least one comma, you must parenthesise it.
+
+For example, consider this usage of `M_listMapStateful`:
+
+.. code:: c
+
+    #define F_IMPL(i, x) M_call(F_FINAL, M_uintInc(v(i)), v(i ~ x))
+    #define F_FINAL_IMPL(state, result) v(state, result)
+    #define F_ARITY 2
+
+    // 0 ~ A, 1 ~ B, 2 ~ C
+    M_listMapStateful(v(0), v(F), M_list(v(A, B, C)))
+
+`F_FINAL` is a common idiom: it accepts a state and a result of computation and transforms them to `v(state, result)`.
+
+The macros `M_stateless*` turn a stateless metafunction into a metafunction that can be passed to `<X>Stateful`. For example, this is how `M_listMap` can be implemented:
+
+.. code:: c
+
+    #define METALANG99_listMap_IMPL(f, list)                                                           \
+        METALANG99_listMapStateful(v(~), METALANG99_stateless(v(f)), v(list))
+
 .. toctree::
    :hidden:
 
