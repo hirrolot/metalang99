@@ -31,7 +31,7 @@
  * M_variadicsCount()
  * @endcode
  *
- * @note @note At most 63 arguments are acceptable.
+ * @note At most 63 arguments are acceptable.
  */
 #define METALANG99_variadicsCount(...) METALANG99_call(METALANG99_variadicsCount, __VA_ARGS__)
 
@@ -101,7 +101,20 @@
 /**
  * Expands to `<f>Last` if @p count is 1, otherwise `<f>More`.
  *
- * This is useful when matching variadics.
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/variadics.h>
+ *
+ * #define F_Last(x)      the last item is x
+ * #define F_More(x, ...) x + __VA_ARGS__
+ *
+ * // the last item is 1
+ * M_variadicsMatchPlain(F_, M_variadicsCountPlain(1))(1)
+ *
+ * // 1 + 2, 3
+ * M_variadicsMatchPlain(F_, M_variadicsCountPlain(1, 2, 3))(1, 2, 3)
+ * @endcode
  */
 #define METALANG99_variadicsMatchPlain(f, count)                                                   \
     METALANG99_PRIV_IF(METALANG99_PRIV_uintEq(count, 1), f##Last, f##More)
