@@ -198,34 +198,6 @@
 #define METALANG99_const(x, a) METALANG99_call(METALANG99_const, x, a)
 
 /**
- * Evaluates to @p x, skipping @p a, and @p b.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // 123
- * M_const2(v(123), v(5), v(6))
- * @endcode
- */
-#define METALANG99_const2(x, a, b) METALANG99_call(METALANG99_const2, x, a, b)
-
-/**
- * Evaluates to @p x, skipping @p a, @p b, and @p c.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // 123
- * M_const3(v(123), v(5), v(6), v(7))
- * @endcode
- */
-#define METALANG99_const3(x, a, b, c) METALANG99_call(METALANG99_const3, x, a, b, c)
-
-/**
  * Reverses the order of arguments of the binary function @p f.
  *
  * # Examples
@@ -552,8 +524,6 @@
 #define METALANG99_isParenthesised_IMPL(x)         v(METALANG99_isParenthesisedPlain(x))
 #define METALANG99_isUnparenthesised_IMPL(x)       v(METALANG99_isUnparenthesisedPlain(x))
 #define METALANG99_const_IMPL(x, _a)               v(x)
-#define METALANG99_const2_IMPL(x, _a, _b)          v(x)
-#define METALANG99_const3_IMPL(x, _a, _b, _c)      v(x)
 #define METALANG99_flip_IMPL(f)                    METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_flip, f)
 #define METALANG99_PRIV_flip_IMPL(f, a, b)         METALANG99_callTrivial(METALANG99_appl2, f, b, a)
 #define METALANG99_putBefore_IMPL(right, x)        v(x right)
@@ -594,8 +564,6 @@
 #define METALANG99_isUnparenthesised_ARITY  1
 #define METALANG99_isParenthesised_ARITY    1
 #define METALANG99_const_ARITY              2
-#define METALANG99_const2_ARITY             3
-#define METALANG99_const3_ARITY             4
 #define METALANG99_flip_ARITY               1
 #define METALANG99_putBefore_ARITY          2
 #define METALANG99_putAfter_ARITY           2
@@ -630,8 +598,6 @@
 #define M_isParenthesised    METALANG99_isParenthesised
 #define M_isUnparenthesised  METALANG99_isUnparenthesised
 #define M_const              METALANG99_const
-#define M_const2             METALANG99_const2
-#define M_const3             METALANG99_const3
 #define M_flip               METALANG99_flip
 #define M_putBefore          METALANG99_putBefore
 #define M_putAfter           METALANG99_putAfter

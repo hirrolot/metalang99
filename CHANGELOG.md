@@ -32,7 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
- - `variadicsMap`, `variadicsMapCommaSep`, `variadicsMapI`, `variadicsMapICommaSep` (better use lists.)
+ - `variadicsMap`, `variadicsMapCommaSep`, `variadicsMapI`, `variadicsMapICommaSep` (better use lists)
+ - `const2`, `const3`
 
 ## [0.2.0] - 2020-02-05
 

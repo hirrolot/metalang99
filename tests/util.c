@@ -30,10 +30,8 @@ M_assertEq(M_unparenthesiseEval(M_parenthesiseEval(v(187))), v(187));
 M_assertEq(M_unparenthesise(M_parenthesise(v(187))), v(187));
 // }
 
-// M_const, M_const2, M_const3 {
+// M_const {
 M_assertEq(M_appl2(v(M_const), v(1810), v(~)), v(1810));
-M_assertEq(M_appl3(v(M_const2), v(1810), v(~), v(~)), v(1810));
-M_assertEq(M_appl(M_appl3(v(M_const3), v(1810), v(~), v(~)), v(~)), v(1810));
 // }
 
 // M_flip {
