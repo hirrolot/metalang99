@@ -471,6 +471,12 @@
 #define METALANG99_listFilter(f, list) METALANG99_call(METALANG99_listFilter, f, list)
 
 /**
+ * The state-aware version of #METALANG99_listFilter.
+ */
+#define METALANG99_listFilterStateful(state, f, list)                                              \
+    METALANG99_call(METALANG99_listFilterStateful, state, f, list)
+
+/**
  * Tests @p list and @p other for equality.
  *
  * # Examples
@@ -842,7 +848,7 @@
 // METALANG99_listMap_IMPL {
 #define METALANG99_listMap_IMPL(f, list)                                                           \
     METALANG99_listMapStateful(                                                                    \
-        v((~)),                                                                                    \
+        v(~),                                                                                      \
         METALANG99_callTrivial(METALANG99_appl, METALANG99_stateless, f),                          \
         v(list))
 // }
@@ -895,19 +901,36 @@
 
 // METALANG99_listFilter_IMPL {
 #define METALANG99_listFilter_IMPL(f, list)                                                        \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listFilter_, f)
-#define METALANG99_PRIV_listFilter_nil_IMPL(_f) METALANG99_nil()
-#define METALANG99_PRIV_listFilter_cons_IMPL(x, xs, f)                                             \
     METALANG99_call(                                                                               \
-        METALANG99_call(                                                                           \
-            METALANG99_if,                                                                         \
-            METALANG99_callTrivial(METALANG99_appl, f, x),                                         \
-            v(METALANG99_PRIV_listFilterDone, METALANG99_PRIV_listFilterProgress)),                \
+        METALANG99_listFilterStateful,                                                             \
+        v(~),                                                                                      \
+        METALANG99_callTrivial(METALANG99_appl, METALANG99_stateless, f),                          \
+        v(list))
+// }
+
+// METALANG99_listFilterStateful_IMPL {
+#define METALANG99_listFilterStateful_IMPL(state, f, list)                                         \
+    METALANG99_callTrivial(                                                                        \
+        METALANG99_matchWithArgs,                                                                  \
+        list,                                                                                      \
+        METALANG99_PRIV_listFilterStateful_,                                                       \
+        state,                                                                                     \
+        f)
+
+#define METALANG99_PRIV_listFilterStateful_nil_IMPL(_state, _f) METALANG99_nil()
+#define METALANG99_PRIV_listFilterStateful_cons_IMPL(x, xs, state, f)                              \
+    METALANG99_call(                                                                               \
+        METALANG99_PRIV_listFilterStateful_consAux,                                                \
+        v(x, xs, f),                                                                               \
+        METALANG99_callTrivial(METALANG99_appl2, f, state, x))
+
+#define METALANG99_PRIV_listFilterStateful_consAux_IMPL(x, xs, f, new_state, result)               \
+    METALANG99_call(                                                                               \
+        METALANG99_ifPlain(result, METALANG99_cons, METALANG99_PRIV_listFilterStatefulRest),       \
         v(x),                                                                                      \
-        METALANG99_callTrivial(METALANG99_listFilter, f, xs))
-#define METALANG99_PRIV_listFilterDone_IMPL(x, rest)                                               \
-    METALANG99_callTrivial(METALANG99_cons, x, rest)
-#define METALANG99_PRIV_listFilterProgress_IMPL(x, rest) v(rest)
+        METALANG99_callTrivial(METALANG99_listFilterStateful, new_state, f, xs))
+
+#define METALANG99_PRIV_listFilterStatefulRest_IMPL(_x, rest) v(rest)
 // }
 
 // METALANG99_listEq_IMPL {
@@ -1139,6 +1162,7 @@
 #define METALANG99_listMapInitLast_ARITY    3
 #define METALANG99_listForInitLast_ARITY    3
 #define METALANG99_listFilter_ARITY         2
+#define METALANG99_listFilterStateful_ARITY 3
 #define METALANG99_listEq_ARITY             3
 #define METALANG99_listContains_ARITY       3
 #define METALANG99_listTake_ARITY           2
@@ -1193,6 +1217,7 @@
 #define M_listMapInitLast    METALANG99_listMapInitLast
 #define M_listForInitLast    METALANG99_listForInitLast
 #define M_listFilter         METALANG99_listFilter
+#define M_listFilterStateful METALANG99_listFilterStateful
 #define M_listEq             METALANG99_listEq
 #define M_listContains       METALANG99_listContains
 #define M_listTake           METALANG99_listTake

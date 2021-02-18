@@ -300,6 +300,21 @@ M_assert(M_listEq(
     M_list(v(14, 7, 65))));
 // }
 
+// M_listFilterStateful {
+#define F_IMPL(i, x)            M_call(F_FINAL, M_uintInc(v(i)), M_uintEq(v(i), v(x)))
+#define F_FINAL_IMPL(i, result) v(i, result)
+#define F_ARITY                 2
+
+M_assert(M_listEq(v(M_uintEq), M_listFilterStateful(v(0), v(F), M_nil()), M_nil()));
+M_assert(M_listEq(
+    v(M_uintEq), M_listFilterStateful(v(0), v(F), M_list(v(9, 1, 2, 34, 4, 5))),
+    M_list(v(1, 2, 4, 5))));
+
+#undef F_IMPL
+#undef F_FINAL_IMPL
+#undef F_ARITY
+// }
+
 // M_listReplicate {
 M_assert(M_listEq(v(M_uintEq), M_listReplicate(v(0), v(~)), M_nil()));
 M_assert(M_listEq(v(M_uintEq), M_listReplicate(v(3), v(7)), M_list(v(7, 7, 7))));
