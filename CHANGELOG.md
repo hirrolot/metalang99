@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
  - `when`, `whenPlain`, `whenLazy`, `whenLazyPlain`
- - `let_leftUnderscored`, `let_rightUnderscored`
+ - `leftUnderscored`, `rightUnderscored`
  - `let`
  - `terms`
  - `parenthesisedVariadicsHead`, `parenthesisedVariadicsHeadPlain`, `parenthesisedVariadicsTail`, `parenthesisedVariadicsTailPlain`,
