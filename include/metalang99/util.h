@@ -354,6 +354,20 @@
 #define METALANG99_terms(...) __VA_ARGS__
 
 /**
+ * A convenience macro that evaluates to `state, ...`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ * #include <metalang99/uint.h>
+ *
+ * #define F_IMPL(i, x) M_withState(M_uintInc(v(i)), v(Billie x Jean))
+ * @endcode
+ */
+#define METALANG99_withState(state, ...) METALANG99_call(METALANG99_withState, state, __VA_ARGS__)
+
+/**
  * Constructs a stateful function out of the stateless @p f.
  *
  * @note the returned metafunction has the arity of 2 (a state + variadic arguments).
@@ -549,6 +563,7 @@
 #define METALANG99_rightUnderscored_IMPL(x)        v(x##_)
 #define METALANG99_consume_IMPL(...)               v(METALANG99_consumePlain(__VA_ARGS__))
 #define METALANG99_braced_IMPL(...)                v({__VA_ARGS__})
+#define METALANG99_withState_IMPL(state, ...)      v(state, __VA_ARGS__)
 
 #define METALANG99_stateless_IMPL(f)                                                               \
     METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless, f)
@@ -589,6 +604,7 @@
 #define METALANG99_rightUnderscored_ARITY   1
 #define METALANG99_consume_ARITY            1
 #define METALANG99_braced_ARITY             1
+#define METALANG99_withState_ARITY          2
 #define METALANG99_stateless_ARITY          1
 #define METALANG99_stateless2_ARITY         1
 #define METALANG99_stateless3_ARITY         1
@@ -625,6 +641,7 @@
 #define M_consume            METALANG99_consume
 #define M_braced             METALANG99_braced
 #define M_terms              METALANG99_terms
+#define M_withState          METALANG99_withState
 #define M_stateless          METALANG99_stateless
 #define M_stateless2         METALANG99_stateless2
 #define M_stateless3         METALANG99_stateless3

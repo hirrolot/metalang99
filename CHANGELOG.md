@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `parenthesisedVariadicsHead`, `parenthesisedVariadicsHeadPlain`, `parenthesisedVariadicsTail`, `parenthesisedVariadicsTailPlain`
  - `variadicsMatch`
  - Stateful computations:
+   - `withState`
    - `stateless`, `stateless2`, `stateless3`
    - `listMapStateful`, `listFilterStateful`
 

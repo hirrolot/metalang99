@@ -73,6 +73,14 @@ M_assert(M_isUnparenthesised(v(123)));
 M_assertEmpty(M_consume(v(1, 2, 3)));
 // }
 
+// M_withState {
+#define CHECK(state, x) M_assertPlain(state == 7 && x == 30)
+
+M_eval(v(CHECK), M_parenthesise(M_withState(v(7), v(30))));
+
+#undef CHECK
+// }
+
 // M_stateless, M_stateless2, M_stateless3 {
 #define CHECK(_state, x) M_assertPlain(x == 30)
 
