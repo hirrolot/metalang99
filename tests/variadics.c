@@ -61,6 +61,20 @@ M_assertEq(v(M_variadicsCountPlain(~, ~, ~)), v(3));
 #undef _100_ARGS
 // }
 
+// M_variadicsMatchPlain {
+#define FOO_More v(5)
+#define FOO_Last v(123)
+
+M_assertEq(M_variadicsMatchPlain(FOO_, 1), v(123));
+
+M_assertEq(M_variadicsMatchPlain(FOO_, 0), v(5));
+M_assertEq(M_variadicsMatchPlain(FOO_, 2), v(5));
+M_assertEq(M_variadicsMatchPlain(FOO_, 255), v(5));
+
+#undef FOO_More
+#undef FOO_Last
+// }
+
 // M_variadicsMap {
 #define CHECK(_, x, y, z) M_assertPlain(x == 2 && y == 3 && z == 4)
 #define F_IMPL(x)         v(, METALANG99_uintIncPlain(x))
