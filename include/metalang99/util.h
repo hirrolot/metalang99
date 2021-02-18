@@ -509,15 +509,15 @@
  *
  * @code
  * for (int i = 0; i < 10; i++)
- *     M_let(double x = 5.0)
- *     M_let(double y = 7.0)
+ *     M_introduceVarToStmt(double x = 5.0)
+ *     M_introduceVarToStmt(double y = 7.0)
  *         printf("i = %d, x = %f, y = %f\n", i, x, y);
  * @endcode
  *
  * @note This macro does not expand to an Metalang99 term: it is rather an ordinary preprocessor
  * macro.
  */
-#define METALANG99_let(var_def)                                                                    \
+#define METALANG99_introduceVarToStmt(var_def)                                                     \
     for (int metalang99_priv_break_for = 0; metalang99_priv_break_for != 1;)                       \
         for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)
 // }
@@ -630,7 +630,7 @@
 #define M_catPrimitive       METALANG99_catPrimitive
 #define M_stringifyPrimitive METALANG99_stringifyPrimitive
 #define M_semicolon          METALANG99_semicolon
-#define M_let                METALANG99_let
+#define M_introduceVarToStmt METALANG99_introduceVarToStmt
 
 #define M_catPlain               METALANG99_catPlain
 #define M_stringifyPlain         METALANG99_stringifyPlain
