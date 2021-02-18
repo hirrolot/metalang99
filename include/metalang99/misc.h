@@ -8,6 +8,7 @@
 
 #include <metalang99/lang.h>
 #include <metalang99/uint.h>
+#include <metalang99/util.h>
 
 // Desugaring {
 /**

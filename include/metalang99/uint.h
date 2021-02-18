@@ -8,15 +8,15 @@
 #ifndef METALANG99_UINT_H
 #define METALANG99_UINT_H
 
-#include <metalang99/control.h>
-#include <metalang99/lang.h>
-#include <metalang99/logical.h>
-#include <metalang99/maybe.h>
-
 #include <metalang99/uint/dec.h>
 #include <metalang99/uint/div.h>
 #include <metalang99/uint/eq.h>
 #include <metalang99/uint/inc.h>
+
+#include <metalang99/control.h>
+#include <metalang99/lang.h>
+#include <metalang99/logical.h>
+#include <metalang99/maybe.h>
 
 // Desugaring {
 /**

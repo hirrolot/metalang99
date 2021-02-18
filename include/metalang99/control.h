@@ -7,8 +7,8 @@
 #define METALANG99_CONTROL_H
 
 #include <metalang99/lang.h>
-#include <metalang99/priv/util.h>
 #include <metalang99/priv/variadics/count.h>
+#include <metalang99/util.h>
 
 // Desugaring {
 /**
@@ -100,12 +100,12 @@
 /**
  * The plain version of #METALANG99_when.
  */
-#define METALANG99_whenPlain(cond, x) METALANG99_ifPlain(cond, x, METALANG99_PRIV_EMPTY())
+#define METALANG99_whenPlain(cond, x) METALANG99_ifPlain(cond, x, METALANG99_emptyPlain())
 
 /**
  * The plain version of #METALANG99_whenLazy.
  */
-#define METALANG99_whenLazyPlain(cond, f) METALANG99_ifPlain(cond, f, METALANG99_PRIV_CONSUME)
+#define METALANG99_whenLazyPlain(cond, f) METALANG99_ifPlain(cond, f, METALANG99_consumePlain)
 
 /**
  * The plain version of #METALANG99_overload.
@@ -114,7 +114,7 @@
  * ...>(...)`.
  */
 #define METALANG99_overloadPlain(f, ...)                                                           \
-    METALANG99_PRIV_CAT(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
+    METALANG99_catPlain(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -122,7 +122,7 @@
 // Implementation {
 #define METALANG99_overload_IMPL(f, ...)                                                           \
     METALANG99_callTrivial(                                                                        \
-        METALANG99_PRIV_CAT(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__)),                      \
+        METALANG99_catPlain(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__)),                      \
         __VA_ARGS__)
 
 #define METALANG99_if_IMPL(cond, x, y) v(METALANG99_PRIV_if_##cond(x, y))
