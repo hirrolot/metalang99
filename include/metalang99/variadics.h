@@ -53,8 +53,6 @@
 /**
  * Extracts a tail of its arguments.
  *
- * At least two arguments must be specified.
- *
  * # Examples
  *
  * @code
@@ -63,6 +61,8 @@
  * // 2, 3
  * M_variadicsTail(v(1, 2, 3))
  * @endcode
+ *
+ * @note At least two arguments must be specified.
  */
 #define METALANG99_variadicsTail(...) METALANG99_call(METALANG99_variadicsTail, __VA_ARGS__)
 
