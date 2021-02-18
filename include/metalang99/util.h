@@ -493,9 +493,10 @@
 /**
  * Introduces the variable definition @p var_def to a statement right after its invocation.
  *
- * The resulting construction is a single statement.
+ * An invocation of #METALANG99_introduceVarToStmt together with a statement right after it form a
+ * single statement.
  *
- * This macro is useful if you want to generate a sequence of variable definitions inside your
+ * This macro is useful when you want to generate a sequence of variable definitions inside your
  * macro, but at the same time stick to the following syntax:
  *
  * @code
