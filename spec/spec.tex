@@ -78,11 +78,11 @@ less natural. The workaround is to define a wrapper around an implementation mac
 
 \begin{minted}{c}
 /// The documentation string.
-#define FOO(a, b, c) METALANG99_call(FOO, a, b, c)
-#define FOO_IMPL(a, b, c) // The implementation.
+#define F(a, b, c) METALANG99_call(F, a, b, c)
+#define F_IMPL(a, b, c) // The implementation.
 \end{minted}
 
-Then \texttt{FOO} can be conveniently called as \texttt{FOO(v(1), v(2), v(3))}.
+Then \texttt{F} can be conveniently called as \texttt{F(v(1), v(2), v(3))}.
 
 \section{Notations}
 
@@ -90,7 +90,7 @@ Then \texttt{FOO} can be conveniently called as \texttt{FOO(v(1), v(2), v(3))}.
     \begin{itemize}
         \item $\overline{x} \coloneqq x_1 \ldots x_n$. Examples:
         \begin{itemize}
-            \item Metalang99 terms: \texttt{v(abc), METALANG99\_call(FOO, v(123)), v(u 8 9)}
+            \item Metalang99 terms: \texttt{v(abc), METALANG99\_call(F, v(123)), v(u 8 9)}
             \item Preprocessor tokens: \texttt{abc 13 "hello" + -}
         \end{itemize}
         \item $()$ denotes the empty sequence.
@@ -273,11 +273,11 @@ By inspection of \ref{ReductionSemantics}.
 \begin{itemize}
 \item Consider this scenario:
     \begin{itemize}
-        \item You call \texttt{FOO(1, 2, 3)}
+        \item You call \texttt{F(1, 2, 3)}
         \item It gets expanded by the preprocessor (not by Metalang99)
-        \item Its expansion contains \texttt{FOO}
+        \item Its expansion contains \texttt{F}
     \end{itemize}
-Then \texttt{FOO} gets blocked \cite{Blueprinting} by the preprocessor, i.e. Metalang99 cannot handle ordinary
+Then \texttt{F} gets blocked \cite{Blueprinting} by the preprocessor, i.e. Metalang99 cannot handle ordinary
 macro recursion; you must use \texttt{METALANG99\_call} to be sure that recursive calls
 will behave as expected. I therefore recommend to use only primitive C-style macros, e.g.
 for performance reasons or because of you cannot express them in terms of Metalang99.
