@@ -14,7 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `introduceVarToStmt`
  - `terms`
  - `parenthesisedVariadicsHead`, `parenthesisedVariadicsHeadPlain`, `parenthesisedVariadicsTail`, `parenthesisedVariadicsTailPlain`
- - `variadicsMatch`
  - Stateful computations:
    - `withState`
    - `stateless`, `stateless2`, `stateless3`
@@ -30,6 +29,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
  - `aux.*` -> `util.*` for compatibility with Windows.
+
+### Removed
+
+ - `variadicsMap`, `variadicsMapCommaSep`, `variadicsMapI`, `variadicsMapICommaSep` (better use lists.)
 
 ## [0.2.0] - 2020-02-05
 
