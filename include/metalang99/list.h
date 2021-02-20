@@ -718,19 +718,50 @@
 #define METALANG99_list_IMPL(...)                                                                  \
     METALANG99_PRIV_listProgress_IMPL(METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
 
-#define METALANG99_PRIV_listProgress_IMPL(count, x, ...)                                           \
+// Last 4 recursion steps unrolled {
+#define METALANG99_PRIV_listProgress_IMPL(count, ...)                                              \
+    METALANG99_PRIV_IF(                                                                            \
+        METALANG99_PRIV_uintEq(count, 4),                                                          \
+        METALANG99_PRIV_listDone_4,                                                                \
+        METALANG99_PRIV_IF(                                                                        \
+            METALANG99_PRIV_uintEq(count, 3),                                                      \
+            METALANG99_PRIV_listDone_3,                                                            \
+            METALANG99_PRIV_IF(                                                                    \
+                METALANG99_PRIV_uintEq(count, 2),                                                  \
+                METALANG99_PRIV_listDone_2,                                                        \
+                METALANG99_PRIV_IF(                                                                \
+                    METALANG99_PRIV_uintEq(count, 1),                                              \
+                    METALANG99_PRIV_listDone_1,                                                    \
+                    METALANG99_PRIV_IF(                                                            \
+                        METALANG99_PRIV_uintEq(count, 0),                                          \
+                        METALANG99_PRIV_listDone_0,                                                \
+                        METALANG99_PRIV_listProgressAux)))))                                       \
+    (count, __VA_ARGS__)
+// }
+
+#define METALANG99_PRIV_listProgressAux(count, x, ...)                                             \
     METALANG99_cons(                                                                               \
         v(x),                                                                                      \
         METALANG99_callTrivial(                                                                    \
-            METALANG99_PRIV_IF(                                                                    \
-                METALANG99_PRIV_uintEq(count, 1),                                                  \
-                METALANG99_PRIV_listDone,                                                          \
-                METALANG99_PRIV_listProgress),                                                     \
+            METALANG99_PRIV_listProgress,                                                          \
             METALANG99_PRIV_uintDec(count),                                                        \
             __VA_ARGS__))
 
-#define METALANG99_PRIV_listDone_IMPL(_count, _) METALANG99_nil()
-// }
+#define METALANG99_PRIV_listDone_0(_count, _)    v(METALANG99_PRIV_nil())
+#define METALANG99_PRIV_listDone_1(_count, a, _) v(METALANG99_PRIV_cons(a, METALANG99_PRIV_nil()))
+#define METALANG99_PRIV_listDone_2(_count, a, b, _)                                                \
+    v(METALANG99_PRIV_cons(a, METALANG99_PRIV_cons(b, METALANG99_PRIV_nil())))
+#define METALANG99_PRIV_listDone_3(_count, a, b, c, _)                                             \
+    v(METALANG99_PRIV_cons(                                                                        \
+        a,                                                                                         \
+        METALANG99_PRIV_cons(b, METALANG99_PRIV_cons(c, METALANG99_PRIV_nil()))))
+#define METALANG99_PRIV_listDone_4(_count, a, b, c, d, _)                                          \
+    v(METALANG99_PRIV_cons(                                                                        \
+        a,                                                                                         \
+        METALANG99_PRIV_cons(                                                                      \
+            b,                                                                                     \
+            METALANG99_PRIV_cons(c, METALANG99_PRIV_cons(d, METALANG99_PRIV_nil())))))
+// } (METALANG99_list_IMPL)
 
 // METALANG99_listLen_IMPL {
 #define METALANG99_listLen_IMPL(list)                                                              \
