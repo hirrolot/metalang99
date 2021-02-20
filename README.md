@@ -96,14 +96,12 @@ To solve the problem, I have implemented Metalang99 -- a functional programming 
 As a practical example of what is possible with Metalang99, consider [Datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
 
 ```c
-// Sums all nodes of a binary tree.
-
 #include <datatype99.h>
 
 datatype(
     BinaryTree,
     (Leaf, int),
-    (Node, struct BinaryTree *, int, struct BinaryTree *)
+    (Node, BinaryTree *, int, BinaryTree *)
 );
 
 int sum(const BinaryTree *tree) {
@@ -115,7 +113,7 @@ int sum(const BinaryTree *tree) {
             return sum(*lhs) + *x + sum(*rhs);
         }
     }
-}
+
 ```
 
 So, in summary, Metalang99 allows to do advanced metaprogramming in C. It allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
