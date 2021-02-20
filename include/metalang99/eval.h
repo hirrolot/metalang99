@@ -104,7 +104,7 @@
         ~)
 
 // clang-format off
-#define METALANG99_PRIV_EVAL_0fatal_AUX(_k, k_cx, folder, acc, _tail, f, message)                    \
+#define METALANG99_PRIV_EVAL_0fatal_AUX(_k, _k_cx, _folder, _acc, _tail, f, message)               \
     METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_REC_STOP)((~), !"Metalang99 error" (f): message)
 // clang-format on
 
