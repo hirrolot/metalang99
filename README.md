@@ -113,7 +113,7 @@ int sum(const BinaryTree *tree) {
             return sum(*lhs) + *x + sum(*rhs);
         }
     }
-
+}
 ```
 
 So, in summary, Metalang99 allows to do advanced metaprogramming in C. It allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
