@@ -67,6 +67,25 @@
  * @endcode
  */
 #define METALANG99_indexedFields(type_list) METALANG99_call(METALANG99_indexedFields, type_list)
+
+/**
+ * Generates \f$\{ \_0, ..., \_{n - 1} \}\f$.
+ *
+ * If @p n is 0, this macro results in `{ 0 }`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/misc.h>
+ *
+ * // { _0, _1, _2 }
+ * M_indexedInitialiserList(v(3))
+ *
+ * // { 0 }
+ * M_indexedInitialiserList(v(0))
+ * @endcode
+ */
+#define METALANG99_indexedInitialiserList(n) METALANG99_call(METALANG99_indexedInitialiserList, n)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -121,20 +140,42 @@
         METALANG99_callTrivial(METALANG99_PRIV_indexedFieldsAux, xs, METALANG99_uintIncPlain(i)))
 // }
 
+// METALANG99_indexedInitialiserList_IMPL {
+#define METALANG99_indexedInitialiserList_IMPL(n)                                                  \
+    METALANG99_braced(METALANG99_callTrivial(                                                      \
+        METALANG99_ifPlain(                                                                        \
+            METALANG99_uintEqPlain(n, 0),                                                          \
+            METALANG99_PRIV_indexedInitialiserListZero,                                            \
+            METALANG99_PRIV_indexedInitialiserListNonZero),                                        \
+        n))
+
+#define METALANG99_PRIV_indexedInitialiserListZero_IMPL(_i) v(0)
+
+#define METALANG99_PRIV_indexedInitialiserListNonZero_IMPL(i)                                      \
+    METALANG99_callTrivial(METALANG99_uintMatch, i, METALANG99_PRIV_indexedInitialiserListNonZero_)
+#define METALANG99_PRIV_indexedInitialiserListNonZero_Z_IMPL() METALANG99_empty()
+#define METALANG99_PRIV_indexedInitialiserListNonZero_S_IMPL(i)                                    \
+    METALANG99_terms(                                                                              \
+        METALANG99_callTrivial(METALANG99_PRIV_indexedInitialiserListNonZero, i),                  \
+        v(METALANG99_catPlain(_, i), ))
+// }
+
 // } (Implementation)
 
 // Arity specifiers {
-#define METALANG99_repeat_ARITY        2
-#define METALANG99_indexedParams_ARITY 1
-#define METALANG99_indexedFields_ARITY 1
+#define METALANG99_repeat_ARITY                 2
+#define METALANG99_indexedParams_ARITY          1
+#define METALANG99_indexedFields_ARITY          1
+#define METALANG99_indexedInitialiserList_ARITY 1
 // }
 
 // Aliases {
 #ifndef METALANG99_NO_SMALL_PREFIX
 
-#define M_repeat        METALANG99_repeat
-#define M_indexedParams METALANG99_indexedParams
-#define M_indexedFields METALANG99_indexedFields
+#define M_repeat                 METALANG99_repeat
+#define M_indexedParams          METALANG99_indexedParams
+#define M_indexedFields          METALANG99_indexedFields
+#define M_indexedInitialiserList METALANG99_indexedInitialiserList
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }

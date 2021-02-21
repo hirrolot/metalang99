@@ -50,7 +50,31 @@ static void test_indexed_fields(void) {
 }
 // }
 
+// M_indexedInitialiserList {
+struct {
+    int _0;
+    long long _1;
+    const char *_2;
+} test_indexed_initialiser_list_z = M_eval(M_indexedInitialiserList(v(0)));
+
+static void test_indexed_initialiser_list_s(void) {
+    int _0 = 123;
+    long long _1 = 149494456;
+    const char *_2 = "abc";
+
+    struct {
+        int i;
+        long long ll;
+        const char *str;
+    } data = M_eval(M_indexedInitialiserList(v(3)));
+
+    (void)data;
+}
+// }
+
 int main(void) {
     (void)test_indexed_params;
     (void)test_indexed_fields;
+    (void)test_indexed_initialiser_list_z;
+    (void)test_indexed_initialiser_list_s;
 }
