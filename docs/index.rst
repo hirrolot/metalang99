@@ -14,7 +14,7 @@ If `METALANG99_NO_SMALL_PREFIX` is defined, all macros will have only one name: 
 --------------
 
 
-A macro named `<X>Plain` stands for the "plain" version of `<X>`. Plain macros are implemented as ordinary preprocessor macros, without use of the Metalang99 metalanguage. They are used to save some reduction steps, thereby making metaprograms faster.
+A macro named `<X>Plain` stands for the "plain" version of `<X>`. To compute a final result of a plain macro, only preprocessor expansion is required and not the Metalang99 interpreter. Plain macros are used to save some reduction steps, thereby making metaprograms faster.
 
 For example, here are two complete metaprograms, one using `M_unparenthesise` and the second one using `M_unparenthesisePlain`:
 
