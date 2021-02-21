@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `introduceVarToStmt`
  - `terms`
  - `parenthesisedVariadicsHead`, `parenthesisedVariadicsHeadPlain`, `parenthesisedVariadicsTail`, `parenthesisedVariadicsTailPlain`
+ - `indexedParams`
  - Stateful computations:
    - `withState`
    - `stateless`, `stateless2`, `stateless3`

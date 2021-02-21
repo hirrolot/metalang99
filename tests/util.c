@@ -107,7 +107,7 @@ M_eval(v(CHECK), M_parenthesise(M_appl(M_appl3(M_stateless3(v(F3)), v(~), v(4), 
 M_semicolon();
 M_semicolon();
 
-void test_semicolon(void) {
+static void test_semicolon(void) {
     M_semicolon();
     M_semicolon();
 
@@ -124,7 +124,7 @@ void test_semicolon(void) {
 // }
 
 // M_introduceVarToStmt {
-void test_let(void) {
+static void test_let(void) {
     // clang-format off
     for (int i = 0; i < 10; i++)
         M_introduceVarToStmt(double x = 5.0)
@@ -142,4 +142,7 @@ void test_let(void) {
 struct TestBraced M_eval(M_braced(v(int a, b, c;)));
 // }
 
-int main(void) {}
+int main(void) {
+    (void)test_semicolon;
+    (void)test_let;
+}
