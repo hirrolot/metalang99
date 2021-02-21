@@ -32,6 +32,25 @@ static void test_indexed_params M_eval(M_indexedParams(M_list(v(int, long long, 
 }
 // }
 
+// M_indexedFields {
+M_assertEmpty(M_indexedFields(M_nil()));
+
+static void test_indexed_fields(void) {
+    struct {
+        M_eval(M_indexedFields(M_list(v(int, long long, const char *))))
+    } data = {0};
+
+    int i = data._0;
+    long long ll = data._1;
+    const char *str = data._2;
+
+    (void)i;
+    (void)ll;
+    (void)str;
+}
+// }
+
 int main(void) {
     (void)test_indexed_params;
+    (void)test_indexed_fields;
 }
