@@ -84,6 +84,8 @@
  * // { 0 }
  * M_indexedInitialiserList(v(0))
  * @endcode
+ *
+ * @note The presence of a trailing comma inside the initialiser list is unspecified.
  */
 #define METALANG99_indexedInitialiserList(n) METALANG99_call(METALANG99_indexedInitialiserList, n)
 // }
