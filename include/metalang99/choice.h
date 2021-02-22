@@ -72,7 +72,7 @@
     METALANG99_call(METALANG99_matchWithArgs, choice, matcher, __VA_ARGS__)
 
 /**
- * Evaluates to a tag of @p choice.
+ * Evaluates to the tag of @p choice.
  *
  * # Examples
  *
