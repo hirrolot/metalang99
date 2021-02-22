@@ -149,6 +149,8 @@ static void test_typedef(void) {
     Point point = {5, 7};
     point.x = 1;
     point.y = 2;
+
+    (void)point;
 }
 // }
 
@@ -159,6 +161,8 @@ static void test_struct(void) {
     struct Point point = {5, 7};
     point.x = 1;
     point.y = 2;
+
+    (void)point;
 }
 // }
 
@@ -169,6 +173,8 @@ static void test_anon_struct(void) {
     Point point = {5, 7};
     point.x = 1;
     point.y = 2;
+
+    (void)point;
 }
 // }
 

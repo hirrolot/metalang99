@@ -675,6 +675,20 @@
  * @endcode
  */
 #define METALANG99_listAppl(list, f) METALANG99_call(METALANG99_listAppl, list, f)
+
+/**
+ * The plain version of #METALANG99_isNil.
+ *
+ * @note @p list must be already evaluated.
+ */
+#define METALANG99_isNilPlain(list) METALANG99_PRIV_IS_NIL(list)
+
+/**
+ * The plain version of #METALANG99_isCons.
+ *
+ * @note @p list must be already evaluated.
+ */
+#define METALANG99_isConsPlain(list) METALANG99_PRIV_IS_CONS(list)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -802,14 +816,11 @@
 // }
 
 // METALANG99_isNil_IMPL {
-#define METALANG99_isNil_IMPL(list)                                                                \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_isNil_)
-#define METALANG99_PRIV_isNil_nil_IMPL()         v(METALANG99_true)
-#define METALANG99_PRIV_isNil_cons_IMPL(_x, _xs) v(METALANG99_false)
+#define METALANG99_isNil_IMPL(list) v(METALANG99_isNilPlain(list))
 // }
 
 // METALANG99_isNil_IMPL {
-#define METALANG99_isCons_IMPL(list) METALANG99_not(METALANG99_callTrivial(METALANG99_isNil, list))
+#define METALANG99_isCons_IMPL(list) v(METALANG99_isConsPlain(list))
 // }
 
 // METALANG99_listUnwrap_IMPL {
@@ -1171,6 +1182,13 @@
 #define METALANG99_PRIV_EMPTY_LIST_ERROR(f) METALANG99_fatal(METALANG99_##f, expected a non-empty list)
 // clang-format on
 
+#define METALANG99_PRIV_IS_NIL(list)                                                               \
+    METALANG99_catPlain(METALANG99_PRIV_IS_NIL_, METALANG99_choiceTagPlain(list))()
+#define METALANG99_PRIV_IS_NIL_nil()  METALANG99_true
+#define METALANG99_PRIV_IS_NIL_cons() METALANG99_false
+
+#define METALANG99_PRIV_IS_CONS(list) METALANG99_notPlain(METALANG99_PRIV_IS_NIL(list))
+
 #define METALANG99_PRIV_CONST_NIL_IMPL(...) METALANG99_nil()
 
 // } (Implementation)
@@ -1273,6 +1291,9 @@
 #define M_listReplicate      METALANG99_listReplicate
 #define M_listPartition      METALANG99_listPartition
 #define M_listAppl           METALANG99_listAppl
+
+#define M_isNilPlain  METALANG99_isNilPlain
+#define M_isConsPlain METALANG99_isConsPlain
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }
