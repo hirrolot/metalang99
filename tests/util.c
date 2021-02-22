@@ -142,7 +142,40 @@ static void test_let(void) {
 struct TestBraced M_eval(M_braced(v(int a, b, c;)));
 // }
 
+// M_typedef {
+static void test_typedef(void) {
+    M_eval(M_typedef(v(Point), v(struct { int x, y; })));
+
+    Point point = {5, 7};
+    point.x = 1;
+    point.y = 2;
+}
+// }
+
+// M_struct {
+static void test_struct(void) {
+    M_eval(M_struct(v(Point), v(int x, y;)));
+
+    struct Point point = {5, 7};
+    point.x = 1;
+    point.y = 2;
+}
+// }
+
+// M_anonStruct {
+static void test_anon_struct(void) {
+    typedef M_eval(M_anonStruct(v(int x, y;))) Point;
+
+    Point point = {5, 7};
+    point.x = 1;
+    point.y = 2;
+}
+// }
+
 int main(void) {
     (void)test_semicolon;
     (void)test_let;
+    (void)test_typedef;
+    (void)test_struct;
+    (void)test_anon_struct;
 }

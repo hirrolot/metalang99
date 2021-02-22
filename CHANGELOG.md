@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `parenthesizedVariadicsHead`, `parenthesizedVariadicsHeadPlain`, `parenthesizedVariadicsTail`, `parenthesizedVariadicsTailPlain`
  - `indexedParams`, `indexedFields`, `indexedInitializerList`
  - `isCons`
+ - `typedef`, `struct`, `anonStruct`
  - Stateful computations:
    - `withState`
    - `stateless`, `stateless2`, `stateless3`

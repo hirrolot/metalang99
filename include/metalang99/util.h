@@ -313,6 +313,48 @@
 #define METALANG99_braced(...) METALANG99_call(METALANG99_braced, __VA_ARGS__)
 
 /**
+ * Generates a type definition.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // typedef struct { int x, y; } Point;
+ * M_typedef(v(Point), v(struct { int x, y; }))
+ * @endcode
+ */
+#define METALANG99_typedef(ident, ...) METALANG99_call(METALANG99_typedef, ident, __VA_ARGS__)
+
+/**
+ * Generates a C structure.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // struct Point { int x, y; }
+ * M_struct(v(Point), v(int x, y;))
+ * @endcode
+ */
+#define METALANG99_struct(ident, ...) METALANG99_call(METALANG99_struct, ident, __VA_ARGS__)
+
+/**
+ * Generates an anonymous C structure.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // struct { int x, y; }
+ * M_struct(v(int x, y;))
+ * @endcode
+ */
+#define METALANG99_anonStruct(...) METALANG99_call(METALANG99_anonStruct, __VA_ARGS__)
+
+/**
  * A convenience macro to emphasise that your metafunction expands to more than one term.
  *
  * This macro just expands to provided arguments.
@@ -533,6 +575,9 @@
 #define METALANG99_rightUnderscored_IMPL(x)        v(x##_)
 #define METALANG99_consume_IMPL(...)               v(METALANG99_consumePlain(__VA_ARGS__))
 #define METALANG99_braced_IMPL(...)                v({__VA_ARGS__})
+#define METALANG99_typedef_IMPL(ident, ...)        v(typedef __VA_ARGS__ ident;)
+#define METALANG99_struct_IMPL(ident, ...)         v(struct ident{__VA_ARGS__})
+#define METALANG99_anonStruct_IMPL(...)            v(struct {__VA_ARGS__})
 #define METALANG99_withState_IMPL(state, ...)      v(state, __VA_ARGS__)
 
 #define METALANG99_stateless_IMPL(f)                                                               \
@@ -572,6 +617,9 @@
 #define METALANG99_rightUnderscored_ARITY   1
 #define METALANG99_consume_ARITY            1
 #define METALANG99_braced_ARITY             1
+#define METALANG99_typedef_ARITY            2
+#define METALANG99_struct_ARITY             2
+#define METALANG99_anonStruct_ARITY         1
 #define METALANG99_withState_ARITY          2
 #define METALANG99_stateless_ARITY          1
 #define METALANG99_stateless2_ARITY         1
@@ -606,6 +654,9 @@
 #define M_rightUnderscored   METALANG99_rightUnderscored
 #define M_consume            METALANG99_consume
 #define M_braced             METALANG99_braced
+#define M_typedef            METALANG99_typedef
+#define M_struct             METALANG99_struct
+#define M_anonStruct         METALANG99_anonStruct
 #define M_terms              METALANG99_terms
 #define M_withState          METALANG99_withState
 #define M_stateless          METALANG99_stateless
