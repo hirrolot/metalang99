@@ -91,6 +91,12 @@ M_assert(M_not(M_isNil(M_list(v(123)))));
 M_assert(M_not(M_isNil(M_list(v(8, 214, 10, 0, 122)))));
 // }
 
+// M_isCons {
+M_assert(M_not(M_isCons(M_nil())));
+M_assert(M_isCons(M_list(v(123))));
+M_assert(M_isCons(M_list(v(8, 214, 10, 0, 122))));
+// }
+
 // M_get {
 M_assertEq(M_get(v(0), M_list(v(123, 222))), v(123));
 M_assertEq(M_get(v(1), M_list(v(123, 222))), v(222));

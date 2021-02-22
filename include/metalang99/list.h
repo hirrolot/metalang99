@@ -262,6 +262,23 @@
 #define METALANG99_isNil(list) METALANG99_call(METALANG99_isNil, list)
 
 /**
+ * Checks @p list for non-emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/list.h>
+ *
+ * // 1
+ * M_isCons(M_list(v(1, 2, 3)))
+ *
+ * // 0
+ * M_isCons(M_nil())
+ * @endcode
+ */
+#define METALANG99_isCons(list) METALANG99_call(METALANG99_isCons, list)
+
+/**
  * Gets an @p i -indexed element.
  *
  * # Examples
@@ -276,7 +293,7 @@
 #define METALANG99_get(i, list) METALANG99_call(METALANG99_get, i, list)
 
 /**
- * Performs a right-associative fold over @p list.
+ * A right-associative fold over @p list.
  *
  * # Examples
  *
@@ -297,7 +314,7 @@
 #define METALANG99_listFoldr(f, init, list) METALANG99_call(METALANG99_listFoldr, f, init, list)
 
 /**
- * Performs a left-associative fold over @p list.
+ * A left-associative fold over @p list.
  *
  * # Examples
  *
@@ -672,8 +689,8 @@
 // METALANG99_listHead_IMPL {
 #define METALANG99_listHead_IMPL(list)                                                             \
     METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listHead_)
-#define METALANG99_PRIV_listHead_nil_IMPL()       METALANG99_PRIV_EMPTY_LIST_ERROR(listHead)
-#define METALANG99_PRIV_listHead_cons_IMPL(x, xs) v(x)
+#define METALANG99_PRIV_listHead_nil_IMPL()        METALANG99_PRIV_EMPTY_LIST_ERROR(listHead)
+#define METALANG99_PRIV_listHead_cons_IMPL(x, _xs) v(x)
 // }
 
 // METALANG99_listTail_IMPL {
@@ -767,7 +784,7 @@
 #define METALANG99_listLen_IMPL(list)                                                              \
     METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listLen_)
 #define METALANG99_PRIV_listLen_nil_IMPL() v(0)
-#define METALANG99_PRIV_listLen_cons_IMPL(x, xs)                                                   \
+#define METALANG99_PRIV_listLen_cons_IMPL(_x, xs)                                                  \
     METALANG99_uintInc(METALANG99_callTrivial(METALANG99_listLen, xs))
 // }
 
@@ -789,6 +806,10 @@
     METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_isNil_)
 #define METALANG99_PRIV_isNil_nil_IMPL()         v(METALANG99_true)
 #define METALANG99_PRIV_isNil_cons_IMPL(_x, _xs) v(METALANG99_false)
+// }
+
+// METALANG99_isNil_IMPL {
+#define METALANG99_isCons_IMPL(list) METALANG99_not(METALANG99_callTrivial(METALANG99_isNil, list))
 // }
 
 // METALANG99_listUnwrap_IMPL {
@@ -1169,6 +1190,7 @@
 #define METALANG99_listUnwrapCommaSep_ARITY 1
 #define METALANG99_listReverse_ARITY        1
 #define METALANG99_isNil_ARITY              1
+#define METALANG99_isCons_ARITY             1
 #define METALANG99_get_ARITY                2
 #define METALANG99_listFoldr_ARITY          3
 #define METALANG99_listFoldl_ARITY          3
@@ -1225,6 +1247,7 @@
 #define M_listUnwrapCommaSep METALANG99_listUnwrapCommaSep
 #define M_listReverse        METALANG99_listReverse
 #define M_isNil              METALANG99_isNil
+#define M_isCons             METALANG99_isCons
 #define M_get                METALANG99_get
 #define M_listFoldr          METALANG99_listFoldr
 #define M_listFoldl          METALANG99_listFoldl
