@@ -7,7 +7,7 @@
 #define F_IMPL(x)         v(, x)
 #define F_ARITY           1
 
-M_eval(v(CHECK), M_parenthesise(M_repeat(v(F), v(3))));
+M_eval(v(CHECK), M_parenthesize(M_repeat(v(F), v(3))));
 
 #undef CHECK
 #undef F_IMPL
@@ -17,7 +17,7 @@ M_eval(v(CHECK), M_parenthesise(M_repeat(v(F), v(3))));
 // M_indexedParams {
 #define CHECK_void M_semicolon()
 
-M_eval(M_cat(v(CHECK_), M_unparenthesise(M_indexedParams(M_nil()))));
+M_eval(M_cat(v(CHECK_), M_unparenthesize(M_indexedParams(M_nil()))));
 
 #undef CHECK_void
 
@@ -50,12 +50,12 @@ static void test_indexed_fields(void) {
 }
 // }
 
-// M_indexedInitialiserList {
+// M_indexedInitializerList {
 struct {
     int _0;
     long long _1;
     const char *_2;
-} test_indexed_initialiser_list_z = M_eval(M_indexedInitialiserList(v(0)));
+} test_indexed_initialiser_list_z = M_eval(M_indexedInitializerList(v(0)));
 
 static void test_indexed_initialiser_list_s(void) {
     int _0 = 123;
@@ -66,7 +66,7 @@ static void test_indexed_initialiser_list_s(void) {
         int i;
         long long ll;
         const char *str;
-    } data = M_eval(M_indexedInitialiserList(v(3)));
+    } data = M_eval(M_indexedInitializerList(v(3)));
 
     (void)data;
 }

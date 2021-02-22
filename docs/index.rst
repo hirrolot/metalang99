@@ -16,15 +16,15 @@ If `METALANG99_NO_SMALL_PREFIX` is defined, all macros will have only one name: 
 
 A macro named `<X>Plain` stands for the "plain" version of `<X>`. To compute a final result of a plain macro, only preprocessor expansion is required and not the Metalang99 interpreter. Plain macros are used to save some reduction steps, thereby making metaprograms faster.
 
-For example, here are two complete metaprograms, one using `M_unparenthesise` and the second one using `M_unparenthesisePlain`:
+For example, here are two complete metaprograms, one using `M_unparenthesize` and the second one using `M_unparenthesizePlain`:
 
 .. code:: c
 
-   M_eval(M_unparenthesise(v((1, 2, 3))))
+   M_eval(M_unparenthesize(v((1, 2, 3))))
 
 .. code:: c
 
-   M_unparenthesisePlain((1, 2, 3))
+   M_unparenthesizePlain((1, 2, 3))
 
 Both metaprograms result in `1, 2, 3`.
 
@@ -35,7 +35,7 @@ A macro named `<X>Stateful` stands for the "stateful" version of `<X>`. Stateful
 
 A metafunction passed to a higher-order stateful counterpart must accept its current state as a first argument and evaluate to `<new-state>, <result>`. `<new-state>` will be provided to a subsequent invocation of that metafunction.
 
-`<result>` can comprise of multiple commas, however, if you want your state to contain at least one comma, you must parenthesise it.
+`<result>` can comprise of multiple commas, however, if you want your state to contain at least one comma, you must parenthesize it.
 
 For example, consider this usage of `M_listMapStateful`:
 

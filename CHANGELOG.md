@@ -13,8 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `leftUnderscored`, `rightUnderscored`
  - `introduceVarToStmt`
  - `terms`
- - `parenthesisedVariadicsHead`, `parenthesisedVariadicsHeadPlain`, `parenthesisedVariadicsTail`, `parenthesisedVariadicsTailPlain`
- - `indexedParams`, `indexedFields`, `indexedInitialiserList`
+ - `parenthesizedVariadicsHead`, `parenthesizedVariadicsHeadPlain`, `parenthesizedVariadicsTail`, `parenthesizedVariadicsTailPlain`
+ - `indexedParams`, `indexedFields`, `indexedInitializerList`
  - Stateful computations:
    - `withState`
    - `stateless`, `stateless2`, `stateless3`
@@ -26,6 +26,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Now at most 63 variadic arguments are acceptable by `list`, `variadicsCount`, `variadicsCountPlain`, `variadicsMap`, `variadicsMapI`, `variadicsMapCommaSep`, `variadicsMapICommaSep`.
  - Terms now need to be separated by commas, e.g. instead of `v(1) M_call(F, v(2)) v(3)`, write `v(1), M_call(F, v(2)), v(3)`.
  - The empty sequence is prohibited by `eval` and `abort`.
+ - Use American style endings (because it is prevalent):
+   - `(un)parenthesise(Eval)` -> `(un)parenthesize(Eval)`
+   - `isParenthesised` -> `isParenthesized`
+   - `isUnparenthesised` -> `isUnparenthesized`
+   - `parenthesisedVariadics(Head|Tail)` -> `parenthesizedVariadics(Head|Tail)`
 
 ### Fixed
 

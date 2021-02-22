@@ -79,8 +79,8 @@ M_assertPlain(M_listEval(M_list(v(19, +, 6))) == 19 + 6);
 M_assertEmptyPlain(M_listEvalCommaSep(M_nil()));
 M_assertEmpty(M_listUnwrapCommaSep(M_nil()));
 
-M_eval(v(CHECK), M_parenthesise(v(M_listEvalCommaSep(M_list(v(1, 2, 3))))));
-M_eval(v(CHECK), M_parenthesise(M_listUnwrapCommaSep(M_list(v(1, 2, 3)))));
+M_eval(v(CHECK), M_parenthesize(v(M_listEvalCommaSep(M_list(v(1, 2, 3))))));
+M_eval(v(CHECK), M_parenthesize(M_listUnwrapCommaSep(M_list(v(1, 2, 3)))));
 
 #undef CHECK
 // }

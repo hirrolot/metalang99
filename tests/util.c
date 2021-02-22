@@ -8,26 +8,26 @@ M_eval(v(CHECK), M_id(v((518, 1910))));
 M_assertEq(M_appl(M_compose(v(M_id), v(M_id)), v(181)), v(181));
 // }
 
-// M_parenthesise {
-M_eval(v(CHECK), M_parenthesise(v(518, 1910)));
+// M_parenthesize {
+M_eval(v(CHECK), M_parenthesize(v(518, 1910)));
 // }
 
 #undef CHECK
 
-// M_unparenthesiseEval {
-M_assertEq(M_unparenthesiseEval(v((v(198)))), v(198));
+// M_unparenthesizeEval {
+M_assertEq(M_unparenthesizeEval(v((v(198)))), v(198));
 // }
 
-// M_unparenthesise {
-M_assertEq(M_unparenthesise(v((198))), v(198));
+// M_unparenthesize {
+M_assertEq(M_unparenthesize(v((198))), v(198));
 // }
 
-// M_parenthesiseEval + M_unparenthesiseEval {
-M_assertEq(M_unparenthesiseEval(M_parenthesiseEval(v(187))), v(187));
+// M_parenthesizeEval + M_unparenthesizeEval {
+M_assertEq(M_unparenthesizeEval(M_parenthesizeEval(v(187))), v(187));
 // }
 
-// M_parenthesise + M_unparenthesise {
-M_assertEq(M_unparenthesise(M_parenthesise(v(187))), v(187));
+// M_parenthesize + M_unparenthesize {
+M_assertEq(M_unparenthesize(M_parenthesize(v(187))), v(187));
 // }
 
 // M_const {
@@ -59,12 +59,12 @@ M_assertEq(M_rightUnderscored(v(FOO)), v(456));
 #undef FOO_
 // }
 
-// M_isParenthesised, M_isUnparenthesised {
-M_assert(M_isParenthesised(v((1, 2, 3))));
-M_assert(M_not(M_isParenthesised(v(123))));
+// M_isParenthesized, M_isUnparenthesized {
+M_assert(M_isParenthesized(v((1, 2, 3))));
+M_assert(M_not(M_isParenthesized(v(123))));
 
-M_assert(M_not(M_isUnparenthesised(v((1, 2, 3)))));
-M_assert(M_isUnparenthesised(v(123)));
+M_assert(M_not(M_isUnparenthesized(v((1, 2, 3)))));
+M_assert(M_isUnparenthesized(v(123)));
 // }
 
 // M_consume {
@@ -74,7 +74,7 @@ M_assertEmpty(M_consume(v(1, 2, 3)));
 // M_withState {
 #define CHECK(state, x) M_assertPlain(state == 7 && x == 30)
 
-M_eval(v(CHECK), M_parenthesise(M_withState(v(7), v(30))));
+M_eval(v(CHECK), M_parenthesize(M_withState(v(7), v(30))));
 
 #undef CHECK
 // }
@@ -89,9 +89,9 @@ M_eval(v(CHECK), M_parenthesise(M_withState(v(7), v(30))));
 #define F3_IMPL(x, y, z) v(x + y + z + 3)
 #define F3_ARITY         3
 
-M_eval(v(CHECK), M_parenthesise(M_appl2(M_stateless(v(F)), v(~), v(27))));
-M_eval(v(CHECK), M_parenthesise(M_appl3(M_stateless2(v(F2)), v(~), v(4), v(23))));
-M_eval(v(CHECK), M_parenthesise(M_appl(M_appl3(M_stateless3(v(F3)), v(~), v(4), v(15)), v(8))));
+M_eval(v(CHECK), M_parenthesize(M_appl2(M_stateless(v(F)), v(~), v(27))));
+M_eval(v(CHECK), M_parenthesize(M_appl3(M_stateless2(v(F2)), v(~), v(4), v(23))));
+M_eval(v(CHECK), M_parenthesize(M_appl(M_appl3(M_stateless3(v(F3)), v(~), v(4), v(15)), v(8))));
 
 #undef F_IMPL
 #undef F_ARITY

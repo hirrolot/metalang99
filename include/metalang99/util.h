@@ -82,7 +82,7 @@
 #define METALANG99_id(...) METALANG99_call(METALANG99_id, __VA_ARGS__)
 
 /**
- * Transforms a sequence of arguments into a parenthesised normal form.
+ * Transforms a sequence of arguments into a parenthesized normal form.
  *
  * # Examples
  *
@@ -90,10 +90,10 @@
  * #include <metalang99/util.h>
  *
  * // (v(1, 2, 3))
- * M_parenthesiseEval(v(1, 2, 3))
+ * M_parenthesizeEval(v(1, 2, 3))
  * @endcode
  */
-#define METALANG99_parenthesiseEval(...) METALANG99_call(METALANG99_parenthesiseEval, __VA_ARGS__)
+#define METALANG99_parenthesizeEval(...) METALANG99_call(METALANG99_parenthesizeEval, __VA_ARGS__)
 
 /**
  * Parenthesises a sequence of arguments.
@@ -104,13 +104,13 @@
  * #include <metalang99/util.h>
  *
  * // (1, 2, 3)
- * M_parenthesise(v(1, 2, 3))
+ * M_parenthesize(v(1, 2, 3))
  * @endcode
  */
-#define METALANG99_parenthesise(...) METALANG99_call(METALANG99_parenthesise, __VA_ARGS__)
+#define METALANG99_parenthesize(...) METALANG99_call(METALANG99_parenthesize, __VA_ARGS__)
 
 /**
- * Unparenthesises a sequence of arguments and evaluates the result.
+ * Unparenthesizes a sequence of arguments and evaluates the result.
  *
  * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
  * 123` is disallowed.
@@ -121,13 +121,13 @@
  * #include <metalang99/util.h>
  *
  * // 1, 2, 3
- * M_unparenthesiseEval(v((v(1, 2, 3))))
+ * M_unparenthesizeEval(v((v(1, 2, 3))))
  * @endcode
  */
-#define METALANG99_unparenthesiseEval(x) METALANG99_call(METALANG99_unparenthesiseEval, x)
+#define METALANG99_unparenthesizeEval(x) METALANG99_call(METALANG99_unparenthesizeEval, x)
 
 /**
- * Unparenthesises a sequence of arguments, leaving the result unevaluated.
+ * Unparenthesizes a sequence of arguments, leaving the result unevaluated.
  *
  * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
  * 123` is disallowed.
@@ -138,10 +138,10 @@
  * #include <metalang99/util.h>
  *
  * // 1, 2, 3
- * M_unparenthesise(v((1, 2, 3)))
+ * M_unparenthesize(v((1, 2, 3)))
  * @endcode
  */
-#define METALANG99_unparenthesise(x) METALANG99_call(METALANG99_unparenthesise, x)
+#define METALANG99_unparenthesize(x) METALANG99_call(METALANG99_unparenthesize, x)
 
 /**
  * Tests whether @p x is inside parentheses or not.
@@ -155,16 +155,16 @@
  * #include <metalang99/util.h>
  *
  * // 0
- * M_isParenthesised(v(123))
+ * M_isParenthesized(v(123))
  *
  * // 1
- * M_isParenthesised(v((123)))
+ * M_isParenthesized(v((123)))
  * @endcode
  */
-#define METALANG99_isParenthesised(x) METALANG99_call(METALANG99_isParenthesised, x)
+#define METALANG99_isParenthesized(x) METALANG99_call(METALANG99_isParenthesized, x)
 
 /**
- * The inverse of #METALANG99_isParenthesised.
+ * The inverse of #METALANG99_isParenthesized.
  *
  * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
  * 123` is disallowed.
@@ -175,13 +175,13 @@
  * #include <metalang99/util.h>
  *
  * // 1
- * M_isUnparenthesised(v(123))
+ * M_isUnparenthesized(v(123))
  *
  * // 0
- * M_isUnparenthesised(v((123)))
+ * M_isUnparenthesized(v((123)))
  * @endcode
  */
-#define METALANG99_isUnparenthesised(x) METALANG99_call(METALANG99_isUnparenthesised, x)
+#define METALANG99_isUnparenthesized(x) METALANG99_call(METALANG99_isUnparenthesized, x)
 
 /**
  * Evaluates to @p x, skipping @p a.
@@ -452,24 +452,24 @@
 #define METALANG99_idPlain(...) __VA_ARGS__
 
 /**
- * The plain version of #METALANG99_parenthesise.
+ * The plain version of #METALANG99_parenthesize.
  */
-#define METALANG99_parenthesisePlain(...) (__VA_ARGS__)
+#define METALANG99_parenthesizePlain(...) (__VA_ARGS__)
 
 /**
- * The plain version of #METALANG99_unparenthesise.
+ * The plain version of #METALANG99_unparenthesize.
  */
-#define METALANG99_unparenthesisePlain(x) METALANG99_PRIV_UNPARENTHESISE(x)
+#define METALANG99_unparenthesizePlain(x) METALANG99_PRIV_UNPARENTHESISE(x)
 
 /**
- * The plain version of #METALANG99_isParenthesised.
+ * The plain version of #METALANG99_isParenthesized.
  */
-#define METALANG99_isParenthesisedPlain(x) METALANG99_PRIV_IS_PARENTHESISED(x)
+#define METALANG99_isParenthesizedPlain(x) METALANG99_PRIV_IS_PARENTHESISED(x)
 
 /**
- * The plain version of #METALANG99_isUnparenthesised.
+ * The plain version of #METALANG99_isUnparenthesized.
  */
-#define METALANG99_isUnparenthesisedPlain(x) METALANG99_PRIV_IS_UNPARENTHESISED(x)
+#define METALANG99_isUnparenthesizedPlain(x) METALANG99_PRIV_IS_UNPARENTHESISED(x)
 
 /**
  * The plain version of #METALANG99_consume.
@@ -517,12 +517,12 @@
 #define METALANG99_stringify_IMPL(...)             v(METALANG99_stringifyPlain(__VA_ARGS__))
 #define METALANG99_empty_IMPL()                    v(METALANG99_emptyPlain())
 #define METALANG99_id_IMPL(...)                    v(METALANG99_idPlain(__VA_ARGS__))
-#define METALANG99_parenthesiseEval_IMPL(...)      v((v(__VA_ARGS__)))
-#define METALANG99_parenthesise_IMPL(...)          v(METALANG99_parenthesisePlain(__VA_ARGS__))
-#define METALANG99_unparenthesiseEval_IMPL(x)      METALANG99_PRIV_UNPARENTHESISE(x)
-#define METALANG99_unparenthesise_IMPL(x)          v(METALANG99_unparenthesisePlain(x))
-#define METALANG99_isParenthesised_IMPL(x)         v(METALANG99_isParenthesisedPlain(x))
-#define METALANG99_isUnparenthesised_IMPL(x)       v(METALANG99_isUnparenthesisedPlain(x))
+#define METALANG99_parenthesizeEval_IMPL(...)      v((v(__VA_ARGS__)))
+#define METALANG99_parenthesize_IMPL(...)          v(METALANG99_parenthesizePlain(__VA_ARGS__))
+#define METALANG99_unparenthesizeEval_IMPL(x)      METALANG99_PRIV_UNPARENTHESISE(x)
+#define METALANG99_unparenthesize_IMPL(x)          v(METALANG99_unparenthesizePlain(x))
+#define METALANG99_isParenthesized_IMPL(x)         v(METALANG99_isParenthesizedPlain(x))
+#define METALANG99_isUnparenthesized_IMPL(x)       v(METALANG99_isUnparenthesizedPlain(x))
 #define METALANG99_const_IMPL(x, _a)               v(x)
 #define METALANG99_flip_IMPL(f)                    METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_flip, f)
 #define METALANG99_PRIV_flip_IMPL(f, a, b)         METALANG99_callTrivial(METALANG99_appl2, f, b, a)
@@ -557,12 +557,12 @@
 #define METALANG99_stringify_ARITY          1
 #define METALANG99_empty_ARITY              1
 #define METALANG99_id_ARITY                 1
-#define METALANG99_parenthesise_ARITY       1
-#define METALANG99_unparenthesise_ARITY     1
-#define METALANG99_unparenthesiseEval_ARITY 1
-#define METALANG99_parenthesiseEval_ARITY   1
-#define METALANG99_isUnparenthesised_ARITY  1
-#define METALANG99_isParenthesised_ARITY    1
+#define METALANG99_parenthesize_ARITY       1
+#define METALANG99_unparenthesize_ARITY     1
+#define METALANG99_unparenthesizeEval_ARITY 1
+#define METALANG99_parenthesizeEval_ARITY   1
+#define METALANG99_isUnparenthesized_ARITY  1
+#define METALANG99_isParenthesized_ARITY    1
 #define METALANG99_const_ARITY              2
 #define METALANG99_flip_ARITY               1
 #define METALANG99_putBefore_ARITY          2
@@ -591,12 +591,12 @@
 #define M_stringify          METALANG99_stringify
 #define M_empty              METALANG99_empty
 #define M_id                 METALANG99_id
-#define M_parenthesiseEval   METALANG99_parenthesiseEval
-#define M_parenthesise       METALANG99_parenthesise
-#define M_unparenthesiseEval METALANG99_unparenthesiseEval
-#define M_unparenthesise     METALANG99_unparenthesise
-#define M_isParenthesised    METALANG99_isParenthesised
-#define M_isUnparenthesised  METALANG99_isUnparenthesised
+#define M_parenthesizeEval   METALANG99_parenthesizeEval
+#define M_parenthesize       METALANG99_parenthesize
+#define M_unparenthesizeEval METALANG99_unparenthesizeEval
+#define M_unparenthesize     METALANG99_unparenthesize
+#define M_isParenthesized    METALANG99_isParenthesized
+#define M_isUnparenthesized  METALANG99_isUnparenthesized
 #define M_const              METALANG99_const
 #define M_flip               METALANG99_flip
 #define M_putBefore          METALANG99_putBefore
@@ -620,10 +620,10 @@
 #define M_stringifyPlain         METALANG99_stringifyPlain
 #define M_emptyPlain             METALANG99_emptyPlain
 #define M_idPlain                METALANG99_idPlain
-#define M_parenthesisePlain      METALANG99_parenthesisePlain
-#define M_unparenthesisePlain    METALANG99_unparenthesisePlain
-#define M_isParenthesisedPlain   METALANG99_isParenthesisedPlain
-#define M_isUnparenthesisedPlain METALANG99_isUnparenthesisedPlain
+#define M_parenthesizePlain      METALANG99_parenthesizePlain
+#define M_unparenthesizePlain    METALANG99_unparenthesizePlain
+#define M_isParenthesizedPlain   METALANG99_isParenthesizedPlain
+#define M_isUnparenthesizedPlain METALANG99_isUnparenthesizedPlain
 #define M_consumePlain           METALANG99_consumePlain
 
 #endif // METALANG99_NO_SMALL_PREFIX

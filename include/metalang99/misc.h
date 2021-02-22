@@ -79,15 +79,15 @@
  * #include <metalang99/misc.h>
  *
  * // { _0, _1, _2 }
- * M_indexedInitialiserList(v(3))
+ * M_indexedInitializerList(v(3))
  *
  * // { 0 }
- * M_indexedInitialiserList(v(0))
+ * M_indexedInitializerList(v(0))
  * @endcode
  *
  * @note The presence of a trailing comma inside the initialiser list is unspecified.
  */
-#define METALANG99_indexedInitialiserList(n) METALANG99_call(METALANG99_indexedInitialiserList, n)
+#define METALANG99_indexedInitializerList(n) METALANG99_call(METALANG99_indexedInitializerList, n)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -104,7 +104,7 @@
 
 // METALANG99_indexedParams_IMPL {
 #define METALANG99_indexedParams_IMPL(type_list)                                                   \
-    METALANG99_parenthesise(METALANG99_variadicsTail(METALANG99_call(                              \
+    METALANG99_parenthesize(METALANG99_variadicsTail(METALANG99_call(                              \
         METALANG99_call(                                                                           \
             METALANG99_if,                                                                         \
             METALANG99_callTrivial(METALANG99_isNil, type_list),                                   \
@@ -142,23 +142,23 @@
         METALANG99_callTrivial(METALANG99_PRIV_indexedFieldsAux, xs, METALANG99_uintIncPlain(i)))
 // }
 
-// METALANG99_indexedInitialiserList_IMPL {
-#define METALANG99_indexedInitialiserList_IMPL(n)                                                  \
+// METALANG99_indexedInitializerList_IMPL {
+#define METALANG99_indexedInitializerList_IMPL(n)                                                  \
     METALANG99_braced(METALANG99_callTrivial(                                                      \
         METALANG99_ifPlain(                                                                        \
             METALANG99_uintEqPlain(n, 0),                                                          \
-            METALANG99_PRIV_indexedInitialiserListZero,                                            \
-            METALANG99_PRIV_indexedInitialiserListNonZero),                                        \
+            METALANG99_PRIV_indexedInitializerListZero,                                            \
+            METALANG99_PRIV_indexedInitializerListNonZero),                                        \
         n))
 
-#define METALANG99_PRIV_indexedInitialiserListZero_IMPL(_i) v(0)
+#define METALANG99_PRIV_indexedInitializerListZero_IMPL(_i) v(0)
 
-#define METALANG99_PRIV_indexedInitialiserListNonZero_IMPL(i)                                      \
-    METALANG99_callTrivial(METALANG99_uintMatch, i, METALANG99_PRIV_indexedInitialiserListNonZero_)
-#define METALANG99_PRIV_indexedInitialiserListNonZero_Z_IMPL() METALANG99_empty()
-#define METALANG99_PRIV_indexedInitialiserListNonZero_S_IMPL(i)                                    \
+#define METALANG99_PRIV_indexedInitializerListNonZero_IMPL(i)                                      \
+    METALANG99_callTrivial(METALANG99_uintMatch, i, METALANG99_PRIV_indexedInitializerListNonZero_)
+#define METALANG99_PRIV_indexedInitializerListNonZero_Z_IMPL() METALANG99_empty()
+#define METALANG99_PRIV_indexedInitializerListNonZero_S_IMPL(i)                                    \
     METALANG99_terms(                                                                              \
-        METALANG99_callTrivial(METALANG99_PRIV_indexedInitialiserListNonZero, i),                  \
+        METALANG99_callTrivial(METALANG99_PRIV_indexedInitializerListNonZero, i),                  \
         v(METALANG99_catPlain(_, i), ))
 // }
 
@@ -168,7 +168,7 @@
 #define METALANG99_repeat_ARITY                 2
 #define METALANG99_indexedParams_ARITY          1
 #define METALANG99_indexedFields_ARITY          1
-#define METALANG99_indexedInitialiserList_ARITY 1
+#define METALANG99_indexedInitializerList_ARITY 1
 // }
 
 // Aliases {
@@ -177,7 +177,7 @@
 #define M_repeat                 METALANG99_repeat
 #define M_indexedParams          METALANG99_indexedParams
 #define M_indexedFields          METALANG99_indexedFields
-#define M_indexedInitialiserList METALANG99_indexedInitialiserList
+#define M_indexedInitializerList METALANG99_indexedInitializerList
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }
