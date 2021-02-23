@@ -105,7 +105,7 @@
 // METALANG99_match_IMPL {
 #define METALANG99_match_IMPL(choice, matcher)                                                     \
     METALANG99_callTrivial(                                                                        \
-        METALANG99_catPlain(matcher, METALANG99_choiceTagPlain(choice)),                           \
+        METALANG99_catPlain(matcher, METALANG99_PRIV_CHOICE_TAG choice),                           \
         METALANG99_PRIV_CHOICE_DATA choice)
 // }
 
@@ -117,6 +117,7 @@
             METALANG99_PRIV_CHOICE_IS_EMPTY choice,                                                \
             METALANG99_PRIV_CONSUME,                                                               \
             METALANG99_PRIV_matchWithArgsSupplyData)(choice) __VA_ARGS__)
+
 #define METALANG99_PRIV_matchWithArgsSupplyData(choice) METALANG99_PRIV_CHOICE_DATA choice,
 // }
 
