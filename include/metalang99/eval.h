@@ -6,14 +6,15 @@
 #ifndef METALANG99_EVAL_H
 #define METALANG99_EVAL_H
 
-#include <metalang99/eval/acc.h>
-#include <metalang99/eval/control.h>
-#include <metalang99/eval/diagnostics.h>
-#include <metalang99/eval/fold.h>
 #include <metalang99/eval/rec/control.h>
 #include <metalang99/eval/rec/unroll.h>
+
+#include <metalang99/eval/acc.h>
+#include <metalang99/eval/diagnostics.h>
+#include <metalang99/eval/fold.h>
 #include <metalang99/eval/syntax_checker.h>
 #include <metalang99/eval/term.h>
+
 #include <metalang99/priv/util.h>
 
 /**
@@ -61,8 +62,8 @@
         k_cx,                                                                                      \
         folder,                                                                                    \
         acc,                                                                                       \
-        METALANG99_PRIV_EVAL_CONTROL(__VA_ARGS__),                                                 \
-        METALANG99_PRIV_EVAL_TERM_DATA(head))
+        (__VA_ARGS__),                                                                             \
+        METALANG99_PRIV_EVAL_TERM_DATA head)
 
 // Reduction rules {
 #define METALANG99_PRIV_EVAL_0v(k, k_cx, folder, acc, tail, ...)                                   \
@@ -71,7 +72,7 @@
         k_cx,                                                                                      \
         folder,                                                                                    \
         folder(acc, __VA_ARGS__),                                                                  \
-        METALANG99_PRIV_EVAL_CONTROL_UNWRAP(tail))
+        METALANG99_PRIV_EXPAND tail)
 
 #define METALANG99_PRIV_EVAL_0args_AUX(k, k_cx, folder, acc, tail, op, ...)                        \
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
@@ -120,7 +121,7 @@
 
 #define METALANG99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                 \
     METALANG99_PRIV_REC_CONTINUE(k)                                                                \
-    (METALANG99_PRIV_UNPARENTHESISE(k_cx), METALANG99_PRIV_EVAL_ACC_UNWRAP(acc))
+    (METALANG99_PRIV_EXPAND k_cx, METALANG99_PRIV_EVAL_ACC_UNWRAP(acc))
 // }
 
 // Continuations {
@@ -142,7 +143,7 @@
         k_cx,                                                                                      \
         folder,                                                                                    \
         folder(acc, __VA_ARGS__),                                                                  \
-        METALANG99_PRIV_EVAL_CONTROL_UNWRAP(tail))
+        METALANG99_PRIV_EXPAND tail)
 
 #define METALANG99_PRIV_EVAL_0op_K(k, k_cx, folder, acc, tail, args, evaluated_op)                 \
     METALANG99_PRIV_EVAL_0args(                                                                    \
@@ -152,7 +153,7 @@
         acc,                                                                                       \
         tail,                                                                                      \
         evaluated_op,                                                                              \
-        METALANG99_PRIV_UNPARENTHESISE(args))
+        METALANG99_PRIV_EXPAND args)
 // }
 
 #define METALANG99_PRIV_EVAL_REDUCE METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_MATCH)

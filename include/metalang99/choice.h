@@ -14,7 +14,7 @@
 #define METALANG99_CHOICE_H
 
 #include <metalang99/lang.h>
-#include <metalang99/priv/pair.h>
+#include <metalang99/priv/variadics/get.h>
 #include <metalang99/util.h>
 
 // Desugaring {
@@ -90,7 +90,7 @@
  *
  * @note @p choice must be already evaluated.
  */
-#define METALANG99_choiceTagPlain(choice) METALANG99_PRIV_PAIR_FST(choice)
+#define METALANG99_choiceTagPlain(choice) METALANG99_PRIV_CHOICE_TAG choice
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -106,25 +106,18 @@
 #define METALANG99_match_IMPL(choice, matcher)                                                     \
     METALANG99_callTrivial(                                                                        \
         METALANG99_catPlain(matcher, METALANG99_choiceTagPlain(choice)),                           \
-        METALANG99_PRIV_CHOICE_DATA(choice))
+        METALANG99_PRIV_CHOICE_DATA choice)
 // }
 
 // METALANG99_matchWithArgs_IMPL {
 #define METALANG99_matchWithArgs_IMPL(choice, matcher, ...)                                        \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_CHOICE_IS_EMPTY(choice),                                                   \
-        METALANG99_PRIV_matchWithArgs_EMPTY,                                                       \
-        METALANG99_PRIV_matchWithArgs_NON_EMPTY)                                                   \
-    (choice, matcher, __VA_ARGS__)
-#define METALANG99_PRIV_matchWithArgs_EMPTY(choice, matcher, ...)                                  \
     METALANG99_callTrivial(                                                                        \
-        METALANG99_catPlain(matcher, METALANG99_choiceTagPlain(choice)),                           \
-        __VA_ARGS__)
-#define METALANG99_PRIV_matchWithArgs_NON_EMPTY(choice, matcher, ...)                              \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_catPlain(matcher, METALANG99_choiceTagPlain(choice)),                           \
-        METALANG99_PRIV_CHOICE_DATA(choice),                                                       \
-        __VA_ARGS__)
+        METALANG99_catPlain(matcher, METALANG99_PRIV_CHOICE_TAG choice),                           \
+        METALANG99_PRIV_IF(                                                                        \
+            METALANG99_PRIV_CHOICE_IS_EMPTY choice,                                                \
+            METALANG99_PRIV_CONSUME,                                                               \
+            METALANG99_PRIV_matchWithArgsSupplyData)(choice) __VA_ARGS__)
+#define METALANG99_PRIV_matchWithArgsSupplyData(choice) METALANG99_PRIV_CHOICE_DATA choice,
 // }
 
 // METALANG99_choiceTag_IMPL {
@@ -132,15 +125,17 @@
 // }
 
 // METALANG99_PRIV_CHOICE_IS_EMPTY {
-#define METALANG99_PRIV_CHOICE_IS_EMPTY(choice)                                                    \
-    METALANG99_catPlain(METALANG99_PRIV_CHOICE_IS_EMPTY_, METALANG99_PRIV_PAIR_SND(choice))
+#define METALANG99_PRIV_CHOICE_IS_EMPTY(_tag, data)     METALANG99_PRIV_CHOICE_IS_EMPTY_##data
 #define METALANG99_PRIV_CHOICE_IS_EMPTY_0non_empty(...) 0
 #define METALANG99_PRIV_CHOICE_IS_EMPTY_0empty(...)     1
 // }
 
+// METALANG99_PRIV_CHOICE_TAG {
+#define METALANG99_PRIV_CHOICE_TAG(tag, _data) tag
+// }
+
 // METALANG99_PRIV_CHOICE_DATA {
-#define METALANG99_PRIV_CHOICE_DATA(choice)                                                        \
-    METALANG99_catPlain(METALANG99_PRIV_CHOICE_DATA_, METALANG99_PRIV_PAIR_SND(choice))
+#define METALANG99_PRIV_CHOICE_DATA(_tag, data)     METALANG99_PRIV_CHOICE_DATA_##data
 #define METALANG99_PRIV_CHOICE_DATA_0non_empty(...) __VA_ARGS__
 #define METALANG99_PRIV_CHOICE_DATA_0empty(...)     __VA_ARGS__
 // }

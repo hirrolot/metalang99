@@ -501,17 +501,17 @@
 /**
  * The plain version of #METALANG99_unparenthesize.
  */
-#define METALANG99_unparenthesizePlain(x) METALANG99_PRIV_UNPARENTHESISE(x)
+#define METALANG99_unparenthesizePlain(x) METALANG99_PRIV_UNPARENTHESIZE(x)
 
 /**
  * The plain version of #METALANG99_isParenthesized.
  */
-#define METALANG99_isParenthesizedPlain(x) METALANG99_PRIV_IS_PARENTHESISED(x)
+#define METALANG99_isParenthesizedPlain(x) METALANG99_PRIV_IS_PARENTHESIZED(x)
 
 /**
  * The plain version of #METALANG99_isUnparenthesized.
  */
-#define METALANG99_isUnparenthesizedPlain(x) METALANG99_PRIV_IS_UNPARENTHESISED(x)
+#define METALANG99_isUnparenthesizedPlain(x) METALANG99_PRIV_IS_UNPARENTHESIZED(x)
 
 /**
  * The plain version of #METALANG99_consume.
@@ -561,7 +561,7 @@
 #define METALANG99_id_IMPL(...)                    v(METALANG99_idPlain(__VA_ARGS__))
 #define METALANG99_parenthesizeEval_IMPL(...)      v((v(__VA_ARGS__)))
 #define METALANG99_parenthesize_IMPL(...)          v(METALANG99_parenthesizePlain(__VA_ARGS__))
-#define METALANG99_unparenthesizeEval_IMPL(x)      METALANG99_PRIV_UNPARENTHESISE(x)
+#define METALANG99_unparenthesizeEval_IMPL(x)      METALANG99_PRIV_UNPARENTHESIZE(x)
 #define METALANG99_unparenthesize_IMPL(x)          v(METALANG99_unparenthesizePlain(x))
 #define METALANG99_isParenthesized_IMPL(x)         v(METALANG99_isParenthesizedPlain(x))
 #define METALANG99_isUnparenthesized_IMPL(x)       v(METALANG99_isUnparenthesizedPlain(x))

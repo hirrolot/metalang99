@@ -6,7 +6,7 @@
 
 #define METALANG99_PRIV_CHECK_TERM(term, default)                                                  \
     METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_IS_UNPARENTHESISED(term),                                                  \
+        METALANG99_PRIV_IS_UNPARENTHESIZED(term),                                                  \
         METALANG99_PRIV_SYNTAX_CHECKER_EMIT_ERROR,                                                 \
         default)
 #define METALANG99_PRIV_SYNTAX_CHECKER_EMIT_ERROR(term, ...)                                       \

@@ -17,7 +17,7 @@
     METALANG99_fatal(METALANG99_uintDiv, x is not divisible by y)
 
 #define METALANG99_uintDivChecked_IMPL(x, y)                                                       \
-    METALANG99_PRIV_UNPARENTHESISE(METALANG99_PRIV_VARIADICS_SND(                                  \
+    METALANG99_PRIV_UNPARENTHESIZE(METALANG99_PRIV_VARIADICS_SND(                                  \
         METALANG99_PRIV_UINT_DIV_##x##_##y(),                                                      \
         (METALANG99_nothing()),                                                                    \
         ~))

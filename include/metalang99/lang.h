@@ -14,7 +14,7 @@
  * Invokes a metafunction with arguments.
  */
 #define METALANG99_call(op, ...)                                                                   \
-    (METALANG99_PRIV_IF(METALANG99_PRIV_IS_UNPARENTHESISED(op), 0args, 0op), op, __VA_ARGS__)
+    (METALANG99_PRIV_IF(METALANG99_PRIV_IS_UNPARENTHESIZED(op), 0args, 0op), op, __VA_ARGS__)
 
 /**
  * Invokes a metafunction @p ident with unevaluated arguments.

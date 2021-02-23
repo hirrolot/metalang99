@@ -128,9 +128,7 @@
         METALANG99_catPlain(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__)),                      \
         __VA_ARGS__)
 
-#define METALANG99_if_IMPL(cond, x, y) v(METALANG99_PRIV_if_##cond(x, y))
-#define METALANG99_PRIV_if_0(_x, y)    y
-#define METALANG99_PRIV_if_1(x, _y)    x
+#define METALANG99_if_IMPL(cond, x, y) v(METALANG99_ifPlain(cond, x, y))
 
 #define METALANG99_when_IMPL(cond, x) v(METALANG99_whenPlain(cond, x))
 #define METALANG99_whenLazy_IMPL(cond, f)                                                          \
