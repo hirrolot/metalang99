@@ -99,8 +99,8 @@
 #define METALANG99_choice_IMPL(tag, ...) v(METALANG99_PRIV_choice(tag, __VA_ARGS__))
 #define METALANG99_choiceEmpty_IMPL(tag) v(METALANG99_PRIV_choiceEmpty(tag))
 
-#define METALANG99_PRIV_choice(tag, ...) (tag, 0non_empty(__VA_ARGS__))
-#define METALANG99_PRIV_choiceEmpty(tag) (tag, 0empty())
+#define METALANG99_PRIV_choice(tag, ...) (tag, 0non_empty, __VA_ARGS__)
+#define METALANG99_PRIV_choiceEmpty(tag) (tag, 0empty, )
 
 // METALANG99_match_IMPL {
 #define METALANG99_match_IMPL(choice, matcher)                                                     \
@@ -125,19 +125,18 @@
 // }
 
 // METALANG99_PRIV_CHOICE_IS_EMPTY {
-#define METALANG99_PRIV_CHOICE_IS_EMPTY(_tag, data)     METALANG99_PRIV_CHOICE_IS_EMPTY_##data
-#define METALANG99_PRIV_CHOICE_IS_EMPTY_0non_empty(...) 0
-#define METALANG99_PRIV_CHOICE_IS_EMPTY_0empty(...)     1
+#define METALANG99_PRIV_CHOICE_IS_EMPTY(_tag, is_empty, ...)                                       \
+    METALANG99_PRIV_CHOICE_IS_EMPTY_##is_empty()
+#define METALANG99_PRIV_CHOICE_IS_EMPTY_0non_empty() 0
+#define METALANG99_PRIV_CHOICE_IS_EMPTY_0empty()     1
 // }
 
 // METALANG99_PRIV_CHOICE_TAG {
-#define METALANG99_PRIV_CHOICE_TAG(tag, _data) tag
+#define METALANG99_PRIV_CHOICE_TAG(tag, _is_empty, ...) tag
 // }
 
 // METALANG99_PRIV_CHOICE_DATA {
-#define METALANG99_PRIV_CHOICE_DATA(_tag, data)     METALANG99_PRIV_CHOICE_DATA_##data
-#define METALANG99_PRIV_CHOICE_DATA_0non_empty(...) __VA_ARGS__
-#define METALANG99_PRIV_CHOICE_DATA_0empty(...)     __VA_ARGS__
+#define METALANG99_PRIV_CHOICE_DATA(_tag, _is_empty, ...) __VA_ARGS__
 // }
 
 // } (Implementation)
