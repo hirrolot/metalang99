@@ -121,7 +121,7 @@
 
 #define METALANG99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                 \
     METALANG99_PRIV_REC_CONTINUE(k)                                                                \
-    (METALANG99_PRIV_EXPAND k_cx, METALANG99_PRIV_EVAL_ACC_UNWRAP(acc))
+    (METALANG99_PRIV_EXPAND k_cx, METALANG99_PRIV_EVAL_ACC_UNWRAP acc)
 // }
 
 // Continuations {
