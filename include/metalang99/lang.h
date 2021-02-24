@@ -162,10 +162,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_compose_IMPL(f, g)                                                              \
-    METALANG99_callTrivial(METALANG99_appl2, METALANG99_PRIV_compose_CLOSURE, f, g)
-#define METALANG99_PRIV_compose_CLOSURE_IMPL(f, g, x)                                              \
-    METALANG99_appl(v(f), METALANG99_callTrivial(METALANG99_appl, g, x))
+#define METALANG99_compose_IMPL(f, g)         METALANG99_appl2_IMPL(METALANG99_PRIV_compose, f, g)
+#define METALANG99_PRIV_compose_IMPL(f, g, x) METALANG99_appl(v(f), METALANG99_appl_IMPL(g, x))
 //
 
 // Arity specifiers {
@@ -174,7 +172,7 @@
 #define METALANG99_appl3_ARITY   4
 #define METALANG99_compose_ARITY 2
 
-#define METALANG99_PRIV_compose_CLOSURE_ARITY 3
+#define METALANG99_PRIV_compose_ARITY 3
 // }
 
 // Aliases {

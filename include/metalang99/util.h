@@ -468,7 +468,7 @@
 /**
  * The plain version of #METALANG99_unparenthesize.
  */
-#define METALANG99_unparenthesizePlain(x) METALANG99_PRIV_UNPARENTHESIZE(x)
+#define METALANG99_unparenthesizePlain(x) METALANG99_PRIV_EXPAND x
 
 /**
  * The plain version of #METALANG99_isParenthesized.
