@@ -93,7 +93,7 @@ To solve the problem, I have implemented Metalang99 -- a functional programming 
 [Boost/Preprocessor]: http://boost.org/libs/preprocessor
 [Order PP]: https://github.com/rofl0r/order-pp
 
-As a practical example of what is possible with Metalang99, consider [Datatype99]. It implements type-safe [sum types] in pure C99, by heavy use of metaprogramming:
+As a practical example of what is possible with Metalang99, consider [Datatype99]. It implements safe, intuitive [sum types] in pure C99, by heavy use of metaprogramming:
 
 ```c
 #include <datatype99.h>
