@@ -23,12 +23,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Make `M_variadicsHead` accept a single argument too.
  - Now at most 63 variadic arguments are acceptable by `M_list`, `M_variadicsCount`, and `M_variadicsCountPlain`.
  - Terms now need to be separated by commas, e.g. instead of `v(1) M_call(F, v(2)) v(3)`, write `v(1), M_call(F, v(2)), v(3)` or `M_terms(v(1), M_call(F, v(2)), v(3)`.
- - The empty sequence is prohibited by `M_eval`, `M_call` and `abort`.
+ - The empty sequence is prohibited by `M_eval`, `M_call` and `M_abort`.
  - Use American style endings (because it is prevalent):
-   - `(un)parenthesise(Eval)` -> `(un)parenthesize(Eval)`
-   - `isParenthesised` -> `isParenthesized`
-   - `isUnparenthesised` -> `isUnparenthesized`
-   - `parenthesisedVariadics(Head|Tail)` -> `parenthesizedVariadics(Head|Tail)`
+   - `M_(un)parenthesise(Eval)` -> `M_(un)parenthesize(Eval)`
+   - `M_isParenthesised` -> `M_isParenthesized`
+   - `M_isUnparenthesised` -> `M_isUnparenthesized`
+   - `M_parenthesisedVariadics(Head|Tail)` -> `M_parenthesizedVariadics(Head|Tail)`
 
 ### Fixed
 
