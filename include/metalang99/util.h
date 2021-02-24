@@ -368,39 +368,6 @@
 #define METALANG99_terms(...) __VA_ARGS__
 
 /**
- * A convenience macro that evaluates to `state, ...`.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- * #include <metalang99/uint.h>
- *
- * #define F_IMPL(i, x) M_withState(M_uintInc(v(i)), v(Billie x Jean))
- * @endcode
- */
-#define METALANG99_withState(state, ...) METALANG99_call(METALANG99_withState, state, __VA_ARGS__)
-
-/**
- * Constructs a stateful function out of the stateless @p f.
- *
- * @note the returned metafunction has the arity of 2 (a state + variadic arguments).
- */
-#define METALANG99_stateless(f) METALANG99_call(METALANG99_stateless, f)
-
-/**
- * The same as #METALANG99_stateless but the returned metafunction has the arity of 3 (a state + `a`
- * + variadic arguments).
- */
-#define METALANG99_stateless2(f) METALANG99_call(METALANG99_stateless2, f)
-
-/**
- * The same as #METALANG99_stateless but the returned metafunction has the arity of 4 (a state + `a`
- * + `b` + variadic arguments).
- */
-#define METALANG99_stateless3(f) METALANG99_call(METALANG99_stateless3, f)
-
-/**
  * Concatenates @p x with @p y as-is, without expanding them.
  *
  * # Examples
@@ -578,22 +545,6 @@
 #define METALANG99_typedef_IMPL(ident, ...)        v(typedef __VA_ARGS__ ident;)
 #define METALANG99_struct_IMPL(ident, ...)         v(struct ident{__VA_ARGS__})
 #define METALANG99_anonStruct_IMPL(...)            v(struct {__VA_ARGS__})
-#define METALANG99_withState_IMPL(state, ...)      v(state, __VA_ARGS__)
-
-#define METALANG99_stateless_IMPL(f)                                                               \
-    METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless, f)
-#define METALANG99_PRIV_stateless_IMPL(f, _state, ...)                                             \
-    METALANG99_terms(v(~, ), METALANG99_callTrivial(METALANG99_appl, f, __VA_ARGS__))
-
-#define METALANG99_stateless2_IMPL(f)                                                              \
-    METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless2, f)
-#define METALANG99_PRIV_stateless2_IMPL(f, _state, a, ...)                                         \
-    METALANG99_terms(v(~, ), METALANG99_callTrivial(METALANG99_appl2, f, a, __VA_ARGS__))
-
-#define METALANG99_stateless3_IMPL(f)                                                              \
-    METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_stateless3, f)
-#define METALANG99_PRIV_stateless3_IMPL(f, _state, a, b, ...)                                      \
-    METALANG99_terms(v(~, ), METALANG99_callTrivial(METALANG99_appl3, f, a, b, __VA_ARGS__))
 // }
 
 // Arity specifiers {
@@ -620,15 +571,8 @@
 #define METALANG99_typedef_ARITY            2
 #define METALANG99_struct_ARITY             2
 #define METALANG99_anonStruct_ARITY         1
-#define METALANG99_withState_ARITY          2
-#define METALANG99_stateless_ARITY          1
-#define METALANG99_stateless2_ARITY         1
-#define METALANG99_stateless3_ARITY         1
 
-#define METALANG99_PRIV_flip_ARITY       3
-#define METALANG99_PRIV_stateless_ARITY  3
-#define METALANG99_PRIV_stateless2_ARITY 4
-#define METALANG99_PRIV_stateless3_ARITY 5
+#define METALANG99_PRIV_flip_ARITY 3
 // }
 
 // Aliases {
@@ -658,10 +602,6 @@
 #define M_struct             METALANG99_struct
 #define M_anonStruct         METALANG99_anonStruct
 #define M_terms              METALANG99_terms
-#define M_withState          METALANG99_withState
-#define M_stateless          METALANG99_stateless
-#define M_stateless2         METALANG99_stateless2
-#define M_stateless3         METALANG99_stateless3
 #define M_catPrimitive       METALANG99_catPrimitive
 #define M_stringifyPrimitive METALANG99_stringifyPrimitive
 #define M_semicolon          METALANG99_semicolon

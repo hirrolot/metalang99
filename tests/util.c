@@ -71,38 +71,6 @@ M_assert(M_isUnparenthesized(v(123)));
 M_assertEmpty(M_consume(v(1, 2, 3)));
 // }
 
-// M_withState {
-#define CHECK(state, x) M_assertPlain(state == 7 && x == 30)
-
-M_eval(v(CHECK), M_parenthesize(M_withState(v(7), v(30))));
-
-#undef CHECK
-// }
-
-// M_stateless, M_stateless2, M_stateless3 {
-#define CHECK(_state, x) M_assertPlain(x == 30)
-
-#define F_IMPL(x)        v(x + 3)
-#define F_ARITY          1
-#define F2_IMPL(x, y)    v(x + y + 3)
-#define F2_ARITY         2
-#define F3_IMPL(x, y, z) v(x + y + z + 3)
-#define F3_ARITY         3
-
-M_eval(v(CHECK), M_parenthesize(M_appl2(M_stateless(v(F)), v(~), v(27))));
-M_eval(v(CHECK), M_parenthesize(M_appl3(M_stateless2(v(F2)), v(~), v(4), v(23))));
-M_eval(v(CHECK), M_parenthesize(M_appl(M_appl3(M_stateless3(v(F3)), v(~), v(4), v(15)), v(8))));
-
-#undef F_IMPL
-#undef F_ARITY
-#undef F_IMPL2
-#undef F_ARITY2
-#undef F_IMPL3
-#undef F_ARITY3
-
-#undef CHECK
-// }
-
 // M_semicolon {
 M_semicolon();
 M_semicolon();
