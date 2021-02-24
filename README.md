@@ -160,7 +160,7 @@ To perform fewer reduction steps, you can:
 
  - Use `M_callTrivial`,
  - Use the plain versions (e.g., `M_consumePlain` instead of `M_consume`),
- - Call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and `X` does not expand to a caller to avoid macro blueprinting. I strongly recommend to use this trick only if `X` is placed locally to a caller in order to ensure the correctness of expansion.
+ - Call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and macro blueprinting will not happen. I strongly recommend to use this trick only if `X` is placed locally to a caller in order to ensure the correctness of expansion.
 
 ## FAQ
 
