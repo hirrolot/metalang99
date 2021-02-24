@@ -45,10 +45,10 @@
 
 #define METALANG99_PRIV_REC_UNROLL(...) METALANG99_PRIV_REC_0(__VA_ARGS__)
 
-#define METALANG99_PRIV_EVAL_MATCH_HOOK()     METALANG99_PRIV_EVAL_MATCH
-#define METALANG99_PRIV_EVAL_0op_K_HOOK()     METALANG99_PRIV_EVAL_0op_K
-#define METALANG99_PRIV_EVAL_0args_K_HOOK()   METALANG99_PRIV_EVAL_0args_K
-#define METALANG99_PRIV_EVAL_0args_K_K_HOOK() METALANG99_PRIV_EVAL_0args_K_K
+#define METALANG99_PRIV_EVAL_MATCH_HOOK()          METALANG99_PRIV_EVAL_MATCH
+#define METALANG99_PRIV_EVAL_0op_K_HOOK()          METALANG99_PRIV_EVAL_0op_K
+#define METALANG99_PRIV_EVAL_0callTrivial_K_HOOK() METALANG99_PRIV_EVAL_0callTrivial_K
+#define METALANG99_PRIV_EVAL_0v_K_HOOK()           METALANG99_PRIV_EVAL_0v_K
 
 #define METALANG99_PRIV_EVAL_0args(...)        METALANG99_PRIV_EVAL_0args_AUX(__VA_ARGS__)
 #define METALANG99_PRIV_EVAL_0op(...)          METALANG99_PRIV_EVAL_0op_AUX(__VA_ARGS__)
@@ -76,7 +76,7 @@
 
 #define METALANG99_PRIV_EVAL_0args_AUX(k, k_cx, folder, acc, tail, op, ...)                        \
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
-        METALANG99_PRIV_EVAL_0args_K,                                                              \
+        METALANG99_PRIV_EVAL_0callTrivial_K,                                                       \
         (k, k_cx, folder, acc, tail, op),                                                          \
         METALANG99_PRIV_EVAL_FCOMMA,                                                               \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
@@ -86,17 +86,18 @@
 
 #define METALANG99_PRIV_EVAL_0op_AUX(k, k_cx, folder, acc, tail, op, ...)                          \
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
-        METALANG99_PRIV_EVAL_0op_K,                                                                \
-        (k, k_cx, folder, acc, tail, (__VA_ARGS__)),                                               \
-        METALANG99_PRIV_EVAL_FAPPEND,                                                              \
+        METALANG99_PRIV_EVAL_0callTrivial_K,                                                       \
+        (k, k_cx, folder, acc, tail),                                                              \
+        METALANG99_PRIV_EVAL_FCOMMA,                                                               \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
         op,                                                                                        \
+        __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
 
 #define METALANG99_PRIV_EVAL_0callTrivial_AUX(k, k_cx, folder, acc, tail, ident, ...)              \
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
-        METALANG99_PRIV_EVAL_0args_K_K,                                                            \
+        METALANG99_PRIV_EVAL_0v_K,                                                                 \
         (k, k_cx, folder, acc, tail),                                                              \
         METALANG99_PRIV_EVAL_FAPPEND,                                                              \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
@@ -125,10 +126,10 @@
 // }
 
 // Continuations {
-#define METALANG99_PRIV_EVAL_0args_K(k, k_cx, folder, acc, tail, evaluated_op, ...)                \
+#define METALANG99_PRIV_EVAL_0callTrivial_K(k, k_cx, folder, acc, tail, evaluated_op, ...)         \
     METALANG99_PRIV_INVOKE(                                                                        \
         METALANG99_PRIV_EVAL_MATCH,                                                                \
-        METALANG99_PRIV_EVAL_0args_K_K,                                                            \
+        METALANG99_PRIV_EVAL_0v_K,                                                                 \
         (k, k_cx, folder, acc, tail),                                                              \
         METALANG99_PRIV_EVAL_FAPPEND,                                                              \
         METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
@@ -136,7 +137,7 @@
         (0end, ~),                                                                                 \
         ~)
 
-#define METALANG99_PRIV_EVAL_0args_K_K(k, k_cx, folder, acc, tail, ...)                            \
+#define METALANG99_PRIV_EVAL_0v_K(k, k_cx, folder, acc, tail, ...)                                 \
     METALANG99_PRIV_INVOKE(                                                                        \
         METALANG99_PRIV_EVAL_MATCH,                                                                \
         k,                                                                                         \
@@ -144,16 +145,6 @@
         folder,                                                                                    \
         folder(acc, __VA_ARGS__),                                                                  \
         METALANG99_PRIV_EXPAND tail)
-
-#define METALANG99_PRIV_EVAL_0op_K(k, k_cx, folder, acc, tail, args, evaluated_op)                 \
-    METALANG99_PRIV_EVAL_0args(                                                                    \
-        k,                                                                                         \
-        k_cx,                                                                                      \
-        folder,                                                                                    \
-        acc,                                                                                       \
-        tail,                                                                                      \
-        evaluated_op,                                                                              \
-        METALANG99_PRIV_EXPAND args)
 // }
 
 #define METALANG99_PRIV_EVAL_REDUCE METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_MATCH)

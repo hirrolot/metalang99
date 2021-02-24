@@ -153,11 +153,11 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
     \begin{align*}
         (v): & \ \langle K; F; A; \texttt{v}(\overline{tok}), \overline{t} \rangle \to
             \langle K; F; F(A, \overline{tok}); \overline{t} \rangle \\
-        (op): & \ \langle K; F; A; \texttt{METALANG99\_call}(\overline{t}, \overline{a}), \overline{t'} \rangle \to \langle \\
-            & \ \ \ \ \langle K; F; A; \texttt{METALANG99\_call}(?, \overline{a}), \overline{t'} \rangle; \\
-            & \ \ \ \ fappend; \\
+        (op): & \ \langle K; F; A; \texttt{METALANG99\_call}(t, \overline{a}), \overline{t'} \rangle \to \langle \\
+            & \ \ \ \ \langle K; F; A; \texttt{METALANG99\_call}(?), \overline{t'} \rangle; \\
+            & \ \ \ \ fcomma; \\
             & \ \ \ \ (); \\
-            & \ \ \ \ \overline{t} \rangle \\
+            & \ \ \ \ t, \overline{a} \rangle \\
         (args): & \ \langle K; F; A; \texttt{METALANG99\_call}(ident, \overline{a}), \overline{t} \rangle \to \langle \\
             & \ \ \ \ \langle \langle K; F; F(A, ?); \overline{t} \rangle; fappend; (); ident\texttt{\_IMPL}(?) \rangle; \\
             & \ \ \ \ fcomma; \\
