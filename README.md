@@ -169,7 +169,7 @@ To perform fewer reduction steps, you can:
 A: Metalang99 detects and reports about syntactic errors, where possible. For example (`-E` flag):
 
 ```c
-// !Metalang99 syntax error: `123` is not a valid term
+// !"Metalang99 syntax error": `123`
 M_eval(123)
 ```
 
