@@ -130,9 +130,8 @@
 
 #define METALANG99_if_IMPL(cond, x, y) v(METALANG99_ifPlain(cond, x, y))
 
-#define METALANG99_when_IMPL(cond, x) v(METALANG99_whenPlain(cond, x))
-#define METALANG99_whenLazy_IMPL(cond, f)                                                          \
-    METALANG99_callTrivial(METALANG99_if, cond, f, METALANG99_consume)
+#define METALANG99_when_IMPL(cond, x)     v(METALANG99_whenPlain(cond, x))
+#define METALANG99_whenLazy_IMPL(cond, f) v(METALANG99_ifPlain(cond, f, METALANG99_consume))
 // }
 
 // Arity specifiers {

@@ -101,44 +101,30 @@
 #define METALANG99_nothing_IMPL() v(METALANG99_PRIV_choiceEmpty(nothing))
 
 // METALANG99_isJust_IMPL {
-#define METALANG99_isJust_IMPL(maybe)                                                              \
-    METALANG99_callTrivial(METALANG99_match, maybe, METALANG99_PRIV_isJust_)
+#define METALANG99_isJust_IMPL(maybe)         METALANG99_match_IMPL(maybe, METALANG99_PRIV_isJust_)
 #define METALANG99_PRIV_isJust_just_IMPL(_x)  v(METALANG99_true)
 #define METALANG99_PRIV_isJust_nothing_IMPL() v(METALANG99_false)
 // }
 
 // METALANG99_isNothing_IMPL {
-#define METALANG99_isNothing_IMPL(maybe)                                                           \
-    METALANG99_not(METALANG99_callTrivial(METALANG99_isJust, maybe))
+#define METALANG99_isNothing_IMPL(maybe) METALANG99_not(METALANG99_isJust_IMPL(maybe))
 // }
 
 // METALANG99_maybeEq_IMPL {
 #define METALANG99_maybeEq_IMPL(compare, maybe, other)                                             \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_matchWithArgs,                                                                  \
-        maybe,                                                                                     \
-        METALANG99_PRIV_maybeEq_,                                                                  \
-        other,                                                                                     \
-        compare)
+    METALANG99_matchWithArgs_IMPL(maybe, METALANG99_PRIV_maybeEq_, other, compare)
 
-#define METALANG99_PRIV_maybeEq_nothing_IMPL(other, _compare)                                      \
-    METALANG99_callTrivial(METALANG99_isNothing, other)
+#define METALANG99_PRIV_maybeEq_nothing_IMPL(other, _compare) METALANG99_isNothing_IMPL(other)
 #define METALANG99_PRIV_maybeEq_just_IMPL(x, other, compare)                                       \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_matchWithArgs,                                                                  \
-        other,                                                                                     \
-        METALANG99_PRIV_maybeEq_just_,                                                             \
-        x,                                                                                         \
-        compare)
+    METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_maybeEq_just_, x, compare)
 
 #define METALANG99_PRIV_maybeEq_just_nothing_IMPL(other, _compare) v(METALANG99_false)
-#define METALANG99_PRIV_maybeEq_just_just_IMPL(y, x, compare)                                      \
-    METALANG99_callTrivial(METALANG99_appl2, compare, x, y)
+#define METALANG99_PRIV_maybeEq_just_just_IMPL(y, x, compare)      METALANG99_appl2_IMPL(compare, x, y)
 // } (METALANG99_maybeEq_IMPL)
 
 // METALANG99_maybeUnwrap_IMPL {
 #define METALANG99_maybeUnwrap_IMPL(maybe)                                                         \
-    METALANG99_callTrivial(METALANG99_match, maybe, METALANG99_PRIV_maybeUnwrap_)
+    METALANG99_match_IMPL(maybe, METALANG99_PRIV_maybeUnwrap_)
 #define METALANG99_PRIV_maybeUnwrap_nothing_IMPL()                                                 \
     METALANG99_fatal(METALANG99_maybeUnwrap, expected METALANG99_just but found METALANG99_nothing)
 #define METALANG99_PRIV_maybeUnwrap_just_IMPL(x) v(x)

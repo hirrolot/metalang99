@@ -118,52 +118,34 @@
 #define METALANG99_right_IMPL(x) v(METALANG99_PRIV_choice(right, x))
 
 // METALANG99_isLeft_IMPL {
-#define METALANG99_isLeft_IMPL(either)                                                             \
-    METALANG99_callTrivial(METALANG99_match, either, METALANG99_PRIV_isLeft_)
+#define METALANG99_isLeft_IMPL(either)        METALANG99_match_IMPL(either, METALANG99_PRIV_isLeft_)
 #define METALANG99_PRIV_isLeft_left_IMPL(_x)  v(METALANG99_true)
 #define METALANG99_PRIV_isLeft_right_IMPL(_x) v(METALANG99_false)
 // }
 
 // METALANG99_isRight_IMPL {
-#define METALANG99_isRight_IMPL(either)                                                            \
-    METALANG99_not(METALANG99_callTrivial(METALANG99_isLeft, either))
+#define METALANG99_isRight_IMPL(either) METALANG99_not(METALANG99_isLeft_IMPL(either))
 // }
 
 // METALANG99_eitherEq_IMPL {
 #define METALANG99_eitherEq_IMPL(compare, maybe, other)                                            \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_matchWithArgs,                                                                  \
-        maybe,                                                                                     \
-        METALANG99_PRIV_eitherEq_,                                                                 \
-        other,                                                                                     \
-        compare)
+    METALANG99_matchWithArgs_IMPL(maybe, METALANG99_PRIV_eitherEq_, other, compare)
 
 #define METALANG99_PRIV_eitherEq_left_IMPL(x, other, compare)                                      \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_matchWithArgs,                                                                  \
-        other,                                                                                     \
-        METALANG99_PRIV_eitherEq_left_,                                                            \
-        x,                                                                                         \
-        compare)
+    METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_eitherEq_left_, x, compare)
 #define METALANG99_PRIV_eitherEq_right_IMPL(x, other, compare)                                     \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_matchWithArgs,                                                                  \
-        other,                                                                                     \
-        METALANG99_PRIV_eitherEq_right_,                                                           \
-        x,                                                                                         \
-        compare)
+    METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_eitherEq_right_, x, compare)
 
-#define METALANG99_PRIV_eitherEq_left_left_IMPL(y, x, compare)                                     \
-    METALANG99_callTrivial(METALANG99_appl2, compare, x, y)
+#define METALANG99_PRIV_eitherEq_left_left_IMPL(y, x, compare)  METALANG99_appl2_IMPL(compare, x, y)
 #define METALANG99_PRIV_eitherEq_left_right_IMPL(y, x, compare) v(METALANG99_false)
 #define METALANG99_PRIV_eitherEq_right_left_IMPL(y, x, compare) v(METALANG99_false)
 #define METALANG99_PRIV_eitherEq_right_right_IMPL(y, x, compare)                                   \
-    METALANG99_callTrivial(METALANG99_appl2, compare, x, y)
+    METALANG99_appl2_IMPL(compare, x, y)
 // } (METALANG99_eitherEq_IMPL)
 
 // METALANG99_unwrapLeft_IMPL {
 #define METALANG99_unwrapLeft_IMPL(either)                                                         \
-    METALANG99_callTrivial(METALANG99_match, either, METALANG99_PRIV_unwrapLeft_)
+    METALANG99_match_IMPL(either, METALANG99_PRIV_unwrapLeft_)
 #define METALANG99_PRIV_unwrapLeft_left_IMPL(x) v(x)
 #define METALANG99_PRIV_unwrapLeft_right_IMPL(_x)                                                  \
     METALANG99_fatal(METALANG99_unwrapLeft, expected METALANG99_left but found METALANG99_right)
@@ -171,7 +153,7 @@
 
 // METALANG99_unwrapRight_IMPL {
 #define METALANG99_unwrapRight_IMPL(either)                                                        \
-    METALANG99_callTrivial(METALANG99_match, either, METALANG99_PRIV_unwrapRight_)
+    METALANG99_match_IMPL(either, METALANG99_PRIV_unwrapRight_)
 #define METALANG99_PRIV_unwrapRight_left_IMPL(_x)                                                  \
     METALANG99_fatal(METALANG99_unwrapRight, expected METALANG99_right but found METALANG99_left)
 #define METALANG99_PRIV_unwrapRight_right_IMPL(x) v(x)
