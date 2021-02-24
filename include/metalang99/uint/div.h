@@ -7,10 +7,10 @@
 #include <metalang99/priv/variadics/get.h>
 
 #define METALANG99_uintDiv_IMPL(x, y)                                                              \
-    METALANG99_matchWithArgs(                                                                      \
-        METALANG99_uintDivChecked(v(x), v(y)),                                                     \
-        v(METALANG99_PRIV_uintDiv_),                                                               \
-        v(x, y))
+    METALANG99_call(                                                                               \
+        METALANG99_matchWithArgs,                                                                  \
+        METALANG99_uintDivChecked_IMPL(x, y),                                                      \
+        v(METALANG99_PRIV_uintDiv_, x, y))
 #define METALANG99_PRIV_uintDiv_nothing_IMPL(x, y)   METALANG99_PRIV_uintDiv_ERROR(x, y)
 #define METALANG99_PRIV_uintDiv_just_IMPL(n, _x, _y) v(n)
 #define METALANG99_PRIV_uintDiv_ERROR(x, y)                                                        \
