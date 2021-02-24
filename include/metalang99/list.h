@@ -689,48 +689,45 @@
 #define METALANG99_PRIV_nil()       METALANG99_PRIV_choiceEmpty(nil)
 
 // METALANG99_listHead_IMPL {
-#define METALANG99_listHead_IMPL(list)                                                             \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listHead_)
+#define METALANG99_listHead_IMPL(list)             METALANG99_match_IMPL(list, METALANG99_PRIV_listHead_)
 #define METALANG99_PRIV_listHead_nil_IMPL()        METALANG99_PRIV_EMPTY_LIST_ERROR(listHead)
 #define METALANG99_PRIV_listHead_cons_IMPL(x, _xs) v(x)
 // }
 
 // METALANG99_listTail_IMPL {
-#define METALANG99_listTail_IMPL(list)                                                             \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listTail_)
+#define METALANG99_listTail_IMPL(list)             METALANG99_match_IMPL(list, METALANG99_PRIV_listTail_)
 #define METALANG99_PRIV_listTail_nil_IMPL()        METALANG99_PRIV_EMPTY_LIST_ERROR(listTail)
 #define METALANG99_PRIV_listTail_cons_IMPL(_x, xs) v(xs)
 // }
 
 // METALANG99_listLast_IMPL {
-#define METALANG99_listLast_IMPL(list)                                                             \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listLast_)
+#define METALANG99_listLast_IMPL(list)      METALANG99_match_IMPL(list, METALANG99_PRIV_listLast_)
 #define METALANG99_PRIV_listLast_nil_IMPL() METALANG99_PRIV_EMPTY_LIST_ERROR(listLast)
 #define METALANG99_PRIV_listLast_cons_IMPL(x, xs)                                                  \
     METALANG99_call(                                                                               \
-        METALANG99_call(                                                                           \
+        METALANG99_callTrivial(                                                                    \
             METALANG99_if,                                                                         \
-            METALANG99_callTrivial(METALANG99_isNil, xs),                                          \
-            v(METALANG99_PRIV_listLastDone, METALANG99_PRIV_listLastProgress)),                    \
+            METALANG99_isNilPlain(xs),                                                             \
+            METALANG99_PRIV_listLastDone,                                                          \
+            METALANG99_PRIV_listLastProgress),                                                     \
         v(x, xs))
-#define METALANG99_PRIV_listLastDone_IMPL(x, _xs) v(x)
-#define METALANG99_PRIV_listLastProgress_IMPL(_x, xs)                                              \
-    METALANG99_callTrivial(METALANG99_listLast, xs)
+#define METALANG99_PRIV_listLastDone_IMPL(x, _xs)     v(x)
+#define METALANG99_PRIV_listLastProgress_IMPL(_x, xs) METALANG99_listLast_IMPL(xs)
 // }
 
 // METALANG99_listInit_IMPL {
-#define METALANG99_listInit_IMPL(list)                                                             \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listInit_)
+#define METALANG99_listInit_IMPL(list)      METALANG99_match_IMPL(list, METALANG99_PRIV_listInit_)
 #define METALANG99_PRIV_listInit_nil_IMPL() METALANG99_PRIV_EMPTY_LIST_ERROR(listInit)
 #define METALANG99_PRIV_listInit_cons_IMPL(x, xs)                                                  \
     METALANG99_call(                                                                               \
-        METALANG99_call(                                                                           \
+        METALANG99_callTrivial(                                                                    \
             METALANG99_if,                                                                         \
-            METALANG99_callTrivial(METALANG99_isNil, xs),                                          \
-            v(METALANG99_PRIV_CONST_NIL, METALANG99_PRIV_listInitProgress)),                       \
+            METALANG99_isNilPlain(xs),                                                             \
+            METALANG99_PRIV_CONST_NIL,                                                             \
+            METALANG99_PRIV_listInitProgress),                                                     \
         v(x, xs))
 #define METALANG99_PRIV_listInitProgress_IMPL(x, xs)                                               \
-    METALANG99_cons(v(x), METALANG99_callTrivial(METALANG99_listInit, xs))
+    METALANG99_cons(v(x), METALANG99_listInit_IMPL(xs))
 // }
 
 // METALANG99_list_IMPL {
@@ -783,24 +780,22 @@
 // } (METALANG99_list_IMPL)
 
 // METALANG99_listLen_IMPL {
-#define METALANG99_listLen_IMPL(list)                                                              \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listLen_)
-#define METALANG99_PRIV_listLen_nil_IMPL() v(0)
-#define METALANG99_PRIV_listLen_cons_IMPL(_x, xs)                                                  \
-    METALANG99_uintInc(METALANG99_callTrivial(METALANG99_listLen, xs))
+#define METALANG99_listLen_IMPL(list)             METALANG99_match_IMPL(list, METALANG99_PRIV_listLen_)
+#define METALANG99_PRIV_listLen_nil_IMPL()        v(0)
+#define METALANG99_PRIV_listLen_cons_IMPL(_x, xs) METALANG99_uintInc(METALANG99_listLen_IMPL(xs))
 // }
 
 // METALANG99_listAppend_IMPL {
 #define METALANG99_listAppend_IMPL(list, other)                                                    \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listAppend_, other)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listAppend_, other)
 #define METALANG99_PRIV_listAppend_nil_IMPL(other) v(other)
 #define METALANG99_PRIV_listAppend_cons_IMPL(x, xs, other)                                         \
-    METALANG99_cons(v(x), METALANG99_callTrivial(METALANG99_listAppend, xs, other))
+    METALANG99_cons(v(x), METALANG99_listAppend_IMPL(xs, other))
 // }
 
 // METALANG99_listAppendItem_IMPL {
 #define METALANG99_listAppendItem_IMPL(item, list)                                                 \
-    METALANG99_listAppend(v(list), METALANG99_callTrivial(M_list, item))
+    METALANG99_listAppend_IMPL(list, METALANG99_PRIV_cons(item, METALANG99_PRIV_nil()))
 // }
 
 // METALANG99_isNil_IMPL {
@@ -812,24 +807,21 @@
 // }
 
 // METALANG99_listUnwrap_IMPL {
-#define METALANG99_listUnwrap_IMPL(list)                                                           \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listUnwrap_)
+#define METALANG99_listUnwrap_IMPL(list)      METALANG99_match_IMPL(list, METALANG99_PRIV_listUnwrap_)
 #define METALANG99_PRIV_listUnwrap_nil_IMPL() METALANG99_empty()
 #define METALANG99_PRIV_listUnwrap_cons_IMPL(x, xs)                                                \
-    METALANG99_terms(v(x), METALANG99_callTrivial(METALANG99_listUnwrap, xs))
+    METALANG99_terms(v(x), METALANG99_listUnwrap_IMPL(xs))
 // }
 
 // METALANG99_listReverse_IMPL {
-#define METALANG99_listReverse_IMPL(list)                                                          \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listReverse_)
+#define METALANG99_listReverse_IMPL(list)      METALANG99_match_IMPL(list, METALANG99_PRIV_listReverse_)
 #define METALANG99_PRIV_listReverse_nil_IMPL() METALANG99_nil()
 #define METALANG99_PRIV_listReverse_cons_IMPL(x, xs)                                               \
-    METALANG99_listAppendItem(v(x), METALANG99_callTrivial(METALANG99_listReverse, xs))
+    METALANG99_listAppendItem(v(x), METALANG99_listReverse_IMPL(xs))
 // }
 
 // METALANG99_get_IMPL {
-#define METALANG99_get_IMPL(i, list)                                                               \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_get_, i)
+#define METALANG99_get_IMPL(i, list)    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_get_, i)
 #define METALANG99_PRIV_get_nil_IMPL(i) METALANG99_PRIV_EMPTY_LIST_ERROR(METALANG99_get)
 #define METALANG99_PRIV_get_cons_IMPL(x, xs, i)                                                    \
     METALANG99_PRIV_IF(                                                                            \
@@ -838,23 +830,20 @@
         METALANG99_PRIV_getProgress)                                                               \
     (x, METALANG99_PRIV_uintDec(i), xs)
 #define METALANG99_PRIV_getDone(x, _i, _xs)   v(x)
-#define METALANG99_PRIV_getProgress(x, i, xs) METALANG99_callTrivial(METALANG99_get, i, xs)
+#define METALANG99_PRIV_getProgress(x, i, xs) METALANG99_get_IMPL(i, xs)
 // }
 
 // METALANG99_listFoldr_IMPL {
 #define METALANG99_listFoldr_IMPL(f, init, list)                                                   \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listFoldr_, f, init)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listFoldr_, f, init)
 #define METALANG99_PRIV_listFoldr_nil_IMPL(_f, acc) v(acc)
 #define METALANG99_PRIV_listFoldr_cons_IMPL(x, xs, f, acc)                                         \
-    METALANG99_call(                                                                               \
-        METALANG99_appl2,                                                                          \
-        v(f, x),                                                                                   \
-        METALANG99_callTrivial(METALANG99_listFoldr, f, acc, xs))
+    METALANG99_call(METALANG99_appl2, v(f, x), METALANG99_listFoldr_IMPL(f, acc, xs))
 // }
 
 // METALANG99_listFoldl_IMPL {
 #define METALANG99_listFoldl_IMPL(f, init, list)                                                   \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listFoldl_, f, init)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listFoldl_, f, init)
 #define METALANG99_PRIV_listFoldl_nil_IMPL(_f, acc) v(acc)
 #define METALANG99_PRIV_listFoldl_cons_IMPL(x, xs, f, acc)                                         \
     METALANG99_listFoldl(v(f), METALANG99_callTrivial(METALANG99_appl2, f, acc, x), v(xs))
@@ -862,71 +851,66 @@
 
 // METALANG99_listFoldl1_IMPL {
 #define METALANG99_listFoldl1_IMPL(f, list)                                                        \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listFoldl1_, f)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listFoldl1_, f)
 #define METALANG99_PRIV_listFoldl1_nil_IMPL(_f)                                                    \
     METALANG99_PRIV_EMPTY_LIST_ERROR(METALANG99_listFoldl1)
-#define METALANG99_PRIV_listFoldl1_cons_IMPL(x, xs, f)                                             \
-    METALANG99_callTrivial(METALANG99_listFoldl, f, x, xs)
+#define METALANG99_PRIV_listFoldl1_cons_IMPL(x, xs, f) METALANG99_listFoldl_IMPL(f, x, xs)
 // }
 
 // METALANG99_listIntersperse_IMPL {
 #define METALANG99_listIntersperse_IMPL(item, list)                                                \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listIntersperse_, item)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listIntersperse_, item)
 #define METALANG99_PRIV_listIntersperse_nil_IMPL(_item) METALANG99_nil()
 #define METALANG99_PRIV_listIntersperse_cons_IMPL(x, xs, item)                                     \
-    METALANG99_cons(v(x), METALANG99_callTrivial(METALANG99_listPrependToAll, item, xs))
+    METALANG99_cons(v(x), METALANG99_listPrependToAll_IMPL(item, xs))
 // }
 
 // METALANG99_listPrependToAll_IMPL {
 #define METALANG99_listPrependToAll_IMPL(item, list)                                               \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listPrependToAll_, item)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listPrependToAll_, item)
 #define METALANG99_PRIV_listPrependToAll_nil_IMPL(_item) METALANG99_nil()
 #define METALANG99_PRIV_listPrependToAll_cons_IMPL(x, xs, item)                                    \
-    METALANG99_cons(                                                                               \
-        v(item),                                                                                   \
-        METALANG99_cons(v(x), METALANG99_callTrivial(METALANG99_listPrependToAll, item, xs)))
+    METALANG99_cons(v(item), METALANG99_cons(v(x), METALANG99_listPrependToAll_IMPL(item, xs)))
 // }
 
 // METALANG99_listMap_IMPL {
 #define METALANG99_listMap_IMPL(f, list)                                                           \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listMap_, f)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listMap_, f)
 #define METALANG99_PRIV_listMap_nil_IMPL(_f) METALANG99_nil()
 #define METALANG99_PRIV_listMap_cons_IMPL(x, xs, f)                                                \
-    METALANG99_cons(                                                                               \
-        METALANG99_callTrivial(METALANG99_appl, f, x),                                             \
-        METALANG99_callTrivial(METALANG99_listMap, f, xs))
+    METALANG99_cons(METALANG99_callTrivial(METALANG99_appl, f, x), METALANG99_listMap_IMPL(f, xs))
 // }
 
 // METALANG99_listMapI_IMPL {
 #define METALANG99_listMapI_IMPL(f, list) METALANG99_PRIV_listMapIAux_IMPL(f, list, 0)
 #define METALANG99_PRIV_listMapIAux_IMPL(f, list, i)                                               \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listMapI_, f, i)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listMapI_, f, i)
 #define METALANG99_PRIV_listMapI_nil_IMPL(_f, _i) METALANG99_nil()
 #define METALANG99_PRIV_listMapI_cons_IMPL(x, xs, f, i)                                            \
     METALANG99_cons(                                                                               \
         METALANG99_callTrivial(METALANG99_appl2, f, x, i),                                         \
-        METALANG99_callTrivial(METALANG99_PRIV_listMapIAux, f, xs, METALANG99_PRIV_uintInc(i)))
+        METALANG99_PRIV_listMapIAux_IMPL(f, xs, METALANG99_PRIV_uintInc(i)))
 // }
 
 // METALANG99_listFor_IMPL {
-#define METALANG99_listFor_IMPL(list, f) METALANG99_callTrivial(METALANG99_listMap, f, list)
+#define METALANG99_listFor_IMPL(list, f) METALANG99_listMap_IMPL(f, list)
 // }
 
 // METALANG99_listMapInitLast_IMPL {
 #define METALANG99_listMapInitLast_IMPL(f_init, f_last, list)                                      \
     METALANG99_listAppendItem(                                                                     \
-        METALANG99_appl(v(f_last), METALANG99_callTrivial(METALANG99_listLast, list)),             \
-        METALANG99_listMap(v(f_init), METALANG99_callTrivial(METALANG99_listInit, list)))
+        METALANG99_appl(v(f_last), METALANG99_listLast_IMPL(list)),                                \
+        METALANG99_listMap(v(f_init), METALANG99_listInit_IMPL(list)))
 // }
 
 // METALANG99_listForInitLast_IMPL {
 #define METALANG99_listForInitLast_IMPL(list, f_init, f_last)                                      \
-    METALANG99_callTrivial(METALANG99_listMapInitLast, f_init, f_last, list)
+    METALANG99_listMapInitLast_IMPL(f_init, f_last, list)
 // }
 
 // METALANG99_listFilter_IMPL {
 #define METALANG99_listFilter_IMPL(f, list)                                                        \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listFilter_, f)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listFilter_, f)
 #define METALANG99_PRIV_listFilter_nil_IMPL(_f) METALANG99_nil()
 #define METALANG99_PRIV_listFilter_cons_IMPL(x, xs, f)                                             \
     METALANG99_call(                                                                               \
@@ -935,24 +919,17 @@
             METALANG99_callTrivial(METALANG99_appl, f, x),                                         \
             v(METALANG99_cons, METALANG99_PRIV_listFilterRest)),                                   \
         v(x),                                                                                      \
-        METALANG99_callTrivial(METALANG99_listFilter, f, xs))
+        METALANG99_listFilter_IMPL(f, xs))
 #define METALANG99_PRIV_listFilterRest_IMPL(_x, rest) v(rest)
 // }
 
 // METALANG99_listEq_IMPL {
 #define METALANG99_listEq_IMPL(compare, list, other)                                               \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listEq_, other, compare)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listEq_, other, compare)
 
-#define METALANG99_PRIV_listEq_nil_IMPL(other, _compare)                                           \
-    METALANG99_callTrivial(METALANG99_isNil, other)
+#define METALANG99_PRIV_listEq_nil_IMPL(other, _compare) v(METALANG99_isNilPlain(other))
 #define METALANG99_PRIV_listEq_cons_IMPL(x, xs, other, compare)                                    \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_matchWithArgs,                                                                  \
-        other,                                                                                     \
-        METALANG99_PRIV_listEq_cons_,                                                              \
-        x,                                                                                         \
-        xs,                                                                                        \
-        compare)
+    METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_listEq_cons_, x, xs, compare)
 
 #define METALANG99_PRIV_listEq_cons_nil_IMPL(_x, _xs, _compare) v(METALANG99_false)
 #define METALANG99_PRIV_listEq_cons_cons_IMPL(other_x, other_xs, x, xs, compare)                   \
@@ -966,12 +943,7 @@
 
 // METALANG99_listContains_IMPL {
 #define METALANG99_listContains_IMPL(compare, item, list)                                          \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_matchWithArgs,                                                                  \
-        list,                                                                                      \
-        METALANG99_PRIV_listContains_,                                                             \
-        item,                                                                                      \
-        compare)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listContains_, item, compare)
 #define METALANG99_PRIV_listContains_nil_IMPL(_item, _compare) v(METALANG99_false)
 #define METALANG99_PRIV_listContains_cons_IMPL(x, xs, item, compare)                               \
     METALANG99_call(                                                                               \
@@ -984,7 +956,7 @@
 
 // METALANG99_listTake_IMPL {
 #define METALANG99_listTake_IMPL(n, list)                                                          \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listTake_, n)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listTake_, n)
 #define METALANG99_PRIV_listTake_nil_IMPL(_i) METALANG99_nil()
 #define METALANG99_PRIV_listTake_cons_IMPL(x, xs, i)                                               \
     METALANG99_PRIV_IF(                                                                            \
@@ -994,14 +966,12 @@
     (x, xs, i)
 #define METALANG99_PRIV_listTakeDone(_x, _xs, _i) METALANG99_nil()
 #define METALANG99_PRIV_listTakeProgress(x, xs, i)                                                 \
-    METALANG99_cons(                                                                               \
-        v(x),                                                                                      \
-        METALANG99_callTrivial(METALANG99_listTake, METALANG99_PRIV_uintDec(i), xs))
+    METALANG99_cons(v(x), METALANG99_listTake_IMPL(METALANG99_PRIV_uintDec(i), xs))
 // }
 
 // METALANG99_listTakeWhile_IMPL {
 #define METALANG99_listTakeWhile_IMPL(f, list)                                                     \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listTakeWhile_, f)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listTakeWhile_, f)
 #define METALANG99_PRIV_listTakeWhile_nil_IMPL(_f) METALANG99_nil()
 #define METALANG99_PRIV_listTakeWhile_cons_IMPL(x, xs, f)                                          \
     METALANG99_call(                                                                               \
@@ -1011,12 +981,12 @@
             v(METALANG99_PRIV_listTakeWhileProgress, METALANG99_PRIV_CONST_NIL)),                  \
         v(x, xs, f))
 #define METALANG99_PRIV_listTakeWhileProgress_IMPL(x, xs, f)                                       \
-    METALANG99_cons(v(x), METALANG99_callTrivial(METALANG99_listTakeWhile, f, xs))
+    METALANG99_cons(v(x), METALANG99_listTakeWhile_IMPL(f, xs))
 // }
 
 // METALANG99_listDrop_IMPL {
 #define METALANG99_listDrop_IMPL(n, list)                                                          \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listDrop_, n)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listDrop_, n)
 #define METALANG99_PRIV_listDrop_nil_IMPL(_i) METALANG99_nil()
 #define METALANG99_PRIV_listDrop_cons_IMPL(x, xs, i)                                               \
     METALANG99_PRIV_IF(                                                                            \
@@ -1026,12 +996,12 @@
     (x, xs, i)
 #define METALANG99_PRIV_listDropDone(x, xs, _i) METALANG99_call(METALANG99_cons, v(x, xs))
 #define METALANG99_PRIV_listDropProgress(_x, xs, i)                                                \
-    METALANG99_callTrivial(METALANG99_listDrop, METALANG99_PRIV_uintDec(i), xs)
+    METALANG99_listDrop_IMPL(METALANG99_PRIV_uintDec(i), xs)
 // }
 
 // METALANG99_listDropWhile_IMPL {
 #define METALANG99_listDropWhile_IMPL(f, list)                                                     \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listDropWhile_, f)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listDropWhile_, f)
 #define METALANG99_PRIV_listDropWhile_nil_IMPL(_f) METALANG99_nil()
 #define METALANG99_PRIV_listDropWhile_cons_IMPL(x, xs, f)                                          \
     METALANG99_call(                                                                               \
@@ -1040,60 +1010,51 @@
             METALANG99_callTrivial(METALANG99_appl, f, x),                                         \
             v(METALANG99_PRIV_listDropWhileProgress, METALANG99_PRIV_listDropWhileDone)),          \
         v(x, xs, f))
-#define METALANG99_PRIV_listDropWhileDone_IMPL(x, xs, _f)                                          \
-    METALANG99_callTrivial(METALANG99_cons, x, xs)
-#define METALANG99_PRIV_listDropWhileProgress_IMPL(_x, xs, f)                                      \
-    METALANG99_callTrivial(METALANG99_listDropWhile, f, xs)
+#define METALANG99_PRIV_listDropWhileDone_IMPL(x, xs, _f)     v(METALANG99_PRIV_cons(x, xs))
+#define METALANG99_PRIV_listDropWhileProgress_IMPL(_x, xs, f) METALANG99_listDropWhile_IMPL(f, xs)
 // }
 
 // METALANG99_listZip_IMPL {
 #define METALANG99_listZip_IMPL(list, other)                                                       \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, list, METALANG99_PRIV_listZip_, other)
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listZip_, other)
 
 #define METALANG99_PRIV_listZip_nil_IMPL(_other) METALANG99_nil()
 #define METALANG99_PRIV_listZip_cons_IMPL(x, xs, other)                                            \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, other, METALANG99_PRIV_listZip_cons_, x, xs)
+    METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_listZip_cons_, x, xs)
 
 #define METALANG99_PRIV_listZip_cons_nil_IMPL(_x, _xs) METALANG99_nil()
 #define METALANG99_PRIV_listZip_cons_cons_IMPL(other_x, other_xs, x, xs)                           \
-    METALANG99_cons(                                                                               \
-        METALANG99_callTrivial(METALANG99_list, x, other_x),                                       \
-        METALANG99_callTrivial(METALANG99_listZip, xs, other_xs))
+    METALANG99_cons(METALANG99_list_IMPL(x, other_x), METALANG99_listZip_IMPL(xs, other_xs))
 // }
 
 // METALANG99_listUnzip_IMPL {
-#define METALANG99_listUnzip_IMPL(list)                                                            \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listUnzip_)
+#define METALANG99_listUnzip_IMPL(list) METALANG99_match_IMPL(list, METALANG99_PRIV_listUnzip_)
 
-#define METALANG99_PRIV_listUnzip_nil_IMPL() METALANG99_list(METALANG99_nil(), METALANG99_nil())
+#define METALANG99_PRIV_listUnzip_nil_IMPL()                                                       \
+    METALANG99_list_IMPL(METALANG99_PRIV_nil(), METALANG99_PRIV_nil())
 #define METALANG99_PRIV_listUnzip_cons_IMPL(x, xs)                                                 \
-    METALANG99_call(                                                                               \
-        METALANG99_PRIV_listUnzipProgress,                                                         \
-        v(x),                                                                                      \
-        METALANG99_callTrivial(METALANG99_listUnzip, xs))
+    METALANG99_call(METALANG99_PRIV_listUnzipProgress, v(x), METALANG99_listUnzip_IMPL(xs))
 #define METALANG99_PRIV_listUnzipProgress_IMPL(x, rest)                                            \
     METALANG99_list(                                                                               \
-        METALANG99_callTrivial(METALANG99_PRIV_listUnzip_ADD, x, rest, 0),                         \
-        METALANG99_callTrivial(METALANG99_PRIV_listUnzip_ADD, x, rest, 1))
-#define METALANG99_PRIV_listUnzip_ADD_IMPL(x, rest, i)                                             \
-    METALANG99_cons(                                                                               \
-        METALANG99_callTrivial(METALANG99_get, i, x),                                              \
-        METALANG99_callTrivial(METALANG99_get, i, rest))
+        METALANG99_PRIV_listUnzipAdd_IMPL(x, rest, 0),                                             \
+        METALANG99_PRIV_listUnzipAdd_IMPL(x, rest, 1))
+#define METALANG99_PRIV_listUnzipAdd_IMPL(x, rest, i)                                              \
+    METALANG99_cons(METALANG99_get_IMPL(i, x), METALANG99_get_IMPL(i, rest))
 // }
 
 // METALANG99_listReplicate_IMPL {
 #define METALANG99_listReplicate_IMPL(n, item)                                                     \
-    METALANG99_callTrivial(METALANG99_uintMatchWithArgs, n, METALANG99_PRIV_listReplicate_, item)
+    METALANG99_uintMatchWithArgs_IMPL(n, METALANG99_PRIV_listReplicate_, item)
 #define METALANG99_PRIV_listReplicate_Z_IMPL(item) METALANG99_nil()
 #define METALANG99_PRIV_listReplicate_S_IMPL(n, item)                                              \
-    METALANG99_cons(v(item), METALANG99_callTrivial(METALANG99_listReplicate, n, item))
+    METALANG99_cons(v(item), METALANG99_listReplicate_IMPL(n, item))
 // }
 
 // METALANG99_listPartition_IMPL {
 #define METALANG99_listPartition_IMPL(f, list)                                                     \
     METALANG99_listFoldr(                                                                          \
         METALANG99_callTrivial(METALANG99_appl, METALANG99_PRIV_listPartitionAux, f),              \
-        METALANG99_callTrivial(METALANG99_list, METALANG99_PRIV_nil(), METALANG99_PRIV_nil()),     \
+        METALANG99_list_IMPL(METALANG99_PRIV_nil(), METALANG99_PRIV_nil()),                        \
         v(list))
 
 #define METALANG99_PRIV_listPartitionAux_IMPL(f, x, acc)                                           \
@@ -1104,32 +1065,31 @@
             v(METALANG99_PRIV_listPartitionAuxExtendFst,                                           \
               METALANG99_PRIV_listPartitionAuxExtendSnd)),                                         \
         v(x),                                                                                      \
-        METALANG99_callTrivial(METALANG99_get, 0, acc),                                            \
-        METALANG99_callTrivial(METALANG99_get, 1, acc))
+        METALANG99_get_IMPL(0, acc),                                                               \
+        METALANG99_get_IMPL(1, acc))
 
 #define METALANG99_PRIV_listPartitionAuxExtendFst_IMPL(x, fst, snd)                                \
-    METALANG99_callTrivial(METALANG99_list, METALANG99_PRIV_cons(x, fst), snd)
+    METALANG99_list_IMPL(METALANG99_PRIV_cons(x, fst), snd)
 #define METALANG99_PRIV_listPartitionAuxExtendSnd_IMPL(x, fst, snd)                                \
-    METALANG99_callTrivial(METALANG99_list, fst, METALANG99_PRIV_cons(x, snd))
+    METALANG99_list_IMPL(fst, METALANG99_PRIV_cons(x, snd))
 // }
 
 // METALANG99_listAppl_IMPL {
-#define METALANG99_listAppl_IMPL(f, list)                                                          \
-    METALANG99_callTrivial(METALANG99_listFoldl, METALANG99_appl, f, list)
+#define METALANG99_listAppl_IMPL(f, list) METALANG99_listFoldl_IMPL(METALANG99_appl, f, list)
 // }
 
 // METALANG99_listUnwrapCommaSep {
 #define METALANG99_listUnwrapCommaSep_IMPL(list)                                                   \
-    METALANG99_callTrivial(METALANG99_match, list, METALANG99_PRIV_listUnwrapCommaSep_)
+    METALANG99_match_IMPL(list, METALANG99_PRIV_listUnwrapCommaSep_)
 #define METALANG99_PRIV_listUnwrapCommaSep_nil_IMPL() METALANG99_empty()
 #define METALANG99_PRIV_listUnwrapCommaSep_cons_IMPL(x, xs)                                        \
-    METALANG99_terms(v(x), METALANG99_callTrivial(METALANG99_PRIV_listUnwrapCommaSepAux, xs))
+    METALANG99_terms(v(x), METALANG99_PRIV_listUnwrapCommaSepAux_IMPL(xs))
 
 #define METALANG99_PRIV_listUnwrapCommaSepAux_IMPL(xs)                                             \
-    METALANG99_callTrivial(METALANG99_match, xs, METALANG99_PRIV_listUnwrapCommaSepAux_)
+    METALANG99_match_IMPL(xs, METALANG99_PRIV_listUnwrapCommaSepAux_)
 #define METALANG99_PRIV_listUnwrapCommaSepAux_nil_IMPL() METALANG99_empty()
 #define METALANG99_PRIV_listUnwrapCommaSepAux_cons_IMPL(x, xs)                                     \
-    METALANG99_terms(v(, x), METALANG99_callTrivial(METALANG99_PRIV_listUnwrapCommaSepAux, xs))
+    METALANG99_terms(v(, x), METALANG99_PRIV_listUnwrapCommaSepAux_IMPL(xs))
 // }
 
 // clang-format off

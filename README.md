@@ -156,7 +156,7 @@ Generally speaking, the fewer reduction steps you perform, the faster you become
  - Every `v(...)` is a reduction step.
  - Every `M_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
 
-To perform fewer reduction steps, consider using `M_callTrivial` as well as the plain versions (e.g., `M_consumePlain` instead of `M_consume`), when possible.
+To perform fewer reduction steps, consider using `M_callTrivial` as well as the plain versions (e.g., `M_consumePlain` instead of `M_consume`), when possible. We can even call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and `X` does not expand to a caller to avoid macro blueprinting. Usually, `<X>_IMPL(...)` is used only if `X` is placed locally to a caller in order to ensure the correctness of expansion.
 
 ## FAQ
 

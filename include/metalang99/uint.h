@@ -423,8 +423,8 @@
 #define METALANG99_uintInc_IMPL(x)    v(METALANG99_uintIncPlain(x))
 #define METALANG99_uintDec_IMPL(x)    v(METALANG99_uintDecPlain(x))
 
-#define METALANG99_uintGreater_IMPL(x, y)  METALANG99_callTrivial(METALANG99_uintLesser, y, x)
-#define METALANG99_uintLesserEq_IMPL(x, y) METALANG99_callTrivial(METALANG99_uintGreaterEq, y, x)
+#define METALANG99_uintGreater_IMPL(x, y)  METALANG99_uintLesser_IMPL(y, x)
+#define METALANG99_uintLesserEq_IMPL(x, y) METALANG99_uintGreaterEq_IMPL(y, x)
 
 #define METALANG99_uintGreaterEq_IMPL(x, y)                                                        \
     METALANG99_callTrivial(                                                                        \
@@ -480,10 +480,7 @@
         x,                                                                                         \
         y)
 #define METALANG99_PRIV_uintSubProgress_IMPL(x, y)                                                 \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_uintSub,                                                                        \
-        METALANG99_PRIV_uintDec(x),                                                                \
-        METALANG99_PRIV_uintDec(y))
+    METALANG99_uintSub_IMPL(METALANG99_PRIV_uintDec(x), METALANG99_PRIV_uintDec(y))
 // }
 
 // METALANG99_uintMul_IMPL {
@@ -496,9 +493,7 @@
         x,                                                                                         \
         y)
 #define METALANG99_PRIV_uintMulProgress_IMPL(x, y)                                                 \
-    METALANG99_uintAdd(                                                                            \
-        v(x),                                                                                      \
-        METALANG99_callTrivial(METALANG99_uintMul, x, METALANG99_PRIV_uintDec(y)))
+    METALANG99_uintAdd(v(x), METALANG99_uintMul_IMPL(x, METALANG99_PRIV_uintDec(y)))
 // }
 
 // METALANG99_uintMod_IMPL {
@@ -532,19 +527,15 @@
         METALANG99_PRIV_uintInc(acc))
 // }
 
-#define METALANG99_uintAdd3_IMPL(x, y, z)                                                          \
-    METALANG99_uintAdd(METALANG99_callTrivial(METALANG99_uintAdd, x, y), v(z))
-#define METALANG99_uintSub3_IMPL(x, y, z)                                                          \
-    METALANG99_uintSub(METALANG99_callTrivial(METALANG99_uintSub, x, y), v(z))
-#define METALANG99_uintMul3_IMPL(x, y, z)                                                          \
-    METALANG99_uintMul(METALANG99_callTrivial(METALANG99_uintMul, x, y), v(z))
-#define METALANG99_uintDiv3_IMPL(x, y, z)                                                          \
-    METALANG99_uintDiv(METALANG99_callTrivial(METALANG99_uintDiv, x, y), v(z))
+#define METALANG99_uintAdd3_IMPL(x, y, z) METALANG99_uintAdd(METALANG99_uintAdd_IMPL(x, y), v(z))
+#define METALANG99_uintSub3_IMPL(x, y, z) METALANG99_uintSub(METALANG99_uintSub_IMPL(x, y), v(z))
+#define METALANG99_uintMul3_IMPL(x, y, z) METALANG99_uintMul(METALANG99_uintMul_IMPL(x, y), v(z))
+#define METALANG99_uintDiv3_IMPL(x, y, z) METALANG99_uintDiv(METALANG99_uintDiv_IMPL(x, y), v(z))
 
 #define METALANG99_uintMin_IMPL(x, y)                                                              \
-    METALANG99_if(METALANG99_callTrivial(METALANG99_uintLesser, x, y), v(x), v(y))
+    METALANG99_call(METALANG99_if, METALANG99_uintLesser_IMPL(x, y), v(x, y))
 #define METALANG99_uintMax_IMPL(x, y)                                                              \
-    METALANG99_if(METALANG99_callTrivial(METALANG99_uintLesser, x, y), v(y), v(x))
+    METALANG99_call(METALANG99_if, METALANG99_uintLesser_IMPL(x, y), v(y, x))
 
 #define METALANG99_PRIV_UINT_CONST_0_IMPL(...) v(0)
 // }
