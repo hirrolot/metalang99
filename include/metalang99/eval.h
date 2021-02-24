@@ -10,7 +10,6 @@
 #include <metalang99/eval/rec/unroll.h>
 
 #include <metalang99/eval/acc.h>
-#include <metalang99/eval/diagnostics.h>
 #include <metalang99/eval/syntax_checker.h>
 #include <metalang99/eval/term.h>
 
