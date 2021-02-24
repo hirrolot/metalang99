@@ -96,50 +96,43 @@
 
 // METALANG99_repeat_IMPL {
 #define METALANG99_repeat_IMPL(f, n)                                                               \
-    METALANG99_callTrivial(METALANG99_uintMatchWithArgs, n, METALANG99_PRIV_repeat_, f)
+    METALANG99_uintMatchWithArgs_IMPL(n, METALANG99_PRIV_repeat_, f)
 #define METALANG99_PRIV_repeat_Z_IMPL(_f) METALANG99_empty()
 #define METALANG99_PRIV_repeat_S_IMPL(i, f)                                                        \
-    METALANG99_callTrivial(METALANG99_repeat, f, i), METALANG99_callTrivial(METALANG99_appl, f, i)
+    METALANG99_terms(METALANG99_repeat_IMPL(f, i), METALANG99_appl_IMPL(f, i))
 // }
 
 // METALANG99_indexedParams_IMPL {
 #define METALANG99_indexedParams_IMPL(type_list)                                                   \
-    METALANG99_parenthesize(METALANG99_variadicsTail(METALANG99_call(                              \
-        METALANG99_call(                                                                           \
-            METALANG99_if,                                                                         \
-            METALANG99_callTrivial(METALANG99_isNil, type_list),                                   \
-            v(METALANG99_PRIV_indexedParamsEmpty, METALANG99_PRIV_indexedParamsNonEmpty)),         \
-        v(type_list, 0))))
+    METALANG99_parenthesize(METALANG99_variadicsTail(METALANG99_callTrivial(                       \
+        METALANG99_ifPlain(                                                                        \
+            METALANG99_isNilPlain(type_list),                                                      \
+            METALANG99_PRIV_indexedParamsEmpty,                                                    \
+            METALANG99_PRIV_indexedParamsNonEmpty),                                                \
+        type_list,                                                                                 \
+        0)))
 
 #define METALANG99_PRIV_indexedParamsEmpty_IMPL(_type_list, _i) v(, void)
 
 #define METALANG99_PRIV_indexedParamsNonEmpty_IMPL(type_list, i)                                   \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_matchWithArgs,                                                                  \
-        type_list,                                                                                 \
-        METALANG99_PRIV_indexedParamsNonEmpty_,                                                    \
-        i)
+    METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedParamsNonEmpty_, i)
 #define METALANG99_PRIV_indexedParamsNonEmpty_nil_IMPL(_i) METALANG99_empty()
 #define METALANG99_PRIV_indexedParamsNonEmpty_cons_IMPL(x, xs, i)                                  \
     METALANG99_terms(                                                                              \
         v(, x METALANG99_catPlain(_, i)),                                                          \
-        METALANG99_callTrivial(                                                                    \
-            METALANG99_PRIV_indexedParamsNonEmpty,                                                 \
-            xs,                                                                                    \
-            METALANG99_uintIncPlain(i)))
+        METALANG99_PRIV_indexedParamsNonEmpty_IMPL(xs, METALANG99_uintIncPlain(i)))
 // }
 
 // METALANG99_indexedFields_IMPL {
-#define METALANG99_indexedFields_IMPL(type_list)                                                   \
-    METALANG99_callTrivial(METALANG99_PRIV_indexedFieldsAux, type_list, 0)
+#define METALANG99_indexedFields_IMPL(type_list) METALANG99_PRIV_indexedFieldsAux_IMPL(type_list, 0)
 
 #define METALANG99_PRIV_indexedFieldsAux_IMPL(type_list, i)                                        \
-    METALANG99_callTrivial(METALANG99_matchWithArgs, type_list, METALANG99_PRIV_indexedFields_, i)
+    METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedFields_, i)
 #define METALANG99_PRIV_indexedFields_nil_IMPL(_i) METALANG99_empty()
 #define METALANG99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                          \
     METALANG99_terms(                                                                              \
         v(x METALANG99_catPlain(_, i);),                                                           \
-        METALANG99_callTrivial(METALANG99_PRIV_indexedFieldsAux, xs, METALANG99_uintIncPlain(i)))
+        METALANG99_PRIV_indexedFieldsAux_IMPL(xs, METALANG99_uintIncPlain(i)))
 // }
 
 // METALANG99_indexedInitializerList_IMPL {
@@ -154,11 +147,11 @@
 #define METALANG99_PRIV_indexedInitializerListZero_IMPL(_i) v(0)
 
 #define METALANG99_PRIV_indexedInitializerListNonZero_IMPL(i)                                      \
-    METALANG99_callTrivial(METALANG99_uintMatch, i, METALANG99_PRIV_indexedInitializerListNonZero_)
+    METALANG99_uintMatch_IMPL(i, METALANG99_PRIV_indexedInitializerListNonZero_)
 #define METALANG99_PRIV_indexedInitializerListNonZero_Z_IMPL() METALANG99_empty()
 #define METALANG99_PRIV_indexedInitializerListNonZero_S_IMPL(i)                                    \
     METALANG99_terms(                                                                              \
-        METALANG99_callTrivial(METALANG99_PRIV_indexedInitializerListNonZero, i),                  \
+        METALANG99_PRIV_indexedInitializerListNonZero_IMPL(i),                                     \
         v(METALANG99_catPlain(_, i), ))
 // }
 
