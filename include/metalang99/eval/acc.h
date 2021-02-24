@@ -1,7 +1,14 @@
 #ifndef METALANG99_EVAL_ACC_H
 #define METALANG99_EVAL_ACC_H
 
-#define METALANG99_PRIV_EVAL_ACC_EMPTY()                (0empty, )
-#define METALANG99_PRIV_EVAL_ACC_UNWRAP(_is_empty, ...) __VA_ARGS__
+#include <metalang99/priv/util.h>
+
+#define METALANG99_PRIV_EVAL_ACC()           (, )
+#define METALANG99_PRIV_EVAL_ACC_COMMA_SEP() ()
+
+#define METALANG99_PRIV_EVAL_FOLDER(acc, ...)       (METALANG99_PRIV_EXPAND acc __VA_ARGS__)
+#define METALANG99_PRIV_EVAL_FOLDER_COMMA(acc, ...) (METALANG99_PRIV_EXPAND acc, __VA_ARGS__)
+
+#define METALANG99_PRIV_EVAL_ACC_UNWRAP(_emptiness, ...) __VA_ARGS__
 
 #endif // METALANG99_EVAL_ACC_H

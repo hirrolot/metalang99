@@ -11,7 +11,6 @@
 
 #include <metalang99/eval/acc.h>
 #include <metalang99/eval/diagnostics.h>
-#include <metalang99/eval/fold.h>
 #include <metalang99/eval/syntax_checker.h>
 #include <metalang99/eval/term.h>
 
@@ -35,8 +34,8 @@
     METALANG99_PRIV_REC_UNROLL(METALANG99_PRIV_EVAL_MATCH(                                         \
         METALANG99_PRIV_REC_STOP,                                                                  \
         (~),                                                                                       \
-        METALANG99_PRIV_EVAL_FAPPEND,                                                              \
-        METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
+        METALANG99_PRIV_EVAL_FOLDER,                                                               \
+        METALANG99_PRIV_EVAL_ACC(),                                                                \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~))
@@ -78,8 +77,8 @@
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
         METALANG99_PRIV_EVAL_0callTrivial_K,                                                       \
         (k, k_cx, folder, acc, tail, op),                                                          \
-        METALANG99_PRIV_EVAL_FCOMMA,                                                               \
-        METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
+        METALANG99_PRIV_EVAL_FOLDER_COMMA,                                                         \
+        METALANG99_PRIV_EVAL_ACC_COMMA_SEP(),                                                      \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
@@ -88,8 +87,8 @@
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
         METALANG99_PRIV_EVAL_0callTrivial_K,                                                       \
         (k, k_cx, folder, acc, tail),                                                              \
-        METALANG99_PRIV_EVAL_FCOMMA,                                                               \
-        METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
+        METALANG99_PRIV_EVAL_FOLDER_COMMA,                                                         \
+        METALANG99_PRIV_EVAL_ACC_COMMA_SEP(),                                                      \
         op,                                                                                        \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
@@ -99,8 +98,8 @@
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
         METALANG99_PRIV_EVAL_0v_K,                                                                 \
         (k, k_cx, folder, acc, tail),                                                              \
-        METALANG99_PRIV_EVAL_FAPPEND,                                                              \
-        METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
+        METALANG99_PRIV_EVAL_FOLDER,                                                               \
+        METALANG99_PRIV_EVAL_ACC(),                                                                \
         ident##_IMPL(__VA_ARGS__),                                                                 \
         (0end, ~),                                                                                 \
         ~)
@@ -114,8 +113,8 @@
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
         METALANG99_PRIV_REC_STOP,                                                                  \
         (~),                                                                                       \
-        METALANG99_PRIV_EVAL_FAPPEND,                                                              \
-        METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
+        METALANG99_PRIV_EVAL_FOLDER,                                                               \
+        METALANG99_PRIV_EVAL_ACC(),                                                                \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
@@ -131,8 +130,8 @@
         METALANG99_PRIV_EVAL_MATCH,                                                                \
         METALANG99_PRIV_EVAL_0v_K,                                                                 \
         (k, k_cx, folder, acc, tail),                                                              \
-        METALANG99_PRIV_EVAL_FAPPEND,                                                              \
-        METALANG99_PRIV_EVAL_ACC_EMPTY(),                                                          \
+        METALANG99_PRIV_EVAL_FOLDER,                                                               \
+        METALANG99_PRIV_EVAL_ACC(),                                                                \
         evaluated_op##_IMPL(__VA_ARGS__),                                                          \
         (0end, ~),                                                                                 \
         ~)
