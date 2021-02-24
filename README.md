@@ -169,7 +169,11 @@ A: Metalang99 detects and reports about syntactic errors, where possible. For ex
 M_eval(123)
 ```
 
-With `-ftrack-macro-expansion=0 (GCC)`, there are no chances that compile-time errors will be longer than usual, however, they can be still quite obscured -- in this case, try to incrementally test your functionality in order to localise the problem. See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
+However, compile-time errors can be still quite obscured. I strongly recommend using `-ftrack-macro-expansion=0` (GCC) as it tells a compiler to not print a bedsheet of macro expansions.
+
+### Q: What about debugging?
+
+A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
 ### Q: Why not just use third-party code generators?
 
