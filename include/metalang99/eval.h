@@ -123,7 +123,7 @@
 #define METALANG99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                 \
     METALANG99_PRIV_REC_CONTINUE(k)                                                                \
     (METALANG99_PRIV_EXPAND k_cx, METALANG99_PRIV_EVAL_ACC_UNWRAP acc)
-// }
+// } (Reduction rules)
 
 // Continuations {
 #define METALANG99_PRIV_EVAL_0callTrivial_K(k, k_cx, folder, acc, tail, evaluated_op, ...)         \
@@ -145,7 +145,7 @@
         folder,                                                                                    \
         folder(acc, __VA_ARGS__),                                                                  \
         METALANG99_PRIV_EXPAND tail)
-// }
+// } (Continuations)
 
 #define METALANG99_PRIV_EVAL_REDUCE METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_MATCH)
 
