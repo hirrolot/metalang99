@@ -32,10 +32,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Shorten functions on unsigned integers:
    - `M_uintInc(Plain)` -> `M_inc(Plain)`
    - `M_uintDec(Plain)` -> `M_dec(Plain)`
-   - `M_uintAdd(2|3)` -> `M_add(2|3)`
-   - `M_uintSub(2|3)` -> `M_sub(2|3)`
-   - `M_uintMul(2|3)` -> `M_mul(2|3)`
-   - `M_uintDiv(2|3)` -> `M_div(2|3)`
+   - `M_uintAdd(3)` -> `M_add(3)`
+   - `M_uintSub(3)` -> `M_sub(3)`
+   - `M_uintMul(3)` -> `M_mul(3)`
+   - `M_uintDiv(3)` -> `M_div(3)`
    - `M_uintDivChecked` -> `M_divChecked`
    - `M_uintLesser(Eq)` -> `M_lesser(Eq)`
    - `M_uintGreater(Eq)` -> `M_greater(Eq)`
