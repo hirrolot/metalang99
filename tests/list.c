@@ -121,14 +121,11 @@ M_assert(M_listEq(v(M_uintEq), M_listTake(v(3), M_list(v(1, 2, 3))), M_list(v(1,
 
 // M_listTakeWhile {
 M_assert(M_listEq(v(M_uintEq), M_listTakeWhile(M_appl(v(M_lesser), v(5)), M_nil()), M_nil()));
-M_assert(
-    M_listEq(v(M_uintEq), M_listTakeWhile(M_appl(v(M_greater), v(5)), M_list(v(7))), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listTakeWhile(M_appl(v(M_greater), v(5)), M_list(v(7))), M_nil()));
 M_assert(M_listEq(
-    v(M_uintEq), M_listTakeWhile(M_appl(v(M_greater), v(5)), M_list(v(1, 9, 7))),
-    M_list(v(1))));
+    v(M_uintEq), M_listTakeWhile(M_appl(v(M_greater), v(5)), M_list(v(1, 9, 7))), M_list(v(1))));
 M_assert(M_listEq(
-    v(M_uintEq), M_listTakeWhile(M_appl(v(M_greater), v(5)), M_list(v(4, 9, 2, 3))),
-    M_list(v(4))));
+    v(M_uintEq), M_listTakeWhile(M_appl(v(M_greater), v(5)), M_list(v(4, 9, 2, 3))), M_list(v(4))));
 M_assert(M_listEq(
     v(M_uintEq), M_listTakeWhile(M_appl(v(M_greater), v(5)), M_list(v(2, 4, 7, 9, 28))),
     M_list(v(2, 4))));
@@ -145,11 +142,10 @@ M_assert(M_listEq(v(M_uintEq), M_listDrop(v(3), M_list(v(1, 2, 3))), M_nil()));
 
 // M_listDropWhile {
 M_assert(M_listEq(v(M_uintEq), M_listDropWhile(M_appl(v(M_lesser), v(5)), M_nil()), M_nil()));
+M_assert(
+    M_listEq(v(M_uintEq), M_listDropWhile(M_appl(v(M_greater), v(5)), M_list(v(7))), M_list(v(7))));
 M_assert(M_listEq(
-    v(M_uintEq), M_listDropWhile(M_appl(v(M_greater), v(5)), M_list(v(7))), M_list(v(7))));
-M_assert(M_listEq(
-    v(M_uintEq), M_listDropWhile(M_appl(v(M_greater), v(5)), M_list(v(1, 9, 7))),
-    M_list(v(9, 7))));
+    v(M_uintEq), M_listDropWhile(M_appl(v(M_greater), v(5)), M_list(v(1, 9, 7))), M_list(v(9, 7))));
 M_assert(M_listEq(
     v(M_uintEq), M_listDropWhile(M_appl(v(M_greater), v(5)), M_list(v(4, 9, 2, 3))),
     M_list(v(9, 2, 3))));
@@ -269,8 +265,7 @@ M_assert(M_listEq(
 
 // M_listMapInitLast {
 M_assert(M_listEq(
-    v(M_uintEq),
-    M_listMapInitLast(M_appl(v(M_add), v(3)), M_appl(v(M_add), v(19)), M_list(v(4))),
+    v(M_uintEq), M_listMapInitLast(M_appl(v(M_add), v(3)), M_appl(v(M_add), v(19)), M_list(v(4))),
     M_list(v(23))));
 M_assert(M_listEq(
     v(M_uintEq),
@@ -280,8 +275,7 @@ M_assert(M_listEq(
 
 // M_listForInitLast {
 M_assert(M_listEq(
-    v(M_uintEq),
-    M_listForInitLast(M_list(v(4)), M_appl(v(M_add), v(3)), M_appl(v(M_add), v(19))),
+    v(M_uintEq), M_listForInitLast(M_list(v(4)), M_appl(v(M_add), v(3)), M_appl(v(M_add), v(19))),
     M_list(v(23))));
 M_assert(M_listEq(
     v(M_uintEq),
