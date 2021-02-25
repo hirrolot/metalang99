@@ -70,6 +70,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
  - [Motivation](#motivation)
  - [Getting started](#getting-started)
+ - [Philosophy and origins](#philosophy-and-origins)
  - [Contributing](#contributing)
  - [Architecture](#architecture)
  - [Optimisation guide](#optimisation-guide)
@@ -138,6 +139,16 @@ Resources:
 Happy hacking!
 
 [precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
+
+## Philosophy and origins
+
+My work on [Poica], a research programming language implemented upon [Boost/Preprocessor], has left me unsatisfied with the result. The fundamental downsides of Boost/Preprocessor made themselves felt: macro blueprinting was a really hard-to-debug disaster, especially in the case of higher-order metafunctions, and the absence of partial application forced me to reify the same patterns into macros each time. The code base got simply unmaintainable.
+
+After I realised that the metaprogramming framework lacks abstractions, I started to implement Metalang99. Honestly, it was a much tougher and fascinating challenge than I expected -- it took half of a year of hard work to release v0.1.0. As a real-world application of Metalang99, I created [Datatype99] exactly of the same form I wanted it to be: the implementation is highly declarative, the syntax is nifty, and the semantics is well-defined.
+
+Finally, I want to say that Metalang99 is only about transformations of syntactic forms and not about sophisticated compile-time calculations, like compiling a finite automaton from regular expressions or computing a 15th Fibonacci number; the preprocessor is just too slow and limited for such kind of abuse.
+
+[Poica]: https://github.com/Hirrolot/poica
 
 ## Contributing
 
