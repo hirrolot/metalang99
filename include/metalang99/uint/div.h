@@ -19,8 +19,7 @@
 #define METALANG99_uintDivChecked_IMPL(x, y)                                                       \
     METALANG99_PRIV_UNPARENTHESIZE(METALANG99_PRIV_VARIADICS_SND(                                  \
         METALANG99_PRIV_UINT_DIV_##x##_##y(),                                                      \
-        (METALANG99_nothing()),                                                                    \
-        ~))
+        (METALANG99_nothing())))
 
 #define METALANG99_PRIV_UINT_DIV_0_1() ~, (METALANG99_just(v(0)))
 

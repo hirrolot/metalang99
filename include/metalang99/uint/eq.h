@@ -5,7 +5,7 @@
 
 #define METALANG99_PRIV_uintEq(x, y) METALANG99_PRIV_uintEq_AUX(x, y)
 #define METALANG99_PRIV_uintEq_AUX(x, y)                                                           \
-    METALANG99_PRIV_VARIADICS_SND(METALANG99_PRIV_UINT_EQ_##x##_##y(), 0, ~)
+    METALANG99_PRIV_VARIADICS_SND(METALANG99_PRIV_UINT_EQ_##x##_##y(), 0)
 
 #define METALANG99_PRIV_UINT_EQ_0_0()     ~, 1
 #define METALANG99_PRIV_UINT_EQ_1_1()     ~, 1
