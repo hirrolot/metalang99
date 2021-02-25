@@ -120,7 +120,7 @@
 #define METALANG99_PRIV_indexedParamsNonEmpty_cons_IMPL(x, xs, i)                                  \
     METALANG99_terms(                                                                              \
         v(, x METALANG99_catPlain(_, i)),                                                          \
-        METALANG99_PRIV_indexedParamsNonEmpty_IMPL(xs, METALANG99_uintIncPlain(i)))
+        METALANG99_PRIV_indexedParamsNonEmpty_IMPL(xs, METALANG99_incPlain(i)))
 // }
 
 // METALANG99_indexedFields_IMPL {
@@ -132,7 +132,7 @@
 #define METALANG99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                          \
     METALANG99_terms(                                                                              \
         v(x METALANG99_catPlain(_, i);),                                                           \
-        METALANG99_PRIV_indexedFieldsAux_IMPL(xs, METALANG99_uintIncPlain(i)))
+        METALANG99_PRIV_indexedFieldsAux_IMPL(xs, METALANG99_incPlain(i)))
 // }
 
 // METALANG99_indexedInitializerList_IMPL {

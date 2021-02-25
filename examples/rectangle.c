@@ -9,7 +9,7 @@
 #define RectArea(rect) M_call(RectArea, rect)
 
 #define Rect_IMPL(width, height) M_list(v(width, height))
-#define RectArea_IMPL(rect)      M_uintMul(M_get(RectWidth, v(rect)), M_get(RectHeight, v(rect)))
+#define RectArea_IMPL(rect)      M_mul(M_get(RectWidth, v(rect)), M_get(RectHeight, v(rect)))
 
 /*
  *                15

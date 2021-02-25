@@ -33,7 +33,7 @@
     METALANG99_PRIV_IF(                                                                            \
         METALANG99_PRIV_uintEq(f##_ARITY, 1),                                                      \
         METALANG99_callTrivial(f, __VA_ARGS__),                                                    \
-        v((METALANG99_PRIV_uintDec(f##_ARITY), f, __VA_ARGS__)))
+        v((METALANG99_PRIV_dec(f##_ARITY), f, __VA_ARGS__)))
 
 #define METALANG99_PRIV_APPL_CLOSURE(closure, ...)                                                 \
     METALANG99_PRIV_APPL_CLOSURE_AUX(METALANG99_PRIV_EXPAND closure, __VA_ARGS__)
@@ -44,7 +44,7 @@
     METALANG99_PRIV_IF(                                                                            \
         METALANG99_PRIV_uintEq(arity, 1),                                                          \
         METALANG99_callTrivial(f, __VA_ARGS__),                                                    \
-        v((METALANG99_PRIV_uintDec(arity), f, __VA_ARGS__)))
+        v((METALANG99_PRIV_dec(arity), f, __VA_ARGS__)))
 
 #define METALANG99_appl2_IMPL(f, a, b)                                                             \
     METALANG99_appl(METALANG99_callTrivial(METALANG99_appl, f, a), v(b))

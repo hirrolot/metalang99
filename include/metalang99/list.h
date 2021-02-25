@@ -392,7 +392,7 @@
  * #include <metalang99/uint.h>
  *
  * // 4, 5, 6
- * M_listMap(M_appl(v(M_uintAdd), v(3)), M_list(v(1, 2, 3)))
+ * M_listMap(M_appl(v(M_add), v(3)), M_list(v(1, 2, 3)))
  * @endcode
  *
  * @note @p f must always return a single Metalang99 term.
@@ -428,7 +428,7 @@
  * #include <metalang99/uint.h>
  *
  * // 4, 5, 6
- * M_listFor(M_list(v(1, 2, 3)), M_appl(v(M_uintAdd), v(3)))
+ * M_listFor(M_list(v(1, 2, 3)), M_appl(v(M_add), v(3)))
  * @endcode
  *
  * @note @p f must always return a single Metalang99 term.
@@ -443,7 +443,7 @@
  *
  * @code
  * // 4, 5, 10
- * M_listMapInitLast(M_appl(v(M_uintAdd), v(3)), M_appl(v(M_uintAdd), v(7)), M_list(v(1, 2, 3)))
+ * M_listMapInitLast(M_appl(v(M_add), v(3)), M_appl(v(M_add), v(7)), M_list(v(1, 2, 3)))
  * @endcode
  *
  * @note @p f must always return a single Metalang99 term.
@@ -458,7 +458,7 @@
  *
  * @code
  * // 4, 5, 10
- * M_listForInitLast(M_list(v(1, 2, 3)), M_appl(v(M_uintAdd), v(3)), M_appl(v(M_uintAdd), v(7)))
+ * M_listForInitLast(M_list(v(1, 2, 3)), M_appl(v(M_add), v(3)), M_appl(v(M_add), v(7)))
  * @endcode
  *
  * @note @p f must always return a single Metalang99 term.
@@ -476,7 +476,7 @@
  * #include <metalang99/uint.h>
  *
  * // 9, 11, 6
- * M_listFilter(M_appl(v(M_uintLesser), v(5)), M_list(v(9, 1, 11, 6, 0, 4)))
+ * M_listFilter(M_appl(v(M_lesser), v(5)), M_list(v(9, 1, 11, 6, 0, 4)))
  * @endcode
  */
 #define METALANG99_listFilter(f, list) METALANG99_call(METALANG99_listFilter, f, list)
@@ -544,7 +544,7 @@
  * #include <metalang99/uint.h>
  *
  * // 1, 2, 3
- * M_listTakeWhile(M_appl(v(M_uintGreater), v(4)), M_list(v(1, 2, 3, 4, 5, 6)))
+ * M_listTakeWhile(M_appl(v(M_greater), v(4)), M_list(v(1, 2, 3, 4, 5, 6)))
  * @endcode
  */
 #define METALANG99_listTakeWhile(f, list) METALANG99_call(METALANG99_listTakeWhile, f, list)
@@ -574,7 +574,7 @@
  * #include <metalang99/uint.h>
  *
  * // 4, 5, 6
- * M_listDropWhile(M_appl(v(M_uintLesser), v(4)), M_list(v(1, 2, 3, 4, 5, 6)))
+ * M_listDropWhile(M_appl(v(M_lesser), v(4)), M_list(v(1, 2, 3, 4, 5, 6)))
  * @endcode
  */
 #define METALANG99_listDropWhile(f, list) METALANG99_call(METALANG99_listDropWhile, f, list)
@@ -636,7 +636,7 @@
  * #include <metalang99/uint.h>
  *
  * // M_list(M_list(v(4, 7)) M_list(v(11, 12, 13)))
- * M_listPartition(M_appl(v(M_uintGreater), v(10)), M_list(v(11, 4, 12, 13, 7)))
+ * M_listPartition(M_appl(v(M_greater), v(10)), M_list(v(11, 4, 12, 13, 7)))
  * @endcode
  */
 #define METALANG99_listPartition(f, list) METALANG99_call(METALANG99_listPartition, f, list)
@@ -652,14 +652,14 @@
  * #include <metalang99/list.h>
  * #include <metalang99/uint.h>
  *
- * // M_uintAdd
- * M_listAppl(v(M_uintAdd), M_nil())
+ * // M_add
+ * M_listAppl(v(M_add), M_nil())
  *
- * // M_appl(v(M_uintAdd), v(1))
- * M_listAppl(v(M_uintAdd), M_list(v(1)))
+ * // M_appl(v(M_add), v(1))
+ * M_listAppl(v(M_add), M_list(v(1)))
  *
- * // M_appl2(v(M_uintAdd), v(1), v(2))
- * M_listAppl(v(M_uintAdd), M_list(v(1, 2)))
+ * // M_appl2(v(M_add), v(1), v(2))
+ * M_listAppl(v(M_add), M_list(v(1, 2)))
  * @endcode
  */
 #define METALANG99_listAppl(list, f) METALANG99_call(METALANG99_listAppl, list, f)
@@ -760,7 +760,7 @@
         v(x),                                                                                      \
         METALANG99_callTrivial(                                                                    \
             METALANG99_PRIV_listProgress,                                                          \
-            METALANG99_PRIV_uintDec(count),                                                        \
+            METALANG99_PRIV_dec(count),                                                            \
             __VA_ARGS__))
 
 #define METALANG99_PRIV_listDone_0(_count, _)    v(METALANG99_PRIV_nil())
@@ -782,7 +782,7 @@
 // METALANG99_listLen_IMPL {
 #define METALANG99_listLen_IMPL(list)             METALANG99_match_IMPL(list, METALANG99_PRIV_listLen_)
 #define METALANG99_PRIV_listLen_nil_IMPL()        v(0)
-#define METALANG99_PRIV_listLen_cons_IMPL(_x, xs) METALANG99_uintInc(METALANG99_listLen_IMPL(xs))
+#define METALANG99_PRIV_listLen_cons_IMPL(_x, xs) METALANG99_inc(METALANG99_listLen_IMPL(xs))
 // }
 
 // METALANG99_listAppend_IMPL {
@@ -828,7 +828,7 @@
         METALANG99_PRIV_uintEq(i, 0),                                                              \
         METALANG99_PRIV_getDone,                                                                   \
         METALANG99_PRIV_getProgress)                                                               \
-    (x, METALANG99_PRIV_uintDec(i), xs)
+    (x, METALANG99_PRIV_dec(i), xs)
 #define METALANG99_PRIV_getDone(x, _i, _xs)   v(x)
 #define METALANG99_PRIV_getProgress(x, i, xs) METALANG99_get_IMPL(i, xs)
 // }
@@ -889,7 +889,7 @@
 #define METALANG99_PRIV_listMapI_cons_IMPL(x, xs, f, i)                                            \
     METALANG99_cons(                                                                               \
         METALANG99_appl2_IMPL(f, x, i),                                                            \
-        METALANG99_PRIV_listMapIAux_IMPL(f, xs, METALANG99_PRIV_uintInc(i)))
+        METALANG99_PRIV_listMapIAux_IMPL(f, xs, METALANG99_PRIV_inc(i)))
 // }
 
 // METALANG99_listFor_IMPL {
@@ -966,7 +966,7 @@
     (x, xs, i)
 #define METALANG99_PRIV_listTakeDone(_x, _xs, _i) METALANG99_nil()
 #define METALANG99_PRIV_listTakeProgress(x, xs, i)                                                 \
-    METALANG99_cons(v(x), METALANG99_listTake_IMPL(METALANG99_PRIV_uintDec(i), xs))
+    METALANG99_cons(v(x), METALANG99_listTake_IMPL(METALANG99_PRIV_dec(i), xs))
 // }
 
 // METALANG99_listTakeWhile_IMPL {
@@ -996,7 +996,7 @@
     (x, xs, i)
 #define METALANG99_PRIV_listDropDone(x, xs, _i) METALANG99_call(METALANG99_cons, v(x, xs))
 #define METALANG99_PRIV_listDropProgress(_x, xs, i)                                                \
-    METALANG99_listDrop_IMPL(METALANG99_PRIV_uintDec(i), xs)
+    METALANG99_listDrop_IMPL(METALANG99_PRIV_dec(i), xs)
 // }
 
 // METALANG99_listDropWhile_IMPL {

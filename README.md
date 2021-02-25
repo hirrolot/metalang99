@@ -25,7 +25,7 @@ static int from_5_to_1[] = {
 
 // 9, 2, 5
 static int lesser_than_10[] = {
-    M_listEvalCommaSep(M_listFilter(M_appl(v(M_uintGreater), v(10)), M_list(v(9, 2, 11, 13, 5)))),
+    M_listEvalCommaSep(M_listFilter(M_appl(v(M_greater), v(10)), M_list(v(9, 2, 11, 13, 5)))),
 };
 // }
 
@@ -34,7 +34,7 @@ static int lesser_than_10[] = {
 
 #define factorial_IMPL(n)   M_uintMatch(v(n), v(factorial_))
 #define factorial_Z_IMPL()  v(1)
-#define factorial_S_IMPL(n) M_uintMul(M_uintInc(v(n)), factorial(v(n)))
+#define factorial_S_IMPL(n) M_mul(M_inc(v(n)), factorial(v(n)))
 
 M_assertEq(factorial(v(4)), v(24));
 // }
