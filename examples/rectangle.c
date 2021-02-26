@@ -2,14 +2,11 @@
 
 #include <metalang99.h>
 
-#define Rect(width, height) M_call(Rect, width, height)
-#define RectWidth           v(0)
-#define RectHeight          v(1)
+#define rect(width, height) M_parenthesize(width, height)
+#define rectWidth           M_parenthesizedVariadicsHead
+#define rectHeight          M_parenthesizedVariadicsTail
 
-#define RectArea(rect) M_call(RectArea, rect)
-
-#define Rect_IMPL(width, height) M_list(v(width, height))
-#define RectArea_IMPL(rect)      M_mul(M_get(RectWidth, v(rect)), M_get(RectHeight, v(rect)))
+#define rectArea(rect) M_mul(rectWidth(rect), rectHeight(rect))
 
 /*
  *                15
@@ -21,8 +18,8 @@
  * |                              |
  * +------------------------------+
  */
-#define RECTANGLE Rect(v(15), v(7))
+#define RECTANGLE rect(v(15), v(7))
 
-M_assertEq(RectArea(RECTANGLE), v(15 * 7));
+M_assertEq(rectArea(RECTANGLE), v(15 * 7));
 
 int main(void) {}
