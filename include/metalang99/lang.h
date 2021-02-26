@@ -6,8 +6,9 @@
 #ifndef METALANG99_LANG_H
 #define METALANG99_LANG_H
 
-#include <metalang99/lang/closure.h>
 #include <metalang99/priv/util.h>
+
+#include <metalang99/lang/closure.h>
 
 // Desugaring {
 /**

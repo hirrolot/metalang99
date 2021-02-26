@@ -9,8 +9,9 @@
 #ifndef METALANG99_VARIADICS_H
 #define METALANG99_VARIADICS_H
 
-#include <metalang99/lang.h>
 #include <metalang99/priv/variadics/count.h>
+
+#include <metalang99/lang.h>
 #include <metalang99/uint/dec.h>
 #include <metalang99/uint/eq.h>
 #include <metalang99/util.h>

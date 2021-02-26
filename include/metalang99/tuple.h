@@ -15,8 +15,9 @@
 #ifndef METALANG99_TUPLE_H
 #define METALANG99_TUPLE_H
 
-#include <metalang99/lang.h>
 #include <metalang99/priv/util.h>
+
+#include <metalang99/lang.h>
 
 // Desugaring {
 /**

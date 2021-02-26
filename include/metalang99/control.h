@@ -6,8 +6,9 @@
 #ifndef METALANG99_CONTROL_H
 #define METALANG99_CONTROL_H
 
-#include <metalang99/lang.h>
 #include <metalang99/priv/variadics/count.h>
+
+#include <metalang99/lang.h>
 #include <metalang99/util.h>
 
 // Desugaring {

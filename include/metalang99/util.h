@@ -6,8 +6,9 @@
 #ifndef METALANG99_UTIL_H
 #define METALANG99_UTIL_H
 
-#include <metalang99/lang.h>
 #include <metalang99/priv/compiler_attr.h>
+
+#include <metalang99/lang.h>
 
 // Desugaring {
 /**

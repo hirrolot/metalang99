@@ -6,10 +6,11 @@
 #ifndef METALANG99_LIST_H
 #define METALANG99_LIST_H
 
+#include <metalang99/priv/variadics/count.h>
+
 #include <metalang99/choice.h>
 #include <metalang99/control.h>
 #include <metalang99/logical.h>
-#include <metalang99/priv/variadics/count.h>
 #include <metalang99/uint.h>
 #include <metalang99/util.h>
 

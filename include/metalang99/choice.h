@@ -13,8 +13,9 @@
 #ifndef METALANG99_CHOICE_H
 #define METALANG99_CHOICE_H
 
-#include <metalang99/lang.h>
 #include <metalang99/priv/variadics/get.h>
+
+#include <metalang99/lang.h>
 #include <metalang99/util.h>
 
 // Desugaring {
