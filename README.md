@@ -128,7 +128,7 @@ After that, you must add one more include path `metalang99/include`.
 
 To use execute Metalang99 in your code, just `#include <metalang99.h>` beforehand (or include separate header files described in the documentation).
 
-To speed up compilation, consider using [precompiled headers] and `-ftrack-macro-expansion=0` (GCC-only).
+**PLEASE**, use Metalang99 only with [precompiled headers] and [`-ftrack-macro-expansion=0`] (or something similar), otherwise it will throw your compiler to the moon.
 
 Resources:
 
@@ -139,6 +139,7 @@ Resources:
 Happy hacking!
 
 [precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
+[`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
 
 ## Philosophy and origins
 
