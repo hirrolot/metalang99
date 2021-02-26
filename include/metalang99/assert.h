@@ -6,10 +6,11 @@
 #ifndef METALANG99_ASSERT_H
 #define METALANG99_ASSERT_H
 
+#include <metalang99/priv/compiler_attr.h>
+
 #include <metalang99/eval.h>
 #include <metalang99/lang.h>
 #include <metalang99/logical.h>
-#include <metalang99/priv/compiler_attr.h>
 #include <metalang99/util.h>
 
 // Desugaring {
@@ -24,8 +25,7 @@
  * METALANG99_assert(v(123 == 123));
  * @endcode
  */
-#define METALANG99_assert(expr)                                                                    \
-    METALANG99_assertEq(METALANG99_PRIV_EXPAND(expr), v(METALANG99_true))
+#define METALANG99_assert(expr) METALANG99_assertEq(expr, v(METALANG99_true))
 
 /**
  * Asserts the equality of `METALANG99_eval(lhs)` and `METALANG99_eval(rhs)` at compile-time.
