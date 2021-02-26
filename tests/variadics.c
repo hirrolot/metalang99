@@ -61,4 +61,28 @@ M_assertEq(v(M_variadicsCountPlain(~, ~, ~)), v(3));
 #undef _100_ARGS
 // }
 
+// M_variadicsForEach {
+#define CHECK(_, x, y, z) M_assertPlain(x == 2 && y == 3 && z == 4)
+#define F_IMPL(x)         v(, METALANG99_incPlain(x))
+#define F_ARITY           1
+
+M_eval(v(CHECK), M_parenthesize(M_variadicsForEach(v(F), v(1, 2, 3))));
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
+// }
+
+// M_variadicsForEachI {
+#define CHECK(_, x, y, z) M_assertPlain(x == 1 + 0 && y == 2 + 1 && z == 3 + 2)
+#define F_IMPL(x, i)      v(, ), M_add(v(x), v(i))
+#define F_ARITY           2
+
+M_eval(v(CHECK), M_parenthesize(M_variadicsForEachI(v(F), v(1, 2, 3))));
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
+// }
+
 int main(void) {}

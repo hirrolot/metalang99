@@ -42,6 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `M_uintMod` -> `M_mod`
    - `M_uintMin` -> `M_min`
    - `M_uintMax` -> `M_max`
+ - `M_variadicsMap` -> `M_variadicsForEach`, `M_variadicsMapI` -> `M_variadicsForEachI`
 
 ### Fixed
 
@@ -49,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
- - `M_variadicsMap`, `M_variadicsMapCommaSep`, `M_variadicsMapI`, `M_variadicsMapICommaSep` (better use lists)
+ - `M_variadicsMapCommaSep`, `M_variadicsMapICommaSep` (better use lists)
  - `M_const2`, `M_const3`
 
 ## [0.2.0] - 2020-02-05

@@ -11,6 +11,8 @@
 
 #include <metalang99/lang.h>
 #include <metalang99/priv/variadics/count.h>
+#include <metalang99/uint/dec.h>
+#include <metalang99/uint/eq.h>
 #include <metalang99/util.h>
 
 // Desugaring {
@@ -97,6 +99,46 @@
     METALANG99_call(METALANG99_parenthesizedVariadicsTail, x)
 
 /**
+ * Applies @p f to each argument.
+ *
+ * The result is `M_appl(v(f), v(x1)) ... M_appl(v(f), v(xN))`.
+ *
+ * If you already have variadics, using this macro is more efficient than
+ * `M_listUnwrap(M_listMap(v(F), M_list(v(...))))`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/misc.h>
+ *
+ * #define F_IMPL(x) v(@x)
+ * #define F_ARITY   1
+ *
+ * // @1 @2 @3
+ * M_variadicsForEach(v(F), v(1, 2, 3))
+ * @endcode
+ *
+ * @note Unlike #METALANG99_listMap, @p f can evaluate to many Metalang99 terms.
+ * @note At most 63 variadic arguments are acceptable.
+ */
+#define METALANG99_variadicsForEach(f, ...)                                                        \
+    METALANG99_call(METALANG99_variadicsForEach, f, __VA_ARGS__)
+
+/**
+ * Applies @p f to each argument with an index.
+ *
+ * The result is `M_appl2(v(f), v(x1), v(0)) ... M_appl2(v(f), v(xN), v(N))`.
+ *
+ * If you already have variadics, using this macro is more efficient than
+ * `M_listUnwrap(M_listMapI(v(F), M_list(v(...))))`.
+ *
+ * @note Unlike #METALANG99_listMapI, @p f can evaluate to many Metalang99 terms.
+ * @note At most 63 variadic arguments are acceptable.
+ */
+#define METALANG99_variadicsForEachI(f, ...)                                                       \
+    METALANG99_call(METALANG99_variadicsForEachI, f, __VA_ARGS__)
+
+/**
  * The plain version of #METALANG99_variadicsCount.
  */
 #define METALANG99_variadicsCountPlain(...) METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
@@ -135,6 +177,63 @@
 #define METALANG99_parenthesizedVariadicsTail_IMPL(x)                                              \
     v(METALANG99_parenthesizedVariadicsTailPlain(x))
 
+// METALANG99_variadicsForEach_IMPL {
+#define METALANG99_variadicsForEach_IMPL(f, ...)                                                   \
+    METALANG99_PRIV_variadicsForEachAux_IMPL(                                                      \
+        f,                                                                                         \
+        METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__),                                              \
+        __VA_ARGS__,                                                                               \
+        ~)
+
+#define METALANG99_PRIV_variadicsForEachAux_IMPL(f, count, ...)                                    \
+    METALANG99_callTrivial(                                                                        \
+        METALANG99_PRIV_IF(                                                                        \
+            METALANG99_PRIV_uintEq(count, 1),                                                      \
+            METALANG99_PRIV_variadicsForEachDone,                                                  \
+            METALANG99_PRIV_variadicsForEachProgress),                                             \
+        f,                                                                                         \
+        count,                                                                                     \
+        __VA_ARGS__)
+
+#define METALANG99_PRIV_variadicsForEachDone_IMPL(f, _count, x, _) METALANG99_appl_IMPL(f, x)
+#define METALANG99_PRIV_variadicsForEachProgress_IMPL(f, count, x, ...)                            \
+    METALANG99_terms(                                                                              \
+        METALANG99_appl_IMPL(f, x),                                                                \
+        METALANG99_PRIV_variadicsForEachAux_IMPL(f, METALANG99_PRIV_dec(count), __VA_ARGS__))
+// }
+
+// METALANG99_variadicsForEachI_IMPL {
+#define METALANG99_variadicsForEachI_IMPL(f, ...)                                                  \
+    METALANG99_PRIV_variadicsForEachIAux_IMPL(                                                     \
+        f,                                                                                         \
+        0,                                                                                         \
+        METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__),                                              \
+        __VA_ARGS__,                                                                               \
+        ~)
+
+#define METALANG99_PRIV_variadicsForEachIAux_IMPL(f, i, count, ...)                                \
+    METALANG99_callTrivial(                                                                        \
+        METALANG99_PRIV_IF(                                                                        \
+            METALANG99_PRIV_uintEq(count, 1),                                                      \
+            METALANG99_PRIV_variadicsForEachIDone,                                                 \
+            METALANG99_PRIV_variadicsForEachIProgress),                                            \
+        f,                                                                                         \
+        i,                                                                                         \
+        count,                                                                                     \
+        __VA_ARGS__)
+
+#define METALANG99_PRIV_variadicsForEachIDone_IMPL(f, i, _count, x, _)                             \
+    METALANG99_appl2_IMPL(f, x, i)
+#define METALANG99_PRIV_variadicsForEachIProgress_IMPL(f, i, count, x, ...)                        \
+    METALANG99_terms(                                                                              \
+        METALANG99_appl2_IMPL(f, x, i),                                                            \
+        METALANG99_PRIV_variadicsForEachIAux_IMPL(                                                 \
+            f,                                                                                     \
+            METALANG99_PRIV_inc(i),                                                                \
+            METALANG99_PRIV_dec(count),                                                            \
+            __VA_ARGS__))
+// }
+
 // } (Implementation)
 
 // Arity specifiers {
@@ -143,6 +242,8 @@
 #define METALANG99_variadicsTail_ARITY              1
 #define METALANG99_parenthesizedVariadicsHead_ARITY 1
 #define METALANG99_parenthesizedVariadicsTail_ARITY 1
+#define METALANG99_variadicsForEach_ARITY           2
+#define METALANG99_variadicsForEachI_ARITY          2
 // }
 
 // Aliases {
@@ -153,6 +254,8 @@
 #define M_variadicsTail              METALANG99_variadicsTail
 #define M_parenthesizedVariadicsHead METALANG99_parenthesizedVariadicsHead
 #define M_parenthesizedVariadicsTail METALANG99_parenthesizedVariadicsTail
+#define M_variadicsForEach           METALANG99_variadicsForEach
+#define M_variadicsForEachI          METALANG99_variadicsForEachI
 
 #define M_variadicsCountPlain             METALANG99_variadicsCountPlain
 #define M_variadicsHeadPlain              METALANG99_variadicsHeadPlain
