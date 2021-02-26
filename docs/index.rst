@@ -18,15 +18,15 @@ If `METALANG99_NO_SMALL_PREFIX` is defined, all macros will have only one name: 
 
 A macro named `<X>Plain` stands for the "plain" version of `<X>`. To compute a final result of a plain macro, only preprocessor expansion is required. Plain macros are used to save some reduction steps, thereby making metaprograms faster.
 
-For example, here are two complete metaprograms, one using `M_unparenthesize` and the second one using `M_unparenthesizePlain`:
+For example, here are two complete metaprograms, one using `M_untuple` and the second one using `M_untuplePlain`:
 
 .. code:: c
 
-   M_eval(M_unparenthesize(v((1, 2, 3))))
+   M_eval(M_untuple(v((1, 2, 3))))
 
 .. code:: c
 
-   M_unparenthesizePlain((1, 2, 3))
+   M_untuplePlain((1, 2, 3))
 
 Both metaprograms result in `1, 2, 3`.
 
@@ -41,6 +41,7 @@ Both metaprograms result in `1, 2, 3`.
    either
    maybe
    list
+   tuple
    variadics
    util
    control
@@ -58,6 +59,7 @@ Contents
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
  - `list.h`_ - List manipulation.
+ - `tuple.h`_ - Tuple manipulation.
  - `variadics.h`_ - Variadic macro utilities.
  - `control.h`_ - Control expressions.
  - `assert.h`_ - Static assertions.
@@ -80,6 +82,7 @@ Indices and tables
 .. _either.h: either.html
 .. _maybe.h: maybe.html
 .. _list.h: list.html
+.. _tuple.h: tuple.html
 .. _variadics.h: variadics.html
 .. _control.h: control.html
 .. _assert.h: assert.html

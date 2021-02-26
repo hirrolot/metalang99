@@ -1,33 +1,13 @@
 #include <metalang99/assert.h>
 #include <metalang99/util.h>
 
+// M_id {
 #define CHECK(x, y) M_assertPlain(x == 518 && y == 1910)
 
-// M_id {
 M_eval(v(CHECK), M_id(v((518, 1910))));
 M_assertEq(M_appl(M_compose(v(M_id), v(M_id)), v(181)), v(181));
-// }
-
-// M_parenthesize {
-M_eval(v(CHECK), M_parenthesize(v(518, 1910)));
-// }
 
 #undef CHECK
-
-// M_unparenthesizeEval {
-M_assertEq(M_unparenthesizeEval(v((v(198)))), v(198));
-// }
-
-// M_unparenthesize {
-M_assertEq(M_unparenthesize(v((198))), v(198));
-// }
-
-// M_parenthesizeEval + M_unparenthesizeEval {
-M_assertEq(M_unparenthesizeEval(M_parenthesizeEval(v(187))), v(187));
-// }
-
-// M_parenthesize + M_unparenthesize {
-M_assertEq(M_unparenthesize(M_parenthesize(v(187))), v(187));
 // }
 
 // M_const {
@@ -57,14 +37,6 @@ M_assertEq(M_rightUnderscored(v(FOO)), v(456));
 
 #undef _FOO
 #undef FOO_
-// }
-
-// M_isParenthesized, M_isUnparenthesized {
-M_assert(M_isParenthesized(v((1, 2, 3))));
-M_assert(M_not(M_isParenthesized(v(123))));
-
-M_assert(M_not(M_isUnparenthesized(v((1, 2, 3)))));
-M_assert(M_isUnparenthesized(v(123)));
 // }
 
 // M_consume {

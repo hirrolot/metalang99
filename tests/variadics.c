@@ -1,4 +1,5 @@
 #include <metalang99/assert.h>
+#include <metalang99/tuple.h>
 #include <metalang99/uint.h>
 #include <metalang99/variadics.h>
 
@@ -9,14 +10,7 @@ M_assertEq(M_variadicsHead(v(19, 8)), v(19));
 M_assertEq(M_variadicsHead(v(19, 8, 7378)), v(19));
 // }
 
-// M_parenthesizedVariadicsHead {
-M_assertEmpty(M_parenthesizedVariadicsHead(v(())));
-M_assertEq(M_parenthesizedVariadicsHead(v((19))), v(19));
-M_assertEq(M_parenthesizedVariadicsHead(v((19, 8))), v(19));
-M_assertEq(M_parenthesizedVariadicsHead(v((19, 8, 7378))), v(19));
-// }
-
-// M_variadicsTail, M_parenthesizedVariadicsTail {
+// M_variadicsTail {
 #define CHECK_TAIL(...) CHECK_TAIL_AUX(__VA_ARGS__)
 #define CHECK_TAIL_AUX(a, b, c, d)                                                                 \
     M_assertPlain(a == 51);                                                                        \
@@ -25,11 +19,10 @@ M_assertEq(M_parenthesizedVariadicsHead(v((19, 8, 7378))), v(19));
     M_assertPlain(d == 7378)
 
 CHECK_TAIL(M_eval(M_variadicsTail(v(9191, 51, 21, 1, 7378))));
-CHECK_TAIL(M_eval(M_parenthesizedVariadicsTail(v((9191, 51, 21, 1, 7378)))));
-// }
 
 #undef CHECK_TAIL
 #undef CHECK_TAIL_AUX
+// }
 
 // M_variadicsCount, M_variadicsCountPlain {
 #define _5_ARGS  v(~, ~, ~, ~, ~)
@@ -66,7 +59,7 @@ M_assertEq(v(M_variadicsCountPlain(~, ~, ~)), v(3));
 #define F_IMPL(x)         v(, METALANG99_incPlain(x))
 #define F_ARITY           1
 
-M_eval(v(CHECK), M_parenthesize(M_variadicsForEach(v(F), v(1, 2, 3))));
+M_eval(v(CHECK), M_tuple(M_variadicsForEach(v(F), v(1, 2, 3))));
 
 #undef CHECK
 #undef F_IMPL
@@ -78,7 +71,7 @@ M_eval(v(CHECK), M_parenthesize(M_variadicsForEach(v(F), v(1, 2, 3))));
 #define F_IMPL(x, i)      v(, ), M_add(v(x), v(i))
 #define F_ARITY           2
 
-M_eval(v(CHECK), M_parenthesize(M_variadicsForEachI(v(F), v(1, 2, 3))));
+M_eval(v(CHECK), M_tuple(M_variadicsForEachI(v(F), v(1, 2, 3))));
 
 #undef CHECK
 #undef F_IMPL

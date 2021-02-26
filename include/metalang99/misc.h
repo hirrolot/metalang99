@@ -104,7 +104,7 @@
 
 // METALANG99_indexedParams_IMPL {
 #define METALANG99_indexedParams_IMPL(type_list)                                                   \
-    METALANG99_parenthesize(METALANG99_variadicsTail(METALANG99_callTrivial(                       \
+    METALANG99_tuple(METALANG99_variadicsTail(METALANG99_callTrivial(                              \
         METALANG99_ifPlain(                                                                        \
             METALANG99_isNilPlain(type_list),                                                      \
             METALANG99_PRIV_indexedParamsEmpty,                                                    \

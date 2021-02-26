@@ -82,108 +82,6 @@
 #define METALANG99_id(...) METALANG99_call(METALANG99_id, __VA_ARGS__)
 
 /**
- * Transforms a sequence of arguments into a parenthesized normal form.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // (v(1, 2, 3))
- * M_parenthesizeEval(v(1, 2, 3))
- * @endcode
- */
-#define METALANG99_parenthesizeEval(...) METALANG99_call(METALANG99_parenthesizeEval, __VA_ARGS__)
-
-/**
- * Parenthesises a sequence of arguments.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // (1, 2, 3)
- * M_parenthesize(v(1, 2, 3))
- * @endcode
- */
-#define METALANG99_parenthesize(...) METALANG99_call(METALANG99_parenthesize, __VA_ARGS__)
-
-/**
- * Unparenthesizes a sequence of arguments and evaluates the result.
- *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
- * 123` is disallowed.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // 1, 2, 3
- * M_unparenthesizeEval(v((v(1, 2, 3))))
- * @endcode
- */
-#define METALANG99_unparenthesizeEval(x) METALANG99_call(METALANG99_unparenthesizeEval, x)
-
-/**
- * Unparenthesizes a sequence of arguments, leaving the result unevaluated.
- *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
- * 123` is disallowed.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // 1, 2, 3
- * M_unparenthesize(v((1, 2, 3)))
- * @endcode
- */
-#define METALANG99_unparenthesize(x) METALANG99_call(METALANG99_unparenthesize, x)
-
-/**
- * Tests whether @p x is inside parentheses or not.
- *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
- * 123` is disallowed.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // 0
- * M_isParenthesized(v(123))
- *
- * // 1
- * M_isParenthesized(v((123)))
- * @endcode
- */
-#define METALANG99_isParenthesized(x) METALANG99_call(METALANG99_isParenthesized, x)
-
-/**
- * The inverse of #METALANG99_isParenthesized.
- *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
- * 123` is disallowed.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // 1
- * M_isUnparenthesized(v(123))
- *
- * // 0
- * M_isUnparenthesized(v((123)))
- * @endcode
- */
-#define METALANG99_isUnparenthesized(x) METALANG99_call(METALANG99_isUnparenthesized, x)
-
-/**
  * Evaluates to @p x, skipping @p a.
  *
  * # Examples
@@ -461,26 +359,6 @@
 #define METALANG99_idPlain(...) __VA_ARGS__
 
 /**
- * The plain version of #METALANG99_parenthesize.
- */
-#define METALANG99_parenthesizePlain(...) (__VA_ARGS__)
-
-/**
- * The plain version of #METALANG99_unparenthesize.
- */
-#define METALANG99_unparenthesizePlain(x) METALANG99_PRIV_EXPAND x
-
-/**
- * The plain version of #METALANG99_isParenthesized.
- */
-#define METALANG99_isParenthesizedPlain(x) METALANG99_PRIV_IS_PARENTHESIZED(x)
-
-/**
- * The plain version of #METALANG99_isUnparenthesized.
- */
-#define METALANG99_isUnparenthesizedPlain(x) METALANG99_PRIV_IS_UNPARENTHESIZED(x)
-
-/**
  * The plain version of #METALANG99_consume.
  */
 #define METALANG99_consumePlain(...)
@@ -526,12 +404,6 @@
 #define METALANG99_stringify_IMPL(...)             v(METALANG99_stringifyPlain(__VA_ARGS__))
 #define METALANG99_empty_IMPL()                    v(METALANG99_emptyPlain())
 #define METALANG99_id_IMPL(...)                    v(METALANG99_idPlain(__VA_ARGS__))
-#define METALANG99_parenthesizeEval_IMPL(...)      v((v(__VA_ARGS__)))
-#define METALANG99_parenthesize_IMPL(...)          v(METALANG99_parenthesizePlain(__VA_ARGS__))
-#define METALANG99_unparenthesizeEval_IMPL(x)      METALANG99_PRIV_UNPARENTHESIZE(x)
-#define METALANG99_unparenthesize_IMPL(x)          v(METALANG99_unparenthesizePlain(x))
-#define METALANG99_isParenthesized_IMPL(x)         v(METALANG99_isParenthesizedPlain(x))
-#define METALANG99_isUnparenthesized_IMPL(x)       v(METALANG99_isUnparenthesizedPlain(x))
 #define METALANG99_const_IMPL(x, _a)               v(x)
 #define METALANG99_flip_IMPL(f)                    METALANG99_appl_IMPL(METALANG99_PRIV_flip, f)
 #define METALANG99_PRIV_flip_IMPL(f, a, b)         METALANG99_appl2_IMPL(f, b, a)
@@ -548,29 +420,23 @@
 // }
 
 // Arity specifiers {
-#define METALANG99_catEval_ARITY            2
-#define METALANG99_cat_ARITY                2
-#define METALANG99_stringify_ARITY          1
-#define METALANG99_empty_ARITY              1
-#define METALANG99_id_ARITY                 1
-#define METALANG99_parenthesize_ARITY       1
-#define METALANG99_unparenthesize_ARITY     1
-#define METALANG99_unparenthesizeEval_ARITY 1
-#define METALANG99_parenthesizeEval_ARITY   1
-#define METALANG99_isUnparenthesized_ARITY  1
-#define METALANG99_isParenthesized_ARITY    1
-#define METALANG99_const_ARITY              2
-#define METALANG99_flip_ARITY               1
-#define METALANG99_putBefore_ARITY          2
-#define METALANG99_putAfter_ARITY           2
-#define METALANG99_putBetween_ARITY         3
-#define METALANG99_leftUnderscored_ARITY    1
-#define METALANG99_rightUnderscored_ARITY   1
-#define METALANG99_consume_ARITY            1
-#define METALANG99_braced_ARITY             1
-#define METALANG99_typedef_ARITY            2
-#define METALANG99_struct_ARITY             2
-#define METALANG99_anonStruct_ARITY         1
+#define METALANG99_catEval_ARITY          2
+#define METALANG99_cat_ARITY              2
+#define METALANG99_stringify_ARITY        1
+#define METALANG99_empty_ARITY            1
+#define METALANG99_id_ARITY               1
+#define METALANG99_const_ARITY            2
+#define METALANG99_flip_ARITY             1
+#define METALANG99_putBefore_ARITY        2
+#define METALANG99_putAfter_ARITY         2
+#define METALANG99_putBetween_ARITY       3
+#define METALANG99_leftUnderscored_ARITY  1
+#define METALANG99_rightUnderscored_ARITY 1
+#define METALANG99_consume_ARITY          1
+#define METALANG99_braced_ARITY           1
+#define METALANG99_typedef_ARITY          2
+#define METALANG99_struct_ARITY           2
+#define METALANG99_anonStruct_ARITY       1
 
 #define METALANG99_PRIV_flip_ARITY 3
 // }
@@ -583,12 +449,6 @@
 #define M_stringify          METALANG99_stringify
 #define M_empty              METALANG99_empty
 #define M_id                 METALANG99_id
-#define M_parenthesizeEval   METALANG99_parenthesizeEval
-#define M_parenthesize       METALANG99_parenthesize
-#define M_unparenthesizeEval METALANG99_unparenthesizeEval
-#define M_unparenthesize     METALANG99_unparenthesize
-#define M_isParenthesized    METALANG99_isParenthesized
-#define M_isUnparenthesized  METALANG99_isUnparenthesized
 #define M_const              METALANG99_const
 #define M_flip               METALANG99_flip
 #define M_putBefore          METALANG99_putBefore
@@ -607,15 +467,11 @@
 #define M_semicolon          METALANG99_semicolon
 #define M_introduceVarToStmt METALANG99_introduceVarToStmt
 
-#define M_catPlain               METALANG99_catPlain
-#define M_stringifyPlain         METALANG99_stringifyPlain
-#define M_emptyPlain             METALANG99_emptyPlain
-#define M_idPlain                METALANG99_idPlain
-#define M_parenthesizePlain      METALANG99_parenthesizePlain
-#define M_unparenthesizePlain    METALANG99_unparenthesizePlain
-#define M_isParenthesizedPlain   METALANG99_isParenthesizedPlain
-#define M_isUnparenthesizedPlain METALANG99_isUnparenthesizedPlain
-#define M_consumePlain           METALANG99_consumePlain
+#define M_catPlain       METALANG99_catPlain
+#define M_stringifyPlain METALANG99_stringifyPlain
+#define M_emptyPlain     METALANG99_emptyPlain
+#define M_idPlain        METALANG99_idPlain
+#define M_consumePlain   METALANG99_consumePlain
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }

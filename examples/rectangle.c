@@ -2,9 +2,9 @@
 
 #include <metalang99.h>
 
-#define rect(width, height) M_parenthesize(width, height)
-#define rectWidth           M_parenthesizedVariadicsHead
-#define rectHeight          M_parenthesizedVariadicsTail
+#define rect(width, height) M_tuple(width, height)
+#define rectWidth           M_tupleHead
+#define rectHeight          M_tupleTail
 
 #define rectArea(rect) M_mul(rectWidth(rect), rectHeight(rect))
 

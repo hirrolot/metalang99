@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), 
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [unreleased]
+
+### Added
+
+ - `tuple.h`: `M_tuple(Plain)`, `M_tupleEval`, `M_untuple(Plain)`, `M_untupleEval`, `M_isTuple(Plain)`, `M_isUntuple(Plain)`, `M_tupleHead(Plain)`, `M_tupleTail(Plain)`.
+
+### Changed
+
+ - Move the corresponding functions from `util.h` and `variadics.h` to `tuple.h`.
+
 ## [0.3.0] - 2020-02-26
 
 ### Added
@@ -13,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_leftUnderscored`, `M_rightUnderscored`
  - `M_introduceVarToStmt`
  - `M_terms`
- - `M_parenthesizedVariadicsHead`, `M_parenthesizedVariadicsHeadPlain`, `M_parenthesizedVariadicsTail`, `M_parenthesizedVariadicsTailPlain`
+ - `M_tupleHead`, `M_tupleHeadPlain`, `M_tupleTail`, `M_tupleTailPlain`
  - `M_indexedParams`, `M_indexedFields`, `M_indexedInitializerList`
  - `M_typedef`, `M_struct`, `M_anonStruct`
  - `M_choiceTag`, `M_choiceTagPlain`, `M_isNilPlain`, `M_isCons`, `M_isConsPlain`
@@ -25,10 +35,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Terms now need to be separated by commas, e.g. instead of `v(1) M_call(F, v(2)) v(3)`, write `v(1), M_call(F, v(2)), v(3)` or `M_terms(v(1), M_call(F, v(2)), v(3)`.
  - The empty sequence is prohibited by `M_eval`, `M_call` and `M_abort`.
  - Use American style endings (because it is prevalent):
-   - `M_(un)parenthesise(Eval)` -> `M_(un)parenthesize(Eval)`
-   - `M_isParenthesised` -> `M_isParenthesized`
-   - `M_isUnparenthesised` -> `M_isUnparenthesized`
-   - `M_parenthesisedVariadics(Head|Tail)` -> `M_parenthesizedVariadics(Head|Tail)`
+   - `M_(un)parenthesise(Eval)` -> `M_(un)tuple(Eval)`
+   - `M_isParenthesised` -> `M_isTuple`
+   - `M_isUnparenthesised` -> `M_isUntuple`
+   - `M_parenthesisedVariadics(Head|Tail)` -> `M_tuple(Head|Tail)`
  - Shorten functions on unsigned integers:
    - `M_uintInc(Plain)` -> `M_inc(Plain)`
    - `M_uintDec(Plain)` -> `M_dec(Plain)`

@@ -1,5 +1,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/list.h>
+#include <metalang99/tuple.h>
 #include <metalang99/uint.h>
 #include <metalang99/util.h>
 
@@ -79,8 +80,8 @@ M_assertPlain(M_listEval(M_list(v(19, +, 6))) == 19 + 6);
 M_assertEmptyPlain(M_listEvalCommaSep(M_nil()));
 M_assertEmpty(M_listUnwrapCommaSep(M_nil()));
 
-M_eval(v(CHECK), M_parenthesize(v(M_listEvalCommaSep(M_list(v(1, 2, 3))))));
-M_eval(v(CHECK), M_parenthesize(M_listUnwrapCommaSep(M_list(v(1, 2, 3)))));
+M_eval(v(CHECK), M_tuple(v(M_listEvalCommaSep(M_list(v(1, 2, 3))))));
+M_eval(v(CHECK), M_tuple(M_listUnwrapCommaSep(M_list(v(1, 2, 3)))));
 
 #undef CHECK
 // }

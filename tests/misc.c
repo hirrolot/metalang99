@@ -1,5 +1,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/misc.h>
+#include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
 // M_repeat {
@@ -7,7 +8,7 @@
 #define F_IMPL(x)         v(, x)
 #define F_ARITY           1
 
-M_eval(v(CHECK), M_parenthesize(M_repeat(v(F), v(3))));
+M_eval(v(CHECK), M_tuple(M_repeat(v(F), v(3))));
 
 #undef CHECK
 #undef F_IMPL
@@ -17,7 +18,7 @@ M_eval(v(CHECK), M_parenthesize(M_repeat(v(F), v(3))));
 // M_indexedParams {
 #define CHECK_void M_semicolon()
 
-M_eval(M_cat(v(CHECK_), M_unparenthesize(M_indexedParams(M_nil()))));
+M_eval(M_cat(v(CHECK_), M_untuple(M_indexedParams(M_nil()))));
 
 #undef CHECK_void
 
