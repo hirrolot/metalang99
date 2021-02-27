@@ -128,7 +128,7 @@ After that, you must add one more include path `metalang99/include`.
 
 To use execute Metalang99 in your code, just `#include <metalang99.h>` beforehand (or include separate header files described in the documentation).
 
-**PLEASE**, use Metalang99 only with [`-ftrack-macro-expansion=0`] or something similar, otherwise it will throw your compiler to the moon. [Precompiled headers] are also very helpful.
+**PLEASE**, use Metalang99 only with [`-ftrack-macro-expansion=0`] (GCC) or something similar, otherwise it will throw your compiler to the moon. [Precompiled headers] are also very helpful.
 
 Resources:
 
