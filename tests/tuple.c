@@ -41,12 +41,8 @@ M_assertEq(M_tupleHead(v((19, 8, 7378))), v(19));
 // }
 
 // M_tupleTail {
-#define CHECK_TAIL(...) CHECK_TAIL_AUX(__VA_ARGS__)
-#define CHECK_TAIL_AUX(a, b, c, d)                                                                 \
-    M_assertPlain(a == 51);                                                                        \
-    M_assertPlain(b == 21);                                                                        \
-    M_assertPlain(c == 1);                                                                         \
-    M_assertPlain(d == 7378)
+#define CHECK_TAIL(...)            CHECK_TAIL_AUX(__VA_ARGS__)
+#define CHECK_TAIL_AUX(a, b, c, d) M_assertPlain(a == 51 && b == 21 && c == 1 && d == 7378)
 
 CHECK_TAIL(M_eval(M_tupleTail(v((9191, 51, 21, 1, 7378)))));
 
