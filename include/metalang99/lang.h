@@ -30,7 +30,7 @@
  *
  * This function implements <a href="https://en.wikipedia.org/wiki/Partial_application">partial
  * application</a>: instead of invoking a metafunction with all arguments at once, you specify each
- * argument separately. This concept allows to re-use existing metafunctions by specifying some
+ * argument separately. This concept allows better re-use of metafunctions by specifying some
  * arguments immediately, and the other arguments later, even in different execution contexts (for
  * example, see this <a href="https://stackoverflow.com/a/12414292/13166656">SO answer</a>).
  *
@@ -38,8 +38,8 @@
  * #METALANG99_appl. If @p f is a macro name, then a macro named `<f>_ARITY` (its arity specifier)
  * must denote how many times @p f will be applied to its arguments. (In Metalang99, an arity is an
  * intentionally more flexible concept than just a number of parameters, see below.) Each time
- * #METALANG99_appl is invoked, it accumulates provided variadic arguments and reduces the arity of
- * @p f by 1; when the arity of @p f is already 1, it eventually calls the initial @p f with all the
+ * #METALANG99_appl is invoked, it accumulates provided variadic arguments and decrements the arity
+ * of @p f; when the arity of @p f is already 1, it eventually calls the initial @p f with all the
  * accumulated arguments and provided variadic arguments.
  *
  * Most often, an arity specifier denotes a count of all named parameters plus 1 if a macro is
@@ -57,7 +57,7 @@
  * #define F_ARITY 4
  * @endcode
  *
- * In this case, `x`, `y`, and `z` can be specified separately but other arguments at once.
+ * In this case, `x`, `y`, and `z` can be specified separately but other arguments all at once.
  *
  * # Examples
  *
@@ -72,7 +72,8 @@
  * M_appl(M_appl(v(F), v(a)), v(b))
  * @endcode
  *
- * @note Currently, the maximum arity is 16.
+ * @note Currently, the maximum arity is 255. However, some compilers might not support more than
+ * 127 macro parameters.
  */
 #define METALANG99_appl(f, ...) METALANG99_call(METALANG99_appl, f, __VA_ARGS__)
 

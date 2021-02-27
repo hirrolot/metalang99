@@ -64,11 +64,7 @@ M_eval(M_call(F, v()));
 #undef H_IMPL
 
 // Ensure that `M_abort` immediately aborts interpretation even in an argument position.
-#define F_IMPL(x) v(~)
-
-M_assertEq(M_call(F, M_abort(v(123))), v(123));
-
-#undef F_IMPL
+M_assertEq(M_call(NonExistingF, M_abort(v(123))), v(123));
 // }
 
 // Partial application {
@@ -92,6 +88,16 @@ M_assertEq(M_appl(M_appl2(v(F), v(10), v(5)), v(7)), v(1057));
 M_assertEq(M_appl3(v(F), v(10), v(5), v(7)), v(1057));
 
 #undef F_IMPL
+#undef F_ARITY
+// }
+
+// The maximum arity {
+#define F_ARITY 255
+
+M_eval(M_consume(M_appl(v(F), v(~)))) M_semicolon();
+M_eval(M_consume(M_appl2(v(F), v(~), v(~)))) M_semicolon();
+M_eval(M_consume(M_appl3(v(F), v(~), v(~), v(~)))) M_semicolon();
+
 #undef F_ARITY
 // }
 
