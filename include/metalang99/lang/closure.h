@@ -46,9 +46,7 @@
         METALANG99_callTrivial(f, __VA_ARGS__),                                                    \
         v((METALANG99_PRIV_dec(arity), f, __VA_ARGS__)))
 
-#define METALANG99_appl2_IMPL(f, a, b)                                                             \
-    METALANG99_appl(METALANG99_callTrivial(METALANG99_appl, f, a), v(b))
-#define METALANG99_appl3_IMPL(f, a, b, c)                                                          \
-    METALANG99_appl(METALANG99_callTrivial(METALANG99_appl2, f, a, b), v(c))
+#define METALANG99_appl2_IMPL(f, a, b)    METALANG99_appl(METALANG99_appl_IMPL(f, a), v(b))
+#define METALANG99_appl3_IMPL(f, a, b, c) METALANG99_appl(METALANG99_appl2_IMPL(f, a, b), v(c))
 
 #endif // METALANG99_LANG_CLOSURE_H
