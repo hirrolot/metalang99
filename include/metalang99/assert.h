@@ -57,7 +57,7 @@
     /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
     static const char METALANG99_PRIV_CAT(                                                         \
         metalang99_assert_,                                                                        \
-        __LINE__)[(expr) ? 1 : -1] METALANG99_PRIV_COMPILER_ATTR_UNUSED
+        __LINE__)[(expr) ? 1 : -1] METALANG99_PRIV_COMPILER_ATTR_UNUSED = {0}
 
 /**
  * Asserts that `METALANG99_eval(expr)` is emptiness.

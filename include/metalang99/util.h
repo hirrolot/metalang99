@@ -337,7 +337,7 @@
  */
 #define METALANG99_semicolon()                                                                     \
     static const char METALANG99_PRIV_CAT(metalang99_semicolon_, __LINE__)                         \
-        METALANG99_PRIV_COMPILER_ATTR_UNUSED
+        METALANG99_PRIV_COMPILER_ATTR_UNUSED = '\0'
 
 /**
  * The plain version of #METALANG99_cat.
