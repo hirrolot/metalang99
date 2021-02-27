@@ -84,8 +84,6 @@
  * // { 0 }
  * M_indexedInitializerList(v(0))
  * @endcode
- *
- * @note The presence of a trailing comma inside the initialiser list is unspecified.
  */
 #define METALANG99_indexedInitializerList(n) METALANG99_call(METALANG99_indexedInitializerList, n)
 // }
@@ -104,23 +102,16 @@
 
 // METALANG99_indexedParams_IMPL {
 #define METALANG99_indexedParams_IMPL(type_list)                                                   \
-    METALANG99_tuple(METALANG99_variadicsTail(METALANG99_callTrivial(                              \
-        METALANG99_ifPlain(                                                                        \
-            METALANG99_isNilPlain(type_list),                                                      \
-            METALANG99_PRIV_indexedParamsEmpty,                                                    \
-            METALANG99_PRIV_indexedParamsNonEmpty),                                                \
-        type_list,                                                                                 \
-        0)))
+    METALANG99_tuple(METALANG99_ifPlain(                                                           \
+        METALANG99_isNilPlain(type_list),                                                          \
+        v(void),                                                                                   \
+        METALANG99_variadicsTail(METALANG99_PRIV_indexedParamsAux_IMPL(type_list, 0))))
 
-#define METALANG99_PRIV_indexedParamsEmpty_IMPL(_type_list, _i) v(, void)
-
-#define METALANG99_PRIV_indexedParamsNonEmpty_IMPL(type_list, i)                                   \
-    METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedParamsNonEmpty_, i)
-#define METALANG99_PRIV_indexedParamsNonEmpty_nil_IMPL(_i) METALANG99_empty()
-#define METALANG99_PRIV_indexedParamsNonEmpty_cons_IMPL(x, xs, i)                                  \
-    METALANG99_terms(                                                                              \
-        v(, x METALANG99_catPlain(_, i)),                                                          \
-        METALANG99_PRIV_indexedParamsNonEmpty_IMPL(xs, METALANG99_incPlain(i)))
+#define METALANG99_PRIV_indexedParamsAux_IMPL(type_list, i)                                        \
+    METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedParamsAux_, i)
+#define METALANG99_PRIV_indexedParamsAux_nil_IMPL(_i) METALANG99_empty()
+#define METALANG99_PRIV_indexedParamsAux_cons_IMPL(x, xs, i)                                       \
+    METALANG99_terms(v(, x _##i), METALANG99_PRIV_indexedParamsAux_IMPL(xs, METALANG99_incPlain(i)))
 // }
 
 // METALANG99_indexedFields_IMPL {
@@ -130,29 +121,17 @@
     METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedFields_, i)
 #define METALANG99_PRIV_indexedFields_nil_IMPL(_i) METALANG99_empty()
 #define METALANG99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                          \
-    METALANG99_terms(                                                                              \
-        v(x METALANG99_catPlain(_, i);),                                                           \
-        METALANG99_PRIV_indexedFieldsAux_IMPL(xs, METALANG99_incPlain(i)))
+    METALANG99_terms(v(x _##i;), METALANG99_PRIV_indexedFieldsAux_IMPL(xs, METALANG99_incPlain(i)))
 // }
 
 // METALANG99_indexedInitializerList_IMPL {
 #define METALANG99_indexedInitializerList_IMPL(n)                                                  \
-    METALANG99_braced(METALANG99_callTrivial(                                                      \
-        METALANG99_ifPlain(                                                                        \
-            METALANG99_uintEqPlain(n, 0),                                                          \
-            METALANG99_PRIV_indexedInitializerListZero,                                            \
-            METALANG99_PRIV_indexedInitializerListNonZero),                                        \
-        n))
+    METALANG99_braced(METALANG99_ifPlain(                                                          \
+        METALANG99_uintEqPlain(n, 0),                                                              \
+        v(0),                                                                                      \
+        METALANG99_variadicsTail(METALANG99_repeat_IMPL(METALANG99_PRIV_indexedItem, n))))
 
-#define METALANG99_PRIV_indexedInitializerListZero_IMPL(_i) v(0)
-
-#define METALANG99_PRIV_indexedInitializerListNonZero_IMPL(i)                                      \
-    METALANG99_uintMatch_IMPL(i, METALANG99_PRIV_indexedInitializerListNonZero_)
-#define METALANG99_PRIV_indexedInitializerListNonZero_Z_IMPL() METALANG99_empty()
-#define METALANG99_PRIV_indexedInitializerListNonZero_S_IMPL(i)                                    \
-    METALANG99_terms(                                                                              \
-        METALANG99_PRIV_indexedInitializerListNonZero_IMPL(i),                                     \
-        v(METALANG99_catPlain(_, i), ))
+#define METALANG99_PRIV_indexedItem_IMPL(i) v(, _##i)
 // }
 
 // } (Implementation)
@@ -162,6 +141,8 @@
 #define METALANG99_indexedParams_ARITY          1
 #define METALANG99_indexedFields_ARITY          1
 #define METALANG99_indexedInitializerList_ARITY 1
+
+#define METALANG99_PRIV_indexedItem_ARITY 1
 // }
 
 // Aliases {

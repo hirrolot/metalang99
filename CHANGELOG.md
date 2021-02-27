@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
  - Increase the maximum arity from 16 to 255.
+ - Specify the exact number of commas produced by `M_indexedInitializerList`.
 
 ### Fixed
 
