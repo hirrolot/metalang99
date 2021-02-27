@@ -12,7 +12,7 @@
 /**
  * The alias to 0.
  *
- * @note This macro expands literally to 0. If you want to use it as an Metalang99 term, write
+ * @note This macro expands literally to 0. If you want to use it as a Metalang99 term, write
  * `v(M_false)`.
  */
 #define METALANG99_false 0
@@ -20,7 +20,7 @@
 /**
  * The alias to 1.
  *
- * @note This macro expands literally to 1. If you want to use it as an Metalang99 term, write
+ * @note This macro expands literally to 1. If you want to use it as a Metalang99 term, write
  * `v(M_true)`.
  */
 #define METALANG99_true 1

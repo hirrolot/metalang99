@@ -118,6 +118,22 @@ static void test_anon_struct(void) {
 }
 // }
 
+// M_detectIdent {
+#define FOO_x ()
+#define FOO_y ()
+
+M_assertPlain(M_detectIdent(FOO_, x));
+M_assertPlain(M_detectIdent(FOO_, y));
+M_assertPlain(!M_detectIdent(FOO_, z));
+
+M_assertPlain(!M_detectIdent(BAR_, x));
+M_assertPlain(!M_detectIdent(BAR_, abc));
+M_assertPlain(!M_detectIdent(BAR_, defghi));
+
+#undef FOO_x
+#undef FOO_y
+// }
+
 int main(void) {
     (void)test_semicolon;
     (void)test_let;

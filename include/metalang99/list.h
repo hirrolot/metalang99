@@ -143,7 +143,7 @@
  * M_listEval(M_list(v(1, 2, 3)))
  * @endcode
  *
- * @note This macro does not result in an Metalang99 term; it literally pastes list elements into a
+ * @note This macro does not result in a Metalang99 term; it literally pastes list elements into a
  * source file.
  */
 #define METALANG99_listEval(...)                                                                   \
@@ -161,7 +161,7 @@
  * M_listEvalCommaSep(M_list(v(1, 2, 3)))
  * @endcode
  *
- * @note This macro does not result in an Metalang99 term; it literally pastes comma-separated list
+ * @note This macro does not result in a Metalang99 term; it literally pastes comma-separated list
  * elements into a source file.
  */
 #define METALANG99_listEvalCommaSep(...)                                                           \

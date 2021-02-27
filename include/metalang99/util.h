@@ -281,7 +281,7 @@
  * M_catPrimitive(ABC, 123)
  * @endcode
  *
- * @note This macro does not expand to an Metalang99 term: it is rather an ordinary preprocessor
+ * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
  * macro.
  */
 #define METALANG99_catPrimitive(x, y) x##y
@@ -301,7 +301,7 @@
  * M_stringifyPrimitive(ABC)
  * @endcode
  *
- * @note This macro does not expand to an Metalang99 term: it is rather an ordinary preprocessor
+ * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
  * macro.
  */
 #define METALANG99_stringifyPrimitive(...) #__VA_ARGS__
@@ -329,7 +329,7 @@
  * WHEN(SomeCommand, handler, 1, 2, 3);
  * @endcode
  *
- * @note This macro does not expand to an Metalang99 term: it is rather an ordinary preprocessor
+ * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
  * macro.
  * @note This macro can be used both inside and outside of function bodies, in contrast to the `do {
  * ... } while(0)` idiom. Technically, this macro just expands to an unused static variable
@@ -383,18 +383,51 @@
  * # Example
  *
  * @code
+ * #include <metalang99/util.h>
+ *
  * for (int i = 0; i < 10; i++)
  *     M_introduceVarToStmt(double x = 5.0)
  *     M_introduceVarToStmt(double y = 7.0)
  *         printf("i = %d, x = %f, y = %f\n", i, x, y);
  * @endcode
  *
- * @note This macro does not expand to an Metalang99 term: it is rather an ordinary preprocessor
+ * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
  * macro.
  */
 #define METALANG99_introduceVarToStmt(var_def)                                                     \
     for (int metalang99_priv_break_for = 0; metalang99_priv_break_for != 1;)                       \
         for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)
+
+/**
+ * Tells whether @p ident belongs to a set of identifiers defined by @p prefix.
+ *
+ * If `<prefix><ident>` exists, it must be an object-like macro which expands to `()`. If so,
+ * `M_detectIdent(prefix, ident)` will expand to 1, otherwise (`<prefix><ident>` does **not**
+ * exist), `M_detectIdent(prefix, ident)` will expand to 0.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * #define FOO_x ()
+ * #define FOO_y ()
+ *
+ * // 1
+ * M_detectIdent(FOO_, x)
+ *
+ * // 1
+ * M_detectIdent(FOO_, y)
+ *
+ * // 0
+ * M_detectIdent(FOO_, z)
+ * @endcode
+ *
+ * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
+ * macro.
+ */
+#define METALANG99_detectIdent(prefix, ident)                                                      \
+    METALANG99_PRIV_IS_PARENTHESIZED(M_catPlain(prefix, ident))
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -467,6 +500,7 @@
 #define M_stringifyPrimitive METALANG99_stringifyPrimitive
 #define M_semicolon          METALANG99_semicolon
 #define M_introduceVarToStmt METALANG99_introduceVarToStmt
+#define M_detectIdent        METALANG99_detectIdent
 
 #define M_catPlain       METALANG99_catPlain
 #define M_stringifyPlain METALANG99_stringifyPlain

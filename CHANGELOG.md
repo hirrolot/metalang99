@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `M_detectIdent`
+
 ### Changed
 
  - Increase the maximum arity from 16 to 255.
