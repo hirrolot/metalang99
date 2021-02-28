@@ -6,7 +6,7 @@
 #ifndef METALANG99_ASSERT_H
 #define METALANG99_ASSERT_H
 
-#include <metalang99/priv/compiler_attr.h>
+#include <metalang99/priv/compiler_specific.h>
 
 #include <metalang99/eval.h>
 #include <metalang99/lang.h>

@@ -7,4 +7,10 @@
 #define METALANG99_PRIV_COMPILER_ATTR_UNUSED
 #endif
 
+#ifdef __clang__
+#define METALANG99_PRIV_SUPPRESS_W_SHADOW _Pragma("clang diagnostic ignored \"-Wshadow\"")
+#else
+#define METALANG99_PRIV_SUPPRESS_W_SHADOW
+#endif
+
 #endif // METALANG99_PRIV_COMPILER_ATTR_H

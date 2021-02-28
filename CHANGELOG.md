@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `METALANG99_MAJOR`, `METALANG99_MINOR`, `METALANG99_PATCH`
  - `M_union`, `M_anonUnion`, `M_enum`, `M_anonEnum`
 
+### Fixed
+
+ - Suppress Clang's `-Wshadow` for a variable produced by `M_introduceVarToStmt`.
+
 ## [0.4.1] - 2021-02-28
 
 ### Added

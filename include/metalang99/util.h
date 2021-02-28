@@ -6,7 +6,7 @@
 #ifndef METALANG99_UTIL_H
 #define METALANG99_UTIL_H
 
-#include <metalang99/priv/compiler_attr.h>
+#include <metalang99/priv/compiler_specific.h>
 
 #include <metalang99/lang.h>
 
@@ -415,7 +415,8 @@
  * macro.
  */
 #define METALANG99_introduceVarToStmt(var_def)                                                     \
-    for (int metalang99_priv_break_for = 0; metalang99_priv_break_for != 1;)                       \
+    for (int metalang99_priv_break_for METALANG99_PRIV_SUPPRESS_W_SHADOW = 0;                      \
+         metalang99_priv_break_for != 1;)                                                          \
         for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)
 
 /**
