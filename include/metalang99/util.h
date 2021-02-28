@@ -415,9 +415,11 @@
  * macro.
  */
 #define METALANG99_introduceVarToStmt(var_def)                                                     \
-    for (int metalang99_priv_break_for METALANG99_PRIV_SUPPRESS_W_SHADOW = 0;                      \
-         metalang99_priv_break_for != 1;)                                                          \
-        for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)
+    METALANG99_PRIV_CLANG_DIAGNOSTIC_PUSH                                                          \
+    METALANG99_PRIV_CLANG_SUPPRESS_W_SHADOW                                                        \
+    for (int metalang99_priv_break_for = 0; metalang99_priv_break_for != 1;)                       \
+        for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)               \
+    METALANG99_PRIV_CLANG_DIAGNOSTIC_POP
 
 /**
  * Tells whether @p ident belongs to a set of identifiers defined by @p prefix.
