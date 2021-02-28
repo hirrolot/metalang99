@@ -13,6 +13,7 @@
 #include <metalang99/logical.h>
 #include <metalang99/uint.h>
 #include <metalang99/util.h>
+#include <metalang99/variadics.h>
 
 // Desugaring {
 /**
@@ -731,7 +732,7 @@
         METALANG99_callTrivial(                                                                    \
             METALANG99_if,                                                                         \
             METALANG99_isNilPlain(xs),                                                             \
-            METALANG99_PRIV_CONST_NIL,                                                             \
+            METALANG99_PRIV_constNil,                                                              \
             METALANG99_PRIV_listInitProgress),                                                     \
         v(x, xs))
 #define METALANG99_PRIV_listInitProgress_IMPL(x, xs)                                               \
@@ -945,7 +946,7 @@
         METALANG99_call(                                                                           \
             METALANG99_if,                                                                         \
             METALANG99_appl2_IMPL(compare, x, other_x),                                            \
-            v(METALANG99_listEq, METALANG99_PRIV_CONST_FALSE)),                                    \
+            v(METALANG99_listEq, METALANG99_PRIV_constFalse)),                                     \
         v(compare, xs, other_xs))
 // }
 
@@ -958,7 +959,7 @@
         METALANG99_call(                                                                           \
             METALANG99_if,                                                                         \
             METALANG99_appl2_IMPL(compare, x, item),                                               \
-            v(METALANG99_PRIV_CONST_TRUE, METALANG99_listContains)),                               \
+            v(METALANG99_PRIV_constTrue, METALANG99_listContains)),                                \
         v(compare, item, xs))
 // }
 
@@ -986,7 +987,7 @@
         METALANG99_call(                                                                           \
             METALANG99_if,                                                                         \
             METALANG99_appl_IMPL(f, x),                                                            \
-            v(METALANG99_PRIV_listTakeWhileProgress, METALANG99_PRIV_CONST_NIL)),                  \
+            v(METALANG99_PRIV_listTakeWhileProgress, METALANG99_PRIV_constNil)),                   \
         v(x, xs, f))
 #define METALANG99_PRIV_listTakeWhileProgress_IMPL(x, xs, f)                                       \
     METALANG99_cons(v(x), METALANG99_listTakeWhile_IMPL(f, xs))
@@ -1088,10 +1089,10 @@
 
 // METALANG99_listUnwrapCommaSep {
 #define METALANG99_listUnwrapCommaSep_IMPL(list)                                                   \
-    METALANG99_match_IMPL(list, METALANG99_PRIV_listUnwrapCommaSep_)
-#define METALANG99_PRIV_listUnwrapCommaSep_nil_IMPL() METALANG99_empty()
-#define METALANG99_PRIV_listUnwrapCommaSep_cons_IMPL(x, xs)                                        \
-    METALANG99_terms(v(x), METALANG99_PRIV_listUnwrapCommaSepAux_IMPL(xs))
+    METALANG99_ifPlain(                                                                            \
+        METALANG99_isNilPlain(list),                                                               \
+        METALANG99_empty(),                                                                        \
+        METALANG99_variadicsTail(METALANG99_PRIV_listUnwrapCommaSepAux_IMPL(list)))
 
 #define METALANG99_PRIV_listUnwrapCommaSepAux_IMPL(xs)                                             \
     METALANG99_match_IMPL(xs, METALANG99_PRIV_listUnwrapCommaSepAux_)
@@ -1111,7 +1112,7 @@
 
 #define METALANG99_PRIV_IS_CONS(list) METALANG99_notPlain(METALANG99_PRIV_IS_NIL(list))
 
-#define METALANG99_PRIV_CONST_NIL_IMPL(...) METALANG99_nil()
+#define METALANG99_PRIV_constNil_IMPL(...) METALANG99_nil()
 
 // } (Implementation)
 

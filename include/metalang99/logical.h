@@ -10,7 +10,7 @@
 
 // Desugaring {
 /**
- * The alias to 0.
+ * An alias to 0.
  *
  * @note This macro expands literally to 0. If you want to use it as a Metalang99 term, write
  * `v(M_false)`.
@@ -18,7 +18,7 @@
 #define METALANG99_false 0
 
 /**
- * The alias to 1.
+ * An alias to 1.
  *
  * @note This macro expands literally to 1. If you want to use it as a Metalang99 term, write
  * `v(M_true)`.
@@ -183,8 +183,8 @@
 
 #define METALANG99_PRIV_UINT_OVERLOAD(op, x, y) op##x##y()
 
-#define METALANG99_PRIV_CONST_TRUE_IMPL(...)  v(METALANG99_true)
-#define METALANG99_PRIV_CONST_FALSE_IMPL(...) v(METALANG99_false)
+#define METALANG99_PRIV_constTrue_IMPL(...)  v(METALANG99_true)
+#define METALANG99_PRIV_constFalse_IMPL(...) v(METALANG99_false)
 // }
 
 // Arity specifiers {
