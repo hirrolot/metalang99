@@ -247,23 +247,6 @@
 #define METALANG99_listReverse(list) METALANG99_call(METALANG99_listReverse, list)
 
 /**
- * Checks @p list for emptiness.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/list.h>
- *
- * // 0
- * M_isNil(M_list(v(1, 2, 3)))
- *
- * // 1
- * M_isNil(M_nil())
- * @endcode
- */
-#define METALANG99_isNil(list) METALANG99_call(METALANG99_isNil, list)
-
-/**
  * Checks @p list for non-emptiness.
  *
  * # Examples
@@ -279,6 +262,23 @@
  * @endcode
  */
 #define METALANG99_isCons(list) METALANG99_call(METALANG99_isCons, list)
+
+/**
+ * Checks @p list for emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/list.h>
+ *
+ * // 0
+ * M_isNil(M_list(v(1, 2, 3)))
+ *
+ * // 1
+ * M_isNil(M_nil())
+ * @endcode
+ */
+#define METALANG99_isNil(list) METALANG99_call(METALANG99_isNil, list)
 
 /**
  * Gets an @p i -indexed element.
@@ -691,18 +691,18 @@
 #define METALANG99_nilPlain() METALANG99_choicePlain(nil, ~)
 
 /**
- * The plain version of #METALANG99_isNil.
- *
- * @note @p list must be already evaluated.
- */
-#define METALANG99_isNilPlain(list) METALANG99_PRIV_IS_NIL(list)
-
-/**
  * The plain version of #METALANG99_isCons.
  *
  * @note @p list must be already evaluated.
  */
 #define METALANG99_isConsPlain(list) METALANG99_PRIV_IS_CONS(list)
+
+/**
+ * The plain version of #METALANG99_isNil.
+ *
+ * @note @p list must be already evaluated.
+ */
+#define METALANG99_isNilPlain(list) METALANG99_PRIV_IS_NIL(list)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -821,12 +821,12 @@
     METALANG99_listAppend_IMPL(list, METALANG99_consPlain(item, METALANG99_nilPlain()))
 // }
 
-// METALANG99_isNil_IMPL {
-#define METALANG99_isNil_IMPL(list) v(METALANG99_isNilPlain(list))
+// METALANG99_isCons_IMPL {
+#define METALANG99_isCons_IMPL(list) v(METALANG99_isConsPlain(list))
 // }
 
 // METALANG99_isNil_IMPL {
-#define METALANG99_isCons_IMPL(list) v(METALANG99_isConsPlain(list))
+#define METALANG99_isNil_IMPL(list) v(METALANG99_isNilPlain(list))
 // }
 
 // METALANG99_listUnwrap_IMPL {
@@ -1163,8 +1163,8 @@
 #define METALANG99_listUnwrap_ARITY         1
 #define METALANG99_listUnwrapCommaSep_ARITY 1
 #define METALANG99_listReverse_ARITY        1
-#define METALANG99_isNil_ARITY              1
 #define METALANG99_isCons_ARITY             1
+#define METALANG99_isNil_ARITY              1
 #define METALANG99_get_ARITY                2
 #define METALANG99_listFoldr_ARITY          3
 #define METALANG99_listFoldl_ARITY          3
@@ -1220,8 +1220,8 @@
 #define M_listUnwrap         METALANG99_listUnwrap
 #define M_listUnwrapCommaSep METALANG99_listUnwrapCommaSep
 #define M_listReverse        METALANG99_listReverse
-#define M_isNil              METALANG99_isNil
 #define M_isCons             METALANG99_isCons
+#define M_isNil              METALANG99_isNil
 #define M_get                METALANG99_get
 #define M_listFoldr          METALANG99_listFoldr
 #define M_listFoldl          METALANG99_listFoldl
