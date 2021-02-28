@@ -75,7 +75,7 @@
  * The result is `M_appl(v(f), v(x1)) ... M_appl(v(f), v(xN))`.
  *
  * If you already have variadics, using this macro is more efficient than
- * `M_listUnwrap(M_listMap(v(F), M_list(v(...))))`.
+ * `M_listUnwrap(M_listMap(v(f), M_list(v(...))))`.
  *
  * # Examples
  *
@@ -101,7 +101,7 @@
  * The result is `M_appl2(v(f), v(x1), v(0)) ... M_appl2(v(f), v(xN), v(N))`.
  *
  * If you already have variadics, using this macro is more efficient than
- * `M_listUnwrap(M_listMapI(v(F), M_list(v(...))))`.
+ * `M_listUnwrap(M_listMapI(v(f), M_list(v(...))))`.
  *
  * @note Unlike #METALANG99_listMapI, @p f can evaluate to many Metalang99 terms.
  * @note At most 63 variadic arguments are acceptable.

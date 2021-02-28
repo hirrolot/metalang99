@@ -421,6 +421,20 @@
 #define METALANG99_listMapI(f, list) METALANG99_call(METALANG99_listMapI, f, list)
 
 /**
+ * A more efficient version of `M_listUnwrap(M_listMap(f, list))`.
+ *
+ * @note Unlike #METALANG99_listMap, @p f can evaluate to many terms.
+ */
+#define METALANG99_listMapInPlace(f, list) METALANG99_call(METALANG99_listMapInPlace, f, list)
+
+/**
+ * A more efficient version of `M_listUnwrap(M_listMapI(f, list))`.
+ *
+ * @note Unlike #METALANG99_listMapI, @p f can evaluate to many terms.
+ */
+#define METALANG99_listMapInPlaceI(f, list) METALANG99_call(METALANG99_listMapInPlaceI, f, list)
+
+/**
  * The same as #METALANG99_listMap but with the reversed order of arguments.
  *
  * # Examples
@@ -901,6 +915,25 @@
         METALANG99_PRIV_listMapIAux_IMPL(f, xs, METALANG99_PRIV_inc(i)))
 // }
 
+// METALANG99_listMapInPlace_IMPL {
+#define METALANG99_listMapInPlace_IMPL(f, list)                                                    \
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listMapInPlace_, f)
+#define METALANG99_PRIV_listMapInPlace_nil_IMPL(_f) METALANG99_empty()
+#define METALANG99_PRIV_listMapInPlace_cons_IMPL(x, xs, f)                                         \
+    METALANG99_terms(METALANG99_appl_IMPL(f, x), METALANG99_listMapInPlace_IMPL(f, xs))
+// }
+
+// METALANG99_listMapInPlaceI_IMPL {
+#define METALANG99_listMapInPlaceI_IMPL(f, list) METALANG99_PRIV_listMapInPlaceIAux_IMPL(f, list, 0)
+#define METALANG99_PRIV_listMapInPlaceIAux_IMPL(f, list, i)                                        \
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listMapInPlaceI_, f, i)
+#define METALANG99_PRIV_listMapInPlaceI_nil_IMPL(_f, _i) METALANG99_empty()
+#define METALANG99_PRIV_listMapInPlaceI_cons_IMPL(x, xs, f, i)                                     \
+    METALANG99_terms(                                                                              \
+        METALANG99_appl2_IMPL(f, x, i),                                                            \
+        METALANG99_PRIV_listMapInPlaceIAux_IMPL(f, xs, METALANG99_PRIV_inc(i)))
+// }
+
 // METALANG99_listFor_IMPL {
 #define METALANG99_listFor_IMPL(list, f) METALANG99_listMap_IMPL(f, list)
 // }
@@ -1140,6 +1173,8 @@
 #define METALANG99_listPrependToAll_ARITY   2
 #define METALANG99_listMap_ARITY            2
 #define METALANG99_listMapI_ARITY           2
+#define METALANG99_listMapInPlace_ARITY     2
+#define METALANG99_listMapInPlaceI_ARITY    2
 #define METALANG99_listFor_ARITY            2
 #define METALANG99_listMapInitLast_ARITY    3
 #define METALANG99_listForInitLast_ARITY    3
@@ -1195,6 +1230,8 @@
 #define M_listPrependToAll   METALANG99_listPrependToAll
 #define M_listMap            METALANG99_listMap
 #define M_listMapI           METALANG99_listMapI
+#define M_listMapInPlace     METALANG99_listMapInPlace
+#define M_listMapInPlaceI    METALANG99_listMapInPlaceI
 #define M_listFor            METALANG99_listFor
 #define M_listMapInitLast    METALANG99_listMapInitLast
 #define M_listForInitLast    METALANG99_listForInitLast
