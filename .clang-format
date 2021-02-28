@@ -11,3 +11,4 @@ ContinuationIndentWidth: 4
 BinPackArguments: false
 BinPackParameters: true
 AllowAllParametersOfDeclarationOnNextLine: true
+StatementMacros: ["METALANG99_clangPragma", "METALANG99_gccPragma"]

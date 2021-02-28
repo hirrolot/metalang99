@@ -415,11 +415,12 @@
  * macro.
  */
 #define METALANG99_introduceVarToStmt(var_def)                                                     \
-    METALANG99_PRIV_CLANG_DIAGNOSTIC_PUSH                                                          \
-    METALANG99_PRIV_CLANG_SUPPRESS_W_SHADOW                                                        \
+    METALANG99_clangPragma("clang diagnostic push")                                                \
+    METALANG99_clangPragma("clang diagnostic pop")                                                 \
+    METALANG99_clangPragma("clang diagnostic ignored \"-Wshadow\"")                                \
     for (int metalang99_priv_break_for = 0; metalang99_priv_break_for != 1;)                       \
         for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)               \
-    METALANG99_PRIV_CLANG_DIAGNOSTIC_POP
+            METALANG99_clangPragma("clang diagnostic pop")
 
 /**
  * Tells whether @p ident belongs to a set of identifiers defined by @p prefix.
@@ -451,6 +452,16 @@
  */
 #define METALANG99_detectIdent(prefix, ident)                                                      \
     METALANG99_PRIV_IS_PARENTHESIZED(M_catPlain(prefix, ident))
+
+/**
+ * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
+ */
+#define METALANG99_gccPragma(str) METALANG99_PRIV_GCC_PRAGMA(str)
+
+/**
+ * If you are compiling on Clang, this macro expands to `_Pragma(str)`, otherwise to emptiness.
+ */
+#define METALANG99_clangPragma(str) METALANG99_PRIV_CLANG_PRAGMA(str)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -478,6 +489,18 @@
 #define METALANG99_anonUnion_IMPL(...)             v(union {__VA_ARGS__})
 #define METALANG99_enum_IMPL(ident, ...)           v(enum ident{__VA_ARGS__})
 #define METALANG99_anonEnum_IMPL(...)              v(enum {__VA_ARGS__})
+
+#if defined(__GNUC__) && !defined(__clang__)
+#define METALANG99_PRIV_GCC_PRAGMA(str) _Pragma(str)
+#else
+#define METALANG99_PRIV_GCC_PRAGMA(str)
+#endif
+
+#if defined(__clang__)
+#define METALANG99_PRIV_CLANG_PRAGMA(str) _Pragma(str)
+#else
+#define METALANG99_PRIV_CLANG_PRAGMA(str)
+#endif
 // }
 
 // Arity specifiers {
