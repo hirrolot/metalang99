@@ -119,13 +119,9 @@ So, in summary, Metalang99 allows to do advanced metaprogramming in C. It allows
 
 ## Getting started
 
-```sh
-$ git clone https://github.com/Hirrolot/metalang99.git
-```
-
-After that, you must add one more include path `metalang99/include`.
-
-To use execute Metalang99 in your code, just `#include <metalang99.h>` beforehand (or include separate header files described in the documentation).
+ 1. Download this repository.
+ 2. Add `metalang99/include` to your include paths.
+ 3. `#include <metalang99.h>` beforehand (or use separate headers described in the docs).
 
 **PLEASE**, use Metalang99 only with [`-ftrack-macro-expansion=0`] (GCC) or something similar, otherwise it will throw your compiler to the moon. [Precompiled headers] are also very helpful.
 
