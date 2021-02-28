@@ -8,6 +8,8 @@ The Metalang99 Standard Library
 
 The Metalang99 standard library exports a set of macros implemented using the `Metalang99 metalanguage`_.
 
+The `METALANG99_MAJOR`, `METALANG99_MINOR`, and `METALANG99_PATCH` macros denote the major, the minor, and the patch numbers, respectively. They are defined in `metalang99.h`.
+
 \Options
 --------
 

@@ -19,4 +19,8 @@
 #include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
+#define METALANG99_MAJOR 0
+#define METALANG99_MINOR 4
+#define METALANG99_PATCH 1
+
 #endif // METALANG99_H
