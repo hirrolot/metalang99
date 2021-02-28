@@ -109,7 +109,7 @@
 
 #define METALANG99_PRIV_indexedParamsAux_IMPL(type_list, i)                                        \
     METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedParamsAux_, i)
-#define METALANG99_PRIV_indexedParamsAux_nil_IMPL(_i) METALANG99_empty()
+#define METALANG99_PRIV_indexedParamsAux_nil_IMPL(_, _i) METALANG99_empty()
 #define METALANG99_PRIV_indexedParamsAux_cons_IMPL(x, xs, i)                                       \
     METALANG99_terms(v(, x _##i), METALANG99_PRIV_indexedParamsAux_IMPL(xs, METALANG99_incPlain(i)))
 // }
@@ -119,7 +119,7 @@
 
 #define METALANG99_PRIV_indexedFieldsAux_IMPL(type_list, i)                                        \
     METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedFields_, i)
-#define METALANG99_PRIV_indexedFields_nil_IMPL(_i) METALANG99_empty()
+#define METALANG99_PRIV_indexedFields_nil_IMPL(_, _i) METALANG99_empty()
 #define METALANG99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                          \
     METALANG99_terms(v(x _##i;), METALANG99_PRIV_indexedFieldsAux_IMPL(xs, METALANG99_incPlain(i)))
 // }
