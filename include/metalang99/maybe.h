@@ -97,8 +97,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_just_IMPL(x)   v(METALANG99_PRIV_choice(just, x))
-#define METALANG99_nothing_IMPL() v(METALANG99_PRIV_choiceEmpty(nothing))
+#define METALANG99_just_IMPL(x)   v(METALANG99_choicePlain(just, x))
+#define METALANG99_nothing_IMPL() v(METALANG99_choiceEmptyPlain(nothing))
 
 // METALANG99_isJust_IMPL {
 #define METALANG99_isJust_IMPL(maybe)         METALANG99_match_IMPL(maybe, METALANG99_PRIV_isJust_)

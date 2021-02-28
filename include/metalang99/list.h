@@ -666,6 +666,16 @@
 #define METALANG99_listAppl(list, f) METALANG99_call(METALANG99_listAppl, list, f)
 
 /**
+ * The plain version of #METALANG99_cons.
+ */
+#define METALANG99_consPlain(x, xs) METALANG99_choicePlain(cons, x, xs)
+
+/**
+ * The plain version of #METALANG99_nil.
+ */
+#define METALANG99_nilPlain() METALANG99_choiceEmptyPlain(nil)
+
+/**
  * The plain version of #METALANG99_isNil.
  *
  * @note @p list must be already evaluated.
@@ -683,11 +693,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_cons_IMPL(x, xs) v(METALANG99_PRIV_cons(x, xs))
-#define METALANG99_nil_IMPL()       v(METALANG99_PRIV_nil())
-
-#define METALANG99_PRIV_cons(x, xs) METALANG99_PRIV_choice(cons, x, xs)
-#define METALANG99_PRIV_nil()       METALANG99_PRIV_choiceEmpty(nil)
+#define METALANG99_cons_IMPL(x, xs) v(METALANG99_consPlain(x, xs))
+#define METALANG99_nil_IMPL()       v(METALANG99_nilPlain())
 
 // METALANG99_listHead_IMPL {
 #define METALANG99_listHead_IMPL(list)             METALANG99_match_IMPL(list, METALANG99_PRIV_listHead_)
@@ -764,20 +771,20 @@
             METALANG99_PRIV_dec(count),                                                            \
             __VA_ARGS__))
 
-#define METALANG99_PRIV_listDone_0(_count, _)    v(METALANG99_PRIV_nil())
-#define METALANG99_PRIV_listDone_1(_count, a, _) v(METALANG99_PRIV_cons(a, METALANG99_PRIV_nil()))
+#define METALANG99_PRIV_listDone_0(_count, _)    v(METALANG99_nilPlain())
+#define METALANG99_PRIV_listDone_1(_count, a, _) v(METALANG99_consPlain(a, METALANG99_nilPlain()))
 #define METALANG99_PRIV_listDone_2(_count, a, b, _)                                                \
-    v(METALANG99_PRIV_cons(a, METALANG99_PRIV_cons(b, METALANG99_PRIV_nil())))
+    v(METALANG99_consPlain(a, METALANG99_consPlain(b, METALANG99_nilPlain())))
 #define METALANG99_PRIV_listDone_3(_count, a, b, c, _)                                             \
-    v(METALANG99_PRIV_cons(                                                                        \
+    v(METALANG99_consPlain(                                                                        \
         a,                                                                                         \
-        METALANG99_PRIV_cons(b, METALANG99_PRIV_cons(c, METALANG99_PRIV_nil()))))
+        METALANG99_consPlain(b, METALANG99_consPlain(c, METALANG99_nilPlain()))))
 #define METALANG99_PRIV_listDone_4(_count, a, b, c, d, _)                                          \
-    v(METALANG99_PRIV_cons(                                                                        \
+    v(METALANG99_consPlain(                                                                        \
         a,                                                                                         \
-        METALANG99_PRIV_cons(                                                                      \
+        METALANG99_consPlain(                                                                      \
             b,                                                                                     \
-            METALANG99_PRIV_cons(c, METALANG99_PRIV_cons(d, METALANG99_PRIV_nil())))))
+            METALANG99_consPlain(c, METALANG99_consPlain(d, METALANG99_nilPlain())))))
 // } (METALANG99_list_IMPL)
 
 // METALANG99_listLen_IMPL {
@@ -796,7 +803,7 @@
 
 // METALANG99_listAppendItem_IMPL {
 #define METALANG99_listAppendItem_IMPL(item, list)                                                 \
-    METALANG99_listAppend_IMPL(list, METALANG99_PRIV_cons(item, METALANG99_PRIV_nil()))
+    METALANG99_listAppend_IMPL(list, METALANG99_consPlain(item, METALANG99_nilPlain()))
 // }
 
 // METALANG99_isNil_IMPL {
@@ -1011,7 +1018,7 @@
             METALANG99_appl_IMPL(f, x),                                                            \
             v(METALANG99_PRIV_listDropWhileProgress, METALANG99_PRIV_listDropWhileDone)),          \
         v(x, xs, f))
-#define METALANG99_PRIV_listDropWhileDone_IMPL(x, xs, _f)     v(METALANG99_PRIV_cons(x, xs))
+#define METALANG99_PRIV_listDropWhileDone_IMPL(x, xs, _f)     v(METALANG99_consPlain(x, xs))
 #define METALANG99_PRIV_listDropWhileProgress_IMPL(_x, xs, f) METALANG99_listDropWhile_IMPL(f, xs)
 // }
 
@@ -1032,7 +1039,7 @@
 #define METALANG99_listUnzip_IMPL(list) METALANG99_match_IMPL(list, METALANG99_PRIV_listUnzip_)
 
 #define METALANG99_PRIV_listUnzip_nil_IMPL()                                                       \
-    METALANG99_list_IMPL(METALANG99_PRIV_nil(), METALANG99_PRIV_nil())
+    METALANG99_list_IMPL(METALANG99_nilPlain(), METALANG99_nilPlain())
 #define METALANG99_PRIV_listUnzip_cons_IMPL(x, xs)                                                 \
     METALANG99_call(METALANG99_PRIV_listUnzipProgress, v(x), METALANG99_listUnzip_IMPL(xs))
 #define METALANG99_PRIV_listUnzipProgress_IMPL(x, rest)                                            \
@@ -1055,7 +1062,7 @@
 #define METALANG99_listPartition_IMPL(f, list)                                                     \
     METALANG99_listFoldr(                                                                          \
         METALANG99_appl_IMPL(METALANG99_PRIV_listPartitionAux, f),                                 \
-        METALANG99_list_IMPL(METALANG99_PRIV_nil(), METALANG99_PRIV_nil()),                        \
+        METALANG99_list_IMPL(METALANG99_nilPlain(), METALANG99_nilPlain()),                        \
         v(list))
 
 #define METALANG99_PRIV_listPartitionAux_IMPL(f, x, acc)                                           \
@@ -1070,9 +1077,9 @@
         METALANG99_get_IMPL(1, acc))
 
 #define METALANG99_PRIV_listPartitionAuxExtendFst_IMPL(x, fst, snd)                                \
-    METALANG99_list_IMPL(METALANG99_PRIV_cons(x, fst), snd)
+    METALANG99_list_IMPL(METALANG99_consPlain(x, fst), snd)
 #define METALANG99_PRIV_listPartitionAuxExtendSnd_IMPL(x, fst, snd)                                \
-    METALANG99_list_IMPL(fst, METALANG99_PRIV_cons(x, snd))
+    METALANG99_list_IMPL(fst, METALANG99_consPlain(x, snd))
 // }
 
 // METALANG99_listAppl_IMPL {
@@ -1203,6 +1210,8 @@
 #define M_listPartition      METALANG99_listPartition
 #define M_listAppl           METALANG99_listAppl
 
+#define M_consPlain   METALANG99_consPlain
+#define M_nilPlain    METALANG99_nilPlain
 #define M_isNilPlain  METALANG99_isNilPlain
 #define M_isConsPlain METALANG99_isConsPlain
 

@@ -38,8 +38,8 @@ M_eval(M_call(MATCH, M_choiceEmpty(v(FooC))));
 M_assertEq(M_choiceTag(M_choiceEmpty(v(5))), v(5));
 M_assertEq(M_choiceTag(M_choice(v(5), v(1, 2, 3))), v(5));
 
-M_assertPlain(M_choiceTagPlain(M_eval(M_choiceEmpty(v(5)))) == 5);
-M_assertPlain(M_choiceTagPlain(M_eval(M_choice(v(5), v(1, 2, 3)))) == 5);
+M_assertPlain(M_choiceTagPlain(M_choiceEmptyPlain(5)) == 5);
+M_assertPlain(M_choiceTagPlain(M_choicePlain(5, 1, 2, 3)) == 5);
 // }
 
 int main(void) {}

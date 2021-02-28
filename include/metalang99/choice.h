@@ -87,6 +87,16 @@
 #define METALANG99_choiceTag(choice) METALANG99_call(METALANG99_choiceTag, choice)
 
 /**
+ * The plain version of #METALANG99_choice.
+ */
+#define METALANG99_choicePlain(tag, ...) (tag, 0non_empty, __VA_ARGS__)
+
+/**
+ * The plain version of #METALANG99_choiceEmpty.
+ */
+#define METALANG99_choiceEmptyPlain(tag) (tag, 0empty, )
+
+/**
  * The plain version of #METALANG99_choiceTag.
  *
  * @note @p choice must be already evaluated.
@@ -97,11 +107,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_choice_IMPL(tag, ...) v(METALANG99_PRIV_choice(tag, __VA_ARGS__))
-#define METALANG99_choiceEmpty_IMPL(tag) v(METALANG99_PRIV_choiceEmpty(tag))
-
-#define METALANG99_PRIV_choice(tag, ...) (tag, 0non_empty, __VA_ARGS__)
-#define METALANG99_PRIV_choiceEmpty(tag) (tag, 0empty, )
+#define METALANG99_choice_IMPL(tag, ...) v(METALANG99_choicePlain(tag, __VA_ARGS__))
+#define METALANG99_choiceEmpty_IMPL(tag) v(METALANG99_choiceEmptyPlain(tag))
 
 // METALANG99_match_IMPL {
 #define METALANG99_match_IMPL(choice, matcher)                                                     \
@@ -160,7 +167,9 @@
 #define M_matchWithArgs METALANG99_matchWithArgs
 #define M_choiceTag     METALANG99_choiceTag
 
-#define M_choiceTagPlain METALANG99_choiceTagPlain
+#define M_choicePlain      METALANG99_choicePlain
+#define M_choiceEmptyPlain METALANG99_choiceEmptyPlain
+#define M_choiceTagPlain   METALANG99_choiceTagPlain
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }

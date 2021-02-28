@@ -91,18 +91,18 @@ M_assert(M_isNil(M_nil()));
 M_assert(M_not(M_isNil(M_list(v(123)))));
 M_assert(M_not(M_isNil(M_list(v(8, 214, 10, 0, 122)))));
 
-M_assertPlain(M_isNilPlain(M_eval(M_nil())));
-M_assertPlain(M_notPlain(M_isNilPlain(M_eval(M_list(v(123))))));
+M_assertPlain(M_isNilPlain(M_nilPlain()));
+M_assertPlain(M_notPlain(M_isNilPlain(M_consPlain(123, M_nilPlain()))));
 M_assertPlain(M_notPlain(M_isNilPlain(M_eval(M_list(v(8, 214, 10, 0, 122))))));
 // }
 
-// M_isCons {
+// M_isCons, M_isConsPlain {
 M_assert(M_not(M_isCons(M_nil())));
 M_assert(M_isCons(M_list(v(123))));
 M_assert(M_isCons(M_list(v(8, 214, 10, 0, 122))));
 
-M_assertPlain(M_notPlain(M_isConsPlain(M_eval(M_nil()))));
-M_assertPlain(M_isConsPlain(M_eval(M_list(v(123)))));
+M_assertPlain(M_notPlain(M_isConsPlain(M_nilPlain())));
+M_assertPlain(M_isConsPlain(M_consPlain(123, M_nilPlain())));
 M_assertPlain(M_isConsPlain(M_eval(M_list(v(8, 214, 10, 0, 122)))));
 // }
 

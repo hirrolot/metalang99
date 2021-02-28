@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
  - `M_detectIdent`
+ - `M_choicePlain`, `M_choiceEmptyPlain`, `M_consPlain`, `M_nilPlain`
 
 ### Changed
 

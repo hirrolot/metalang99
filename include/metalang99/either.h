@@ -114,8 +114,8 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_left_IMPL(x)  v(METALANG99_PRIV_choice(left, x))
-#define METALANG99_right_IMPL(x) v(METALANG99_PRIV_choice(right, x))
+#define METALANG99_left_IMPL(x)  v(METALANG99_choicePlain(left, x))
+#define METALANG99_right_IMPL(x) v(METALANG99_choicePlain(right, x))
 
 // METALANG99_isLeft_IMPL {
 #define METALANG99_isLeft_IMPL(either)        METALANG99_match_IMPL(either, METALANG99_PRIV_isLeft_)
