@@ -142,6 +142,26 @@ static void test_anon_union(void) {
 }
 // }
 
+// M_enum {
+static void test_enum(void) {
+    M_eval(M_enum(v(MyEnum), v(Foo, Bar)));
+
+    enum MyEnum foo = Foo, bar = Bar;
+    (void)foo;
+    (void)bar;
+}
+// }
+
+// M_anonEnum {
+static void test_anon_enum(void) {
+    typedef M_eval(M_anonEnum(v(Foo, Bar))) MyEnum;
+
+    MyEnum foo = Foo, bar = Bar;
+    (void)foo;
+    (void)bar;
+}
+// }
+
 // M_detectIdent {
 #define FOO_x ()
 #define FOO_y ()
@@ -166,4 +186,6 @@ int main(void) {
     (void)test_anon_struct;
     (void)test_union;
     (void)test_anon_union;
+    (void)test_enum;
+    (void)test_anon_enum;
 }

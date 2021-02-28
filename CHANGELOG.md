@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
  - `METALANG99_MAJOR`, `METALANG99_MINOR`, `METALANG99_PATCH`
- - `M_union`, `M_anonUnion`
+ - `M_union`, `M_anonUnion`, `M_enum`, `M_anonEnum`
 
 ## [0.4.1] - 2021-02-28
 

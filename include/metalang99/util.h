@@ -264,6 +264,16 @@
 #define METALANG99_anonUnion(...) METALANG99_call(METALANG99_anonUnion, __VA_ARGS__)
 
 /**
+ * The same as #METALANG99_struct but generates an enumeration.
+ */
+#define METALANG99_enum(ident, ...) METALANG99_call(METALANG99_enum, ident, __VA_ARGS__)
+
+/**
+ * The same as #METALANG99_anonStruct but generates an enumeration.
+ */
+#define METALANG99_anonEnum(...) METALANG99_call(METALANG99_anonEnum, __VA_ARGS__)
+
+/**
  * A convenience macro to emphasise that your metafunction expands to more than one term.
  *
  * This macro just expands to provided arguments.
@@ -463,6 +473,8 @@
 #define METALANG99_anonStruct_IMPL(...)            v(struct {__VA_ARGS__})
 #define METALANG99_union_IMPL(ident, ...)          v(union ident{__VA_ARGS__})
 #define METALANG99_anonUnion_IMPL(...)             v(union {__VA_ARGS__})
+#define METALANG99_enum_IMPL(ident, ...)           v(enum ident{__VA_ARGS__})
+#define METALANG99_anonEnum_IMPL(...)              v(enum {__VA_ARGS__})
 // }
 
 // Arity specifiers {
@@ -485,6 +497,8 @@
 #define METALANG99_anonStruct_ARITY       1
 #define METALANG99_union_ARITY            2
 #define METALANG99_anonUnion_ARITY        1
+#define METALANG99_enum_ARITY             2
+#define METALANG99_anonEnum_ARITY         1
 
 #define METALANG99_PRIV_flip_ARITY 3
 // }
@@ -511,6 +525,8 @@
 #define M_anonStruct         METALANG99_anonStruct
 #define M_union              METALANG99_union
 #define M_anonUnion          METALANG99_anonUnion
+#define M_enum               METALANG99_enum
+#define M_anonEnum           METALANG99_anonEnum
 #define M_terms              METALANG99_terms
 #define M_catPrimitive       METALANG99_catPrimitive
 #define M_stringifyPrimitive METALANG99_stringifyPrimitive
