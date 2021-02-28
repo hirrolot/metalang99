@@ -70,7 +70,7 @@ static void test_let(void) {
         M_introduceVarToStmt(double x = 5.0)
         M_introduceVarToStmt(double y = 7.0) {
             x = y = 123.456;
-            int z = y;
+            double z = y;
             (void)x;
             (void)z;
         }

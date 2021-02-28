@@ -416,7 +416,6 @@
  */
 #define METALANG99_introduceVarToStmt(var_def)                                                     \
     METALANG99_clangPragma("clang diagnostic push")                                                \
-    METALANG99_clangPragma("clang diagnostic pop")                                                 \
     METALANG99_clangPragma("clang diagnostic ignored \"-Wshadow\"")                                \
     for (int metalang99_priv_break_for = 0; metalang99_priv_break_for != 1;)                       \
         for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)               \
