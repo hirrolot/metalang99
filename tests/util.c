@@ -118,6 +118,30 @@ static void test_anon_struct(void) {
 }
 // }
 
+// M_union {
+static void test_union(void) {
+    M_eval(M_union(v(Point), v(int x, y;)));
+
+    union Point point;
+    point.x = 1;
+    point.y = 2;
+
+    (void)point;
+}
+// }
+
+// M_anonUnion {
+static void test_anon_union(void) {
+    typedef M_eval(M_anonUnion(v(int x, y;))) Point;
+
+    Point point;
+    point.x = 1;
+    point.y = 2;
+
+    (void)point;
+}
+// }
+
 // M_detectIdent {
 #define FOO_x ()
 #define FOO_y ()
@@ -140,4 +164,6 @@ int main(void) {
     (void)test_typedef;
     (void)test_struct;
     (void)test_anon_struct;
+    (void)test_union;
+    (void)test_anon_union;
 }
