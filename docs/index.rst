@@ -37,14 +37,14 @@ Both metaprograms result in `1, 2, 3`.
 
    eval
    lang
-   uint
-   logical
    choice
+   tuple
    either
    maybe
    list
-   tuple
    variadics
+   uint
+   logical
    util
    control
    assert
@@ -55,14 +55,14 @@ Contents
 
  - `eval.h`_ - The metaprogram evaluator.
  - `lang.h`_ - The Metalang99 syntax.
- - `uint.h`_ - Unsigned integers.
- - `logical.h`_ - Boolean algebra.
  - `choice.h`_ - Choice types.
+ - `tuple.h`_ - Tuple manipulation.
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
  - `list.h`_ - List manipulation.
- - `tuple.h`_ - Tuple manipulation.
  - `variadics.h`_ - Variadic macro utilities.
+ - `uint.h`_ - Unsigned integers.
+ - `logical.h`_ - Boolean algebra.
  - `control.h`_ - Control expressions.
  - `assert.h`_ - Static assertions.
  - `util.h`_ - Utilitary stuff.
@@ -78,14 +78,14 @@ Indices and tables
 
 .. _eval.h: eval.html
 .. _lang.h: lang.html
-.. _uint.h: uint.html
-.. _logical.h: logical.html
 .. _choice.h: choice.html
+.. _tuple.h: tuple.html
 .. _either.h: either.html
 .. _maybe.h: maybe.html
 .. _list.h: list.html
-.. _tuple.h: tuple.html
 .. _variadics.h: variadics.html
+.. _uint.h: uint.html
+.. _logical.h: logical.html
 .. _control.h: control.html
 .. _assert.h: assert.html
 .. _misc.h: misc.html

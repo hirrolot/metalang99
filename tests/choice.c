@@ -6,7 +6,7 @@
 #define MATCH_IMPL(foo)    M_match(v(foo), v(MATCH_))
 #define MATCH_FooA_IMPL(x) v(M_assertPlain(x == 19))
 #define MATCH_FooB_IMPL(x) v(M_assertPlain(x == 1756))
-#define MATCH_FooC_IMPL(_) v(M_semicolon())
+#define MATCH_FooC_IMPL(_) v(M_assertPlain(1))
 
 M_eval(M_call(MATCH, M_choice(v(FooA), v(19))));
 M_eval(M_call(MATCH, M_choice(v(FooB), v(1756))));

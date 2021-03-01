@@ -5,7 +5,7 @@
 // Pattern matching {
 #define MATCH_IMPL(maybe)     M_match(v(maybe), v(MATCH_))
 #define MATCH_just_IMPL(x)    v(M_assertPlain(x == 87))
-#define MATCH_nothing_IMPL(_) v(M_semicolon())
+#define MATCH_nothing_IMPL(_) v(M_assertPlain(1))
 
 M_eval(M_call(MATCH, M_just(v(87))));
 M_eval(M_call(MATCH, M_nothing()));

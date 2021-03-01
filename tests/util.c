@@ -43,26 +43,6 @@ M_assertEq(M_rightUnderscored(v(FOO)), v(456));
 M_assertEmpty(M_consume(v(1, 2, 3)));
 // }
 
-// M_semicolon {
-M_semicolon();
-M_semicolon();
-
-static void test_semicolon(void) {
-    M_semicolon();
-    M_semicolon();
-
-    {
-        M_semicolon();
-        M_semicolon();
-
-        {
-            M_semicolon();
-            M_semicolon();
-        }
-    }
-}
-// }
-
 // M_introduceVarToStmt {
 static void test_let(void) {
     // clang-format off
@@ -179,7 +159,6 @@ M_assertPlain(!M_detectIdent(BAR_, defghi));
 // }
 
 int main(void) {
-    (void)test_semicolon;
     (void)test_let;
     (void)test_typedef;
     (void)test_struct;

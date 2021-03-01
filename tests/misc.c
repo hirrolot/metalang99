@@ -16,7 +16,7 @@ M_eval(v(CHECK), M_tuple(M_repeat(v(F), v(3))));
 // }
 
 // M_indexedParams {
-#define CHECK_void M_semicolon()
+#define CHECK_void M_assertPlain(1)
 
 M_eval(M_cat(v(CHECK_), M_untuple(M_indexedParams(M_nil()))));
 

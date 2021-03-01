@@ -261,7 +261,7 @@ M_assert(M_listEq(v(M_uintEq), M_listMapI(v(M_cat), M_list(v(A, B, C))), M_list(
 // M_listMapInPlace {
 #define FOO_x
 #define FOO_y
-#define FOO_z M_semicolon()
+#define FOO_z M_assertPlain(1)
 
 M_assertEmpty(M_listMapInPlace(v(NonExistingF), M_nil()));
 M_eval(M_listMapInPlace(M_appl(v(M_cat), v(FOO_)), M_list(v(x, y, z))));
@@ -274,7 +274,7 @@ M_eval(M_listMapInPlace(M_appl(v(M_cat), v(FOO_)), M_list(v(x, y, z))));
 // M_listMapInPlaceI {
 #define FOO_x0
 #define FOO_y1
-#define FOO_z2 M_semicolon()
+#define FOO_z2 M_assertPlain(1)
 
 #define MY_CAT_IMPL(x, i) v(FOO_##x##i)
 #define MY_CAT_ARITY      2

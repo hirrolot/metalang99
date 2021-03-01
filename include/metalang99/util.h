@@ -327,39 +327,6 @@
 #define METALANG99_stringifyPrimitive(...) #__VA_ARGS__
 
 /**
- * Forces to put a semicolon after itself.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * M_semicolon();
- * @endcode
- *
- * This macro is often useful when you want a user to put a semicolon after invocation of your
- * macro:
- *
- * @code
- * #include <metalang99/util.h>
- *
- * #define WHEN(command, handler, ...) \
- *     if (incoming_command == command) { handler(__VA_ARGS__); } M_semicolon()
- *
- * WHEN(SomeCommand, handler, 1, 2, 3);
- * @endcode
- *
- * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
- * macro.
- * @note This macro can be used both inside and outside of function bodies, in contrast to the `do {
- * ... } while(0)` idiom. Technically, this macro just expands to an unused static variable
- * declaration.
- */
-#define METALANG99_semicolon()                                                                     \
-    static const char METALANG99_PRIV_CAT(metalang99_semicolon_, __LINE__)                         \
-        METALANG99_PRIV_COMPILER_ATTR_UNUSED = '\0'
-
-/**
  * The plain version of #METALANG99_cat.
  */
 #define METALANG99_catPlain(x, y) METALANG99_catPrimitive(x, y)
@@ -555,7 +522,6 @@
 #define M_terms              METALANG99_terms
 #define M_catPrimitive       METALANG99_catPrimitive
 #define M_stringifyPrimitive METALANG99_stringifyPrimitive
-#define M_semicolon          METALANG99_semicolon
 #define M_introduceVarToStmt METALANG99_introduceVarToStmt
 #define M_detectIdent        METALANG99_detectIdent
 

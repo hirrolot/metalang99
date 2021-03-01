@@ -28,7 +28,7 @@ M_assertEq(M_call(M_call(F, v(B, A, R)), v(6, 11)), v(6 + 11));
 // Even if a term in the argument position evaluates to more than one terms, they should be appended
 // to each other but not interspersed with a comma.
 #define F_IMPL()    v(1), v(2), v(3)
-#define BAR_IMPL(x) v(M_semicolon())
+#define BAR_IMPL(x) v(M_assertPlain(1))
 
 M_eval(M_call(BAR, M_call(F, v())));
 
@@ -94,9 +94,9 @@ M_assertEq(M_appl3(v(F), v(10), v(5), v(7)), v(1057));
 // The maximum arity {
 #define F_ARITY 255
 
-M_eval(M_consume(M_appl(v(F), v(~)))) M_semicolon();
-M_eval(M_consume(M_appl2(v(F), v(~), v(~)))) M_semicolon();
-M_eval(M_consume(M_appl3(v(F), v(~), v(~), v(~)))) M_semicolon();
+M_eval(M_consume(M_appl(v(F), v(~)))) M_assertPlain(1);
+M_eval(M_consume(M_appl2(v(F), v(~), v(~)))) M_assertPlain(1);
+M_eval(M_consume(M_appl3(v(F), v(~), v(~), v(~)))) M_assertPlain(1);
 
 #undef F_ARITY
 // }
