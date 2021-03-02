@@ -23,7 +23,7 @@
  * It is semantically the same as `METALANG99_call(ident, v(...))` but performs one less reduction
  * steps.
  */
-#define METALANG99_callTrivial(ident, ...) (0callTrivial, ident, __VA_ARGS__)
+#define METALANG99_callTrivial(ident, ...) (0callTr, ident, __VA_ARGS__)
 
 /**
  * Applies arguments to @p f.
