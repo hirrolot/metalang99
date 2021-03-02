@@ -158,7 +158,7 @@
  * M_call(F, M_abort(v(123)))
  * @endcode
  */
-#define METALANG99_abort(...) (0abort, __VA_ARGS__),
+#define METALANG99_abort(...) (0abort, __VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

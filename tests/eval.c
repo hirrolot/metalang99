@@ -50,6 +50,7 @@ M_assertEq(M_call(F, v(OP)), v(123));
 // M_abort {
 M_assertEmpty(M_abort(v()));
 M_assertEq(M_abort(v(815057)), v(815057));
+M_assertPlain(M_eval(v(~), M_abort(v(123)), v(~)) == 123);
 
 // Ensure that `M_abort` also works correctly after some evaluations.
 #define F_IMPL() M_call(G, v(1, 2), M_call(H, v(123)))
