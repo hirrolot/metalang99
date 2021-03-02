@@ -33,7 +33,7 @@
     METALANG99_PRIV_REC_UNROLL(METALANG99_PRIV_EVAL_MATCH(                                         \
         METALANG99_PRIV_REC_STOP,                                                                  \
         (~),                                                                                       \
-        METALANG99_PRIV_EVAL_FOLDER,                                                               \
+        0fappend,                                                                                  \
         METALANG99_PRIV_EVAL_ACC(),                                                                \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
@@ -69,14 +69,14 @@
         k,                                                                                         \
         k_cx,                                                                                      \
         folder,                                                                                    \
-        folder(acc, __VA_ARGS__),                                                                  \
+        METALANG99_PRIV_EVAL_##folder(acc, __VA_ARGS__),                                           \
         METALANG99_PRIV_EXPAND tail)
 
 #define METALANG99_PRIV_EVAL_0args_AUX(k, k_cx, folder, acc, tail, op, ...)                        \
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
         METALANG99_PRIV_EVAL_0callTr_K,                                                            \
         (k, k_cx, folder, acc, tail, op),                                                          \
-        METALANG99_PRIV_EVAL_FOLDER_COMMA,                                                         \
+        0fcomma,                                                                                   \
         METALANG99_PRIV_EVAL_ACC_COMMA_SEP(),                                                      \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
@@ -86,7 +86,7 @@
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
         METALANG99_PRIV_EVAL_0callTr_K,                                                            \
         (k, k_cx, folder, acc, tail),                                                              \
-        METALANG99_PRIV_EVAL_FOLDER_COMMA,                                                         \
+        0fcomma,                                                                                   \
         METALANG99_PRIV_EVAL_ACC_COMMA_SEP(),                                                      \
         op,                                                                                        \
         __VA_ARGS__,                                                                               \
@@ -97,7 +97,7 @@
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
         METALANG99_PRIV_EVAL_0v_K,                                                                 \
         (k, k_cx, folder, acc, tail),                                                              \
-        METALANG99_PRIV_EVAL_FOLDER,                                                               \
+        0fappend,                                                                                  \
         METALANG99_PRIV_EVAL_ACC(),                                                                \
         ident##_IMPL(__VA_ARGS__),                                                                 \
         (0end, ~),                                                                                 \
@@ -112,7 +112,7 @@
     METALANG99_PRIV_EVAL_REDUCE(                                                                   \
         METALANG99_PRIV_REC_STOP,                                                                  \
         (~),                                                                                       \
-        METALANG99_PRIV_EVAL_FOLDER,                                                               \
+        0fappend,                                                                                  \
         METALANG99_PRIV_EVAL_ACC(),                                                                \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
@@ -129,7 +129,7 @@
         METALANG99_PRIV_EVAL_MATCH,                                                                \
         METALANG99_PRIV_EVAL_0v_K,                                                                 \
         (k, k_cx, folder, acc, tail),                                                              \
-        METALANG99_PRIV_EVAL_FOLDER,                                                               \
+        0fappend,                                                                                  \
         METALANG99_PRIV_EVAL_ACC(),                                                                \
         evaluated_op##_IMPL(__VA_ARGS__),                                                          \
         (0end, ~),                                                                                 \
@@ -141,7 +141,7 @@
         k,                                                                                         \
         k_cx,                                                                                      \
         folder,                                                                                    \
-        folder(acc, __VA_ARGS__),                                                                  \
+        METALANG99_PRIV_EVAL_##folder(acc, __VA_ARGS__),                                           \
         METALANG99_PRIV_EXPAND tail)
 // } (Continuations)
 
