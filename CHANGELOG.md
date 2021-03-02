@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Changed
+
+ - Optimise unsigned integers by performing lesser reduction steps.
+
 ### Removed
 
  - `M_choiceEmpty(Plain)` (specify `~` for empty variants and match it with `_` to ignore; this allows a more optimal choice representation)
