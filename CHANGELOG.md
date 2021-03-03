@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
  - Optimise unsigned integers by performing lesser reduction steps.
+ - Optimise `M_callTrivial`: if a metafunction reduces to a single term, just evaluate it right behind the rest of a tail.
 
 ### Removed
 

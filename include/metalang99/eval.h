@@ -112,12 +112,25 @@
         ~)
 
 #define METALANG99_PRIV_EVAL_0callTr_K(k, k_cx, folder, acc, tail, evaluated_op, ...)              \
+    /* If the metafunction `evaluated_op` expands to many terms, we first evaluate these terms and \
+     * accumulate them, otherwise, we just paste the single term with the rest of the tail. This   \
+     * optimisation results in a huge performance improvement.*/                                   \
+    METALANG99_PRIV_IF(                                                                            \
+        METALANG99_PRIV_CONTAINS_COMMA(evaluated_op##_IMPL(__VA_ARGS__)),                          \
+        METALANG99_PRIV_EVAL_0callTr_K_REGULAR,                                                    \
+        METALANG99_PRIV_EVAL_0callTr_K_OPTIMIZED)                                                  \
+    (k, k_cx, folder, acc, tail, evaluated_op##_IMPL(__VA_ARGS__))
+
+#define METALANG99_PRIV_EVAL_0callTr_K_OPTIMIZED(k, k_cx, folder, acc, tail, ...)                  \
+    METALANG99_PRIV_MACHINE_REDUCE(k, k_cx, folder, acc, __VA_ARGS__, METALANG99_PRIV_EXPAND tail)
+
+#define METALANG99_PRIV_EVAL_0callTr_K_REGULAR(k, k_cx, folder, acc, tail, ...)                    \
     METALANG99_PRIV_MACHINE_REDUCE(                                                                \
         METALANG99_PRIV_EVAL_0v_K,                                                                 \
         (k, k_cx, folder, acc, tail),                                                              \
         0fappend,                                                                                  \
         METALANG99_PRIV_EVAL_ACC(),                                                                \
-        evaluated_op##_IMPL(__VA_ARGS__),                                                          \
+        __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
 
