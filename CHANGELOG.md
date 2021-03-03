@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `M_suppressUnusedBeforeStmt`
+
 ### Changed
 
  - Optimise unsigned integers by performing lesser reduction steps.

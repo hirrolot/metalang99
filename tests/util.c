@@ -44,7 +44,7 @@ M_assertEmpty(M_consume(v(1, 2, 3)));
 // }
 
 // M_introduceVarToStmt {
-static void test_let(void) {
+static void test_introduceVarToStmt(void) {
     // clang-format off
     for (int i = 0; i < 10; i++)
         M_introduceVarToStmt(double x = 5.0)
@@ -54,6 +54,19 @@ static void test_let(void) {
             (void)x;
             (void)z;
         }
+    // clang-format on
+}
+// }
+
+// M_suppressUnusedBeforeStmt {
+static void test_suppressUnusedBeforeStmt(void) {
+    int x, y;
+
+    // clang-format off
+    for (int i = 0; i < 10; i++)
+        M_suppressUnusedBeforeStmt(x)
+        M_suppressUnusedBeforeStmt(y)
+            (void)(1 + 1);
     // clang-format on
 }
 // }
@@ -159,7 +172,8 @@ M_assertPlain(!M_detectIdent(BAR_, defghi));
 // }
 
 int main(void) {
-    (void)test_let;
+    (void)test_introduceVarToStmt;
+    (void)test_suppressUnusedBeforeStmt;
     (void)test_typedef;
     (void)test_struct;
     (void)test_anon_struct;

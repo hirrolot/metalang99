@@ -301,8 +301,7 @@
  * M_catPrimitive(ABC, 123)
  * @endcode
  *
- * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
- * macro.
+ * @note This macro does not expand to a Metalang99 term.
  */
 #define METALANG99_catPrimitive(x, y) x##y
 
@@ -321,8 +320,7 @@
  * M_stringifyPrimitive(ABC)
  * @endcode
  *
- * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
- * macro.
+ * @note This macro does not expand to a Metalang99 term.
  */
 #define METALANG99_stringifyPrimitive(...) #__VA_ARGS__
 
@@ -354,7 +352,7 @@
 /**
  * Introduces the variable definition @p var_def to a statement right after its invocation.
  *
- * An invocation of #METALANG99_introduceVarToStmt together with a statement right after it form a
+ * An invocation of #METALANG99_introduceVarToStmt together with a statement right after it forms a
  * single statement.
  *
  * This macro is useful when you want to generate a sequence of variable definitions inside your
@@ -378,15 +376,45 @@
  *         printf("i = %d, x = %f, y = %f\n", i, x, y);
  * @endcode
  *
- * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
- * macro.
+ * @note This macro does not expand to a Metalang99 term.
  */
 #define METALANG99_introduceVarToStmt(var_def)                                                     \
     METALANG99_clangPragma("clang diagnostic push")                                                \
     METALANG99_clangPragma("clang diagnostic ignored \"-Wshadow\"")                                \
-    for (int metalang99_priv_break_for = 0; metalang99_priv_break_for != 1;)                       \
-        for (var_def; metalang99_priv_break_for != 1; metalang99_priv_break_for = 1)               \
+    for (int metalang99_priv_introduceVarToStmt_break = 0;                                         \
+         metalang99_priv_introduceVarToStmt_break != 1;)                                           \
+        for (var_def; metalang99_priv_introduceVarToStmt_break != 1;                               \
+             metalang99_priv_introduceVarToStmt_break = 1)                                         \
             METALANG99_clangPragma("clang diagnostic pop")
+
+/**
+ * Suppresses the "unused X" warning right before a statement after its invocation.
+ *
+ * An invocation of #METALANG99_suppressUnusedBeforeStmt together with a statement right after it
+ * forms a single statement.
+ *
+ * # Example
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * int x, y;
+ *
+ * for(;;)
+ *     M_suppressUnusedBeforeStmt(x)
+ *     M_suppressUnusedBeforeStmt(y)
+ *         puts("abc");
+ * @endcode
+ *
+ * @note This macro does not expand to a Metalang99 term.
+ */
+#define METALANG99_suppressUnusedBeforeStmt(expr)                                                  \
+    METALANG99_clangPragma("clang diagnostic push")                                                \
+    METALANG99_clangPragma("clang diagnostic ignored \"-Wshadow\"")                                \
+    for (int metalang99_priv_suppressUnusedBeforeStmt_break = 0;                                   \
+         ((void)(expr), metalang99_priv_suppressUnusedBeforeStmt_break != 1);                      \
+         metalang99_priv_suppressUnusedBeforeStmt_break = 1)                                       \
+        METALANG99_clangPragma("clang diagnostic pop")
 
 /**
  * Tells whether @p ident belongs to a set of identifiers defined by @p prefix.
@@ -413,8 +441,7 @@
  * M_detectIdent(FOO_, z)
  * @endcode
  *
- * @note This macro does not expand to a Metalang99 term: it is rather an ordinary preprocessor
- * macro.
+ * @note This macro does not expand to a Metalang99 term.
  */
 #define METALANG99_detectIdent(prefix, ident)                                                      \
     METALANG99_PRIV_IS_PARENTHESIZED(M_catPlain(prefix, ident))
@@ -498,32 +525,33 @@
 // Aliases {
 #ifndef METALANG99_NO_SMALL_PREFIX
 
-#define M_catEval            METALANG99_catEval
-#define M_cat                METALANG99_cat
-#define M_stringify          METALANG99_stringify
-#define M_empty              METALANG99_empty
-#define M_id                 METALANG99_id
-#define M_const              METALANG99_const
-#define M_flip               METALANG99_flip
-#define M_putBefore          METALANG99_putBefore
-#define M_putAfter           METALANG99_putAfter
-#define M_putBetween         METALANG99_putBetween
-#define M_leftUnderscored    METALANG99_leftUnderscored
-#define M_rightUnderscored   METALANG99_rightUnderscored
-#define M_consume            METALANG99_consume
-#define M_braced             METALANG99_braced
-#define M_typedef            METALANG99_typedef
-#define M_struct             METALANG99_struct
-#define M_anonStruct         METALANG99_anonStruct
-#define M_union              METALANG99_union
-#define M_anonUnion          METALANG99_anonUnion
-#define M_enum               METALANG99_enum
-#define M_anonEnum           METALANG99_anonEnum
-#define M_terms              METALANG99_terms
-#define M_catPrimitive       METALANG99_catPrimitive
-#define M_stringifyPrimitive METALANG99_stringifyPrimitive
-#define M_introduceVarToStmt METALANG99_introduceVarToStmt
-#define M_detectIdent        METALANG99_detectIdent
+#define M_catEval                  METALANG99_catEval
+#define M_cat                      METALANG99_cat
+#define M_stringify                METALANG99_stringify
+#define M_empty                    METALANG99_empty
+#define M_id                       METALANG99_id
+#define M_const                    METALANG99_const
+#define M_flip                     METALANG99_flip
+#define M_putBefore                METALANG99_putBefore
+#define M_putAfter                 METALANG99_putAfter
+#define M_putBetween               METALANG99_putBetween
+#define M_leftUnderscored          METALANG99_leftUnderscored
+#define M_rightUnderscored         METALANG99_rightUnderscored
+#define M_consume                  METALANG99_consume
+#define M_braced                   METALANG99_braced
+#define M_typedef                  METALANG99_typedef
+#define M_struct                   METALANG99_struct
+#define M_anonStruct               METALANG99_anonStruct
+#define M_union                    METALANG99_union
+#define M_anonUnion                METALANG99_anonUnion
+#define M_enum                     METALANG99_enum
+#define M_anonEnum                 METALANG99_anonEnum
+#define M_terms                    METALANG99_terms
+#define M_catPrimitive             METALANG99_catPrimitive
+#define M_stringifyPrimitive       METALANG99_stringifyPrimitive
+#define M_introduceVarToStmt       METALANG99_introduceVarToStmt
+#define M_suppressUnusedBeforeStmt METALANG99_suppressUnusedBeforeStmt
+#define M_detectIdent              METALANG99_detectIdent
 
 #define M_catPlain       METALANG99_catPlain
 #define M_stringifyPlain METALANG99_stringifyPlain
