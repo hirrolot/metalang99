@@ -11,14 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `M_suppressUnusedBeforeStmt`
 
-### Changed
-
- - Optimise unsigned integers by performing lesser reduction steps.
- - Optimise `M_callTrivial`: if a metafunction reduces to a single term, just evaluate it right behind the rest of a tail.
-
 ### Removed
 
- - `M_choiceEmpty(Plain)` (specify `~` for empty variants and match it with `_` to ignore; this allows a more optimal choice representation)
+ - `M_choiceEmpty(Plain)` (this allows a more optimal choice representation)
  - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/Hirrolot/metalang99/commit/f17f06adf1a747a8897bbc90c598b2be21c945c8))
 
 ## [0.4.2] - 2021-02-28
