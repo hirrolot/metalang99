@@ -43,15 +43,13 @@
 
 #define METALANG99_PRIV_REC_UNROLL(...) METALANG99_PRIV_REC_0(__VA_ARGS__)
 
+// Recursion hooks {
 #define METALANG99_PRIV_EVAL_MATCH_HOOK()     METALANG99_PRIV_EVAL_MATCH
+#define METALANG99_PRIV_EVAL_0v_K_HOOK()      METALANG99_PRIV_EVAL_0v_K
+#define METALANG99_PRIV_EVAL_0args_K_HOOK()   METALANG99_PRIV_EVAL_0args_K
 #define METALANG99_PRIV_EVAL_0op_K_HOOK()     METALANG99_PRIV_EVAL_0op_K
 #define METALANG99_PRIV_EVAL_0callTr_K_HOOK() METALANG99_PRIV_EVAL_0callTr_K
-#define METALANG99_PRIV_EVAL_0v_K_HOOK()      METALANG99_PRIV_EVAL_0v_K
-
-#define METALANG99_PRIV_EVAL_0args(...)   METALANG99_PRIV_EVAL_0args_AUX(__VA_ARGS__)
-#define METALANG99_PRIV_EVAL_0op(...)     METALANG99_PRIV_EVAL_0op_AUX(__VA_ARGS__)
-#define METALANG99_PRIV_EVAL_0callTr(...) METALANG99_PRIV_EVAL_0callTr_AUX(__VA_ARGS__)
-#define METALANG99_PRIV_EVAL_0fatal(...)  METALANG99_PRIV_EVAL_0fatal_AUX(__VA_ARGS__)
+// }
 
 #define METALANG99_PRIV_EVAL_MATCH(k, k_cx, folder, acc, head, ...)                                \
     METALANG99_PRIV_CHECK_TERM(head, METALANG99_PRIV_TERM_MATCH)                                   \
@@ -64,16 +62,36 @@
         METALANG99_PRIV_EVAL_TERM_DATA head)
 
 // Reduction rules {
-#define METALANG99_PRIV_EVAL_0v(k, k_cx, folder, acc, tail, ...)                                   \
-    METALANG99_PRIV_EVAL_REDUCE(                                                                   \
+#define METALANG99_PRIV_EVAL_0v      METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0v_K)
+#define METALANG99_PRIV_EVAL_0args   METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0args_K)
+#define METALANG99_PRIV_EVAL_0op     METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0op_K)
+#define METALANG99_PRIV_EVAL_0callTr METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0callTr_K)
+
+#define METALANG99_PRIV_EVAL_0fatal(...) METALANG99_PRIV_EVAL_0fatal_EXPANDED(__VA_ARGS__)
+#define METALANG99_PRIV_EVAL_0fatal_EXPANDED(_k, _k_cx, _folder, _acc, _tail, f, message)          \
+    /* clang-format off */                                                                         \
+    METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_REC_STOP)((~), !"Metalang99 error" (f) : message) /* clang-format on */
+
+#define METALANG99_PRIV_EVAL_0abort(_k, k_cx, folder, acc, _tail, ...)                             \
+    METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_MATCH)                                       \
+    (METALANG99_PRIV_REC_STOP, (~), 0fappend, METALANG99_PRIV_EVAL_ACC(), __VA_ARGS__, (0end, ~), ~)
+
+#define METALANG99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                 \
+    METALANG99_PRIV_REC_CONTINUE(k)                                                                \
+    (METALANG99_PRIV_EXPAND k_cx, METALANG99_PRIV_EVAL_ACC_UNWRAP acc)
+// } (Reduction rules)
+
+// Continuations {
+#define METALANG99_PRIV_EVAL_0v_K(k, k_cx, folder, acc, tail, ...)                                 \
+    METALANG99_PRIV_MACHINE_REDUCE(                                                                \
         k,                                                                                         \
         k_cx,                                                                                      \
         folder,                                                                                    \
         METALANG99_PRIV_EVAL_##folder(acc, __VA_ARGS__),                                           \
         METALANG99_PRIV_EXPAND tail)
 
-#define METALANG99_PRIV_EVAL_0args_AUX(k, k_cx, folder, acc, tail, op, ...)                        \
-    METALANG99_PRIV_EVAL_REDUCE(                                                                   \
+#define METALANG99_PRIV_EVAL_0args_K(k, k_cx, folder, acc, tail, op, ...)                          \
+    METALANG99_PRIV_MACHINE_REDUCE(                                                                \
         METALANG99_PRIV_EVAL_0callTr_K,                                                            \
         (k, k_cx, folder, acc, tail, op),                                                          \
         0fcomma,                                                                                   \
@@ -82,8 +100,8 @@
         (0end, ~),                                                                                 \
         ~)
 
-#define METALANG99_PRIV_EVAL_0op_AUX(k, k_cx, folder, acc, tail, op, ...)                          \
-    METALANG99_PRIV_EVAL_REDUCE(                                                                   \
+#define METALANG99_PRIV_EVAL_0op_K(k, k_cx, folder, acc, tail, op, ...)                            \
+    METALANG99_PRIV_MACHINE_REDUCE(                                                                \
         METALANG99_PRIV_EVAL_0callTr_K,                                                            \
         (k, k_cx, folder, acc, tail),                                                              \
         0fcomma,                                                                                   \
@@ -93,40 +111,8 @@
         (0end, ~),                                                                                 \
         ~)
 
-#define METALANG99_PRIV_EVAL_0callTr_AUX(k, k_cx, folder, acc, tail, ident, ...)                   \
-    METALANG99_PRIV_EVAL_REDUCE(                                                                   \
-        METALANG99_PRIV_EVAL_0v_K,                                                                 \
-        (k, k_cx, folder, acc, tail),                                                              \
-        0fappend,                                                                                  \
-        METALANG99_PRIV_EVAL_ACC(),                                                                \
-        ident##_IMPL(__VA_ARGS__),                                                                 \
-        (0end, ~),                                                                                 \
-        ~)
-
-// clang-format off
-#define METALANG99_PRIV_EVAL_0fatal_AUX(_k, _k_cx, _folder, _acc, _tail, f, message)               \
-    METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_REC_STOP)((~), !"Metalang99 error" (f): message)
-// clang-format on
-
-#define METALANG99_PRIV_EVAL_0abort(_k, k_cx, folder, acc, _tail, ...)                             \
-    METALANG99_PRIV_EVAL_REDUCE(                                                                   \
-        METALANG99_PRIV_REC_STOP,                                                                  \
-        (~),                                                                                       \
-        0fappend,                                                                                  \
-        METALANG99_PRIV_EVAL_ACC(),                                                                \
-        __VA_ARGS__,                                                                               \
-        (0end, ~),                                                                                 \
-        ~)
-
-#define METALANG99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                 \
-    METALANG99_PRIV_REC_CONTINUE(k)                                                                \
-    (METALANG99_PRIV_EXPAND k_cx, METALANG99_PRIV_EVAL_ACC_UNWRAP acc)
-// } (Reduction rules)
-
-// Continuations {
 #define METALANG99_PRIV_EVAL_0callTr_K(k, k_cx, folder, acc, tail, evaluated_op, ...)              \
-    METALANG99_PRIV_INVOKE(                                                                        \
-        METALANG99_PRIV_EVAL_MATCH,                                                                \
+    METALANG99_PRIV_MACHINE_REDUCE(                                                                \
         METALANG99_PRIV_EVAL_0v_K,                                                                 \
         (k, k_cx, folder, acc, tail),                                                              \
         0fappend,                                                                                  \
@@ -135,17 +121,8 @@
         (0end, ~),                                                                                 \
         ~)
 
-#define METALANG99_PRIV_EVAL_0v_K(k, k_cx, folder, acc, tail, ...)                                 \
-    METALANG99_PRIV_INVOKE(                                                                        \
-        METALANG99_PRIV_EVAL_MATCH,                                                                \
-        k,                                                                                         \
-        k_cx,                                                                                      \
-        folder,                                                                                    \
-        METALANG99_PRIV_EVAL_##folder(acc, __VA_ARGS__),                                           \
-        METALANG99_PRIV_EXPAND tail)
+#define METALANG99_PRIV_MACHINE_REDUCE(...) METALANG99_PRIV_EVAL_MATCH(__VA_ARGS__)
 // } (Continuations)
-
-#define METALANG99_PRIV_EVAL_REDUCE METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_MATCH)
 
 // Aliases {
 #ifndef METALANG99_NO_SMALL_PREFIX
