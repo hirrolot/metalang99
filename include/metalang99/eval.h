@@ -68,9 +68,10 @@
 #define METALANG99_PRIV_EVAL_0callTr METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0callTr_K)
 
 #define METALANG99_PRIV_EVAL_0fatal(...) METALANG99_PRIV_EVAL_0fatal_EXPANDED(__VA_ARGS__)
+// clang-format off
 #define METALANG99_PRIV_EVAL_0fatal_EXPANDED(_k, _k_cx, _folder, _acc, _tail, f, message)          \
-    /* clang-format off */                                                                         \
-    METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_REC_STOP)((~), !"Metalang99 error" (f) : message) /* clang-format on */
+    METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_REC_STOP)((~), !"Metalang99 error" (f): message)
+// clang-format on
 
 #define METALANG99_PRIV_EVAL_0abort(_k, k_cx, folder, acc, _tail, ...)                             \
     METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_MATCH)                                       \
