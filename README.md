@@ -186,7 +186,7 @@ However, compile-time errors can be still quite obscured. I strongly recommend u
 
 A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
-### Q: Why not just use third-party code generators?
+### Q: Why don't you use third-party code generators?
 
 A:
 
