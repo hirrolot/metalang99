@@ -33,11 +33,21 @@ M_assert(M_not(M_isUntuple(v((1, 2, 3)))));
 M_assert(M_isUntuple(v(123)));
 // }
 
-// M_tupleHead {
-M_assertEmpty(M_tupleHead(v(())));
-M_assertEq(M_tupleHead(v((19))), v(19));
-M_assertEq(M_tupleHead(v((19, 8))), v(19));
-M_assertEq(M_tupleHead(v((19, 8, 7378))), v(19));
+// M_tupleGet0 {
+M_assertEmpty(M_tupleGet0(v(())));
+M_assertEq(M_tupleGet0(v((19))), v(19));
+M_assertEq(M_tupleGet0(v((19, 8))), v(19));
+M_assertEq(M_tupleGet0(v((19, 8, 7378))), v(19));
+// }
+
+// M_tupleGet1 {
+M_assertEq(M_tupleGet1(v((19, 8))), v(8));
+M_assertEq(M_tupleGet1(v((19, 8, 7378))), v(8));
+// }
+
+// M_tupleGet2 {
+M_assertEq(M_tupleGet2(v((19, 8, 7378))), v(7378));
+M_assertEq(M_tupleGet2(v((19, 8, 7378, blah))), v(7378));
 // }
 
 // M_tupleTail {
