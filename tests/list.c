@@ -106,9 +106,9 @@ M_assertPlain(M_isConsPlain(M_consPlain(123, M_nilPlain())));
 M_assertPlain(M_isConsPlain(M_eval(M_list(v(8, 214, 10, 0, 122)))));
 // }
 
-// M_get {
-M_assertEq(M_get(v(0), M_list(v(123, 222))), v(123));
-M_assertEq(M_get(v(1), M_list(v(123, 222))), v(222));
+// M_listGet {
+M_assertEq(M_listGet(v(0), M_list(v(123, 222))), v(123));
+M_assertEq(M_listGet(v(1), M_list(v(123, 222))), v(222));
 // }
 
 // M_listTake {
@@ -178,15 +178,15 @@ M_assert(M_listEq(
 // M_listUnzip & M_listZip {
 #define LIST M_listUnzip(M_nil())
 
-M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_nil()));
-M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(0), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(1), LIST), M_nil()));
 
 #undef LIST
 
 #define LIST M_listUnzip(M_listZip(M_list(v(1, 2)), M_list(v(4, 5))))
 
-M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_list(v(1, 2))));
-M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_list(v(4, 5))));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(0), LIST), M_list(v(1, 2))));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(1), LIST), M_list(v(4, 5))));
 
 #undef LIST
 // }
@@ -332,8 +332,8 @@ M_assert(M_listEq(v(M_uintEq), M_listReplicate(v(3), v(7)), M_list(v(7, 7, 7))))
 // Partitioning M_nil() {
 #define LIST M_listPartition(M_appl(v(M_greater), v(10)), M_nil())
 
-M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_nil()));
-M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(0), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(1), LIST), M_nil()));
 
 #undef LIST
 // }
@@ -341,8 +341,8 @@ M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_nil()));
 // Only the second list contains items {
 #define LIST M_listPartition(M_appl(v(M_greater), v(10)), M_list(v(11, 12, 13)))
 
-M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_nil()));
-M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_list(v(11, 12, 13))));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(0), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(1), LIST), M_list(v(11, 12, 13))));
 
 #undef LIST
 // }
@@ -350,8 +350,8 @@ M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_list(v(11, 12, 13))));
 // Only the first list contains items {
 #define LIST M_listPartition(M_appl(v(M_greater), v(10)), M_list(v(4, 7)))
 
-M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_list(v(4, 7))));
-M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_nil()));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(0), LIST), M_list(v(4, 7))));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(1), LIST), M_nil()));
 
 #undef LIST
 // }
@@ -359,8 +359,8 @@ M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_nil()));
 // Both lists contain items {
 #define LIST M_listPartition(M_appl(v(M_greater), v(10)), M_list(v(11, 4, 12, 13, 7)))
 
-M_assert(M_listEq(v(M_uintEq), M_get(v(0), LIST), M_list(v(4, 7))));
-M_assert(M_listEq(v(M_uintEq), M_get(v(1), LIST), M_list(v(11, 12, 13))));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(0), LIST), M_list(v(4, 7))));
+M_assert(M_listEq(v(M_uintEq), M_listGet(v(1), LIST), M_list(v(11, 12, 13))));
 
 #undef LIST
 // }

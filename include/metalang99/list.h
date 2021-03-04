@@ -281,7 +281,7 @@
 #define METALANG99_isNil(list) METALANG99_call(METALANG99_isNil, list)
 
 /**
- * Gets an @p i -indexed element.
+ * Extracts the @p i -indexed element.
  *
  * # Examples
  *
@@ -289,10 +289,10 @@
  * #include <metalang99/list.h>
  *
  * // 2
- * M_get(v(1), M_list(v(1, 2, 3)))
+ * M_listGet(v(1), M_list(v(1, 2, 3)))
  * @endcode
  */
-#define METALANG99_get(i, list) METALANG99_call(METALANG99_get, i, list)
+#define METALANG99_listGet(i, list) METALANG99_call(METALANG99_listGet, i, list)
 
 /**
  * A right-associative fold over @p list.
@@ -843,17 +843,18 @@
     METALANG99_listAppendItem(v(x), METALANG99_listReverse_IMPL(xs))
 // }
 
-// METALANG99_get_IMPL {
-#define METALANG99_get_IMPL(i, list)       METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_get_, i)
-#define METALANG99_PRIV_get_nil_IMPL(_, i) METALANG99_PRIV_EMPTY_LIST_ERROR(METALANG99_get)
-#define METALANG99_PRIV_get_cons_IMPL(x, xs, i)                                                    \
+// METALANG99_listGet_IMPL {
+#define METALANG99_listGet_IMPL(i, list)                                                           \
+    METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listGet_, i)
+#define METALANG99_PRIV_listGet_nil_IMPL(_, i) METALANG99_PRIV_EMPTY_LIST_ERROR(METALANG99_get)
+#define METALANG99_PRIV_listGet_cons_IMPL(x, xs, i)                                                \
     METALANG99_PRIV_IF(                                                                            \
         METALANG99_PRIV_uintEq(i, 0),                                                              \
-        METALANG99_PRIV_getDone,                                                                   \
-        METALANG99_PRIV_getProgress)                                                               \
+        METALANG99_PRIV_listGetDone,                                                               \
+        METALANG99_PRIV_listGetProgress)                                                           \
     (x, METALANG99_PRIV_dec(i), xs)
-#define METALANG99_PRIV_getDone(x, _i, _xs)   v(x)
-#define METALANG99_PRIV_getProgress(x, i, xs) METALANG99_get_IMPL(i, xs)
+#define METALANG99_PRIV_listGetDone(x, _i, _xs)   v(x)
+#define METALANG99_PRIV_listGetProgress(x, i, xs) METALANG99_listGet_IMPL(i, xs)
 // }
 
 // METALANG99_listFoldr_IMPL {
@@ -1081,7 +1082,7 @@
         METALANG99_PRIV_listUnzipAdd_IMPL(x, rest, 0),                                             \
         METALANG99_PRIV_listUnzipAdd_IMPL(x, rest, 1))
 #define METALANG99_PRIV_listUnzipAdd_IMPL(x, rest, i)                                              \
-    METALANG99_cons(METALANG99_get_IMPL(i, x), METALANG99_get_IMPL(i, rest))
+    METALANG99_cons(METALANG99_listGet_IMPL(i, x), METALANG99_listGet_IMPL(i, rest))
 // }
 
 // METALANG99_listReplicate_IMPL {
@@ -1107,8 +1108,8 @@
             v(METALANG99_PRIV_listPartitionAuxExtendFst,                                           \
               METALANG99_PRIV_listPartitionAuxExtendSnd)),                                         \
         v(x),                                                                                      \
-        METALANG99_get_IMPL(0, acc),                                                               \
-        METALANG99_get_IMPL(1, acc))
+        METALANG99_listGet_IMPL(0, acc),                                                           \
+        METALANG99_listGet_IMPL(1, acc))
 
 #define METALANG99_PRIV_listPartitionAuxExtendFst_IMPL(x, fst, snd)                                \
     METALANG99_list_IMPL(METALANG99_consPlain(x, fst), snd)
@@ -1165,7 +1166,7 @@
 #define METALANG99_listReverse_ARITY        1
 #define METALANG99_isCons_ARITY             1
 #define METALANG99_isNil_ARITY              1
-#define METALANG99_get_ARITY                2
+#define METALANG99_listGet_ARITY            2
 #define METALANG99_listFoldr_ARITY          3
 #define METALANG99_listFoldl_ARITY          3
 #define METALANG99_listFoldl1_ARITY         2
@@ -1222,7 +1223,7 @@
 #define M_listReverse        METALANG99_listReverse
 #define M_isCons             METALANG99_isCons
 #define M_isNil              METALANG99_isNil
-#define M_get                METALANG99_get
+#define M_listGet            METALANG99_listGet
 #define M_listFoldr          METALANG99_listFoldr
 #define M_listFoldl          METALANG99_listFoldl
 #define M_listFoldl1         METALANG99_listFoldl1
