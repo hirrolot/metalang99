@@ -110,20 +110,9 @@
 #define METALANG99_variadicsForEachI(f, ...)                                                       \
     METALANG99_call(METALANG99_variadicsForEachI, f, __VA_ARGS__)
 
-/**
- * The plain version of #METALANG99_variadicsCount.
- */
 #define METALANG99_variadicsCountPlain(...) METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
-
-/**
- * The plain version of #METALANG99_variadicsGet.
- */
-#define METALANG99_variadicsGetPlain(i) METALANG99_catPlain(METALANG99_PRIV_variadicsGetPlain_, i)
-
-/**
- * The plain version of #METALANG99_variadicsTail.
- */
-#define METALANG99_variadicsTailPlain(...) METALANG99_PRIV_VARIADICS_TAIL(__VA_ARGS__)
+#define METALANG99_variadicsGetPlain(i)     METALANG99_catPlain(METALANG99_PRIV_variadicsGetPlain_, i)
+#define METALANG99_variadicsTailPlain(...)  METALANG99_PRIV_VARIADICS_TAIL(__VA_ARGS__)
 // }
 
 #ifndef DOXYGEN_IGNORE

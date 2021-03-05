@@ -149,34 +149,11 @@
  */
 #define METALANG99_tupleTail(x) METALANG99_call(METALANG99_tupleTail, x)
 
-/**
- * The plain version of #METALANG99_tuple.
- */
-#define METALANG99_tuplePlain(...) (__VA_ARGS__)
-
-/**
- * The plain version of #METALANG99_untuple.
- */
-#define METALANG99_untuplePlain(x) METALANG99_PRIV_EXPAND x
-
-/**
- * The plain version of #METALANG99_isTuple.
- */
-#define METALANG99_isTuplePlain(x) METALANG99_PRIV_IS_PARENTHESIZED(x)
-
-/**
- * The plain version of #METALANG99_isUntuple.
- */
+#define METALANG99_tuplePlain(...)   (__VA_ARGS__)
+#define METALANG99_untuplePlain(x)   METALANG99_PRIV_EXPAND x
+#define METALANG99_isTuplePlain(x)   METALANG99_PRIV_IS_PARENTHESIZED(x)
 #define METALANG99_isUntuplePlain(x) METALANG99_PRIV_IS_UNPARENTHESIZED(x)
-
-/**
- * The plain version of #METALANG99_tupleGet.
- */
-#define METALANG99_tupleGetPlain(i) METALANG99_catPlain(METALANG99_PRIV_tupleGetPlain_, i)
-
-/**
- * The plain version of #METALANG99_tupleTail.
- */
+#define METALANG99_tupleGetPlain(i)  METALANG99_catPlain(METALANG99_PRIV_tupleGetPlain_, i)
 #define METALANG99_tupleTailPlain(x) METALANG99_variadicsTailPlain(METALANG99_untuplePlain(x))
 // }
 

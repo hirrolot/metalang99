@@ -101,16 +101,8 @@
  * In particular, this macro can be used to imitate lazy evaluation: `M_ifPlain(<cond>, <term>,
  * <another-term>)` will expand to one of the terms, which can be evaluated further.
  */
-#define METALANG99_ifPlain(cond, x, y) METALANG99_PRIV_IF(cond, x, y)
-
-/**
- * The plain version of #METALANG99_when.
- */
-#define METALANG99_whenPlain(cond, x) METALANG99_ifPlain(cond, x, METALANG99_emptyPlain())
-
-/**
- * The plain version of #METALANG99_whenLazy.
- */
+#define METALANG99_ifPlain(cond, x, y)    METALANG99_PRIV_IF(cond, x, y)
+#define METALANG99_whenPlain(cond, x)     METALANG99_ifPlain(cond, x, METALANG99_emptyPlain())
 #define METALANG99_whenLazyPlain(cond, f) METALANG99_ifPlain(cond, f, METALANG99_consumePlain)
 // }
 

@@ -379,24 +379,9 @@
  */
 #define METALANG99_max(x, y) METALANG99_call(METALANG99_max, x, y)
 
-/**
- * The plain version of #METALANG99_incPlain.
- */
-#define METALANG99_incPlain(x) METALANG99_PRIV_inc(x)
-
-/**
- * The plain version of #METALANG99_decPlain.
- */
-#define METALANG99_decPlain(x) METALANG99_PRIV_dec(x)
-
-/**
- * The plain version of #METALANG99_natEq.
- */
-#define METALANG99_natEqPlain(x, y) METALANG99_PRIV_natEq(x, y)
-
-/**
- * The plain version of #METALANG99_natNeq.
- */
+#define METALANG99_incPlain(x)       METALANG99_PRIV_inc(x)
+#define METALANG99_decPlain(x)       METALANG99_PRIV_dec(x)
+#define METALANG99_natEqPlain(x, y)  METALANG99_PRIV_natEq(x, y)
 #define METALANG99_natNeqPlain(x, y) METALANG99_notPlain(METALANG99_natEqPlain(x, y))
 // }
 

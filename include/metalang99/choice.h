@@ -77,16 +77,7 @@
 #define METALANG99_matchWithArgs(choice, matcher, ...)                                             \
     METALANG99_call(METALANG99_matchWithArgs, choice, matcher, __VA_ARGS__)
 
-/**
- * The plain version of #METALANG99_choice.
- */
-#define METALANG99_choicePlain(tag, ...) (tag, __VA_ARGS__)
-
-/**
- * The plain version of #METALANG99_choiceTag.
- *
- * @note @p choice must be already evaluated.
- */
+#define METALANG99_choicePlain(tag, ...)  (tag, __VA_ARGS__)
 #define METALANG99_choiceTagPlain(choice) METALANG99_PRIV_VARIADICS_HEAD_AUX choice
 // }
 

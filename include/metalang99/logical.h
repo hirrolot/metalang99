@@ -123,29 +123,10 @@
  */
 #define METALANG99_boolEq(x, y) METALANG99_call(METALANG99_boolEq, x, y)
 
-/**
- * The plain version of #METALANG99_not.
- */
-#define METALANG99_notPlain(x) METALANG99_PRIV_CAT(METALANG99_PRIV_not_, x)()
-
-/**
- * The plain version of #METALANG99_and.
- */
-#define METALANG99_andPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_and_, x, y)
-
-/**
- * The plain version of #METALANG99_or.
- */
-#define METALANG99_orPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_or_, x, y)
-
-/**
- * The plain version of #METALANG99_xor.
- */
-#define METALANG99_xorPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_xor_, x, y)
-
-/**
- * The plain version of #METALANG99_boolEq.
- */
+#define METALANG99_notPlain(x)       METALANG99_PRIV_CAT(METALANG99_PRIV_not_, x)()
+#define METALANG99_andPlain(x, y)    METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_and_, x, y)
+#define METALANG99_orPlain(x, y)     METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_or_, x, y)
+#define METALANG99_xorPlain(x, y)    METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_xor_, x, y)
 #define METALANG99_boolEqPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_boolEq_, x, y)
 // }
 

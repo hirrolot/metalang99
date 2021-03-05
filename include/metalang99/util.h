@@ -324,29 +324,10 @@
  */
 #define METALANG99_stringifyPrimitive(...) #__VA_ARGS__
 
-/**
- * The plain version of #METALANG99_cat.
- */
-#define METALANG99_catPlain(x, y) METALANG99_catPrimitive(x, y)
-
-/**
- * The plain version of #METALANG99_stringify.
- */
+#define METALANG99_catPlain(x, y)      METALANG99_catPrimitive(x, y)
 #define METALANG99_stringifyPlain(...) METALANG99_stringifyPrimitive(__VA_ARGS__)
-
-/**
- * The plain version of #METALANG99_empty.
- */
 #define METALANG99_emptyPlain()
-
-/**
- * The plain version of #METALANG99_id.
- */
 #define METALANG99_idPlain(...) __VA_ARGS__
-
-/**
- * The plain version of #METALANG99_consume.
- */
 #define METALANG99_consumePlain(...)
 
 /**

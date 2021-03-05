@@ -680,29 +680,10 @@
  */
 #define METALANG99_listAppl(list, f) METALANG99_call(METALANG99_listAppl, list, f)
 
-/**
- * The plain version of #METALANG99_cons.
- */
-#define METALANG99_consPlain(x, xs) METALANG99_choicePlain(cons, x, xs)
-
-/**
- * The plain version of #METALANG99_nil.
- */
-#define METALANG99_nilPlain() METALANG99_choicePlain(nil, ~)
-
-/**
- * The plain version of #METALANG99_isCons.
- *
- * @note @p list must be already evaluated.
- */
+#define METALANG99_consPlain(x, xs)  METALANG99_choicePlain(cons, x, xs)
+#define METALANG99_nilPlain()        METALANG99_choicePlain(nil, ~)
 #define METALANG99_isConsPlain(list) METALANG99_PRIV_IS_CONS(list)
-
-/**
- * The plain version of #METALANG99_isNil.
- *
- * @note @p list must be already evaluated.
- */
-#define METALANG99_isNilPlain(list) METALANG99_PRIV_IS_NIL(list)
+#define METALANG99_isNilPlain(list)  METALANG99_PRIV_IS_NIL(list)
 // }
 
 #ifndef DOXYGEN_IGNORE
