@@ -43,7 +43,7 @@ Both metaprograms result in `1, 2, 3`.
    maybe
    list
    variadics
-   uint
+   nat
    logical
    util
    control
@@ -61,7 +61,7 @@ Contents
  - `maybe.h`_ - An optional value.
  - `list.h`_ - List manipulation.
  - `variadics.h`_ - Variadic macro utilities.
- - `uint.h`_ - Unsigned integers.
+ - `nat.h`_ - Natural numbers ([0; 255]).
  - `logical.h`_ - Boolean algebra.
  - `control.h`_ - Control expressions.
  - `assert.h`_ - Static assertions.
@@ -84,7 +84,7 @@ Indices and tables
 .. _maybe.h: maybe.html
 .. _list.h: list.html
 .. _variadics.h: variadics.html
-.. _uint.h: uint.html
+.. _nat.h: nat.html
 .. _logical.h: logical.html
 .. _control.h: control.html
 .. _assert.h: assert.html

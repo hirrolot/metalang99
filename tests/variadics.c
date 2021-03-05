@@ -1,6 +1,6 @@
 #include <metalang99/assert.h>
+#include <metalang99/nat.h>
 #include <metalang99/tuple.h>
-#include <metalang99/uint.h>
 #include <metalang99/variadics.h>
 
 // M_variadicsGet {

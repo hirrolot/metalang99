@@ -10,7 +10,7 @@
 #include <metalang99/control.h>
 #include <metalang99/lang.h>
 #include <metalang99/list.h>
-#include <metalang99/uint.h>
+#include <metalang99/nat.h>
 #include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
@@ -93,8 +93,7 @@
 // Implementation {
 
 // METALANG99_repeat_IMPL {
-#define METALANG99_repeat_IMPL(f, n)                                                               \
-    METALANG99_uintMatchWithArgs_IMPL(n, METALANG99_PRIV_repeat_, f)
+#define METALANG99_repeat_IMPL(f, n)      METALANG99_natMatchWithArgs_IMPL(n, METALANG99_PRIV_repeat_, f)
 #define METALANG99_PRIV_repeat_Z_IMPL(_f) METALANG99_empty()
 #define METALANG99_PRIV_repeat_S_IMPL(i, f)                                                        \
     METALANG99_terms(METALANG99_repeat_IMPL(f, i), METALANG99_appl_IMPL(f, i))
@@ -127,7 +126,7 @@
 // METALANG99_indexedInitializerList_IMPL {
 #define METALANG99_indexedInitializerList_IMPL(n)                                                  \
     METALANG99_braced(METALANG99_ifPlain(                                                          \
-        METALANG99_uintEqPlain(n, 0),                                                              \
+        METALANG99_natEqPlain(n, 0),                                                               \
         v(0),                                                                                      \
         METALANG99_variadicsTail(METALANG99_repeat_IMPL(METALANG99_PRIV_indexedItem, n))))
 

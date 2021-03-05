@@ -2,8 +2,8 @@
 
 #define ack(m, n) M_call(ack, m, n)
 
-#define ack_IMPL(m, n)   M_uintMatchWithArgs(v(m), v(ack_), v(n))
-#define ack_S_IMPL(m, n) M_uintMatchWithArgs(v(n), v(ack_S_), v(m))
+#define ack_IMPL(m, n)   M_natMatchWithArgs(v(m), v(ack_), v(n))
+#define ack_S_IMPL(m, n) M_natMatchWithArgs(v(n), v(ack_S_), v(m))
 
 #define ack_Z_IMPL(n)      M_inc(v(n))
 #define ack_S_Z_IMPL(m)    ack(v(m), v(1))

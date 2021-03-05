@@ -1,5 +1,5 @@
-#ifndef METALANG99_UINT_DIV_H
-#define METALANG99_UINT_DIV_H
+#ifndef METALANG99_NAT_DIV_H
+#define METALANG99_NAT_DIV_H
 
 #include <metalang99/lang.h>
 #include <metalang99/maybe.h>
@@ -1743,4 +1743,4 @@
 #define METALANG99_PRIV_div_256_2()   ~, (METALANG99_just(v(128)))
 #define METALANG99_PRIV_div_256_256() ~, (METALANG99_just(v(1)))
 
-#endif // METALANG99_UINT_DIV_H
+#endif // METALANG99_NAT_DIV_H

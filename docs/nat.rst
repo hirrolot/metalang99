@@ -1,5 +1,5 @@
-uint.h
+nat.h
 ======
 
-.. doxygenfile:: uint.h
+.. doxygenfile:: nat.h
    :project: Metalang99

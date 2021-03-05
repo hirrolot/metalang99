@@ -1,23 +1,23 @@
 #include <metalang99/assert.h>
-#include <metalang99/uint.h>
+#include <metalang99/nat.h>
 
-// M_uintMatch {
+// M_natMatch {
 #define MATCH_Z_IMPL()  v(88)
 #define MATCH_S_IMPL(x) v(x)
 
-M_assertEq(M_uintMatch(v(0), v(MATCH_)), v(88));
-M_assertEq(M_uintMatch(v(123), v(MATCH_)), v(122));
+M_assertEq(M_natMatch(v(0), v(MATCH_)), v(88));
+M_assertEq(M_natMatch(v(123), v(MATCH_)), v(122));
 
 #undef MATCH_Z_IMPL
 #undef MATCH_S_IMPL
 // }
 
-// M_uintMatchWithArgs {
+// M_natMatchWithArgs {
 #define MATCH_Z_IMPL(x, y, z)    v(M_assertPlain(x == 1 && y == 2 && z == 3))
 #define MATCH_S_IMPL(n, x, y, z) v(M_assertPlain(n == 122 && x == 1 && y == 2 && z == 3))
 
-M_eval(M_uintMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
-M_eval(M_uintMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
+M_eval(M_natMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
+M_eval(M_natMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
 
 #undef MATCH_Z_IMPL
 #undef MATCH_S_IMPL
@@ -39,22 +39,22 @@ M_assertEq(M_dec(v(201)), v(200));
 M_assertEq(M_dec(v(255)), v(254));
 // }
 
-// M_uintEq {
-M_assert(M_uintEq(v(0), v(0)));
-M_assert(M_uintEq(v(18), v(18)));
-M_assert(M_uintEq(v(183), v(183)));
-M_assert(M_uintEq(v(255), v(255)));
+// M_natEq {
+M_assert(M_natEq(v(0), v(0)));
+M_assert(M_natEq(v(18), v(18)));
+M_assert(M_natEq(v(183), v(183)));
+M_assert(M_natEq(v(255), v(255)));
 
-M_assert(M_not(M_uintEq(v(0), v(1))));
-M_assert(M_not(M_uintEq(v(198), v(91))));
+M_assert(M_not(M_natEq(v(0), v(1))));
+M_assert(M_not(M_natEq(v(198), v(91))));
 // }
 
-// M_uintNeq {
-M_assert(M_uintNeq(v(0), v(1)));
-M_assert(M_uintNeq(v(0), v(168)));
-M_assert(M_uintNeq(v(1), v(34)));
-M_assert(M_uintNeq(v(184), v(381)));
-M_assert(M_uintNeq(v(3), v(101)));
+// M_natNeq {
+M_assert(M_natNeq(v(0), v(1)));
+M_assert(M_natNeq(v(0), v(168)));
+M_assert(M_natNeq(v(1), v(34)));
+M_assert(M_natNeq(v(184), v(381)));
+M_assert(M_natNeq(v(3), v(101)));
 // }
 
 // M_greater {
@@ -141,15 +141,15 @@ M_assertEq(M_div(v(255), v(5)), v(255 / 5));
 // }
 
 // M_divChecked {
-M_assert(M_maybeEq(v(M_uintEq), M_divChecked(v(15), v(1)), M_just(v(15))));
-M_assert(M_maybeEq(v(M_uintEq), M_divChecked(v(15), v(15)), M_just(v(1))));
-M_assert(M_maybeEq(v(M_uintEq), M_divChecked(v(45), v(3)), M_just(v(15))));
-M_assert(M_maybeEq(v(M_uintEq), M_divChecked(v(255), v(5)), M_just(v(51))));
+M_assert(M_maybeEq(v(M_natEq), M_divChecked(v(15), v(1)), M_just(v(15))));
+M_assert(M_maybeEq(v(M_natEq), M_divChecked(v(15), v(15)), M_just(v(1))));
+M_assert(M_maybeEq(v(M_natEq), M_divChecked(v(45), v(3)), M_just(v(15))));
+M_assert(M_maybeEq(v(M_natEq), M_divChecked(v(255), v(5)), M_just(v(51))));
 
-M_assert(M_maybeEq(v(M_uintEq), M_divChecked(v(4), v(0)), M_nothing()));
-M_assert(M_maybeEq(v(M_uintEq), M_divChecked(v(3), v(27)), M_nothing()));
-M_assert(M_maybeEq(v(M_uintEq), M_divChecked(v(166), v(9)), M_nothing()));
-M_assert(M_maybeEq(v(M_uintEq), M_divChecked(v(0), v(11)), M_nothing()));
+M_assert(M_maybeEq(v(M_natEq), M_divChecked(v(4), v(0)), M_nothing()));
+M_assert(M_maybeEq(v(M_natEq), M_divChecked(v(3), v(27)), M_nothing()));
+M_assert(M_maybeEq(v(M_natEq), M_divChecked(v(166), v(9)), M_nothing()));
+M_assert(M_maybeEq(v(M_natEq), M_divChecked(v(0), v(11)), M_nothing()));
 // }
 
 // M_mod {

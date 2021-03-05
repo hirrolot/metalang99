@@ -31,7 +31,7 @@ static int lesser_than_10[] = {
 // Macro recursion {
 #define factorial(n) M_call(factorial, n)
 
-#define factorial_IMPL(n)   M_uintMatch(v(n), v(factorial_))
+#define factorial_IMPL(n)   M_natMatch(v(n), v(factorial_))
 #define factorial_Z_IMPL()  v(1)
 #define factorial_S_IMPL(n) M_mul(M_inc(v(n)), factorial(v(n)))
 

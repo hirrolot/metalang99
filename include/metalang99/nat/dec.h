@@ -1,5 +1,5 @@
-#ifndef METALANG99_UINT_DEC_H
-#define METALANG99_UINT_DEC_H
+#ifndef METALANG99_NAT_DEC_H
+#define METALANG99_NAT_DEC_H
 
 #include <metalang99/priv/util.h>
 
@@ -262,4 +262,4 @@
 #define METALANG99_PRIV_dec_254() 253
 #define METALANG99_PRIV_dec_255() 254
 
-#endif // METALANG99_UINT_DEC_H
+#endif // METALANG99_NAT_DEC_H

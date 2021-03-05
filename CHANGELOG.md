@@ -23,6 +23,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `M_get` -> `M_listGet`
  - `M_overloadPlain` -> `M_overload`
+ - Rename "unsigned integers" to "natural numbers":
+   - `uint.h` -> `nat.h`
+   - `M_uintMatch(WithArgs)` -> `M_natMatch(WithArgs)`
+   - `M_uintEq` -> `M_natEq`
+   - `M_uintNeq` -> `M_natNeq`
 
 ## [0.4.2] - 2021-02-28
 

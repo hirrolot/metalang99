@@ -1,6 +1,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/maybe.h>
-#include <metalang99/uint.h>
+#include <metalang99/nat.h>
 
 // Pattern matching {
 #define MATCH_IMPL(maybe)     M_match(v(maybe), v(MATCH_))
@@ -28,11 +28,11 @@ M_assert(M_not(M_isNothing(M_just(VAL))));
 // }
 
 // M_maybeEq {
-M_assert(M_maybeEq(v(M_uintEq), M_just(v(123)), M_just(v(123))));
+M_assert(M_maybeEq(v(M_natEq), M_just(v(123)), M_just(v(123))));
 
-M_assert(M_not(M_maybeEq(v(M_uintEq), M_just(v(123)), M_just(v(4)))));
-M_assert(M_not(M_maybeEq(v(M_uintEq), M_just(v(123)), M_nothing())));
-M_assert(M_not(M_maybeEq(v(M_uintEq), M_nothing(), M_just(v(123)))));
+M_assert(M_not(M_maybeEq(v(M_natEq), M_just(v(123)), M_just(v(4)))));
+M_assert(M_not(M_maybeEq(v(M_natEq), M_just(v(123)), M_nothing())));
+M_assert(M_not(M_maybeEq(v(M_natEq), M_nothing(), M_just(v(123)))));
 // }
 
 // M_maybeUnwrap {

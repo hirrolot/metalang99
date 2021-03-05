@@ -3,8 +3,8 @@
 
 #include <metalang99/priv/util.h>
 
-#include <metalang99/uint/dec.h>
-#include <metalang99/uint/eq.h>
+#include <metalang99/nat/dec.h>
+#include <metalang99/nat/eq.h>
 
 /*
  * A closure has the form `(arity, f, ...)`, where `arity` is how many times `METALANG99_appl` can
@@ -31,7 +31,7 @@
 
 #define METALANG99_PRIV_APPL_F(f, ...)                                                             \
     METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_uintEq(f##_ARITY, 1),                                                      \
+        METALANG99_PRIV_natEq(f##_ARITY, 1),                                                       \
         METALANG99_callTrivial(f, __VA_ARGS__),                                                    \
         v((METALANG99_PRIV_dec(f##_ARITY), f, __VA_ARGS__)))
 
@@ -42,7 +42,7 @@
 
 #define METALANG99_PRIV_APPL_CLOSURE_AUX_AUX(arity, f, ...)                                        \
     METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_uintEq(arity, 1),                                                          \
+        METALANG99_PRIV_natEq(arity, 1),                                                           \
         METALANG99_callTrivial(f, __VA_ARGS__),                                                    \
         v((METALANG99_PRIV_dec(arity), f, __VA_ARGS__)))
 

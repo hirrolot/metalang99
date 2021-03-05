@@ -1,6 +1,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/either.h>
-#include <metalang99/uint.h>
+#include <metalang99/nat.h>
 
 // Pattern matching {
 #define MATCH_IMPL(either)  M_match(v(either), v(MATCH_))
@@ -28,16 +28,16 @@ M_assert(M_not(M_isRight(M_left(VAL))));
 // }
 
 // M_eitherEq {
-M_assert(M_eitherEq(v(M_uintEq), M_left(v(123)), M_left(v(123))));
-M_assert(M_not(M_eitherEq(v(M_uintEq), M_left(v(18)), M_left(v(123)))));
+M_assert(M_eitherEq(v(M_natEq), M_left(v(123)), M_left(v(123))));
+M_assert(M_not(M_eitherEq(v(M_natEq), M_left(v(18)), M_left(v(123)))));
 
-M_assert(M_eitherEq(v(M_uintEq), M_right(v(123)), M_right(v(123))));
-M_assert(M_not(M_eitherEq(v(M_uintEq), M_right(v(18)), M_right(v(123)))));
+M_assert(M_eitherEq(v(M_natEq), M_right(v(123)), M_right(v(123))));
+M_assert(M_not(M_eitherEq(v(M_natEq), M_right(v(18)), M_right(v(123)))));
 
-M_assert(M_not(M_eitherEq(v(M_uintEq), M_left(v(123)), M_right(v(123)))));
-M_assert(M_not(M_eitherEq(v(M_uintEq), M_left(v(123)), M_right(v(4)))));
-M_assert(M_not(M_eitherEq(v(M_uintEq), M_right(v(123)), M_left(v(123)))));
-M_assert(M_not(M_eitherEq(v(M_uintEq), M_right(v(123)), M_left(v(4)))));
+M_assert(M_not(M_eitherEq(v(M_natEq), M_left(v(123)), M_right(v(123)))));
+M_assert(M_not(M_eitherEq(v(M_natEq), M_left(v(123)), M_right(v(4)))));
+M_assert(M_not(M_eitherEq(v(M_natEq), M_right(v(123)), M_left(v(123)))));
+M_assert(M_not(M_eitherEq(v(M_natEq), M_right(v(123)), M_left(v(4)))));
 // }
 
 // M_unwrapLeft {

@@ -11,7 +11,7 @@
 #include <metalang99/choice.h>
 #include <metalang99/control.h>
 #include <metalang99/logical.h>
-#include <metalang99/uint.h>
+#include <metalang99/nat.h>
 #include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
@@ -391,7 +391,7 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // 4, 5, 6
  * M_listMap(M_appl(v(M_add), v(3)), M_list(v(1, 2, 3)))
@@ -441,7 +441,7 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // 4, 5, 6
  * M_listFor(M_list(v(1, 2, 3)), M_appl(v(M_add), v(3)))
@@ -489,7 +489,7 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // 9, 11, 6
  * M_listFilter(M_appl(v(M_lesser), v(5)), M_list(v(9, 1, 11, 6, 0, 4)))
@@ -504,13 +504,13 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // 0
- * M_listEq(v(M_uintEq), M_list(v(1, 2, 3)), M_list(v(4, 5, 6)))
+ * M_listEq(v(M_natEq), M_list(v(1, 2, 3)), M_list(v(4, 5, 6)))
  *
  * // 1
- * M_listEq(v(M_uintEq), M_list(v(1, 2, 3)), M_list(v(1, 2, 3)))
+ * M_listEq(v(M_natEq), M_list(v(1, 2, 3)), M_list(v(1, 2, 3)))
  * @endcode
  */
 #define METALANG99_listEq(compare, list, other)                                                    \
@@ -523,13 +523,13 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // 1
- * M_listContains(v(M_uintEq), v(3), M_list(v(1, 2, 3)))
+ * M_listContains(v(M_natEq), v(3), M_list(v(1, 2, 3)))
  *
  * // 0
- * M_listContains(v(M_uintEq), v(456), M_list(v(1, 2, 3)))
+ * M_listContains(v(M_natEq), v(456), M_list(v(1, 2, 3)))
  * @endcode
  */
 #define METALANG99_listContains(compare, item, list)                                               \
@@ -557,7 +557,7 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // 1, 2, 3
  * M_listTakeWhile(M_appl(v(M_greater), v(4)), M_list(v(1, 2, 3, 4, 5, 6)))
@@ -587,7 +587,7 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // 4, 5, 6
  * M_listDropWhile(M_appl(v(M_lesser), v(4)), M_list(v(1, 2, 3, 4, 5, 6)))
@@ -649,7 +649,7 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // M_list(M_list(v(4, 7)) M_list(v(11, 12, 13)))
  * M_listPartition(M_appl(v(M_greater), v(10)), M_list(v(11, 4, 12, 13, 7)))
@@ -666,7 +666,7 @@
  *
  * @code
  * #include <metalang99/list.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // M_add
  * M_listAppl(v(M_add), M_nil())
@@ -760,19 +760,19 @@
 // Last 4 recursion steps unrolled {
 #define METALANG99_PRIV_listProgress_IMPL(count, ...)                                              \
     METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_uintEq(count, 4),                                                          \
+        METALANG99_PRIV_natEq(count, 4),                                                           \
         METALANG99_PRIV_listDone_4,                                                                \
         METALANG99_PRIV_IF(                                                                        \
-            METALANG99_PRIV_uintEq(count, 3),                                                      \
+            METALANG99_PRIV_natEq(count, 3),                                                       \
             METALANG99_PRIV_listDone_3,                                                            \
             METALANG99_PRIV_IF(                                                                    \
-                METALANG99_PRIV_uintEq(count, 2),                                                  \
+                METALANG99_PRIV_natEq(count, 2),                                                   \
                 METALANG99_PRIV_listDone_2,                                                        \
                 METALANG99_PRIV_IF(                                                                \
-                    METALANG99_PRIV_uintEq(count, 1),                                              \
+                    METALANG99_PRIV_natEq(count, 1),                                               \
                     METALANG99_PRIV_listDone_1,                                                    \
                     METALANG99_PRIV_IF(                                                            \
-                        METALANG99_PRIV_uintEq(count, 0),                                          \
+                        METALANG99_PRIV_natEq(count, 0),                                           \
                         METALANG99_PRIV_listDone_0,                                                \
                         METALANG99_PRIV_listProgressAux)))))                                       \
     (count, __VA_ARGS__)
@@ -849,7 +849,7 @@
 #define METALANG99_PRIV_listGet_nil_IMPL(_, i) METALANG99_PRIV_EMPTY_LIST_ERROR(METALANG99_get)
 #define METALANG99_PRIV_listGet_cons_IMPL(x, xs, i)                                                \
     METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_uintEq(i, 0),                                                              \
+        METALANG99_PRIV_natEq(i, 0),                                                               \
         METALANG99_PRIV_listGetDone,                                                               \
         METALANG99_PRIV_listGetProgress)                                                           \
     (x, METALANG99_PRIV_dec(i), xs)
@@ -1003,7 +1003,7 @@
 #define METALANG99_PRIV_listTake_nil_IMPL(_, _i) METALANG99_nil()
 #define METALANG99_PRIV_listTake_cons_IMPL(x, xs, i)                                               \
     METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_uintEq(i, 0),                                                              \
+        METALANG99_PRIV_natEq(i, 0),                                                               \
         METALANG99_PRIV_listTakeDone,                                                              \
         METALANG99_PRIV_listTakeProgress)                                                          \
     (x, xs, i)
@@ -1033,7 +1033,7 @@
 #define METALANG99_PRIV_listDrop_nil_IMPL(_, _i) METALANG99_nil()
 #define METALANG99_PRIV_listDrop_cons_IMPL(x, xs, i)                                               \
     METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_uintEq(i, 0),                                                              \
+        METALANG99_PRIV_natEq(i, 0),                                                               \
         METALANG99_PRIV_listDropDone,                                                              \
         METALANG99_PRIV_listDropProgress)                                                          \
     (x, xs, i)
@@ -1087,7 +1087,7 @@
 
 // METALANG99_listReplicate_IMPL {
 #define METALANG99_listReplicate_IMPL(n, item)                                                     \
-    METALANG99_uintMatchWithArgs_IMPL(n, METALANG99_PRIV_listReplicate_, item)
+    METALANG99_natMatchWithArgs_IMPL(n, METALANG99_PRIV_listReplicate_, item)
 #define METALANG99_PRIV_listReplicate_Z_IMPL(item) METALANG99_nil()
 #define METALANG99_PRIV_listReplicate_S_IMPL(n, item)                                              \
     METALANG99_cons(v(item), METALANG99_listReplicate_IMPL(n, item))

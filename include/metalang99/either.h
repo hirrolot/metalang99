@@ -61,16 +61,16 @@
  *
  * @code
  * #include <metalang99/either.h>
- * #include <metalang99/uint.h>
+ * #include <metalang99/nat.h>
  *
  * // 1
- * M_eitherEq(v(M_uintEq), M_left(v(123)), M_left(v(123)))
+ * M_eitherEq(v(M_natEq), M_left(v(123)), M_left(v(123)))
  *
  * // 0
- * M_eitherEq(v(M_uintEq), M_right(v(123)), M_left(v(8)))
+ * M_eitherEq(v(M_natEq), M_right(v(123)), M_left(v(8)))
  *
  * // 0
- * M_eitherEq(v(M_uintEq), M_right(v(123)), M_left(v(123)))
+ * M_eitherEq(v(M_natEq), M_right(v(123)), M_left(v(123)))
  * @endcode
  */
 #define METALANG99_eitherEq(compare, either, other)                                                \

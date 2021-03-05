@@ -12,8 +12,8 @@
 #include <metalang99/priv/variadics/count.h>
 
 #include <metalang99/lang.h>
-#include <metalang99/uint/dec.h>
-#include <metalang99/uint/eq.h>
+#include <metalang99/nat/dec.h>
+#include <metalang99/nat/eq.h>
 #include <metalang99/util.h>
 
 // Desugaring {
@@ -166,7 +166,7 @@
 #define METALANG99_PRIV_variadicsForEachAux_IMPL(f, count, ...)                                    \
     METALANG99_callTrivial(                                                                        \
         METALANG99_PRIV_IF(                                                                        \
-            METALANG99_PRIV_uintEq(count, 1),                                                      \
+            METALANG99_PRIV_natEq(count, 1),                                                       \
             METALANG99_PRIV_variadicsForEachDone,                                                  \
             METALANG99_PRIV_variadicsForEachProgress),                                             \
         f,                                                                                         \
@@ -192,7 +192,7 @@
 #define METALANG99_PRIV_variadicsForEachIAux_IMPL(f, i, count, ...)                                \
     METALANG99_callTrivial(                                                                        \
         METALANG99_PRIV_IF(                                                                        \
-            METALANG99_PRIV_uintEq(count, 1),                                                      \
+            METALANG99_PRIV_natEq(count, 1),                                                       \
             METALANG99_PRIV_variadicsForEachIDone,                                                 \
             METALANG99_PRIV_variadicsForEachIProgress),                                            \
         f,                                                                                         \
