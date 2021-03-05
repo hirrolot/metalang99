@@ -18,6 +18,7 @@
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
+#include <metalang99/variadics.h>
 
 // Desugaring {
 /**
@@ -117,23 +118,9 @@
 #define METALANG99_isUntuple(x) METALANG99_call(METALANG99_isUntuple, x)
 
 /**
- * Extracts the tuple's first element.
+ * Expands to a metafunction extracting the @p i -indexed element of a tuple.
  *
- * # Examples
- *
- * @code
- * #include <metalang99/tuple.h>
- *
- * // 1
- * M_tupleGet0(v((1, 2, 3)))
- * @endcode
- */
-#define METALANG99_tupleGet0(x) METALANG99_call(METALANG99_tupleGet0, x)
-
-/**
- * Extracts the tuple's second element.
- *
- * @p x must contain at least two elements.
+ * @p i can range from 0 to 2, inclusively.
  *
  * # Examples
  *
@@ -141,26 +128,11 @@
  * #include <metalang99/tuple.h>
  *
  * // 2
- * M_tupleGet1(v((1, 2, 3)))
+ * M_tupleGet(1)(v((1, 2, 3)))
  * @endcode
  */
-#define METALANG99_tupleGet1(x) METALANG99_call(METALANG99_tupleGet1, x)
+#define METALANG99_tupleGet(i) METALANG99_catPlain(METALANG99_PRIV_tupleGet_, i)
 
-/**
- * Extracts the tuple's third element.
- *
- * @p x must contain at least three elements.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/tuple.h>
- *
- * // 3
- * M_tupleGet2(v((1, 2, 3)))
- * @endcode
- */
-#define METALANG99_tupleGet2(x) METALANG99_call(METALANG99_tupleGet2, x)
 /**
  * Extracts the tuple's tail.
  *
@@ -198,24 +170,14 @@
 #define METALANG99_isUntuplePlain(x) METALANG99_PRIV_IS_UNPARENTHESIZED(x)
 
 /**
- * The plain version of #METALANG99_tupleGet0.
+ * The plain version of #METALANG99_tupleGet.
  */
-#define METALANG99_tupleGet0Plain(x) METALANG99_PRIV_tupleGet0(METALANG99_untuplePlain(x), ~)
-
-/**
- * The plain version of #METALANG99_tupleGet0.
- */
-#define METALANG99_tupleGet1Plain(x) METALANG99_PRIV_tupleGet1(METALANG99_untuplePlain(x), ~)
-
-/**
- * The plain version of #METALANG99_tupleGet0.
- */
-#define METALANG99_tupleGet2Plain(x) METALANG99_PRIV_tupleGet2(METALANG99_untuplePlain(x), ~)
+#define METALANG99_tupleGetPlain(i) METALANG99_catPlain(METALANG99_PRIV_tupleGetPlain_, i)
 
 /**
  * The plain version of #METALANG99_tupleTail.
  */
-#define METALANG99_tupleTailPlain(x) METALANG99_PRIV_VARIADICS_TAIL(METALANG99_untuplePlain(x))
+#define METALANG99_tupleTailPlain(x) METALANG99_variadicsTailPlain(METALANG99_untuplePlain(x))
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -223,35 +185,42 @@
 // Implementation {
 #define METALANG99_tupleEval_IMPL(...) v((v(__VA_ARGS__)))
 #define METALANG99_tuple_IMPL(...)     v(METALANG99_tuplePlain(__VA_ARGS__))
+
 #define METALANG99_untupleEval_IMPL(x) METALANG99_PRIV_EXPAND x
 #define METALANG99_untuple_IMPL(x)     v(METALANG99_untuplePlain(x))
-#define METALANG99_isTuple_IMPL(x)     v(METALANG99_isTuplePlain(x))
-#define METALANG99_isUntuple_IMPL(x)   v(METALANG99_isUntuplePlain(x))
-#define METALANG99_tupleGet0_IMPL(x)   v(METALANG99_tupleGet0Plain(x))
-#define METALANG99_tupleGet1_IMPL(x)   v(METALANG99_tupleGet1Plain(x))
-#define METALANG99_tupleGet2_IMPL(x)   v(METALANG99_tupleGet2Plain(x))
-#define METALANG99_tupleTail_IMPL(x)   v(METALANG99_tupleTailPlain(x))
 
-#define METALANG99_PRIV_tupleGet0(...) METALANG99_PRIV_tupleGet0Aux(__VA_ARGS__)
-#define METALANG99_PRIV_tupleGet1(...) METALANG99_PRIV_tupleGet1Aux(__VA_ARGS__)
-#define METALANG99_PRIV_tupleGet2(...) METALANG99_PRIV_tupleGet2Aux(__VA_ARGS__)
+#define METALANG99_isTuple_IMPL(x)   v(METALANG99_isTuplePlain(x))
+#define METALANG99_isUntuple_IMPL(x) v(METALANG99_isUntuplePlain(x))
 
-#define METALANG99_PRIV_tupleGet0Aux(a, ...)         a
-#define METALANG99_PRIV_tupleGet1Aux(_a, b, ...)     b
-#define METALANG99_PRIV_tupleGet2Aux(_a, _b, c, ...) c
+#define METALANG99_PRIV_tupleGet_0(x) METALANG99_call(METALANG99_PRIV_tupleGet_0, x)
+#define METALANG99_PRIV_tupleGet_1(x) METALANG99_call(METALANG99_PRIV_tupleGet_1, x)
+#define METALANG99_PRIV_tupleGet_2(x) METALANG99_call(METALANG99_PRIV_tupleGet_2, x)
+
+#define METALANG99_PRIV_tupleGet_0_IMPL(x) v(METALANG99_tupleGetPlain(0)(x))
+#define METALANG99_PRIV_tupleGet_1_IMPL(x) v(METALANG99_tupleGetPlain(1)(x))
+#define METALANG99_PRIV_tupleGet_2_IMPL(x) v(METALANG99_tupleGetPlain(2)(x))
+
+#define METALANG99_PRIV_tupleGetPlain_0(x)                                                         \
+    METALANG99_variadicsGetPlain(0)(METALANG99_untuplePlain(x))
+#define METALANG99_PRIV_tupleGetPlain_1(x)                                                         \
+    METALANG99_variadicsGetPlain(1)(METALANG99_untuplePlain(x))
+#define METALANG99_PRIV_tupleGetPlain_2(x)                                                         \
+    METALANG99_variadicsGetPlain(2)(METALANG99_untuplePlain(x))
+
+#define METALANG99_tupleTail_IMPL(x) v(METALANG99_tupleTailPlain(x))
 // }
 
 // Arity specifiers {
-#define METALANG99_tuple_ARITY       1
-#define METALANG99_tupleEval_ARITY   1
-#define METALANG99_untuple_ARITY     1
-#define METALANG99_untupleEval_ARITY 1
-#define METALANG99_isTuple_ARITY     1
-#define METALANG99_isUntuple_ARITY   1
-#define METALANG99_tupleGet0_ARITY   1
-#define METALANG99_tupleGet1_ARITY   1
-#define METALANG99_tupleGet2_ARITY   1
-#define METALANG99_tupleTail_ARITY   1
+#define METALANG99_tuple_ARITY           1
+#define METALANG99_tupleEval_ARITY       1
+#define METALANG99_untuple_ARITY         1
+#define METALANG99_untupleEval_ARITY     1
+#define METALANG99_isTuple_ARITY         1
+#define METALANG99_isUntuple_ARITY       1
+#define METALANG99_PRIV_tupleGet_0_ARITY 1
+#define METALANG99_PRIV_tupleGet_1_ARITY 1
+#define METALANG99_PRIV_tupleGet_2_ARITY 1
+#define METALANG99_tupleTail_ARITY       1
 // }
 
 // Aliases {
@@ -263,18 +232,14 @@
 #define M_untupleEval METALANG99_untupleEval
 #define M_isTuple     METALANG99_isTuple
 #define M_isUntuple   METALANG99_isUntuple
-#define M_tupleGet0   METALANG99_tupleGet0
-#define M_tupleGet1   METALANG99_tupleGet1
-#define M_tupleGet2   METALANG99_tupleGet2
+#define M_tupleGet    METALANG99_tupleGet
 #define M_tupleTail   METALANG99_tupleTail
 
 #define M_tuplePlain     METALANG99_tuplePlain
 #define M_untuplePlain   METALANG99_untuplePlain
 #define M_isTuplePlain   METALANG99_isTuplePlain
 #define M_isUntuplePlain METALANG99_isUntuplePlain
-#define M_tupleGet0Plain METALANG99_tupleGet0Plain
-#define M_tupleGet1Plain METALANG99_tupleGet1Plain
-#define M_tupleGet2Plain METALANG99_tupleGet2Plain
+#define M_tupleGetPlain  METALANG99_tupleGetPlain
 #define M_tupleTailPlain METALANG99_tupleTailPlain
 
 #endif // METALANG99_NO_SMALL_PREFIX

@@ -3,8 +3,8 @@
 #include <metalang99.h>
 
 #define rect(width, height) M_tuple(width, height)
-#define rectWidth           M_tupleGet0
-#define rectHeight          M_tupleGet1
+#define rectWidth           M_tupleGet(0)
+#define rectHeight          M_tupleGet(1)
 
 #define rectArea(rect) M_mul(rectWidth(rect), rectHeight(rect))
 

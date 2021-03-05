@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
  - `M_suppressUnusedBeforeStmt`
- - `M_tupleGet0(Plain)`, `M_tupleGet1(Plain)`, `M_tupleGet2(Plain)` (the same for the variadics)
+ - `M_tupleGet(Plain)`, `M_variadicsGet(Plain)`
 
 ### Removed
 

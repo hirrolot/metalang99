@@ -37,23 +37,9 @@
 #define METALANG99_variadicsCount(...) METALANG99_call(METALANG99_variadicsCount, __VA_ARGS__)
 
 /**
- * Extracts the first argument.
+ * Expands to a metafunction extracting the @p i -indexed argument.
  *
- * # Examples
- *
- * @code
- * #include <metalang99/variadics.h>
- *
- * // 1
- * M_variadicsGet0(v(1, 2, 3))
- * @endcode
- */
-#define METALANG99_variadicsGet0(...) METALANG99_call(METALANG99_variadicsGet0, __VA_ARGS__)
-
-/**
- * Extracts the second argument.
- *
- * At least two arguments must be specified.
+ * @p i can range from 0 to 2, inclusively.
  *
  * # Examples
  *
@@ -61,26 +47,10 @@
  * #include <metalang99/variadics.h>
  *
  * // 2
- * M_variadicsGet1(v(1, 2, 3))
+ * M_variadicsGet(1)(v(1, 2, 3))
  * @endcode
  */
-#define METALANG99_variadicsGet1(...) METALANG99_call(METALANG99_variadicsGet1, __VA_ARGS__)
-
-/**
- * Extracts the third argument.
- *
- * At least three arguments must be specified.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/variadics.h>
- *
- * // 3
- * M_variadicsGet2(v(1, 2, 3))
- * @endcode
- */
-#define METALANG99_variadicsGet2(...) METALANG99_call(METALANG99_variadicsGet2, __VA_ARGS__)
+#define METALANG99_variadicsGet(i) METALANG99_catPlain(METALANG99_PRIV_variadicsGet_, i)
 
 /**
  * Extracts the tail of its arguments.
@@ -146,19 +116,9 @@
 #define METALANG99_variadicsCountPlain(...) METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
 
 /**
- * The plain version of #METALANG99_variadicsGet0.
+ * The plain version of #METALANG99_variadicsGet.
  */
-#define METALANG99_variadicsGet0Plain(...) METALANG99_PRIV_variadicsGet0(__VA_ARGS__)
-
-/**
- * The plain version of #METALANG99_variadicsGet1.
- */
-#define METALANG99_variadicsGet1Plain(...) METALANG99_PRIV_variadicsGet1(__VA_ARGS__)
-
-/**
- * The plain version of #METALANG99_variadicsGet2.
- */
-#define METALANG99_variadicsGet2Plain(...) METALANG99_PRIV_variadicsGet2(__VA_ARGS__)
+#define METALANG99_variadicsGetPlain(i) METALANG99_catPlain(METALANG99_PRIV_variadicsGetPlain_, i)
 
 /**
  * The plain version of #METALANG99_variadicsTail.
@@ -171,13 +131,27 @@
 // Implementation {
 #define METALANG99_variadicsCount_IMPL(...) v(METALANG99_variadicsCountPlain(__VA_ARGS__))
 
-#define METALANG99_variadicsGet0_IMPL(...) v(METALANG99_variadicsGet0Plain(__VA_ARGS__))
-#define METALANG99_variadicsGet1_IMPL(...) v(METALANG99_variadicsGet1Plain(__VA_ARGS__))
-#define METALANG99_variadicsGet2_IMPL(...) v(METALANG99_variadicsGet2Plain(__VA_ARGS__))
+#define METALANG99_PRIV_variadicsGet_0(...)                                                        \
+    METALANG99_call(METALANG99_PRIV_variadicsGet_0, __VA_ARGS__)
+#define METALANG99_PRIV_variadicsGet_1(...)                                                        \
+    METALANG99_call(METALANG99_PRIV_variadicsGet_1, __VA_ARGS__)
+#define METALANG99_PRIV_variadicsGet_2(...)                                                        \
+    METALANG99_call(METALANG99_PRIV_variadicsGet_2, __VA_ARGS__)
 
-#define METALANG99_PRIV_variadicsGet0(a, ...)         a
-#define METALANG99_PRIV_variadicsGet1(_a, b, ...)     b
-#define METALANG99_PRIV_variadicsGet2(_a, _b, c, ...) c
+#define METALANG99_PRIV_variadicsGet_0_IMPL(...) v(METALANG99_variadicsGetPlain(0)(__VA_ARGS__))
+#define METALANG99_PRIV_variadicsGet_1_IMPL(...) v(METALANG99_variadicsGetPlain(1)(__VA_ARGS__))
+#define METALANG99_PRIV_variadicsGet_2_IMPL(...) v(METALANG99_variadicsGetPlain(2)(__VA_ARGS__))
+
+#define METALANG99_PRIV_variadicsGetPlain_0(...)                                                   \
+    METALANG99_PRIV_variadicsGetPlainAux_0(__VA_ARGS__, ~)
+#define METALANG99_PRIV_variadicsGetPlain_1(...)                                                   \
+    METALANG99_PRIV_variadicsGetPlainAux_1(__VA_ARGS__, ~)
+#define METALANG99_PRIV_variadicsGetPlain_2(...)                                                   \
+    METALANG99_PRIV_variadicsGetPlainAux_2(__VA_ARGS__, ~)
+
+#define METALANG99_PRIV_variadicsGetPlainAux_0(a, ...)         a
+#define METALANG99_PRIV_variadicsGetPlainAux_1(_a, b, ...)     b
+#define METALANG99_PRIV_variadicsGetPlainAux_2(_a, _b, c, ...) c
 
 #define METALANG99_variadicsTail_IMPL(...) v(METALANG99_variadicsTailPlain(__VA_ARGS__))
 
@@ -241,30 +215,26 @@
 // } (Implementation)
 
 // Arity specifiers {
-#define METALANG99_variadicsCount_ARITY    1
-#define METALANG99_variadicsGet0_ARITY     1
-#define METALANG99_variadicsGet1_ARITY     1
-#define METALANG99_variadicsGet2_ARITY     1
-#define METALANG99_variadicsTail_ARITY     1
-#define METALANG99_variadicsForEach_ARITY  2
-#define METALANG99_variadicsForEachI_ARITY 2
+#define METALANG99_variadicsCount_ARITY      1
+#define METALANG99_PRIV_variadicsGet_0_ARITY 1
+#define METALANG99_PRIV_variadicsGet_1_ARITY 1
+#define METALANG99_PRIV_variadicsGet_2_ARITY 1
+#define METALANG99_variadicsTail_ARITY       1
+#define METALANG99_variadicsForEach_ARITY    2
+#define METALANG99_variadicsForEachI_ARITY   2
 // }
 
 // Aliases {
 #ifndef METALANG99_NO_SMALL_PREFIX
 
 #define M_variadicsCount    METALANG99_variadicsCount
-#define M_variadicsGet0     METALANG99_variadicsGet0
-#define M_variadicsGet1     METALANG99_variadicsGet1
-#define M_variadicsGet2     METALANG99_variadicsGet2
+#define M_variadicsGet      METALANG99_variadicsGet
 #define M_variadicsTail     METALANG99_variadicsTail
 #define M_variadicsForEach  METALANG99_variadicsForEach
 #define M_variadicsForEachI METALANG99_variadicsForEachI
 
 #define M_variadicsCountPlain METALANG99_variadicsCountPlain
-#define M_variadicsGet0Plain  METALANG99_variadicsGet0Plain
-#define M_variadicsGet1Plain  METALANG99_variadicsGet1Plain
-#define M_variadicsGet2Plain  METALANG99_variadicsGet2Plain
+#define M_variadicsGetPlain   METALANG99_variadicsGetPlain
 #define M_variadicsTailPlain  METALANG99_variadicsTailPlain
 
 #endif // METALANG99_NO_SMALL_PREFIX
