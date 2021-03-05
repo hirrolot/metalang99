@@ -26,15 +26,15 @@ M_assertEmpty(v(M_whenLazyPlain(M_false, M_idPlain)(123)));
 // }
 
 // M_overload {
-#define X_IMPL(...)    M_overload(v(X_), v(__VA_ARGS__))
-#define X_1_IMPL(a)    v(M_assertPlain(a == 123))
-#define X_2_IMPL(a, b) v(M_assertPlain(a == 93145 && b == 456))
-#define X_7_IMPL(a, b, c, d, e, f, g)                                                              \
-    v(M_assertPlain(a == 1516 && b == 1 && c == 9 && d == 111 && e == 119 && f == 677 && g == 62))
+#define X(...)    M_overload(X_, __VA_ARGS__)
+#define X_1(a)    M_assertPlain(a == 123)
+#define X_2(a, b) M_assertPlain(a == 93145 && b == 456)
+#define X_7(a, b, c, d, e, f, g)                                                                   \
+    M_assertPlain(a == 1516 && b == 1 && c == 9 && d == 111 && e == 119 && f == 677 && g == 62)
 
-M_eval(M_call(X, v(123)));
-M_eval(M_call(X, v(93145, 456)));
-M_eval(M_call(X, v(1516, 1, 9, 111, 119, 677, 62)));
+X(123);
+X(93145, 456);
+X(1516, 1, 9, 111, 119, 677, 62);
 
 #undef X_IMPL
 #undef X_1_IMPL

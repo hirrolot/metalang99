@@ -17,10 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_choiceEmpty(Plain)` (this allows a more optimal choice representation)
  - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/Hirrolot/metalang99/commit/f17f06adf1a747a8897bbc90c598b2be21c945c8))
  - `M_tupleHead`, `M_variadicsHead`
+ - `M_overload`
 
 ### Changed
 
  - `M_get` -> `M_listGet`
+ - `M_overloadPlain` -> `M_overload`
 
 ## [0.4.2] - 2021-02-28
 
