@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `M_uintMatch(WithArgs)` -> `M_natMatch(WithArgs)`
    - `M_uintEq` -> `M_natEq`
    - `M_uintNeq` -> `M_natNeq`
+ - `METALANG99_NO_SMALL_PREFIX` -> `METALANG99_FULL_PREFIX`
 
 ## [0.4.2] - 2021-02-28
 

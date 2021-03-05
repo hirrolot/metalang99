@@ -204,7 +204,7 @@
 // }
 
 // Aliases {
-#ifndef METALANG99_NO_SMALL_PREFIX
+#ifndef METALANG99_FULL_PREFIX
 
 #define M_tuple       METALANG99_tuple
 #define M_tupleEval   METALANG99_tupleEval
@@ -222,7 +222,7 @@
 #define M_tupleGetPlain  METALANG99_tupleGetPlain
 #define M_tupleTailPlain METALANG99_tupleTailPlain
 
-#endif // METALANG99_NO_SMALL_PREFIX
+#endif // METALANG99_FULL_PREFIX
 // }
 
 #endif // DOXYGEN_IGNORE

@@ -178,7 +178,7 @@
 // }
 
 // Aliases {
-#ifndef METALANG99_NO_SMALL_PREFIX
+#ifndef METALANG99_FULL_PREFIX
 
 #define M_call        METALANG99_call
 #define M_callTrivial METALANG99_callTrivial
@@ -189,7 +189,7 @@
 #define M_fatal       METALANG99_fatal
 #define M_abort       METALANG99_abort
 
-#endif // METALANG99_NO_SMALL_PREFIX
+#endif // METALANG99_FULL_PREFIX
 // }
 
 #endif // DOXYGEN_IGNORE

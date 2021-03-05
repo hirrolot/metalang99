@@ -13,7 +13,7 @@ The `METALANG99_MAJOR`, `METALANG99_MINOR`, and `METALANG99_PATCH` macros denote
 \Options
 --------
 
-If `METALANG99_NO_SMALL_PREFIX` is defined, all macros will have only one name: `METALANG99_appl`, `METALANG99_call`, etc. Otherwise, shortening aliases will also be defined: `METALANG99_appl`, `M_appl`, `METALANG99_call`, `M_call`, etc (the default behaviour).
+If `METALANG99_FULL_PREFIX` is defined, all macros will have only one name: `METALANG99_appl`, `METALANG99_call`, etc. Otherwise, shortening aliases will also be defined: `METALANG99_appl`, `M_appl`, `METALANG99_call`, `M_call`, etc (the default behaviour).
 
 \*Plain macros
 --------------
