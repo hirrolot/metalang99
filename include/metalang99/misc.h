@@ -86,6 +86,25 @@
  * @endcode
  */
 #define METALANG99_indexedInitializerList(n) METALANG99_call(METALANG99_indexedInitializerList, n)
+
+/**
+ * Generates \f$\_0, ..., \_{n - 1}\f$.
+ *
+ * If @p n is 0, this macro results in emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/misc.h>
+ *
+ * // _0, _1, _2
+ * M_indexedArgs(v(3))
+ *
+ * // M_empty()
+ * M_indexedArgs(v(0))
+ * @endcode
+ */
+#define METALANG99_indexedArgs(n) METALANG99_call(METALANG99_indexedArgs, n)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -125,13 +144,20 @@
 
 // METALANG99_indexedInitializerList_IMPL {
 #define METALANG99_indexedInitializerList_IMPL(n)                                                  \
-    METALANG99_braced(METALANG99_ifPlain(                                                          \
+    METALANG99_braced(METALANG99_PRIV_indexedItems(n, v(0)))
+// }
+
+// METALANG99_indexedArgs_IMPL {
+#define METALANG99_indexedArgs_IMPL(n) METALANG99_PRIV_indexedItems(n, METALANG99_empty())
+// }
+
+#define METALANG99_PRIV_indexedItems(n, empty_case)                                                \
+    METALANG99_ifPlain(                                                                            \
         METALANG99_natEqPlain(n, 0),                                                               \
-        v(0),                                                                                      \
-        METALANG99_variadicsTail(METALANG99_repeat_IMPL(METALANG99_PRIV_indexedItem, n))))
+        empty_case,                                                                                \
+        METALANG99_variadicsTail(METALANG99_repeat_IMPL(METALANG99_PRIV_indexedItem, n)))
 
 #define METALANG99_PRIV_indexedItem_IMPL(i) v(, _##i)
-// }
 
 // } (Implementation)
 
@@ -140,6 +166,7 @@
 #define METALANG99_indexedParams_ARITY          1
 #define METALANG99_indexedFields_ARITY          1
 #define METALANG99_indexedInitializerList_ARITY 1
+#define METALANG99_indexedArgs_ARITY            1
 
 #define METALANG99_PRIV_indexedItem_ARITY 1
 // }
@@ -151,6 +178,7 @@
 #define M_indexedParams          METALANG99_indexedParams
 #define M_indexedFields          METALANG99_indexedFields
 #define M_indexedInitializerList METALANG99_indexedInitializerList
+#define M_indexedArgs            METALANG99_indexedArgs
 
 #endif // METALANG99_NO_SMALL_PREFIX
 // }

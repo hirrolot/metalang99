@@ -73,9 +73,26 @@ static void test_indexed_initialiser_list_s(void) {
 }
 // }
 
+// M_indexedArgs {
+M_assertEmpty(M_indexedArgs(v(0)));
+
+static void test_indexed_args(int i, long long ll, const char *str) {
+    (void)i;
+    (void)ll;
+    (void)str;
+
+    int _0 = 123;
+    long long _1 = 149494456;
+    const char *_2 = "abc";
+
+    test_indexed_args(M_eval(M_indexedArgs(v(3))));
+}
+// }
+
 int main(void) {
     (void)test_indexed_params;
     (void)test_indexed_fields;
     (void)test_indexed_initialiser_list_z;
     (void)test_indexed_initialiser_list_s;
+    (void)test_indexed_args;
 }
