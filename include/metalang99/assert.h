@@ -100,7 +100,7 @@
 #define METALANG99_PRIV_assertEmpty_ 1
 
 // Aliases {
-#ifndef METALANG99_FULL_PREFIX
+#ifndef METALANG99_FULL_PREFIX_ONLY
 
 #define M_assert           METALANG99_assert
 #define M_assertEq         METALANG99_assertEq
@@ -108,7 +108,7 @@
 #define M_assertEmpty      METALANG99_assertEmpty
 #define M_assertEmptyPlain METALANG99_assertEmptyPlain
 
-#endif // METALANG99_FULL_PREFIX
+#endif // METALANG99_FULL_PREFIX_ONLY
 // }
 
 #endif // DOXYGEN_IGNORE

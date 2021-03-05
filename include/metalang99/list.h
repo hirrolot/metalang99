@@ -1185,7 +1185,7 @@
 // }
 
 // Aliases {
-#ifndef METALANG99_FULL_PREFIX
+#ifndef METALANG99_FULL_PREFIX_ONLY
 
 #define M_cons               METALANG99_cons
 #define M_nil                METALANG99_nil
@@ -1235,7 +1235,7 @@
 #define M_isNilPlain  METALANG99_isNilPlain
 #define M_isConsPlain METALANG99_isConsPlain
 
-#endif // METALANG99_FULL_PREFIX
+#endif // METALANG99_FULL_PREFIX_ONLY
 // }
 
 #endif // DOXYGEN_IGNORE
