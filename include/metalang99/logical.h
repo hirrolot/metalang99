@@ -131,22 +131,22 @@
 /**
  * The plain version of #METALANG99_and.
  */
-#define METALANG99_andPlain(x, y) METALANG99_PRIV_UINT_OVERLOAD(METALANG99_PRIV_and_, x, y)
+#define METALANG99_andPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_and_, x, y)
 
 /**
  * The plain version of #METALANG99_or.
  */
-#define METALANG99_orPlain(x, y) METALANG99_PRIV_UINT_OVERLOAD(METALANG99_PRIV_or_, x, y)
+#define METALANG99_orPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_or_, x, y)
 
 /**
  * The plain version of #METALANG99_xor.
  */
-#define METALANG99_xorPlain(x, y) METALANG99_PRIV_UINT_OVERLOAD(METALANG99_PRIV_xor_, x, y)
+#define METALANG99_xorPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_xor_, x, y)
 
 /**
  * The plain version of #METALANG99_boolEq.
  */
-#define METALANG99_boolEqPlain(x, y) METALANG99_PRIV_UINT_OVERLOAD(METALANG99_PRIV_boolEq_, x, y)
+#define METALANG99_boolEqPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_boolEq_, x, y)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -181,7 +181,7 @@
 #define METALANG99_PRIV_boolEq_10() 0
 #define METALANG99_PRIV_boolEq_11() 1
 
-#define METALANG99_PRIV_UINT_OVERLOAD(op, x, y) op##x##y()
+#define METALANG99_PRIV_LOGICAL_OVERLOAD(op, x, y) op##x##y()
 
 #define METALANG99_PRIV_constTrue_IMPL(...)  v(METALANG99_true)
 #define METALANG99_PRIV_constFalse_IMPL(...) v(METALANG99_false)
