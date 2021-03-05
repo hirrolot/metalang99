@@ -71,6 +71,8 @@
  * This function counts the number of provided arguments, appends it to @p f and calls the resulting
  * macro identifier with provided arguments.
  *
+ * At most 63 variadic arguments are acceptable.
+ *
  * # Examples
  *
  * @code
@@ -89,7 +91,6 @@
  *
  * @note This function calls @p f with #METALANG99_call, so no partial application occurs, and so
  * arity specifiers are not needed.
- * @note Currently, this function can accept at most 256 variadic arguments.
  */
 #define METALANG99_overload(f, ...) METALANG99_call(METALANG99_overload, f, __VA_ARGS__)
 

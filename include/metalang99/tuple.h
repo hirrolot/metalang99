@@ -149,7 +149,7 @@
 /**
  * Extracts the tuple's third element.
  *
- * p x must contain at least three elements.
+ * @p x must contain at least three elements.
  *
  * # Examples
  *
@@ -164,6 +164,8 @@
 /**
  * Extracts the tuple's tail.
  *
+ * @p x must contain at least two elements.
+ *
  * # Examples
  *
  * @code
@@ -172,8 +174,6 @@
  * // 2, 3
  * M_tupleTail(v((1, 2, 3)))
  * @endcode
- *
- * @note @p x must contain at least two elements.
  */
 #define METALANG99_tupleTail(x) METALANG99_call(METALANG99_tupleTail, x)
 
@@ -249,6 +249,8 @@
 #define METALANG99_isTuple_ARITY     1
 #define METALANG99_isUntuple_ARITY   1
 #define METALANG99_tupleGet0_ARITY   1
+#define METALANG99_tupleGet1_ARITY   1
+#define METALANG99_tupleGet2_ARITY   1
 #define METALANG99_tupleTail_ARITY   1
 // }
 
@@ -271,6 +273,8 @@
 #define M_isTuplePlain   METALANG99_isTuplePlain
 #define M_isUntuplePlain METALANG99_isUntuplePlain
 #define M_tupleGet0Plain METALANG99_tupleGet0Plain
+#define M_tupleGet1Plain METALANG99_tupleGet1Plain
+#define M_tupleGet2Plain METALANG99_tupleGet2Plain
 #define M_tupleTailPlain METALANG99_tupleTailPlain
 
 #endif // METALANG99_NO_SMALL_PREFIX

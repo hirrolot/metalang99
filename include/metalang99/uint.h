@@ -2,7 +2,7 @@
  * @file
  * Unsigned integers.
  *
- * @note Currently, unsigned integers can range only from 0 to 255, inclusively.
+ * Currently, unsigned integers can range only from 0 to 255, inclusively.
  */
 
 #ifndef METALANG99_UINT_H

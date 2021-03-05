@@ -99,6 +99,8 @@
 /**
  * Constructs a list from its arguments.
  *
+ * At most 63 arguments are acceptable.
+ *
  * # Examples
  *
  * @code
@@ -107,8 +109,6 @@
  * // 1, 2, 3
  * M_list(v(1, 2, 3))
  * @endcode
- *
- * @note At most 63 arguments are acceptable.
  */
 #define METALANG99_list(...) METALANG99_call(METALANG99_list, __VA_ARGS__)
 

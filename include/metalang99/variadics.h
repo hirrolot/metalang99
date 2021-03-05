@@ -20,6 +20,8 @@
 /**
  * Computes a count of its arguments.
  *
+ * At most 63 arguments are acceptable.
+ *
  * # Examples
  *
  * @code
@@ -31,13 +33,11 @@
  * // 1
  * M_variadicsCount()
  * @endcode
- *
- * @note At most 63 arguments are acceptable.
  */
 #define METALANG99_variadicsCount(...) METALANG99_call(METALANG99_variadicsCount, __VA_ARGS__)
 
 /**
- * Extracts a head of its arguments.
+ * Extracts the first argument.
  *
  * # Examples
  *
@@ -45,16 +45,47 @@
  * #include <metalang99/variadics.h>
  *
  * // 1
- * M_variadicsHead(v(1, 2, 3))
- *
- * // 1
- * M_variadicsHead(v(1))
+ * M_variadicsGet0(v(1, 2, 3))
  * @endcode
  */
-#define METALANG99_variadicsHead(...) METALANG99_call(METALANG99_variadicsHead, __VA_ARGS__)
+#define METALANG99_variadicsGet0(...) METALANG99_call(METALANG99_variadicsGet0, __VA_ARGS__)
 
 /**
- * Extracts a tail of its arguments.
+ * Extracts the second argument.
+ *
+ * At least two arguments must be specified.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/variadics.h>
+ *
+ * // 2
+ * M_variadicsGet1(v(1, 2, 3))
+ * @endcode
+ */
+#define METALANG99_variadicsGet1(...) METALANG99_call(METALANG99_variadicsGet1, __VA_ARGS__)
+
+/**
+ * Extracts the third argument.
+ *
+ * At least three arguments must be specified.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/variadics.h>
+ *
+ * // 3
+ * M_variadicsGet2(v(1, 2, 3))
+ * @endcode
+ */
+#define METALANG99_variadicsGet2(...) METALANG99_call(METALANG99_variadicsGet2, __VA_ARGS__)
+
+/**
+ * Extracts the tail of its arguments.
+ *
+ * At least two arguments must be specified.
  *
  * # Examples
  *
@@ -64,8 +95,6 @@
  * // 2, 3
  * M_variadicsTail(v(1, 2, 3))
  * @endcode
- *
- * @note At least two arguments must be specified.
  */
 #define METALANG99_variadicsTail(...) METALANG99_call(METALANG99_variadicsTail, __VA_ARGS__)
 
@@ -76,6 +105,8 @@
  *
  * If you already have variadics, using this macro is more efficient than
  * `M_listUnwrap(M_listMap(v(f), M_list(v(...))))`.
+ *
+ * At most 63 variadic arguments are acceptable.
  *
  * # Examples
  *
@@ -90,7 +121,6 @@
  * @endcode
  *
  * @note Unlike #METALANG99_listMap, @p f can evaluate to many Metalang99 terms.
- * @note At most 63 variadic arguments are acceptable.
  */
 #define METALANG99_variadicsForEach(f, ...)                                                        \
     METALANG99_call(METALANG99_variadicsForEach, f, __VA_ARGS__)
@@ -103,8 +133,9 @@
  * If you already have variadics, using this macro is more efficient than
  * `M_listUnwrap(M_listMapI(v(f), M_list(v(...))))`.
  *
+ * At most 63 variadic arguments are acceptable.
+ *
  * @note Unlike #METALANG99_listMapI, @p f can evaluate to many Metalang99 terms.
- * @note At most 63 variadic arguments are acceptable.
  */
 #define METALANG99_variadicsForEachI(f, ...)                                                       \
     METALANG99_call(METALANG99_variadicsForEachI, f, __VA_ARGS__)
@@ -115,9 +146,19 @@
 #define METALANG99_variadicsCountPlain(...) METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
 
 /**
- * The plain version of #METALANG99_variadicsHead.
+ * The plain version of #METALANG99_variadicsGet0.
  */
-#define METALANG99_variadicsHeadPlain(...) METALANG99_PRIV_VARIADICS_HEAD(__VA_ARGS__)
+#define METALANG99_variadicsGet0Plain(...) METALANG99_PRIV_variadicsGet0(__VA_ARGS__)
+
+/**
+ * The plain version of #METALANG99_variadicsGet1.
+ */
+#define METALANG99_variadicsGet1Plain(...) METALANG99_PRIV_variadicsGet1(__VA_ARGS__)
+
+/**
+ * The plain version of #METALANG99_variadicsGet2.
+ */
+#define METALANG99_variadicsGet2Plain(...) METALANG99_PRIV_variadicsGet2(__VA_ARGS__)
 
 /**
  * The plain version of #METALANG99_variadicsTail.
@@ -129,8 +170,16 @@
 
 // Implementation {
 #define METALANG99_variadicsCount_IMPL(...) v(METALANG99_variadicsCountPlain(__VA_ARGS__))
-#define METALANG99_variadicsHead_IMPL(...)  v(METALANG99_variadicsHeadPlain(__VA_ARGS__))
-#define METALANG99_variadicsTail_IMPL(...)  v(METALANG99_variadicsTailPlain(__VA_ARGS__))
+
+#define METALANG99_variadicsGet0_IMPL(...) v(METALANG99_variadicsGet0Plain(__VA_ARGS__))
+#define METALANG99_variadicsGet1_IMPL(...) v(METALANG99_variadicsGet1Plain(__VA_ARGS__))
+#define METALANG99_variadicsGet2_IMPL(...) v(METALANG99_variadicsGet2Plain(__VA_ARGS__))
+
+#define METALANG99_PRIV_variadicsGet0(a, ...)         a
+#define METALANG99_PRIV_variadicsGet1(_a, b, ...)     b
+#define METALANG99_PRIV_variadicsGet2(_a, _b, c, ...) c
+
+#define METALANG99_variadicsTail_IMPL(...) v(METALANG99_variadicsTailPlain(__VA_ARGS__))
 
 // METALANG99_variadicsForEach_IMPL {
 #define METALANG99_variadicsForEach_IMPL(f, ...)                                                   \
@@ -193,7 +242,9 @@
 
 // Arity specifiers {
 #define METALANG99_variadicsCount_ARITY    1
-#define METALANG99_variadicsHead_ARITY     1
+#define METALANG99_variadicsGet0_ARITY     1
+#define METALANG99_variadicsGet1_ARITY     1
+#define METALANG99_variadicsGet2_ARITY     1
 #define METALANG99_variadicsTail_ARITY     1
 #define METALANG99_variadicsForEach_ARITY  2
 #define METALANG99_variadicsForEachI_ARITY 2
@@ -203,13 +254,17 @@
 #ifndef METALANG99_NO_SMALL_PREFIX
 
 #define M_variadicsCount    METALANG99_variadicsCount
-#define M_variadicsHead     METALANG99_variadicsHead
+#define M_variadicsGet0     METALANG99_variadicsGet0
+#define M_variadicsGet1     METALANG99_variadicsGet1
+#define M_variadicsGet2     METALANG99_variadicsGet2
 #define M_variadicsTail     METALANG99_variadicsTail
 #define M_variadicsForEach  METALANG99_variadicsForEach
 #define M_variadicsForEachI METALANG99_variadicsForEachI
 
 #define M_variadicsCountPlain METALANG99_variadicsCountPlain
-#define M_variadicsHeadPlain  METALANG99_variadicsHeadPlain
+#define M_variadicsGet0Plain  METALANG99_variadicsGet0Plain
+#define M_variadicsGet1Plain  METALANG99_variadicsGet1Plain
+#define M_variadicsGet2Plain  METALANG99_variadicsGet2Plain
 #define M_variadicsTailPlain  METALANG99_variadicsTailPlain
 
 #endif // METALANG99_NO_SMALL_PREFIX

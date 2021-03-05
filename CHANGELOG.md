@@ -11,12 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `M_suppressUnusedBeforeStmt`
  - `M_tupleGet0(Plain)`, `M_tupleGet1(Plain)`, `M_tupleGet2(Plain)`
+ - `M_variadicsGet0(Plain)`, `M_variadicsGet1(Plain)`, `M_variadicsGet2(Plain)`
 
 ### Removed
 
  - `M_choiceEmpty(Plain)` (this allows a more optimal choice representation)
  - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/Hirrolot/metalang99/commit/f17f06adf1a747a8897bbc90c598b2be21c945c8))
- - `M_tupleHead`
+ - `M_tupleHead`, `M_variadicsHead`
 
 ### Changed
 

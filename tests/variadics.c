@@ -3,11 +3,21 @@
 #include <metalang99/uint.h>
 #include <metalang99/variadics.h>
 
-// M_variadicsHead {
-M_assertEmpty(M_variadicsHead(v()));
-M_assertEq(M_variadicsHead(v(19)), v(19));
-M_assertEq(M_variadicsHead(v(19, 8)), v(19));
-M_assertEq(M_variadicsHead(v(19, 8, 7378)), v(19));
+// M_variadicsGet0 {
+M_assertEmpty(M_variadicsGet0(v()));
+M_assertEq(M_variadicsGet0(v(19)), v(19));
+M_assertEq(M_variadicsGet0(v(19, 8)), v(19));
+M_assertEq(M_variadicsGet0(v(19, 8, 7378)), v(19));
+// }
+
+// M_variadicsGet1 {
+M_assertEq(M_variadicsGet1(v(19, 8)), v(8));
+M_assertEq(M_variadicsGet1(v(19, 8, 7378)), v(8));
+// }
+
+// M_variadicsGet2 {
+M_assertEq(M_variadicsGet2(v(19, 8, 7378)), v(7378));
+M_assertEq(M_variadicsGet2(v(19, 8, 7378, blah)), v(7378));
 // }
 
 // M_variadicsTail {
