@@ -324,12 +324,6 @@
  */
 #define METALANG99_stringifyPrimitive(...) #__VA_ARGS__
 
-#define METALANG99_catPlain(x, y)      METALANG99_catPrimitive(x, y)
-#define METALANG99_stringifyPlain(...) METALANG99_stringifyPrimitive(__VA_ARGS__)
-#define METALANG99_emptyPlain()
-#define METALANG99_idPlain(...) __VA_ARGS__
-#define METALANG99_consumePlain(...)
-
 /**
  * Introduces the variable definition @p var_def to a statement right after its invocation.
  *
@@ -436,6 +430,12 @@
  * If you are compiling on Clang, this macro expands to `_Pragma(str)`, otherwise to emptiness.
  */
 #define METALANG99_clangPragma(str) METALANG99_PRIV_CLANG_PRAGMA(str)
+
+#define METALANG99_catPlain(x, y)      METALANG99_catPrimitive(x, y)
+#define METALANG99_stringifyPlain(...) METALANG99_stringifyPrimitive(__VA_ARGS__)
+#define METALANG99_emptyPlain()
+#define METALANG99_idPlain(...) __VA_ARGS__
+#define METALANG99_consumePlain(...)
 // }
 
 #ifndef DOXYGEN_IGNORE
