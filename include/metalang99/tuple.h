@@ -120,7 +120,7 @@
 /**
  * Expands to a metafunction extracting the @p i -indexed element of a tuple.
  *
- * @p i can range from 0 to 2, inclusively.
+ * @p i can range from 0 to 3, inclusively.
  *
  * # Examples
  *
@@ -162,20 +162,20 @@
 // Implementation {
 #define METALANG99_tupleEval_IMPL(...) v((v(__VA_ARGS__)))
 #define METALANG99_tuple_IMPL(...)     v(METALANG99_tuplePlain(__VA_ARGS__))
-
 #define METALANG99_untupleEval_IMPL(x) METALANG99_PRIV_EXPAND x
 #define METALANG99_untuple_IMPL(x)     v(METALANG99_untuplePlain(x))
-
-#define METALANG99_isTuple_IMPL(x)   v(METALANG99_isTuplePlain(x))
-#define METALANG99_isUntuple_IMPL(x) v(METALANG99_isUntuplePlain(x))
+#define METALANG99_isTuple_IMPL(x)     v(METALANG99_isTuplePlain(x))
+#define METALANG99_isUntuple_IMPL(x)   v(METALANG99_isUntuplePlain(x))
 
 #define METALANG99_PRIV_tupleGet_0(x) METALANG99_call(METALANG99_PRIV_tupleGet_0, x)
 #define METALANG99_PRIV_tupleGet_1(x) METALANG99_call(METALANG99_PRIV_tupleGet_1, x)
 #define METALANG99_PRIV_tupleGet_2(x) METALANG99_call(METALANG99_PRIV_tupleGet_2, x)
+#define METALANG99_PRIV_tupleGet_3(x) METALANG99_call(METALANG99_PRIV_tupleGet_3, x)
 
 #define METALANG99_PRIV_tupleGet_0_IMPL(x) v(METALANG99_tupleGetPlain(0)(x))
 #define METALANG99_PRIV_tupleGet_1_IMPL(x) v(METALANG99_tupleGetPlain(1)(x))
 #define METALANG99_PRIV_tupleGet_2_IMPL(x) v(METALANG99_tupleGetPlain(2)(x))
+#define METALANG99_PRIV_tupleGet_3_IMPL(x) v(METALANG99_tupleGetPlain(3)(x))
 
 #define METALANG99_PRIV_tupleGetPlain_0(x)                                                         \
     METALANG99_variadicsGetPlain(0)(METALANG99_untuplePlain(x))
@@ -183,6 +183,8 @@
     METALANG99_variadicsGetPlain(1)(METALANG99_untuplePlain(x))
 #define METALANG99_PRIV_tupleGetPlain_2(x)                                                         \
     METALANG99_variadicsGetPlain(2)(METALANG99_untuplePlain(x))
+#define METALANG99_PRIV_tupleGetPlain_3(x)                                                         \
+    METALANG99_variadicsGetPlain(3)(METALANG99_untuplePlain(x))
 
 #define METALANG99_tupleTail_IMPL(x) v(METALANG99_tupleTailPlain(x))
 // }
@@ -197,6 +199,7 @@
 #define METALANG99_PRIV_tupleGet_0_ARITY 1
 #define METALANG99_PRIV_tupleGet_1_ARITY 1
 #define METALANG99_PRIV_tupleGet_2_ARITY 1
+#define METALANG99_PRIV_tupleGet_3_ARITY 1
 #define METALANG99_tupleTail_ARITY       1
 // }
 

@@ -39,7 +39,7 @@
 /**
  * Expands to a metafunction extracting the @p i -indexed argument.
  *
- * @p i can range from 0 to 2, inclusively.
+ * @p i can range from 0 to 3, inclusively.
  *
  * # Examples
  *
@@ -126,10 +126,13 @@
     METALANG99_call(METALANG99_PRIV_variadicsGet_1, __VA_ARGS__)
 #define METALANG99_PRIV_variadicsGet_2(...)                                                        \
     METALANG99_call(METALANG99_PRIV_variadicsGet_2, __VA_ARGS__)
+#define METALANG99_PRIV_variadicsGet_3(...)                                                        \
+    METALANG99_call(METALANG99_PRIV_variadicsGet_3, __VA_ARGS__)
 
 #define METALANG99_PRIV_variadicsGet_0_IMPL(...) v(METALANG99_variadicsGetPlain(0)(__VA_ARGS__))
 #define METALANG99_PRIV_variadicsGet_1_IMPL(...) v(METALANG99_variadicsGetPlain(1)(__VA_ARGS__))
 #define METALANG99_PRIV_variadicsGet_2_IMPL(...) v(METALANG99_variadicsGetPlain(2)(__VA_ARGS__))
+#define METALANG99_PRIV_variadicsGet_3_IMPL(...) v(METALANG99_variadicsGetPlain(3)(__VA_ARGS__))
 
 #define METALANG99_PRIV_variadicsGetPlain_0(...)                                                   \
     METALANG99_PRIV_variadicsGetPlainAux_0(__VA_ARGS__, ~)
@@ -137,10 +140,13 @@
     METALANG99_PRIV_variadicsGetPlainAux_1(__VA_ARGS__, ~)
 #define METALANG99_PRIV_variadicsGetPlain_2(...)                                                   \
     METALANG99_PRIV_variadicsGetPlainAux_2(__VA_ARGS__, ~)
+#define METALANG99_PRIV_variadicsGetPlain_3(...)                                                   \
+    METALANG99_PRIV_variadicsGetPlainAux_3(__VA_ARGS__, ~)
 
-#define METALANG99_PRIV_variadicsGetPlainAux_0(a, ...)         a
-#define METALANG99_PRIV_variadicsGetPlainAux_1(_a, b, ...)     b
-#define METALANG99_PRIV_variadicsGetPlainAux_2(_a, _b, c, ...) c
+#define METALANG99_PRIV_variadicsGetPlainAux_0(a, ...)             a
+#define METALANG99_PRIV_variadicsGetPlainAux_1(_a, b, ...)         b
+#define METALANG99_PRIV_variadicsGetPlainAux_2(_a, _b, c, ...)     c
+#define METALANG99_PRIV_variadicsGetPlainAux_3(_a, _b, _c, d, ...) d
 
 #define METALANG99_variadicsTail_IMPL(...) v(METALANG99_variadicsTailPlain(__VA_ARGS__))
 
@@ -208,6 +214,7 @@
 #define METALANG99_PRIV_variadicsGet_0_ARITY 1
 #define METALANG99_PRIV_variadicsGet_1_ARITY 1
 #define METALANG99_PRIV_variadicsGet_2_ARITY 1
+#define METALANG99_PRIV_variadicsGet_3_ARITY 1
 #define METALANG99_variadicsTail_ARITY       1
 #define METALANG99_variadicsForEach_ARITY    2
 #define METALANG99_variadicsForEachI_ARITY   2

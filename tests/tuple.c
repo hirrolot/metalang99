@@ -45,6 +45,9 @@ M_assertEq(M_tupleGet(1)(v((19, 8, 7378))), v(8));
 
 M_assertEq(M_tupleGet(2)(v((19, 8, 7378))), v(7378));
 M_assertEq(M_tupleGet(2)(v((19, 8, 7378, blah))), v(7378));
+
+M_assertEq(M_tupleGet(3)(v((19, 8, 7378, 10))), v(10));
+M_assertEq(M_tupleGet(3)(v((19, 8, 7378, 10, blah))), v(10));
 // }
 
 // M_tupleTail {

@@ -15,6 +15,9 @@ M_assertEq(M_variadicsGet(1)(v(19, 8, 7378)), v(8));
 
 M_assertEq(M_variadicsGet(2)(v(19, 8, 7378)), v(7378));
 M_assertEq(M_variadicsGet(2)(v(19, 8, 7378, blah)), v(7378));
+
+M_assertEq(M_variadicsGet(3)(v(19, 8, 7378, 10)), v(10));
+M_assertEq(M_variadicsGet(3)(v(19, 8, 7378, 10, blah)), v(10));
 // }
 
 // M_variadicsTail {
