@@ -55,7 +55,7 @@
 #define METALANG99_isRight(either) METALANG99_call(METALANG99_isRight, either)
 
 /**
- * Tests @p maybe and @p other for equality.
+ * Tests @p either and @p other for equality.
  *
  * # Examples
  *
@@ -128,8 +128,8 @@
 // }
 
 // METALANG99_eitherEq_IMPL {
-#define METALANG99_eitherEq_IMPL(compare, maybe, other)                                            \
-    METALANG99_matchWithArgs_IMPL(maybe, METALANG99_PRIV_eitherEq_, other, compare)
+#define METALANG99_eitherEq_IMPL(compare, either, other)                                           \
+    METALANG99_matchWithArgs_IMPL(either, METALANG99_PRIV_eitherEq_, other, compare)
 
 #define METALANG99_PRIV_eitherEq_left_IMPL(x, other, compare)                                      \
     METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_eitherEq_left_, x, compare)
