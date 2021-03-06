@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_get` -> `M_listGet`
  - `M_overloadPlain` -> `M_overload`
  - `METALANG99_NO_SMALL_PREFIX` -> `METALANG99_FULL_PREFIX_ONLY`
- - Decrease the reduction steps limit to 2^15.
+ - Decrease the reduction steps limit to 2^14.
  - Rename "unsigned integers" to "natural numbers":
    - `uint.h` -> `nat.h`
    - `M_uintMatch(WithArgs)` -> `M_natMatch(WithArgs)`

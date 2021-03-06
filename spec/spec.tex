@@ -196,7 +196,7 @@ Notes:
     \item $(fatal)$ interprets its variadic arguments without preprocessor expansion -- i.e.,
     they are pasted as-is. This is intended because otherwise identifiers located in an
     error message may stand for other macros that will be unintentionally expanded.
-    \item With the current implementation, at most $2^{15}$ reduction steps are
+    \item With the current implementation, at most $2^{14}$ reduction steps are
     possible. After exceeding this limit, Metalang99 will not be able to perform reduction
     of a given metaprogram anymore.
 \end{itemize}
