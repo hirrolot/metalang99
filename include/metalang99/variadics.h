@@ -39,7 +39,7 @@
 /**
  * Expands to a metafunction extracting the @p i -indexed argument.
  *
- * @p i can range from 0 to 3, inclusively.
+ * @p i can range from 0 to 7, inclusively.
  *
  * # Examples
  *
@@ -128,11 +128,23 @@
     METALANG99_call(METALANG99_PRIV_variadicsGet_2, __VA_ARGS__)
 #define METALANG99_PRIV_variadicsGet_3(...)                                                        \
     METALANG99_call(METALANG99_PRIV_variadicsGet_3, __VA_ARGS__)
+#define METALANG99_PRIV_variadicsGet_4(...)                                                        \
+    METALANG99_call(METALANG99_PRIV_variadicsGet_4, __VA_ARGS__)
+#define METALANG99_PRIV_variadicsGet_5(...)                                                        \
+    METALANG99_call(METALANG99_PRIV_variadicsGet_5, __VA_ARGS__)
+#define METALANG99_PRIV_variadicsGet_6(...)                                                        \
+    METALANG99_call(METALANG99_PRIV_variadicsGet_6, __VA_ARGS__)
+#define METALANG99_PRIV_variadicsGet_7(...)                                                        \
+    METALANG99_call(METALANG99_PRIV_variadicsGet_7, __VA_ARGS__)
 
 #define METALANG99_PRIV_variadicsGet_0_IMPL(...) v(METALANG99_variadicsGetPlain(0)(__VA_ARGS__))
 #define METALANG99_PRIV_variadicsGet_1_IMPL(...) v(METALANG99_variadicsGetPlain(1)(__VA_ARGS__))
 #define METALANG99_PRIV_variadicsGet_2_IMPL(...) v(METALANG99_variadicsGetPlain(2)(__VA_ARGS__))
 #define METALANG99_PRIV_variadicsGet_3_IMPL(...) v(METALANG99_variadicsGetPlain(3)(__VA_ARGS__))
+#define METALANG99_PRIV_variadicsGet_4_IMPL(...) v(METALANG99_variadicsGetPlain(4)(__VA_ARGS__))
+#define METALANG99_PRIV_variadicsGet_5_IMPL(...) v(METALANG99_variadicsGetPlain(5)(__VA_ARGS__))
+#define METALANG99_PRIV_variadicsGet_6_IMPL(...) v(METALANG99_variadicsGetPlain(6)(__VA_ARGS__))
+#define METALANG99_PRIV_variadicsGet_7_IMPL(...) v(METALANG99_variadicsGetPlain(7)(__VA_ARGS__))
 
 #define METALANG99_PRIV_variadicsGetPlain_0(...)                                                   \
     METALANG99_PRIV_variadicsGetPlainAux_0(__VA_ARGS__, ~)
@@ -142,11 +154,23 @@
     METALANG99_PRIV_variadicsGetPlainAux_2(__VA_ARGS__, ~)
 #define METALANG99_PRIV_variadicsGetPlain_3(...)                                                   \
     METALANG99_PRIV_variadicsGetPlainAux_3(__VA_ARGS__, ~)
+#define METALANG99_PRIV_variadicsGetPlain_4(...)                                                   \
+    METALANG99_PRIV_variadicsGetPlainAux_4(__VA_ARGS__, ~)
+#define METALANG99_PRIV_variadicsGetPlain_5(...)                                                   \
+    METALANG99_PRIV_variadicsGetPlainAux_5(__VA_ARGS__, ~)
+#define METALANG99_PRIV_variadicsGetPlain_6(...)                                                   \
+    METALANG99_PRIV_variadicsGetPlainAux_6(__VA_ARGS__, ~)
+#define METALANG99_PRIV_variadicsGetPlain_7(...)                                                   \
+    METALANG99_PRIV_variadicsGetPlainAux_7(__VA_ARGS__, ~)
 
-#define METALANG99_PRIV_variadicsGetPlainAux_0(a, ...)             a
-#define METALANG99_PRIV_variadicsGetPlainAux_1(_a, b, ...)         b
-#define METALANG99_PRIV_variadicsGetPlainAux_2(_a, _b, c, ...)     c
-#define METALANG99_PRIV_variadicsGetPlainAux_3(_a, _b, _c, d, ...) d
+#define METALANG99_PRIV_variadicsGetPlainAux_0(a, ...)                             a
+#define METALANG99_PRIV_variadicsGetPlainAux_1(_a, b, ...)                         b
+#define METALANG99_PRIV_variadicsGetPlainAux_2(_a, _b, c, ...)                     c
+#define METALANG99_PRIV_variadicsGetPlainAux_3(_a, _b, _c, d, ...)                 d
+#define METALANG99_PRIV_variadicsGetPlainAux_4(_a, _b, _c, _d, e, ...)             e
+#define METALANG99_PRIV_variadicsGetPlainAux_5(_a, _b, _c, _d, _e, f, ...)         f
+#define METALANG99_PRIV_variadicsGetPlainAux_6(_a, _b, _c, _d, _e, _f, g, ...)     g
+#define METALANG99_PRIV_variadicsGetPlainAux_7(_a, _b, _c, _d, _e, _f, _g, h, ...) h
 
 #define METALANG99_variadicsTail_IMPL(...) v(METALANG99_variadicsTailPlain(__VA_ARGS__))
 
@@ -210,14 +234,19 @@
 // } (Implementation)
 
 // Arity specifiers {
-#define METALANG99_variadicsCount_ARITY      1
+#define METALANG99_variadicsCount_ARITY    1
+#define METALANG99_variadicsTail_ARITY     1
+#define METALANG99_variadicsForEach_ARITY  2
+#define METALANG99_variadicsForEachI_ARITY 2
+
 #define METALANG99_PRIV_variadicsGet_0_ARITY 1
 #define METALANG99_PRIV_variadicsGet_1_ARITY 1
 #define METALANG99_PRIV_variadicsGet_2_ARITY 1
 #define METALANG99_PRIV_variadicsGet_3_ARITY 1
-#define METALANG99_variadicsTail_ARITY       1
-#define METALANG99_variadicsForEach_ARITY    2
-#define METALANG99_variadicsForEachI_ARITY   2
+#define METALANG99_PRIV_variadicsGet_4_ARITY 1
+#define METALANG99_PRIV_variadicsGet_5_ARITY 1
+#define METALANG99_PRIV_variadicsGet_6_ARITY 1
+#define METALANG99_PRIV_variadicsGet_7_ARITY 1
 // }
 
 // Aliases {

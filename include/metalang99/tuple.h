@@ -120,7 +120,7 @@
 /**
  * Expands to a metafunction extracting the @p i -indexed element of a tuple.
  *
- * @p i can range from 0 to 3, inclusively.
+ * @p i can range from 0 to 7, inclusively.
  *
  * # Examples
  *
@@ -171,11 +171,19 @@
 #define METALANG99_PRIV_tupleGet_1(x) METALANG99_call(METALANG99_PRIV_tupleGet_1, x)
 #define METALANG99_PRIV_tupleGet_2(x) METALANG99_call(METALANG99_PRIV_tupleGet_2, x)
 #define METALANG99_PRIV_tupleGet_3(x) METALANG99_call(METALANG99_PRIV_tupleGet_3, x)
+#define METALANG99_PRIV_tupleGet_4(x) METALANG99_call(METALANG99_PRIV_tupleGet_4, x)
+#define METALANG99_PRIV_tupleGet_5(x) METALANG99_call(METALANG99_PRIV_tupleGet_5, x)
+#define METALANG99_PRIV_tupleGet_6(x) METALANG99_call(METALANG99_PRIV_tupleGet_6, x)
+#define METALANG99_PRIV_tupleGet_7(x) METALANG99_call(METALANG99_PRIV_tupleGet_7, x)
 
 #define METALANG99_PRIV_tupleGet_0_IMPL(x) v(METALANG99_tupleGetPlain(0)(x))
 #define METALANG99_PRIV_tupleGet_1_IMPL(x) v(METALANG99_tupleGetPlain(1)(x))
 #define METALANG99_PRIV_tupleGet_2_IMPL(x) v(METALANG99_tupleGetPlain(2)(x))
 #define METALANG99_PRIV_tupleGet_3_IMPL(x) v(METALANG99_tupleGetPlain(3)(x))
+#define METALANG99_PRIV_tupleGet_4_IMPL(x) v(METALANG99_tupleGetPlain(4)(x))
+#define METALANG99_PRIV_tupleGet_5_IMPL(x) v(METALANG99_tupleGetPlain(5)(x))
+#define METALANG99_PRIV_tupleGet_6_IMPL(x) v(METALANG99_tupleGetPlain(6)(x))
+#define METALANG99_PRIV_tupleGet_7_IMPL(x) v(METALANG99_tupleGetPlain(7)(x))
 
 #define METALANG99_PRIV_tupleGetPlain_0(x)                                                         \
     METALANG99_variadicsGetPlain(0)(METALANG99_untuplePlain(x))
@@ -185,22 +193,35 @@
     METALANG99_variadicsGetPlain(2)(METALANG99_untuplePlain(x))
 #define METALANG99_PRIV_tupleGetPlain_3(x)                                                         \
     METALANG99_variadicsGetPlain(3)(METALANG99_untuplePlain(x))
+#define METALANG99_PRIV_tupleGetPlain_4(x)                                                         \
+    METALANG99_variadicsGetPlain(4)(METALANG99_untuplePlain(x))
+#define METALANG99_PRIV_tupleGetPlain_5(x)                                                         \
+    METALANG99_variadicsGetPlain(5)(METALANG99_untuplePlain(x))
+#define METALANG99_PRIV_tupleGetPlain_6(x)                                                         \
+    METALANG99_variadicsGetPlain(6)(METALANG99_untuplePlain(x))
+#define METALANG99_PRIV_tupleGetPlain_7(x)                                                         \
+    METALANG99_variadicsGetPlain(7)(METALANG99_untuplePlain(x))
 
 #define METALANG99_tupleTail_IMPL(x) v(METALANG99_tupleTailPlain(x))
 // }
 
 // Arity specifiers {
-#define METALANG99_tuple_ARITY           1
-#define METALANG99_tupleEval_ARITY       1
-#define METALANG99_untuple_ARITY         1
-#define METALANG99_untupleEval_ARITY     1
-#define METALANG99_isTuple_ARITY         1
-#define METALANG99_isUntuple_ARITY       1
+#define METALANG99_tuple_ARITY       1
+#define METALANG99_tupleEval_ARITY   1
+#define METALANG99_untuple_ARITY     1
+#define METALANG99_untupleEval_ARITY 1
+#define METALANG99_isTuple_ARITY     1
+#define METALANG99_isUntuple_ARITY   1
+#define METALANG99_tupleTail_ARITY   1
+
 #define METALANG99_PRIV_tupleGet_0_ARITY 1
 #define METALANG99_PRIV_tupleGet_1_ARITY 1
 #define METALANG99_PRIV_tupleGet_2_ARITY 1
 #define METALANG99_PRIV_tupleGet_3_ARITY 1
-#define METALANG99_tupleTail_ARITY       1
+#define METALANG99_PRIV_tupleGet_4_ARITY 1
+#define METALANG99_PRIV_tupleGet_5_ARITY 1
+#define METALANG99_PRIV_tupleGet_6_ARITY 1
+#define METALANG99_PRIV_tupleGet_7_ARITY 1
 // }
 
 // Aliases {

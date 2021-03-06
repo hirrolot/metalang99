@@ -14,10 +14,22 @@ M_assertEq(M_variadicsGet(1)(v(19, 8)), v(8));
 M_assertEq(M_variadicsGet(1)(v(19, 8, 7378)), v(8));
 
 M_assertEq(M_variadicsGet(2)(v(19, 8, 7378)), v(7378));
-M_assertEq(M_variadicsGet(2)(v(19, 8, 7378, blah)), v(7378));
+M_assertEq(M_variadicsGet(2)(v(19, 8, 7378, 10)), v(7378));
 
 M_assertEq(M_variadicsGet(3)(v(19, 8, 7378, 10)), v(10));
-M_assertEq(M_variadicsGet(3)(v(19, 8, 7378, 10, blah)), v(10));
+M_assertEq(M_variadicsGet(3)(v(19, 8, 7378, 10, 121)), v(10));
+
+M_assertEq(M_variadicsGet(4)(v(19, 8, 7378, 10, 121)), v(121));
+M_assertEq(M_variadicsGet(4)(v(19, 8, 7378, 10, 121, 1)), v(121));
+
+M_assertEq(M_variadicsGet(5)(v(19, 8, 7378, 10, 121, 1)), v(1));
+M_assertEq(M_variadicsGet(5)(v(19, 8, 7378, 10, 121, 1, 80)), v(1));
+
+M_assertEq(M_variadicsGet(6)(v(19, 8, 7378, 10, 121, 1, 80)), v(80));
+M_assertEq(M_variadicsGet(6)(v(19, 8, 7378, 10, 121, 1, 80, 23)), v(80));
+
+M_assertEq(M_variadicsGet(7)(v(19, 8, 7378, 10, 121, 1, 80, 23)), v(23));
+M_assertEq(M_variadicsGet(7)(v(19, 8, 7378, 10, 121, 1, 80, 23, 7)), v(23));
 // }
 
 // M_variadicsTail {
