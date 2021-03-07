@@ -72,4 +72,13 @@ CHECK_TAIL(M_eval(M_tupleTail(v((9191, 51, 21, 1, 7378)))));
 #undef CHECK_TAIL_AUX
 // }
 
+// M_tupleAppend, M_tuplePrepend {
+#define CHECK(a, b, c) M_assertPlain(a == 1 && b == 2 & c == 3)
+
+M_eval(v(CHECK), M_tupleAppend(M_tuple(v(1)), v(2, 3)));
+M_eval(v(CHECK), M_tuplePrepend(M_tuple(v(3)), v(1, 2)));
+
+#undef CHECK
+// }
+
 int main(void) {}
