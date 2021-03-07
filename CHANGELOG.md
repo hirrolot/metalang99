@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_tupleGet(Plain)`, `M_variadicsGet(Plain)`
  - `M_tupleAppend`, `M_tuplePrepend`
  - `M_indexedArgs`
+ - `M_appl4`
 
 ### Removed
 

@@ -96,22 +96,14 @@
 #define METALANG99_appl2(f, a, b) METALANG99_call(METALANG99_appl2, f, a, b)
 
 /**
- * Applies @p a, @p b, and @p c @p f.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/lang.h>
- * #include <metalang99/eval.h>
- *
- * #define F_IMPL(x, y, z) v(x##y##z)
- * #define F_ARITY         3
- *
- * // abc
- * M_appl3(v(F), v(a), v(b), v(c))
- * @endcode
+ * Applies @p a, @p b, and @p c to @p f.
  */
 #define METALANG99_appl3(f, a, b, c) METALANG99_call(METALANG99_appl3, f, a, b, c)
+
+/**
+ * Applies @p a, @p b, @p c, and @p d to @p f.
+ */
+#define METALANG99_appl4(f, a, b, c, d) METALANG99_call(METALANG99_appl4, f, a, b, c, d)
 
 /**
  * Functional composition of @p f and @p g.
@@ -172,6 +164,7 @@
 #define METALANG99_appl_ARITY    2
 #define METALANG99_appl2_ARITY   3
 #define METALANG99_appl3_ARITY   4
+#define METALANG99_appl4_ARITY   5
 #define METALANG99_compose_ARITY 2
 
 #define METALANG99_PRIV_compose_ARITY 3
@@ -185,6 +178,7 @@
 #define M_appl        METALANG99_appl
 #define M_appl2       METALANG99_appl2
 #define M_appl3       METALANG99_appl3
+#define M_appl4       METALANG99_appl4
 #define M_compose     METALANG99_compose
 #define M_fatal       METALANG99_fatal
 #define M_abort       METALANG99_abort

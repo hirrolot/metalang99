@@ -48,5 +48,7 @@
 
 #define METALANG99_appl2_IMPL(f, a, b)    METALANG99_appl(METALANG99_appl_IMPL(f, a), v(b))
 #define METALANG99_appl3_IMPL(f, a, b, c) METALANG99_appl(METALANG99_appl2_IMPL(f, a, b), v(c))
+#define METALANG99_appl4_IMPL(f, a, b, c, d)                                                       \
+    METALANG99_appl(METALANG99_appl3_IMPL(f, a, b, c), v(d))
 
 #endif // METALANG99_LANG_CLOSURE_H

@@ -81,12 +81,13 @@ M_assertEq(M_appl(v(F), v()), v(123));
 // }
 
 // Regular usage of partial application {
-#define F_IMPL(x, y, z) v(x##y##z)
-#define F_ARITY         3
+#define F_IMPL(a, b, c, d) v(a##b##c##d)
+#define F_ARITY            4
 
-M_assertEq(M_appl(M_appl(M_appl(v(F), v(10)), v(5)), v(7)), v(1057));
-M_assertEq(M_appl(M_appl2(v(F), v(10), v(5)), v(7)), v(1057));
-M_assertEq(M_appl3(v(F), v(10), v(5), v(7)), v(1057));
+M_assertEq(M_appl(M_appl(M_appl(M_appl(v(F), v(10)), v(5)), v(7)), v(8)), v(10578));
+M_assertEq(M_appl(M_appl(M_appl2(v(F), v(10), v(5)), v(7)), v(8)), v(10578));
+M_assertEq(M_appl(M_appl3(v(F), v(10), v(5), v(7)), v(8)), v(10578));
+M_assertEq(M_appl4(v(F), v(10), v(5), v(7), v(8)), v(10578));
 
 #undef F_IMPL
 #undef F_ARITY
