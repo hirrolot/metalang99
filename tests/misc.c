@@ -16,13 +16,14 @@ M_eval(v(CHECK), M_tuple(M_repeat(v(F), v(3))));
 // }
 
 // M_indexedParams {
-#define CHECK_void M_assertPlain(1)
+#define CHECK_void
 
-M_eval(M_cat(v(CHECK_), M_untuple(M_indexedParams(M_nil()))));
+M_eval(M_cat(v(CHECK_), M_untuple(M_indexedParams(M_nil()))))
 
 #undef CHECK_void
 
-static void test_indexed_params M_eval(M_indexedParams(M_list(v(int, long long, const char *)))) {
+static void test_indexed_params M_eval(M_indexedParams(M_list(v(int, long long, const char *))))
+{
     int i = _0;
     long long ll = _1;
     const char *str = _2;

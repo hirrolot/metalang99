@@ -678,7 +678,7 @@
  * M_listAppl(v(M_add), M_list(v(1, 2)))
  * @endcode
  */
-#define METALANG99_listAppl(list, f) METALANG99_call(METALANG99_listAppl, list, f)
+#define METALANG99_listAppl(f, list) METALANG99_call(METALANG99_listAppl, f, list)
 
 #define METALANG99_consPlain(x, xs)  METALANG99_choicePlain(cons, x, xs)
 #define METALANG99_nilPlain()        METALANG99_choicePlain(nil, ~)
