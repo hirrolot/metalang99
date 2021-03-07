@@ -1,5 +1,5 @@
 #!/bin/bash
 
-find include tests examples bench -iname *.h -o -iname *.c \
-    -path examples/build -prune \
-    -path tests/build -prune | xargs clang-format -i
+find include tests examples bench \
+    \( -path examples/build -o -path tests/build \) -prune -false -o \
+    \( -iname "*.h" \) -or \( -iname "*.c" \) | xargs clang-format -i

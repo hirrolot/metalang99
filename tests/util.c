@@ -101,7 +101,8 @@ static void test_struct(void) {
 
 // M_anonStruct {
 static void test_anon_struct(void) {
-    typedef M_eval(M_anonStruct(v(int x, y;))) Point;
+    typedef M_eval(M_anonStruct(v(int x, y;)))
+    Point;
 
     Point point = {5, 7};
     point.x = 1;
@@ -125,7 +126,8 @@ static void test_union(void) {
 
 // M_anonUnion {
 static void test_anon_union(void) {
-    typedef M_eval(M_anonUnion(v(int x, y;))) Point;
+    typedef M_eval(M_anonUnion(v(int x, y;)))
+    Point;
 
     Point point;
     point.x = 1;
@@ -147,7 +149,8 @@ static void test_enum(void) {
 
 // M_anonEnum {
 static void test_anon_enum(void) {
-    typedef M_eval(M_anonEnum(v(Foo, Bar))) MyEnum;
+    typedef M_eval(M_anonEnum(v(Foo, Bar)))
+    MyEnum;
 
     MyEnum foo = Foo, bar = Bar;
     (void)foo;
