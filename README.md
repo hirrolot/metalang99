@@ -67,6 +67,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
  - [Motivation](#motivation)
  - [Getting started](#getting-started)
+ - [Prominent aspects](#prominent-aspects)
  - [Philosophy and origins](#philosophy-and-origins)
  - [Contributing](#contributing)
  - [Architecture](#architecture)
@@ -78,20 +79,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. Unlike other metaprogramming libraries, Metalang99 features:
-
- - **Macro recursion.** Recursive calls behave as expected. In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on built-in deduction; Metalang99 is free from such drawbacks.
-
- - **Almost the same syntax.** Metalang99 does not look too alien in comparison with [Order PP] because the syntax differs insignificantly from usual preprocessor code.
-
- - **Partial application.** Besides better reuse of metafunctions, partial application allows to capture an environment (the mapping between variables and their values), so no hassle with auxiliary parameters.
-
- - **Debugging and error reporting.** You can conveniently debug your macros with `M_abort` and report fatal errors with `M_fatal`. The interpreter will immediately finish its work and do the trick.
-
-[Boost/Preprocessor]: http://boost.org/libs/preprocessor
-[Order PP]: https://github.com/rofl0r/order-pp
-
-As a practical example of what is possible with Metalang99, consider [Datatype99]. It implements safe, intuitive [sum types] in pure C99, by heavy use of metaprogramming:
+To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. As a practical example of what is possible with Metalang99, consider sum types by [Datatype99]:
 
 ```c
 #include <datatype99.h>
@@ -110,7 +98,7 @@ int sum(const BinaryTree *tree) {
 }
 ```
 
-So, in summary, Metalang99 allows to do advanced metaprogramming in C. It allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
+So, as you can see, advanced metaprogramming with Metalang99 allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
 
 [Datatype99]: https://github.com/Hirrolot/datatype99
 [sum types]: https://en.wikipedia.org/wiki/Tagged_union
@@ -129,6 +117,19 @@ Happy hacking!
 
 [precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
 [`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
+
+## Prominent aspects
+
+ - **Macro recursion.** Recursive calls behave as expected. In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on a built-in deduction; Metalang99 is free from such drawbacks.
+
+ - **Almost the same syntax.** Metalang99 does not look too alien in comparison with [Order PP] because the syntax differs insignificantly from usual preprocessor code.
+
+ - **Partial application.** Tracking auxiliary arguments here and there results in code clutter; partial application, in turn, allows to naturally capture an environment by applying your constant values first. Besides that, partial application facilitates better reuse of metafunctions.
+
+ - **Debugging and error reporting.** You can conveniently debug your macros with `M_abort` and report fatal errors with `M_fatal`. The interpreter will immediately finish its work and do the trick.
+
+[Boost/Preprocessor]: http://boost.org/libs/preprocessor
+[Order PP]: https://github.com/rofl0r/order-pp
 
 ## Philosophy and origins
 
