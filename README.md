@@ -79,7 +79,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. As a practical example of what is possible with Metalang99, consider [Datatype99]:
+To solve the problem, I have implemented Metalang99 -- a functional programming language executing on any standard-confirming preprocessor. Having its functionality at our disposal, we can achieve something like this (sum types via [Datatype99]):
 
 ```c
 #include <datatype99.h>
