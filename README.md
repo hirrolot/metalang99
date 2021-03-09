@@ -123,11 +123,7 @@ So, in summary, Metalang99 allows to do advanced metaprogramming in C. It allows
 
 **PLEASE**, use Metalang99 only with [`-ftrack-macro-expansion=0`] (GCC) or something similar, otherwise it will throw your compiler to the moon. [Precompiled headers] are also very helpful.
 
-Resources:
-
- - [Tutorial](https://hirrolot.gitbook.io/metalang99/)
- - [Examples](examples/)
- - [User documentation](https://metalang99.readthedocs.io/en/latest/)
+[Tutorial](https://hirrolot.gitbook.io/metalang99/) | [Examples](examples/) | [Etudes](etudes/) | [User documentation](https://metalang99.readthedocs.io/en/latest/)
 
 Happy hacking!
 
