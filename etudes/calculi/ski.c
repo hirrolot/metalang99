@@ -5,7 +5,7 @@
 // The base combinators {
 
 #define K_IMPL(x, y)    v(x)
-#define S_IMPL(x, y, z) M_appl(M_appl(v(x), v(z)), M_appl(v(y), v(z)))
+#define S_IMPL(x, y, z) M_appl2(v(x), v(z), M_appl(v(y), v(z)))
 
 #define K_ARITY 2
 #define S_ARITY 3
