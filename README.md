@@ -77,9 +77,9 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 ## Motivation
 
-The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to a problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
+The C macro system can be viewed as a tool to extend the language with custom syntactic sugar, to make code closer to the problem domain. However, the arsenal it provides is infinitely poor: all we can do is basic copy-pasting of tokens. We cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
-To solve the problem, I have implemented Metalang99. Having its functionality at our disposal, it becomes possible to develop fairly non-trivial metaprograms, such as [Datatype99]:
+To solve the problem, I have implemented Metalang99. Having its functionality at our disposal, it becomes possible to develop even fairly non-trivial metaprograms, such as [Datatype99]:
 
 ```c
 #include <datatype99.h>
