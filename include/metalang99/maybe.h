@@ -91,22 +91,25 @@
  * @endcode
  */
 #define ML99_maybeUnwrap(maybe) ML99_call(ML99_maybeUnwrap, maybe)
+
+#define ML99_JUST(x)           ML99_CHOICE(just, x)
+#define ML99_NOTHING()         ML99_CHOICE(nothing, ~)
+#define ML99_IS_JUST(maybe)    ML99_PRIV_IS_JUST(maybe)
+#define ML99_IS_NOTHING(maybe) ML99_NOT(ML99_IS_JUST(maybe))
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define ML99_just_IMPL(x)   v(ML99_CHOICE(just, x))
-#define ML99_nothing_IMPL() v(ML99_CHOICE(nothing, ~))
+#define ML99_just_IMPL(x)   v(ML99_JUST(x))
+#define ML99_nothing_IMPL() v(ML99_NOTHING())
 
-// ML99_isJust_IMPL {
-#define ML99_isJust_IMPL(maybe)       ML99_match_IMPL(maybe, ML99_PRIV_isJust_)
-#define ML99_PRIV_isJust_just_IMPL    ML99_PRIV_constTrue_IMPL
-#define ML99_PRIV_isJust_nothing_IMPL ML99_PRIV_constFalse_IMPL
-// }
+#define ML99_isJust_IMPL(maybe)    v(ML99_IS_JUST(maybe))
+#define ML99_isNothing_IMPL(maybe) v(ML99_IS_NOTHING(maybe))
 
-// ML99_isNothing_IMPL {
-#define ML99_isNothing_IMPL(maybe) ML99_not(ML99_isJust_IMPL(maybe))
+// ML99_IS_JUST {
+#define ML99_PRIV_IS_JUST(maybe) ML99_detectIdent(ML99_PRIV_IS_JUST_, ML99_CHOICE_TAG(maybe))
+#define ML99_PRIV_IS_JUST_just   ()
 // }
 
 // ML99_maybeEq_IMPL {
