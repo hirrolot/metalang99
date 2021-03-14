@@ -16,13 +16,8 @@ ML99_assertEmpty(ML99_when(v(ML99_false), v(123)));
 // }
 
 // ML99_whenLazy {
-ML99_assertEq(ML99_call(ML99_whenLazy(v(ML99_true), v(ML99_id)), v(123)), v(123));
-ML99_assertEmpty(ML99_call(ML99_whenLazy(v(ML99_false), v(ML99_id)), v(123)));
-// }
-
-// ML99_WHEN_LAZY {
-ML99_assertPlain(ML99_WHEN_LAZY(ML99_true, ML99_ID)(123) == 123);
-ML99_assertEmpty(v(ML99_WHEN_LAZY(ML99_false, ML99_ID)(123)));
+ML99_assertEq(ML99_whenLazy(v(ML99_true), v(v(123))), v(123));
+ML99_assertEmpty(ML99_whenLazy(v(ML99_false), v(v(123))));
 // }
 
 // ML99_overload {

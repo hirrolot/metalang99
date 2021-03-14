@@ -29,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Employ the `SCREAMING_CASE` naming convention for plain macros.
  - `M_get` -> `ML99_listGet`
  - `M_overloadPlain` -> `ML99_overload`
+ - `M_whenLazy` now accepts a lazy metaprogram instead of a metafunction.
+ - `M_when` and `M_WHEN` now accept variadic arguments.
  - Rename "unsigned integers" to "natural numbers":
    - `uint.h` -> `nat.h`
    - `M_uintMatch(WithArgs)` -> `ML99_natMatch(WithArgs)`
