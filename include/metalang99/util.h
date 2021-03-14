@@ -111,76 +111,6 @@
 #define ML99_flip(f) ML99_call(ML99_flip, f)
 
 /**
- * Puts @p x before @p right.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // ! 0
- * ML99_putBefore(v(0), v(!))
- * @endcode
- */
-#define ML99_putBefore(right, x) ML99_call(ML99_putBefore, right, x)
-
-/**
- * Puts @p x after @p left.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // ! 0
- * ML99_putAfter(v(!), v(0))
- * @endcode
- */
-#define ML99_putAfter(left, x) ML99_call(ML99_putAfter, left, x)
-
-/**
- * Puts @p x between @p left and @p right.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // 16 + 9
- * ML99_putBetween(v(16), v(9), v(+))
- * @endcode
- */
-#define ML99_putBetween(left, right, x) ML99_call(ML99_putBetween, left, right, x)
-
-/**
- * Evaluates to `_x`.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // _123
- * ML99_leftUnderscored(v(123))
- * @endcode
- */
-#define ML99_leftUnderscored(x) ML99_call(ML99_leftUnderscored, x)
-
-/**
- * Evaluates to `x_`.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * // 123_
- * ML99_rightUnderscored(v(123))
- * @endcode
- */
-#define ML99_rightUnderscored(x) ML99_call(ML99_rightUnderscored, x)
-
-/**
  * Consumes all its arguments and expands to emptiness.
  *
  * # Examples
@@ -440,28 +370,23 @@
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define ML99_catEval_IMPL(x, y)              x##y
-#define ML99_cat_IMPL(x, y)                  v(ML99_CAT(x, y))
-#define ML99_stringify_IMPL(...)             v(ML99_STRINGIFY(__VA_ARGS__))
-#define ML99_empty_IMPL()                    v(ML99_EMPTY())
-#define ML99_id_IMPL(...)                    v(ML99_ID(__VA_ARGS__))
-#define ML99_const_IMPL(x, _a)               v(x)
-#define ML99_flip_IMPL(f)                    ML99_appl_IMPL(ML99_PRIV_flip, f)
-#define ML99_PRIV_flip_IMPL(f, a, b)         ML99_appl2_IMPL(f, b, a)
-#define ML99_putBefore_IMPL(right, x)        v(x right)
-#define ML99_putAfter_IMPL(left, x)          v(left x)
-#define ML99_putBetween_IMPL(left, right, x) v(left x right)
-#define ML99_leftUnderscored_IMPL(x)         v(_##x)
-#define ML99_rightUnderscored_IMPL(x)        v(x##_)
-#define ML99_consume_IMPL(...)               v(ML99_CONSUME(__VA_ARGS__))
-#define ML99_braced_IMPL(...)                v({__VA_ARGS__})
-#define ML99_typedef_IMPL(ident, ...)        v(typedef __VA_ARGS__ ident;)
-#define ML99_struct_IMPL(ident, ...)         v(struct ident{__VA_ARGS__})
-#define ML99_anonStruct_IMPL(...)            v(struct {__VA_ARGS__})
-#define ML99_union_IMPL(ident, ...)          v(union ident{__VA_ARGS__})
-#define ML99_anonUnion_IMPL(...)             v(union {__VA_ARGS__})
-#define ML99_enum_IMPL(ident, ...)           v(enum ident{__VA_ARGS__})
-#define ML99_anonEnum_IMPL(...)              v(enum {__VA_ARGS__})
+#define ML99_catEval_IMPL(x, y)       x##y
+#define ML99_cat_IMPL(x, y)           v(ML99_CAT(x, y))
+#define ML99_stringify_IMPL(...)      v(ML99_STRINGIFY(__VA_ARGS__))
+#define ML99_empty_IMPL()             v(ML99_EMPTY())
+#define ML99_id_IMPL(...)             v(ML99_ID(__VA_ARGS__))
+#define ML99_const_IMPL(x, _a)        v(x)
+#define ML99_flip_IMPL(f)             ML99_appl_IMPL(ML99_PRIV_flip, f)
+#define ML99_PRIV_flip_IMPL(f, a, b)  ML99_appl2_IMPL(f, b, a)
+#define ML99_consume_IMPL(...)        v(ML99_CONSUME(__VA_ARGS__))
+#define ML99_braced_IMPL(...)         v({__VA_ARGS__})
+#define ML99_typedef_IMPL(ident, ...) v(typedef __VA_ARGS__ ident;)
+#define ML99_struct_IMPL(ident, ...)  v(struct ident{__VA_ARGS__})
+#define ML99_anonStruct_IMPL(...)     v(struct {__VA_ARGS__})
+#define ML99_union_IMPL(ident, ...)   v(union ident{__VA_ARGS__})
+#define ML99_anonUnion_IMPL(...)      v(union {__VA_ARGS__})
+#define ML99_enum_IMPL(ident, ...)    v(enum ident{__VA_ARGS__})
+#define ML99_anonEnum_IMPL(...)       v(enum {__VA_ARGS__})
 
 #if defined(__GNUC__) && !defined(__clang__)
 #define ML99_PRIV_GCC_PRAGMA(str) _Pragma(str)
@@ -477,27 +402,22 @@
 // }
 
 // Arity specifiers {
-#define ML99_catEval_ARITY          2
-#define ML99_cat_ARITY              2
-#define ML99_stringify_ARITY        1
-#define ML99_empty_ARITY            1
-#define ML99_id_ARITY               1
-#define ML99_const_ARITY            2
-#define ML99_flip_ARITY             1
-#define ML99_putBefore_ARITY        2
-#define ML99_putAfter_ARITY         2
-#define ML99_putBetween_ARITY       3
-#define ML99_leftUnderscored_ARITY  1
-#define ML99_rightUnderscored_ARITY 1
-#define ML99_consume_ARITY          1
-#define ML99_braced_ARITY           1
-#define ML99_typedef_ARITY          2
-#define ML99_struct_ARITY           2
-#define ML99_anonStruct_ARITY       1
-#define ML99_union_ARITY            2
-#define ML99_anonUnion_ARITY        1
-#define ML99_enum_ARITY             2
-#define ML99_anonEnum_ARITY         1
+#define ML99_catEval_ARITY    2
+#define ML99_cat_ARITY        2
+#define ML99_stringify_ARITY  1
+#define ML99_empty_ARITY      1
+#define ML99_id_ARITY         1
+#define ML99_const_ARITY      2
+#define ML99_flip_ARITY       1
+#define ML99_consume_ARITY    1
+#define ML99_braced_ARITY     1
+#define ML99_typedef_ARITY    2
+#define ML99_struct_ARITY     2
+#define ML99_anonStruct_ARITY 1
+#define ML99_union_ARITY      2
+#define ML99_anonUnion_ARITY  1
+#define ML99_enum_ARITY       2
+#define ML99_anonEnum_ARITY   1
 
 #define ML99_PRIV_flip_ARITY 3
 // }

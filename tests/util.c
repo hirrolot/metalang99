@@ -22,23 +22,6 @@ ML99_assert(ML99_appl2(ML99_flip(v(ML99_catEval)), v(C), v(AB)));
 #undef ABC
 // }
 
-// ML99_putBefore, ML99_putAfter, ML99_putBetween {
-ML99_assertEq(ML99_putBefore(v(0), v(!)), v(!0));
-ML99_assertEq(ML99_putAfter(v(!), v(0)), v(!0));
-ML99_assertEq(ML99_putBetween(v(16), v(9), v(+)), v(16 + 9));
-// }
-
-// ML99_leftUnderscored, ML99_rightUnderscored {
-#define _FOO 123
-#define FOO_ 456
-
-ML99_assertEq(ML99_leftUnderscored(v(FOO)), v(123));
-ML99_assertEq(ML99_rightUnderscored(v(FOO)), v(456));
-
-#undef _FOO
-#undef FOO_
-// }
-
 // ML99_consume {
 ML99_assertEmpty(ML99_consume(v(1, 2, 3)));
 // }

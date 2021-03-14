@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_tupleHead`, `M_variadicsHead`
  - `M_overload`
  - `M_when(Plain)`, `M_whenLazy(Plain)`
+ - `M_putBefore`, `M_putAfter`, `M_putBetween`
+ - `M_leftUnderscored`, `M_rightUnderscored`
 
 ### Changed
 
