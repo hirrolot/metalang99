@@ -58,13 +58,13 @@
  * #include <metalang99/misc.h>
  *
  * // Some heavy computation...
- * #define PROG ML99_indexedArgs(v(10))
+ * #define PROG ML99_lazy(ML99_indexedArgs(v(10)))
  *
  * // _0, _1, _2, _3, _4, _5, _6, _7, _8, _9
- * ML99_whenLazy(v(1), v(PROG))
+ * ML99_whenLazy(v(1), PROG)
  *
  * // ML99_empty()
- * ML99_whenLazy(v(0), v(PROG))
+ * ML99_whenLazy(v(0), PROG)
  * @endcode
  */
 #define ML99_whenLazy(cond, ...) ML99_call(ML99_whenLazy, cond, __VA_ARGS__)
@@ -97,6 +97,13 @@
  * ...>(...)`.
  */
 #define ML99_overload(f, ...) ML99_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
+
+/**
+ * Denotes a lazy (unevaluated) metaprogram.
+ *
+ * A lazy metaprogram is essentially a sequence of terms put into #v.
+ */
+#define ML99_lazy(...) v(__VA_ARGS__)
 
 /**
  * The plain version of #ML99_if.

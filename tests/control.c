@@ -16,8 +16,8 @@ ML99_assertEmpty(ML99_when(v(ML99_false), v(123)));
 // }
 
 // ML99_whenLazy {
-ML99_assertEq(ML99_whenLazy(v(ML99_true), v(v(123))), v(123));
-ML99_assertEmpty(ML99_whenLazy(v(ML99_false), v(v(123))));
+ML99_assertEq(ML99_whenLazy(v(ML99_true), ML99_lazy(v(123))), v(123));
+ML99_assertEmpty(ML99_whenLazy(v(ML99_false), ML99_lazy(v(123))));
 // }
 
 // ML99_overload {
