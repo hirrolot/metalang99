@@ -1,9 +1,9 @@
-#ifndef METALANG99_PRIV_VARIADICS_COUNT_H
-#define METALANG99_PRIV_VARIADICS_COUNT_H
+#ifndef ML99_PRIV_VARIADICS_COUNT_H
+#define ML99_PRIV_VARIADICS_COUNT_H
 
 /*
- * Proposition: The count of arguments of `METALANG99_variadicsCount_IMPL` is `x`, which is
- * returned from `METALANG99_variadicsCount_IMPL_AUX`.
+ * Proposition: The count of arguments of `ML99_variadicsCount_IMPL` is `x`, which is
+ * returned from `ML99_variadicsCount_IMPL_AUX`.
  *
  * Proof:
  *  1) Let N be the length of __VA_ARGS__.
@@ -19,8 +19,8 @@
  * (N)                            ---> (x)
  */
 
-#define METALANG99_PRIV_VARIADICS_COUNT(...)                                                       \
-    METALANG99_PRIV_VARIADICS_COUNT_AUX(                                                           \
+#define ML99_PRIV_VARIADICS_COUNT(...)                                                             \
+    ML99_PRIV_VARIADICS_COUNT_AUX(                                                                 \
         __VA_ARGS__,                                                                               \
         63,                                                                                        \
         62,                                                                                        \
@@ -87,7 +87,7 @@
         1,                                                                                         \
         ~)
 
-#define METALANG99_PRIV_VARIADICS_COUNT_AUX(                                                       \
+#define ML99_PRIV_VARIADICS_COUNT_AUX(                                                             \
     _1,                                                                                            \
     _2,                                                                                            \
     _3,                                                                                            \
@@ -155,4 +155,4 @@
     ...)                                                                                           \
     x
 
-#endif // METALANG99_PRIV_VARIADICS_COUNT_H
+#endif // ML99_PRIV_VARIADICS_COUNT_H

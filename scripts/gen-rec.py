@@ -23,7 +23,7 @@ with open(output_file_name, "w") as f:
 
     for i in range(start_lvl, start_lvl + count):
         f.write(
-            f"#define METALANG99_PRIV_REC_{i}(choice, ...) METALANG99_PRIV_REC_NEXT({i + 1}, choice)(__VA_ARGS__)\n")
+            f"#define ML99_PRIV_REC_{i}(choice, ...) ML99_PRIV_REC_NEXT({i + 1}, choice)(__VA_ARGS__)\n")
 
     f.write(f"\n#endif // {header_guard}\n")
 

@@ -3,12 +3,12 @@
 #include <metalang99/nat.h>
 
 // Pattern matching {
-#define MATCH_IMPL(maybe)     M_match(v(maybe), v(MATCH_))
-#define MATCH_just_IMPL(x)    v(M_assertPlain(x == 87))
-#define MATCH_nothing_IMPL(_) v(M_assertPlain(1))
+#define MATCH_IMPL(maybe)     ML99_match(v(maybe), v(MATCH_))
+#define MATCH_just_IMPL(x)    v(ML99_assertPlain(x == 87))
+#define MATCH_nothing_IMPL(_) v(ML99_assertPlain(1))
 
-M_eval(M_call(MATCH, M_just(v(87))));
-M_eval(M_call(MATCH, M_nothing()));
+ML99_eval(ML99_call(MATCH, ML99_just(v(87))));
+ML99_eval(ML99_call(MATCH, ML99_nothing()));
 
 #undef MATCH_IMPL
 #undef MATCH_just_IMPL
@@ -17,26 +17,26 @@ M_eval(M_call(MATCH, M_nothing()));
 
 #define VAL v(abc ? +-148 % "hello world")
 
-// M_isJust {
-M_assert(M_isJust(M_just(VAL)));
-M_assert(M_not(M_isJust(M_nothing())));
+// ML99_isJust {
+ML99_assert(ML99_isJust(ML99_just(VAL)));
+ML99_assert(ML99_not(ML99_isJust(ML99_nothing())));
 // }
 
-// M_isNothing {
-M_assert(M_isNothing(M_nothing()));
-M_assert(M_not(M_isNothing(M_just(VAL))));
+// ML99_isNothing {
+ML99_assert(ML99_isNothing(ML99_nothing()));
+ML99_assert(ML99_not(ML99_isNothing(ML99_just(VAL))));
 // }
 
-// M_maybeEq {
-M_assert(M_maybeEq(v(M_natEq), M_just(v(123)), M_just(v(123))));
+// ML99_maybeEq {
+ML99_assert(ML99_maybeEq(v(ML99_natEq), ML99_just(v(123)), ML99_just(v(123))));
 
-M_assert(M_not(M_maybeEq(v(M_natEq), M_just(v(123)), M_just(v(4)))));
-M_assert(M_not(M_maybeEq(v(M_natEq), M_just(v(123)), M_nothing())));
-M_assert(M_not(M_maybeEq(v(M_natEq), M_nothing(), M_just(v(123)))));
+ML99_assert(ML99_not(ML99_maybeEq(v(ML99_natEq), ML99_just(v(123)), ML99_just(v(4)))));
+ML99_assert(ML99_not(ML99_maybeEq(v(ML99_natEq), ML99_just(v(123)), ML99_nothing())));
+ML99_assert(ML99_not(ML99_maybeEq(v(ML99_natEq), ML99_nothing(), ML99_just(v(123)))));
 // }
 
-// M_maybeUnwrap {
-M_assertEq(M_maybeUnwrap(M_just(v(123))), v(123));
+// ML99_maybeUnwrap {
+ML99_assertEq(ML99_maybeUnwrap(ML99_just(v(123))), v(123));
 // }
 
 #undef VAL

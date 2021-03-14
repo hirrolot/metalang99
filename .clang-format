@@ -11,4 +11,4 @@ ContinuationIndentWidth: 4
 BinPackArguments: false
 BinPackParameters: true
 AllowAllParametersOfDeclarationOnNextLine: true
-StatementMacros: ["M_eval", "METALANG99_clangPragma", "METALANG99_gccPragma"]
+StatementMacros: ["ML99_eval", "ML99_clangPragma", "ML99_gccPragma"]

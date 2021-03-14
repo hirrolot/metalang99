@@ -2,12 +2,12 @@
 
 #include <metalang99.h>
 
-#define Leaf(x)              M_choice(v(Leaf), x)
-#define Node(lhs, data, rhs) M_choice(v(Node), lhs, data, rhs)
+#define Leaf(x)              ML99_choice(v(Leaf), x)
+#define Node(lhs, data, rhs) ML99_choice(v(Node), lhs, data, rhs)
 
-#define SUM(tree)                     M_match(tree, v(SUM_))
+#define SUM(tree)                     ML99_match(tree, v(SUM_))
 #define SUM_Leaf_IMPL(x)              v(x)
-#define SUM_Node_IMPL(lhs, data, rhs) M_add3(SUM(v(lhs)), v(data), SUM(v(rhs)))
+#define SUM_Node_IMPL(lhs, data, rhs) ML99_add3(SUM(v(lhs)), v(data), SUM(v(rhs)))
 
 /*
  *         4
@@ -20,6 +20,6 @@
  */
 #define TREE Node(Node(Leaf(v(1)), v(2), Leaf(v(3))), v(4), Node(Leaf(v(5)), v(6), Leaf(v(7))))
 
-M_assertEq(SUM(TREE), v(28));
+ML99_assertEq(SUM(TREE), v(28));
 
 int main(void) {}

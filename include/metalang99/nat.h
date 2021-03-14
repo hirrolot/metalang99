@@ -3,8 +3,8 @@
  * Natural numbers ([0; 255]).
  */
 
-#ifndef METALANG99_NAT_H
-#define METALANG99_NAT_H
+#ifndef ML99_NAT_H
+#define ML99_NAT_H
 
 #include <metalang99/nat/dec.h>
 #include <metalang99/nat/div.h>
@@ -26,12 +26,12 @@
  * #include <metalang99/nat.h>
  *
  * // 6
- * M_inc(v(5))
+ * ML99_inc(v(5))
  * @endcode
  *
  * @note If @p x is 255, the result is 0.
  */
-#define METALANG99_inc(x) METALANG99_call(METALANG99_inc, x)
+#define ML99_inc(x) ML99_call(ML99_inc, x)
 
 /**
  * \f$x - 1\f$
@@ -42,12 +42,12 @@
  * #include <metalang99/nat.h>
  *
  * // 4
- * M_dec(v(5))
+ * ML99_dec(v(5))
  * @endcode
  *
  * @note If @p x is 0, the result is 255.
  */
-#define METALANG99_dec(x) METALANG99_call(METALANG99_dec, x)
+#define ML99_dec(x) ML99_call(ML99_dec, x)
 
 /**
  * Matches @p x to the two cases: if it is zero or positive.
@@ -61,19 +61,19 @@
  * #define MATCH_S_IMPL(x) v(Jean ~ x)
  *
  * // Billie
- * M_natMatch(v(0), v(MATCH_))
+ * ML99_natMatch(v(0), v(MATCH_))
  *
  * // Jean ~ 122
- * M_natMatch(v(123), v(MATCH_))
+ * ML99_natMatch(v(123), v(MATCH_))
  * @endcode
  *
- * @note This function calls @p f with #METALANG99_call, so no partial application occurs, and so
+ * @note This function calls @p f with #ML99_call, so no partial application occurs, and so
  * arity specifiers are not needed.
  */
-#define METALANG99_natMatch(x, matcher) METALANG99_call(METALANG99_natMatch, x, matcher)
+#define ML99_natMatch(x, matcher) ML99_call(ML99_natMatch, x, matcher)
 
 /**
- * The same as #METALANG99_natMatch but provides additional arguments to all branches.
+ * The same as #ML99_natMatch but provides additional arguments to all branches.
  *
  * # Examples
  *
@@ -84,17 +84,17 @@
  * #define MATCH_S_IMPL(n, x, y, z) v(Jean ~ n ~ x y z)
  *
  * // Billie ~ 1 2 3
- * M_natMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3))
+ * ML99_natMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3))
  *
  * // Jean ~ 122 ~ 1 2 3
- * M_natMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3))
+ * ML99_natMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3))
  * @endcode
  *
- * @note This function calls @p f with #METALANG99_call, so no partial application occurs, and so
+ * @note This function calls @p f with #ML99_call, so no partial application occurs, and so
  * arity specifiers are not needed.
  */
-#define METALANG99_natMatchWithArgs(x, matcher, ...)                                               \
-    METALANG99_call(METALANG99_natMatchWithArgs, x, matcher, __VA_ARGS__)
+#define ML99_natMatchWithArgs(x, matcher, ...)                                                     \
+    ML99_call(ML99_natMatchWithArgs, x, matcher, __VA_ARGS__)
 
 /**
  * \f$x = y\f$
@@ -105,13 +105,13 @@
  * #include <metalang99/nat.h>
  *
  * // 1
- * M_natEq(v(5), v(5))
+ * ML99_natEq(v(5), v(5))
  *
  * // 0
- * M_natEq(v(3), v(8))
+ * ML99_natEq(v(3), v(8))
  * @endcode
  */
-#define METALANG99_natEq(x, y) METALANG99_call(METALANG99_natEq, x, y)
+#define ML99_natEq(x, y) ML99_call(ML99_natEq, x, y)
 
 /**
  * \f$x \neq y\f$
@@ -122,13 +122,13 @@
  * #include <metalang99/nat.h>
  *
  * // 0
- * M_natNeq(v(5), v(5))
+ * ML99_natNeq(v(5), v(5))
  *
  * // 1
- * M_natNeq(v(3), v(8))
+ * ML99_natNeq(v(3), v(8))
  * @endcode
  */
-#define METALANG99_natNeq(x, y) METALANG99_call(METALANG99_natNeq, x, y)
+#define ML99_natNeq(x, y) ML99_call(ML99_natNeq, x, y)
 
 /**
  * \f$x > y\f$
@@ -139,13 +139,13 @@
  * #include <metalang99/nat.h>
  *
  * // 1
- * M_greater(v(8), v(3))
+ * ML99_greater(v(8), v(3))
  *
  * // 0
- * M_greater(v(3), v(8))
+ * ML99_greater(v(3), v(8))
  * @endcode
  */
-#define METALANG99_greater(x, y) METALANG99_call(METALANG99_greater, x, y)
+#define ML99_greater(x, y) ML99_call(ML99_greater, x, y)
 
 /**
  * \f$x \geq y\f$
@@ -156,13 +156,13 @@
  * #include <metalang99/nat.h>
  *
  * // 1
- * M_greaterEq(v(8), v(8))
+ * ML99_greaterEq(v(8), v(8))
  *
  * // 0
- * M_greaterEq(v(3), v(8))
+ * ML99_greaterEq(v(3), v(8))
  * @endcode
  */
-#define METALANG99_greaterEq(x, y) METALANG99_call(METALANG99_greaterEq, x, y)
+#define ML99_greaterEq(x, y) ML99_call(ML99_greaterEq, x, y)
 
 /**
  * \f$x < y\f$
@@ -173,13 +173,13 @@
  * #include <metalang99/nat.h>
  *
  * // 1
- * M_lesser(v(3), v(8))
+ * ML99_lesser(v(3), v(8))
  *
  * // 0
- * M_lesser(v(8), v(3))
+ * ML99_lesser(v(8), v(3))
  * @endcode
  */
-#define METALANG99_lesser(x, y) METALANG99_call(METALANG99_lesser, x, y)
+#define ML99_lesser(x, y) ML99_call(ML99_lesser, x, y)
 
 /**
  * \f$x \leq y\f$
@@ -190,13 +190,13 @@
  * #include <metalang99/nat.h>
  *
  * // 1
- * M_lesserEq(v(8), v(8))
+ * ML99_lesserEq(v(8), v(8))
  *
  * // 0
- * M_lesserEq(v(8), v(3))
+ * ML99_lesserEq(v(8), v(3))
  * @endcode
  */
-#define METALANG99_lesserEq(x, y) METALANG99_call(METALANG99_lesserEq, x, y)
+#define ML99_lesserEq(x, y) ML99_call(ML99_lesserEq, x, y)
 
 /**
  * \f$x + y\f$
@@ -207,10 +207,10 @@
  * #include <metalang99/nat.h>
  *
  * // 11
- * M_add(v(5), v(6))
+ * ML99_add(v(5), v(6))
  * @endcode
  */
-#define METALANG99_add(x, y) METALANG99_call(METALANG99_add, x, y)
+#define ML99_add(x, y) ML99_call(ML99_add, x, y)
 
 /**
  * \f$x - y\f$
@@ -221,10 +221,10 @@
  * #include <metalang99/nat.h>
  *
  * // 6
- * M_sub(v(11), v(5))
+ * ML99_sub(v(11), v(5))
  * @endcode
  */
-#define METALANG99_sub(x, y) METALANG99_call(METALANG99_sub, x, y)
+#define ML99_sub(x, y) ML99_call(ML99_sub, x, y)
 
 /**
  * \f$x * y\f$
@@ -235,10 +235,10 @@
  * #include <metalang99/nat.h>
  *
  * // 12
- * M_mul(v(3), v(4))
+ * ML99_mul(v(3), v(4))
  * @endcode
  */
-#define METALANG99_mul(x, y) METALANG99_call(METALANG99_mul, x, y)
+#define ML99_mul(x, y) ML99_call(ML99_mul, x, y)
 
 /**
  * \f$\frac{x}{y}\f$
@@ -249,33 +249,33 @@
  * #include <metalang99/nat.h>
  *
  * // 3
- * M_div(v(12), v(4))
+ * ML99_div(v(12), v(4))
  * @endcode
  *
  * @note A compile-time error if \f$\frac{x}{y}\f$ is not an unsigned integer.
  */
-#define METALANG99_div(x, y) METALANG99_call(METALANG99_div, x, y)
+#define ML99_div(x, y) ML99_call(ML99_div, x, y)
 
 /**
- * Like #METALANG99_div but returns #METALANG99_nothing is @p x is not divisible by @p y,
- * otherwise, #METALANG99_just.
+ * Like #ML99_div but returns #ML99_nothing is @p x is not divisible by @p y,
+ * otherwise, #ML99_just.
  *
  * # Examples
  *
  * @code
  * #include <metalang99/nat.h>
  *
- * // M_just(3)
- * M_divChecked(v(12), v(4))
+ * // ML99_just(3)
+ * ML99_divChecked(v(12), v(4))
  *
- * // M_nothing()
- * M_divChecked(v(14), v(5))
+ * // ML99_nothing()
+ * ML99_divChecked(v(14), v(5))
  *
- * // M_nothing()
- * M_divChecked(v(1), v(0))
+ * // ML99_nothing()
+ * ML99_divChecked(v(1), v(0))
  * @endcode
  */
-#define METALANG99_divChecked(x, y) METALANG99_call(METALANG99_divChecked, x, y)
+#define ML99_divChecked(x, y) ML99_call(ML99_divChecked, x, y)
 
 /**
  * Computes the remainder of division.
@@ -286,12 +286,12 @@
  * #include <metalang99/nat.h>
  *
  * // 2
- * M_mod(v(8), v(3))
+ * ML99_mod(v(8), v(3))
  * @endcode
  *
  * @note A compile-time error if @p y is 0.
  */
-#define METALANG99_mod(x, y) METALANG99_call(METALANG99_mod, x, y)
+#define ML99_mod(x, y) ML99_call(ML99_mod, x, y)
 
 /**
  * \f$x + y + z\f$
@@ -302,10 +302,10 @@
  * #include <metalang99/nat.h>
  *
  * // 15
- * M_add3(v(1), v(6), v(8))
+ * ML99_add3(v(1), v(6), v(8))
  * @endcode
  */
-#define METALANG99_add3(x, y, z) METALANG99_call(METALANG99_add3, x, y, z)
+#define ML99_add3(x, y, z) ML99_call(ML99_add3, x, y, z)
 
 /**
  * \f$x - y - z\f$
@@ -316,10 +316,10 @@
  * #include <metalang99/nat.h>
  *
  * // 3
- * M_sub3(v(8), v(2), v(3))
+ * ML99_sub3(v(8), v(2), v(3))
  * @endcode
  */
-#define METALANG99_sub3(x, y, z) METALANG99_call(METALANG99_sub3, x, y, z)
+#define ML99_sub3(x, y, z) ML99_call(ML99_sub3, x, y, z)
 
 /**
  * \f$x * y * z\f$
@@ -330,10 +330,10 @@
  * #include <metalang99/nat.h>
  *
  * // 24
- * M_mul3(v(2), v(3), v(4))
+ * ML99_mul3(v(2), v(3), v(4))
  * @endcode
  */
-#define METALANG99_mul3(x, y, z) METALANG99_call(METALANG99_mul3, x, y, z)
+#define ML99_mul3(x, y, z) ML99_call(ML99_mul3, x, y, z)
 
 /**
  * \f$\frac{(\frac{x}{y})}{z}\f$
@@ -344,12 +344,12 @@
  * #include <metalang99/nat.h>
  *
  * // 5
- * M_div(v(30), v(3), v(2))
+ * ML99_div(v(30), v(3), v(2))
  * @endcode
  *
  * @note A compile-time error if \f$\frac{(\frac{x}{y})}{z}\f$ is not an unsigned integer.
  */
-#define METALANG99_div3(x, y, z) METALANG99_call(METALANG99_div3, x, y, z)
+#define ML99_div3(x, y, z) ML99_call(ML99_div3, x, y, z)
 
 /**
  * \f$min(x, y)\f$
@@ -360,10 +360,10 @@
  * #include <metalang99/nat.h>
  *
  * // 5
- * M_min(v(5), v(7))
+ * ML99_min(v(5), v(7))
  * @endcode
  */
-#define METALANG99_min(x, y) METALANG99_call(METALANG99_min, x, y)
+#define ML99_min(x, y) ML99_call(ML99_min, x, y)
 
 /**
  * \f$max(x, y)\f$
@@ -374,188 +374,134 @@
  * #include <metalang99/nat.h>
  *
  * // 7
- * M_max(v(5), v(7))
+ * ML99_max(v(5), v(7))
  * @endcode
  */
-#define METALANG99_max(x, y) METALANG99_call(METALANG99_max, x, y)
+#define ML99_max(x, y) ML99_call(ML99_max, x, y)
 
-#define METALANG99_INC(x)        METALANG99_PRIV_inc(x)
-#define METALANG99_DEC(x)        METALANG99_PRIV_dec(x)
-#define METALANG99_NAT_EQ(x, y)  METALANG99_PRIV_natEq(x, y)
-#define METALANG99_NAT_NEQ(x, y) METALANG99_NOT(METALANG99_NAT_EQ(x, y))
+#define ML99_INC(x)        ML99_PRIV_inc(x)
+#define ML99_DEC(x)        ML99_PRIV_dec(x)
+#define ML99_NAT_EQ(x, y)  ML99_PRIV_natEq(x, y)
+#define ML99_NAT_NEQ(x, y) ML99_NOT(ML99_NAT_EQ(x, y))
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_natMatch_IMPL(x, matcher)                                                       \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(x, 0),                                                               \
-        METALANG99_callTrivial(matcher##Z, ),                                                      \
-        METALANG99_callTrivial(matcher##S, METALANG99_PRIV_dec(x)))
+#define ML99_natMatch_IMPL(x, matcher)                                                             \
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_natEq(x, 0),                                                                     \
+        ML99_callTrivial(matcher##Z, ),                                                            \
+        ML99_callTrivial(matcher##S, ML99_PRIV_dec(x)))
 
-#define METALANG99_natMatchWithArgs_IMPL(x, matcher, ...)                                          \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(x, 0),                                                               \
-        METALANG99_callTrivial(matcher##Z, __VA_ARGS__),                                           \
-        METALANG99_callTrivial(matcher##S, METALANG99_PRIV_dec(x), __VA_ARGS__))
+#define ML99_natMatchWithArgs_IMPL(x, matcher, ...)                                                \
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_natEq(x, 0),                                                                     \
+        ML99_callTrivial(matcher##Z, __VA_ARGS__),                                                 \
+        ML99_callTrivial(matcher##S, ML99_PRIV_dec(x), __VA_ARGS__))
 
-#define METALANG99_inc_IMPL(x) v(METALANG99_INC(x))
-#define METALANG99_dec_IMPL(x) v(METALANG99_DEC(x))
+#define ML99_inc_IMPL(x) v(ML99_INC(x))
+#define ML99_dec_IMPL(x) v(ML99_DEC(x))
 
-#define METALANG99_natEq_IMPL(x, y)  v(METALANG99_NAT_EQ(x, y))
-#define METALANG99_natNeq_IMPL(x, y) v(METALANG99_NAT_NEQ(x, y))
+#define ML99_natEq_IMPL(x, y)  v(ML99_NAT_EQ(x, y))
+#define ML99_natNeq_IMPL(x, y) v(ML99_NAT_NEQ(x, y))
 
-#define METALANG99_greater_IMPL(x, y) METALANG99_lesser_IMPL(y, x)
+#define ML99_greater_IMPL(x, y) ML99_lesser_IMPL(y, x)
 
-#define METALANG99_greaterEq_IMPL(x, y)                                                            \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(x, y),                                                               \
-        v(METALANG99_true),                                                                        \
-        METALANG99_greater_IMPL(x, y))
+#define ML99_greaterEq_IMPL(x, y)                                                                  \
+    ML99_PRIV_IF(ML99_PRIV_natEq(x, y), v(ML99_true), ML99_greater_IMPL(x, y))
 
-// METALANG99_lesser_IMPL {
-#define METALANG99_lesser_IMPL(x, y)                                                               \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(y, 0),                                                               \
-        v(METALANG99_false),                                                                       \
-        METALANG99_callTrivial(METALANG99_PRIV_lesserProgress, x, METALANG99_PRIV_dec(y)))
-#define METALANG99_PRIV_lesserProgress_IMPL(x, y)                                                  \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(x, y),                                                               \
-        v(METALANG99_true),                                                                        \
-        METALANG99_lesser_IMPL(x, y))
+// ML99_lesser_IMPL {
+#define ML99_lesser_IMPL(x, y)                                                                     \
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_natEq(y, 0),                                                                     \
+        v(ML99_false),                                                                             \
+        ML99_callTrivial(ML99_PRIV_lesserProgress, x, ML99_PRIV_dec(y)))
+#define ML99_PRIV_lesserProgress_IMPL(x, y)                                                        \
+    ML99_PRIV_IF(ML99_PRIV_natEq(x, y), v(ML99_true), ML99_lesser_IMPL(x, y))
 // }
 
-#define METALANG99_lesserEq_IMPL(x, y) METALANG99_greaterEq_IMPL(y, x)
+#define ML99_lesserEq_IMPL(x, y) ML99_greaterEq_IMPL(y, x)
 
-// METALANG99_add_IMPL {
-#define METALANG99_add_IMPL(x, y)                                                                  \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(y, 0),                                                               \
-        v(x),                                                                                      \
-        METALANG99_callTrivial(METALANG99_PRIV_addProgress, x, y))
-#define METALANG99_PRIV_addProgress_IMPL(x, y)                                                     \
-    METALANG99_add_IMPL(METALANG99_PRIV_inc(x), METALANG99_PRIV_dec(y))
+// ML99_add_IMPL {
+#define ML99_add_IMPL(x, y)                                                                        \
+    ML99_PRIV_IF(ML99_PRIV_natEq(y, 0), v(x), ML99_callTrivial(ML99_PRIV_addProgress, x, y))
+#define ML99_PRIV_addProgress_IMPL(x, y) ML99_add_IMPL(ML99_PRIV_inc(x), ML99_PRIV_dec(y))
 // }
 
-// METALANG99_sub_IMPL {
-#define METALANG99_sub_IMPL(x, y)                                                                  \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(y, 0),                                                               \
-        v(x),                                                                                      \
-        METALANG99_callTrivial(METALANG99_PRIV_subProgress, x, y))
-#define METALANG99_PRIV_subProgress_IMPL(x, y)                                                     \
-    METALANG99_sub_IMPL(METALANG99_PRIV_dec(x), METALANG99_PRIV_dec(y))
+// ML99_sub_IMPL {
+#define ML99_sub_IMPL(x, y)                                                                        \
+    ML99_PRIV_IF(ML99_PRIV_natEq(y, 0), v(x), ML99_callTrivial(ML99_PRIV_subProgress, x, y))
+#define ML99_PRIV_subProgress_IMPL(x, y) ML99_sub_IMPL(ML99_PRIV_dec(x), ML99_PRIV_dec(y))
 // }
 
-// METALANG99_mul_IMPL {
-#define METALANG99_mul_IMPL(x, y)                                                                  \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(y, 0),                                                               \
-        v(0),                                                                                      \
-        METALANG99_callTrivial(METALANG99_PRIV_mulProgress, x, y))
-#define METALANG99_PRIV_mulProgress_IMPL(x, y)                                                     \
-    METALANG99_add(v(x), METALANG99_mul_IMPL(x, METALANG99_PRIV_dec(y)))
+// ML99_mul_IMPL {
+#define ML99_mul_IMPL(x, y)                                                                        \
+    ML99_PRIV_IF(ML99_PRIV_natEq(y, 0), v(0), ML99_callTrivial(ML99_PRIV_mulProgress, x, y))
+#define ML99_PRIV_mulProgress_IMPL(x, y) ML99_add(v(x), ML99_mul_IMPL(x, ML99_PRIV_dec(y)))
 // }
 
-// METALANG99_mod_IMPL {
-#define METALANG99_mod_IMPL(x, y)                                                                  \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(y, 0),                                                               \
-        METALANG99_fatal(METALANG99_mod, modulo by 0),                                             \
-        METALANG99_callTrivial(METALANG99_PRIV_modAux, x, y, 0))
+// ML99_mod_IMPL {
+#define ML99_mod_IMPL(x, y)                                                                        \
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_natEq(y, 0),                                                                     \
+        ML99_fatal(ML99_mod, modulo by 0),                                                         \
+        ML99_callTrivial(ML99_PRIV_modAux, x, y, 0))
 
-#define METALANG99_PRIV_modAux_IMPL(x, y, acc)                                                     \
-    METALANG99_appl(                                                                               \
-        METALANG99_if(                                                                             \
-            METALANG99_isJust(METALANG99_divChecked_IMPL(x, y)),                                   \
-            METALANG99_appl_IMPL(METALANG99_const, acc),                                           \
-            METALANG99_appl2_IMPL(METALANG99_PRIV_modProgress, x, y)),                             \
+#define ML99_PRIV_modAux_IMPL(x, y, acc)                                                           \
+    ML99_appl(                                                                                     \
+        ML99_if(                                                                                   \
+            ML99_isJust(ML99_divChecked_IMPL(x, y)),                                               \
+            ML99_appl_IMPL(ML99_const, acc),                                                       \
+            ML99_appl2_IMPL(ML99_PRIV_modProgress, x, y)),                                         \
         v(acc))
 
-#define METALANG99_PRIV_modProgress_IMPL(x, y, acc)                                                \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_natEq(x, 0),                                                               \
+#define ML99_PRIV_modProgress_IMPL(x, y, acc)                                                      \
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_natEq(x, 0),                                                                     \
         v(acc),                                                                                    \
-        METALANG99_callTrivial(METALANG99_PRIV_modProgressAux, x, y, acc))
+        ML99_callTrivial(ML99_PRIV_modProgressAux, x, y, acc))
 
-#define METALANG99_PRIV_modProgressAux_IMPL(x, y, acc)                                             \
-    METALANG99_PRIV_modAux_IMPL(METALANG99_PRIV_dec(x), y, METALANG99_PRIV_inc(acc))
+#define ML99_PRIV_modProgressAux_IMPL(x, y, acc)                                                   \
+    ML99_PRIV_modAux_IMPL(ML99_PRIV_dec(x), y, ML99_PRIV_inc(acc))
 // }
 
-#define METALANG99_add3_IMPL(x, y, z) METALANG99_add(METALANG99_add_IMPL(x, y), v(z))
-#define METALANG99_sub3_IMPL(x, y, z) METALANG99_sub(METALANG99_sub_IMPL(x, y), v(z))
-#define METALANG99_mul3_IMPL(x, y, z) METALANG99_mul(METALANG99_mul_IMPL(x, y), v(z))
-#define METALANG99_div3_IMPL(x, y, z) METALANG99_div(METALANG99_div_IMPL(x, y), v(z))
+#define ML99_add3_IMPL(x, y, z) ML99_add(ML99_add_IMPL(x, y), v(z))
+#define ML99_sub3_IMPL(x, y, z) ML99_sub(ML99_sub_IMPL(x, y), v(z))
+#define ML99_mul3_IMPL(x, y, z) ML99_mul(ML99_mul_IMPL(x, y), v(z))
+#define ML99_div3_IMPL(x, y, z) ML99_div(ML99_div_IMPL(x, y), v(z))
 
-#define METALANG99_min_IMPL(x, y)                                                                  \
-    METALANG99_call(METALANG99_if, METALANG99_lesser_IMPL(x, y), v(x, y))
-#define METALANG99_max_IMPL(x, y)                                                                  \
-    METALANG99_call(METALANG99_if, METALANG99_lesser_IMPL(x, y), v(y, x))
+#define ML99_min_IMPL(x, y) ML99_call(ML99_if, ML99_lesser_IMPL(x, y), v(x, y))
+#define ML99_max_IMPL(x, y) ML99_call(ML99_if, ML99_lesser_IMPL(x, y), v(y, x))
 // }
 
 // Arity specifiers {
-#define METALANG99_inc_ARITY              1
-#define METALANG99_dec_ARITY              1
-#define METALANG99_natMatch_ARITY         2
-#define METALANG99_natMatchWithArgs_ARITY 3
-#define METALANG99_natEq_ARITY            2
-#define METALANG99_natNeq_ARITY           2
-#define METALANG99_greater_ARITY          2
-#define METALANG99_greaterEq_ARITY        2
-#define METALANG99_lesser_ARITY           2
-#define METALANG99_lesserEq_ARITY         2
-#define METALANG99_add_ARITY              2
-#define METALANG99_sub_ARITY              2
-#define METALANG99_mul_ARITY              2
-#define METALANG99_div_ARITY              2
-#define METALANG99_divChecked_ARITY       2
-#define METALANG99_mod_ARITY              2
-#define METALANG99_add3_ARITY             3
-#define METALANG99_sub3_ARITY             3
-#define METALANG99_mul3_ARITY             3
-#define METALANG99_div3_ARITY             3
-#define METALANG99_min_ARITY              2
-#define METALANG99_max_ARITY              2
+#define ML99_inc_ARITY              1
+#define ML99_dec_ARITY              1
+#define ML99_natMatch_ARITY         2
+#define ML99_natMatchWithArgs_ARITY 3
+#define ML99_natEq_ARITY            2
+#define ML99_natNeq_ARITY           2
+#define ML99_greater_ARITY          2
+#define ML99_greaterEq_ARITY        2
+#define ML99_lesser_ARITY           2
+#define ML99_lesserEq_ARITY         2
+#define ML99_add_ARITY              2
+#define ML99_sub_ARITY              2
+#define ML99_mul_ARITY              2
+#define ML99_div_ARITY              2
+#define ML99_divChecked_ARITY       2
+#define ML99_mod_ARITY              2
+#define ML99_add3_ARITY             3
+#define ML99_sub3_ARITY             3
+#define ML99_mul3_ARITY             3
+#define ML99_div3_ARITY             3
+#define ML99_min_ARITY              2
+#define ML99_max_ARITY              2
 
-#define METALANG99_PRIV_modProgress_ARITY 3
-// }
-
-// Aliases {
-#ifndef METALANG99_FULL_PREFIX_ONLY
-
-#define M_inc              METALANG99_inc
-#define M_dec              METALANG99_dec
-#define M_natMatch         METALANG99_natMatch
-#define M_natMatchWithArgs METALANG99_natMatchWithArgs
-#define M_natEq            METALANG99_natEq
-#define M_natNeq           METALANG99_natNeq
-#define M_greater          METALANG99_greater
-#define M_greaterEq        METALANG99_greaterEq
-#define M_lesser           METALANG99_lesser
-#define M_lesserEq         METALANG99_lesserEq
-#define M_add              METALANG99_add
-#define M_sub              METALANG99_sub
-#define M_mul              METALANG99_mul
-#define M_div              METALANG99_div
-#define M_divChecked       METALANG99_divChecked
-#define M_mod              METALANG99_mod
-#define M_add3             METALANG99_add3
-#define M_sub3             METALANG99_sub3
-#define M_mul3             METALANG99_mul3
-#define M_div3             METALANG99_div3
-#define M_min              METALANG99_min
-#define M_max              METALANG99_max
-
-#define M_INC     METALANG99_INC
-#define M_DEC     METALANG99_DEC
-#define M_NAT_EQ  METALANG99_NAT_EQ
-#define M_NAT_NEQ METALANG99_NAT_NEQ
-
-#endif // METALANG99_FULL_PREFIX_ONLY
+#define ML99_PRIV_modProgress_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE
 
-#endif // METALANG99_NAT_H
+#endif // ML99_NAT_H

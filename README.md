@@ -14,26 +14,27 @@
 // Compile-time list manipulation {
 // 3, 3, 3, 3, 3
 static int five_threes[] = {
-    M_listEvalCommaSep(M_listReplicate(v(5), v(3))),
+    ML99_listEvalCommaSep(ML99_listReplicate(v(5), v(3))),
 };
 
 // 5, 4, 3, 2, 1
 static int from_5_to_1[] = {
-    M_listEvalCommaSep(M_listReverse(M_list(v(1, 2, 3, 4, 5)))),
+    ML99_listEvalCommaSep(ML99_listReverse(ML99_list(v(1, 2, 3, 4, 5)))),
 };
 
 // 9, 2, 5
 static int lesser_than_10[] = {
-    M_listEvalCommaSep(M_listFilter(M_appl(v(M_greater), v(10)), M_list(v(9, 2, 11, 13, 5)))),
+    ML99_listEvalCommaSep(
+        ML99_listFilter(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(9, 2, 11, 13, 5)))),
 };
 // }
 
 // Macro recursion {
-#define factorial(n)        M_natMatch(n, v(factorial_))
+#define factorial(n)        ML99_natMatch(n, v(factorial_))
 #define factorial_Z_IMPL()  v(1)
-#define factorial_S_IMPL(n) M_mul(M_inc(v(n)), factorial(v(n)))
+#define factorial_S_IMPL(n) ML99_mul(ML99_inc(v(n)), factorial(v(n)))
 
-M_assertEq(factorial(v(4)), v(24));
+ML99_assertEq(factorial(v(4)), v(24));
 // }
 
 // Overloading on a number of arguments {
@@ -41,7 +42,7 @@ typedef struct {
     double width, height;
 } Rect;
 
-#define Rect_new(...) M_overload(Rect_new_, __VA_ARGS__)
+#define Rect_new(...) ML99_overload(Rect_new_, __VA_ARGS__)
 #define Rect_new_1(x)                                                                              \
     { x, x }
 #define Rect_new_2(x, y)                                                                           \
@@ -126,7 +127,7 @@ Happy hacking!
 
  - **Partial application.** Tracking auxiliary arguments here and there results in code clutter; partial application, in turn, allows to naturally capture an environment by applying your constant values first. Besides that, partial application facilitates better reuse of metafunctions.
 
- - **Debugging and error reporting.** You can conveniently debug your macros with `M_abort` and report fatal errors with `M_fatal`. The interpreter will immediately finish its work and do the trick.
+ - **Debugging and error reporting.** You can conveniently debug your macros with `ML99_abort` and report fatal errors with `ML99_fatal`. The interpreter will immediately finish its work and do the trick.
 
 [Boost/Preprocessor]: http://boost.org/libs/preprocessor
 [Order PP]: https://github.com/rofl0r/order-pp
@@ -156,12 +157,12 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here's its informal (and imprecise) description:
 
  - Every `v(...)` is a reduction step.
- - Every `M_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
+ - Every `ML99_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
 
 To perform fewer reduction steps, you can:
 
- - Use `M_callTrivial`,
- - Use the plain versions (e.g., `M_CONSUME` instead of `M_consume`),
+ - Use `ML99_callTrivial`,
+ - Use the plain versions (e.g., `ML99_CONSUME` instead of `ML99_consume`),
  - Call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and macro blueprinting will not happen. I strongly recommend to use this trick only if `X` is placed locally to a caller in order to ensure the correctness of expansion.
 
 ## FAQ
@@ -172,7 +173,7 @@ A: Metalang99 detects and reports about syntactic errors, where possible. For ex
 
 ```c
 // !"Metalang99 syntax error": `123`
-M_eval(123)
+ML99_eval(123)
 ```
 
 However, compile-time errors can be still quite obscured. I strongly recommend using `-ftrack-macro-expansion=0` (GCC) as it tells a compiler to not print a useless bedsheet of macro expansions.

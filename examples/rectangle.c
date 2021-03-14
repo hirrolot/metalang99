@@ -2,11 +2,11 @@
 
 #include <metalang99.h>
 
-#define rect(width, height) M_tuple(width, height)
-#define rectWidth           M_tupleGet(0)
-#define rectHeight          M_tupleGet(1)
+#define rect(width, height) ML99_tuple(width, height)
+#define rectWidth           ML99_tupleGet(0)
+#define rectHeight          ML99_tupleGet(1)
 
-#define rectArea(rect) M_mul(rectWidth(rect), rectHeight(rect))
+#define rectArea(rect) ML99_mul(rectWidth(rect), rectHeight(rect))
 
 /*
  *                15
@@ -20,6 +20,6 @@
  */
 #define RECTANGLE rect(v(15), v(7))
 
-M_assertEq(rectArea(RECTANGLE), v(15 * 7));
+ML99_assertEq(rectArea(RECTANGLE), v(15 * 7));
 
 int main(void) {}

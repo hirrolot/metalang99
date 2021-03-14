@@ -8,27 +8,22 @@ The Metalang99 Standard Library
 
 The Metalang99 standard library exports a set of macros implemented using the `Metalang99 metalanguage`_.
 
-The `METALANG99_MAJOR`, `METALANG99_MINOR`, and `METALANG99_PATCH` macros denote the major, the minor, and the patch numbers, respectively. They are defined in `metalang99.h`.
-
-\Options
---------
-
-If `METALANG99_FULL_PREFIX_ONLY` is defined, all macros will have only one name: `METALANG99_appl`, `METALANG99_call`, etc. Otherwise, shortening aliases will also be defined: `METALANG99_appl`, `M_appl`, `METALANG99_call`, `M_call`, etc (the default behaviour).
+The `ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` macros denote the major, the minor, and the patch numbers, respectively. They are defined in `metalang99.h`.
 
 Naming conventions
 ------------------
 
 A `SCREAMING_CASE` macro stands for the "plain" version of some other macro. To compute a final result of a plain macro, only preprocessor expansion is required. Plain macros are used to save some reduction steps, thereby making metaprograms faster.
 
-For example, here are two complete metaprograms, one using `M_untuple` and the second one using `M_UNTUPLE`:
+For example, here are two complete metaprograms, one using `ML99_untuple` and the second one using `ML99_UNTUPLE`:
 
 .. code:: c
 
-   M_eval(M_untuple(v((1, 2, 3))))
+   ML99_eval(ML99_untuple(v((1, 2, 3))))
 
 .. code:: c
 
-   M_UNTUPLE((1, 2, 3))
+   ML99_UNTUPLE((1, 2, 3))
 
 Both metaprograms result in `1, 2, 3`.
 

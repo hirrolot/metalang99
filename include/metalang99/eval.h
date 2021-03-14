@@ -3,8 +3,8 @@
  * The metaprogram evaluator.
  */
 
-#ifndef METALANG99_EVAL_H
-#define METALANG99_EVAL_H
+#ifndef ML99_EVAL_H
+#define ML99_EVAL_H
 
 #include <metalang99/eval/rec/control.h>
 #include <metalang99/eval/rec/unroll.h>
@@ -26,126 +26,112 @@
  *
  * #define F_IMPL(x, y) v(x + y)
  *
- * M_eval(v(abc ~ 123), M_call(F, v(1, 2)))
+ * ML99_eval(v(abc ~ 123), ML99_call(F, v(1, 2)))
  * @endcode
  */
-#define METALANG99_eval(...)                                                                       \
-    METALANG99_PRIV_REC_UNROLL(METALANG99_PRIV_EVAL_MATCH(                                         \
-        METALANG99_PRIV_REC_STOP,                                                                  \
+#define ML99_eval(...)                                                                             \
+    ML99_PRIV_REC_UNROLL(ML99_PRIV_EVAL_MATCH(                                                     \
+        ML99_PRIV_REC_STOP,                                                                        \
         (~),                                                                                       \
         0fappend,                                                                                  \
-        METALANG99_PRIV_EVAL_ACC(),                                                                \
+        ML99_PRIV_EVAL_ACC(),                                                                      \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~))
 
 #ifndef DOXYGEN_IGNORE
 
-#define METALANG99_PRIV_REC_UNROLL(...) METALANG99_PRIV_REC_0(__VA_ARGS__)
+#define ML99_PRIV_REC_UNROLL(...) ML99_PRIV_REC_0(__VA_ARGS__)
 
 // Recursion hooks {
-#define METALANG99_PRIV_EVAL_MATCH_HOOK()     METALANG99_PRIV_EVAL_MATCH
-#define METALANG99_PRIV_EVAL_0v_K_HOOK()      METALANG99_PRIV_EVAL_0v_K
-#define METALANG99_PRIV_EVAL_0args_K_HOOK()   METALANG99_PRIV_EVAL_0args_K
-#define METALANG99_PRIV_EVAL_0op_K_HOOK()     METALANG99_PRIV_EVAL_0op_K
-#define METALANG99_PRIV_EVAL_0callTr_K_HOOK() METALANG99_PRIV_EVAL_0callTr_K
+#define ML99_PRIV_EVAL_MATCH_HOOK()     ML99_PRIV_EVAL_MATCH
+#define ML99_PRIV_EVAL_0v_K_HOOK()      ML99_PRIV_EVAL_0v_K
+#define ML99_PRIV_EVAL_0args_K_HOOK()   ML99_PRIV_EVAL_0args_K
+#define ML99_PRIV_EVAL_0op_K_HOOK()     ML99_PRIV_EVAL_0op_K
+#define ML99_PRIV_EVAL_0callTr_K_HOOK() ML99_PRIV_EVAL_0callTr_K
 // }
 
-#define METALANG99_PRIV_EVAL_MATCH(k, k_cx, folder, acc, head, ...)                                \
-    METALANG99_PRIV_CHECK_TERM(head, METALANG99_PRIV_TERM_MATCH)                                   \
-    (head, METALANG99_PRIV_EVAL_)(                                                                 \
-        k,                                                                                         \
-        k_cx,                                                                                      \
-        folder,                                                                                    \
-        acc,                                                                                       \
-        (__VA_ARGS__),                                                                             \
-        METALANG99_PRIV_EVAL_TERM_DATA head)
+#define ML99_PRIV_EVAL_MATCH(k, k_cx, folder, acc, head, ...)                                      \
+    ML99_PRIV_CHECK_TERM(head, ML99_PRIV_TERM_MATCH)                                               \
+    (head, ML99_PRIV_EVAL_)(k, k_cx, folder, acc, (__VA_ARGS__), ML99_PRIV_EVAL_TERM_DATA head)
 
 // Reduction rules {
-#define METALANG99_PRIV_EVAL_0v      METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0v_K)
-#define METALANG99_PRIV_EVAL_0args   METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0args_K)
-#define METALANG99_PRIV_EVAL_0op     METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0op_K)
-#define METALANG99_PRIV_EVAL_0callTr METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_0callTr_K)
+#define ML99_PRIV_EVAL_0v      ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0v_K)
+#define ML99_PRIV_EVAL_0args   ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0args_K)
+#define ML99_PRIV_EVAL_0op     ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0op_K)
+#define ML99_PRIV_EVAL_0callTr ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0callTr_K)
 
-#define METALANG99_PRIV_EVAL_0fatal(...) METALANG99_PRIV_EVAL_0fatal_EXPANDED(__VA_ARGS__)
+#define ML99_PRIV_EVAL_0fatal(...) ML99_PRIV_EVAL_0fatal_EXPANDED(__VA_ARGS__)
 // clang-format off
-#define METALANG99_PRIV_EVAL_0fatal_EXPANDED(_k, _k_cx, _folder, _acc, _tail, f, message)          \
-    METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_REC_STOP)((~), !"Metalang99 error" (f): message)
+#define ML99_PRIV_EVAL_0fatal_EXPANDED(_k, _k_cx, _folder, _acc, _tail, f, message)          \
+    ML99_PRIV_REC_CONTINUE(ML99_PRIV_REC_STOP)((~), !"Metalang99 error" (f): message)
 // clang-format on
 
-#define METALANG99_PRIV_EVAL_0abort(_k, k_cx, folder, acc, _tail, ...)                             \
-    METALANG99_PRIV_REC_CONTINUE(METALANG99_PRIV_EVAL_MATCH)                                       \
-    (METALANG99_PRIV_REC_STOP, (~), 0fappend, METALANG99_PRIV_EVAL_ACC(), __VA_ARGS__, (0end, ~), ~)
+#define ML99_PRIV_EVAL_0abort(_k, k_cx, folder, acc, _tail, ...)                                   \
+    ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_MATCH)                                                   \
+    (ML99_PRIV_REC_STOP, (~), 0fappend, ML99_PRIV_EVAL_ACC(), __VA_ARGS__, (0end, ~), ~)
 
-#define METALANG99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                 \
-    METALANG99_PRIV_REC_CONTINUE(k)                                                                \
-    (METALANG99_PRIV_EXPAND k_cx, METALANG99_PRIV_EVAL_ACC_UNWRAP acc)
+#define ML99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                       \
+    ML99_PRIV_REC_CONTINUE(k)                                                                      \
+    (ML99_PRIV_EXPAND k_cx, ML99_PRIV_EVAL_ACC_UNWRAP acc)
 // } (Reduction rules)
 
 // Continuations {
-#define METALANG99_PRIV_EVAL_0v_K(k, k_cx, folder, acc, tail, ...)                                 \
-    METALANG99_PRIV_MACHINE_REDUCE(                                                                \
+#define ML99_PRIV_EVAL_0v_K(k, k_cx, folder, acc, tail, ...)                                       \
+    ML99_PRIV_MACHINE_REDUCE(                                                                      \
         k,                                                                                         \
         k_cx,                                                                                      \
         folder,                                                                                    \
-        METALANG99_PRIV_EVAL_##folder(acc, __VA_ARGS__),                                           \
-        METALANG99_PRIV_EXPAND tail)
+        ML99_PRIV_EVAL_##folder(acc, __VA_ARGS__),                                                 \
+        ML99_PRIV_EXPAND tail)
 
-#define METALANG99_PRIV_EVAL_0args_K(k, k_cx, folder, acc, tail, op, ...)                          \
-    METALANG99_PRIV_MACHINE_REDUCE(                                                                \
-        METALANG99_PRIV_EVAL_0callTr_K,                                                            \
+#define ML99_PRIV_EVAL_0args_K(k, k_cx, folder, acc, tail, op, ...)                                \
+    ML99_PRIV_MACHINE_REDUCE(                                                                      \
+        ML99_PRIV_EVAL_0callTr_K,                                                                  \
         (k, k_cx, folder, acc, tail, op),                                                          \
         0fcomma,                                                                                   \
-        METALANG99_PRIV_EVAL_ACC_COMMA_SEP(),                                                      \
+        ML99_PRIV_EVAL_ACC_COMMA_SEP(),                                                            \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
 
-#define METALANG99_PRIV_EVAL_0op_K(k, k_cx, folder, acc, tail, op, ...)                            \
-    METALANG99_PRIV_MACHINE_REDUCE(                                                                \
-        METALANG99_PRIV_EVAL_0callTr_K,                                                            \
+#define ML99_PRIV_EVAL_0op_K(k, k_cx, folder, acc, tail, op, ...)                                  \
+    ML99_PRIV_MACHINE_REDUCE(                                                                      \
+        ML99_PRIV_EVAL_0callTr_K,                                                                  \
         (k, k_cx, folder, acc, tail),                                                              \
         0fcomma,                                                                                   \
-        METALANG99_PRIV_EVAL_ACC_COMMA_SEP(),                                                      \
+        ML99_PRIV_EVAL_ACC_COMMA_SEP(),                                                            \
         op,                                                                                        \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
 
-#define METALANG99_PRIV_EVAL_0callTr_K(k, k_cx, folder, acc, tail, evaluated_op, ...)              \
+#define ML99_PRIV_EVAL_0callTr_K(k, k_cx, folder, acc, tail, evaluated_op, ...)                    \
     /* If the metafunction `evaluated_op` expands to many terms, we first evaluate these terms and \
      * accumulate them, otherwise, we just paste the single term with the rest of the tail. This   \
      * optimisation results in a huge performance improvement. */                                  \
-    METALANG99_PRIV_IF(                                                                            \
-        METALANG99_PRIV_CONTAINS_COMMA(evaluated_op##_IMPL(__VA_ARGS__)),                          \
-        METALANG99_PRIV_EVAL_0callTr_K_REGULAR,                                                    \
-        METALANG99_PRIV_EVAL_0callTr_K_OPTIMIZED)                                                  \
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_CONTAINS_COMMA(evaluated_op##_IMPL(__VA_ARGS__)),                                \
+        ML99_PRIV_EVAL_0callTr_K_REGULAR,                                                          \
+        ML99_PRIV_EVAL_0callTr_K_OPTIMIZED)                                                        \
     (k, k_cx, folder, acc, tail, evaluated_op##_IMPL(__VA_ARGS__))
 
-#define METALANG99_PRIV_EVAL_0callTr_K_OPTIMIZED(k, k_cx, folder, acc, tail, ...)                  \
-    METALANG99_PRIV_MACHINE_REDUCE(k, k_cx, folder, acc, __VA_ARGS__, METALANG99_PRIV_EXPAND tail)
+#define ML99_PRIV_EVAL_0callTr_K_OPTIMIZED(k, k_cx, folder, acc, tail, ...)                        \
+    ML99_PRIV_MACHINE_REDUCE(k, k_cx, folder, acc, __VA_ARGS__, ML99_PRIV_EXPAND tail)
 
-#define METALANG99_PRIV_EVAL_0callTr_K_REGULAR(k, k_cx, folder, acc, tail, ...)                    \
-    METALANG99_PRIV_MACHINE_REDUCE(                                                                \
-        METALANG99_PRIV_EVAL_0v_K,                                                                 \
+#define ML99_PRIV_EVAL_0callTr_K_REGULAR(k, k_cx, folder, acc, tail, ...)                          \
+    ML99_PRIV_MACHINE_REDUCE(                                                                      \
+        ML99_PRIV_EVAL_0v_K,                                                                       \
         (k, k_cx, folder, acc, tail),                                                              \
         0fappend,                                                                                  \
-        METALANG99_PRIV_EVAL_ACC(),                                                                \
+        ML99_PRIV_EVAL_ACC(),                                                                      \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
 
-#define METALANG99_PRIV_MACHINE_REDUCE(...) METALANG99_PRIV_EVAL_MATCH(__VA_ARGS__)
+#define ML99_PRIV_MACHINE_REDUCE(...) ML99_PRIV_EVAL_MATCH(__VA_ARGS__)
 // } (Continuations)
-
-// Aliases {
-#ifndef METALANG99_FULL_PREFIX_ONLY
-
-#define M_eval METALANG99_eval
-
-#endif // METALANG99_FULL_PREFIX_ONLY
-// }
 
 #endif // DOXYGEN_IGNORE
 
-#endif // METALANG99_EVAL_H
+#endif // ML99_EVAL_H

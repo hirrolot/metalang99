@@ -3,8 +3,8 @@
  * A choice type with two cases.
  */
 
-#ifndef METALANG99_EITHER_H
-#define METALANG99_EITHER_H
+#ifndef ML99_EITHER_H
+#define ML99_EITHER_H
 
 #include <metalang99/choice.h>
 #include <metalang99/logical.h>
@@ -13,12 +13,12 @@
 /**
  * The left value @p x.
  */
-#define METALANG99_left(x) METALANG99_call(METALANG99_left, x)
+#define ML99_left(x) ML99_call(ML99_left, x)
 
 /**
  * The right value @p x.
  */
-#define METALANG99_right(x) METALANG99_call(METALANG99_right, x)
+#define ML99_right(x) ML99_call(ML99_right, x)
 
 /**
  * 1 if @p either contains a left value, otherwise 0.
@@ -29,13 +29,13 @@
  * #include <metalang99/either.h>
  *
  * // 1
- * M_isLeft(M_left(v(123)))
+ * ML99_isLeft(ML99_left(v(123)))
  *
  * // 0
- * M_isLeft(M_right(v(123)))
+ * ML99_isLeft(ML99_right(v(123)))
  * @endcode
  */
-#define METALANG99_isLeft(either) METALANG99_call(METALANG99_isLeft, either)
+#define ML99_isLeft(either) ML99_call(ML99_isLeft, either)
 
 /**
  * 1 if @p either contains a right value, otherwise 0.
@@ -46,13 +46,13 @@
  * #include <metalang99/either.h>
  *
  * // 1
- * M_isRight(M_right(v(123)))
+ * ML99_isRight(ML99_right(v(123)))
  *
  * // 0
- * M_isRight(M_left(v(123)))
+ * ML99_isRight(ML99_left(v(123)))
  * @endcode
  */
-#define METALANG99_isRight(either) METALANG99_call(METALANG99_isRight, either)
+#define ML99_isRight(either) ML99_call(ML99_isRight, either)
 
 /**
  * Tests @p either and @p other for equality.
@@ -64,20 +64,19 @@
  * #include <metalang99/nat.h>
  *
  * // 1
- * M_eitherEq(v(M_natEq), M_left(v(123)), M_left(v(123)))
+ * ML99_eitherEq(v(ML99_natEq), ML99_left(v(123)), ML99_left(v(123)))
  *
  * // 0
- * M_eitherEq(v(M_natEq), M_right(v(123)), M_left(v(8)))
+ * ML99_eitherEq(v(ML99_natEq), ML99_right(v(123)), ML99_left(v(8)))
  *
  * // 0
- * M_eitherEq(v(M_natEq), M_right(v(123)), M_left(v(123)))
+ * ML99_eitherEq(v(ML99_natEq), ML99_right(v(123)), ML99_left(v(123)))
  * @endcode
  */
-#define METALANG99_eitherEq(compare, either, other)                                                \
-    METALANG99_call(METALANG99_eitherEq, compare, either, other)
+#define ML99_eitherEq(compare, either, other) ML99_call(ML99_eitherEq, compare, either, other)
 
 /**
- * Returns the left value on #METALANG99_left or emits a fatal error on #METALANG99_right.
+ * Returns the left value on #ML99_left or emits a fatal error on #ML99_right.
  *
  * # Examples
  *
@@ -85,16 +84,16 @@
  * #include <metalang99/either.h>
  *
  * // 123
- * M_unwrapLeft(M_left(v(123)))
+ * ML99_unwrapLeft(ML99_left(v(123)))
  *
  * // Emits a fatal error.
- * M_unwrapLeft(M_right(v(123)))
+ * ML99_unwrapLeft(ML99_right(v(123)))
  * @endcode
  */
-#define METALANG99_unwrapLeft(either) METALANG99_call(METALANG99_unwrapLeft, either)
+#define ML99_unwrapLeft(either) ML99_call(ML99_unwrapLeft, either)
 
 /**
- * Returns the right value on #METALANG99_right or emits a fatal error on #METALANG99_left.
+ * Returns the right value on #ML99_right or emits a fatal error on #ML99_left.
  *
  * # Examples
  *
@@ -102,89 +101,72 @@
  * #include <metalang99/either.h>
  *
  * // 123
- * M_unwrapRight(M_right(v(123)))
+ * ML99_unwrapRight(ML99_right(v(123)))
  *
  * // Emits a fatal error.
- * M_unwrapRight(M_left(v(123)))
+ * ML99_unwrapRight(ML99_left(v(123)))
  * @endcode
  */
-#define METALANG99_unwrapRight(either) METALANG99_call(METALANG99_unwrapRight, either)
+#define ML99_unwrapRight(either) ML99_call(ML99_unwrapRight, either)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_left_IMPL(x)  v(METALANG99_CHOICE(left, x))
-#define METALANG99_right_IMPL(x) v(METALANG99_CHOICE(right, x))
+#define ML99_left_IMPL(x)  v(ML99_CHOICE(left, x))
+#define ML99_right_IMPL(x) v(ML99_CHOICE(right, x))
 
-// METALANG99_isLeft_IMPL {
-#define METALANG99_isLeft_IMPL(either)        METALANG99_match_IMPL(either, METALANG99_PRIV_isLeft_)
-#define METALANG99_PRIV_isLeft_left_IMPL(_x)  v(METALANG99_true)
-#define METALANG99_PRIV_isLeft_right_IMPL(_x) v(METALANG99_false)
+// ML99_isLeft_IMPL {
+#define ML99_isLeft_IMPL(either)        ML99_match_IMPL(either, ML99_PRIV_isLeft_)
+#define ML99_PRIV_isLeft_left_IMPL(_x)  v(ML99_true)
+#define ML99_PRIV_isLeft_right_IMPL(_x) v(ML99_false)
 // }
 
-// METALANG99_isRight_IMPL {
-#define METALANG99_isRight_IMPL(either) METALANG99_not(METALANG99_isLeft_IMPL(either))
+// ML99_isRight_IMPL {
+#define ML99_isRight_IMPL(either) ML99_not(ML99_isLeft_IMPL(either))
 // }
 
-// METALANG99_eitherEq_IMPL {
-#define METALANG99_eitherEq_IMPL(compare, either, other)                                           \
-    METALANG99_matchWithArgs_IMPL(either, METALANG99_PRIV_eitherEq_, other, compare)
+// ML99_eitherEq_IMPL {
+#define ML99_eitherEq_IMPL(compare, either, other)                                                 \
+    ML99_matchWithArgs_IMPL(either, ML99_PRIV_eitherEq_, other, compare)
 
-#define METALANG99_PRIV_eitherEq_left_IMPL(x, other, compare)                                      \
-    METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_eitherEq_left_, x, compare)
-#define METALANG99_PRIV_eitherEq_right_IMPL(x, other, compare)                                     \
-    METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_eitherEq_right_, x, compare)
+#define ML99_PRIV_eitherEq_left_IMPL(x, other, compare)                                            \
+    ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_left_, x, compare)
+#define ML99_PRIV_eitherEq_right_IMPL(x, other, compare)                                           \
+    ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_right_, x, compare)
 
-#define METALANG99_PRIV_eitherEq_left_left_IMPL(y, x, compare)  METALANG99_appl2_IMPL(compare, x, y)
-#define METALANG99_PRIV_eitherEq_left_right_IMPL(y, x, compare) v(METALANG99_false)
-#define METALANG99_PRIV_eitherEq_right_left_IMPL(y, x, compare) v(METALANG99_false)
-#define METALANG99_PRIV_eitherEq_right_right_IMPL(y, x, compare)                                   \
-    METALANG99_appl2_IMPL(compare, x, y)
-// } (METALANG99_eitherEq_IMPL)
+#define ML99_PRIV_eitherEq_left_left_IMPL(y, x, compare)   ML99_appl2_IMPL(compare, x, y)
+#define ML99_PRIV_eitherEq_left_right_IMPL(y, x, compare)  v(ML99_false)
+#define ML99_PRIV_eitherEq_right_left_IMPL(y, x, compare)  v(ML99_false)
+#define ML99_PRIV_eitherEq_right_right_IMPL(y, x, compare) ML99_appl2_IMPL(compare, x, y)
+// } (ML99_eitherEq_IMPL)
 
-// METALANG99_unwrapLeft_IMPL {
-#define METALANG99_unwrapLeft_IMPL(either)                                                         \
-    METALANG99_match_IMPL(either, METALANG99_PRIV_unwrapLeft_)
-#define METALANG99_PRIV_unwrapLeft_left_IMPL(x) v(x)
-#define METALANG99_PRIV_unwrapLeft_right_IMPL(_x)                                                  \
-    METALANG99_fatal(METALANG99_unwrapLeft, expected METALANG99_left but found METALANG99_right)
+// ML99_unwrapLeft_IMPL {
+#define ML99_unwrapLeft_IMPL(either)      ML99_match_IMPL(either, ML99_PRIV_unwrapLeft_)
+#define ML99_PRIV_unwrapLeft_left_IMPL(x) v(x)
+#define ML99_PRIV_unwrapLeft_right_IMPL(_x)                                                        \
+    ML99_fatal(ML99_unwrapLeft, expected ML99_left but found ML99_right)
 // }
 
-// METALANG99_unwrapRight_IMPL {
-#define METALANG99_unwrapRight_IMPL(either)                                                        \
-    METALANG99_match_IMPL(either, METALANG99_PRIV_unwrapRight_)
-#define METALANG99_PRIV_unwrapRight_left_IMPL(_x)                                                  \
-    METALANG99_fatal(METALANG99_unwrapRight, expected METALANG99_right but found METALANG99_left)
-#define METALANG99_PRIV_unwrapRight_right_IMPL(x) v(x)
+// ML99_unwrapRight_IMPL {
+#define ML99_unwrapRight_IMPL(either) ML99_match_IMPL(either, ML99_PRIV_unwrapRight_)
+#define ML99_PRIV_unwrapRight_left_IMPL(_x)                                                        \
+    ML99_fatal(ML99_unwrapRight, expected ML99_right but found ML99_left)
+#define ML99_PRIV_unwrapRight_right_IMPL(x) v(x)
 // }
 
 // } (Implementation)
 
 // Arity specifiers {
-#define METALANG99_left_ARITY        1
-#define METALANG99_right_ARITY       1
-#define METALANG99_isLeft_ARITY      1
-#define METALANG99_isRight_ARITY     1
-#define METALANG99_eitherEq_ARITY    3
-#define METALANG99_unwrapLeft_ARITY  1
-#define METALANG99_unwrapRight_ARITY 1
-// }
-
-// Aliases {
-#ifndef METALANG99_FULL_PREFIX_ONLY
-
-#define M_left        METALANG99_left
-#define M_right       METALANG99_right
-#define M_isLeft      METALANG99_isLeft
-#define M_isRight     METALANG99_isRight
-#define M_eitherEq    METALANG99_eitherEq
-#define M_unwrapLeft  METALANG99_unwrapLeft
-#define M_unwrapRight METALANG99_unwrapRight
-
-#endif // METALANG99_FULL_PREFIX_ONLY
+#define ML99_left_ARITY        1
+#define ML99_right_ARITY       1
+#define ML99_isLeft_ARITY      1
+#define ML99_isRight_ARITY     1
+#define ML99_eitherEq_ARITY    3
+#define ML99_unwrapLeft_ARITY  1
+#define ML99_unwrapRight_ARITY 1
 // }
 
 #endif // DOXYGEN_IGNORE
 
-#endif // METALANG99_EITHER_H
+#endif // ML99_EITHER_H

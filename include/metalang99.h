@@ -3,8 +3,8 @@
  * Everything Metalang99 provides.
  */
 
-#ifndef METALANG99_H
-#define METALANG99_H
+#ifndef ML99_H
+#define ML99_H
 
 #include <metalang99/assert.h>
 #include <metalang99/choice.h>
@@ -19,8 +19,8 @@
 #include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
-#define METALANG99_MAJOR 0
-#define METALANG99_MINOR 4
-#define METALANG99_PATCH 2
+#define ML99_MAJOR 0
+#define ML99_MINOR 4
+#define ML99_PATCH 2
 
-#endif // METALANG99_H
+#endif // ML99_H

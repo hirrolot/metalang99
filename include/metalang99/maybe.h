@@ -3,8 +3,8 @@
  * An optional value.
  */
 
-#ifndef METALANG99_MAYBE_H
-#define METALANG99_MAYBE_H
+#ifndef ML99_MAYBE_H
+#define ML99_MAYBE_H
 
 #include <metalang99/choice.h>
 #include <metalang99/logical.h>
@@ -13,12 +13,12 @@
 /**
  * Some value @p x.
  */
-#define METALANG99_just(x) METALANG99_call(METALANG99_just, x)
+#define ML99_just(x) ML99_call(ML99_just, x)
 
 /**
  * No value.
  */
-#define METALANG99_nothing() METALANG99_callTrivial(METALANG99_nothing, )
+#define ML99_nothing() ML99_callTrivial(ML99_nothing, )
 
 /**
  * 1 if @p maybe contains some value, otherwise 0.
@@ -29,13 +29,13 @@
  * #include <metalang99/maybe.h>
  *
  * // 1
- * M_isJust(M_just(v(123)))
+ * ML99_isJust(ML99_just(v(123)))
  *
  * // 0
- * M_isJust(M_nothing())
+ * ML99_isJust(ML99_nothing())
  * @endcode
  */
-#define METALANG99_isJust(maybe) METALANG99_call(METALANG99_isJust, maybe)
+#define ML99_isJust(maybe) ML99_call(ML99_isJust, maybe)
 
 /**
  * 1 if @p maybe contains no value, otherwise 0.
@@ -46,13 +46,13 @@
  * #include <metalang99/maybe.h>
  *
  * // 1
- * M_isNothing(M_nothing())
+ * ML99_isNothing(ML99_nothing())
  *
  * // 0
- * M_isNothing(M_just(v(123)))
+ * ML99_isNothing(ML99_just(v(123)))
  * @endcode
  */
-#define METALANG99_isNothing(maybe) METALANG99_call(METALANG99_isNothing, maybe)
+#define ML99_isNothing(maybe) ML99_call(ML99_isNothing, maybe)
 
 /**
  * Tests @p maybe and @p other for equality.
@@ -64,20 +64,19 @@
  * #include <metalang99/nat.h>
  *
  * // 1
- * M_maybeEq(v(M_natEq), M_just(v(123)), M_just(v(123)));
+ * ML99_maybeEq(v(ML99_natEq), ML99_just(v(123)), ML99_just(v(123)));
  *
  * // 0
- * M_maybeEq(v(M_natEq), M_just(v(4)), M_just(v(6)));
+ * ML99_maybeEq(v(ML99_natEq), ML99_just(v(4)), ML99_just(v(6)));
  *
  * // 0
- * M_maybeEq(v(M_natEq), M_just(v(4)), M_nothing());
+ * ML99_maybeEq(v(ML99_natEq), ML99_just(v(4)), ML99_nothing());
  * @endcode
  */
-#define METALANG99_maybeEq(compare, maybe, other)                                                  \
-    METALANG99_call(METALANG99_maybeEq, compare, maybe, other)
+#define ML99_maybeEq(compare, maybe, other) ML99_call(ML99_maybeEq, compare, maybe, other)
 
 /**
- * Returns the contained value on #METALANG99_just or emits a fatal error on #METALANG99_nothing.
+ * Returns the contained value on #ML99_just or emits a fatal error on #ML99_nothing.
  *
  * # Examples
  *
@@ -85,75 +84,61 @@
  * #include <metalang99/maybe.h>
  *
  * // 123
- * M_maybeUnwrap(M_just(v(123)))
+ * ML99_maybeUnwrap(ML99_just(v(123)))
  *
  * // Emits a fatal error.
- * M_maybeUnwrap(M_nothing())
+ * ML99_maybeUnwrap(ML99_nothing())
  * @endcode
  */
-#define METALANG99_maybeUnwrap(maybe) METALANG99_call(METALANG99_maybeUnwrap, maybe)
+#define ML99_maybeUnwrap(maybe) ML99_call(ML99_maybeUnwrap, maybe)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_just_IMPL(x)   v(METALANG99_CHOICE(just, x))
-#define METALANG99_nothing_IMPL() v(METALANG99_CHOICE(nothing, ~))
+#define ML99_just_IMPL(x)   v(ML99_CHOICE(just, x))
+#define ML99_nothing_IMPL() v(ML99_CHOICE(nothing, ~))
 
-// METALANG99_isJust_IMPL {
-#define METALANG99_isJust_IMPL(maybe)          METALANG99_match_IMPL(maybe, METALANG99_PRIV_isJust_)
-#define METALANG99_PRIV_isJust_just_IMPL(_x)   v(METALANG99_true)
-#define METALANG99_PRIV_isJust_nothing_IMPL(_) v(METALANG99_false)
+// ML99_isJust_IMPL {
+#define ML99_isJust_IMPL(maybe)          ML99_match_IMPL(maybe, ML99_PRIV_isJust_)
+#define ML99_PRIV_isJust_just_IMPL(_x)   v(ML99_true)
+#define ML99_PRIV_isJust_nothing_IMPL(_) v(ML99_false)
 // }
 
-// METALANG99_isNothing_IMPL {
-#define METALANG99_isNothing_IMPL(maybe) METALANG99_not(METALANG99_isJust_IMPL(maybe))
+// ML99_isNothing_IMPL {
+#define ML99_isNothing_IMPL(maybe) ML99_not(ML99_isJust_IMPL(maybe))
 // }
 
-// METALANG99_maybeEq_IMPL {
-#define METALANG99_maybeEq_IMPL(compare, maybe, other)                                             \
-    METALANG99_matchWithArgs_IMPL(maybe, METALANG99_PRIV_maybeEq_, other, compare)
+// ML99_maybeEq_IMPL {
+#define ML99_maybeEq_IMPL(compare, maybe, other)                                                   \
+    ML99_matchWithArgs_IMPL(maybe, ML99_PRIV_maybeEq_, other, compare)
 
-#define METALANG99_PRIV_maybeEq_nothing_IMPL(_, other, _compare) METALANG99_isNothing_IMPL(other)
-#define METALANG99_PRIV_maybeEq_just_IMPL(x, other, compare)                                       \
-    METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_maybeEq_just_, x, compare)
+#define ML99_PRIV_maybeEq_nothing_IMPL(_, other, _compare) ML99_isNothing_IMPL(other)
+#define ML99_PRIV_maybeEq_just_IMPL(x, other, compare)                                             \
+    ML99_matchWithArgs_IMPL(other, ML99_PRIV_maybeEq_just_, x, compare)
 
-#define METALANG99_PRIV_maybeEq_just_nothing_IMPL(_, other, _compare) v(METALANG99_false)
-#define METALANG99_PRIV_maybeEq_just_just_IMPL(y, x, compare)         METALANG99_appl2_IMPL(compare, x, y)
-// } (METALANG99_maybeEq_IMPL)
+#define ML99_PRIV_maybeEq_just_nothing_IMPL(_, other, _compare) v(ML99_false)
+#define ML99_PRIV_maybeEq_just_just_IMPL(y, x, compare)         ML99_appl2_IMPL(compare, x, y)
+// } (ML99_maybeEq_IMPL)
 
-// METALANG99_maybeUnwrap_IMPL {
-#define METALANG99_maybeUnwrap_IMPL(maybe)                                                         \
-    METALANG99_match_IMPL(maybe, METALANG99_PRIV_maybeUnwrap_)
-#define METALANG99_PRIV_maybeUnwrap_nothing_IMPL(_)                                                \
-    METALANG99_fatal(METALANG99_maybeUnwrap, expected METALANG99_just but found METALANG99_nothing)
-#define METALANG99_PRIV_maybeUnwrap_just_IMPL(x) v(x)
+// ML99_maybeUnwrap_IMPL {
+#define ML99_maybeUnwrap_IMPL(maybe) ML99_match_IMPL(maybe, ML99_PRIV_maybeUnwrap_)
+#define ML99_PRIV_maybeUnwrap_nothing_IMPL(_)                                                      \
+    ML99_fatal(ML99_maybeUnwrap, expected ML99_just but found ML99_nothing)
+#define ML99_PRIV_maybeUnwrap_just_IMPL(x) v(x)
 // }
 
 // } (Implementation)
 
 // Arity specifiers {
-#define METALANG99_just_ARITY        1
-#define METALANG99_nothing_ARITY     1
-#define METALANG99_isJust_ARITY      1
-#define METALANG99_isNothing_ARITY   1
-#define METALANG99_maybeEq_ARITY     3
-#define METALANG99_maybeUnwrap_ARITY 1
-// }
-
-// Aliases {
-#ifndef METALANG99_FULL_PREFIX_ONLY
-
-#define M_just        METALANG99_just
-#define M_nothing     METALANG99_nothing
-#define M_isJust      METALANG99_isJust
-#define M_isNothing   METALANG99_isNothing
-#define M_maybeEq     METALANG99_maybeEq
-#define M_maybeUnwrap METALANG99_maybeUnwrap
-
-#endif // METALANG99_FULL_PREFIX_ONLY
+#define ML99_just_ARITY        1
+#define ML99_nothing_ARITY     1
+#define ML99_isJust_ARITY      1
+#define ML99_isNothing_ARITY   1
+#define ML99_maybeEq_ARITY     3
+#define ML99_maybeUnwrap_ARITY 1
 // }
 
 #endif // DOXYGEN_IGNORE
 
-#endif // METALANG99_MAYBE_H
+#endif // ML99_MAYBE_H

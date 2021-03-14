@@ -3,26 +3,27 @@
 #include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
-// M_repeat {
-#define CHECK(_, x, y, z) M_assertPlain(x == 0 && y == 1 && z == 2)
+// ML99_repeat {
+#define CHECK(_, x, y, z) ML99_assertPlain(x == 0 && y == 1 && z == 2)
 #define F_IMPL(x)         v(, x)
 #define F_ARITY           1
 
-M_eval(v(CHECK), M_tuple(M_repeat(v(F), v(3))));
+ML99_eval(v(CHECK), ML99_tuple(ML99_repeat(v(F), v(3))));
 
 #undef CHECK
 #undef F_IMPL
 #undef F_ARITY
 // }
 
-// M_indexedParams {
+// ML99_indexedParams {
 #define CHECK_void
 
-M_eval(M_cat(v(CHECK_), M_untuple(M_indexedParams(M_nil()))))
+ML99_eval(ML99_cat(v(CHECK_), ML99_untuple(ML99_indexedParams(ML99_nil()))))
 
 #undef CHECK_void
 
-static void test_indexed_params M_eval(M_indexedParams(M_list(v(int, long long, const char *))))
+static void
+    test_indexed_params ML99_eval(ML99_indexedParams(ML99_list(v(int, long long, const char *))))
 {
     int i = _0;
     long long ll = _1;
@@ -34,12 +35,12 @@ static void test_indexed_params M_eval(M_indexedParams(M_list(v(int, long long, 
 }
 // }
 
-// M_indexedFields {
-M_assertEmpty(M_indexedFields(M_nil()));
+// ML99_indexedFields {
+ML99_assertEmpty(ML99_indexedFields(ML99_nil()));
 
 static void test_indexed_fields(void) {
     struct {
-        M_eval(M_indexedFields(M_list(v(int, long long, const char *))))
+        ML99_eval(ML99_indexedFields(ML99_list(v(int, long long, const char *))))
     } data = {0};
 
     int i = data._0;
@@ -52,12 +53,12 @@ static void test_indexed_fields(void) {
 }
 // }
 
-// M_indexedInitializerList {
+// ML99_indexedInitializerList {
 struct {
     int _0;
     long long _1;
     const char *_2;
-} test_indexed_initialiser_list_z = M_eval(M_indexedInitializerList(v(0)));
+} test_indexed_initialiser_list_z = ML99_eval(ML99_indexedInitializerList(v(0)));
 
 static void test_indexed_initialiser_list_s(void) {
     int _0 = 123;
@@ -68,14 +69,14 @@ static void test_indexed_initialiser_list_s(void) {
         int i;
         long long ll;
         const char *str;
-    } data = M_eval(M_indexedInitializerList(v(3)));
+    } data = ML99_eval(ML99_indexedInitializerList(v(3)));
 
     (void)data;
 }
 // }
 
-// M_indexedArgs {
-M_assertEmpty(M_indexedArgs(v(0)));
+// ML99_indexedArgs {
+ML99_assertEmpty(ML99_indexedArgs(v(0)));
 
 static void test_indexed_args(int i, long long ll, const char *str) {
     (void)i;
@@ -86,7 +87,7 @@ static void test_indexed_args(int i, long long ll, const char *str) {
     long long _1 = 149494456;
     const char *_2 = "abc";
 
-    test_indexed_args(M_eval(M_indexedArgs(v(3))));
+    test_indexed_args(ML99_eval(ML99_indexedArgs(v(3))));
 }
 // }
 

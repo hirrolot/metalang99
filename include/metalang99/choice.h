@@ -10,8 +10,8 @@
  * @include binary_tree.c
  */
 
-#ifndef METALANG99_CHOICE_H
-#define METALANG99_CHOICE_H
+#ifndef ML99_CHOICE_H
+#define ML99_CHOICE_H
 
 #include <metalang99/priv/variadics/get.h>
 
@@ -30,7 +30,7 @@
  * @note Specify `~` if you do not want to supply data; then, to match it, write a `_` parameter to
  * ignore.
  */
-#define METALANG99_choice(tag, ...) METALANG99_call(METALANG99_choice, tag, __VA_ARGS__)
+#define ML99_choice(tag, ...) ML99_call(ML99_choice, tag, __VA_ARGS__)
 
 /**
  * Evaluates to the tag of @p choice.
@@ -41,27 +41,27 @@
  * #include <metalang99/choice.h>
  *
  * // Foo
- * M_choiceTag(M_choice(v(Foo), v(1, 2, 3)))
+ * ML99_choiceTag(ML99_choice(v(Foo), v(1, 2, 3)))
  * @endcode
  */
-#define METALANG99_choiceTag(choice) METALANG99_call(METALANG99_choiceTag, choice)
+#define ML99_choiceTag(choice) ML99_call(ML99_choiceTag, choice)
 
 /**
  * Matches the instance @p choice of a choice type.
  *
- * This macro results in `M_callTrivial(<matcher><a choice's tag>, <choice's data>)`.
+ * This macro results in `ML99_callTrivial(<matcher><a choice's tag>, <choice's data>)`.
  *
  * # Examples
  *
  * See <a
  * href="https://github.com/Hirrolot/metalang99/blob/master/examples/binary_tree.c">examples/binary_tree.c</a>.
  */
-#define METALANG99_match(choice, matcher) METALANG99_call(METALANG99_match, choice, matcher)
+#define ML99_match(choice, matcher) ML99_call(ML99_match, choice, matcher)
 
 /**
- * The same as #METALANG99_match but supplies additional arguments to all branches.
+ * The same as #ML99_match but supplies additional arguments to all branches.
  *
- * This macro results in `M_callTrivial(<matcher><a choice's tag>, <choice's data>, args...)`.
+ * This macro results in `ML99_callTrivial(<matcher><a choice's tag>, <choice's data>, args...)`.
  *
  * # Examples
  *
@@ -71,66 +71,52 @@
  * #define MATCH_A_IMPL(x, y, z) v(x ~ y ~ z)
  *
  * // 123 ~ 456 ~ 789
- * M_matchWithArgs(M_choice(v(A), v(123)), v(MATCH_), v(456, 789))
+ * ML99_matchWithArgs(ML99_choice(v(A), v(123)), v(MATCH_), v(456, 789))
  * @endcode
  */
-#define METALANG99_matchWithArgs(choice, matcher, ...)                                             \
-    METALANG99_call(METALANG99_matchWithArgs, choice, matcher, __VA_ARGS__)
+#define ML99_matchWithArgs(choice, matcher, ...)                                                   \
+    ML99_call(ML99_matchWithArgs, choice, matcher, __VA_ARGS__)
 
-#define METALANG99_CHOICE(tag, ...)   (tag, __VA_ARGS__)
-#define METALANG99_CHOICE_TAG(choice) METALANG99_PRIV_VARIADICS_HEAD_AUX choice
+#define ML99_CHOICE(tag, ...)   (tag, __VA_ARGS__)
+#define ML99_CHOICE_TAG(choice) ML99_PRIV_VARIADICS_HEAD_AUX choice
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
 
-// METALANG99_choice_IMPL {
-#define METALANG99_choice_IMPL(tag, ...) v(METALANG99_CHOICE(tag, __VA_ARGS__))
+// ML99_choice_IMPL {
+#define ML99_choice_IMPL(tag, ...) v(ML99_CHOICE(tag, __VA_ARGS__))
 // }
 
-// METALANG99_choiceTag_IMPL {
-#define METALANG99_choiceTag_IMPL(choice) v(METALANG99_CHOICE_TAG(choice))
+// ML99_choiceTag_IMPL {
+#define ML99_choiceTag_IMPL(choice) v(ML99_CHOICE_TAG(choice))
 // }
 
-// METALANG99_match_IMPL {
-#define METALANG99_match_IMPL(choice, matcher)                                                     \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_CAT(matcher, METALANG99_PRIV_VARIADICS_HEAD_AUX choice),                        \
-        METALANG99_PRIV_VARIADICS_TAIL_AUX choice)
+// ML99_match_IMPL {
+#define ML99_match_IMPL(choice, matcher)                                                           \
+    ML99_callTrivial(                                                                              \
+        ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
+        ML99_PRIV_VARIADICS_TAIL_AUX choice)
 // }
 
-// METALANG99_matchWithArgs_IMPL {
-#define METALANG99_matchWithArgs_IMPL(choice, matcher, ...)                                        \
-    METALANG99_callTrivial(                                                                        \
-        METALANG99_CAT(matcher, METALANG99_PRIV_VARIADICS_HEAD_AUX choice),                        \
-        METALANG99_PRIV_VARIADICS_TAIL_AUX choice,                                                 \
+// ML99_matchWithArgs_IMPL {
+#define ML99_matchWithArgs_IMPL(choice, matcher, ...)                                              \
+    ML99_callTrivial(                                                                              \
+        ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
+        ML99_PRIV_VARIADICS_TAIL_AUX choice,                                                       \
         __VA_ARGS__)
 // }
 
 // } (Implementation)
 
 // Arity specifiers {
-#define METALANG99_choice_ARITY        2
-#define METALANG99_choiceTag_ARITY     1
-#define METALANG99_match_ARITY         2
-#define METALANG99_matchWithArgs_ARITY 3
-// }
-
-// Aliases {
-#ifndef METALANG99_FULL_PREFIX_ONLY
-
-#define M_choice        METALANG99_choice
-#define M_choiceTag     METALANG99_choiceTag
-#define M_match         METALANG99_match
-#define M_matchWithArgs METALANG99_matchWithArgs
-
-#define M_CHOICE     METALANG99_CHOICE
-#define M_CHOICE_TAG METALANG99_CHOICE_TAG
-
-#endif // METALANG99_FULL_PREFIX_ONLY
+#define ML99_choice_ARITY        2
+#define ML99_choiceTag_ARITY     1
+#define ML99_match_ARITY         2
+#define ML99_matchWithArgs_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE
 
-#endif // METALANG99_CHOICE_H
+#endif // ML99_CHOICE_H

@@ -1,12 +1,12 @@
 #include <metalang99/assert.h>
 
-M_assertEmptyPlain(M_eval(v()));
+ML99_assertEmptyPlain(ML99_eval(v()));
 
 // A function with zero arguments {
 #define F_IMPL() v(123)
 
-M_assertEq(M_call(F, v()), v(123));
-M_assertEq(M_call(v(F), v()), v(123));
+ML99_assertEq(ML99_call(F, v()), v(123));
+ML99_assertEq(ML99_call(v(F), v()), v(123));
 
 #undef F_IMPL
 // }
@@ -15,11 +15,11 @@ M_assertEq(M_call(v(F), v()), v(123));
 #define F_IMPL(x, y, z) v(x##y##z)
 #define BAR_IMPL(x, y)  v(x + y)
 
-M_assertEq(M_call(BAR, v(5), v(7)), v(5 + 7));
-M_assertEq(M_call(M_call(F, v(B), v(A), v(R)), v(6), v(11)), v(6 + 11));
+ML99_assertEq(ML99_call(BAR, v(5), v(7)), v(5 + 7));
+ML99_assertEq(ML99_call(ML99_call(F, v(B), v(A), v(R)), v(6), v(11)), v(6 + 11));
 
-M_assertEq(M_call(BAR, v(5, 7)), v(5 + 7));
-M_assertEq(M_call(M_call(F, v(B, A, R)), v(6, 11)), v(6 + 11));
+ML99_assertEq(ML99_call(BAR, v(5, 7)), v(5 + 7));
+ML99_assertEq(ML99_call(ML99_call(F, v(B, A, R)), v(6, 11)), v(6 + 11));
 
 #undef F_IMPL
 #undef BAR_IMPL
@@ -30,42 +30,42 @@ M_assertEq(M_call(M_call(F, v(B, A, R)), v(6, 11)), v(6 + 11));
 #define F_IMPL()    v(1), v(2), v(3)
 #define BAR_IMPL(x) v()
 
-M_eval(M_call(BAR, M_call(F, v())))
+ML99_eval(ML99_call(BAR, ML99_call(F, v())))
 
 #undef F_IMPL
 #undef BAR_IMPL
 
 // Recursion might arise from a higher-order macro, if `op` invokes `F`, but nonetheless the
 // second call to `F` must be performed as expected.
-#define F_IMPL(op) M_call(op, v(123))
-#define OP_IMPL(x) M_call(F, v(ID))
+#define F_IMPL(op) ML99_call(op, v(123))
+#define OP_IMPL(x) ML99_call(F, v(ID))
 #define ID_IMPL(x) v(x)
 
-M_assertEq(M_call(F, v(OP)), v(123));
+ML99_assertEq(ML99_call(F, v(OP)), v(123));
 
 #undef F_IMPL
 #undef OP_IMPL
 #undef ID_IMPL
 
-// M_abort {
-M_assertEmpty(M_abort(v()));
-M_assertEq(M_abort(v(815057)), v(815057));
-M_assertPlain(M_eval(v(~), M_abort(v(123)), v(~)) == 123);
+// ML99_abort {
+ML99_assertEmpty(ML99_abort(v()));
+ML99_assertEq(ML99_abort(v(815057)), v(815057));
+ML99_assertPlain(ML99_eval(v(~), ML99_abort(v(123)), v(~)) == 123);
 
-// Ensure that `M_abort` also works correctly after some evaluations.
-#define F_IMPL() M_call(G, v(1, 2), M_call(H, v(123)))
+// Ensure that `ML99_abort` also works correctly after some evaluations.
+#define F_IMPL() ML99_call(G, v(1, 2), ML99_call(H, v(123)))
 #define G_IMPL(_1, _2, _123_plus_1)                                                                \
-    M_abort(v(M_assertPlain(_1 == 1 && _2 == 2 && _123_plus_1 == 123 + 1)))
+    ML99_abort(v(ML99_assertPlain(_1 == 1 && _2 == 2 && _123_plus_1 == 123 + 1)))
 #define H_IMPL(a) v(a + 1)
 
-M_eval(M_call(F, v()));
+ML99_eval(ML99_call(F, v()));
 
 #undef F_IMPL
 #undef G_IMPL
 #undef H_IMPL
 
-// Ensure that `M_abort` immediately aborts interpretation even in an argument position.
-M_assertEq(M_call(NonExistingF, M_abort(v(123))), v(123));
+// Ensure that `ML99_abort` immediately aborts interpretation even in an argument position.
+ML99_assertEq(ML99_call(NonExistingF, ML99_abort(v(123))), v(123));
 // }
 
 // Partial application {
@@ -74,7 +74,7 @@ M_assertEq(M_call(NonExistingF, M_abort(v(123))), v(123));
 #define F_IMPL() v(123)
 #define F_ARITY  1
 
-M_assertEq(M_appl(v(F), v()), v(123));
+ML99_assertEq(ML99_appl(v(F), v()), v(123));
 
 #undef F_IMPL
 #undef F_ARITY
@@ -84,10 +84,10 @@ M_assertEq(M_appl(v(F), v()), v(123));
 #define F_IMPL(a, b, c, d) v(a##b##c##d)
 #define F_ARITY            4
 
-M_assertEq(M_appl(M_appl(M_appl(M_appl(v(F), v(10)), v(5)), v(7)), v(8)), v(10578));
-M_assertEq(M_appl(M_appl(M_appl2(v(F), v(10), v(5)), v(7)), v(8)), v(10578));
-M_assertEq(M_appl(M_appl3(v(F), v(10), v(5), v(7)), v(8)), v(10578));
-M_assertEq(M_appl4(v(F), v(10), v(5), v(7), v(8)), v(10578));
+ML99_assertEq(ML99_appl(ML99_appl(ML99_appl(ML99_appl(v(F), v(10)), v(5)), v(7)), v(8)), v(10578));
+ML99_assertEq(ML99_appl(ML99_appl(ML99_appl2(v(F), v(10), v(5)), v(7)), v(8)), v(10578));
+ML99_assertEq(ML99_appl(ML99_appl3(v(F), v(10), v(5), v(7)), v(8)), v(10578));
+ML99_assertEq(ML99_appl4(v(F), v(10), v(5), v(7), v(8)), v(10578));
 
 #undef F_IMPL
 #undef F_ARITY
@@ -96,23 +96,23 @@ M_assertEq(M_appl4(v(F), v(10), v(5), v(7), v(8)), v(10578));
 // The maximum arity {
 #define F_ARITY 255
 
-M_eval(M_consume(M_appl(v(F), v(~))))
-M_eval(M_consume(M_appl2(v(F), v(~), v(~))))
-M_eval(M_consume(M_appl3(v(F), v(~), v(~), v(~))))
+ML99_eval(ML99_consume(ML99_appl(v(F), v(~))))
+ML99_eval(ML99_consume(ML99_appl2(v(F), v(~), v(~))))
+ML99_eval(ML99_consume(ML99_appl3(v(F), v(~), v(~), v(~))))
 
 #undef F_ARITY
 // }
 
 // } (Partial application)
 
-// M_compose {
+// ML99_compose {
 #define F_IMPL(x) v((x + 1))
 #define G_IMPL(x) v((x * 8))
 
 #define F_ARITY 1
 #define G_ARITY 1
 
-M_assertEq(M_appl(M_compose(v(F), v(G)), v(3)), v((3 * 8) + 1));
+ML99_assertEq(ML99_appl(ML99_compose(v(F), v(G)), v(3)), v((3 * 8) + 1));
 
 #undef F_IMPL
 #undef G_IMPL

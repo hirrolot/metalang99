@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
- - `M_suppressUnusedBeforeStmt`
- - `M_tupleGet`, `M_variadicsGet`, `M_TUPLE_GET`, `M_VARIADICS_GET`
- - `M_tupleAppend`, `M_tuplePrepend`
- - `M_indexedArgs`
- - `M_appl4`
+ - `ML99_suppressUnusedBeforeStmt`
+ - `ML99_tupleGet`, `ML99_variadicsGet`, `ML99_TUPLE_GET`, `ML99_VARIADICS_GET`
+ - `ML99_tupleAppend`, `ML99_tuplePrepend`
+ - `ML99_indexedArgs`
+ - `ML99_appl4`
 
 ### Removed
 
@@ -21,19 +21,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/Hirrolot/metalang99/commit/f17f06adf1a747a8897bbc90c598b2be21c945c8))
  - `M_tupleHead`, `M_variadicsHead`
  - `M_overload`
+ - `METALANG99_NO_SMALL_PREFIX` (now all macros have the `ML99_` prefix)
 
 ### Changed
 
- - `M_get` -> `M_listGet`
- - `M_overloadPlain` -> `M_overload`
- - `METALANG99_NO_SMALL_PREFIX` -> `METALANG99_FULL_PREFIX_ONLY`
  - Decrease the reduction steps limit to 2^14.
  - Employ the `SCREAMING_CASE` naming convention for plain macros.
+ - `M_get` -> `ML99_listGet`
+ - `M_overloadPlain` -> `ML99_overload`
  - Rename "unsigned integers" to "natural numbers":
    - `uint.h` -> `nat.h`
-   - `M_uintMatch(WithArgs)` -> `M_natMatch(WithArgs)`
-   - `M_uintEq` -> `M_natEq`
-   - `M_uintNeq` -> `M_natNeq`
+   - `M_uintMatch(WithArgs)` -> `ML99_natMatch(WithArgs)`
+   - `M_uintEq` -> `ML99_natEq`
+   - `M_uintNeq` -> `ML99_natNeq`
 
 ## [0.4.2] - 2021-02-28
 
