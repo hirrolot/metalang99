@@ -120,8 +120,8 @@
 
 // METALANG99_indexedParams_IMPL {
 #define METALANG99_indexedParams_IMPL(type_list)                                                   \
-    METALANG99_tuple(METALANG99_ifPlain(                                                           \
-        METALANG99_isNilPlain(type_list),                                                          \
+    METALANG99_tuple(METALANG99_IF(                                                                \
+        METALANG99_IS_NIL(type_list),                                                              \
         v(void),                                                                                   \
         METALANG99_variadicsTail(METALANG99_PRIV_indexedParamsAux_IMPL(type_list, 0))))
 
@@ -129,7 +129,7 @@
     METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedParamsAux_, i)
 #define METALANG99_PRIV_indexedParamsAux_nil_IMPL(_, _i) METALANG99_empty()
 #define METALANG99_PRIV_indexedParamsAux_cons_IMPL(x, xs, i)                                       \
-    METALANG99_terms(v(, x _##i), METALANG99_PRIV_indexedParamsAux_IMPL(xs, METALANG99_incPlain(i)))
+    METALANG99_terms(v(, x _##i), METALANG99_PRIV_indexedParamsAux_IMPL(xs, METALANG99_INC(i)))
 // }
 
 // METALANG99_indexedFields_IMPL {
@@ -139,7 +139,7 @@
     METALANG99_matchWithArgs_IMPL(type_list, METALANG99_PRIV_indexedFields_, i)
 #define METALANG99_PRIV_indexedFields_nil_IMPL(_, _i) METALANG99_empty()
 #define METALANG99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                          \
-    METALANG99_terms(v(x _##i;), METALANG99_PRIV_indexedFieldsAux_IMPL(xs, METALANG99_incPlain(i)))
+    METALANG99_terms(v(x _##i;), METALANG99_PRIV_indexedFieldsAux_IMPL(xs, METALANG99_INC(i)))
 // }
 
 // METALANG99_indexedInitializerList_IMPL {
@@ -152,8 +152,8 @@
 // }
 
 #define METALANG99_PRIV_indexedItems(n, empty_case)                                                \
-    METALANG99_ifPlain(                                                                            \
-        METALANG99_natEqPlain(n, 0),                                                               \
+    METALANG99_IF(                                                                                 \
+        METALANG99_NAT_EQ(n, 0),                                                                   \
         empty_case,                                                                                \
         METALANG99_variadicsTail(METALANG99_repeat_IMPL(METALANG99_PRIV_indexedItem, n)))
 

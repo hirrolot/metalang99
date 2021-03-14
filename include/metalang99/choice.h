@@ -77,8 +77,8 @@
 #define METALANG99_matchWithArgs(choice, matcher, ...)                                             \
     METALANG99_call(METALANG99_matchWithArgs, choice, matcher, __VA_ARGS__)
 
-#define METALANG99_choicePlain(tag, ...)  (tag, __VA_ARGS__)
-#define METALANG99_choiceTagPlain(choice) METALANG99_PRIV_VARIADICS_HEAD_AUX choice
+#define METALANG99_CHOICE(tag, ...)   (tag, __VA_ARGS__)
+#define METALANG99_CHOICE_TAG(choice) METALANG99_PRIV_VARIADICS_HEAD_AUX choice
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -86,24 +86,24 @@
 // Implementation {
 
 // METALANG99_choice_IMPL {
-#define METALANG99_choice_IMPL(tag, ...) v(METALANG99_choicePlain(tag, __VA_ARGS__))
+#define METALANG99_choice_IMPL(tag, ...) v(METALANG99_CHOICE(tag, __VA_ARGS__))
 // }
 
 // METALANG99_choiceTag_IMPL {
-#define METALANG99_choiceTag_IMPL(choice) v(METALANG99_choiceTagPlain(choice))
+#define METALANG99_choiceTag_IMPL(choice) v(METALANG99_CHOICE_TAG(choice))
 // }
 
 // METALANG99_match_IMPL {
 #define METALANG99_match_IMPL(choice, matcher)                                                     \
     METALANG99_callTrivial(                                                                        \
-        METALANG99_catPlain(matcher, METALANG99_PRIV_VARIADICS_HEAD_AUX choice),                   \
+        METALANG99_CAT(matcher, METALANG99_PRIV_VARIADICS_HEAD_AUX choice),                        \
         METALANG99_PRIV_VARIADICS_TAIL_AUX choice)
 // }
 
 // METALANG99_matchWithArgs_IMPL {
 #define METALANG99_matchWithArgs_IMPL(choice, matcher, ...)                                        \
     METALANG99_callTrivial(                                                                        \
-        METALANG99_catPlain(matcher, METALANG99_PRIV_VARIADICS_HEAD_AUX choice),                   \
+        METALANG99_CAT(matcher, METALANG99_PRIV_VARIADICS_HEAD_AUX choice),                        \
         METALANG99_PRIV_VARIADICS_TAIL_AUX choice,                                                 \
         __VA_ARGS__)
 // }
@@ -125,8 +125,8 @@
 #define M_match         METALANG99_match
 #define M_matchWithArgs METALANG99_matchWithArgs
 
-#define M_choicePlain    METALANG99_choicePlain
-#define M_choiceTagPlain METALANG99_choiceTagPlain
+#define M_CHOICE     METALANG99_CHOICE
+#define M_CHOICE_TAG METALANG99_CHOICE_TAG
 
 #endif // METALANG99_FULL_PREFIX_ONLY
 // }

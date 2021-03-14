@@ -680,17 +680,17 @@
  */
 #define METALANG99_listAppl(f, list) METALANG99_call(METALANG99_listAppl, f, list)
 
-#define METALANG99_consPlain(x, xs)  METALANG99_choicePlain(cons, x, xs)
-#define METALANG99_nilPlain()        METALANG99_choicePlain(nil, ~)
-#define METALANG99_isConsPlain(list) METALANG99_PRIV_IS_CONS(list)
-#define METALANG99_isNilPlain(list)  METALANG99_PRIV_IS_NIL(list)
+#define METALANG99_CONS(x, xs)   METALANG99_CHOICE(cons, x, xs)
+#define METALANG99_NIL()         METALANG99_CHOICE(nil, ~)
+#define METALANG99_IS_CONS(list) METALANG99_PRIV_IS_CONS(list)
+#define METALANG99_IS_NIL(list)  METALANG99_PRIV_IS_NIL(list)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_cons_IMPL(x, xs) v(METALANG99_consPlain(x, xs))
-#define METALANG99_nil_IMPL(_)      v(METALANG99_nilPlain())
+#define METALANG99_cons_IMPL(x, xs) v(METALANG99_CONS(x, xs))
+#define METALANG99_nil_IMPL(_)      v(METALANG99_NIL())
 
 // METALANG99_listHead_IMPL {
 #define METALANG99_listHead_IMPL(list)             METALANG99_match_IMPL(list, METALANG99_PRIV_listHead_)
@@ -711,7 +711,7 @@
     METALANG99_call(                                                                               \
         METALANG99_callTrivial(                                                                    \
             METALANG99_if,                                                                         \
-            METALANG99_isNilPlain(xs),                                                             \
+            METALANG99_IS_NIL(xs),                                                                 \
             METALANG99_PRIV_listLastDone,                                                          \
             METALANG99_PRIV_listLastProgress),                                                     \
         v(x, xs))
@@ -726,7 +726,7 @@
     METALANG99_call(                                                                               \
         METALANG99_callTrivial(                                                                    \
             METALANG99_if,                                                                         \
-            METALANG99_isNilPlain(xs),                                                             \
+            METALANG99_IS_NIL(xs),                                                                 \
             METALANG99_PRIV_constNil,                                                              \
             METALANG99_PRIV_listInitProgress),                                                     \
         v(x, xs))
@@ -767,20 +767,16 @@
             METALANG99_PRIV_dec(count),                                                            \
             __VA_ARGS__))
 
-#define METALANG99_PRIV_listDone_0(_count, _)    v(METALANG99_nilPlain())
-#define METALANG99_PRIV_listDone_1(_count, a, _) v(METALANG99_consPlain(a, METALANG99_nilPlain()))
+#define METALANG99_PRIV_listDone_0(_count, _)    v(METALANG99_NIL())
+#define METALANG99_PRIV_listDone_1(_count, a, _) v(METALANG99_CONS(a, METALANG99_NIL()))
 #define METALANG99_PRIV_listDone_2(_count, a, b, _)                                                \
-    v(METALANG99_consPlain(a, METALANG99_consPlain(b, METALANG99_nilPlain())))
+    v(METALANG99_CONS(a, METALANG99_CONS(b, METALANG99_NIL())))
 #define METALANG99_PRIV_listDone_3(_count, a, b, c, _)                                             \
-    v(METALANG99_consPlain(                                                                        \
-        a,                                                                                         \
-        METALANG99_consPlain(b, METALANG99_consPlain(c, METALANG99_nilPlain()))))
+    v(METALANG99_CONS(a, METALANG99_CONS(b, METALANG99_CONS(c, METALANG99_NIL()))))
 #define METALANG99_PRIV_listDone_4(_count, a, b, c, d, _)                                          \
-    v(METALANG99_consPlain(                                                                        \
+    v(METALANG99_CONS(                                                                             \
         a,                                                                                         \
-        METALANG99_consPlain(                                                                      \
-            b,                                                                                     \
-            METALANG99_consPlain(c, METALANG99_consPlain(d, METALANG99_nilPlain())))))
+        METALANG99_CONS(b, METALANG99_CONS(c, METALANG99_CONS(d, METALANG99_NIL())))))
 // } (METALANG99_list_IMPL)
 
 // METALANG99_listLen_IMPL {
@@ -799,15 +795,15 @@
 
 // METALANG99_listAppendItem_IMPL {
 #define METALANG99_listAppendItem_IMPL(item, list)                                                 \
-    METALANG99_listAppend_IMPL(list, METALANG99_consPlain(item, METALANG99_nilPlain()))
+    METALANG99_listAppend_IMPL(list, METALANG99_CONS(item, METALANG99_NIL()))
 // }
 
 // METALANG99_isCons_IMPL {
-#define METALANG99_isCons_IMPL(list) v(METALANG99_isConsPlain(list))
+#define METALANG99_isCons_IMPL(list) v(METALANG99_IS_CONS(list))
 // }
 
 // METALANG99_isNil_IMPL {
-#define METALANG99_isNil_IMPL(list) v(METALANG99_isNilPlain(list))
+#define METALANG99_isNil_IMPL(list) v(METALANG99_IS_NIL(list))
 // }
 
 // METALANG99_listUnwrap_IMPL {
@@ -951,7 +947,7 @@
 #define METALANG99_listEq_IMPL(compare, list, other)                                               \
     METALANG99_matchWithArgs_IMPL(list, METALANG99_PRIV_listEq_, other, compare)
 
-#define METALANG99_PRIV_listEq_nil_IMPL(_, other, _compare) v(METALANG99_isNilPlain(other))
+#define METALANG99_PRIV_listEq_nil_IMPL(_, other, _compare) v(METALANG99_IS_NIL(other))
 #define METALANG99_PRIV_listEq_cons_IMPL(x, xs, other, compare)                                    \
     METALANG99_matchWithArgs_IMPL(other, METALANG99_PRIV_listEq_cons_, x, xs, compare)
 
@@ -1034,7 +1030,7 @@
             METALANG99_appl_IMPL(f, x),                                                            \
             v(METALANG99_PRIV_listDropWhileProgress, METALANG99_PRIV_listDropWhileDone)),          \
         v(x, xs, f))
-#define METALANG99_PRIV_listDropWhileDone_IMPL(x, xs, _f)     v(METALANG99_consPlain(x, xs))
+#define METALANG99_PRIV_listDropWhileDone_IMPL(x, xs, _f)     v(METALANG99_CONS(x, xs))
 #define METALANG99_PRIV_listDropWhileProgress_IMPL(_x, xs, f) METALANG99_listDropWhile_IMPL(f, xs)
 // }
 
@@ -1055,7 +1051,7 @@
 #define METALANG99_listUnzip_IMPL(list) METALANG99_match_IMPL(list, METALANG99_PRIV_listUnzip_)
 
 #define METALANG99_PRIV_listUnzip_nil_IMPL(_)                                                      \
-    METALANG99_list_IMPL(METALANG99_nilPlain(), METALANG99_nilPlain())
+    METALANG99_list_IMPL(METALANG99_NIL(), METALANG99_NIL())
 #define METALANG99_PRIV_listUnzip_cons_IMPL(x, xs)                                                 \
     METALANG99_call(METALANG99_PRIV_listUnzipProgress, v(x), METALANG99_listUnzip_IMPL(xs))
 #define METALANG99_PRIV_listUnzipProgress_IMPL(x, rest)                                            \
@@ -1078,7 +1074,7 @@
 #define METALANG99_listPartition_IMPL(f, list)                                                     \
     METALANG99_listFoldr(                                                                          \
         METALANG99_appl_IMPL(METALANG99_PRIV_listPartitionAux, f),                                 \
-        METALANG99_list_IMPL(METALANG99_nilPlain(), METALANG99_nilPlain()),                        \
+        METALANG99_list_IMPL(METALANG99_NIL(), METALANG99_NIL()),                                  \
         v(list))
 
 #define METALANG99_PRIV_listPartitionAux_IMPL(f, x, acc)                                           \
@@ -1093,9 +1089,9 @@
         METALANG99_listGet_IMPL(1, acc))
 
 #define METALANG99_PRIV_listPartitionAuxExtendFst_IMPL(x, fst, snd)                                \
-    METALANG99_list_IMPL(METALANG99_consPlain(x, fst), snd)
+    METALANG99_list_IMPL(METALANG99_CONS(x, fst), snd)
 #define METALANG99_PRIV_listPartitionAuxExtendSnd_IMPL(x, fst, snd)                                \
-    METALANG99_list_IMPL(fst, METALANG99_consPlain(x, snd))
+    METALANG99_list_IMPL(fst, METALANG99_CONS(x, snd))
 // }
 
 // METALANG99_listAppl_IMPL {
@@ -1104,8 +1100,8 @@
 
 // METALANG99_listUnwrapCommaSep {
 #define METALANG99_listUnwrapCommaSep_IMPL(list)                                                   \
-    METALANG99_ifPlain(                                                                            \
-        METALANG99_isNilPlain(list),                                                               \
+    METALANG99_IF(                                                                                 \
+        METALANG99_IS_NIL(list),                                                                   \
         METALANG99_empty(),                                                                        \
         METALANG99_variadicsTail(METALANG99_PRIV_listUnwrapCommaSepAux_IMPL(list)))
 
@@ -1121,11 +1117,11 @@
 // clang-format on
 
 #define METALANG99_PRIV_IS_NIL(list)                                                               \
-    METALANG99_catPlain(METALANG99_PRIV_IS_NIL_, METALANG99_choiceTagPlain(list))()
+    METALANG99_CAT(METALANG99_PRIV_IS_NIL_, METALANG99_CHOICE_TAG(list))()
 #define METALANG99_PRIV_IS_NIL_nil()  METALANG99_true
 #define METALANG99_PRIV_IS_NIL_cons() METALANG99_false
 
-#define METALANG99_PRIV_IS_CONS(list) METALANG99_notPlain(METALANG99_PRIV_IS_NIL(list))
+#define METALANG99_PRIV_IS_CONS(list) METALANG99_NOT(METALANG99_PRIV_IS_NIL(list))
 
 #define METALANG99_PRIV_constNil_IMPL(...) METALANG99_nil()
 
@@ -1230,10 +1226,10 @@
 #define M_listPartition      METALANG99_listPartition
 #define M_listAppl           METALANG99_listAppl
 
-#define M_consPlain   METALANG99_consPlain
-#define M_nilPlain    METALANG99_nilPlain
-#define M_isNilPlain  METALANG99_isNilPlain
-#define M_isConsPlain METALANG99_isConsPlain
+#define M_CONS    METALANG99_CONS
+#define M_NIL     METALANG99_NIL
+#define M_IS_NIL  METALANG99_IS_NIL
+#define M_IS_CONS METALANG99_IS_CONS
 
 #endif // METALANG99_FULL_PREFIX_ONLY
 // }

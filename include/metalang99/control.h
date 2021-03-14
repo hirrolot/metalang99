@@ -93,25 +93,25 @@
  * ...>(...)`.
  */
 #define METALANG99_overload(f, ...)                                                                \
-    METALANG99_catPlain(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
+    METALANG99_CAT(f, METALANG99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
 
 /**
  * The plain version of #METALANG99_if.
  *
- * In particular, this macro can be used to imitate lazy evaluation: `M_ifPlain(<cond>, <term>,
+ * In particular, this macro can be used to imitate lazy evaluation: `M_IF(<cond>, <term>,
  * <another-term>)` will expand to one of the terms, which can be evaluated further.
  */
-#define METALANG99_ifPlain(cond, x, y)    METALANG99_PRIV_IF(cond, x, y)
-#define METALANG99_whenPlain(cond, x)     METALANG99_ifPlain(cond, x, METALANG99_emptyPlain())
-#define METALANG99_whenLazyPlain(cond, f) METALANG99_ifPlain(cond, f, METALANG99_consumePlain)
+#define METALANG99_IF(cond, x, y)     METALANG99_PRIV_IF(cond, x, y)
+#define METALANG99_WHEN(cond, x)      METALANG99_IF(cond, x, METALANG99_EMPTY())
+#define METALANG99_WHEN_LAZY(cond, f) METALANG99_IF(cond, f, METALANG99_CONSUME)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_if_IMPL(cond, x, y)    v(METALANG99_ifPlain(cond, x, y))
-#define METALANG99_when_IMPL(cond, x)     v(METALANG99_whenPlain(cond, x))
-#define METALANG99_whenLazy_IMPL(cond, f) v(METALANG99_ifPlain(cond, f, METALANG99_consume))
+#define METALANG99_if_IMPL(cond, x, y)    v(METALANG99_IF(cond, x, y))
+#define METALANG99_when_IMPL(cond, x)     v(METALANG99_WHEN(cond, x))
+#define METALANG99_whenLazy_IMPL(cond, f) v(METALANG99_IF(cond, f, METALANG99_consume))
 // }
 
 // Arity specifiers {
@@ -129,9 +129,9 @@
 #define M_whenLazy METALANG99_whenLazy
 #define M_overload METALANG99_overload
 
-#define M_ifPlain       METALANG99_ifPlain
-#define M_whenPlain     METALANG99_whenPlain
-#define M_whenLazyPlain METALANG99_whenLazyPlain
+#define M_IF        METALANG99_IF
+#define M_WHEN      METALANG99_WHEN
+#define M_WHEN_LAZY METALANG99_WHEN_LAZY
 
 #endif // METALANG99_FULL_PREFIX_ONLY
 // }

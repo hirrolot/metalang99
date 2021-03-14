@@ -418,8 +418,7 @@
  *
  * @note This macro does not expand to a Metalang99 term.
  */
-#define METALANG99_detectIdent(prefix, ident)                                                      \
-    METALANG99_PRIV_IS_PARENTHESIZED(M_catPlain(prefix, ident))
+#define METALANG99_detectIdent(prefix, ident) METALANG99_PRIV_IS_PARENTHESIZED(M_CAT(prefix, ident))
 
 /**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
@@ -431,21 +430,21 @@
  */
 #define METALANG99_clangPragma(str) METALANG99_PRIV_CLANG_PRAGMA(str)
 
-#define METALANG99_catPlain(x, y)      METALANG99_catPrimitive(x, y)
-#define METALANG99_stringifyPlain(...) METALANG99_stringifyPrimitive(__VA_ARGS__)
-#define METALANG99_emptyPlain()
-#define METALANG99_idPlain(...) __VA_ARGS__
-#define METALANG99_consumePlain(...)
+#define METALANG99_CAT(x, y)      METALANG99_catPrimitive(x, y)
+#define METALANG99_STRINGIFY(...) METALANG99_stringifyPrimitive(__VA_ARGS__)
+#define METALANG99_EMPTY()
+#define METALANG99_ID(...) __VA_ARGS__
+#define METALANG99_CONSUME(...)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
 #define METALANG99_catEval_IMPL(x, y)              x##y
-#define METALANG99_cat_IMPL(x, y)                  v(METALANG99_catPlain(x, y))
-#define METALANG99_stringify_IMPL(...)             v(METALANG99_stringifyPlain(__VA_ARGS__))
-#define METALANG99_empty_IMPL()                    v(METALANG99_emptyPlain())
-#define METALANG99_id_IMPL(...)                    v(METALANG99_idPlain(__VA_ARGS__))
+#define METALANG99_cat_IMPL(x, y)                  v(METALANG99_CAT(x, y))
+#define METALANG99_stringify_IMPL(...)             v(METALANG99_STRINGIFY(__VA_ARGS__))
+#define METALANG99_empty_IMPL()                    v(METALANG99_EMPTY())
+#define METALANG99_id_IMPL(...)                    v(METALANG99_ID(__VA_ARGS__))
 #define METALANG99_const_IMPL(x, _a)               v(x)
 #define METALANG99_flip_IMPL(f)                    METALANG99_appl_IMPL(METALANG99_PRIV_flip, f)
 #define METALANG99_PRIV_flip_IMPL(f, a, b)         METALANG99_appl2_IMPL(f, b, a)
@@ -454,7 +453,7 @@
 #define METALANG99_putBetween_IMPL(left, right, x) v(left x right)
 #define METALANG99_leftUnderscored_IMPL(x)         v(_##x)
 #define METALANG99_rightUnderscored_IMPL(x)        v(x##_)
-#define METALANG99_consume_IMPL(...)               v(METALANG99_consumePlain(__VA_ARGS__))
+#define METALANG99_consume_IMPL(...)               v(METALANG99_CONSUME(__VA_ARGS__))
 #define METALANG99_braced_IMPL(...)                v({__VA_ARGS__})
 #define METALANG99_typedef_IMPL(ident, ...)        v(typedef __VA_ARGS__ ident;)
 #define METALANG99_struct_IMPL(ident, ...)         v(struct ident{__VA_ARGS__})
@@ -534,11 +533,11 @@
 #define M_suppressUnusedBeforeStmt METALANG99_suppressUnusedBeforeStmt
 #define M_detectIdent              METALANG99_detectIdent
 
-#define M_catPlain       METALANG99_catPlain
-#define M_stringifyPlain METALANG99_stringifyPlain
-#define M_emptyPlain     METALANG99_emptyPlain
-#define M_idPlain        METALANG99_idPlain
-#define M_consumePlain   METALANG99_consumePlain
+#define M_CAT       METALANG99_CAT
+#define M_STRINGIFY METALANG99_STRINGIFY
+#define M_EMPTY     METALANG99_EMPTY
+#define M_ID        METALANG99_ID
+#define M_CONSUME   METALANG99_CONSUME
 
 #endif // METALANG99_FULL_PREFIX_ONLY
 // }

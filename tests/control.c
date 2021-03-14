@@ -20,9 +20,9 @@ M_assertEq(M_call(M_whenLazy(v(M_true), v(M_id)), v(123)), v(123));
 M_assertEmpty(M_call(M_whenLazy(v(M_false), v(M_id)), v(123)));
 // }
 
-// M_whenLazyPlain {
-M_assertPlain(M_whenLazyPlain(M_true, M_idPlain)(123) == 123);
-M_assertEmpty(v(M_whenLazyPlain(M_false, M_idPlain)(123)));
+// M_WHEN_LAZY {
+M_assertPlain(M_WHEN_LAZY(M_true, M_ID)(123) == 123);
+M_assertEmpty(v(M_WHEN_LAZY(M_false, M_ID)(123)));
 // }
 
 // M_overload {

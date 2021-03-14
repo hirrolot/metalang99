@@ -42,7 +42,7 @@ CHECK_TAIL(M_eval(M_variadicsTail(v(9191, 51, 21, 1, 7378))));
 #undef CHECK_TAIL_AUX
 // }
 
-// M_variadicsCount, M_variadicsCountPlain {
+// M_variadicsCount, M_VARIADICS_COUNT {
 #define _5_ARGS  v(~, ~, ~, ~, ~)
 #define _10_ARGS _5_ARGS, _5_ARGS
 #define _50_ARGS _10_ARGS, _10_ARGS, _10_ARGS, _10_ARGS, _10_ARGS
@@ -61,10 +61,10 @@ M_assertEq(M_variadicsCount(_10_ARGS), v(10));
 M_assertEq(M_variadicsCount(_10_ARGS, v(~)), v(11));
 M_assertEq(M_variadicsCount(_50_ARGS, _10_ARGS, v(~, ~, ~)), v(63));
 
-M_assertEq(v(M_variadicsCountPlain()), v(1));
-M_assertEq(v(M_variadicsCountPlain(~)), v(1));
-M_assertEq(v(M_variadicsCountPlain(~, ~)), v(2));
-M_assertEq(v(M_variadicsCountPlain(~, ~, ~)), v(3));
+M_assertEq(v(M_VARIADICS_COUNT()), v(1));
+M_assertEq(v(M_VARIADICS_COUNT(~)), v(1));
+M_assertEq(v(M_VARIADICS_COUNT(~, ~)), v(2));
+M_assertEq(v(M_VARIADICS_COUNT(~, ~, ~)), v(3));
 
 #undef _5_ARGS
 #undef _10_ARGS
@@ -74,7 +74,7 @@ M_assertEq(v(M_variadicsCountPlain(~, ~, ~)), v(3));
 
 // M_variadicsForEach {
 #define CHECK(_, x, y, z) M_assertPlain(x == 2 && y == 3 && z == 4)
-#define F_IMPL(x)         v(, METALANG99_incPlain(x))
+#define F_IMPL(x)         v(, METALANG99_INC(x))
 #define F_ARITY           1
 
 M_eval(v(CHECK), M_tuple(M_variadicsForEach(v(F), v(1, 2, 3))));

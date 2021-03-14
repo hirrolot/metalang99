@@ -34,9 +34,9 @@ M_eval(M_call(MATCH, M_choice(v(FooC), v(~))));
 #undef MATCH_FooC_IMPL
 // }
 
-// M_choiceTag, M_choiceTagPlain {
+// M_choiceTag, M_CHOICE_TAG {
 M_assertEq(M_choiceTag(M_choice(v(5), v(1, 2, 3))), v(5));
-M_assertPlain(M_choiceTagPlain(M_choicePlain(5, 1, 2, 3)) == 5);
+M_assertPlain(M_CHOICE_TAG(M_CHOICE(5, 1, 2, 3)) == 5);
 // }
 
 int main(void) {}

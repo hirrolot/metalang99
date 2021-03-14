@@ -15,12 +15,12 @@ The `METALANG99_MAJOR`, `METALANG99_MINOR`, and `METALANG99_PATCH` macros denote
 
 If `METALANG99_FULL_PREFIX_ONLY` is defined, all macros will have only one name: `METALANG99_appl`, `METALANG99_call`, etc. Otherwise, shortening aliases will also be defined: `METALANG99_appl`, `M_appl`, `METALANG99_call`, `M_call`, etc (the default behaviour).
 
-\*Plain macros
---------------
+Naming conventions
+------------------
 
-A macro named `<X>Plain` stands for the "plain" version of `<X>`. To compute a final result of a plain macro, only preprocessor expansion is required. Plain macros are used to save some reduction steps, thereby making metaprograms faster.
+A `SCREAMING_CASE` macro stands for the "plain" version of some other macro. To compute a final result of a plain macro, only preprocessor expansion is required. Plain macros are used to save some reduction steps, thereby making metaprograms faster.
 
-For example, here are two complete metaprograms, one using `M_untuple` and the second one using `M_untuplePlain`:
+For example, here are two complete metaprograms, one using `M_untuple` and the second one using `M_UNTUPLE`:
 
 .. code:: c
 
@@ -28,7 +28,7 @@ For example, here are two complete metaprograms, one using `M_untuple` and the s
 
 .. code:: c
 
-   M_untuplePlain((1, 2, 3))
+   M_UNTUPLE((1, 2, 3))
 
 Both metaprograms result in `1, 2, 3`.
 

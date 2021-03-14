@@ -161,7 +161,7 @@ Generally speaking, the fewer reduction steps you perform, the faster you become
 To perform fewer reduction steps, you can:
 
  - Use `M_callTrivial`,
- - Use the plain versions (e.g., `M_consumePlain` instead of `M_consume`),
+ - Use the plain versions (e.g., `M_CONSUME` instead of `M_consume`),
  - Call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and macro blueprinting will not happen. I strongly recommend to use this trick only if `X` is placed locally to a caller in order to ensure the correctness of expansion.
 
 ## FAQ

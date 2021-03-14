@@ -379,10 +379,10 @@
  */
 #define METALANG99_max(x, y) METALANG99_call(METALANG99_max, x, y)
 
-#define METALANG99_incPlain(x)       METALANG99_PRIV_inc(x)
-#define METALANG99_decPlain(x)       METALANG99_PRIV_dec(x)
-#define METALANG99_natEqPlain(x, y)  METALANG99_PRIV_natEq(x, y)
-#define METALANG99_natNeqPlain(x, y) METALANG99_notPlain(METALANG99_natEqPlain(x, y))
+#define METALANG99_INC(x)        METALANG99_PRIV_inc(x)
+#define METALANG99_DEC(x)        METALANG99_PRIV_dec(x)
+#define METALANG99_NAT_EQ(x, y)  METALANG99_PRIV_natEq(x, y)
+#define METALANG99_NAT_NEQ(x, y) METALANG99_NOT(METALANG99_NAT_EQ(x, y))
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -400,11 +400,11 @@
         METALANG99_callTrivial(matcher##Z, __VA_ARGS__),                                           \
         METALANG99_callTrivial(matcher##S, METALANG99_PRIV_dec(x), __VA_ARGS__))
 
-#define METALANG99_inc_IMPL(x) v(METALANG99_incPlain(x))
-#define METALANG99_dec_IMPL(x) v(METALANG99_decPlain(x))
+#define METALANG99_inc_IMPL(x) v(METALANG99_INC(x))
+#define METALANG99_dec_IMPL(x) v(METALANG99_DEC(x))
 
-#define METALANG99_natEq_IMPL(x, y)  v(METALANG99_natEqPlain(x, y))
-#define METALANG99_natNeq_IMPL(x, y) v(METALANG99_natNeqPlain(x, y))
+#define METALANG99_natEq_IMPL(x, y)  v(METALANG99_NAT_EQ(x, y))
+#define METALANG99_natNeq_IMPL(x, y) v(METALANG99_NAT_NEQ(x, y))
 
 #define METALANG99_greater_IMPL(x, y) METALANG99_lesser_IMPL(y, x)
 
@@ -548,10 +548,10 @@
 #define M_min              METALANG99_min
 #define M_max              METALANG99_max
 
-#define M_incPlain    METALANG99_incPlain
-#define M_decPlain    METALANG99_decPlain
-#define M_natEqPlain  METALANG99_natEqPlain
-#define M_natNeqPlain METALANG99_natNeqPlain
+#define M_INC     METALANG99_INC
+#define M_DEC     METALANG99_DEC
+#define M_NAT_EQ  METALANG99_NAT_EQ
+#define M_NAT_NEQ METALANG99_NAT_NEQ
 
 #endif // METALANG99_FULL_PREFIX_ONLY
 // }

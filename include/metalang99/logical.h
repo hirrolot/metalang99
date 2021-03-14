@@ -123,21 +123,21 @@
  */
 #define METALANG99_boolEq(x, y) METALANG99_call(METALANG99_boolEq, x, y)
 
-#define METALANG99_notPlain(x)       METALANG99_PRIV_CAT(METALANG99_PRIV_not_, x)()
-#define METALANG99_andPlain(x, y)    METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_and_, x, y)
-#define METALANG99_orPlain(x, y)     METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_or_, x, y)
-#define METALANG99_xorPlain(x, y)    METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_xor_, x, y)
-#define METALANG99_boolEqPlain(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_boolEq_, x, y)
+#define METALANG99_NOT(x)        METALANG99_PRIV_CAT(METALANG99_PRIV_not_, x)()
+#define METALANG99_AND(x, y)     METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_and_, x, y)
+#define METALANG99_OR(x, y)      METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_or_, x, y)
+#define METALANG99_XOR(x, y)     METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_xor_, x, y)
+#define METALANG99_BOOL_EQ(x, y) METALANG99_PRIV_LOGICAL_OVERLOAD(METALANG99_PRIV_boolEq_, x, y)
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define METALANG99_not_IMPL(x)       v(METALANG99_notPlain(x))
-#define METALANG99_and_IMPL(x, y)    v(METALANG99_andPlain(x, y))
-#define METALANG99_or_IMPL(x, y)     v(METALANG99_orPlain(x, y))
-#define METALANG99_xor_IMPL(x, y)    v(METALANG99_xorPlain(x, y))
-#define METALANG99_boolEq_IMPL(x, y) v(METALANG99_boolEqPlain(x, y))
+#define METALANG99_not_IMPL(x)       v(METALANG99_NOT(x))
+#define METALANG99_and_IMPL(x, y)    v(METALANG99_AND(x, y))
+#define METALANG99_or_IMPL(x, y)     v(METALANG99_OR(x, y))
+#define METALANG99_xor_IMPL(x, y)    v(METALANG99_XOR(x, y))
+#define METALANG99_boolEq_IMPL(x, y) v(METALANG99_BOOL_EQ(x, y))
 
 #define METALANG99_PRIV_not_0() 1
 #define METALANG99_PRIV_not_1() 0
@@ -188,11 +188,11 @@
 #define M_xor    METALANG99_xor
 #define M_boolEq METALANG99_boolEq
 
-#define M_notPlain    METALANG99_notPlain
-#define M_andPlain    METALANG99_andPlain
-#define M_orPlain     METALANG99_orPlain
-#define M_xorPlain    METALANG99_xorPlain
-#define M_boolEqPlain METALANG99_boolEqPlain
+#define M_NOT     METALANG99_NOT
+#define M_AND     METALANG99_AND
+#define M_OR      METALANG99_OR
+#define M_XOR     METALANG99_XOR
+#define M_BOOL_EQ METALANG99_BOOL_EQ
 
 #endif // METALANG99_FULL_PREFIX_ONLY
 // }

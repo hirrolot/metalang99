@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
  - `M_suppressUnusedBeforeStmt`
- - `M_tupleGet(Plain)`, `M_variadicsGet(Plain)`
+ - `M_tupleGet`, `M_variadicsGet`, `M_TUPLE_GET`, `M_VARIADICS_GET`
  - `M_tupleAppend`, `M_tuplePrepend`
  - `M_indexedArgs`
  - `M_appl4`
@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_overloadPlain` -> `M_overload`
  - `METALANG99_NO_SMALL_PREFIX` -> `METALANG99_FULL_PREFIX_ONLY`
  - Decrease the reduction steps limit to 2^14.
+ - Employ the `SCREAMING_CASE` naming convention for plain macros.
  - Rename "unsigned integers" to "natural numbers":
    - `uint.h` -> `nat.h`
    - `M_uintMatch(WithArgs)` -> `M_natMatch(WithArgs)`

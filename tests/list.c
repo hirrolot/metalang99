@@ -85,24 +85,24 @@ M_eval(v(CHECK), M_tuple(M_listUnwrapCommaSep(M_list(v(1, 2, 3)))));
 #undef CHECK
 // }
 
-// M_isNil, M_isNilPlain {
+// M_isNil, M_IS_NIL {
 M_assert(M_isNil(M_nil()));
 M_assert(M_not(M_isNil(M_list(v(123)))));
 M_assert(M_not(M_isNil(M_list(v(8, 214, 10, 0, 122)))));
 
-M_assertPlain(M_isNilPlain(M_nilPlain()));
-M_assertPlain(M_notPlain(M_isNilPlain(M_consPlain(123, M_nilPlain()))));
-M_assertPlain(M_notPlain(M_isNilPlain(M_eval(M_list(v(8, 214, 10, 0, 122))))));
+M_assertPlain(M_IS_NIL(M_NIL()));
+M_assertPlain(M_NOT(M_IS_NIL(M_CONS(123, M_NIL()))));
+M_assertPlain(M_NOT(M_IS_NIL(M_eval(M_list(v(8, 214, 10, 0, 122))))));
 // }
 
-// M_isCons, M_isConsPlain {
+// M_isCons, M_IS_CONS {
 M_assert(M_not(M_isCons(M_nil())));
 M_assert(M_isCons(M_list(v(123))));
 M_assert(M_isCons(M_list(v(8, 214, 10, 0, 122))));
 
-M_assertPlain(M_notPlain(M_isConsPlain(M_nilPlain())));
-M_assertPlain(M_isConsPlain(M_consPlain(123, M_nilPlain())));
-M_assertPlain(M_isConsPlain(M_eval(M_list(v(8, 214, 10, 0, 122)))));
+M_assertPlain(M_NOT(M_IS_CONS(M_NIL())));
+M_assertPlain(M_IS_CONS(M_CONS(123, M_NIL())));
+M_assertPlain(M_IS_CONS(M_eval(M_list(v(8, 214, 10, 0, 122)))));
 // }
 
 // M_listGet {
