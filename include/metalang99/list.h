@@ -735,27 +735,27 @@
 
 // Last 4 recursion steps unrolled {
 #define ML99_PRIV_listProgress_IMPL(count, ...)                                                    \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_natEq(count, 4),                                                                 \
+    ML99_IF(                                                                                       \
+        ML99_NAT_EQ(count, 4),                                                                     \
         ML99_PRIV_listDone_4,                                                                      \
-        ML99_PRIV_IF(                                                                              \
-            ML99_PRIV_natEq(count, 3),                                                             \
+        ML99_IF(                                                                                   \
+            ML99_NAT_EQ(count, 3),                                                                 \
             ML99_PRIV_listDone_3,                                                                  \
-            ML99_PRIV_IF(                                                                          \
-                ML99_PRIV_natEq(count, 2),                                                         \
+            ML99_IF(                                                                               \
+                ML99_NAT_EQ(count, 2),                                                             \
                 ML99_PRIV_listDone_2,                                                              \
-                ML99_PRIV_IF(                                                                      \
-                    ML99_PRIV_natEq(count, 1),                                                     \
+                ML99_IF(                                                                           \
+                    ML99_NAT_EQ(count, 1),                                                         \
                     ML99_PRIV_listDone_1,                                                          \
-                    ML99_PRIV_IF(                                                                  \
-                        ML99_PRIV_natEq(count, 0),                                                 \
+                    ML99_IF(                                                                       \
+                        ML99_NAT_EQ(count, 0),                                                     \
                         ML99_PRIV_listDone_0,                                                      \
                         ML99_PRIV_listProgressAux)))))                                             \
     (count, __VA_ARGS__)
 // }
 
 #define ML99_PRIV_listProgressAux(count, x, ...)                                                   \
-    ML99_cons(v(x), ML99_callTrivial(ML99_PRIV_listProgress, ML99_PRIV_dec(count), __VA_ARGS__))
+    ML99_cons(v(x), ML99_callTrivial(ML99_PRIV_listProgress, ML99_DEC(count), __VA_ARGS__))
 
 #define ML99_PRIV_listDone_0(_count, _)       v(ML99_NIL())
 #define ML99_PRIV_listDone_1(_count, a, _)    v(ML99_CONS(a, ML99_NIL()))
@@ -808,8 +808,8 @@
 #define ML99_listGet_IMPL(i, list)       ML99_matchWithArgs_IMPL(list, ML99_PRIV_listGet_, i)
 #define ML99_PRIV_listGet_nil_IMPL(_, i) ML99_PRIV_EMPTY_LIST_ERROR(ML99_get)
 #define ML99_PRIV_listGet_cons_IMPL(x, xs, i)                                                      \
-    ML99_PRIV_IF(ML99_PRIV_natEq(i, 0), ML99_PRIV_listGetDone, ML99_PRIV_listGetProgress)          \
-    (x, ML99_PRIV_dec(i), xs)
+    ML99_IF(ML99_NAT_EQ(i, 0), ML99_PRIV_listGetDone, ML99_PRIV_listGetProgress)                   \
+    (x, ML99_DEC(i), xs)
 #define ML99_PRIV_listGetDone(x, _i, _xs)   v(x)
 #define ML99_PRIV_listGetProgress(x, i, xs) ML99_listGet_IMPL(i, xs)
 // }
@@ -865,7 +865,7 @@
     ML99_matchWithArgs_IMPL(list, ML99_PRIV_listMapI_, f, i)
 #define ML99_PRIV_listMapI_nil_IMPL(_, _f, _i) ML99_nil()
 #define ML99_PRIV_listMapI_cons_IMPL(x, xs, f, i)                                                  \
-    ML99_cons(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapIAux_IMPL(f, xs, ML99_PRIV_inc(i)))
+    ML99_cons(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapIAux_IMPL(f, xs, ML99_PRIV_INC(i)))
 // }
 
 // ML99_listMapInPlace_IMPL {
@@ -882,7 +882,7 @@
     ML99_matchWithArgs_IMPL(list, ML99_PRIV_listMapInPlaceI_, f, i)
 #define ML99_PRIV_listMapInPlaceI_nil_IMPL(_, _f, _i) ML99_empty()
 #define ML99_PRIV_listMapInPlaceI_cons_IMPL(x, xs, f, i)                                           \
-    ML99_terms(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapInPlaceIAux_IMPL(f, xs, ML99_PRIV_inc(i)))
+    ML99_terms(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapInPlaceIAux_IMPL(f, xs, ML99_PRIV_INC(i)))
 // }
 
 // ML99_listFor_IMPL {
@@ -947,11 +947,10 @@
 #define ML99_listTake_IMPL(n, list)        ML99_matchWithArgs_IMPL(list, ML99_PRIV_listTake_, n)
 #define ML99_PRIV_listTake_nil_IMPL(_, _i) ML99_nil()
 #define ML99_PRIV_listTake_cons_IMPL(x, xs, i)                                                     \
-    ML99_PRIV_IF(ML99_PRIV_natEq(i, 0), ML99_PRIV_listTakeDone, ML99_PRIV_listTakeProgress)        \
+    ML99_IF(ML99_NAT_EQ(i, 0), ML99_PRIV_listTakeDone, ML99_PRIV_listTakeProgress)                 \
     (x, xs, i)
-#define ML99_PRIV_listTakeDone(_x, _xs, _i) ML99_nil()
-#define ML99_PRIV_listTakeProgress(x, xs, i)                                                       \
-    ML99_cons(v(x), ML99_listTake_IMPL(ML99_PRIV_dec(i), xs))
+#define ML99_PRIV_listTakeDone(_x, _xs, _i)  ML99_nil()
+#define ML99_PRIV_listTakeProgress(x, xs, i) ML99_cons(v(x), ML99_listTake_IMPL(ML99_DEC(i), xs))
 // }
 
 // ML99_listTakeWhile_IMPL {
@@ -972,10 +971,10 @@
 #define ML99_listDrop_IMPL(n, list)        ML99_matchWithArgs_IMPL(list, ML99_PRIV_listDrop_, n)
 #define ML99_PRIV_listDrop_nil_IMPL(_, _i) ML99_nil()
 #define ML99_PRIV_listDrop_cons_IMPL(x, xs, i)                                                     \
-    ML99_PRIV_IF(ML99_PRIV_natEq(i, 0), ML99_PRIV_listDropDone, ML99_PRIV_listDropProgress)        \
+    ML99_IF(ML99_NAT_EQ(i, 0), ML99_PRIV_listDropDone, ML99_PRIV_listDropProgress)                 \
     (x, xs, i)
 #define ML99_PRIV_listDropDone(x, xs, _i)     ML99_call(ML99_cons, v(x, xs))
-#define ML99_PRIV_listDropProgress(_x, xs, i) ML99_listDrop_IMPL(ML99_PRIV_dec(i), xs)
+#define ML99_PRIV_listDropProgress(_x, xs, i) ML99_listDrop_IMPL(ML99_DEC(i), xs)
 // }
 
 // ML99_listDropWhile_IMPL {

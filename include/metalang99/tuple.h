@@ -179,8 +179,8 @@
 
 #define ML99_TUPLE(...)            (__VA_ARGS__)
 #define ML99_UNTUPLE(x)            ML99_PRIV_EXPAND x
-#define ML99_IS_TUPLE(x)           ML99_PRIV_IS_PARENTHESIZED(x)
-#define ML99_IS_UNTUPLE(x)         ML99_PRIV_IS_UNPARENTHESIZED(x)
+#define ML99_IS_TUPLE(x)           ML99_PRIV_IS_TUPLE(x)
+#define ML99_IS_UNTUPLE(x)         ML99_PRIV_IS_UNTUPLE(x)
 #define ML99_TUPLE_GET(i)          ML99_CAT(ML99_PRIV_TUPLE_GET_, i)
 #define ML99_TUPLE_TAIL(x)         ML99_VARIADICS_TAIL(ML99_UNTUPLE(x))
 #define ML99_TUPLE_APPEND(x, ...)  (ML99_UNTUPLE(x), __VA_ARGS__)

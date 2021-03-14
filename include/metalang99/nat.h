@@ -379,9 +379,9 @@
  */
 #define ML99_max(x, y) ML99_call(ML99_max, x, y)
 
-#define ML99_INC(x)        ML99_PRIV_inc(x)
-#define ML99_DEC(x)        ML99_PRIV_dec(x)
-#define ML99_NAT_EQ(x, y)  ML99_PRIV_natEq(x, y)
+#define ML99_INC(x)        ML99_PRIV_INC(x)
+#define ML99_DEC(x)        ML99_PRIV_DEC(x)
+#define ML99_NAT_EQ(x, y)  ML99_PRIV_NAT_EQ(x, y)
 #define ML99_NAT_NEQ(x, y) ML99_NOT(ML99_NAT_EQ(x, y))
 // }
 
@@ -389,16 +389,16 @@
 
 // Implementation {
 #define ML99_natMatch_IMPL(x, matcher)                                                             \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_natEq(x, 0),                                                                     \
+    ML99_IF(                                                                                       \
+        ML99_NAT_EQ(x, 0),                                                                         \
         ML99_callTrivial(matcher##Z, ),                                                            \
-        ML99_callTrivial(matcher##S, ML99_PRIV_dec(x)))
+        ML99_callTrivial(matcher##S, ML99_DEC(x)))
 
 #define ML99_natMatchWithArgs_IMPL(x, matcher, ...)                                                \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_natEq(x, 0),                                                                     \
+    ML99_IF(                                                                                       \
+        ML99_NAT_EQ(x, 0),                                                                         \
         ML99_callTrivial(matcher##Z, __VA_ARGS__),                                                 \
-        ML99_callTrivial(matcher##S, ML99_PRIV_dec(x), __VA_ARGS__))
+        ML99_callTrivial(matcher##S, ML99_DEC(x), __VA_ARGS__))
 
 #define ML99_inc_IMPL(x) v(ML99_INC(x))
 #define ML99_dec_IMPL(x) v(ML99_DEC(x))
@@ -406,45 +406,40 @@
 #define ML99_natEq_IMPL(x, y)  v(ML99_NAT_EQ(x, y))
 #define ML99_natNeq_IMPL(x, y) v(ML99_NAT_NEQ(x, y))
 
-#define ML99_greater_IMPL(x, y) ML99_lesser_IMPL(y, x)
-
-#define ML99_greaterEq_IMPL(x, y)                                                                  \
-    ML99_PRIV_IF(ML99_PRIV_natEq(x, y), v(ML99_true), ML99_greater_IMPL(x, y))
+#define ML99_greater_IMPL(x, y)   ML99_lesser_IMPL(y, x)
+#define ML99_greaterEq_IMPL(x, y) ML99_IF(ML99_NAT_EQ(x, y), v(ML99_true), ML99_greater_IMPL(x, y))
 
 // ML99_lesser_IMPL {
 #define ML99_lesser_IMPL(x, y)                                                                     \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_natEq(y, 0),                                                                     \
+    ML99_IF(                                                                                       \
+        ML99_NAT_EQ(y, 0),                                                                         \
         v(ML99_false),                                                                             \
-        ML99_callTrivial(ML99_PRIV_lesserProgress, x, ML99_PRIV_dec(y)))
+        ML99_callTrivial(ML99_PRIV_lesserProgress, x, ML99_DEC(y)))
 #define ML99_PRIV_lesserProgress_IMPL(x, y)                                                        \
-    ML99_PRIV_IF(ML99_PRIV_natEq(x, y), v(ML99_true), ML99_lesser_IMPL(x, y))
+    ML99_IF(ML99_NAT_EQ(x, y), v(ML99_true), ML99_lesser_IMPL(x, y))
 // }
 
 #define ML99_lesserEq_IMPL(x, y) ML99_greaterEq_IMPL(y, x)
 
 // ML99_add_IMPL {
 #define ML99_add_IMPL(x, y)                                                                        \
-    ML99_PRIV_IF(ML99_PRIV_natEq(y, 0), v(x), ML99_callTrivial(ML99_PRIV_addProgress, x, y))
-#define ML99_PRIV_addProgress_IMPL(x, y) ML99_add_IMPL(ML99_PRIV_inc(x), ML99_PRIV_dec(y))
+    ML99_IF(ML99_NAT_EQ(y, 0), v(x), ML99_callTrivial(ML99_add, ML99_INC(x), ML99_DEC(y)))
 // }
 
 // ML99_sub_IMPL {
 #define ML99_sub_IMPL(x, y)                                                                        \
-    ML99_PRIV_IF(ML99_PRIV_natEq(y, 0), v(x), ML99_callTrivial(ML99_PRIV_subProgress, x, y))
-#define ML99_PRIV_subProgress_IMPL(x, y) ML99_sub_IMPL(ML99_PRIV_dec(x), ML99_PRIV_dec(y))
+    ML99_IF(ML99_NAT_EQ(y, 0), v(x), ML99_callTrivial(ML99_sub, ML99_DEC(x), ML99_DEC(y)))
 // }
 
 // ML99_mul_IMPL {
 #define ML99_mul_IMPL(x, y)                                                                        \
-    ML99_PRIV_IF(ML99_PRIV_natEq(y, 0), v(0), ML99_callTrivial(ML99_PRIV_mulProgress, x, y))
-#define ML99_PRIV_mulProgress_IMPL(x, y) ML99_add(v(x), ML99_mul_IMPL(x, ML99_PRIV_dec(y)))
+    ML99_IF(ML99_NAT_EQ(y, 0), v(0), ML99_add(v(x), ML99_callTrivial(ML99_mul, x, ML99_DEC(y))))
 // }
 
 // ML99_mod_IMPL {
 #define ML99_mod_IMPL(x, y)                                                                        \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_natEq(y, 0),                                                                     \
+    ML99_IF(                                                                                       \
+        ML99_NAT_EQ(y, 0),                                                                         \
         ML99_fatal(ML99_mod, modulo by 0),                                                         \
         ML99_callTrivial(ML99_PRIV_modAux, x, y, 0))
 
@@ -457,13 +452,7 @@
         v(acc))
 
 #define ML99_PRIV_modProgress_IMPL(x, y, acc)                                                      \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_natEq(x, 0),                                                                     \
-        v(acc),                                                                                    \
-        ML99_callTrivial(ML99_PRIV_modProgressAux, x, y, acc))
-
-#define ML99_PRIV_modProgressAux_IMPL(x, y, acc)                                                   \
-    ML99_PRIV_modAux_IMPL(ML99_PRIV_dec(x), y, ML99_PRIV_inc(acc))
+    ML99_IF(ML99_NAT_EQ(x, 0), v(acc), ML99_PRIV_modAux_IMPL(ML99_DEC(x), y, ML99_INC(acc)))
 // }
 
 #define ML99_add3_IMPL(x, y, z) ML99_add(ML99_add_IMPL(x, y), v(z))

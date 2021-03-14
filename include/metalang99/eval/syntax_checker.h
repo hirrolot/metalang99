@@ -6,7 +6,7 @@
 #include <metalang99/priv/util.h>
 
 #define ML99_PRIV_CHECK_TERM(term, default)                                                        \
-    ML99_PRIV_IF(ML99_PRIV_IS_UNPARENTHESIZED(term), ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR, default)
+    ML99_PRIV_IF(ML99_PRIV_IS_UNTUPLE(term), ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR, default)
 #define ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR(term, ...)                                             \
     ML99_PRIV_SYNTAX_ERROR(term)                                                                   \
     /* Consume arguments passed to ML99_PRIV_TERM_MATCH, see eval.h. */                            \

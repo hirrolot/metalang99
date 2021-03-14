@@ -13,7 +13,7 @@
 #define ML99_PRIV_div_ERROR(x, y)          ML99_fatal(ML99_div, x is not divisible by y)
 
 #define ML99_divChecked_IMPL(x, y)                                                                 \
-    ML99_PRIV_UNPARENTHESIZE(ML99_PRIV_VARIADICS_SND(ML99_PRIV_div_##x##_##y(), (ML99_nothing())))
+    ML99_PRIV_UNTUPLE(ML99_PRIV_VARIADICS_SND(ML99_PRIV_div_##x##_##y(), (ML99_nothing())))
 
 #define ML99_PRIV_div_0_1() ~, (ML99_just(v(0)))
 

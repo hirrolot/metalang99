@@ -23,14 +23,14 @@
  */
 
 #define ML99_appl_IMPL(f, ...)                                                                     \
-    ML99_PRIV_IF(ML99_PRIV_IS_UNPARENTHESIZED(f), ML99_PRIV_APPL_F, ML99_PRIV_APPL_CLOSURE)        \
+    ML99_PRIV_IF(ML99_PRIV_IS_UNTUPLE(f), ML99_PRIV_APPL_F, ML99_PRIV_APPL_CLOSURE)                \
     (f, __VA_ARGS__)
 
 #define ML99_PRIV_APPL_F(f, ...)                                                                   \
     ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_natEq(f##_ARITY, 1),                                                             \
+        ML99_PRIV_NAT_EQ(f##_ARITY, 1),                                                            \
         ML99_callTrivial(f, __VA_ARGS__),                                                          \
-        v((ML99_PRIV_dec(f##_ARITY), f, __VA_ARGS__)))
+        v((ML99_PRIV_DEC(f##_ARITY), f, __VA_ARGS__)))
 
 #define ML99_PRIV_APPL_CLOSURE(closure, ...)                                                       \
     ML99_PRIV_APPL_CLOSURE_AUX(ML99_PRIV_EXPAND closure, __VA_ARGS__)
@@ -39,9 +39,9 @@
 
 #define ML99_PRIV_APPL_CLOSURE_AUX_AUX(arity, f, ...)                                              \
     ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_natEq(arity, 1),                                                                 \
+        ML99_PRIV_NAT_EQ(arity, 1),                                                                \
         ML99_callTrivial(f, __VA_ARGS__),                                                          \
-        v((ML99_PRIV_dec(arity), f, __VA_ARGS__)))
+        v((ML99_PRIV_DEC(arity), f, __VA_ARGS__)))
 
 #define ML99_appl2_IMPL(f, a, b)       ML99_appl(ML99_appl_IMPL(f, a), v(b))
 #define ML99_appl3_IMPL(f, a, b, c)    ML99_appl(ML99_appl2_IMPL(f, a, b), v(c))

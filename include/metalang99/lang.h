@@ -14,8 +14,7 @@
 /**
  * Invokes a metafunction with arguments.
  */
-#define ML99_call(op, ...)                                                                         \
-    (ML99_PRIV_IF(ML99_PRIV_IS_UNPARENTHESIZED(op), 0args, 0op), op, __VA_ARGS__)
+#define ML99_call(op, ...) (ML99_PRIV_IF(ML99_PRIV_IS_UNTUPLE(op), 0args, 0op), op, __VA_ARGS__)
 
 /**
  * Invokes a metafunction @p ident with unevaluated arguments.

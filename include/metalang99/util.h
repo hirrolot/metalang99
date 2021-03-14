@@ -348,7 +348,7 @@
  *
  * @note This macro does not expand to a Metalang99 term.
  */
-#define ML99_detectIdent(prefix, ident) ML99_PRIV_IS_PARENTHESIZED(ML99_CAT(prefix, ident))
+#define ML99_detectIdent(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_CAT(prefix, ident))
 
 /**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
