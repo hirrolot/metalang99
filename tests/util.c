@@ -15,7 +15,7 @@ ML99_assertEq(ML99_appl2(v(ML99_const), v(1810), v(~)), v(1810));
 // }
 
 // ML99_flip {
-#define ABC v(ML99_true)
+#define ABC ML99_true
 
 ML99_assert(ML99_appl2(ML99_flip(v(ML99_catEval)), v(C), v(AB)));
 

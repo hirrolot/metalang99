@@ -242,7 +242,7 @@ ML99_assert(ML99_listEq(
     ML99_list(v(5, 111, 9, 111, 22))));
 // }
 
-#define ABCDEFG ML99_true
+#define ABCDEFG ML99_TRUE
 
 // ML99_listFoldr {
 ML99_assertEq(ML99_listFoldr(v(ML99_cat), v(7), ML99_nil()), v(7));

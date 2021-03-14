@@ -100,9 +100,9 @@
 #define ML99_nothing_IMPL() v(ML99_CHOICE(nothing, ~))
 
 // ML99_isJust_IMPL {
-#define ML99_isJust_IMPL(maybe)          ML99_match_IMPL(maybe, ML99_PRIV_isJust_)
-#define ML99_PRIV_isJust_just_IMPL(_x)   v(ML99_true)
-#define ML99_PRIV_isJust_nothing_IMPL(_) v(ML99_false)
+#define ML99_isJust_IMPL(maybe)       ML99_match_IMPL(maybe, ML99_PRIV_isJust_)
+#define ML99_PRIV_isJust_just_IMPL    ML99_PRIV_constTrue_IMPL
+#define ML99_PRIV_isJust_nothing_IMPL ML99_PRIV_constFalse_IMPL
 // }
 
 // ML99_isNothing_IMPL {
@@ -117,8 +117,8 @@
 #define ML99_PRIV_maybeEq_just_IMPL(x, other, compare)                                             \
     ML99_matchWithArgs_IMPL(other, ML99_PRIV_maybeEq_just_, x, compare)
 
-#define ML99_PRIV_maybeEq_just_nothing_IMPL(_, other, _compare) v(ML99_false)
-#define ML99_PRIV_maybeEq_just_just_IMPL(y, x, compare)         ML99_appl2_IMPL(compare, x, y)
+#define ML99_PRIV_maybeEq_just_nothing_IMPL             ML99_PRIV_constFalse_IMPL
+#define ML99_PRIV_maybeEq_just_just_IMPL(y, x, compare) ML99_appl2_IMPL(compare, x, y)
 // } (ML99_maybeEq_IMPL)
 
 // ML99_maybeUnwrap_IMPL {

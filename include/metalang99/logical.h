@@ -10,20 +10,14 @@
 
 // Desugaring {
 /**
- * An alias to 0.
- *
- * @note This macro expands literally to 0. If you want to use it as a Metalang99 term, write
- * `v(ML99_false)`.
+ * The same as `v(1)`.
  */
-#define ML99_false 0
+#define ML99_true v(1)
 
 /**
- * An alias to 1.
- *
- * @note This macro expands literally to 1. If you want to use it as a Metalang99 term, write
- * `v(ML99_true)`.
+ * The same as `v(0)`.
  */
-#define ML99_true 1
+#define ML99_false v(0)
 
 /**
  * Logical negation.
@@ -123,6 +117,8 @@
  */
 #define ML99_boolEq(x, y) ML99_call(ML99_boolEq, x, y)
 
+#define ML99_TRUE          1
+#define ML99_FALSE         0
 #define ML99_NOT(x)        ML99_PRIV_CAT(ML99_PRIV_not_, x)()
 #define ML99_AND(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_and_, x, y)
 #define ML99_OR(x, y)      ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_or_, x, y)
@@ -164,8 +160,8 @@
 
 #define ML99_PRIV_LOGICAL_OVERLOAD(op, x, y) op##x##y()
 
-#define ML99_PRIV_constTrue_IMPL(...)  v(ML99_true)
-#define ML99_PRIV_constFalse_IMPL(...) v(ML99_false)
+#define ML99_PRIV_constTrue_IMPL(...)  ML99_true
+#define ML99_PRIV_constFalse_IMPL(...) ML99_false
 // }
 
 // Arity specifiers {

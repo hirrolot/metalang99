@@ -407,16 +407,16 @@
 #define ML99_natNeq_IMPL(x, y) v(ML99_NAT_NEQ(x, y))
 
 #define ML99_greater_IMPL(x, y)   ML99_lesser_IMPL(y, x)
-#define ML99_greaterEq_IMPL(x, y) ML99_IF(ML99_NAT_EQ(x, y), v(ML99_true), ML99_greater_IMPL(x, y))
+#define ML99_greaterEq_IMPL(x, y) ML99_IF(ML99_NAT_EQ(x, y), ML99_true, ML99_greater_IMPL(x, y))
 
 // ML99_lesser_IMPL {
 #define ML99_lesser_IMPL(x, y)                                                                     \
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(y, 0),                                                                         \
-        v(ML99_false),                                                                             \
+        ML99_false,                                                                                \
         ML99_callTrivial(ML99_PRIV_lesserProgress, x, ML99_DEC(y)))
 #define ML99_PRIV_lesserProgress_IMPL(x, y)                                                        \
-    ML99_IF(ML99_NAT_EQ(x, y), v(ML99_true), ML99_lesser_IMPL(x, y))
+    ML99_IF(ML99_NAT_EQ(x, y), ML99_true, ML99_lesser_IMPL(x, y))
 // }
 
 #define ML99_lesserEq_IMPL(x, y) ML99_greaterEq_IMPL(y, x)

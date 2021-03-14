@@ -117,9 +117,9 @@
 #define ML99_right_IMPL(x) v(ML99_CHOICE(right, x))
 
 // ML99_isLeft_IMPL {
-#define ML99_isLeft_IMPL(either)        ML99_match_IMPL(either, ML99_PRIV_isLeft_)
-#define ML99_PRIV_isLeft_left_IMPL(_x)  v(ML99_true)
-#define ML99_PRIV_isLeft_right_IMPL(_x) v(ML99_false)
+#define ML99_isLeft_IMPL(either)    ML99_match_IMPL(either, ML99_PRIV_isLeft_)
+#define ML99_PRIV_isLeft_left_IMPL  ML99_PRIV_constTrue_IMPL
+#define ML99_PRIV_isLeft_right_IMPL ML99_PRIV_constFalse_IMPL
 // }
 
 // ML99_isRight_IMPL {
@@ -136,8 +136,8 @@
     ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_right_, x, compare)
 
 #define ML99_PRIV_eitherEq_left_left_IMPL(y, x, compare)   ML99_appl2_IMPL(compare, x, y)
-#define ML99_PRIV_eitherEq_left_right_IMPL(y, x, compare)  v(ML99_false)
-#define ML99_PRIV_eitherEq_right_left_IMPL(y, x, compare)  v(ML99_false)
+#define ML99_PRIV_eitherEq_left_right_IMPL                 ML99_PRIV_constFalse_IMPL
+#define ML99_PRIV_eitherEq_right_left_IMPL                 ML99_PRIV_constFalse_IMPL
 #define ML99_PRIV_eitherEq_right_right_IMPL(y, x, compare) ML99_appl2_IMPL(compare, x, y)
 // } (ML99_eitherEq_IMPL)
 

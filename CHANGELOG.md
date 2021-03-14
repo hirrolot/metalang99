@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `ML99_tupleAppend`, `ML99_tuplePrepend`
  - `ML99_indexedArgs`
  - `ML99_appl4`
+ - `ML99_TRUE`, `ML99_FALSE`
 
 ### Removed
 

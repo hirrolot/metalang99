@@ -920,7 +920,7 @@
 #define ML99_PRIV_listEq_cons_IMPL(x, xs, other, compare)                                          \
     ML99_matchWithArgs_IMPL(other, ML99_PRIV_listEq_cons_, x, xs, compare)
 
-#define ML99_PRIV_listEq_cons_nil_IMPL(_, _x, _xs, _compare) v(ML99_false)
+#define ML99_PRIV_listEq_cons_nil_IMPL(_, _x, _xs, _compare) ML99_false
 #define ML99_PRIV_listEq_cons_cons_IMPL(other_x, other_xs, x, xs, compare)                         \
     ML99_call(                                                                                     \
         ML99_call(                                                                                 \
@@ -933,7 +933,7 @@
 // ML99_listContains_IMPL {
 #define ML99_listContains_IMPL(compare, item, list)                                                \
     ML99_matchWithArgs_IMPL(list, ML99_PRIV_listContains_, item, compare)
-#define ML99_PRIV_listContains_nil_IMPL(_, _item, _compare) v(ML99_false)
+#define ML99_PRIV_listContains_nil_IMPL(_, _item, _compare) ML99_false
 #define ML99_PRIV_listContains_cons_IMPL(x, xs, item, compare)                                     \
     ML99_call(                                                                                     \
         ML99_call(                                                                                 \
@@ -1066,8 +1066,8 @@
 // clang-format on
 
 #define ML99_PRIV_IS_NIL(list)  ML99_CAT(ML99_PRIV_IS_NIL_, ML99_CHOICE_TAG(list))()
-#define ML99_PRIV_IS_NIL_nil()  ML99_true
-#define ML99_PRIV_IS_NIL_cons() ML99_false
+#define ML99_PRIV_IS_NIL_nil()  ML99_TRUE
+#define ML99_PRIV_IS_NIL_cons() ML99_FALSE
 
 #define ML99_PRIV_IS_CONS(list) ML99_NOT(ML99_PRIV_IS_NIL(list))
 

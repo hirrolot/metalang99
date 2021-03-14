@@ -25,7 +25,7 @@
  * ML99_assert(v(123 == 123));
  * @endcode
  */
-#define ML99_assert(expr) ML99_assertEq(expr, v(ML99_true))
+#define ML99_assert(expr) ML99_assertEq(expr, ML99_true)
 
 /**
  * Asserts the equality of `ML99_eval(lhs)` and `ML99_eval(rhs)` at compile-time.
