@@ -8,6 +8,7 @@
 
 #include <metalang99/choice.h>
 #include <metalang99/logical.h>
+#include <metalang99/util.h>
 
 // Desugaring {
 /**
@@ -108,22 +109,25 @@
  * @endcode
  */
 #define ML99_unwrapRight(either) ML99_call(ML99_unwrapRight, either)
+
+#define ML99_LEFT(x)          ML99_CHOICE(left, x)
+#define ML99_RIGHT(x)         ML99_CHOICE(right, x)
+#define ML99_IS_LEFT(either)  ML99_PRIV_IS_LEFT(either)
+#define ML99_IS_RIGHT(either) ML99_NOT(ML99_IS_LEFT(either))
 // }
 
 #ifndef DOXYGEN_IGNORE
 
 // Implementation {
-#define ML99_left_IMPL(x)  v(ML99_CHOICE(left, x))
-#define ML99_right_IMPL(x) v(ML99_CHOICE(right, x))
+#define ML99_left_IMPL(x)  v(ML99_LEFT(x))
+#define ML99_right_IMPL(x) v(ML99_RIGHT(x))
 
-// ML99_isLeft_IMPL {
-#define ML99_isLeft_IMPL(either)    ML99_match_IMPL(either, ML99_PRIV_isLeft_)
-#define ML99_PRIV_isLeft_left_IMPL  ML99_PRIV_constTrue_IMPL
-#define ML99_PRIV_isLeft_right_IMPL ML99_PRIV_constFalse_IMPL
-// }
+#define ML99_isLeft_IMPL(either)  v(ML99_IS_LEFT(either))
+#define ML99_isRight_IMPL(either) v(ML99_IS_RIGHT(either))
 
-// ML99_isRight_IMPL {
-#define ML99_isRight_IMPL(either) ML99_not(ML99_isLeft_IMPL(either))
+// ML99_IS_LEFT {
+#define ML99_PRIV_IS_LEFT(either) ML99_detectIdent(ML99_PRIV_IS_LEFT_, ML99_CHOICE_TAG(either))
+#define ML99_PRIV_IS_LEFT_left    ()
 // }
 
 // ML99_eitherEq_IMPL {

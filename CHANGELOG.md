@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `ML99_indexedArgs`
  - `ML99_appl4`
  - `ML99_TRUE`, `ML99_FALSE`
+ - `ML99_LEFT`, `ML99_RIGHT`, `ML99_IS_LEFT`, `ML99_IS_RIGHT`
 
 ### Removed
 
