@@ -14,7 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `ML99_tupleAppend`, `ML99_tuplePrepend`
  - `ML99_indexedArgs`
  - `ML99_appl4`
- - `ML99_lazy`
 
 ### Removed
 
@@ -22,16 +21,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/Hirrolot/metalang99/commit/f17f06adf1a747a8897bbc90c598b2be21c945c8))
  - `M_tupleHead`, `M_variadicsHead`
  - `M_overload`
- - `METALANG99_NO_SMALL_PREFIX` (now all macros have the `ML99_` prefix)
+ - `M_when(Plain)`, `M_whenLazy(Plain)`
 
 ### Changed
 
  - Decrease the reduction steps limit to 2^14.
  - Employ the `SCREAMING_CASE` naming convention for plain macros.
+ - All macros are prefixed with `ML99_`, unconditionally.
  - `M_get` -> `ML99_listGet`
  - `M_overloadPlain` -> `ML99_overload`
- - `M_whenLazy` now accepts a lazy metaprogram instead of a metafunction.
- - `M_when` and `M_WHEN` now accept variadic arguments.
  - Rename "unsigned integers" to "natural numbers":
    - `uint.h` -> `nat.h`
    - `M_uintMatch(WithArgs)` -> `ML99_natMatch(WithArgs)`

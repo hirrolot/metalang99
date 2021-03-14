@@ -10,16 +10,6 @@ ML99_assertEq(ML99_if(v(ML99_false), v(516), v(115)), v(115));
 ML99_assertEq(ML99_if(v(ML99_false), v(10), v(6)), v(6));
 // }
 
-// ML99_when {
-ML99_assertEq(ML99_when(v(ML99_true), v(123)), v(123));
-ML99_assertEmpty(ML99_when(v(ML99_false), v(123)));
-// }
-
-// ML99_whenLazy {
-ML99_assertEq(ML99_whenLazy(v(ML99_true), ML99_lazy(v(123))), v(123));
-ML99_assertEmpty(ML99_whenLazy(v(ML99_false), ML99_lazy(v(123))));
-// }
-
 // ML99_overload {
 #define X(...)    ML99_overload(X_, __VA_ARGS__)
 #define X_1(a)    ML99_assertPlain(a == 123)
