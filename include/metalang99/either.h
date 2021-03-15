@@ -126,7 +126,7 @@
 #define ML99_isRight_IMPL(either) v(ML99_IS_RIGHT(either))
 
 // ML99_IS_LEFT {
-#define ML99_PRIV_IS_LEFT(either) ML99_detectIdent(ML99_PRIV_IS_LEFT_, ML99_CHOICE_TAG(either))
+#define ML99_PRIV_IS_LEFT(either) ML99_DETECT_IDENT(ML99_PRIV_IS_LEFT_, ML99_CHOICE_TAG(either))
 #define ML99_PRIV_IS_LEFT_left    ()
 // }
 

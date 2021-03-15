@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
- - `ML99_suppressUnusedBeforeStmt`
+ - `ML99_SUPPRESS_UNUSED_BEFORE_STMT`
  - `ML99_tupleGet`, `ML99_variadicsGet`, `ML99_TUPLE_GET`, `ML99_VARIADICS_GET`
  - `ML99_tupleAppend`, `ML99_tuplePrepend`
  - `ML99_indexedArgs`
@@ -47,17 +47,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `METALANG99_MAJOR`, `METALANG99_MINOR`, `METALANG99_PATCH`
  - `M_union`, `M_anonUnion`, `M_enum`, `M_anonEnum`
- - `METALANG99_gccPragma`, `METALANG99_clangPragma`
+ - `METALANG99_GCC_PRAGMA`, `METALANG99_CLANG_PRAGMA`
 
 ### Fixed
 
- - Suppress Clang's `-Wshadow` for a variable produced by `M_introduceVarToStmt`.
+ - Suppress Clang's `-Wshadow` for a variable produced by `M_INTRODUCE_VAR_TO_STMT`.
 
 ## [0.4.1] - 2021-02-28
 
 ### Added
 
- - `M_detectIdent`
+ - `M_DETECT_IDENT`
  - `M_choicePlain`, `M_choiceEmptyPlain`, `M_consPlain`, `M_nilPlain`
  - `M_listMapInPlace`, `M_listMapInPlaceI`
 
@@ -86,7 +86,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `M_when`, `M_whenPlain`, `M_whenLazy`, `M_whenLazyPlain`
  - `M_leftUnderscored`, `M_rightUnderscored`
- - `M_introduceVarToStmt`
+ - `M_INTRODUCE_VAR_TO_STMT`
  - `M_terms`
  - `M_tupleHead`, `M_tupleHeadPlain`, `M_tupleTail`, `M_tupleTailPlain`
  - `M_indexedParams`, `M_indexedFields`, `M_indexedInitializerList`

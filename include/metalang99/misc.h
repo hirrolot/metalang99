@@ -114,7 +114,7 @@
 // ML99_repeat_IMPL {
 #define ML99_repeat_IMPL(f, n)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_repeat_, f)
 #define ML99_PRIV_repeat_Z_IMPL(_f)   ML99_empty()
-#define ML99_PRIV_repeat_S_IMPL(i, f) ML99_terms(ML99_repeat_IMPL(f, i), ML99_appl_IMPL(f, i))
+#define ML99_PRIV_repeat_S_IMPL(i, f) ML99_TERMS(ML99_repeat_IMPL(f, i), ML99_appl_IMPL(f, i))
 // }
 
 // ML99_indexedParams_IMPL {
@@ -128,7 +128,7 @@
     ML99_matchWithArgs_IMPL(type_list, ML99_PRIV_indexedParamsAux_, i)
 #define ML99_PRIV_indexedParamsAux_nil_IMPL(_, _i) ML99_empty()
 #define ML99_PRIV_indexedParamsAux_cons_IMPL(x, xs, i)                                             \
-    ML99_terms(v(, x _##i), ML99_PRIV_indexedParamsAux_IMPL(xs, ML99_INC(i)))
+    ML99_TERMS(v(, x _##i), ML99_PRIV_indexedParamsAux_IMPL(xs, ML99_INC(i)))
 // }
 
 // ML99_indexedFields_IMPL {
@@ -138,7 +138,7 @@
     ML99_matchWithArgs_IMPL(type_list, ML99_PRIV_indexedFields_, i)
 #define ML99_PRIV_indexedFields_nil_IMPL(_, _i) ML99_empty()
 #define ML99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                                \
-    ML99_terms(v(x _##i;), ML99_PRIV_indexedFieldsAux_IMPL(xs, ML99_INC(i)))
+    ML99_TERMS(v(x _##i;), ML99_PRIV_indexedFieldsAux_IMPL(xs, ML99_INC(i)))
 // }
 
 // ML99_indexedInitializerList_IMPL {

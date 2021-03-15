@@ -211,10 +211,10 @@
  * # Examples
  *
  * @code
- * #define F_IMPL(x) ML99_terms(v(1), v(x), v(2))
+ * #define F_IMPL(x) ML99_TERMS(v(1), v(x), v(2))
  * @endcode
  */
-#define ML99_terms(...) __VA_ARGS__
+#define ML99_TERMS(...) __VA_ARGS__
 
 /**
  * Concatenates @p x with @p y as-is, without expanding them.
@@ -228,12 +228,12 @@
  * #define ABC 7
  *
  * // ABC123
- * ML99_catPrimitive(ABC, 123)
+ * ML99_CAT_PRIMITIVE(ABC, 123)
  * @endcode
  *
  * @note This macro does not expand to a Metalang99 term.
  */
-#define ML99_catPrimitive(x, y) x##y
+#define ML99_CAT_PRIMITIVE(x, y) x##y
 
 /**
  * Stringifies @p x as-is, without expanding it.
@@ -247,17 +247,17 @@
  * #define ABC 7
  *
  * // "ABC"
- * ML99_stringifyPrimitive(ABC)
+ * ML99_STRINGIFY_PRIMITIVE(ABC)
  * @endcode
  *
  * @note This macro does not expand to a Metalang99 term.
  */
-#define ML99_stringifyPrimitive(...) #__VA_ARGS__
+#define ML99_STRINGIFY_PRIMITIVE(...) #__VA_ARGS__
 
 /**
  * Introduces the variable definition @p var_def to a statement right after its invocation.
  *
- * An invocation of #ML99_introduceVarToStmt together with a statement right after it forms a
+ * An invocation of #ML99_INTRODUCE_VAR_TO_STMT together with a statement right after it forms a
  * single statement.
  *
  * This macro is useful when you want to generate a sequence of variable definitions inside your
@@ -276,26 +276,26 @@
  * #include <metalang99/util.h>
  *
  * for (int i = 0; i < 10; i++)
- *     ML99_introduceVarToStmt(double x = 5.0)
- *     ML99_introduceVarToStmt(double y = 7.0)
+ *     ML99_INTRODUCE_VAR_TO_STMT(double x = 5.0)
+ *     ML99_INTRODUCE_VAR_TO_STMT(double y = 7.0)
  *         printf("i = %d, x = %f, y = %f\n", i, x, y);
  * @endcode
  *
  * @note This macro does not expand to a Metalang99 term.
  */
-#define ML99_introduceVarToStmt(var_def)                                                           \
-    ML99_clangPragma("clang diagnostic push")                                                      \
-    ML99_clangPragma("clang diagnostic ignored \"-Wshadow\"")                                      \
-    for (int metalang99_priv_introduceVarToStmt_break = 0;                                         \
-         metalang99_priv_introduceVarToStmt_break != 1;)                                           \
-        for (var_def; metalang99_priv_introduceVarToStmt_break != 1;                               \
-             metalang99_priv_introduceVarToStmt_break = 1)                                         \
-            ML99_clangPragma("clang diagnostic pop")
+#define ML99_INTRODUCE_VAR_TO_STMT(var_def)                                                        \
+    ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
+    ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
+    for (int metalang99_priv_INTRODUCE_VAR_TO_STMT_break = 0;                                      \
+         metalang99_priv_INTRODUCE_VAR_TO_STMT_break != 1;)                                        \
+        for (var_def; metalang99_priv_INTRODUCE_VAR_TO_STMT_break != 1;                            \
+             metalang99_priv_INTRODUCE_VAR_TO_STMT_break = 1)                                      \
+            ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 /**
  * Suppresses the "unused X" warning right before a statement after its invocation.
  *
- * An invocation of #ML99_suppressUnusedBeforeStmt together with a statement right after it
+ * An invocation of #ML99_SUPPRESS_UNUSED_BEFORE_STMT together with a statement right after it
  * forms a single statement.
  *
  * # Example
@@ -306,27 +306,27 @@
  * int x, y;
  *
  * for(;;)
- *     ML99_suppressUnusedBeforeStmt(x)
- *     ML99_suppressUnusedBeforeStmt(y)
+ *     ML99_SUPPRESS_UNUSED_BEFORE_STMT(x)
+ *     ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
  *         puts("abc");
  * @endcode
  *
  * @note This macro does not expand to a Metalang99 term.
  */
-#define ML99_suppressUnusedBeforeStmt(expr)                                                        \
-    ML99_clangPragma("clang diagnostic push")                                                      \
-    ML99_clangPragma("clang diagnostic ignored \"-Wshadow\"")                                      \
-    for (int metalang99_priv_suppressUnusedBeforeStmt_break = 0;                                   \
-         ((void)(expr), metalang99_priv_suppressUnusedBeforeStmt_break != 1);                      \
-         metalang99_priv_suppressUnusedBeforeStmt_break = 1)                                       \
-        ML99_clangPragma("clang diagnostic pop")
+#define ML99_SUPPRESS_UNUSED_BEFORE_STMT(expr)                                                     \
+    ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
+    ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
+    for (int metalang99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 0;                                \
+         ((void)(expr), metalang99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break != 1);                   \
+         metalang99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 1)                                    \
+        ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 /**
  * Tells whether @p ident belongs to a set of identifiers defined by @p prefix.
  *
  * If `<prefix><ident>` exists, it must be an object-like macro which expands to `()`. If so,
- * `ML99_detectIdent(prefix, ident)` will expand to 1, otherwise (`<prefix><ident>` does **not**
- * exist), `ML99_detectIdent(prefix, ident)` will expand to 0.
+ * `ML99_DETECT_IDENT(prefix, ident)` will expand to 1, otherwise (`<prefix><ident>` does **not**
+ * exist), `ML99_DETECT_IDENT(prefix, ident)` will expand to 0.
  *
  * # Examples
  *
@@ -337,31 +337,31 @@
  * #define FOO_y ()
  *
  * // 1
- * ML99_detectIdent(FOO_, x)
+ * ML99_DETECT_IDENT(FOO_, x)
  *
  * // 1
- * ML99_detectIdent(FOO_, y)
+ * ML99_DETECT_IDENT(FOO_, y)
  *
  * // 0
- * ML99_detectIdent(FOO_, z)
+ * ML99_DETECT_IDENT(FOO_, z)
  * @endcode
  *
  * @note This macro does not expand to a Metalang99 term.
  */
-#define ML99_detectIdent(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_CAT(prefix, ident))
+#define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_CAT(prefix, ident))
 
 /**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
  */
-#define ML99_gccPragma(str) ML99_PRIV_GCC_PRAGMA(str)
+#define ML99_GCC_PRAGMA(str) ML99_PRIV_GCC_PRAGMA(str)
 
 /**
  * If you are compiling on Clang, this macro expands to `_Pragma(str)`, otherwise to emptiness.
  */
-#define ML99_clangPragma(str) ML99_PRIV_CLANG_PRAGMA(str)
+#define ML99_CLANG_PRAGMA(str) ML99_PRIV_CLANG_PRAGMA(str)
 
-#define ML99_CAT(x, y)      ML99_catPrimitive(x, y)
-#define ML99_STRINGIFY(...) ML99_stringifyPrimitive(__VA_ARGS__)
+#define ML99_CAT(x, y)      ML99_CAT_PRIMITIVE(x, y)
+#define ML99_STRINGIFY(...) ML99_STRINGIFY_PRIMITIVE(__VA_ARGS__)
 #define ML99_EMPTY()
 #define ML99_ID(...) __VA_ARGS__
 #define ML99_CONSUME(...)

@@ -173,7 +173,7 @@
 
 #define ML99_PRIV_variadicsForEachDone_IMPL(f, _count, x, _) ML99_appl_IMPL(f, x)
 #define ML99_PRIV_variadicsForEachProgress_IMPL(f, count, x, ...)                                  \
-    ML99_terms(                                                                                    \
+    ML99_TERMS(                                                                                    \
         ML99_appl_IMPL(f, x),                                                                      \
         ML99_PRIV_variadicsForEachAux_IMPL(f, ML99_PRIV_DEC(count), __VA_ARGS__))
 // }
@@ -200,7 +200,7 @@
 
 #define ML99_PRIV_variadicsForEachIDone_IMPL(f, i, _count, x, _) ML99_appl2_IMPL(f, x, i)
 #define ML99_PRIV_variadicsForEachIProgress_IMPL(f, i, count, x, ...)                              \
-    ML99_terms(                                                                                    \
+    ML99_TERMS(                                                                                    \
         ML99_appl2_IMPL(f, x, i),                                                                  \
         ML99_PRIV_variadicsForEachIAux_IMPL(                                                       \
             f,                                                                                     \

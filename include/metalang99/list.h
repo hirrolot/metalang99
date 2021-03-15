@@ -795,7 +795,7 @@
 // ML99_listUnwrap_IMPL {
 #define ML99_listUnwrap_IMPL(list)            ML99_match_IMPL(list, ML99_PRIV_listUnwrap_)
 #define ML99_PRIV_listUnwrap_nil_IMPL(_)      ML99_empty()
-#define ML99_PRIV_listUnwrap_cons_IMPL(x, xs) ML99_terms(v(x), ML99_listUnwrap_IMPL(xs))
+#define ML99_PRIV_listUnwrap_cons_IMPL(x, xs) ML99_TERMS(v(x), ML99_listUnwrap_IMPL(xs))
 // }
 
 // ML99_listReverse_IMPL {
@@ -873,7 +873,7 @@
     ML99_matchWithArgs_IMPL(list, ML99_PRIV_listMapInPlace_, f)
 #define ML99_PRIV_listMapInPlace_nil_IMPL(_, _f) ML99_empty()
 #define ML99_PRIV_listMapInPlace_cons_IMPL(x, xs, f)                                               \
-    ML99_terms(ML99_appl_IMPL(f, x), ML99_listMapInPlace_IMPL(f, xs))
+    ML99_TERMS(ML99_appl_IMPL(f, x), ML99_listMapInPlace_IMPL(f, xs))
 // }
 
 // ML99_listMapInPlaceI_IMPL {
@@ -882,7 +882,7 @@
     ML99_matchWithArgs_IMPL(list, ML99_PRIV_listMapInPlaceI_, f, i)
 #define ML99_PRIV_listMapInPlaceI_nil_IMPL(_, _f, _i) ML99_empty()
 #define ML99_PRIV_listMapInPlaceI_cons_IMPL(x, xs, f, i)                                           \
-    ML99_terms(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapInPlaceIAux_IMPL(f, xs, ML99_PRIV_INC(i)))
+    ML99_TERMS(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapInPlaceIAux_IMPL(f, xs, ML99_PRIV_INC(i)))
 // }
 
 // ML99_listFor_IMPL {
@@ -1058,7 +1058,7 @@
     ML99_match_IMPL(xs, ML99_PRIV_listUnwrapCommaSepAux_)
 #define ML99_PRIV_listUnwrapCommaSepAux_nil_IMPL(_) ML99_empty()
 #define ML99_PRIV_listUnwrapCommaSepAux_cons_IMPL(x, xs)                                           \
-    ML99_terms(v(, x), ML99_PRIV_listUnwrapCommaSepAux_IMPL(xs))
+    ML99_TERMS(v(, x), ML99_PRIV_listUnwrapCommaSepAux_IMPL(xs))
 // }
 
 // clang-format off

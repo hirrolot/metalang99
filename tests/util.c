@@ -26,12 +26,12 @@ ML99_assert(ML99_appl2(ML99_flip(v(ML99_catEval)), v(C), v(AB)));
 ML99_assertEmpty(ML99_consume(v(1, 2, 3)));
 // }
 
-// ML99_introduceVarToStmt {
-static void test_introduceVarToStmt(void) {
+// ML99_INTRODUCE_VAR_TO_STMT {
+static void test_INTRODUCE_VAR_TO_STMT(void) {
     // clang-format off
     for (int i = 0; i < 10; i++)
-        ML99_introduceVarToStmt(double x = 5.0)
-        ML99_introduceVarToStmt(double y = 7.0) {
+        ML99_INTRODUCE_VAR_TO_STMT(double x = 5.0)
+        ML99_INTRODUCE_VAR_TO_STMT(double y = 7.0) {
             x = y = 123.456;
             double z = y;
             (void)x;
@@ -41,14 +41,14 @@ static void test_introduceVarToStmt(void) {
 }
 // }
 
-// ML99_suppressUnusedBeforeStmt {
-static void test_suppressUnusedBeforeStmt(void) {
+// ML99_SUPPRESS_UNUSED_BEFORE_STMT {
+static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
     int x, y;
 
     // clang-format off
     for (int i = 0; i < 10; i++)
-        ML99_suppressUnusedBeforeStmt(x)
-        ML99_suppressUnusedBeforeStmt(y)
+        ML99_SUPPRESS_UNUSED_BEFORE_STMT(x)
+        ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
             (void)(1 + 1);
     // clang-format on
 }
@@ -141,25 +141,25 @@ static void test_anon_enum(void) {
 }
 // }
 
-// ML99_detectIdent {
+// ML99_DETECT_IDENT {
 #define FOO_x ()
 #define FOO_y ()
 
-ML99_assertPlain(ML99_detectIdent(FOO_, x));
-ML99_assertPlain(ML99_detectIdent(FOO_, y));
-ML99_assertPlain(!ML99_detectIdent(FOO_, z));
+ML99_assertPlain(ML99_DETECT_IDENT(FOO_, x));
+ML99_assertPlain(ML99_DETECT_IDENT(FOO_, y));
+ML99_assertPlain(!ML99_DETECT_IDENT(FOO_, z));
 
-ML99_assertPlain(!ML99_detectIdent(BAR_, x));
-ML99_assertPlain(!ML99_detectIdent(BAR_, abc));
-ML99_assertPlain(!ML99_detectIdent(BAR_, defghi));
+ML99_assertPlain(!ML99_DETECT_IDENT(BAR_, x));
+ML99_assertPlain(!ML99_DETECT_IDENT(BAR_, abc));
+ML99_assertPlain(!ML99_DETECT_IDENT(BAR_, defghi));
 
 #undef FOO_x
 #undef FOO_y
 // }
 
 int main(void) {
-    (void)test_introduceVarToStmt;
-    (void)test_suppressUnusedBeforeStmt;
+    (void)test_INTRODUCE_VAR_TO_STMT;
+    (void)test_SUPPRESS_UNUSED_BEFORE_STMT;
     (void)test_typedef;
     (void)test_struct;
     (void)test_anon_struct;

@@ -108,7 +108,7 @@
 #define ML99_isNothing_IMPL(maybe) v(ML99_IS_NOTHING(maybe))
 
 // ML99_IS_JUST {
-#define ML99_PRIV_IS_JUST(maybe) ML99_detectIdent(ML99_PRIV_IS_JUST_, ML99_CHOICE_TAG(maybe))
+#define ML99_PRIV_IS_JUST(maybe) ML99_DETECT_IDENT(ML99_PRIV_IS_JUST_, ML99_CHOICE_TAG(maybe))
 #define ML99_PRIV_IS_JUST_just   ()
 // }
 
