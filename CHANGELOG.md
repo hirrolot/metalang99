@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `ML99_TRUE`, `ML99_FALSE`
  - `ML99_LEFT`, `ML99_RIGHT`, `ML99_IS_LEFT`, `ML99_IS_RIGHT`
  - `ML99_JUST`, `ML99_NOTHING`, `ML99_IS_JUST`, `ML99_IS_NOTHING`
+ - `gen.h`
 
 ### Removed
 
@@ -27,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_when(Plain)`, `M_whenLazy(Plain)`
  - `M_putBefore`, `M_putAfter`, `M_putBetween`
  - `M_leftUnderscored`, `M_rightUnderscored`
+ - `misc.h`
 
 ### Changed
 
@@ -35,6 +37,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - All macros are prefixed with `ML99_`, unconditionally.
  - `M_get` -> `ML99_listGet`
  - `M_overloadPlain` -> `ML99_overload`
+ - Move `ML99_repeat` from `misc.h` to `control.h`.
+ - Move `ML99_indexedParams`, `ML99_indexedFields`, `ML99_indexedInitializerList`, `ML99_indexedArgs` from `misc.h` to `gen.h`.
+ - Move `ML99_braced`, `ML99_typedef`, `ML99_struct`, `ML99_anonStruct`, `ML99_union`, `ML99_anonUnion`, `ML99_enum`, `ML99_anonEnum` from `util.h` to `gen.h`.
  - Rename "unsigned integers" to "natural numbers":
    - `uint.h` -> `nat.h`
    - `M_uintMatch(WithArgs)` -> `ML99_natMatch(WithArgs)`

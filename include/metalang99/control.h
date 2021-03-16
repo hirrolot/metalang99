@@ -9,6 +9,7 @@
 #include <metalang99/priv/variadics/count.h>
 
 #include <metalang99/lang.h>
+#include <metalang99/nat.h>
 #include <metalang99/util.h>
 
 // Desugaring {
@@ -60,6 +61,21 @@
 #define ML99_overload(f, ...) ML99_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
 
 /**
+ * Invokes @p f @p n times, providing an iteration index each time.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/control.h>
+ * #include <metalang99/util.h>
+ *
+ * // _0 _1 _2
+ * ML99_repeat(ML99_appl(v(ML99_cat), v(_)), v(3))
+ * @endcode
+ */
+#define ML99_repeat(f, n) ML99_call(ML99_repeat, f, n)
+
+/**
  * The plain version of #ML99_if.
  *
  * In particular, this macro can be used to imitate lazy evaluation: `ML99_IF(<cond>, <term>,
@@ -72,11 +88,19 @@
 
 // Implementation {
 #define ML99_if_IMPL(cond, x, y) v(ML99_IF(cond, x, y))
+
+// ML99_repeat_IMPL {
+#define ML99_repeat_IMPL(f, n)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_repeat_, f)
+#define ML99_PRIV_repeat_Z_IMPL(_f)   ML99_empty()
+#define ML99_PRIV_repeat_S_IMPL(i, f) ML99_TERMS(ML99_repeat_IMPL(f, i), ML99_appl_IMPL(f, i))
 // }
+
+// } (Implementation)
 
 // Arity specifiers {
 #define ML99_if_ARITY       3
 #define ML99_overload_ARITY 2
+#define ML99_repeat_ARITY   2
 // }
 
 #endif // DOXYGEN_IGNORE

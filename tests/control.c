@@ -1,5 +1,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/control.h>
+#include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
 // ML99_if {
@@ -25,6 +26,18 @@ X(1516, 1, 9, 111, 119, 677, 62);
 #undef X_1_IMPL
 #undef X_2_IMPL
 #undef X_7_IMPL
+// }
+
+// ML99_repeat {
+#define CHECK(_, x, y, z) ML99_assertPlain(x == 0 && y == 1 && z == 2)
+#define F_IMPL(x)         v(, x)
+#define F_ARITY           1
+
+ML99_eval(v(CHECK), ML99_tuple(ML99_repeat(v(F), v(3))));
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
 // }
 
 int main(void) {}

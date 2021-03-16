@@ -1,6 +1,7 @@
 /**
  * @file
- * Variadic macro utilities.
+ * Variadics manipulation.
+ *.
  *
  * Metalang99 does not provide a lot of stuff in this module; if a needed function is missed,
  * invoking #ML99_list and then manipulating with the resulting Cons-list might be helpful.

@@ -34,16 +34,16 @@ Both metaprograms result in `1, 2, 3`.
    lang
    choice
    tuple
+   variadics
+   list
    either
    maybe
-   list
-   variadics
    nat
    logical
    util
    control
    assert
-   misc
+   gen
 
 Contents
 ====================================
@@ -52,16 +52,16 @@ Contents
  - `lang.h`_ - The Metalang99 syntax.
  - `choice.h`_ - Choice types.
  - `tuple.h`_ - Tuple manipulation.
+ - `variadics.h`_ - Variadics manipulation.
+ - `list.h`_ - List manipulation.
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
- - `list.h`_ - List manipulation.
- - `variadics.h`_ - Variadic macro utilities.
  - `nat.h`_ - Natural numbers ([0; 255]).
  - `logical.h`_ - Boolean algebra.
  - `control.h`_ - Control expressions.
  - `assert.h`_ - Static assertions.
  - `util.h`_ - Utilitary stuff.
- - `misc.h`_ - Miscellaneous stuff.
+ - `gen.h`_ - Generation of C language constructions.
 
 Indices and tables
 ====================================
@@ -75,13 +75,13 @@ Indices and tables
 .. _lang.h: lang.html
 .. _choice.h: choice.html
 .. _tuple.h: tuple.html
+.. _variadics.h: variadics.html
+.. _list.h: list.html
 .. _either.h: either.html
 .. _maybe.h: maybe.html
-.. _list.h: list.html
-.. _variadics.h: variadics.html
 .. _nat.h: nat.html
 .. _logical.h: logical.html
 .. _control.h: control.html
 .. _assert.h: assert.html
-.. _misc.h: misc.html
 .. _util.h: util.html
+.. _gen.h: gen.html
