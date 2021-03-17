@@ -1,6 +1,5 @@
 #include <metalang99.h>
 
-// Overloading on a number of arguments {
 typedef struct {
     double width, height;
 } Rect;
