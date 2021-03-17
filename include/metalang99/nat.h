@@ -414,9 +414,10 @@
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(y, 0),                                                                         \
         ML99_false,                                                                                \
-        ML99_callTrivial(ML99_PRIV_lesserProgress, x, ML99_DEC(y)))
-#define ML99_PRIV_lesserProgress_IMPL(x, y)                                                        \
-    ML99_IF(ML99_NAT_EQ(x, y), ML99_true, ML99_lesser_IMPL(x, y))
+        ML99_IF(                                                                                   \
+            ML99_NAT_EQ(x, ML99_DEC(y)),                                                           \
+            ML99_true,                                                                             \
+            ML99_callTrivial(ML99_lesser, x, ML99_DEC(y))))
 // }
 
 #define ML99_lesserEq_IMPL(x, y) ML99_greaterEq_IMPL(y, x)

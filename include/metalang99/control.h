@@ -32,35 +32,6 @@
 #define ML99_if(cond, x, y) ML99_call(ML99_if, cond, x, y)
 
 /**
- * Overloads @p f on a number of arguments.
- *
- * This function counts the number of provided arguments, appends it to @p f and calls the resulting
- * macro identifier with provided arguments.
- *
- * At most 63 variadic arguments are acceptable.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/control.h>
- *
- * #define X(...)    ML99_overload(X_, __VA_ARGS__)
- * #define X_1(a)    Billie & a
- * #define X_2(a, b) Jean & a & b
- *
- * // Billie & 4
- * X(4)
- *
- * // Jean & 5 & 6
- * X(5, 6)
- * @endcode
- *
- * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `<f><count of
- * ...>(...)`.
- */
-#define ML99_overload(f, ...) ML99_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
-
-/**
  * Invokes @p f @p n times, providing an iteration index each time.
  *
  * # Examples
@@ -74,6 +45,35 @@
  * @endcode
  */
 #define ML99_repeat(f, n) ML99_call(ML99_repeat, f, n)
+
+/**
+ * Overloads @p f on a number of arguments.
+ *
+ * This function counts the number of provided arguments, appends it to @p f and calls the resulting
+ * macro identifier with provided arguments.
+ *
+ * At most 63 variadic arguments are acceptable.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/control.h>
+ *
+ * #define X(...)    ML99_OVERLOAD(X_, __VA_ARGS__)
+ * #define X_1(a)    Billie & a
+ * #define X_2(a, b) Jean & a & b
+ *
+ * // Billie & 4
+ * X(4)
+ *
+ * // Jean & 5 & 6
+ * X(5, 6)
+ * @endcode
+ *
+ * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `<f><count of
+ * ...>(...)`.
+ */
+#define ML99_OVERLOAD(f, ...) ML99_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
 
 /**
  * The plain version of #ML99_if.
@@ -99,7 +99,7 @@
 
 // Arity specifiers {
 #define ML99_if_ARITY       3
-#define ML99_overload_ARITY 2
+#define ML99_OVERLOAD_ARITY 2
 #define ML99_repeat_ARITY   2
 // }
 

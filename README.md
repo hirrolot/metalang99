@@ -42,7 +42,7 @@ typedef struct {
     double width, height;
 } Rect;
 
-#define Rect_new(...) ML99_overload(Rect_new_, __VA_ARGS__)
+#define Rect_new(...) ML99_OVERLOAD(Rect_new_, __VA_ARGS__)
 #define Rect_new_1(x)                                                                              \
     { x, x }
 #define Rect_new_2(x, y)                                                                           \

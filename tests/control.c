@@ -11,8 +11,8 @@ ML99_assertEq(ML99_if(ML99_false, v(516), v(115)), v(115));
 ML99_assertEq(ML99_if(ML99_false, v(10), v(6)), v(6));
 // }
 
-// ML99_overload {
-#define X(...)    ML99_overload(X_, __VA_ARGS__)
+// ML99_OVERLOAD {
+#define X(...)    ML99_OVERLOAD(X_, __VA_ARGS__)
 #define X_1(a)    ML99_assertPlain(a == 123)
 #define X_2(a, b) ML99_assertPlain(a == 93145 && b == 456)
 #define X_7(a, b, c, d, e, f, g)                                                                   \
