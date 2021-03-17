@@ -74,7 +74,6 @@ It features a wide range of concepts, including algebraic data types, control fl
  - [Architecture](#architecture)
  - [Optimisation guide](#optimisation-guide)
  - [FAQ](#faq)
- - [Troubleshooting](#troubleshooting)
 
 ## Motivation
 
@@ -227,9 +226,3 @@ A: C99/C++11 and onwards.
 A: I don't like amalgamated headers because they induce burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
-
-## Troubleshooting
-
-### Problem: I can't make it work on MSVC
-
-Solution: specify either `/std:c11` or `/std:c17`. [More information >>](https://docs.microsoft.com/en-us/cpp/build/reference/std-specify-language-standard-version?view=msvc-160#c-standards-support-1)

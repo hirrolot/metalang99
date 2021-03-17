@@ -46,6 +46,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `M_uintEq` -> `ML99_natEq`
    - `M_uintNeq` -> `ML99_natNeq`
 
+### Fixed
+
+ - Emit a compile-time error if [`/Zc:preprocessor`] (MSVC) was not specified.
+
+[`/Zc:preprocessor`]: https://docs.microsoft.com/en-us/cpp/build/reference/zc-preprocessor?view=msvc-160
+
 ## [0.4.2] - 2021-02-28
 
 ### Added
