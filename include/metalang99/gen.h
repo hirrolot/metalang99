@@ -1,6 +1,6 @@
 /**
  * @file
- * Generation of C language constructions.
+ * Support for C language constructions.
  */
 
 #ifndef ML99_GEN_H

@@ -20,6 +20,6 @@
  */
 #define RECTANGLE rect(v(15), v(7))
 
-ML99_assertEq(rectArea(RECTANGLE), v(15 * 7));
+ML99_ASSERT_EQ(rectArea(RECTANGLE), v(15 * 7));
 
 int main(void) {}

@@ -26,6 +26,7 @@
  *
  * #define F_IMPL(x, y) v(x + y)
  *
+ * // abc ~ 123 1 + 2
  * ML99_eval(v(abc ~ 123), ML99_call(F, v(1, 2)))
  * @endcode
  */

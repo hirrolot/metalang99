@@ -52,16 +52,16 @@ Contents
  - `lang.h`_ - The Metalang99 syntax.
  - `choice.h`_ - Choice types.
  - `tuple.h`_ - Tuple manipulation.
- - `variadics.h`_ - Variadics manipulation.
+ - `variadics.h`_ - Variadic arguments manipulation.
  - `list.h`_ - List manipulation.
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
  - `nat.h`_ - Natural numbers ([0; 255]).
  - `logical.h`_ - Boolean algebra.
- - `control.h`_ - Control expressions.
+ - `control.h`_ - Control flow operators.
  - `assert.h`_ - Static assertions.
  - `util.h`_ - Utilitary stuff.
- - `gen.h`_ - Generation of C language constructions.
+ - `gen.h`_ - Support for C language constructions.
 
 Indices and tables
 ====================================

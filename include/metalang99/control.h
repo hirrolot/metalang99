@@ -1,6 +1,6 @@
 /**
  * @file
- * Control expressions.
+ * Control flow operators.
  */
 
 #ifndef ML99_CONTROL_H

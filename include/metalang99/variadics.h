@@ -1,6 +1,6 @@
 /**
  * @file
- * Variadics manipulation.
+ * Variadic arguments manipulation.
  *.
  *
  * Metalang99 does not provide a lot of stuff in this module; if a needed function is missed,

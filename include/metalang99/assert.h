@@ -22,10 +22,10 @@
  * @code
  * #include <metalang99/assert.h>
  *
- * ML99_assert(v(123 == 123));
+ * ML99_ASSERT(v(123 == 123));
  * @endcode
  */
-#define ML99_assert(expr) ML99_assertEq(expr, ML99_true)
+#define ML99_ASSERT(expr) ML99_ASSERT_EQ(expr, ML99_true)
 
 /**
  * Asserts the equality of `ML99_eval(lhs)` and `ML99_eval(rhs)` at compile-time.
@@ -35,10 +35,10 @@
  * @code
  * #include <metalang99/assert.h>
  *
- * ML99_assertEq(v(123), v(123));
+ * ML99_ASSERT_EQ(v(123), v(123));
  * @endcode
  */
-#define ML99_assertEq(lhs, rhs) ML99_assertPlain(ML99_eval(lhs) == ML99_eval(rhs))
+#define ML99_ASSERT_EQ(lhs, rhs) ML99_ASSERT_UNEVAL(ML99_eval(lhs) == ML99_eval(rhs))
 
 /**
  * Asserts the C constant expression @p expr; <a
@@ -49,10 +49,10 @@
  * @code
  * #include <metalang99/assert.h>
  *
- * ML99_assertPlain(123 == 123);
+ * ML99_ASSERT_UNEVAL(123 == 123);
  * @endcode
  */
-#define ML99_assertPlain(expr)                                                                     \
+#define ML99_ASSERT_UNEVAL(expr)                                                                   \
     /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
     static const char ML99_PRIV_CAT(                                                               \
         metalang99_assert_,                                                                        \
@@ -67,13 +67,13 @@
  * #include <metalang99/assert.h>
  *
  * // Passes:
- * ML99_assertEmpty(v());
+ * ML99_ASSERT_EMPTY(v());
  *
  * // Fails:
- * ML99_assertEmpty(v(123));
+ * ML99_ASSERT_EMPTY(v(123));
  * @endcode
  */
-#define ML99_assertEmpty(expr) ML99_assertEmptyPlain(ML99_eval(expr))
+#define ML99_ASSERT_EMPTY(expr) ML99_ASSERT_EMPTY_UNEVAL(ML99_eval(expr))
 
 /**
  * Asserts that @p expr is emptiness.
@@ -84,18 +84,19 @@
  * #include <metalang99/assert.h>
  *
  * // Passes:
- * ML99_assertEmptyPlain();
+ * ML99_ASSERT_EMPTY_UNEVAL();
  *
  * // Fails:
- * ML99_assertEmptyPlain(123);
+ * ML99_ASSERT_EMPTY_UNEVAL(123);
  * @endcode
  */
-#define ML99_assertEmptyPlain(expr) ML99_assertPlain(ML99_PRIV_CAT(ML99_PRIV_assertEmpty_, expr))
+#define ML99_ASSERT_EMPTY_UNEVAL(expr)                                                             \
+    ML99_ASSERT_UNEVAL(ML99_PRIV_CAT(ML99_PRIV_ASSERT_EMPTY_, expr))
 // }
 
 #ifndef DOXYGEN_IGNORE
 
-#define ML99_PRIV_assertEmpty_ 1
+#define ML99_PRIV_ASSERT_EMPTY_ 1
 
 #endif // DOXYGEN_IGNORE
 

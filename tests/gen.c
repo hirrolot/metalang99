@@ -140,7 +140,7 @@ static void
 // }
 
 // ML99_indexedFields {
-ML99_assertEmpty(ML99_indexedFields(ML99_nil()));
+ML99_ASSERT_EMPTY(ML99_indexedFields(ML99_nil()));
 
 static void test_indexed_fields(void) {
     struct {
@@ -180,7 +180,7 @@ static void test_indexed_initialiser_list_s(void) {
 // }
 
 // ML99_indexedArgs {
-ML99_assertEmpty(ML99_indexedArgs(v(0)));
+ML99_ASSERT_EMPTY(ML99_indexedArgs(v(0)));
 
 static void test_indexed_args(int i, long long ll, const char *str) {
     (void)i;

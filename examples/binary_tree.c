@@ -20,6 +20,6 @@
  */
 #define TREE Node(Node(Leaf(v(1)), v(2), Leaf(v(3))), v(4), Node(Leaf(v(5)), v(6), Leaf(v(7))))
 
-ML99_assertEq(SUM(TREE), v(28));
+ML99_ASSERT_EQ(SUM(TREE), v(28));
 
 int main(void) {}
