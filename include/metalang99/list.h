@@ -678,7 +678,7 @@
 
 #define ML99_CONS(x, xs)   ML99_CHOICE(cons, x, xs)
 #define ML99_NIL()         ML99_CHOICE(nil, ~)
-#define ML99_IS_CONS(list) ML99_PRIV_IS_CONS(list)
+#define ML99_IS_CONS(list) ML99_NOT(ML99_IS_NIL(list))
 #define ML99_IS_NIL(list)  ML99_PRIV_IS_NIL(list)
 // }
 
@@ -727,7 +727,7 @@
 
 // ML99_list_IMPL {
 #define ML99_list_IMPL(...)                                                                        \
-    ML99_PRIV_listProgress_IMPL(ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
+    ML99_PRIV_listProgress_IMPL(ML99_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
 
 // Last 4 recursion steps unrolled {
 #define ML99_PRIV_listProgress_IMPL(count, ...)                                                    \
@@ -861,7 +861,7 @@
     ML99_matchWithArgs_IMPL(list, ML99_PRIV_listMapI_, f, i)
 #define ML99_PRIV_listMapI_nil_IMPL(_, _f, _i) ML99_nil()
 #define ML99_PRIV_listMapI_cons_IMPL(x, xs, f, i)                                                  \
-    ML99_cons(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapIAux_IMPL(f, xs, ML99_PRIV_INC(i)))
+    ML99_cons(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapIAux_IMPL(f, xs, ML99_INC(i)))
 // }
 
 // ML99_listMapInPlace_IMPL {
@@ -878,7 +878,7 @@
     ML99_matchWithArgs_IMPL(list, ML99_PRIV_listMapInPlaceI_, f, i)
 #define ML99_PRIV_listMapInPlaceI_nil_IMPL(_, _f, _i) ML99_empty()
 #define ML99_PRIV_listMapInPlaceI_cons_IMPL(x, xs, f, i)                                           \
-    ML99_TERMS(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapInPlaceIAux_IMPL(f, xs, ML99_PRIV_INC(i)))
+    ML99_TERMS(ML99_appl2_IMPL(f, x, i), ML99_PRIV_listMapInPlaceIAux_IMPL(f, xs, ML99_INC(i)))
 // }
 
 // ML99_listFor_IMPL {
@@ -1064,8 +1064,6 @@
 #define ML99_PRIV_IS_NIL(list)  ML99_CAT(ML99_PRIV_IS_NIL_, ML99_CHOICE_TAG(list))()
 #define ML99_PRIV_IS_NIL_nil()  ML99_TRUE
 #define ML99_PRIV_IS_NIL_cons() ML99_FALSE
-
-#define ML99_PRIV_IS_CONS(list) ML99_NOT(ML99_PRIV_IS_NIL(list))
 
 #define ML99_PRIV_constNil_IMPL(...) ML99_nil()
 
