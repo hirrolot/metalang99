@@ -77,7 +77,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 ## Motivation
 
-Macros are the means to abstract frequently occurring syntactical structures to let us, programmers, concentrate on the essence of a problem instead of getting distracted by irrelevant details. However, metaprogramming in C is utterly castrated: we cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
+Macros are the means to abstract frequently occurring syntactical structures so that you can write code that _reflects_ the problem domain. However, metaprogramming in C is utterly castrated: we cannot even operate with control flow, integers, and unbounded sequences, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
 To solve the problem, I have implemented Metalang99. Having its functionality at our disposal, it becomes possible to develop even fairly non-trivial metaprograms, such as [Datatype99]:
 
