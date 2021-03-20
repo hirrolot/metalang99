@@ -41,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_eval` -> `ML99_EVAL`
  - `M_callTrivial` -> `ML99_callUneval`
  - Move `ML99_repeat` from `misc.h` to `control.h`.
- - Move `ML99_indexedParams`, `ML99_indexedFields`, `ML99_indexedInitializerList`, `ML99_indexedArgs` from `misc.h` to `gen.h`.
+ - Move `ML99_indexed(Params, Fields, InitializerList, Args)` from `misc.h` to `gen.h`.
  - Move `ML99_braced`, `ML99_typedef`, `ML99_struct`, `ML99_anonStruct`, `ML99_union`, `ML99_anonUnion`, `ML99_enum`, `ML99_anonEnum` from `util.h` to `gen.h`.
  - `M_assertPlain` -> `ML99_ASSERT_UNEVAL`, `M_assertEmptyPlain` -> `ML99_ASSERT_EMPTY_UNEVAL`
  - Rename "unsigned integers" to "natural numbers":
