@@ -29,7 +29,7 @@
  * ML99_inc(v(5))
  * @endcode
  *
- * @note If @p x is 255, the result is 0.
+ * @note If @p x is #ML99_NAT_MAX, the result is 0.
  */
 #define ML99_inc(x) ML99_call(ML99_inc, x)
 
@@ -45,7 +45,7 @@
  * ML99_dec(v(5))
  * @endcode
  *
- * @note If @p x is 0, the result is 255.
+ * @note If @p x is 0, the result is #ML99_NAT_MAX.
  */
 #define ML99_dec(x) ML99_call(ML99_dec, x)
 
@@ -383,6 +383,11 @@
 #define ML99_DEC(x)        ML99_PRIV_DEC(x)
 #define ML99_NAT_EQ(x, y)  ML99_PRIV_NAT_EQ(x, y)
 #define ML99_NAT_NEQ(x, y) ML99_NOT(ML99_NAT_EQ(x, y))
+
+/**
+ * The maximum value of a natural number, currently 255.
+ */
+#define ML99_NAT_MAX 255
 // }
 
 #ifndef DOXYGEN_IGNORE

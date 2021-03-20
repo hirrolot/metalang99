@@ -86,8 +86,8 @@
  * ML99_appl(ML99_appl(v(F), v(a)), v(b))
  * @endcode
  *
- * @note Currently, the maximum arity is 255. However, some compilers might not support more than
- * 127 macro parameters.
+ * @note Currently, the maximum arity is #ML99_NAT_MAX. However, some compilers might not support
+ * more than 127 macro parameters.
  */
 #define ML99_appl(f, ...) ML99_call(ML99_appl, f, __VA_ARGS__)
 
