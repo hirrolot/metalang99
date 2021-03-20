@@ -251,7 +251,7 @@
  * ML99_div(v(12), v(4))
  * @endcode
  *
- * @note A compile-time error if \f$\frac{x}{y}\f$ is not an unsigned integer.
+ * @note A compile-time error if \f$\frac{x}{y}\f$ is not a natural number.
  */
 #define ML99_div(x, y) ML99_call(ML99_div, x, y)
 
@@ -346,7 +346,7 @@
  * ML99_div(v(30), v(3), v(2))
  * @endcode
  *
- * @note A compile-time error if \f$\frac{(\frac{x}{y})}{z}\f$ is not an unsigned integer.
+ * @note A compile-time error if \f$\frac{(\frac{x}{y})}{z}\f$ is not a natural number.
  */
 #define ML99_div3(x, y, z) ML99_call(ML99_div3, x, y, z)
 
