@@ -30,7 +30,6 @@ Both metaprograms result in `1, 2, 3`.
 .. toctree::
    :hidden:
 
-   eval
    lang
    choice
    tuple
@@ -48,8 +47,7 @@ Both metaprograms result in `1, 2, 3`.
 Contents
 ====================================
 
- - `eval.h`_ - The metaprogram evaluator.
- - `lang.h`_ - The Metalang99 syntax.
+ - `lang.h`_ - The core metalanguage.
  - `choice.h`_ - Choice types.
  - `tuple.h`_ - Tuple manipulation.
  - `variadics.h`_ - Variadic arguments manipulation.
@@ -71,7 +69,6 @@ Indices and tables
 
 .. _Metalang99 metalanguage: https://github.com/Hirrolot/metalang99
 
-.. _eval.h: eval.html
 .. _lang.h: lang.html
 .. _choice.h: choice.html
 .. _tuple.h: tuple.html

@@ -28,11 +28,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_when(Plain)`, `M_whenLazy(Plain)`
  - `M_putBefore`, `M_putAfter`, `M_putBetween`
  - `M_leftUnderscored`, `M_rightUnderscored`
- - `misc.h`
+ - `misc.h`, `eval.h`
 
 ### Changed
 
  - Do not guarantee the exact number of available reduction steps, instead keep it "reasonable" for the practical needs.
+ - Amalgamate `lang.h` with `eval.h`.
  - Employ the `SCREAMING_CASE` naming convention for plain macros.
  - All macros are prefixed with `ML99_`, unconditionally.
  - `M_get` -> `ML99_listGet`

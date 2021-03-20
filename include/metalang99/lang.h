@@ -1,6 +1,6 @@
 /**
  * @file
- * The Metalang99 syntax.
+ * The core metalanguage.
  */
 
 #ifndef ML99_LANG_H
@@ -8,9 +8,26 @@
 
 #include <metalang99/priv/util.h>
 
+#include <metalang99/eval/eval.h>
 #include <metalang99/lang/closure.h>
 
 // Desugaring {
+
+/**
+ * Evaluates a metaprogram.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/lang.h>
+ *
+ * #define F_IMPL(x, y) v(x + y)
+ *
+ * ML99_eval(v(abc ~ 123), ML99_call(F, v(1, 2)))
+ * @endcode
+ */
+#define ML99_eval(...) ML99_PRIV_EVAL(__VA_ARGS__)
+
 /**
  * Invokes a metafunction with arguments.
  */
@@ -50,7 +67,6 @@
  *
  * @code
  * #include <metalang99/lang.h>
- * #include <metalang99/eval.h>
  *
  * #define F_IMPL(x, y, z, head, ...) // ...
  * #define F_ARITY 4
@@ -62,7 +78,6 @@
  *
  * @code
  * #include <metalang99/lang.h>
- * #include <metalang99/eval.h>
  *
  * #define F_IMPL(x, y) v(x##y)
  * #define F_ARITY      2
@@ -83,7 +98,6 @@
  *
  * @code
  * #include <metalang99/lang.h>
- * #include <metalang99/eval.h>
  *
  * #define F_IMPL(x, y) v(x##y)
  * #define F_ARITY      2
@@ -140,7 +154,6 @@
  * # Examples
  *
  * @code
- * #include <metalang99/eval.h>
  * #include <metalang99/lang.h>
  *
  * #define F_IMPL(x) v(~)

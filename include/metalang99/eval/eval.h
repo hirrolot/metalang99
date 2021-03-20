@@ -1,34 +1,14 @@
-/**
- * @file
- * The metaprogram evaluator.
- */
+#ifndef ML99_EVAL_EVAL_H
+#define ML99_EVAL_EVAL_H
 
-#ifndef ML99_EVAL_H
-#define ML99_EVAL_H
+#include <metalang99/priv/util.h>
 
 #include <metalang99/eval/acc.h>
 #include <metalang99/eval/rec.h>
 #include <metalang99/eval/syntax_checker.h>
 #include <metalang99/eval/term.h>
 
-#include <metalang99/priv/util.h>
-
-/**
- * Evaluates a metaprogram.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/eval.h>
- * #include <metalang99/lang.h>
- *
- * #define F_IMPL(x, y) v(x + y)
- *
- * // abc ~ 123 1 + 2
- * ML99_eval(v(abc ~ 123), ML99_call(F, v(1, 2)))
- * @endcode
- */
-#define ML99_eval(...)                                                                             \
+#define ML99_PRIV_EVAL(...)                                                                        \
     ML99_PRIV_REC_UNROLL(ML99_PRIV_EVAL_MATCH(                                                     \
         ML99_PRIV_REC_STOP,                                                                        \
         (~),                                                                                       \
@@ -37,8 +17,6 @@
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~))
-
-#ifndef DOXYGEN_IGNORE
 
 // Recursion hooks {
 #define ML99_PRIV_EVAL_MATCH_HOOK()     ML99_PRIV_EVAL_MATCH
@@ -129,6 +107,4 @@
 #define ML99_PRIV_MACHINE_REDUCE(...) ML99_PRIV_EVAL_MATCH(__VA_ARGS__)
 // } (Continuations)
 
-#endif // DOXYGEN_IGNORE
-
-#endif // ML99_EVAL_H
+#endif // ML99_EVAL_EVAL_H

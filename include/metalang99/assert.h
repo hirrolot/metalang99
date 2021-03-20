@@ -8,7 +8,6 @@
 
 #include <metalang99/priv/compiler_specific.h>
 
-#include <metalang99/eval.h>
 #include <metalang99/lang.h>
 #include <metalang99/logical.h>
 #include <metalang99/util.h>

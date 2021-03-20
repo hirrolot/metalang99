@@ -13,7 +13,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/choice.h>
 #include <metalang99/control.h>
-#include <metalang99/eval.h>
 #include <metalang99/gen.h>
 #include <metalang99/lang.h>
 #include <metalang99/list.h>
