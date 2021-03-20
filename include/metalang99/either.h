@@ -122,10 +122,8 @@
 #define ML99_isLeft_IMPL(either)  v(ML99_IS_LEFT(either))
 #define ML99_isRight_IMPL(either) v(ML99_IS_RIGHT(either))
 
-// ML99_IS_LEFT {
 #define ML99_PRIV_IS_LEFT(either) ML99_DETECT_IDENT(ML99_PRIV_IS_LEFT_, ML99_CHOICE_TAG(either))
 #define ML99_PRIV_IS_LEFT_left    ()
-// }
 
 // ML99_eitherEq_IMPL {
 #define ML99_eitherEq_IMPL(compare, either, other)                                                 \
@@ -140,7 +138,7 @@
 #define ML99_PRIV_eitherEq_left_right_IMPL                 ML99_PRIV_constFalse_IMPL
 #define ML99_PRIV_eitherEq_right_left_IMPL                 ML99_PRIV_constFalse_IMPL
 #define ML99_PRIV_eitherEq_right_right_IMPL(y, x, compare) ML99_appl2_IMPL(compare, x, y)
-// } (ML99_eitherEq_IMPL)
+// }
 
 // ML99_unwrapLeft_IMPL {
 #define ML99_unwrapLeft_IMPL(either)      ML99_match_IMPL(either, ML99_PRIV_unwrapLeft_)

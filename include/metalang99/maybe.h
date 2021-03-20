@@ -8,6 +8,7 @@
 
 #include <metalang99/choice.h>
 #include <metalang99/logical.h>
+#include <metalang99/util.h>
 
 /**
  * Some value @p x.
@@ -104,10 +105,8 @@
 #define ML99_isJust_IMPL(maybe)    v(ML99_IS_JUST(maybe))
 #define ML99_isNothing_IMPL(maybe) v(ML99_IS_NOTHING(maybe))
 
-// ML99_IS_JUST {
 #define ML99_PRIV_IS_JUST(maybe) ML99_DETECT_IDENT(ML99_PRIV_IS_JUST_, ML99_CHOICE_TAG(maybe))
 #define ML99_PRIV_IS_JUST_just   ()
-// }
 
 // ML99_maybeEq_IMPL {
 #define ML99_maybeEq_IMPL(compare, maybe, other)                                                   \
@@ -119,7 +118,7 @@
 
 #define ML99_PRIV_maybeEq_just_nothing_IMPL             ML99_PRIV_constFalse_IMPL
 #define ML99_PRIV_maybeEq_just_just_IMPL(y, x, compare) ML99_appl2_IMPL(compare, x, y)
-// } (ML99_maybeEq_IMPL)
+// }
 
 // ML99_maybeUnwrap_IMPL {
 #define ML99_maybeUnwrap_IMPL(maybe) ML99_match_IMPL(maybe, ML99_PRIV_maybeUnwrap_)

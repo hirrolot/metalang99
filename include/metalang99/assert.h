@@ -51,8 +51,8 @@
  * @endcode
  */
 #define ML99_ASSERT_UNEVAL(expr)                                                                   \
-    /* How to imitate static assertions in C99: https://stackoverflow.com/a/3385694/13166656. */   \
-    static const char ML99_PRIV_CAT(                                                               \
+    /* How to imitate static assertions in C99: <https://stackoverflow.com/a/3385694/13166656>. */ \
+    static const char ML99_CAT(                                                                    \
         metalang99_assert_,                                                                        \
         __LINE__)[(expr) ? 1 : -1] ML99_PRIV_COMPILER_ATTR_UNUSED = {0}
 
@@ -88,8 +88,7 @@
  * ML99_ASSERT_EMPTY_UNEVAL(123);
  * @endcode
  */
-#define ML99_ASSERT_EMPTY_UNEVAL(expr)                                                             \
-    ML99_ASSERT_UNEVAL(ML99_PRIV_CAT(ML99_PRIV_ASSERT_EMPTY_, expr))
+#define ML99_ASSERT_EMPTY_UNEVAL(expr) ML99_ASSERT_UNEVAL(ML99_CAT(ML99_PRIV_ASSERT_EMPTY_, expr))
 
 #ifndef DOXYGEN_IGNORE
 

@@ -81,28 +81,19 @@
 
 #ifndef DOXYGEN_IGNORE
 
-// ML99_choice_IMPL {
-#define ML99_choice_IMPL(tag, ...) v(ML99_CHOICE(tag, __VA_ARGS__))
-// }
-
-// ML99_choiceTag_IMPL {
+#define ML99_choice_IMPL(tag, ...)  v(ML99_CHOICE(tag, __VA_ARGS__))
 #define ML99_choiceTag_IMPL(choice) v(ML99_CHOICE_TAG(choice))
-// }
 
-// ML99_match_IMPL {
 #define ML99_match_IMPL(choice, matcher)                                                           \
     ML99_callUneval(                                                                               \
         ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
         ML99_PRIV_VARIADICS_TAIL_AUX choice)
-// }
 
-// ML99_matchWithArgs_IMPL {
 #define ML99_matchWithArgs_IMPL(choice, matcher, ...)                                              \
     ML99_callUneval(                                                                               \
         ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
         ML99_PRIV_VARIADICS_TAIL_AUX choice,                                                       \
         __VA_ARGS__)
-// }
 
 // Arity specifiers {
 #define ML99_choice_ARITY        2

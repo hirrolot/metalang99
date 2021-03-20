@@ -265,13 +265,8 @@
     ML99_TERMS(v(x _##i;), ML99_PRIV_indexedFieldsAux_IMPL(xs, ML99_INC(i)))
 // }
 
-// ML99_indexedInitializerList_IMPL {
 #define ML99_indexedInitializerList_IMPL(n) ML99_braced(ML99_PRIV_indexedItems(n, v(0)))
-// }
-
-// ML99_indexedArgs_IMPL {
-#define ML99_indexedArgs_IMPL(n) ML99_PRIV_indexedItems(n, ML99_empty())
-// }
+#define ML99_indexedArgs_IMPL(n)            ML99_PRIV_indexedItems(n, ML99_empty())
 
 #define ML99_PRIV_indexedItems(n, empty_case)                                                      \
     ML99_IF(                                                                                       \
