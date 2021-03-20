@@ -6,6 +6,8 @@
 #ifndef ML99_UTIL_H
 #define ML99_UTIL_H
 
+#include <metalang99/priv/util.h>
+
 #include <metalang99/lang.h>
 
 // Desugaring {

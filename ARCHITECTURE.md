@@ -14,9 +14,9 @@ The interpreter interprets the core metalanguage described in the [specification
 
 [continuation-passing style]: https://en.wikipedia.org/wiki/Continuation-passing_style
 
-### `eval/rec/`
+### `eval/rec.h`
 
-`eval/rec/` contains a macro recursion engine upon which everything executes.
+`eval/rec.h` contains a macro recursion engine upon which everything executes.
 
 ## Standard library
 

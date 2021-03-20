@@ -119,11 +119,11 @@
 
 #define ML99_TRUE          1
 #define ML99_FALSE         0
-#define ML99_NOT(x)        ML99_PRIV_CAT(ML99_PRIV_not_, x)()
-#define ML99_AND(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_and_, x, y)
-#define ML99_OR(x, y)      ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_or_, x, y)
-#define ML99_XOR(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_xor_, x, y)
-#define ML99_BOOL_EQ(x, y) ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_boolEq_, x, y)
+#define ML99_NOT(x)        ML99_PRIV_CAT(ML99_PRIV_NOT_, x)
+#define ML99_AND(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_AND_, x, y)
+#define ML99_OR(x, y)      ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_OR_, x, y)
+#define ML99_XOR(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_XOR_, x, y)
+#define ML99_BOOL_EQ(x, y) ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_BOOL_EQ_, x, y)
 // }
 
 #ifndef DOXYGEN_IGNORE
@@ -135,30 +135,30 @@
 #define ML99_xor_IMPL(x, y)    v(ML99_XOR(x, y))
 #define ML99_boolEq_IMPL(x, y) v(ML99_BOOL_EQ(x, y))
 
-#define ML99_PRIV_not_0() 1
-#define ML99_PRIV_not_1() 0
+#define ML99_PRIV_NOT_0 1
+#define ML99_PRIV_NOT_1 0
 
-#define ML99_PRIV_and_00() 0
-#define ML99_PRIV_and_01() 0
-#define ML99_PRIV_and_10() 0
-#define ML99_PRIV_and_11() 1
+#define ML99_PRIV_AND_00 0
+#define ML99_PRIV_AND_01 0
+#define ML99_PRIV_AND_10 0
+#define ML99_PRIV_AND_11 1
 
-#define ML99_PRIV_or_00() 0
-#define ML99_PRIV_or_01() 1
-#define ML99_PRIV_or_10() 1
-#define ML99_PRIV_or_11() 1
+#define ML99_PRIV_OR_00 0
+#define ML99_PRIV_OR_01 1
+#define ML99_PRIV_OR_10 1
+#define ML99_PRIV_OR_11 1
 
-#define ML99_PRIV_xor_00() 0
-#define ML99_PRIV_xor_01() 1
-#define ML99_PRIV_xor_10() 1
-#define ML99_PRIV_xor_11() 0
+#define ML99_PRIV_XOR_00 0
+#define ML99_PRIV_XOR_01 1
+#define ML99_PRIV_XOR_10 1
+#define ML99_PRIV_XOR_11 0
 
-#define ML99_PRIV_boolEq_00() 1
-#define ML99_PRIV_boolEq_01() 0
-#define ML99_PRIV_boolEq_10() 0
-#define ML99_PRIV_boolEq_11() 1
+#define ML99_PRIV_BOOL_EQ_00 1
+#define ML99_PRIV_BOOL_EQ_01 0
+#define ML99_PRIV_BOOL_EQ_10 0
+#define ML99_PRIV_BOOL_EQ_11 1
 
-#define ML99_PRIV_LOGICAL_OVERLOAD(op, x, y) op##x##y()
+#define ML99_PRIV_LOGICAL_OVERLOAD(op, x, y) op##x##y
 
 #define ML99_PRIV_constTrue_IMPL(...)  ML99_true
 #define ML99_PRIV_constFalse_IMPL(...) ML99_false

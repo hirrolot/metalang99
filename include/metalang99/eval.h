@@ -6,10 +6,8 @@
 #ifndef ML99_EVAL_H
 #define ML99_EVAL_H
 
-#include <metalang99/eval/rec/control.h>
-#include <metalang99/eval/rec/unroll.h>
-
 #include <metalang99/eval/acc.h>
+#include <metalang99/eval/rec.h>
 #include <metalang99/eval/syntax_checker.h>
 #include <metalang99/eval/term.h>
 
@@ -41,8 +39,6 @@
         ~))
 
 #ifndef DOXYGEN_IGNORE
-
-#define ML99_PRIV_REC_UNROLL(...) ML99_PRIV_REC_0(__VA_ARGS__)
 
 // Recursion hooks {
 #define ML99_PRIV_EVAL_MATCH_HOOK()     ML99_PRIV_EVAL_MATCH

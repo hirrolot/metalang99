@@ -1,9 +1,9 @@
 #ifndef ML99_EVAL_SYNTAX_CHECKER_H
 #define ML99_EVAL_SYNTAX_CHECKER_H
 
-#include <metalang99/eval/rec/control.h>
-
 #include <metalang99/priv/util.h>
+
+#include <metalang99/eval/rec.h>
 
 #define ML99_PRIV_CHECK_TERM(term, default)                                                        \
     ML99_PRIV_IF(ML99_PRIV_IS_UNTUPLE(term), ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR, default)

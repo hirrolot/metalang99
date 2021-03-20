@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
- - Decrease the reduction steps limit to 2^13.
+ - Do not guarantee the exact number of available reduction steps, instead keep it "reasonable" for the practical needs.
  - Employ the `SCREAMING_CASE` naming convention for plain macros.
  - All macros are prefixed with `ML99_`, unconditionally.
  - `M_get` -> `ML99_listGet`
