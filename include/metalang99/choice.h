@@ -18,7 +18,6 @@
 #include <metalang99/lang.h>
 #include <metalang99/util.h>
 
-// Desugaring {
 /**
  * Constructs an instance of a choice type.
  *
@@ -79,11 +78,8 @@
 
 #define ML99_CHOICE(tag, ...)   (tag, __VA_ARGS__)
 #define ML99_CHOICE_TAG(choice) ML99_PRIV_VARIADICS_HEAD_AUX choice
-// }
 
 #ifndef DOXYGEN_IGNORE
-
-// Implementation {
 
 // ML99_choice_IMPL {
 #define ML99_choice_IMPL(tag, ...) v(ML99_CHOICE(tag, __VA_ARGS__))
@@ -107,8 +103,6 @@
         ML99_PRIV_VARIADICS_TAIL_AUX choice,                                                       \
         __VA_ARGS__)
 // }
-
-// } (Implementation)
 
 // Arity specifiers {
 #define ML99_choice_ARITY        2

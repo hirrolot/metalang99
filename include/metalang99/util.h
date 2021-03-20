@@ -10,7 +10,6 @@
 
 #include <metalang99/lang.h>
 
-// Desugaring {
 /**
  * Concatenates @p x with @p y and evaluates the result.
  *
@@ -213,11 +212,9 @@
 #define ML99_EMPTY()
 #define ML99_ID(...) __VA_ARGS__
 #define ML99_CONSUME(...)
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_catEval_IMPL(x, y)      x##y
 #define ML99_cat_IMPL(x, y)          v(ML99_CAT(x, y))
 #define ML99_stringify_IMPL(...)     v(ML99_STRINGIFY(__VA_ARGS__))
@@ -239,7 +236,6 @@
 #else
 #define ML99_PRIV_CLANG_PRAGMA(str)
 #endif
-// }
 
 // Arity specifiers {
 #define ML99_catEval_ARITY   2

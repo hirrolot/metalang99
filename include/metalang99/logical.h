@@ -8,7 +8,6 @@
 
 #include <metalang99/lang.h>
 
-// Desugaring {
 /**
  * The same as `v(1)`.
  */
@@ -124,11 +123,9 @@
 #define ML99_OR(x, y)      ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_OR_, x, y)
 #define ML99_XOR(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_XOR_, x, y)
 #define ML99_BOOL_EQ(x, y) ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_BOOL_EQ_, x, y)
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_not_IMPL(x)       v(ML99_NOT(x))
 #define ML99_and_IMPL(x, y)    v(ML99_AND(x, y))
 #define ML99_or_IMPL(x, y)     v(ML99_OR(x, y))
@@ -162,7 +159,6 @@
 
 #define ML99_PRIV_constTrue_IMPL(...)  ML99_true
 #define ML99_PRIV_constFalse_IMPL(...) ML99_false
-// }
 
 // Arity specifiers {
 #define ML99_not_ARITY    1

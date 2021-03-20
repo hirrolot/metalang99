@@ -10,7 +10,6 @@
 #include <metalang99/logical.h>
 #include <metalang99/util.h>
 
-// Desugaring {
 /**
  * The left value @p x.
  */
@@ -114,11 +113,9 @@
 #define ML99_RIGHT(x)         ML99_CHOICE(right, x)
 #define ML99_IS_LEFT(either)  ML99_PRIV_IS_LEFT(either)
 #define ML99_IS_RIGHT(either) ML99_NOT(ML99_IS_LEFT(either))
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_left_IMPL(x)  v(ML99_LEFT(x))
 #define ML99_right_IMPL(x) v(ML99_RIGHT(x))
 
@@ -158,8 +155,6 @@
     ML99_fatal(ML99_unwrapRight, expected ML99_right but found ML99_left)
 #define ML99_PRIV_unwrapRight_right_IMPL(x) v(x)
 // }
-
-// } (Implementation)
 
 // Arity specifiers {
 #define ML99_left_ARITY        1

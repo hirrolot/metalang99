@@ -20,7 +20,6 @@
 #include <metalang99/lang.h>
 #include <metalang99/variadics.h>
 
-// Desugaring {
 /**
  * Transforms a sequence of arguments into `(...)`.
  *
@@ -185,11 +184,9 @@
 #define ML99_TUPLE_TAIL(x)         ML99_VARIADICS_TAIL(ML99_UNTUPLE(x))
 #define ML99_TUPLE_APPEND(x, ...)  (ML99_UNTUPLE(x), __VA_ARGS__)
 #define ML99_TUPLE_PREPEND(x, ...) (__VA_ARGS__, ML99_UNTUPLE(x))
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_tupleEval_IMPL(...) v((v(__VA_ARGS__)))
 #define ML99_tuple_IMPL(...)     v(ML99_TUPLE(__VA_ARGS__))
 #define ML99_untupleEval_IMPL(x) ML99_PRIV_EXPAND x
@@ -228,7 +225,6 @@
 
 #define ML99_tupleAppend_IMPL(x, ...)  v(ML99_TUPLE_APPEND(x, __VA_ARGS__))
 #define ML99_tuplePrepend_IMPL(x, ...) v(ML99_TUPLE_PREPEND(x, __VA_ARGS__))
-// }
 
 // Arity specifiers {
 #define ML99_tuple_ARITY        1

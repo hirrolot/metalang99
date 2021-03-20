@@ -17,7 +17,6 @@
 #include <metalang99/nat.h>
 #include <metalang99/util.h>
 
-// Desugaring {
 /**
  * Computes a count of its arguments.
  *
@@ -112,11 +111,9 @@
 #define ML99_VARIADICS_COUNT(...) ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
 #define ML99_VARIADICS_GET(i)     ML99_CAT(ML99_PRIV_VARIADICS_GET_, i)
 #define ML99_VARIADICS_TAIL(...)  ML99_PRIV_VARIADICS_TAIL(__VA_ARGS__)
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_variadicsCount_IMPL(...) v(ML99_VARIADICS_COUNT(__VA_ARGS__))
 
 #define ML99_PRIV_variadicsGet_0(...) ML99_call(ML99_PRIV_variadicsGet_0, __VA_ARGS__)
@@ -204,8 +201,6 @@
         ML99_appl2_IMPL(f, x, i),                                                                  \
         ML99_PRIV_variadicsForEachIAux_IMPL(f, ML99_INC(i), ML99_DEC(count), __VA_ARGS__))
 // }
-
-// } (Implementation)
 
 // Arity specifiers {
 #define ML99_variadicsCount_ARITY    1

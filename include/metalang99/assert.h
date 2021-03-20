@@ -12,7 +12,6 @@
 #include <metalang99/logical.h>
 #include <metalang99/util.h>
 
-// Desugaring {
 /**
  * Asserts `ML99_EVAL(expr)` at compile-time.
  *
@@ -91,7 +90,6 @@
  */
 #define ML99_ASSERT_EMPTY_UNEVAL(expr)                                                             \
     ML99_ASSERT_UNEVAL(ML99_PRIV_CAT(ML99_PRIV_ASSERT_EMPTY_, expr))
-// }
 
 #ifndef DOXYGEN_IGNORE
 

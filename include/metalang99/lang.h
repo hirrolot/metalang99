@@ -11,8 +11,6 @@
 #include <metalang99/eval/eval.h>
 #include <metalang99/lang/closure.h>
 
-// Desugaring {
-
 /**
  * Evaluates a metaprogram.
  *
@@ -163,14 +161,11 @@
  * @endcode
  */
 #define ML99_abort(...) (0abort, __VA_ARGS__)
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_compose_IMPL(f, g)         ML99_appl2_IMPL(ML99_PRIV_compose, f, g)
 #define ML99_PRIV_compose_IMPL(f, g, x) ML99_appl(v(f), ML99_appl_IMPL(g, x))
-//
 
 // Arity specifiers {
 #define ML99_appl_ARITY    2

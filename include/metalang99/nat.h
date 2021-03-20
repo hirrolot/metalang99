@@ -16,7 +16,6 @@
 #include <metalang99/logical.h>
 #include <metalang99/maybe.h>
 
-// Desugaring {
 /**
  * \f$x + 1\f$
  *
@@ -388,11 +387,9 @@
  * The maximum value of a natural number, currently 255.
  */
 #define ML99_NAT_MAX 255
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_natMatch_IMPL(x, matcher)                                                             \
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(x, 0),                                                                         \
@@ -468,7 +465,6 @@
 
 #define ML99_min_IMPL(x, y) ML99_call(ML99_if, ML99_lesser_IMPL(x, y), v(x, y))
 #define ML99_max_IMPL(x, y) ML99_call(ML99_if, ML99_lesser_IMPL(x, y), v(y, x))
-// }
 
 // Arity specifiers {
 #define ML99_inc_ARITY              1

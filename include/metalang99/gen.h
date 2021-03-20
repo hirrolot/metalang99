@@ -15,8 +15,6 @@
 #include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
-// Desugaring {
-
 /**
  * Puts provided arguments into braces.
  *
@@ -231,11 +229,9 @@
          ((void)(expr), metalang99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break != 1);                   \
          metalang99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 1)                                    \
         ML99_CLANG_PRAGMA("clang diagnostic pop")
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_braced_IMPL(...)         v({__VA_ARGS__})
 #define ML99_typedef_IMPL(ident, ...) v(typedef __VA_ARGS__ ident;)
 #define ML99_struct_IMPL(ident, ...)  v(struct ident{__VA_ARGS__})
@@ -284,7 +280,6 @@
         ML99_variadicsTail(ML99_repeat_IMPL(ML99_PRIV_indexedItem, n)))
 
 #define ML99_PRIV_indexedItem_IMPL(i) v(, _##i)
-// } (Implementation)
 
 // Arity specifiers {
 #define ML99_braced_ARITY                 1

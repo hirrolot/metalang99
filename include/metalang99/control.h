@@ -12,7 +12,6 @@
 #include <metalang99/nat.h>
 #include <metalang99/util.h>
 
-// Desugaring {
 /**
  * If @p cond is true, evaluates to @p x, otherwise @p y.
  *
@@ -82,11 +81,9 @@
  * <another-term>)` will expand to one of the terms, which can be evaluated further.
  */
 #define ML99_IF(cond, x, y) ML99_PRIV_IF(cond, x, y)
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_if_IMPL(cond, x, y) v(ML99_IF(cond, x, y))
 
 // ML99_repeat_IMPL {
@@ -94,8 +91,6 @@
 #define ML99_PRIV_repeat_Z_IMPL(_f)   ML99_empty()
 #define ML99_PRIV_repeat_S_IMPL(i, f) ML99_TERMS(ML99_repeat_IMPL(f, i), ML99_appl_IMPL(f, i))
 // }
-
-// } (Implementation)
 
 // Arity specifiers {
 #define ML99_if_ARITY       3

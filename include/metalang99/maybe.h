@@ -9,7 +9,6 @@
 #include <metalang99/choice.h>
 #include <metalang99/logical.h>
 
-// Desugaring {
 /**
  * Some value @p x.
  */
@@ -96,11 +95,9 @@
 #define ML99_NOTHING()         ML99_CHOICE(nothing, ~)
 #define ML99_IS_JUST(maybe)    ML99_PRIV_IS_JUST(maybe)
 #define ML99_IS_NOTHING(maybe) ML99_NOT(ML99_IS_JUST(maybe))
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_just_IMPL(x)   v(ML99_JUST(x))
 #define ML99_nothing_IMPL() v(ML99_NOTHING())
 
@@ -130,8 +127,6 @@
     ML99_fatal(ML99_maybeUnwrap, expected ML99_just but found ML99_nothing)
 #define ML99_PRIV_maybeUnwrap_just_IMPL(x) v(x)
 // }
-
-// } (Implementation)
 
 // Arity specifiers {
 #define ML99_just_ARITY        1

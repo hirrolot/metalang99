@@ -15,7 +15,6 @@
 #include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
-// Desugaring {
 /**
  * Prepends @p x to @p xs.
  *
@@ -680,11 +679,9 @@
 #define ML99_NIL()         ML99_CHOICE(nil, ~)
 #define ML99_IS_CONS(list) ML99_NOT(ML99_IS_NIL(list))
 #define ML99_IS_NIL(list)  ML99_PRIV_IS_NIL(list)
-// }
 
 #ifndef DOXYGEN_IGNORE
 
-// Implementation {
 #define ML99_cons_IMPL(x, xs) v(ML99_CONS(x, xs))
 #define ML99_nil_IMPL(_)      v(ML99_NIL())
 
@@ -1066,8 +1063,6 @@
 #define ML99_PRIV_IS_NIL_cons() ML99_FALSE
 
 #define ML99_PRIV_constNil_IMPL(...) ML99_nil()
-
-// } (Implementation)
 
 // Arity specifiers {
 #define ML99_cons_ARITY               2
