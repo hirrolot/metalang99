@@ -45,7 +45,7 @@ a user-friendly overview, please see the official repository \cite{Metalang99}.
     \caption{Grammar rules}
 
 \begin{minted}{bnf}
-<eval> ::= "ML99_eval(" <term-seq> ")" ;
+<eval> ::= "ML99_EVAL(" <term-seq> ")" ;
 
 <term> ::=
       "ML99_call(" <op> "," <term-seq> ")"
@@ -66,7 +66,7 @@ Notes:
 \begin{itemize}
     \item \texttt{<pp-token-list>} stands for a list of preprocessor tokens (e.g., \texttt{a 123, hello!}).
     \item The grammar above describes metaprograms already expanded by the preprocessor,
-    except for \texttt{ML99\_eval}, \texttt{ML99\_call}, \texttt{ML99\_callTrivial},
+    except for \texttt{ML99\_EVAL}, \texttt{ML99\_call}, \texttt{ML99\_callTrivial},
     \texttt{ML99\_abort}, \texttt{ML99\_fatal}, and \texttt{v}.
     \item \texttt{ML99\_call} accepts \texttt{op} either as an identifier or as a term that
     reduces to an identifier.
@@ -215,7 +215,7 @@ See how \texttt{ML99\_call(X, v(CALL\_X))} is evaluated:
 
 \begin{example}[Evaluation of terms]
 \begin{align*}
-    \texttt{ML99\_eval}(\texttt{ML99\_call}(X, \texttt{v}(\texttt{CALL\_X}))) & \ \underrightarrow{(start)} \\
+    \texttt{ML99\_EVAL}(\texttt{ML99\_call}(X, \texttt{v}(\texttt{CALL\_X}))) & \ \underrightarrow{(start)} \\
     \langle halt; fappend; (); \texttt{ML99\_call}(X, \texttt{v}(\texttt{CALL\_X})) \rangle & \ \underrightarrow{(args)} \\
     \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{CALL\_X}) \rangle & \ \underrightarrow{(v)} \\
     \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; \texttt{CALL\_X}; () \rangle & \ \underrightarrow{(end)} \\

@@ -7,8 +7,8 @@
 #define MATCH_left_IMPL(x)  v(ML99_ASSERT_UNEVAL(x == 18))
 #define MATCH_right_IMPL(x) v(ML99_ASSERT_UNEVAL(x == 4))
 
-ML99_eval(ML99_call(MATCH, ML99_left(v(18))));
-ML99_eval(ML99_call(MATCH, ML99_right(v(4))));
+ML99_EVAL(ML99_call(MATCH, ML99_left(v(18))));
+ML99_EVAL(ML99_call(MATCH, ML99_right(v(4))));
 
 #undef MATCH_IMPL
 #undef MATCH_left_IMPL

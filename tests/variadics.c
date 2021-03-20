@@ -36,7 +36,7 @@ ML99_ASSERT_EQ(ML99_variadicsGet(7)(v(19, 8, 7378, 10, 121, 1, 80, 23, 7)), v(23
 #define CHECK_TAIL(...)            CHECK_TAIL_AUX(__VA_ARGS__)
 #define CHECK_TAIL_AUX(a, b, c, d) ML99_ASSERT_UNEVAL(a == 51 && b == 21 && c == 1 && d == 7378)
 
-CHECK_TAIL(ML99_eval(ML99_variadicsTail(v(9191, 51, 21, 1, 7378))));
+CHECK_TAIL(ML99_EVAL(ML99_variadicsTail(v(9191, 51, 21, 1, 7378))));
 
 #undef CHECK_TAIL
 #undef CHECK_TAIL_AUX
@@ -77,7 +77,7 @@ ML99_ASSERT_EQ(v(ML99_VARIADICS_COUNT(~, ~, ~)), v(3));
 #define F_IMPL(x)         v(, ML99_INC(x))
 #define F_ARITY           1
 
-ML99_eval(v(CHECK), ML99_tuple(ML99_variadicsForEach(v(F), v(1, 2, 3))));
+ML99_EVAL(v(CHECK), ML99_tuple(ML99_variadicsForEach(v(F), v(1, 2, 3))));
 
 #undef CHECK
 #undef F_IMPL
@@ -89,7 +89,7 @@ ML99_eval(v(CHECK), ML99_tuple(ML99_variadicsForEach(v(F), v(1, 2, 3))));
 #define F_IMPL(x, i)      v(, ), ML99_add(v(x), v(i))
 #define F_ARITY           2
 
-ML99_eval(v(CHECK), ML99_tuple(ML99_variadicsForEachI(v(F), v(1, 2, 3))));
+ML99_EVAL(v(CHECK), ML99_tuple(ML99_variadicsForEachI(v(F), v(1, 2, 3))));
 
 #undef CHECK
 #undef F_IMPL

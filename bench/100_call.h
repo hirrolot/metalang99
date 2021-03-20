@@ -9,4 +9,4 @@
 #define _10  _5, _5
 #define _100 _10, _10, _10, _10, _10, _10, _10, _10, _10, _10
 
-ML99_eval(ML99_consume(_100))
+ML99_EVAL(ML99_consume(_100))

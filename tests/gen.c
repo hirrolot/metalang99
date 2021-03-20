@@ -33,12 +33,12 @@ static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
 // }
 
 // ML99_braced {
-struct TestBraced ML99_eval(ML99_braced(v(int a, b, c;)));
+struct TestBraced ML99_EVAL(ML99_braced(v(int a, b, c;)));
 // }
 
 // ML99_typedef {
 static void test_typedef(void) {
-    ML99_eval(ML99_typedef(v(Point), v(struct { int x, y; })));
+    ML99_EVAL(ML99_typedef(v(Point), v(struct { int x, y; })));
 
     Point point = {5, 7};
     point.x = 1;
@@ -50,7 +50,7 @@ static void test_typedef(void) {
 
 // ML99_struct {
 static void test_struct(void) {
-    ML99_eval(ML99_struct(v(Point), v(int x, y;)));
+    ML99_EVAL(ML99_struct(v(Point), v(int x, y;)));
 
     struct Point point = {5, 7};
     point.x = 1;
@@ -62,7 +62,7 @@ static void test_struct(void) {
 
 // ML99_anonStruct {
 static void test_anon_struct(void) {
-    typedef ML99_eval(ML99_anonStruct(v(int x, y;)))
+    typedef ML99_EVAL(ML99_anonStruct(v(int x, y;)))
     Point;
 
     Point point = {5, 7};
@@ -75,7 +75,7 @@ static void test_anon_struct(void) {
 
 // ML99_union {
 static void test_union(void) {
-    ML99_eval(ML99_union(v(Point), v(int x, y;)));
+    ML99_EVAL(ML99_union(v(Point), v(int x, y;)));
 
     union Point point;
     point.x = 1;
@@ -87,7 +87,7 @@ static void test_union(void) {
 
 // ML99_anonUnion {
 static void test_anon_union(void) {
-    typedef ML99_eval(ML99_anonUnion(v(int x, y;)))
+    typedef ML99_EVAL(ML99_anonUnion(v(int x, y;)))
     Point;
 
     Point point;
@@ -100,7 +100,7 @@ static void test_anon_union(void) {
 
 // ML99_enum {
 static void test_enum(void) {
-    ML99_eval(ML99_enum(v(MyEnum), v(Foo, Bar)));
+    ML99_EVAL(ML99_enum(v(MyEnum), v(Foo, Bar)));
 
     enum MyEnum foo = Foo, bar = Bar;
     (void)foo;
@@ -110,7 +110,7 @@ static void test_enum(void) {
 
 // ML99_anonEnum {
 static void test_anon_enum(void) {
-    typedef ML99_eval(ML99_anonEnum(v(Foo, Bar)))
+    typedef ML99_EVAL(ML99_anonEnum(v(Foo, Bar)))
     MyEnum;
 
     MyEnum foo = Foo, bar = Bar;
@@ -122,12 +122,12 @@ static void test_anon_enum(void) {
 // ML99_indexedParams {
 #define CHECK_void
 
-ML99_eval(ML99_cat(v(CHECK_), ML99_untuple(ML99_indexedParams(ML99_nil()))))
+ML99_EVAL(ML99_cat(v(CHECK_), ML99_untuple(ML99_indexedParams(ML99_nil()))))
 
 #undef CHECK_void
 
 static void
-    test_indexed_params ML99_eval(ML99_indexedParams(ML99_list(v(int, long long, const char *))))
+    test_indexed_params ML99_EVAL(ML99_indexedParams(ML99_list(v(int, long long, const char *))))
 {
     int i = _0;
     long long ll = _1;
@@ -144,7 +144,7 @@ ML99_ASSERT_EMPTY(ML99_indexedFields(ML99_nil()));
 
 static void test_indexed_fields(void) {
     struct {
-        ML99_eval(ML99_indexedFields(ML99_list(v(int, long long, const char *))))
+        ML99_EVAL(ML99_indexedFields(ML99_list(v(int, long long, const char *))))
     } data = {0};
 
     int i = data._0;
@@ -162,7 +162,7 @@ struct {
     int _0;
     long long _1;
     const char *_2;
-} test_indexed_initialiser_list_z = ML99_eval(ML99_indexedInitializerList(v(0)));
+} test_indexed_initialiser_list_z = ML99_EVAL(ML99_indexedInitializerList(v(0)));
 
 static void test_indexed_initialiser_list_s(void) {
     int _0 = 123;
@@ -173,7 +173,7 @@ static void test_indexed_initialiser_list_s(void) {
         int i;
         long long ll;
         const char *str;
-    } data = ML99_eval(ML99_indexedInitializerList(v(3)));
+    } data = ML99_EVAL(ML99_indexedInitializerList(v(3)));
 
     (void)data;
 }
@@ -191,7 +191,7 @@ static void test_indexed_args(int i, long long ll, const char *str) {
     long long _1 = 149494456;
     const char *_2 = "abc";
 
-    test_indexed_args(ML99_eval(ML99_indexedArgs(v(3))));
+    test_indexed_args(ML99_EVAL(ML99_indexedArgs(v(3))));
 }
 // }
 

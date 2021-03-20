@@ -23,10 +23,10 @@
  *
  * #define F_IMPL(x, y) v(x + y)
  *
- * ML99_eval(v(abc ~ 123), ML99_call(F, v(1, 2)))
+ * ML99_EVAL(v(abc ~ 123), ML99_call(F, v(1, 2)))
  * @endcode
  */
-#define ML99_eval(...) ML99_PRIV_EVAL(__VA_ARGS__)
+#define ML99_EVAL(...) ML99_PRIV_EVAL(__VA_ARGS__)
 
 /**
  * Invokes a metafunction with arguments.

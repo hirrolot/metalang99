@@ -4,7 +4,7 @@
 // ML99_id {
 #define CHECK(x, y) ML99_ASSERT_UNEVAL(x == 518 && y == 1910)
 
-ML99_eval(v(CHECK), ML99_id(v((518, 1910))));
+ML99_EVAL(v(CHECK), ML99_id(v((518, 1910))));
 ML99_ASSERT_EQ(ML99_appl(ML99_compose(v(ML99_id), v(ML99_id)), v(181)), v(181));
 
 #undef CHECK

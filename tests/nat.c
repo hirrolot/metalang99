@@ -16,8 +16,8 @@ ML99_ASSERT_EQ(ML99_natMatch(v(123), v(MATCH_)), v(122));
 #define MATCH_Z_IMPL(x, y, z)    v(ML99_ASSERT_UNEVAL(x == 1 && y == 2 && z == 3))
 #define MATCH_S_IMPL(n, x, y, z) v(ML99_ASSERT_UNEVAL(n == 122 && x == 1 && y == 2 && z == 3))
 
-ML99_eval(ML99_natMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
-ML99_eval(ML99_natMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
+ML99_EVAL(ML99_natMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
+ML99_EVAL(ML99_natMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
 
 #undef MATCH_Z_IMPL
 #undef MATCH_S_IMPL

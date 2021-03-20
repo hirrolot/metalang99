@@ -8,9 +8,9 @@
 #define MATCH_FooB_IMPL(x) v(ML99_ASSERT_UNEVAL(x == 1756))
 #define MATCH_FooC_IMPL(_) v(ML99_ASSERT_UNEVAL(1))
 
-ML99_eval(ML99_call(MATCH, ML99_choice(v(FooA), v(19))));
-ML99_eval(ML99_call(MATCH, ML99_choice(v(FooB), v(1756))));
-ML99_eval(ML99_call(MATCH, ML99_choice(v(FooC), v(~))));
+ML99_EVAL(ML99_call(MATCH, ML99_choice(v(FooA), v(19))));
+ML99_EVAL(ML99_call(MATCH, ML99_choice(v(FooB), v(1756))));
+ML99_EVAL(ML99_call(MATCH, ML99_choice(v(FooC), v(~))));
 
 #undef MATCH_IMPL
 #undef MATCH_FooA_IMPL
@@ -24,9 +24,9 @@ ML99_eval(ML99_call(MATCH, ML99_choice(v(FooC), v(~))));
 #define MATCH_FooB_IMPL(x, _3, _8) v(ML99_ASSERT_UNEVAL(x == 1756 && _3 == 3 && _8 == 8))
 #define MATCH_FooC_IMPL(_, _3, _8) v(ML99_ASSERT_UNEVAL(_3 == 3 && _8 == 8))
 
-ML99_eval(ML99_call(MATCH, ML99_choice(v(FooA), v(19))));
-ML99_eval(ML99_call(MATCH, ML99_choice(v(FooB), v(1756))));
-ML99_eval(ML99_call(MATCH, ML99_choice(v(FooC), v(~))));
+ML99_EVAL(ML99_call(MATCH, ML99_choice(v(FooA), v(19))));
+ML99_EVAL(ML99_call(MATCH, ML99_choice(v(FooB), v(1756))));
+ML99_EVAL(ML99_call(MATCH, ML99_choice(v(FooC), v(~))));
 
 #undef MATCH_IMPL
 #undef MATCH_FooA_IMPL

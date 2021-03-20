@@ -7,8 +7,8 @@
 #define MATCH_just_IMPL(x)    v(ML99_ASSERT_UNEVAL(x == 87))
 #define MATCH_nothing_IMPL(_) v(ML99_ASSERT_UNEVAL(1))
 
-ML99_eval(ML99_call(MATCH, ML99_just(v(87))));
-ML99_eval(ML99_call(MATCH, ML99_nothing()));
+ML99_EVAL(ML99_call(MATCH, ML99_just(v(87))));
+ML99_EVAL(ML99_call(MATCH, ML99_nothing()));
 
 #undef MATCH_IMPL
 #undef MATCH_just_IMPL

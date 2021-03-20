@@ -132,7 +132,7 @@
 /**
  * Evaluates a metaprogram that reduces to a list, then unwraps it.
  *
- * It behaves the same as the composition of <a href="#c.ML99_eval">ML99_EVAL</a> and
+ * It behaves the same as the composition of <a href="#c.ML99_EVAL">ML99_EVAL</a> and
  * #ML99_listUnwrap.
  *
  * # Examples
@@ -147,7 +147,7 @@
  * @note This macro does not result in a Metalang99 term; it literally pastes list elements into a
  * source file.
  */
-#define ML99_listEval(...) ML99_eval(ML99_call(ML99_listUnwrap, __VA_ARGS__))
+#define ML99_listEval(...) ML99_EVAL(ML99_call(ML99_listUnwrap, __VA_ARGS__))
 
 /**
  * The same as #ML99_listEval but intersperses a comma between list items.
@@ -164,7 +164,7 @@
  * @note This macro does not result in a Metalang99 term; it literally pastes comma-separated list
  * elements into a source file.
  */
-#define ML99_listEvalCommaSep(...) ML99_eval(ML99_call(ML99_listUnwrapCommaSep, __VA_ARGS__))
+#define ML99_listEvalCommaSep(...) ML99_EVAL(ML99_call(ML99_listUnwrapCommaSep, __VA_ARGS__))
 
 /**
  * Appends the list @p other to @p list.

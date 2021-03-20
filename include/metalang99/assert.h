@@ -14,7 +14,7 @@
 
 // Desugaring {
 /**
- * Asserts `ML99_eval(expr)` at compile-time.
+ * Asserts `ML99_EVAL(expr)` at compile-time.
  *
  * # Examples
  *
@@ -27,7 +27,7 @@
 #define ML99_ASSERT(expr) ML99_ASSERT_EQ(expr, ML99_true)
 
 /**
- * Asserts the equality of `ML99_eval(lhs)` and `ML99_eval(rhs)` at compile-time.
+ * Asserts the equality of `ML99_EVAL(lhs)` and `ML99_EVAL(rhs)` at compile-time.
  *
  * # Examples
  *
@@ -37,7 +37,7 @@
  * ML99_ASSERT_EQ(v(123), v(123));
  * @endcode
  */
-#define ML99_ASSERT_EQ(lhs, rhs) ML99_ASSERT_UNEVAL(ML99_eval(lhs) == ML99_eval(rhs))
+#define ML99_ASSERT_EQ(lhs, rhs) ML99_ASSERT_UNEVAL(ML99_EVAL(lhs) == ML99_EVAL(rhs))
 
 /**
  * Asserts the C constant expression @p expr; <a
@@ -58,7 +58,7 @@
         __LINE__)[(expr) ? 1 : -1] ML99_PRIV_COMPILER_ATTR_UNUSED = {0}
 
 /**
- * Asserts that `ML99_eval(expr)` is emptiness.
+ * Asserts that `ML99_EVAL(expr)` is emptiness.
  *
  * # Examples
  *
@@ -72,7 +72,7 @@
  * ML99_ASSERT_EMPTY(v(123));
  * @endcode
  */
-#define ML99_ASSERT_EMPTY(expr) ML99_ASSERT_EMPTY_UNEVAL(ML99_eval(expr))
+#define ML99_ASSERT_EMPTY(expr) ML99_ASSERT_EMPTY_UNEVAL(ML99_EVAL(expr))
 
 /**
  * Asserts that @p expr is emptiness.

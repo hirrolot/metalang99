@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - All macros are prefixed with `ML99_`, unconditionally.
  - `M_get` -> `ML99_listGet`
  - `M_overloadPlain` -> `ML99_OVERLOAD`
+ - `M_eval` -> `ML99_EVAL`
  - Move `ML99_repeat` from `misc.h` to `control.h`.
  - Move `ML99_indexedParams`, `ML99_indexedFields`, `ML99_indexedInitializerList`, `ML99_indexedArgs` from `misc.h` to `gen.h`.
  - Move `ML99_braced`, `ML99_typedef`, `ML99_struct`, `ML99_anonStruct`, `ML99_union`, `ML99_anonUnion`, `ML99_enum`, `ML99_anonEnum` from `util.h` to `gen.h`.

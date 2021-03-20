@@ -33,7 +33,7 @@ X(1516, 1, 9, 111, 119, 677, 62);
 #define F_IMPL(x)         v(, x)
 #define F_ARITY           1
 
-ML99_eval(v(CHECK), ML99_tuple(ML99_repeat(v(F), v(3))));
+ML99_EVAL(v(CHECK), ML99_tuple(ML99_repeat(v(F), v(3))));
 
 #undef CHECK
 #undef F_IMPL

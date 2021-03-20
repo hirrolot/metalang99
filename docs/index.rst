@@ -13,19 +13,21 @@ The `ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` macros denote the major, the mi
 Naming conventions
 ------------------
 
-Macros following the `SCREAMING_CASE` naming convention are called "plain" macros. To compute a final result of a plain macro, only preprocessor expansion is required (i.e., without involving the Metalang99 evaluator). Plain macros are used to save some reduction steps, thereby making metaprograms faster.
+Macros following the `SCREAMING_CASE` naming convention are called "plain" macros. To compute a final result of a plain macro, only preprocessor expansion is required (i.e. without involving the Metalang99 evaluator). Plain macros are used to save some reduction steps, thereby making metaprograms faster.
 
 Sometimes, there exist two versions of the same macro: one is plain, and the other is Metalang99-compliant. For example, here are two complete metaprograms, one using `ML99_untuple` and the second one using `ML99_UNTUPLE`:
 
 .. code:: c
 
-   ML99_eval(ML99_untuple(v((1, 2, 3))))
+   ML99_EVAL(ML99_untuple(v((1, 2, 3))))
 
 .. code:: c
 
    ML99_UNTUPLE((1, 2, 3))
 
 Both metaprograms result in `1, 2, 3`.
+
+Note that macros standing for the language terms such as `ML99_call`, `v`, and the others (`lang.h`), are technically plain macros as well.
 
 .. toctree::
    :hidden:

@@ -10,7 +10,7 @@ The interpreter interprets the core metalanguage described in the [specification
 
 ### `eval.h`
 
-`eval.h` exposes a single macro `ML99_eval` which evaluates a given metaprogram. It is implemented as a machine in [continuation-passing style] which is described in the specification too.
+`eval.h` exposes a single macro `ML99_PRIV_EVAL` which evaluates a given metaprogram. It is implemented as a machine in [continuation-passing style] which is described in the specification too.
 
 [continuation-passing style]: https://en.wikipedia.org/wiki/Continuation-passing_style
 

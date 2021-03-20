@@ -83,8 +83,8 @@ ML99_ASSERT_UNEVAL(ML99_listEval(ML99_list(v(19, +, 6))) == 19 + 6);
 ML99_ASSERT_EMPTY_UNEVAL(ML99_listEvalCommaSep(ML99_nil()));
 ML99_ASSERT_EMPTY(ML99_listUnwrapCommaSep(ML99_nil()));
 
-ML99_eval(v(CHECK), ML99_tuple(v(ML99_listEvalCommaSep(ML99_list(v(1, 2, 3))))));
-ML99_eval(v(CHECK), ML99_tuple(ML99_listUnwrapCommaSep(ML99_list(v(1, 2, 3)))));
+ML99_EVAL(v(CHECK), ML99_tuple(v(ML99_listEvalCommaSep(ML99_list(v(1, 2, 3))))));
+ML99_EVAL(v(CHECK), ML99_tuple(ML99_listUnwrapCommaSep(ML99_list(v(1, 2, 3)))));
 
 #undef CHECK
 // }
@@ -96,7 +96,7 @@ ML99_ASSERT(ML99_not(ML99_isNil(ML99_list(v(8, 214, 10, 0, 122)))));
 
 ML99_ASSERT_UNEVAL(ML99_IS_NIL(ML99_NIL()));
 ML99_ASSERT_UNEVAL(ML99_NOT(ML99_IS_NIL(ML99_CONS(123, ML99_NIL()))));
-ML99_ASSERT_UNEVAL(ML99_NOT(ML99_IS_NIL(ML99_eval(ML99_list(v(8, 214, 10, 0, 122))))));
+ML99_ASSERT_UNEVAL(ML99_NOT(ML99_IS_NIL(ML99_EVAL(ML99_list(v(8, 214, 10, 0, 122))))));
 // }
 
 // ML99_isCons, ML99_IS_CONS {
@@ -106,7 +106,7 @@ ML99_ASSERT(ML99_isCons(ML99_list(v(8, 214, 10, 0, 122))));
 
 ML99_ASSERT_UNEVAL(ML99_NOT(ML99_IS_CONS(ML99_NIL())));
 ML99_ASSERT_UNEVAL(ML99_IS_CONS(ML99_CONS(123, ML99_NIL())));
-ML99_ASSERT_UNEVAL(ML99_IS_CONS(ML99_eval(ML99_list(v(8, 214, 10, 0, 122)))));
+ML99_ASSERT_UNEVAL(ML99_IS_CONS(ML99_EVAL(ML99_list(v(8, 214, 10, 0, 122)))));
 // }
 
 // ML99_listGet {
@@ -288,7 +288,7 @@ ML99_ASSERT(ML99_listEq(
 #define FOO_z
 
 ML99_ASSERT_EMPTY(ML99_listMapInPlace(v(NonExistingF), ML99_nil()));
-ML99_eval(ML99_listMapInPlace(ML99_appl(v(ML99_cat), v(FOO_)), ML99_list(v(x, y, z))))
+ML99_EVAL(ML99_listMapInPlace(ML99_appl(v(ML99_cat), v(FOO_)), ML99_list(v(x, y, z))))
 
 #undef FOO_x
 #undef FOO_y
@@ -304,7 +304,7 @@ ML99_eval(ML99_listMapInPlace(ML99_appl(v(ML99_cat), v(FOO_)), ML99_list(v(x, y,
 #define MY_CAT_ARITY      2
 
 ML99_ASSERT_EMPTY(ML99_listMapInPlaceI(v(NonExistingF), ML99_nil()));
-ML99_eval(ML99_listMapInPlaceI(v(MY_CAT), ML99_list(v(x, y, z))))
+ML99_EVAL(ML99_listMapInPlaceI(v(MY_CAT), ML99_list(v(x, y, z))))
 
 #undef MY_CAT_IMPL
 #undef MY_CAT_ARITY

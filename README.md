@@ -172,7 +172,7 @@ A: Metalang99 detects and reports about syntactic errors, where possible. For ex
 
 ```c
 // !"Metalang99 syntax error": `123`
-ML99_eval(123)
+ML99_EVAL(123)
 ```
 
 However, compile-time errors can be still quite obscured. I strongly recommend using `-ftrack-macro-expansion=0` (GCC) as it tells a compiler to not print a useless bedsheet of macro expansions.
