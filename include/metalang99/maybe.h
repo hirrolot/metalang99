@@ -18,7 +18,7 @@
 /**
  * No value.
  */
-#define ML99_nothing() ML99_callTrivial(ML99_nothing, )
+#define ML99_nothing() ML99_callUneval(ML99_nothing, )
 
 /**
  * 1 if @p maybe contains some value, otherwise 0.

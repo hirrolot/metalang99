@@ -32,7 +32,7 @@
 /**
  * The empty list.
  */
-#define ML99_nil() ML99_callTrivial(ML99_nil, )
+#define ML99_nil() ML99_callUneval(ML99_nil, )
 
 /**
  * Extracts the head from the non-empty list @p list.
@@ -705,7 +705,7 @@
 #define ML99_PRIV_listLast_nil_IMPL(_) ML99_PRIV_EMPTY_LIST_ERROR(listLast)
 #define ML99_PRIV_listLast_cons_IMPL(x, xs)                                                        \
     ML99_call(                                                                                     \
-        ML99_callTrivial(                                                                          \
+        ML99_callUneval(                                                                           \
             ML99_if,                                                                               \
             ML99_IS_NIL(xs),                                                                       \
             ML99_PRIV_listLastDone,                                                                \
@@ -720,11 +720,7 @@
 #define ML99_PRIV_listInit_nil_IMPL(_) ML99_PRIV_EMPTY_LIST_ERROR(listInit)
 #define ML99_PRIV_listInit_cons_IMPL(x, xs)                                                        \
     ML99_call(                                                                                     \
-        ML99_callTrivial(                                                                          \
-            ML99_if,                                                                               \
-            ML99_IS_NIL(xs),                                                                       \
-            ML99_PRIV_constNil,                                                                    \
-            ML99_PRIV_listInitProgress),                                                           \
+        ML99_callUneval(ML99_if, ML99_IS_NIL(xs), ML99_PRIV_constNil, ML99_PRIV_listInitProgress), \
         v(x, xs))
 #define ML99_PRIV_listInitProgress_IMPL(x, xs) ML99_cons(v(x), ML99_listInit_IMPL(xs))
 // }
@@ -755,7 +751,7 @@
 // }
 
 #define ML99_PRIV_listProgressAux(count, x, ...)                                                   \
-    ML99_cons(v(x), ML99_callTrivial(ML99_PRIV_listProgress, ML99_DEC(count), __VA_ARGS__))
+    ML99_cons(v(x), ML99_callUneval(ML99_PRIV_listProgress, ML99_DEC(count), __VA_ARGS__))
 
 #define ML99_PRIV_listDone_0(_count, _)       v(ML99_NIL())
 #define ML99_PRIV_listDone_1(_count, a, _)    v(ML99_CONS(a, ML99_NIL()))

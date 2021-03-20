@@ -49,7 +49,7 @@ a user-friendly overview, please see the official repository \cite{Metalang99}.
 
 <term> ::=
       "ML99_call(" <op> "," <term-seq> ")"
-    | "ML99_callTrivial(" <ident> "," <pp-token-list> ")"
+    | "ML99_callUneval(" <ident> "," <pp-token-list> ")"
     | "ML99_abort(" <term-seq> ")"
     | "ML99_fatal(" <ident> "," <pp-token-list> ")"
     | "v(" <pp-token-list> ")" ;
@@ -66,11 +66,11 @@ Notes:
 \begin{itemize}
     \item \texttt{<pp-token-list>} stands for a list of preprocessor tokens (e.g., \texttt{a 123, hello!}).
     \item The grammar above describes metaprograms already expanded by the preprocessor,
-    except for \texttt{ML99\_EVAL}, \texttt{ML99\_call}, \texttt{ML99\_callTrivial},
+    except for \texttt{ML99\_EVAL}, \texttt{ML99\_call}, \texttt{ML99\_callUneval}, \\
     \texttt{ML99\_abort}, \texttt{ML99\_fatal}, and \texttt{v}.
     \item \texttt{ML99\_call} accepts \texttt{op} either as an identifier or as a term that
     reduces to an identifier.
-    \item \texttt{ML99\_callTrivial} accepts an operation strictly as an identifier.
+    \item \texttt{ML99\_callUneval} accepts an operation strictly as an identifier.
 \end{itemize}
 
 The \texttt{ML99\_call} syntax hurts IDE support (no parameters documentation highlighting) and is also
@@ -163,7 +163,7 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
             & \ \ \ \ fcomma; \\
             & \ \ \ \ (); \\
             & \ \ \ \ \overline{a} \rangle \\
-        (callTrivial): & \ \langle K; F; A; \texttt{ML99\_callTrivial}(ident, \overline{tok}), \overline{t} \rangle \to \langle \\
+        (callUneval): & \ \langle K; F; A; \texttt{ML99\_callUneval}(ident, \overline{tok}), \overline{t} \rangle \to \langle \\
             & \ \ \ \ \langle K; F; F(A, ?); \overline{t} \rangle; \\
             & \ \ \ \ fappend; \\
             & \ \ \ \ (); \\
@@ -188,7 +188,7 @@ Notes:
     \item $(args)$ Metalang99 appends \texttt{\_IMPL} to every macro identifier called using
     \texttt{ML99\_call} -- it makes easier to follow the convention that all implementations
     of metafunctions must have the postfix \texttt{\_IMPL}.
-    \item $(callTrivial)$ \texttt{ML99\_callTrivial} is used when an operation and all
+    \item $(callUneval)$ \texttt{ML99\_callUneval} is used when an operation and all
     arguments are already evaluated. It is semantically the same as \\ \texttt{ML99\_call(ident, v(...))}
     but performs one less reduction steps to benefit in performance.
     \item $(fatal)$ The ellipsis means that an implementation is free to provide

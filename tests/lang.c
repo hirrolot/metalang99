@@ -7,6 +7,7 @@ ML99_ASSERT_EMPTY_UNEVAL(ML99_EVAL(v()));
 
 ML99_ASSERT_EQ(ML99_call(F, v()), v(123));
 ML99_ASSERT_EQ(ML99_call(v(F), v()), v(123));
+ML99_ASSERT_EQ(ML99_callUneval(F, ), v(123));
 
 #undef F_IMPL
 // }
@@ -20,6 +21,8 @@ ML99_ASSERT_EQ(ML99_call(ML99_call(F, v(B), v(A), v(R)), v(6), v(11)), v(6 + 11)
 
 ML99_ASSERT_EQ(ML99_call(BAR, v(5, 7)), v(5 + 7));
 ML99_ASSERT_EQ(ML99_call(ML99_call(F, v(B, A, R)), v(6, 11)), v(6 + 11));
+
+ML99_ASSERT_EQ(ML99_callUneval(BAR, 5, 7), v(5 + 7));
 
 #undef F_IMPL
 #undef BAR_IMPL

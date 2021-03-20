@@ -160,7 +160,7 @@ Generally speaking, the fewer reduction steps you perform, the faster you become
 
 To perform fewer reduction steps, you can:
 
- - Use `ML99_callTrivial`,
+ - Use `ML99_callUneval`,
  - Use the plain versions (e.g., `ML99_CONSUME` instead of `ML99_consume`),
  - Call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and macro blueprinting will not happen. I strongly recommend to use this trick only if `X` is placed locally to a caller in order to ensure the correctness of expansion.
 

@@ -49,7 +49,7 @@
 /**
  * Matches the instance @p choice of a choice type.
  *
- * This macro results in `ML99_callTrivial(<matcher><a choice's tag>, <choice's data>)`.
+ * This macro results in `ML99_callUneval(<matcher><a choice's tag>, <choice's data>)`.
  *
  * # Examples
  *
@@ -61,7 +61,7 @@
 /**
  * The same as #ML99_match but supplies additional arguments to all branches.
  *
- * This macro results in `ML99_callTrivial(<matcher><a choice's tag>, <choice's data>, args...)`.
+ * This macro results in `ML99_callUneval(<matcher><a choice's tag>, <choice's data>, args...)`.
  *
  * # Examples
  *
@@ -95,14 +95,14 @@
 
 // ML99_match_IMPL {
 #define ML99_match_IMPL(choice, matcher)                                                           \
-    ML99_callTrivial(                                                                              \
+    ML99_callUneval(                                                                               \
         ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
         ML99_PRIV_VARIADICS_TAIL_AUX choice)
 // }
 
 // ML99_matchWithArgs_IMPL {
 #define ML99_matchWithArgs_IMPL(choice, matcher, ...)                                              \
-    ML99_callTrivial(                                                                              \
+    ML99_callUneval(                                                                               \
         ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
         ML99_PRIV_VARIADICS_TAIL_AUX choice,                                                       \
         __VA_ARGS__)

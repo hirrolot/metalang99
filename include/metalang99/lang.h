@@ -39,7 +39,7 @@
  * It is semantically the same as `ML99_call(ident, v(...))` but performs one less reduction
  * steps.
  */
-#define ML99_callTrivial(ident, ...) (0callTr, ident, __VA_ARGS__)
+#define ML99_callUneval(ident, ...) (0callUneval, ident, __VA_ARGS__)
 
 /**
  * Applies arguments to @p f.

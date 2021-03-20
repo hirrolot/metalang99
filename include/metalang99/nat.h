@@ -391,14 +391,14 @@
 #define ML99_natMatch_IMPL(x, matcher)                                                             \
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(x, 0),                                                                         \
-        ML99_callTrivial(matcher##Z, ),                                                            \
-        ML99_callTrivial(matcher##S, ML99_DEC(x)))
+        ML99_callUneval(matcher##Z, ),                                                             \
+        ML99_callUneval(matcher##S, ML99_DEC(x)))
 
 #define ML99_natMatchWithArgs_IMPL(x, matcher, ...)                                                \
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(x, 0),                                                                         \
-        ML99_callTrivial(matcher##Z, __VA_ARGS__),                                                 \
-        ML99_callTrivial(matcher##S, ML99_DEC(x), __VA_ARGS__))
+        ML99_callUneval(matcher##Z, __VA_ARGS__),                                                  \
+        ML99_callUneval(matcher##S, ML99_DEC(x), __VA_ARGS__))
 
 #define ML99_inc_IMPL(x) v(ML99_INC(x))
 #define ML99_dec_IMPL(x) v(ML99_DEC(x))
@@ -417,24 +417,24 @@
         ML99_IF(                                                                                   \
             ML99_NAT_EQ(x, ML99_DEC(y)),                                                           \
             ML99_true,                                                                             \
-            ML99_callTrivial(ML99_lesser, x, ML99_DEC(y))))
+            ML99_callUneval(ML99_lesser, x, ML99_DEC(y))))
 // }
 
 #define ML99_lesserEq_IMPL(x, y) ML99_greaterEq_IMPL(y, x)
 
 // ML99_add_IMPL {
 #define ML99_add_IMPL(x, y)                                                                        \
-    ML99_IF(ML99_NAT_EQ(y, 0), v(x), ML99_callTrivial(ML99_add, ML99_INC(x), ML99_DEC(y)))
+    ML99_IF(ML99_NAT_EQ(y, 0), v(x), ML99_callUneval(ML99_add, ML99_INC(x), ML99_DEC(y)))
 // }
 
 // ML99_sub_IMPL {
 #define ML99_sub_IMPL(x, y)                                                                        \
-    ML99_IF(ML99_NAT_EQ(y, 0), v(x), ML99_callTrivial(ML99_sub, ML99_DEC(x), ML99_DEC(y)))
+    ML99_IF(ML99_NAT_EQ(y, 0), v(x), ML99_callUneval(ML99_sub, ML99_DEC(x), ML99_DEC(y)))
 // }
 
 // ML99_mul_IMPL {
 #define ML99_mul_IMPL(x, y)                                                                        \
-    ML99_IF(ML99_NAT_EQ(y, 0), v(0), ML99_add(v(x), ML99_callTrivial(ML99_mul, x, ML99_DEC(y))))
+    ML99_IF(ML99_NAT_EQ(y, 0), v(0), ML99_add(v(x), ML99_callUneval(ML99_mul, x, ML99_DEC(y))))
 // }
 
 // ML99_mod_IMPL {
@@ -442,7 +442,7 @@
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(y, 0),                                                                         \
         ML99_fatal(ML99_mod, modulo by 0),                                                         \
-        ML99_callTrivial(ML99_PRIV_modAux, x, y, 0))
+        ML99_callUneval(ML99_PRIV_modAux, x, y, 0))
 
 #define ML99_PRIV_modAux_IMPL(x, y, acc)                                                           \
     ML99_appl(                                                                                     \

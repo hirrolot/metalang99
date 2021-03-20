@@ -163,7 +163,7 @@
     ML99_PRIV_variadicsForEachAux_IMPL(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
 
 #define ML99_PRIV_variadicsForEachAux_IMPL(f, count, ...)                                          \
-    ML99_callTrivial(                                                                              \
+    ML99_callUneval(                                                                               \
         ML99_IF(                                                                                   \
             ML99_PRIV_NAT_EQ(count, 1),                                                            \
             ML99_PRIV_variadicsForEachDone,                                                        \
@@ -189,7 +189,7 @@
         ~)
 
 #define ML99_PRIV_variadicsForEachIAux_IMPL(f, i, count, ...)                                      \
-    ML99_callTrivial(                                                                              \
+    ML99_callUneval(                                                                               \
         ML99_IF(                                                                                   \
             ML99_PRIV_NAT_EQ(count, 1),                                                            \
             ML99_PRIV_variadicsForEachIDone,                                                       \

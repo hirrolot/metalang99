@@ -66,7 +66,7 @@
 /**
  * Evaluates to nothing.
  */
-#define ML99_empty() ML99_callTrivial(ML99_empty, )
+#define ML99_empty() ML99_callUneval(ML99_empty, )
 
 /**
  * Evaluates to its arguments.
