@@ -378,10 +378,11 @@
  */
 #define ML99_max(x, y) ML99_call(ML99_max, x, y)
 
-#define ML99_INC(x)        ML99_PRIV_INC(x)
-#define ML99_DEC(x)        ML99_PRIV_DEC(x)
-#define ML99_NAT_EQ(x, y)  ML99_PRIV_NAT_EQ(x, y)
-#define ML99_NAT_NEQ(x, y) ML99_NOT(ML99_NAT_EQ(x, y))
+#define ML99_INC(x)            ML99_PRIV_INC(x)
+#define ML99_DEC(x)            ML99_PRIV_DEC(x)
+#define ML99_NAT_EQ(x, y)      ML99_PRIV_NAT_EQ(x, y)
+#define ML99_NAT_NEQ(x, y)     ML99_NOT(ML99_NAT_EQ(x, y))
+#define ML99_DIV_CHECKED(x, y) ML99_PRIV_DIV_CHECKED(x, y)
 
 /**
  * The maximum value of a natural number, currently 255.
@@ -431,22 +432,16 @@
 
 // ML99_mod_IMPL {
 #define ML99_mod_IMPL(x, y)                                                                        \
-    ML99_IF(                                                                                       \
-        ML99_NAT_EQ(y, 0),                                                                         \
-        ML99_fatal(ML99_mod, modulo by 0),                                                         \
-        ML99_callUneval(ML99_PRIV_modAux, x, y, 0))
+    ML99_IF(ML99_NAT_EQ(y, 0), ML99_fatal(ML99_mod, modulo by 0), ML99_PRIV_modAux_IMPL(x, y, 0))
 
 #define ML99_PRIV_modAux_IMPL(x, y, acc)                                                           \
-    ML99_appl(                                                                                     \
-        ML99_if(                                                                                   \
-            ML99_isJust(ML99_divChecked_IMPL(x, y)),                                               \
-            ML99_appl_IMPL(ML99_const, acc),                                                       \
-            ML99_appl2_IMPL(ML99_PRIV_modProgress, x, y)),                                         \
-        v(acc))
-
-#define ML99_PRIV_modProgress_IMPL(x, y, acc)                                                      \
-    ML99_IF(ML99_NAT_EQ(x, 0), v(acc), ML99_PRIV_modAux_IMPL(ML99_DEC(x), y, ML99_INC(acc)))
+    ML99_IF(                                                                                       \
+        ML99_OR(ML99_NAT_EQ(x, 0), ML99_IS_JUST(ML99_DIV_CHECKED(x, y))),                          \
+        v(acc),                                                                                    \
+        ML99_callUneval(ML99_PRIV_modAux, ML99_DEC(x), y, ML99_INC(acc)))
 // }
+
+#define ML99_divChecked_IMPL(x, y) v(ML99_DIV_CHECKED(x, y))
 
 #define ML99_add3_IMPL(x, y, z) ML99_add(ML99_add_IMPL(x, y), v(z))
 #define ML99_sub3_IMPL(x, y, z) ML99_sub(ML99_sub_IMPL(x, y), v(z))
@@ -479,8 +474,6 @@
 #define ML99_div3_ARITY             3
 #define ML99_min_ARITY              2
 #define ML99_max_ARITY              2
-
-#define ML99_PRIV_modProgress_ARITY 3
 // }
 
 #endif // DOXYGEN_IGNORE
