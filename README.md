@@ -110,7 +110,7 @@ As you can see, advanced metaprogramming with Metalang99 allows to drastically i
 
 **PLEASE**, use Metalang99 only with [`-ftrack-macro-expansion=0`] (GCC) or something similar, otherwise it will throw your compiler to the moon. [Precompiled headers] are also very helpful.
 
-[Tutorial](https://hirrolot.gitbook.io/metalang99/) | [Examples](examples/) | [Etudes](etudes/) | [User documentation](https://metalang99.readthedocs.io/en/latest/)
+[Tutorial](https://hirrolot.gitbook.io/metalang99/) | [Examples](examples/) | [User documentation](https://metalang99.readthedocs.io/en/latest/)
 
 Happy hacking!
 
