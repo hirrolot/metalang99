@@ -54,6 +54,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
  - Emit a compile-time error if [`/Zc:preprocessor`] (MSVC) was not specified.
+ - Allow branches in `ML99_IF` expand to commas.
 
 [`/Zc:preprocessor`]: https://docs.microsoft.com/en-us/cpp/build/reference/zc-preprocessor?view=msvc-160
 

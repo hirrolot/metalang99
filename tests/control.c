@@ -11,6 +11,21 @@ ML99_ASSERT_EQ(ML99_if(ML99_false, v(516), v(115)), v(115));
 ML99_ASSERT_EQ(ML99_if(ML99_false, v(10), v(6)), v(6));
 // }
 
+// ML99_IF {
+#define CHECK(...)         CHECK_AUX(__VA_ARGS__)
+#define CHECK_AUX(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
+
+#define X 1, 2, 3
+
+// Test multiple commas in branches.
+CHECK(ML99_IF(ML99_TRUE, X, ~));
+CHECK(ML99_IF(ML99_FALSE, ~, X));
+
+#undef CHECK
+#undef CHECK_AUX
+#undef X
+// }
+
 // ML99_OVERLOAD {
 #define X(...)    ML99_OVERLOAD(X_, __VA_ARGS__)
 #define X_1(a)    ML99_ASSERT_UNEVAL(a == 123)

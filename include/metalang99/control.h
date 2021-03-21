@@ -6,6 +6,7 @@
 #ifndef ML99_CONTROL_H
 #define ML99_CONTROL_H
 
+#include <metalang99/priv/util.h>
 #include <metalang99/priv/variadics/count.h>
 
 #include <metalang99/lang.h>
@@ -79,8 +80,11 @@
  *
  * In particular, this macro can be used to imitate lazy evaluation: `ML99_IF(<cond>, <term>,
  * <another-term>)` will expand to one of the terms, which can be evaluated further.
+ *
+ * @note @p x and @p y can possibly expand to commas. It means that you can supply #ML99_TERMS as a
+ * branch, for example.
  */
-#define ML99_IF(cond, x, y) ML99_PRIV_IF(cond, x, y)
+#define ML99_IF(cond, x, y) ML99_PRIV_UNTUPLE(ML99_PRIV_IF(cond, (x), (y)))
 
 #ifndef DOXYGEN_IGNORE
 
