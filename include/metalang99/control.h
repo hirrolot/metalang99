@@ -47,6 +47,20 @@
 #define ML99_repeat(f, n) ML99_call(ML99_repeat, f, n)
 
 /**
+ * Pastes provided arguments @p n times.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/control.h>
+ *
+ * // ~ ~ ~ ~ ~
+ * ML99_times(v(5), v(~))
+ * @endcode
+ */
+#define ML99_times(n, ...) ML99_call(ML99_times, n, __VA_ARGS__)
+
+/**
  * Overloads @p f on a number of arguments.
  *
  * This function counts the number of provided arguments, appends it to @p f and calls the resulting
@@ -94,10 +108,14 @@
 #define ML99_PRIV_repeat_Z_IMPL(_f)   ML99_empty()
 #define ML99_PRIV_repeat_S_IMPL(i, f) ML99_TERMS(ML99_repeat_IMPL(f, i), ML99_appl_IMPL(f, i))
 
+#define ML99_times_IMPL(n, ...)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_times_, __VA_ARGS__)
+#define ML99_PRIV_times_Z_IMPL(...)    ML99_empty()
+#define ML99_PRIV_times_S_IMPL(i, ...) ML99_TERMS(v(__VA_ARGS__), ML99_times_IMPL(i, __VA_ARGS__))
+
 // Arity specifiers {
-#define ML99_if_ARITY       3
-#define ML99_OVERLOAD_ARITY 2
-#define ML99_repeat_ARITY   2
+#define ML99_if_ARITY     3
+#define ML99_repeat_ARITY 2
+#define ML99_times_ARITY  2
 // }
 
 #endif // DOXYGEN_IGNORE

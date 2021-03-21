@@ -55,4 +55,12 @@ ML99_EVAL(v(CHECK), ML99_tuple(ML99_repeat(v(F), v(3))));
 #undef F_ARITY
 // }
 
+// ML99_times {
+#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 5 && y == 5 && z == 5)
+
+ML99_EVAL(v(CHECK), ML99_tuple(ML99_times(v(3), v(, 5))));
+
+#undef CHECK
+// }
+
 int main(void) {}

@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `ML99_tupleAppend`, `ML99_tuplePrepend`
  - `ML99_indexedArgs`
  - `ML99_appl4`
+ - `ML99_times`
  - `ML99_TRUE`, `ML99_FALSE`
  - `ML99_LEFT`, `ML99_RIGHT`, `ML99_IS_LEFT`, `ML99_IS_RIGHT`
  - `ML99_JUST`, `ML99_NOTHING`, `ML99_IS_JUST`, `ML99_IS_NOTHING`
