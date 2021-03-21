@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Amalgamate `lang.h` with `eval.h`.
  - Employ the `SCREAMING_CASE` naming convention for plain macros.
  - All macros are prefixed with `ML99_`, unconditionally.
+ - Accept a number as a first argument and a function as the second in `ML99_repeat`.
  - `M_get` -> `ML99_listGet`
  - `M_overloadPlain` -> `ML99_OVERLOAD`
  - `M_eval` -> `ML99_EVAL`

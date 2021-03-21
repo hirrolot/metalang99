@@ -272,7 +272,7 @@
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(n, 0),                                                                         \
         empty_case,                                                                                \
-        ML99_variadicsTail(ML99_repeat_IMPL(ML99_PRIV_indexedItem, n)))
+        ML99_variadicsTail(ML99_repeat_IMPL(n, ML99_PRIV_indexedItem)))
 
 #define ML99_PRIV_indexedItem_IMPL(i) v(, _##i)
 
