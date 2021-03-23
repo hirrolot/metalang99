@@ -197,10 +197,10 @@
 #define ML99_INTRODUCE_VAR_TO_STMT(var_def)                                                        \
     ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
     ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
-    for (int metalang99_priv_INTRODUCE_VAR_TO_STMT_break = 0;                                      \
-         metalang99_priv_INTRODUCE_VAR_TO_STMT_break != 1;)                                        \
-        for (var_def; metalang99_priv_INTRODUCE_VAR_TO_STMT_break != 1;                            \
-             metalang99_priv_INTRODUCE_VAR_TO_STMT_break = 1)                                      \
+    for (int ml99_priv_INTRODUCE_VAR_TO_STMT_break = 0;                                            \
+         ml99_priv_INTRODUCE_VAR_TO_STMT_break != 1;)                                              \
+        for (var_def; ml99_priv_INTRODUCE_VAR_TO_STMT_break != 1;                                  \
+             ml99_priv_INTRODUCE_VAR_TO_STMT_break = 1)                                            \
             ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 /**
@@ -225,9 +225,9 @@
 #define ML99_SUPPRESS_UNUSED_BEFORE_STMT(expr)                                                     \
     ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
     ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
-    for (int metalang99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 0;                                \
-         ((void)(expr), metalang99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break != 1);                   \
-         metalang99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 1)                                    \
+    for (int ml99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 0;                                      \
+         ((void)(expr), ml99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break != 1);                         \
+         ml99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 1)                                          \
         ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 #ifndef DOXYGEN_IGNORE
