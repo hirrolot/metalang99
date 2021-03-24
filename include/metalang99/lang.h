@@ -189,7 +189,7 @@
  *
  * #define F_IMPL(x) v(~x)
  *
- * #define PROG v(1), v(2), ML99_call(F, 7)
+ * #define PROG v(1), v(2), ML99_call(F, v(7))
  *
  * // The same as `PROG` pasted into a source file.
  * ML99_EVAL(ML99_QUOTE(PROG))
