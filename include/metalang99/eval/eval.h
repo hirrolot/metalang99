@@ -36,11 +36,9 @@
 #define ML99_PRIV_EVAL_0op         ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0op_K)
 #define ML99_PRIV_EVAL_0callUneval ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0callUneval_K)
 
-#define ML99_PRIV_EVAL_0fatal(...) ML99_PRIV_EVAL_0fatal_EXPANDED(__VA_ARGS__)
-// clang-format off
-#define ML99_PRIV_EVAL_0fatal_EXPANDED(_k, _k_cx, _folder, _acc, _tail, f, message)          \
-    ML99_PRIV_REC_CONTINUE(ML99_PRIV_REC_STOP)((~), !"Metalang99 error" (f): message)
-// clang-format on
+#define ML99_PRIV_EVAL_0fatal(...) ML99_PRIV_EVAL_0fatal_AUX(__VA_ARGS__)
+#define ML99_PRIV_EVAL_0fatal_AUX(_k, _k_cx, _folder, _acc, _tail, f, message)                     \
+    ML99_PRIV_REC_CONTINUE(ML99_PRIV_REC_STOP)((~), !"Metalang99 error"(f) : message)
 
 #define ML99_PRIV_EVAL_0abort(_k, k_cx, folder, acc, _tail, ...)                                   \
     ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_MATCH)                                                   \
@@ -91,8 +89,8 @@
         ML99_PRIV_EVAL_0callUneval_K_OPTIMIZED)                                                    \
     (k, k_cx, folder, acc, tail, evaluated_op##_IMPL(__VA_ARGS__))
 
-#define ML99_PRIV_EVAL_0callUneval_K_OPTIMIZED(k, k_cx, folder, acc, tail, ...)                    \
-    ML99_PRIV_MACHINE_REDUCE(k, k_cx, folder, acc, __VA_ARGS__, ML99_PRIV_EXPAND tail)
+#define ML99_PRIV_EVAL_0callUneval_K_OPTIMIZED(k, k_cx, folder, acc, tail, body)                   \
+    ML99_PRIV_MACHINE_REDUCE(k, k_cx, folder, acc, body, ML99_PRIV_EXPAND tail)
 
 #define ML99_PRIV_EVAL_0callUneval_K_REGULAR(k, k_cx, folder, acc, tail, ...)                      \
     ML99_PRIV_MACHINE_REDUCE(                                                                      \
