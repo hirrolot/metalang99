@@ -170,10 +170,32 @@
  * # Examples
  *
  * @code
+ * #include <metalang99/lang.h>
+ *
  * #define F_IMPL(x) ML99_TERMS(v(1), v(x), v(2))
  * @endcode
  */
 #define ML99_TERMS(...) __VA_ARGS__
+
+/**
+ * Delays evaluation for provided terms.
+ *
+ * `ML99_QUOTE(...)` is functionally equivalent to `v(...)`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/lang.h>
+ *
+ * #define F_IMPL(x) v(~x)
+ *
+ * #define PROG v(1), v(2), ML99_call(F, 7)
+ *
+ * // The same as `PROG` pasted into a source file.
+ * ML99_EVAL(ML99_QUOTE(PROG))
+ * @endcode
+ */
+#define ML99_QUOTE(...) v(__VA_ARGS__)
 
 #ifndef DOXYGEN_IGNORE
 

@@ -30,7 +30,7 @@ ML99_ASSERT_EQ(ML99_callUneval(BAR, 5, 7), v(5 + 7));
 
 // Even if a term in the argument position evaluates to more than one terms, they should be appended
 // to each other but not interspersed with a comma.
-#define F_IMPL()    v(1), v(2), v(3)
+#define F_IMPL()    ML99_TERMS(v(1), v(2), v(3))
 #define BAR_IMPL(x) v()
 
 ML99_EVAL(ML99_call(BAR, ML99_call(F, v())))
@@ -122,6 +122,24 @@ ML99_ASSERT_EQ(ML99_appl(ML99_compose(v(F), v(G)), v(3)), v((3 * 8) + 1));
 
 #undef F_ARITY
 #undef G_ARITY
+// }
+
+// ML99_QUOTE {
+#define F_IMPL(x) v(x)
+
+#define PROG ML99_TERMS(v(1), v(, ), v(2), v(, ), ML99_call(F, v(7)))
+
+#define CHECK(...)         CHECK_AUX(__VA_ARGS__)
+#define CHECK_AUX(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 7)
+
+CHECK(ML99_EVAL(ML99_EVAL(ML99_QUOTE(PROG))));
+
+#undef F_IMPL
+
+#undef PROG
+
+#undef CHECK
+#undef CHECK_AUX
 // }
 
 int main(void) {}
