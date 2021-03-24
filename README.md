@@ -77,7 +77,7 @@ It features a wide range of concepts, including algebraic data types, control fl
 
 ## Motivation
 
-Macros are used to abstract away repeating code, they are the building material that lets you write your application in a language of a problem domain. However, metaprogramming in C is utterly castrated: we cannot even operate with control flow, integers, unbounded sequences, and compound data structures, thereby throwing a lot of hypothetically useful metaprograms out of scope.
+Macros facilitate code re-use, macros are the building material that lets you write your application in a language of a problem domain, leading to more clean and concise code. However, metaprogramming in C is utterly castrated: we cannot even operate with control flow, integers, unbounded sequences, and compound data structures, thereby throwing a lot of hypothetically useful metaprograms out of scope.
 
 To solve the problem, I have implemented Metalang99. Having its functionality at our disposal, it becomes possible to develop even fairly non-trivial metaprograms, such as [Datatype99]:
 
