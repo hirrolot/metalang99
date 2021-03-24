@@ -124,19 +124,6 @@
 #define ML99_consume(...) ML99_call(ML99_consume, __VA_ARGS__)
 
 /**
- * A convenience macro to emphasise that your metafunction expands to more than one term.
- *
- * This macro just expands to provided arguments.
- *
- * # Examples
- *
- * @code
- * #define F_IMPL(x) ML99_TERMS(v(1), v(x), v(2))
- * @endcode
- */
-#define ML99_TERMS(...) __VA_ARGS__
-
-/**
  * Concatenates @p x with @p y as-is, without expanding them.
  *
  * # Examples

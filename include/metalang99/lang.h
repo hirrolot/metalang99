@@ -162,6 +162,19 @@
  */
 #define ML99_abort(...) (0abort, __VA_ARGS__)
 
+/**
+ * A convenience macro to emphasise that your metafunction expands to more than one term.
+ *
+ * This macro just expands to provided arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #define F_IMPL(x) ML99_TERMS(v(1), v(x), v(2))
+ * @endcode
+ */
+#define ML99_TERMS(...) __VA_ARGS__
+
 #ifndef DOXYGEN_IGNORE
 
 #define ML99_compose_IMPL(f, g)         ML99_appl2_IMPL(ML99_PRIV_compose, f, g)
