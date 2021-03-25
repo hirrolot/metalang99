@@ -134,7 +134,7 @@ My work on [Poica], a research programming language implemented upon [Boost/Prep
 
 After I realised that the metaprogramming framework lacks abstractions, I started to implement Metalang99. Honestly, it turned out to be a much tougher and fascinating challenge than I expected -- it took half of a year of hard work to release v0.1.0. As a real-world application of Metalang99, I created [Datatype99] exactly of the same form I wanted it to be: the implementation is highly declarative, the syntax is nifty, and the semantics is well-defined.
 
-Finally, I want to say that Metalang99 is only about syntactic transformations and not about CPU-bound tasks; the preprocessor is just too slow and limited for such kind of abuse.
+Finally, I want to say that Metalang99 is only about syntax transformations and not about CPU-bound tasks; the preprocessor is just too slow and limited for such kind of abuse.
 
 [Poica]: https://github.com/Hirrolot/poica
 
@@ -165,7 +165,7 @@ To perform fewer reduction steps, you can:
 
 ### Q: What about compile-time errors?
 
-A: Metalang99 detects and reports about syntactic errors, where possible. For example (`-E` flag):
+A: Metalang99 detects and reports about syntax mismatches, where possible. For example (`-E` flag):
 
 ```c
 // !"Metalang99 syntax error": `123`
@@ -180,11 +180,7 @@ A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.
 
 ### Q: Why don't you use third-party code generators?
 
-A:
-
- - Preprocessor macros are far more seamlessly integrated with a code base: you can invoke them in the same source files where ordinary code in C is written.
- - IDE support.
- - Avoid additional burden with distribution and setup of third-party code generators.
+The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right within `*.c/*.h` source files. This way, Metalang99 can be easily integrated into existing code bases; macros are built-in code generators, therefore, they allow far more seamless interaction with the host language.
 
 ### Q: Compilation times?
 
@@ -192,17 +188,7 @@ A: To run the benchmarks, execute `./scripts/bench.sh` from the root directory.
 
 ### Q: Why formal specification?
 
-A:
-
- - **Formal proofs.** With a mathematical model it becomes possible to prove things about Metalang99 formally; for example, the progress theorem, which can be stated as "the interpreter always knows what to do next".
-
- - **It guides the implementation.** The implementation gets adjusted with the specification (i.e. reflects the formal syntax and semantics), thereby making itself easier to reason about.
-
- - **It guides the tests.** We immediately see many, if not all corner cases, which are ought to be tested.
-
- - **Distinctness.** It is much easier to answer questions like "Is it a bug of the implementation or it is a valid behaviour according to the specification?".
-
-That is, the development flow is "specification-driven", if you prefer.
+The interpreter implementation is inherently non-trivial, with plenty of subtle details. Having an abstract picture of what is happening is extremely helpful not to mess up, especially when we are talking about corner cases. Additionally, the specification helps to figure out how the language would behave under some exotic circumstances.
 
 ### Q: Is Metalang99 Turing-complete?
 
@@ -220,6 +206,6 @@ A: C99/C++11 and onwards.
 
 ### Q: Why not generate an amalgamated header?
 
-A: I don't like amalgamated headers because they induce burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
+A: I am against amalgamated headers because they induce burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
