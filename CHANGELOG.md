@@ -13,11 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+ - Move `ML99_TERMS` from `util.h` to `lang.h`.
  - Return a list of tuples from `ML99_listZip`, accept a list of tuples in `ML99_listUnzip`, return a tuple of lists from `ML99_listPartition`.
 
-### Changed
+### Fixed
 
- - Move `ML99_TERMS` from `util.h` to `lang.h`.
+ - Emit the correct metafunction name in case of an error in `ML99_listGet`.
 
 ## [0.5.0] - 2021-03-22
 

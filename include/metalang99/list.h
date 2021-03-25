@@ -785,7 +785,7 @@
 
 // ML99_listGet_IMPL {
 #define ML99_listGet_IMPL(i, list)       ML99_matchWithArgs_IMPL(list, ML99_PRIV_listGet_, i)
-#define ML99_PRIV_listGet_nil_IMPL(_, i) ML99_PRIV_EMPTY_LIST_ERROR(ML99_get)
+#define ML99_PRIV_listGet_nil_IMPL(_, i) ML99_PRIV_EMPTY_LIST_ERROR(ML99_listGet)
 #define ML99_PRIV_listGet_cons_IMPL(x, xs, i)                                                      \
     ML99_IF(ML99_NAT_EQ(i, 0), v(x), ML99_listGet_IMPL(ML99_DEC(i), xs))
 // }
