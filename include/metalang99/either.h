@@ -127,17 +127,10 @@
 
 // ML99_eitherEq_IMPL {
 #define ML99_eitherEq_IMPL(cmp, either, other)                                                     \
-    ML99_matchWithArgs_IMPL(either, ML99_PRIV_eitherEq_, other, cmp)
-
-#define ML99_PRIV_eitherEq_left_IMPL(x, other, cmp)                                                \
-    ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_left_, x, cmp)
-#define ML99_PRIV_eitherEq_right_IMPL(x, other, cmp)                                               \
-    ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_right_, x, cmp)
-
-#define ML99_PRIV_eitherEq_left_left_IMPL(y, x, cmp)   ML99_appl2_IMPL(cmp, x, y)
-#define ML99_PRIV_eitherEq_left_right_IMPL(...)        v(ML99_FALSE)
-#define ML99_PRIV_eitherEq_right_left_IMPL(...)        v(ML99_FALSE)
-#define ML99_PRIV_eitherEq_right_right_IMPL(y, x, cmp) ML99_appl2_IMPL(cmp, x, y)
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other),                                            \
+        ML99_appl2_IMPL(cmp, ML99_PRIV_CHOICE_DATA either, ML99_PRIV_CHOICE_DATA other),           \
+        v(ML99_FALSE))
 // }
 
 // ML99_unwrapLeft_IMPL {
@@ -153,6 +146,11 @@
     ML99_fatal(ML99_unwrapRight, expected ML99_right but found ML99_left)
 #define ML99_PRIV_unwrapRight_right_IMPL(x) v(x)
 // }
+
+#define ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other)                                             \
+    ML99_OR(                                                                                       \
+        ML99_AND(ML99_IS_LEFT(either), ML99_IS_LEFT(other)),                                       \
+        ML99_AND(ML99_IS_RIGHT(either), ML99_IS_RIGHT(other)))
 
 // Arity specifiers {
 #define ML99_left_ARITY        1

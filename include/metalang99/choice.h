@@ -87,13 +87,15 @@
 #define ML99_match_IMPL(choice, matcher)                                                           \
     ML99_callUneval(                                                                               \
         ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
-        ML99_PRIV_VARIADICS_TAIL_AUX choice)
+        ML99_PRIV_CHOICE_DATA choice)
 
 #define ML99_matchWithArgs_IMPL(choice, matcher, ...)                                              \
     ML99_callUneval(                                                                               \
         ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
-        ML99_PRIV_VARIADICS_TAIL_AUX choice,                                                       \
+        ML99_PRIV_CHOICE_DATA choice,                                                              \
         __VA_ARGS__)
+
+#define ML99_PRIV_CHOICE_DATA ML99_PRIV_VARIADICS_TAIL_AUX
 
 // Arity specifiers {
 #define ML99_choice_ARITY        2
