@@ -73,7 +73,7 @@
  * ML99_eitherEq(v(ML99_natEq), ML99_right(v(123)), ML99_left(v(123)))
  * @endcode
  */
-#define ML99_eitherEq(compare, either, other) ML99_call(ML99_eitherEq, compare, either, other)
+#define ML99_eitherEq(cmp, either, other) ML99_call(ML99_eitherEq, cmp, either, other)
 
 /**
  * Returns the left value on #ML99_left or emits a fatal error on #ML99_right.
@@ -126,18 +126,18 @@
 #define ML99_PRIV_IS_LEFT_left    ()
 
 // ML99_eitherEq_IMPL {
-#define ML99_eitherEq_IMPL(compare, either, other)                                                 \
-    ML99_matchWithArgs_IMPL(either, ML99_PRIV_eitherEq_, other, compare)
+#define ML99_eitherEq_IMPL(cmp, either, other)                                                     \
+    ML99_matchWithArgs_IMPL(either, ML99_PRIV_eitherEq_, other, cmp)
 
-#define ML99_PRIV_eitherEq_left_IMPL(x, other, compare)                                            \
-    ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_left_, x, compare)
-#define ML99_PRIV_eitherEq_right_IMPL(x, other, compare)                                           \
-    ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_right_, x, compare)
+#define ML99_PRIV_eitherEq_left_IMPL(x, other, cmp)                                                \
+    ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_left_, x, cmp)
+#define ML99_PRIV_eitherEq_right_IMPL(x, other, cmp)                                               \
+    ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_right_, x, cmp)
 
-#define ML99_PRIV_eitherEq_left_left_IMPL(y, x, compare)   ML99_appl2_IMPL(compare, x, y)
-#define ML99_PRIV_eitherEq_left_right_IMPL(...)            v(ML99_FALSE)
-#define ML99_PRIV_eitherEq_right_left_IMPL(...)            v(ML99_FALSE)
-#define ML99_PRIV_eitherEq_right_right_IMPL(y, x, compare) ML99_appl2_IMPL(compare, x, y)
+#define ML99_PRIV_eitherEq_left_left_IMPL(y, x, cmp)   ML99_appl2_IMPL(cmp, x, y)
+#define ML99_PRIV_eitherEq_left_right_IMPL(...)        v(ML99_FALSE)
+#define ML99_PRIV_eitherEq_right_left_IMPL(...)        v(ML99_FALSE)
+#define ML99_PRIV_eitherEq_right_right_IMPL(y, x, cmp) ML99_appl2_IMPL(cmp, x, y)
 // }
 
 // ML99_unwrapLeft_IMPL {
