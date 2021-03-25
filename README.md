@@ -174,6 +174,14 @@ ML99_EVAL(123)
 
 However, compile-time errors can be still quite obscured. I strongly recommend using `-ftrack-macro-expansion=0` (GCC) as it tells a compiler to not print a useless bedsheet of macro expansions.
 
+### Q: How does it work?
+
+First of all, there is a [recursion engine] that works by deferring macro expansions and passing continuations here and there. Upon it, the [continuation-passing style] interpreter reduces language expressions into final results. The standard library is just a set of metafunctions implemented using the core metalanguage.
+
+[recursion engine]: include/metalang99/eval/rec.h
+[interpreter]: include/metalang99/eval/eval.h
+[continuation-passing style]: https://en.wikipedia.org/wiki/Continuation-passing_style
+
 ### Q: What about debugging?
 
 A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
