@@ -176,7 +176,7 @@ However, compile-time errors can be still quite obscured. I strongly recommend u
 
 ### Q: How does it work?
 
-First of all, there is a [recursion engine] that works by deferring macro expansions and passing continuations here and there (the preprocessor does not allow recursion out-of-the-box). Upon it, the [continuation-passing style] [interpreter] reduces language expressions into final results. The standard library is just a set of metafunctions implemented using the core metalanguage.
+First of all, there is a [recursion engine] that works by deferring macro expansions and passing continuations here and there (there is no macro recursion out-of-the-box). Upon it, the [continuation-passing style] [interpreter] reduces language expressions into final results. The standard library is just a set of metafunctions implemented using the core metalanguage.
 
 [recursion engine]: include/metalang99/eval/rec.h
 [interpreter]: include/metalang99/eval/eval.h
