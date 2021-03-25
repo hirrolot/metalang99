@@ -174,41 +174,46 @@ ML99_ASSERT(ML99_listEq(
 // }
 
 // ML99_listZip {
-#define EQ ML99_appl(v(ML99_listEq), v(ML99_natEq))
+#define EQ_IMPL(x, y)                                                                              \
+    v(ML99_AND(                                                                                    \
+        ML99_NAT_EQ(ML99_TUPLE_GET(0)(x), ML99_TUPLE_GET(0)(y)),                                   \
+        ML99_NAT_EQ(ML99_TUPLE_GET(1)(x), ML99_TUPLE_GET(1)(y))))
+#define EQ_ARITY 2
 
-ML99_ASSERT(ML99_listEq(EQ, ML99_listZip(ML99_nil(), ML99_nil()), ML99_nil()));
-ML99_ASSERT(ML99_listEq(EQ, ML99_listZip(ML99_list(v(1, 2, 3)), ML99_nil()), ML99_nil()));
-ML99_ASSERT(ML99_listEq(EQ, ML99_listZip(ML99_nil(), ML99_list(v(1, 2, 3))), ML99_nil()));
-
-ML99_ASSERT(ML99_listEq(
-    EQ, ML99_listZip(ML99_list(v(1, 2, 3)), ML99_list(v(4, 5, 6))),
-    ML99_list(ML99_list(v(1, 4)), ML99_list(v(2, 5)), ML99_list(v(3, 6)))));
-
-ML99_ASSERT(ML99_listEq(
-    EQ, ML99_listZip(ML99_list(v(1, 2, 3)), ML99_list(v(4, 5))),
-    ML99_list(ML99_list(v(1, 4)), ML99_list(v(2, 5)))));
+ML99_ASSERT(ML99_listEq(v(EQ), ML99_listZip(ML99_nil(), ML99_nil()), ML99_nil()));
+ML99_ASSERT(ML99_listEq(v(EQ), ML99_listZip(ML99_list(v(1, 2, 3)), ML99_nil()), ML99_nil()));
+ML99_ASSERT(ML99_listEq(v(EQ), ML99_listZip(ML99_nil(), ML99_list(v(1, 2, 3))), ML99_nil()));
 
 ML99_ASSERT(ML99_listEq(
-    EQ, ML99_listZip(ML99_list(v(1, 2)), ML99_list(v(4, 5, 6))),
-    ML99_list(ML99_list(v(1, 4)), ML99_list(v(2, 5)))));
+    v(EQ), ML99_listZip(ML99_list(v(1, 2, 3)), ML99_list(v(4, 5, 6))),
+    ML99_list(ML99_tuple(v(1, 4)), ML99_tuple(v(2, 5)), ML99_tuple(v(3, 6)))));
 
-#undef EQ
+ML99_ASSERT(ML99_listEq(
+    v(EQ), ML99_listZip(ML99_list(v(1, 2, 3)), ML99_list(v(4, 5))),
+    ML99_list(ML99_tuple(v(1, 4)), ML99_tuple(v(2, 5)))));
+
+ML99_ASSERT(ML99_listEq(
+    v(EQ), ML99_listZip(ML99_list(v(1, 2)), ML99_list(v(4, 5, 6))),
+    ML99_list(ML99_tuple(v(1, 4)), ML99_tuple(v(2, 5)))));
+
+#undef EQ_IMPL
+#undef EQ_ARITY
 // }
 
 // ML99_listUnzip & ML99_listZip {
-#define LIST ML99_listUnzip(ML99_nil())
+#define UNZIPPED ML99_listUnzip(ML99_nil())
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(0), LIST), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(1), LIST), ML99_nil()));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(UNZIPPED), ML99_nil()));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(UNZIPPED), ML99_nil()));
 
-#undef LIST
+#undef UNZIPPED
 
-#define LIST ML99_listUnzip(ML99_listZip(ML99_list(v(1, 2)), ML99_list(v(4, 5))))
+#define UNZIPPED ML99_listUnzip(ML99_listZip(ML99_list(v(1, 2)), ML99_list(v(4, 5))))
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(0), LIST), ML99_list(v(1, 2))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(1), LIST), ML99_list(v(4, 5))));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(UNZIPPED), ML99_list(v(1, 2))));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(UNZIPPED), ML99_list(v(4, 5))));
 
-#undef LIST
+#undef UNZIPPED
 // }
 
 // ML99_listEq {
@@ -363,40 +368,42 @@ ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listReplicate(v(3), v(7)), ML99_list
 // }
 
 // ML99_listPartition {
+
 // Partitioning ML99_nil() {
-#define LIST ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_nil())
+#define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_nil())
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(0), LIST), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(1), LIST), ML99_nil()));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(PARTITIONED), ML99_nil()));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_nil()));
 
-#undef LIST
+#undef PARTITIONED
 // }
 
 // Only the second list contains items {
-#define LIST ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(11, 12, 13)))
+#define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(11, 12, 13)))
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(0), LIST), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(1), LIST), ML99_list(v(11, 12, 13))));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(PARTITIONED), ML99_nil()));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_list(v(11, 12, 13))));
 
-#undef LIST
+#undef PARTITIONED
 // }
 
 // Only the first list contains items {
-#define LIST ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(4, 7)))
+#define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(4, 7)))
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(0), LIST), ML99_list(v(4, 7))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(1), LIST), ML99_nil()));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(PARTITIONED), ML99_list(v(4, 7))));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_nil()));
 
-#undef LIST
+#undef PARTITIONED
 // }
 
 // Both lists contain items {
-#define LIST ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(11, 4, 12, 13, 7)))
+#define PARTITIONED                                                                                \
+    ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(11, 4, 12, 13, 7)))
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(0), LIST), ML99_list(v(4, 7))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listGet(v(1), LIST), ML99_list(v(11, 12, 13))));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(PARTITIONED), ML99_list(v(4, 7))));
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_list(v(11, 12, 13))));
 
-#undef LIST
+#undef PARTITIONED
 // }
 
 // } (ML99_listPartition)
