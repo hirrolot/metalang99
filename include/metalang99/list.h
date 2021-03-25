@@ -596,6 +596,7 @@
  *
  * @code
  * #include <metalang99/list.h>
+ * #include <metalang99/tuple.h>
  *
  * // ML99_tuple(ML99_list(v(1, 2, 3)), ML99_list(v(4, 5, 6)))
  * ML99_listUnzip(ML99_list(ML99_tuple(v(1, 4)), ML99_tuple(v(2, 5)), ML99_tuple(v(3, 6))))
