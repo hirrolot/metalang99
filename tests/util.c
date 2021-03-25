@@ -15,15 +15,16 @@ ML99_ASSERT_EQ(ML99_appl2(v(ML99_const), v(1810), v(~)), v(1810));
 // }
 
 // ML99_flip {
-#define ABC ML99_true
+#define ABC ML99_true()
 
 ML99_ASSERT(ML99_appl2(ML99_flip(v(ML99_catEval)), v(C), v(AB)));
 
 #undef ABC
 // }
 
-// ML99_consume {
-ML99_ASSERT_EMPTY(ML99_consume(v(1, 2, 3)));
+// ML99_empty {
+ML99_ASSERT_EMPTY(ML99_empty(v()));
+ML99_ASSERT_EMPTY(ML99_empty(v(1, 2, 3)));
 // }
 
 // ML99_DETECT_IDENT {

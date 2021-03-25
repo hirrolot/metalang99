@@ -9,14 +9,14 @@
 #include <metalang99/lang.h>
 
 /**
- * The same as `v(1)`.
+ * Truth.
  */
-#define ML99_true v(1)
+#define ML99_true(...) ML99_callUneval(ML99_true, )
 
 /**
- * The same as `v(0)`.
+ * Falsehood.
  */
-#define ML99_false v(0)
+#define ML99_false(...) ML99_callUneval(ML99_false, )
 
 /**
  * Logical negation.
@@ -116,8 +116,8 @@
  */
 #define ML99_boolEq(x, y) ML99_call(ML99_boolEq, x, y)
 
-#define ML99_TRUE          1
-#define ML99_FALSE         0
+#define ML99_TRUE(...)     1
+#define ML99_FALSE(...)    0
 #define ML99_NOT(x)        ML99_PRIV_CAT(ML99_PRIV_NOT_, x)
 #define ML99_AND(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_AND_, x, y)
 #define ML99_OR(x, y)      ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_OR_, x, y)
@@ -125,6 +125,9 @@
 #define ML99_BOOL_EQ(x, y) ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_BOOL_EQ_, x, y)
 
 #ifndef DOXYGEN_IGNORE
+
+#define ML99_true_IMPL(...)  v(ML99_TRUE())
+#define ML99_false_IMPL(...) v(ML99_FALSE())
 
 #define ML99_not_IMPL(x)       v(ML99_NOT(x))
 #define ML99_and_IMPL(x, y)    v(ML99_AND(x, y))
@@ -157,10 +160,9 @@
 
 #define ML99_PRIV_LOGICAL_OVERLOAD(op, x, y) op##x##y
 
-#define ML99_PRIV_constTrue_IMPL(...)  ML99_true
-#define ML99_PRIV_constFalse_IMPL(...) ML99_false
-
 // Arity specifiers {
+#define ML99_true_ARITY   1
+#define ML99_false_ARITY  1
 #define ML99_not_ARITY    1
 #define ML99_and_ARITY    2
 #define ML99_or_ARITY     2

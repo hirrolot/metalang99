@@ -31,7 +31,7 @@
 /**
  * The empty list.
  */
-#define ML99_nil() ML99_callUneval(ML99_nil, )
+#define ML99_nil(...) ML99_callUneval(ML99_nil, )
 
 /**
  * Extracts the head from the non-empty list @p list.
@@ -530,7 +530,7 @@
 #define ML99_listTake(n, list) ML99_call(ML99_listTake, n, list)
 
 /**
- * Extracts the items from @p list as long as @p f evaluates to true.
+ * Extracts the items from @p list as long as @p f evaluates to `ML99_true()`.
  *
  * # Examples
  *
@@ -560,7 +560,7 @@
 #define ML99_listDrop(n, list) ML99_call(ML99_listDrop, n, list)
 
 /**
- * Removes the items from @p list as long as @p f evaluates to true.
+ * Removes the items from @p list as long as @p f evaluates to `ML99_true()`.
  *
  * # Examples
  *
@@ -661,14 +661,14 @@
 #define ML99_listAppl(f, list) ML99_call(ML99_listAppl, f, list)
 
 #define ML99_CONS(x, xs)   ML99_CHOICE(cons, x, xs)
-#define ML99_NIL()         ML99_CHOICE(nil, ~)
+#define ML99_NIL(...)      ML99_CHOICE(nil, ~)
 #define ML99_IS_CONS(list) ML99_NOT(ML99_IS_NIL(list))
 #define ML99_IS_NIL(list)  ML99_PRIV_IS_NIL(list)
 
 #ifndef DOXYGEN_IGNORE
 
 #define ML99_cons_IMPL(x, xs) v(ML99_CONS(x, xs))
-#define ML99_nil_IMPL()       v(ML99_NIL())
+#define ML99_nil_IMPL(...)    v(ML99_NIL())
 
 // ML99_listHead_IMPL {
 #define ML99_listHead_IMPL(list)             ML99_match_IMPL(list, ML99_PRIV_listHead_)
@@ -881,26 +881,20 @@
 #define ML99_PRIV_listEq_cons_IMPL(x, xs, other, cmp)                                              \
     ML99_matchWithArgs_IMPL(other, ML99_PRIV_listEq_cons_, x, xs, cmp)
 
-#define ML99_PRIV_listEq_cons_nil_IMPL(...) ML99_false
+#define ML99_PRIV_listEq_cons_nil_IMPL(...) v(ML99_FALSE())
 #define ML99_PRIV_listEq_cons_cons_IMPL(other_x, other_xs, x, xs, cmp)                             \
     ML99_call(                                                                                     \
-        ML99_call(                                                                                 \
-            ML99_if,                                                                               \
-            ML99_appl2_IMPL(cmp, x, other_x),                                                      \
-            v(ML99_listEq, ML99_PRIV_constFalse)),                                                 \
+        ML99_call(ML99_if, ML99_appl2_IMPL(cmp, x, other_x), v(ML99_listEq, ML99_false)),          \
         v(cmp, xs, other_xs))
 // }
 
 // ML99_listContains_IMPL {
 #define ML99_listContains_IMPL(cmp, item, list)                                                    \
     ML99_matchWithArgs_IMPL(list, ML99_PRIV_listContains_, item, cmp)
-#define ML99_PRIV_listContains_nil_IMPL(...) ML99_false
+#define ML99_PRIV_listContains_nil_IMPL(...) v(ML99_FALSE())
 #define ML99_PRIV_listContains_cons_IMPL(x, xs, item, cmp)                                         \
     ML99_call(                                                                                     \
-        ML99_call(                                                                                 \
-            ML99_if,                                                                               \
-            ML99_appl2_IMPL(cmp, x, item),                                                         \
-            v(ML99_PRIV_constTrue, ML99_listContains)),                                            \
+        ML99_call(ML99_if, ML99_appl2_IMPL(cmp, x, item), v(ML99_true, ML99_listContains)),        \
         v(cmp, item, xs))
 // }
 
@@ -919,10 +913,7 @@
 #define ML99_PRIV_listTakeWhile_nil_IMPL(...) v(ML99_NIL())
 #define ML99_PRIV_listTakeWhile_cons_IMPL(x, xs, f)                                                \
     ML99_call(                                                                                     \
-        ML99_call(                                                                                 \
-            ML99_if,                                                                               \
-            ML99_appl_IMPL(f, x),                                                                  \
-            v(ML99_PRIV_listTakeWhileProgress, ML99_PRIV_constNil)),                               \
+        ML99_call(ML99_if, ML99_appl_IMPL(f, x), v(ML99_PRIV_listTakeWhileProgress, ML99_nil)),    \
         v(x, xs, f))
 #define ML99_PRIV_listTakeWhileProgress_IMPL(x, xs, f)                                             \
     ML99_cons(v(x), ML99_listTakeWhile_IMPL(f, xs))
@@ -1023,11 +1014,8 @@
 #define ML99_PRIV_EMPTY_LIST_ERROR(f) ML99_fatal(ML99_##f, expected a non-empty list)
 // clang-format on
 
-#define ML99_PRIV_IS_NIL(list)  ML99_CAT(ML99_PRIV_IS_NIL_, ML99_CHOICE_TAG(list))()
-#define ML99_PRIV_IS_NIL_nil()  ML99_TRUE
-#define ML99_PRIV_IS_NIL_cons() ML99_FALSE
-
-#define ML99_PRIV_constNil_IMPL(...) v(ML99_NIL())
+#define ML99_PRIV_IS_NIL(list) ML99_DETECT_IDENT(ML99_PRIV_IS_NIL_, ML99_CHOICE_TAG(list))
+#define ML99_PRIV_IS_NIL_nil   ()
 
 // Arity specifiers {
 #define ML99_cons_ARITY               2

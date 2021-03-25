@@ -411,15 +411,15 @@
 
 #define ML99_greater_IMPL(x, y) ML99_lesser_IMPL(y, x)
 #define ML99_greaterEq_IMPL(x, y)                                                                  \
-    ML99_PRIV_IF(ML99_NAT_EQ(x, y), ML99_true, ML99_greater_IMPL(x, y))
+    ML99_PRIV_IF(ML99_NAT_EQ(x, y), v(ML99_TRUE()), ML99_greater_IMPL(x, y))
 
 #define ML99_lesser_IMPL(x, y)                                                                     \
     ML99_PRIV_IF(                                                                                  \
         ML99_NAT_EQ(y, 0),                                                                         \
-        ML99_false,                                                                                \
+        v(ML99_FALSE()),                                                                           \
         ML99_PRIV_IF(                                                                              \
             ML99_NAT_EQ(x, ML99_DEC(y)),                                                           \
-            ML99_true,                                                                             \
+            v(ML99_TRUE()),                                                                        \
             ML99_callUneval(ML99_lesser, x, ML99_DEC(y))))
 
 #define ML99_lesserEq_IMPL(x, y) ML99_greaterEq_IMPL(y, x)

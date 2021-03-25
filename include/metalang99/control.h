@@ -22,10 +22,10 @@
  * #include <metalang99/logical.h>
  *
  * // 123
- * ML99_if(ML99_true, v(123), v(18))
+ * ML99_if(ML99_true(), v(123), v(18))
  *
  * // 18
- * ML99_if(ML99_false, v(123), v(18))
+ * ML99_if(ML99_false(), v(123), v(18))
  * @endcode
  */
 #define ML99_if(cond, x, y) ML99_call(ML99_if, cond, x, y)

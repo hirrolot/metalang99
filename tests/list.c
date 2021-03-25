@@ -4,6 +4,20 @@
 #include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
+// ML99_list, ML99_cons, ML99_nil {
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_nil(v(~, ~, ~)), ML99_nil()));
+
+ML99_ASSERT(ML99_listEq(
+    v(ML99_natEq), ML99_list(v(1, 2, 3, 4, 5, 6, 7)),
+    ML99_cons(
+        v(1),
+        ML99_cons(
+            v(2),
+            ML99_cons(
+                v(3),
+                ML99_cons(v(4), ML99_cons(v(5), ML99_cons(v(6), ML99_cons(v(7), ML99_nil())))))))));
+// }
+
 // ML99_listHead {
 ML99_ASSERT_EQ(ML99_listHead(ML99_list(v(1))), v(1));
 ML99_ASSERT_EQ(ML99_listHead(ML99_list(v(1, 2))), v(1));
@@ -247,7 +261,7 @@ ML99_ASSERT(ML99_listEq(
     ML99_list(v(5, 111, 9, 111, 22))));
 // }
 
-#define ABCDEFG ML99_TRUE
+#define ABCDEFG ML99_TRUE()
 
 // ML99_listFoldr {
 ML99_ASSERT_EQ(ML99_listFoldr(v(ML99_cat), v(7), ML99_nil()), v(7));

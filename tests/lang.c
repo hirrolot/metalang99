@@ -99,9 +99,9 @@ ML99_ASSERT_EQ(ML99_appl4(v(F), v(10), v(5), v(7), v(8)), v(10578));
 // The maximum arity {
 #define F_ARITY 255
 
-ML99_EVAL(ML99_consume(ML99_appl(v(F), v(~))))
-ML99_EVAL(ML99_consume(ML99_appl2(v(F), v(~), v(~))))
-ML99_EVAL(ML99_consume(ML99_appl3(v(F), v(~), v(~), v(~))))
+ML99_EVAL(ML99_empty(ML99_appl(v(F), v(~))))
+ML99_EVAL(ML99_empty(ML99_appl2(v(F), v(~), v(~))))
+ML99_EVAL(ML99_empty(ML99_appl3(v(F), v(~), v(~), v(~))))
 
 #undef F_ARITY
 // }

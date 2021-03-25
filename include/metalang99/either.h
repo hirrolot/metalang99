@@ -130,7 +130,7 @@
     ML99_PRIV_IF(                                                                                  \
         ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other),                                            \
         ML99_appl2_IMPL(cmp, ML99_PRIV_CHOICE_DATA either, ML99_PRIV_CHOICE_DATA other),           \
-        v(ML99_FALSE))
+        v(ML99_FALSE()))
 // }
 
 // ML99_unwrapLeft_IMPL {
