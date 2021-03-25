@@ -180,7 +180,7 @@ A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.
 
 ### Q: Why don't you use third-party code generators?
 
-The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right within `*.c/*.h` source files. This way, Metalang99 can be easily integrated into existing code bases; macros are built-in code generators, therefore, they allow far more seamless interaction with the host language.
+The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right afterwards. This way, Metalang99 can be easily integrated into existing code bases; macros are built-in code generators, therefore, they allow far more seamless interaction with the host language.
 
 ### Q: Compilation times?
 
@@ -206,6 +206,6 @@ A: C99/C++11 and onwards.
 
 ### Q: Why not generate an amalgamated header?
 
-A: I am against amalgamated headers because they induce burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
+A: I am against amalgamated headers because of burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
