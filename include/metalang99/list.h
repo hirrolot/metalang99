@@ -701,14 +701,14 @@
 #define ML99_listLast_IMPL(list)       ML99_match_IMPL(list, ML99_PRIV_listLast_)
 #define ML99_PRIV_listLast_nil_IMPL(_) ML99_PRIV_EMPTY_LIST_ERROR(listLast)
 #define ML99_PRIV_listLast_cons_IMPL(x, xs)                                                        \
-    ML99_IF(ML99_IS_NIL(xs), v(x), ML99_listLast_IMPL(xs))                                         \
+    ML99_PRIV_IF(ML99_IS_NIL(xs), v(x), ML99_listLast_IMPL(xs))                                    \
 // }
 
 // ML99_listInit_IMPL {
 #define ML99_listInit_IMPL(list)       ML99_match_IMPL(list, ML99_PRIV_listInit_)
 #define ML99_PRIV_listInit_nil_IMPL(_) ML99_PRIV_EMPTY_LIST_ERROR(listInit)
 #define ML99_PRIV_listInit_cons_IMPL(x, xs)                                                        \
-    ML99_IF(ML99_IS_NIL(xs), v(ML99_NIL()), ML99_cons(v(x), ML99_listInit_IMPL(xs)))
+    ML99_PRIV_IF(ML99_IS_NIL(xs), v(ML99_NIL()), ML99_cons(v(x), ML99_listInit_IMPL(xs)))
 // }
 
 // ML99_list_IMPL {
@@ -717,19 +717,19 @@
 
 // Last 4 recursion steps unrolled {
 #define ML99_PRIV_listProgress_IMPL(count, ...)                                                    \
-    ML99_IF(                                                                                       \
+    ML99_PRIV_IF(                                                                                  \
         ML99_NAT_EQ(count, 4),                                                                     \
         ML99_PRIV_listDone_4,                                                                      \
-        ML99_IF(                                                                                   \
+        ML99_PRIV_IF(                                                                              \
             ML99_NAT_EQ(count, 3),                                                                 \
             ML99_PRIV_listDone_3,                                                                  \
-            ML99_IF(                                                                               \
+            ML99_PRIV_IF(                                                                          \
                 ML99_NAT_EQ(count, 2),                                                             \
                 ML99_PRIV_listDone_2,                                                              \
-                ML99_IF(                                                                           \
+                ML99_PRIV_IF(                                                                      \
                     ML99_NAT_EQ(count, 1),                                                         \
                     ML99_PRIV_listDone_1,                                                          \
-                    ML99_IF(                                                                       \
+                    ML99_PRIV_IF(                                                                  \
                         ML99_NAT_EQ(count, 0),                                                     \
                         ML99_PRIV_listDone_0,                                                      \
                         ML99_PRIV_listProgressAux)))))                                             \
@@ -787,7 +787,7 @@
 #define ML99_listGet_IMPL(i, list)       ML99_matchWithArgs_IMPL(list, ML99_PRIV_listGet_, i)
 #define ML99_PRIV_listGet_nil_IMPL(_, i) ML99_PRIV_EMPTY_LIST_ERROR(ML99_listGet)
 #define ML99_PRIV_listGet_cons_IMPL(x, xs, i)                                                      \
-    ML99_IF(ML99_NAT_EQ(i, 0), v(x), ML99_listGet_IMPL(ML99_DEC(i), xs))
+    ML99_PRIV_IF(ML99_NAT_EQ(i, 0), v(x), ML99_listGet_IMPL(ML99_DEC(i), xs))
 // }
 
 // ML99_listFoldr_IMPL {
@@ -923,7 +923,10 @@
 #define ML99_listTake_IMPL(n, list)      ML99_matchWithArgs_IMPL(list, ML99_PRIV_listTake_, n)
 #define ML99_PRIV_listTake_nil_IMPL(...) v(ML99_NIL())
 #define ML99_PRIV_listTake_cons_IMPL(x, xs, i)                                                     \
-    ML99_IF(ML99_NAT_EQ(i, 0), v(ML99_NIL()), ML99_cons(v(x), ML99_listTake_IMPL(ML99_DEC(i), xs)))
+    ML99_PRIV_IF(                                                                                  \
+        ML99_NAT_EQ(i, 0),                                                                         \
+        v(ML99_NIL()),                                                                             \
+        ML99_cons(v(x), ML99_listTake_IMPL(ML99_DEC(i), xs)))
 // }
 
 // ML99_listTakeWhile_IMPL {
@@ -944,7 +947,7 @@
 #define ML99_listDrop_IMPL(n, list)      ML99_matchWithArgs_IMPL(list, ML99_PRIV_listDrop_, n)
 #define ML99_PRIV_listDrop_nil_IMPL(...) v(ML99_NIL())
 #define ML99_PRIV_listDrop_cons_IMPL(x, xs, i)                                                     \
-    ML99_IF(ML99_NAT_EQ(i, 0), v(ML99_CONS(x, xs)), ML99_listDrop_IMPL(ML99_DEC(i), xs))
+    ML99_PRIV_IF(ML99_NAT_EQ(i, 0), v(ML99_CONS(x, xs)), ML99_listDrop_IMPL(ML99_DEC(i), xs))
 // }
 
 // ML99_listDropWhile_IMPL {
@@ -1019,7 +1022,7 @@
 
 // ML99_listUnwrapCommaSep {
 #define ML99_listUnwrapCommaSep_IMPL(list)                                                         \
-    ML99_IF(                                                                                       \
+    ML99_PRIV_IF(                                                                                  \
         ML99_IS_NIL(list),                                                                         \
         v(ML99_EMPTY()),                                                                           \
         ML99_variadicsTail(ML99_PRIV_listUnwrapCommaSepAux_IMPL(list)))

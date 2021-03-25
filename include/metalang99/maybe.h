@@ -116,7 +116,7 @@
 #define ML99_PRIV_maybeEq_just_IMPL(x, other, compare)                                             \
     ML99_matchWithArgs_IMPL(other, ML99_PRIV_maybeEq_just_, x, compare)
 
-#define ML99_PRIV_maybeEq_just_nothing_IMPL             ML99_PRIV_constFalse_IMPL
+#define ML99_PRIV_maybeEq_just_nothing_IMPL(...)        v(ML99_FALSE)
 #define ML99_PRIV_maybeEq_just_just_IMPL(y, x, compare) ML99_appl2_IMPL(compare, x, y)
 // }
 

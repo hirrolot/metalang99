@@ -135,8 +135,8 @@
     ML99_matchWithArgs_IMPL(other, ML99_PRIV_eitherEq_right_, x, compare)
 
 #define ML99_PRIV_eitherEq_left_left_IMPL(y, x, compare)   ML99_appl2_IMPL(compare, x, y)
-#define ML99_PRIV_eitherEq_left_right_IMPL                 ML99_PRIV_constFalse_IMPL
-#define ML99_PRIV_eitherEq_right_left_IMPL                 ML99_PRIV_constFalse_IMPL
+#define ML99_PRIV_eitherEq_left_right_IMPL(...)            v(ML99_FALSE)
+#define ML99_PRIV_eitherEq_right_left_IMPL(...)            v(ML99_FALSE)
 #define ML99_PRIV_eitherEq_right_right_IMPL(y, x, compare) ML99_appl2_IMPL(compare, x, y)
 // }
 

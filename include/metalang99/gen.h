@@ -243,14 +243,14 @@
 
 // ML99_indexedParams_IMPL {
 #define ML99_indexedParams_IMPL(type_list)                                                         \
-    ML99_tuple(ML99_IF(                                                                            \
+    ML99_tuple(ML99_PRIV_IF(                                                                       \
         ML99_IS_NIL(type_list),                                                                    \
         v(void),                                                                                   \
         ML99_variadicsTail(ML99_PRIV_indexedParamsAux_IMPL(type_list, 0))))
 
 #define ML99_PRIV_indexedParamsAux_IMPL(type_list, i)                                              \
     ML99_matchWithArgs_IMPL(type_list, ML99_PRIV_indexedParamsAux_, i)
-#define ML99_PRIV_indexedParamsAux_nil_IMPL(_, _i) ML99_empty()
+#define ML99_PRIV_indexedParamsAux_nil_IMPL(...) v(ML99_EMPTY())
 #define ML99_PRIV_indexedParamsAux_cons_IMPL(x, xs, i)                                             \
     ML99_TERMS(v(, x _##i), ML99_PRIV_indexedParamsAux_IMPL(xs, ML99_INC(i)))
 // }
@@ -260,16 +260,16 @@
 
 #define ML99_PRIV_indexedFieldsAux_IMPL(type_list, i)                                              \
     ML99_matchWithArgs_IMPL(type_list, ML99_PRIV_indexedFields_, i)
-#define ML99_PRIV_indexedFields_nil_IMPL(_, _i) ML99_empty()
+#define ML99_PRIV_indexedFields_nil_IMPL(...) v(ML99_EMPTY())
 #define ML99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                                \
     ML99_TERMS(v(x _##i;), ML99_PRIV_indexedFieldsAux_IMPL(xs, ML99_INC(i)))
 // }
 
-#define ML99_indexedInitializerList_IMPL(n) ML99_braced(ML99_PRIV_indexedItems(n, v(0)))
-#define ML99_indexedArgs_IMPL(n)            ML99_PRIV_indexedItems(n, ML99_empty())
+#define ML99_indexedInitializerList_IMPL(n) ML99_braced(ML99_PRIV_INDEXED_ITEMS(n, v(0)))
+#define ML99_indexedArgs_IMPL(n)            ML99_PRIV_INDEXED_ITEMS(n, v(ML99_EMPTY()))
 
-#define ML99_PRIV_indexedItems(n, empty_case)                                                      \
-    ML99_IF(                                                                                       \
+#define ML99_PRIV_INDEXED_ITEMS(n, empty_case)                                                     \
+    ML99_PRIV_IF(                                                                                  \
         ML99_NAT_EQ(n, 0),                                                                         \
         empty_case,                                                                                \
         ML99_variadicsTail(ML99_repeat_IMPL(n, ML99_PRIV_indexedItem)))

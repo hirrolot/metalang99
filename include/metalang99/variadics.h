@@ -159,20 +159,17 @@
     ML99_PRIV_variadicsForEachAux_IMPL(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
 
 #define ML99_PRIV_variadicsForEachAux_IMPL(f, count, ...)                                          \
-    ML99_callUneval(                                                                               \
-        ML99_IF(                                                                                   \
-            ML99_NAT_EQ(count, 1),                                                                 \
-            ML99_PRIV_variadicsForEachDone,                                                        \
-            ML99_PRIV_variadicsForEachProgress),                                                   \
-        f,                                                                                         \
-        count,                                                                                     \
-        __VA_ARGS__)
+    ML99_PRIV_IF(                                                                                  \
+        ML99_NAT_EQ(count, 1),                                                                     \
+        ML99_PRIV_VARIADICS_FOR_EACH_DONE,                                                         \
+        ML99_PRIV_VARIADICS_FOR_EACH_PROGRESS)                                                     \
+    (f, count, __VA_ARGS__)
 
-#define ML99_PRIV_variadicsForEachDone_IMPL(f, _count, x, _) ML99_appl_IMPL(f, x)
-#define ML99_PRIV_variadicsForEachProgress_IMPL(f, count, x, ...)                                  \
+#define ML99_PRIV_VARIADICS_FOR_EACH_DONE(f, _count, x, _) ML99_appl_IMPL(f, x)
+#define ML99_PRIV_VARIADICS_FOR_EACH_PROGRESS(f, count, x, ...)                                    \
     ML99_TERMS(                                                                                    \
         ML99_appl_IMPL(f, x),                                                                      \
-        ML99_PRIV_variadicsForEachAux_IMPL(f, ML99_DEC(count), __VA_ARGS__))
+        ML99_callUneval(ML99_PRIV_variadicsForEachAux, f, ML99_DEC(count), __VA_ARGS__))
 // }
 
 // ML99_variadicsForEachI_IMPL {
@@ -185,21 +182,22 @@
         ~)
 
 #define ML99_PRIV_variadicsForEachIAux_IMPL(f, i, count, ...)                                      \
-    ML99_callUneval(                                                                               \
-        ML99_IF(                                                                                   \
-            ML99_NAT_EQ(count, 1),                                                                 \
-            ML99_PRIV_variadicsForEachIDone,                                                       \
-            ML99_PRIV_variadicsForEachIProgress),                                                  \
-        f,                                                                                         \
-        i,                                                                                         \
-        count,                                                                                     \
-        __VA_ARGS__)
+    ML99_PRIV_IF(                                                                                  \
+        ML99_NAT_EQ(count, 1),                                                                     \
+        ML99_PRIV_VARIADICS_FOR_EACH_I_DONE,                                                       \
+        ML99_PRIV_VARIADICS_FOR_EACH_I_PROGRESS)                                                   \
+    (f, i, count, __VA_ARGS__)
 
-#define ML99_PRIV_variadicsForEachIDone_IMPL(f, i, _count, x, _) ML99_appl2_IMPL(f, x, i)
-#define ML99_PRIV_variadicsForEachIProgress_IMPL(f, i, count, x, ...)                              \
+#define ML99_PRIV_VARIADICS_FOR_EACH_I_DONE(f, i, _count, x, _) ML99_appl2_IMPL(f, x, i)
+#define ML99_PRIV_VARIADICS_FOR_EACH_I_PROGRESS(f, i, count, x, ...)                               \
     ML99_TERMS(                                                                                    \
         ML99_appl2_IMPL(f, x, i),                                                                  \
-        ML99_PRIV_variadicsForEachIAux_IMPL(f, ML99_INC(i), ML99_DEC(count), __VA_ARGS__))
+        ML99_callUneval(                                                                           \
+            ML99_PRIV_variadicsForEachIAux,                                                        \
+            f,                                                                                     \
+            ML99_INC(i),                                                                           \
+            ML99_DEC(count),                                                                       \
+            __VA_ARGS__))
 // }
 
 // Arity specifiers {
