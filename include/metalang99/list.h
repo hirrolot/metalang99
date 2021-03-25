@@ -307,8 +307,6 @@
  * // 123
  * ML99_listFoldr(ML99_appl(v(ML99_flip), v(ML99_cat)), v(A), ML99_list(v(G, DEF, BC)))
  * @endcode
- *
- * @note @p f must always return a single Metalang99 term.
  */
 #define ML99_listFoldr(f, init, list) ML99_call(ML99_listFoldr, f, init, list)
 
@@ -328,8 +326,6 @@
  * // 123
  * ML99_listFoldl(v(ML99_cat), v(A), ML99_list(v(BC, DEF, G)))
  * @endcode
- *
- * @note @p f must always return a single Metalang99 term.
  */
 #define ML99_listFoldl(f, init, list) ML99_call(ML99_listFoldl, f, init, list)
 
@@ -346,8 +342,6 @@
  * // 123
  * ML99_listFoldl1(v(ML99_cat), ML99_list(v(AB, CDEF, G)))
  * @endcode
- *
- * @note @p f must always return a single Metalang99 term.
  */
 #define ML99_listFoldl1(f, list) ML99_call(ML99_listFoldl1, f, list)
 
@@ -391,8 +385,6 @@
  * // 4, 5, 6
  * ML99_listMap(ML99_appl(v(ML99_add), v(3)), ML99_list(v(1, 2, 3)))
  * @endcode
- *
- * @note @p f must always return a single Metalang99 term.
  */
 #define ML99_listMap(f, list) ML99_call(ML99_listMap, f, list)
 
@@ -410,8 +402,6 @@
  * // a[0], b[1], c[2]
  * ML99_listMapI(v(F), ML99_list(v(a, b, c)))
  * @endcode
- *
- * @note @p f must always return a single Metalang99 term.
  */
 #define ML99_listMapI(f, list) ML99_call(ML99_listMapI, f, list)
 
@@ -441,8 +431,6 @@
  * // 4, 5, 6
  * ML99_listFor(ML99_list(v(1, 2, 3)), ML99_appl(v(ML99_add), v(3)))
  * @endcode
- *
- * @note @p f must always return a single Metalang99 term.
  */
 #define ML99_listFor(list, f) ML99_call(ML99_listFor, list, f)
 
@@ -457,8 +445,6 @@
  * ML99_listMapInitLast(ML99_appl(v(ML99_add), v(3)), ML99_appl(v(ML99_add), v(7)), ML99_list(v(1,
  * 2, 3)))
  * @endcode
- *
- * @note @p f must always return a single Metalang99 term.
  */
 #define ML99_listMapInitLast(f_init, f_last, list)                                                 \
     ML99_call(ML99_listMapInitLast, f_init, f_last, list)
@@ -473,8 +459,6 @@
  * ML99_listForInitLast(ML99_list(v(1, 2, 3)), ML99_appl(v(ML99_add), v(3)), ML99_appl(v(ML99_add),
  * v(7)))
  * @endcode
- *
- * @note @p f must always return a single Metalang99 term.
  */
 #define ML99_listForInitLast(list, f_init, f_last)                                                 \
     ML99_call(ML99_listForInitLast, list, f_init, f_last)

@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
  - Emit the correct metafunction name in case of an error in `ML99_listGet`.
+ - Remove a precondition that metafunctions passed to `ML99_listFoldl`, `ML99_listFolr`, `ML99_listFoldl1`, `ML99_listMap`, `ML99_listMapI`, `ML99_listFor`, `ML99_listMapInitLast`, and `ML99_listForInitLast` must evaluate to a single term.
 
 ## [0.5.0] - 2021-03-22
 
