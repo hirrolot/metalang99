@@ -182,7 +182,7 @@
 
 #define ML99_CAT(x, y)      ML99_CAT_PRIMITIVE(x, y)
 #define ML99_STRINGIFY(...) ML99_STRINGIFY_PRIMITIVE(__VA_ARGS__)
-#define ML99_EMPTY()
+#define ML99_EMPTY(...)
 #define ML99_ID(...) __VA_ARGS__
 
 #ifndef DOXYGEN_IGNORE
