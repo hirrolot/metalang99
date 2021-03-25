@@ -178,7 +178,7 @@ However, compile-time errors can be still quite obscured. I strongly recommend u
 
 A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
-### Q: Why don't you use third-party code generators?
+### Q: Why not third-party code generators?
 
 The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right afterwards -- this way, it can be easily integrated into existing code bases. Additionally, unlike third-party tools, macros are built into C itself, and therefore, they allow far more seamless interaction with the host language.
 
@@ -196,7 +196,7 @@ A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit
 
 [specification]: https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf
 
-### Q: Why do we need powerful preprocessor macros in the presence of templates?
+### Q: Why macros if we have templates?
 
 A: Metalang99 is primarily targeted at pure C, and C lacks templates. But anyway, you can find the argumentation for C++ at the website of [Boost/Preprocessor].
 
@@ -204,7 +204,7 @@ A: Metalang99 is primarily targeted at pure C, and C lacks templates. But anyway
 
 A: C99/C++11 and onwards.
 
-### Q: Why not generate an amalgamated header?
+### Q: Where is an amalgamated header?
 
 A: I am against amalgamated headers because of burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
