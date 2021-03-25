@@ -72,18 +72,18 @@ ML99_ASSERT_EMPTY(ML99_listUnwrap(ML99_nil()));
 ML99_ASSERT_EQ(ML99_listUnwrap(ML99_list(v(18, +, 3, +, 6))), v(18 + 3 + 6));
 // }
 
-// ML99_listEval {
-ML99_ASSERT_EMPTY_UNEVAL(ML99_listEval(ML99_nil()));
-ML99_ASSERT_UNEVAL(ML99_listEval(ML99_list(v(19, +, 6))) == 19 + 6);
+// ML99_LIST_EVAL {
+ML99_ASSERT_EMPTY_UNEVAL(ML99_LIST_EVAL(ML99_nil()));
+ML99_ASSERT_UNEVAL(ML99_LIST_EVAL(ML99_list(v(19, +, 6))) == 19 + 6);
 // }
 
-// ML99_listEvalCommaSep, ML99_listUnwrapCommaSep {
+// ML99_LIST_EVAL_COMMA_SEP, ML99_listUnwrapCommaSep {
 #define CHECK(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
 
-ML99_ASSERT_EMPTY_UNEVAL(ML99_listEvalCommaSep(ML99_nil()));
+ML99_ASSERT_EMPTY_UNEVAL(ML99_LIST_EVAL_COMMA_SEP(ML99_nil()));
 ML99_ASSERT_EMPTY(ML99_listUnwrapCommaSep(ML99_nil()));
 
-ML99_EVAL(v(CHECK), ML99_tuple(v(ML99_listEvalCommaSep(ML99_list(v(1, 2, 3))))));
+ML99_EVAL(v(CHECK), ML99_tuple(v(ML99_LIST_EVAL_COMMA_SEP(ML99_list(v(1, 2, 3))))));
 ML99_EVAL(v(CHECK), ML99_tuple(ML99_listUnwrapCommaSep(ML99_list(v(1, 2, 3)))));
 
 #undef CHECK

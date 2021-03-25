@@ -140,16 +140,16 @@
  * #include <metalang99/list.h>
  *
  * // Literally 1 2 3
- * ML99_listEval(ML99_list(v(1, 2, 3)))
+ * ML99_LIST_EVAL(ML99_list(v(1, 2, 3)))
  * @endcode
  *
  * @note This macro does not result in a Metalang99 term; it literally pastes list elements into a
  * source file.
  */
-#define ML99_listEval(...) ML99_EVAL(ML99_call(ML99_listUnwrap, __VA_ARGS__))
+#define ML99_LIST_EVAL(...) ML99_EVAL(ML99_call(ML99_listUnwrap, __VA_ARGS__))
 
 /**
- * The same as #ML99_listEval but intersperses a comma between list items.
+ * The same as #ML99_LIST_EVAL but intersperses a comma between list items.
  *
  * # Examples
  *
@@ -157,13 +157,13 @@
  * #include <metalang99/util.h>
  *
  * // Literally 1, 2, 3
- * ML99_listEvalCommaSep(ML99_list(v(1, 2, 3)))
+ * ML99_LIST_EVAL_COMMA_SEP(ML99_list(v(1, 2, 3)))
  * @endcode
  *
  * @note This macro does not result in a Metalang99 term; it literally pastes comma-separated list
  * elements into a source file.
  */
-#define ML99_listEvalCommaSep(...) ML99_EVAL(ML99_call(ML99_listUnwrapCommaSep, __VA_ARGS__))
+#define ML99_LIST_EVAL_COMMA_SEP(...) ML99_EVAL(ML99_call(ML99_listUnwrapCommaSep, __VA_ARGS__))
 
 /**
  * Appends the list @p other to @p list.
@@ -206,8 +206,8 @@
  * @endcode
  *
  * @note The resulting value is still a valid Metalang99 term that need to be evaluated further.
- * @see #ML99_listEval
- * @see #ML99_listEvalCommaSep
+ * @see #ML99_LIST_EVAL
+ * @see #ML99_LIST_EVAL_COMMA_SEP
  */
 #define ML99_listUnwrap(list) ML99_call(ML99_listUnwrap, list)
 
@@ -224,8 +224,8 @@
  * @endcode
  *
  * @note The resulting value is still a valid Metalang99 term that need to be evaluated further.
- * @see #ML99_listEval
- * @see #ML99_listEvalCommaSep
+ * @see #ML99_LIST_EVAL
+ * @see #ML99_LIST_EVAL_COMMA_SEP
  */
 #define ML99_listUnwrapCommaSep(list) ML99_call(ML99_listUnwrapCommaSep, list)
 
