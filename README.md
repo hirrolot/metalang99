@@ -188,7 +188,7 @@ A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.
 
 ### Q: Why not third-party code generators?
 
-The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right afterwards -- this way, it can be easily integrated into existing code bases. Additionally, unlike third-party tools, macros are built into C itself, and therefore, they allow far more seamless interaction with the host language.
+The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right afterwards: this way, it can be far more seamlessly integrated into existing code bases.
 
 ### Q: Compilation times?
 
