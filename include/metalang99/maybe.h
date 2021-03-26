@@ -21,7 +21,7 @@
 #define ML99_nothing() ML99_callUneval(ML99_nothing, )
 
 /**
- * 1 if @p maybe contains some value, otherwise 0.
+ * `ML99_true()` if @p maybe contains some value, otherwise `ML99_false()`.
  *
  * # Examples
  *
@@ -38,7 +38,7 @@
 #define ML99_isJust(maybe) ML99_call(ML99_isJust, maybe)
 
 /**
- * 1 if @p maybe contains no value, otherwise 0.
+ * The inverse of #ML99_isJust.
  *
  * # Examples
  *
@@ -76,7 +76,7 @@
 #define ML99_maybeEq(cmp, maybe, other) ML99_call(ML99_maybeEq, cmp, maybe, other)
 
 /**
- * Returns the contained value on #ML99_just or emits a fatal error on #ML99_nothing.
+ * Returns the contained value on `ML99_just(x)` or emits a fatal error on `ML99_nothing()`.
  *
  * # Examples
  *

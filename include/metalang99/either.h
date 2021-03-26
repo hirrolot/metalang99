@@ -21,7 +21,7 @@
 #define ML99_right(x) ML99_call(ML99_right, x)
 
 /**
- * 1 if @p either contains a left value, otherwise 0.
+ * `ML99_true()` if @p either contains a left value, otherwise `ML99_false()`.
  *
  * # Examples
  *
@@ -38,7 +38,7 @@
 #define ML99_isLeft(either) ML99_call(ML99_isLeft, either)
 
 /**
- * 1 if @p either contains a right value, otherwise 0.
+ * The inverse of #ML99_isLeft.
  *
  * # Examples
  *
@@ -76,7 +76,7 @@
 #define ML99_eitherEq(cmp, either, other) ML99_call(ML99_eitherEq, cmp, either, other)
 
 /**
- * Returns the left value on #ML99_left or emits a fatal error on #ML99_right.
+ * Returns the left value on `ML99_left(x)` or emits a fatal error on `ML99_right(y)`.
  *
  * # Examples
  *
@@ -93,7 +93,7 @@
 #define ML99_unwrapLeft(either) ML99_call(ML99_unwrapLeft, either)
 
 /**
- * Returns the right value on #ML99_right or emits a fatal error on #ML99_left.
+ * The inverse of #ML99_unwrapLeft.
  *
  * # Examples
  *

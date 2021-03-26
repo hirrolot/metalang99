@@ -256,8 +256,8 @@
 #define ML99_div(x, y) ML99_call(ML99_div, x, y)
 
 /**
- * Like #ML99_div but returns #ML99_nothing is @p x is not divisible by @p y,
- * otherwise, #ML99_just.
+ * Like #ML99_div but returns `ML99_nothing()` is @p x is not divisible by @p y,
+ * otherwise `ML99_just(result)`.
  *
  * # Examples
  *

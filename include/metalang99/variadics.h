@@ -1,7 +1,6 @@
 /**
  * @file
  * Variadic arguments manipulation.
- *.
  *
  * Metalang99 does not provide a lot of stuff in this module; if a needed function is missed,
  * invoking #ML99_list and then manipulating with the resulting Cons-list might be helpful.
@@ -90,7 +89,7 @@
  * ML99_variadicsForEach(v(F), v(1, 2, 3))
  * @endcode
  *
- * @note Unlike #ML99_listMap, @p f can evaluate to many Metalang99 terms.
+ * @note Unlike #ML99_listMap, @p f can evaluate to many commas.
  */
 #define ML99_variadicsForEach(f, ...) ML99_call(ML99_variadicsForEach, f, __VA_ARGS__)
 
@@ -104,7 +103,7 @@
  *
  * At most 63 variadic arguments are acceptable.
  *
- * @note Unlike #ML99_listMapI, @p f can evaluate to many Metalang99 terms.
+ * @note Unlike #ML99_listMapI, @p f can evaluate to many commas.
  */
 #define ML99_variadicsForEachI(f, ...) ML99_call(ML99_variadicsForEachI, f, __VA_ARGS__)
 
