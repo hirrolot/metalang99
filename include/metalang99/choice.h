@@ -48,7 +48,7 @@
 /**
  * Matches the instance @p choice of a choice type.
  *
- * This macro results in `ML99_callUneval(<matcher><a choice's tag>, <choice's data>)`.
+ * This macro results in `ML99_call(ML99_cat(matcher, ML99_choiceTag(choice)), <choice data>)`.
  *
  * # Examples
  *
@@ -60,7 +60,8 @@
 /**
  * The same as #ML99_match but supplies additional arguments to all branches.
  *
- * This macro results in `ML99_callUneval(<matcher><a choice's tag>, <choice's data>, args...)`.
+ * This macro results in `ML99_call(ML99_cat(matcher, ML99_choiceTag(choice)), <choice data>,
+ * args...)`.
  *
  * # Examples
  *

@@ -146,9 +146,9 @@
 /**
  * Tells whether @p ident belongs to a set of identifiers defined by @p prefix.
  *
- * If `<prefix><ident>` exists, it must be an object-like macro which expands to `()`. If so,
- * `ML99_DETECT_IDENT(prefix, ident)` will expand to 1, otherwise (`<prefix><ident>` does **not**
- * exist), `ML99_DETECT_IDENT(prefix, ident)` will expand to 0.
+ * If `ML99_CAT(prefix, ident)` exists, it must be an object-like macro which expands to `()`. If
+ * so, `ML99_DETECT_IDENT(prefix, ident)` will expand to truth, otherwise (`ML99_CAT(prefix, ident)`
+ * does **not** exist), `ML99_DETECT_IDENT(prefix, ident)` will expand to falsehood.
  *
  * # Examples
  *

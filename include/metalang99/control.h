@@ -83,8 +83,8 @@
  * X(5, 6)
  * @endcode
  *
- * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `<f><count of
- * ...>(...)`.
+ * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `ML99_CAT(f,
+ * ML99_VARIADICS_COUNT(...))(...)`.
  */
 #define ML99_OVERLOAD(f, ...) ML99_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
 
