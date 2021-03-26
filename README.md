@@ -62,17 +62,6 @@ Metalang99 is a functional language aimed at full-blown C99 preprocessor metapro
 
 It features a wide range of concepts, including algebraic data types, control flow operators, collections, recursion, and auto-currying -- to develop both small and complex metaprograms painlessly.
 
-## Table of contents
-
- - [Motivation](#motivation)
- - [Getting started](#getting-started)
- - [Prominent aspects](#prominent-aspects)
- - [Philosophy and origins](#philosophy-and-origins)
- - [Contributing](#contributing)
- - [Architecture](#architecture)
- - [Optimisation guide](#optimisation-guide)
- - [FAQ](#faq)
-
 ## Motivation
 
 Macros facilitate code re-use, macros are the building material that lets you shape the language to suit the problem being solved, leading to more clean and concise code. However, metaprogramming in C is utterly castrated: we cannot even operate with control flow, integers, unbounded sequences, and compound data structures, thereby throwing a lot of hypothetically useful metaprograms out of scope.
@@ -115,7 +104,7 @@ Happy hacking!
 [precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
 [`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
 
-## Prominent aspects
+## Highlights
 
  - **Macro recursion.** Recursive calls behave as expected. In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on a built-in deduction; Metalang99 is free from such drawbacks.
 
