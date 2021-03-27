@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [1.0.0] - 2021-03-27
+
 ### Added
 
  - `ML99_QUOTE`
@@ -20,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Move `ML99_TERMS` from `util.h` to `lang.h`.
  - Return a list of tuples from `ML99_listZip`, accept a list of tuples in `ML99_listUnzip`, return a tuple of lists from `ML99_listPartition`.
  - `ML99_listEval` -> `ML99_LIST_EVAL`, `ML99_listEvalCommaSep` -> `ML99_LIST_EVAL_COMMA_SEP`
- - Accept variadics in `ML99_nil`, `ML99_empty`, `ML99_true`, `ML99_false`, `ML99_nothing` (and their plain versions) and ignore them.
+ - Accept ignored variadics in `ML99_nil`, `ML99_empty`, `ML99_true`, `ML99_false`, `ML99_nothing` (and their plain versions).
 
 ### Fixed
 
