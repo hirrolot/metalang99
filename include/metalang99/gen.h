@@ -202,6 +202,31 @@
         ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 /**
+ * The same as #ML99_INTRODUCE_VAR_TO_STMT but deals with a non-`NULL` pointer.
+ *
+ * In comparison with #ML99_INTRODUCE_VAR_TO_STMT, this macro generates a little less code. It
+ * introduces a pointer to @p ty identified by @p name and initialised to @p init.
+ *
+ * # Example
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * double x = 5.0, y = 7.0;
+ *
+ * for (int i = 0; i < 10; i++)
+ *     ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, x_ptr, &x)
+ *     ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, y_ptr, &y)
+ *         printf("i = %d, x = %f, y = %f\n", i, *x_ptr, *y_ptr);
+ * @endcode
+ */
+#define ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(ty, name, init)                                        \
+    ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
+    ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
+    for (ty *name = (init); name != (void *)0; name = (void *)0)                                   \
+        ML99_CLANG_PRAGMA("clang diagnostic pop")
+
+/**
  * Suppresses the "unused X" warning right before a statement after its invocation.
  *
  * An invocation of #ML99_SUPPRESS_UNUSED_BEFORE_STMT together with a statement right after it

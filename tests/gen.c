@@ -19,6 +19,23 @@ static void test_INTRODUCE_VAR_TO_STMT(void) {
 }
 // }
 
+// ML99_INTRODUCE_NON_NULL_PTR_TO_STMT {
+static void test_INTRODUCE_NON_NULL_PTR_TO_STMT(void) {
+    double x = 5.0, y = 7.0;
+
+    // clang-format off
+    for (int i = 0; i < 10; i++)
+        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, x_ptr, &x)
+        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, y_ptr, &y) {
+            *x_ptr = *y_ptr = 123.456;
+            double z = *y_ptr;
+            (void)x;
+            (void)z;
+        }
+    // clang-format on
+}
+// }
+
 // ML99_SUPPRESS_UNUSED_BEFORE_STMT {
 static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
     int x, y;
@@ -203,6 +220,7 @@ int main(void) {
     (void)test_indexed_args;
 
     (void)test_INTRODUCE_VAR_TO_STMT;
+    (void)test_INTRODUCE_NON_NULL_PTR_TO_STMT;
     (void)test_SUPPRESS_UNUSED_BEFORE_STMT;
     (void)test_typedef;
     (void)test_struct;

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`
+
 ## [1.0.0] - 2021-03-27
 
 ### Added
