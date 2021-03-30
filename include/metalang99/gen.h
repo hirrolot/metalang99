@@ -168,7 +168,7 @@
 #define ML99_indexedArgs(n) ML99_call(ML99_indexedArgs, n)
 
 /**
- * Introduces the variable definition @p var_def to a statement right after its invocation.
+ * Introduces several variable definitions to a statement right after its invocation.
  *
  * An invocation of #ML99_INTRODUCE_VAR_TO_STMT together with a statement right after it forms a
  * single statement.
@@ -183,26 +183,28 @@
  * Provided that `a`, `b`, and `c` stand for the identifiers of the defined variables, they will be
  * visible only inside a user-supplied statement `{ ... }` and not outside of it.
  *
+ * Variable definitions must be specified as in the first clause of the for-loop.
+ *
  * # Example
  *
  * @code
  * #include <metalang99/gen.h>
  *
  * for (int i = 0; i < 10; i++)
- *     ML99_INTRODUCE_VAR_TO_STMT(double x = 5.0)
- *     ML99_INTRODUCE_VAR_TO_STMT(double y = 7.0)
- *         printf("i = %d, x = %f, y = %f\n", i, x, y);
+ *     ML99_INTRODUCE_VAR_TO_STMT(double x = 5.0, y = 7.0)
+ *         if (i % 2 == 0)
+ *             printf("i = %d, x = %f, y = %f\n", i, x, y);
  * @endcode
  */
-#define ML99_INTRODUCE_VAR_TO_STMT(var_def)                                                        \
+#define ML99_INTRODUCE_VAR_TO_STMT(...)                                                            \
     ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
     ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
-    for (var_def, *ml99_priv_break = (void *)0; ml99_priv_break != (void *)1;                      \
+    for (__VA_ARGS__, *ml99_priv_break = (void *)0; ml99_priv_break != (void *)1;                  \
          ml99_priv_break = (void *)1)                                                              \
         ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 /**
- * The same as #ML99_INTRODUCE_VAR_TO_STMT but deals with a non-`NULL` pointer.
+ * The same as #ML99_INTRODUCE_VAR_TO_STMT but deals with a single non-`NULL` pointer.
  *
  * In comparison with #ML99_INTRODUCE_VAR_TO_STMT, this macro generates a little less code. It
  * introduces a pointer to @p ty identified by @p name and initialised to @p init.

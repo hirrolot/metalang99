@@ -8,8 +8,7 @@
 static void test_INTRODUCE_VAR_TO_STMT(void) {
     // clang-format off
     for (int i = 0; i < 10; i++)
-        ML99_INTRODUCE_VAR_TO_STMT(double x = 5.0)
-        ML99_INTRODUCE_VAR_TO_STMT(double y = 7.0) {
+        ML99_INTRODUCE_VAR_TO_STMT(double x = 5.0, y = 7.0) {
             x = y = 123.456;
             double z = y;
             (void)x;
