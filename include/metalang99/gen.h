@@ -197,11 +197,9 @@
 #define ML99_INTRODUCE_VAR_TO_STMT(var_def)                                                        \
     ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
     ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
-    for (int ml99_priv_INTRODUCE_VAR_TO_STMT_break = 0;                                            \
-         ml99_priv_INTRODUCE_VAR_TO_STMT_break != 1;)                                              \
-        for (var_def; ml99_priv_INTRODUCE_VAR_TO_STMT_break != 1;                                  \
-             ml99_priv_INTRODUCE_VAR_TO_STMT_break = 1)                                            \
-            ML99_CLANG_PRAGMA("clang diagnostic pop")
+    for (var_def, *ml99_priv_break = (void *)0; ml99_priv_break != (void *)1;                      \
+         ml99_priv_break = (void *)1)                                                              \
+        ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 /**
  * Suppresses the "unused X" warning right before a statement after its invocation.
