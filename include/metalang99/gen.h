@@ -219,6 +219,9 @@
  *     ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, y_ptr, &y)
  *         printf("i = %d, x = %f, y = %f\n", i, *x_ptr, *y_ptr);
  * @endcode
+ *
+ * @note Unlike #ML99_INTRODUCE_VAR_TO_STMT, the generated pointer is guaranteed to be used at least
+ * once, meaning that you do not need to suppress the unused variable warning.
  */
 #define ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(ty, name, init)                                        \
     ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
