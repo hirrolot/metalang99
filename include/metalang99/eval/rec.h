@@ -18,7 +18,7 @@
 #define ML99_PRIV_REC_UNROLL(...) ML99_PRIV_REC_0(__VA_ARGS__)
 
 // clang-format off
-#define ML99_PRIV_REC_0(choice, ...)                                                               \
+#define ML99_PRIV_REC_0(choice, ...) \
     /* Approximately 1024 * 16 reduction steps. */ \
     ML99_PRIV_REC_EXPAND( \
     ML99_PRIV_REC_EXPAND( \

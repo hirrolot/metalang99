@@ -13,7 +13,7 @@
     ML99_PRIV_CONSUME
 
 // clang-format off
-#define ML99_PRIV_SYNTAX_ERROR(invalid_term)                                                 \
+#define ML99_PRIV_SYNTAX_ERROR(invalid_term) \
     ML99_PRIV_REC_CONTINUE(ML99_PRIV_REC_STOP)((~), !"Metalang99 syntax error": `invalid_term`)
 // clang-format on
 
