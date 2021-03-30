@@ -253,9 +253,8 @@
 #define ML99_SUPPRESS_UNUSED_BEFORE_STMT(expr)                                                     \
     ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
     ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
-    for (int ml99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 0;                                      \
-         ((void)(expr), ml99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break != 1);                         \
-         ml99_priv_SUPPRESS_UNUSED_BEFORE_STMT_break = 1)                                          \
+    for (int ml99_priv_suppress_break = 0; ((void)(expr), ml99_priv_suppress_break != 1);          \
+         ml99_priv_suppress_break = 1)                                                             \
         ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 #ifndef DOXYGEN_IGNORE

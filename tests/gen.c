@@ -174,7 +174,7 @@ static void test_indexed_fields(void) {
 // }
 
 // ML99_indexedInitializerList {
-struct {
+static struct {
     int _0;
     long long _1;
     const char *_2;
