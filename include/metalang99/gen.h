@@ -16,6 +16,15 @@
 #include <metalang99/variadics.h>
 
 /**
+ * Pastes @p id with the current line number.
+ *
+ * Used to imitate macro hygiene.
+ *
+ * @see https://en.wikipedia.org/wiki/Hygienic_macro
+ */
+#define ML99_GEN_SYM(id) ML99_CAT(id, __LINE__)
+
+/**
  * Puts provided arguments into braces.
  *
  * # Examples

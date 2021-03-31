@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+ - `ML99_GEN_SYM`
  - More statement chaining macros: `ML99_CHAIN_EXPR_STMT`, `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`.
  - The ability to specify several variables in `ML99_INTRODUCE_VAR_TO_STMT`.
 

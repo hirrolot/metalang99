@@ -4,6 +4,18 @@
 #include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
+static void test_GEN_SYM(void) {
+
+#define TEST                                                                                       \
+    int ML99_GEN_SYM(test) = 5;                                                                    \
+    ML99_GEN_SYM(test) = 7;                                                                        \
+    (void)ML99_GEN_SYM(test)
+
+    TEST;
+
+#undef TEST
+}
+
 // ML99_INTRODUCE_VAR_TO_STMT {
 static void test_INTRODUCE_VAR_TO_STMT(void) {
     // clang-format off
@@ -238,6 +250,8 @@ static void test_indexed_args(int i, long long ll, const char *str) {
 // }
 
 int main(void) {
+    (void)test_GEN_SYM;
+
     (void)test_indexed_params;
     (void)test_indexed_fields;
     (void)test_indexed_initialiser_list_z;
