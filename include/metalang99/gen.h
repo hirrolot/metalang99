@@ -1,6 +1,36 @@
 /**
  * @file
  * Support for C language constructions.
+ *
+ * # Statement chaining
+ *
+ * This module exports several so-called _statement chaining macros_: they expect a statement right
+ * after their invocation, and moreover, an invocation of such a macro with a statement afterwards
+ * altogether form a single statement.
+ *
+ * How can this be helpful? Imagine you are writing a macro with the following syntax:
+ *
+ * @code
+ * YOUR_MACRO(...) { bla bla bla }
+ * @endcode
+ *
+ * Then `YOUR_MACRO` must expand to a _statement prefix_, i.e. something that expects a statement
+ * after itself. One possible solution is to make `YOUR_MACRO` expand to a sequence of statement
+ * chaining macros like this:
+ *
+ * @code
+ * #define YOUR_MACRO(...) \
+ *     ML99_INTRODUCE_VAR_TO_STMT(int x = 5) \
+ *         ML99_CHAIN_EXPR_STMT(printf("%d\n", x)) \
+ *             and so on...
+ * @endcode
+ *
+ * Here `ML99_CHAIN_EXPR_STMT` accepts the statement formed by `ML99_CHAIN_EXPR_STMT`, which in turn
+ * accepts the next statement and so on, until a caller of `YOUR_MACRO` specifies the final
+ * statement, thus completing the chain.
+ *
+ * @see https://www.chiark.greenend.org.uk/~sgtatham/mp/ for analysis of statement prefixes as well
+ * as the whole idea.
  */
 
 #ifndef ML99_GEN_H
@@ -190,20 +220,8 @@
 #define ML99_indexedArgs(n) ML99_call(ML99_indexedArgs, n)
 
 /**
- * Introduces several variable definitions to a statement right after its invocation.
- *
- * An invocation of #ML99_INTRODUCE_VAR_TO_STMT together with a statement right after it forms a
- * single statement.
- *
- * This macro is useful when you want to generate a sequence of variable definitions inside your
- * macro, but at the same time stick to the following syntax:
- *
- * @code
- * macro(a, b, c) { ... }
- * @endcode
- *
- * Provided that `a`, `b`, and `c` stand for the identifiers of the defined variables, they will be
- * visible only inside a user-supplied statement `{ ... }` and not outside of it.
+ * A statement chaining macro which introduces several variable definitions to a statement right
+ * after its invocation.
  *
  * Variable definitions must be specified as in the first clause of the for-loop.
  *
@@ -250,10 +268,8 @@
     ML99_PRIV_SHADOWS(for (ty *name = (init); name != (void *)0; name = (void *)0))
 
 /**
- * Executes an expression statement derived from @p expr right before the next statement.
- *
- * An invocation of #ML99_CHAIN_EXPR_STMT together with a statement right after it forms a single
- * statement.
+ * A statement chaining macro which executes an expression statement derived from @p expr right
+ * before the next statement.
  *
  * # Example
  *
@@ -265,6 +281,7 @@
  * for(;;)
  *     ML99_CHAIN_EXPR_STMT(x = 5)
  *         ML99_CHAIN_EXPR_STMT(printf("%d\n", x))
+ *             puts("abc");
  * @endcode
  */
 #define ML99_CHAIN_EXPR_STMT(expr)                                                                 \
@@ -273,10 +290,8 @@
                            ml99_priv_expr_stmt_break = 1))
 
 /**
- * Suppresses the "unused X" warning right before a statement after its invocation.
- *
- * An invocation of #ML99_SUPPRESS_UNUSED_BEFORE_STMT together with a statement right after it
- * forms a single statement.
+ * A statement chaining macro which suppresses the "unused X" warning right before a statement after
+ * its invocation.
  *
  * # Example
  *
@@ -287,8 +302,8 @@
  *
  * for(;;)
  *     ML99_SUPPRESS_UNUSED_BEFORE_STMT(x)
- *     ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
- *         puts("abc");
+ *         ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
+ *             puts("abc");
  * @endcode
  *
  * @deprecated Use `ML99_CHAIN_EXPR_STMT((void)expr)` instead.
