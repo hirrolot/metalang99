@@ -268,6 +268,8 @@
  *     ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
  *         puts("abc");
  * @endcode
+ *
+ * @deprecated Use `ML99_CHAIN_EXPR_STMT((void)expr)` instead.
  */
 #define ML99_SUPPRESS_UNUSED_BEFORE_STMT(expr) ML99_CHAIN_EXPR_STMT((void)expr)
 
