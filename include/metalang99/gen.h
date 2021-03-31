@@ -20,6 +20,19 @@
  *
  * Used to imitate macro hygiene.
  *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * #define MY_MACRO \
+ *     const int ML99_GEN_SYM(x) = 5; \
+ *     printf("%d\n", ML99_GEN_SYM(x));
+ * @endcode
+ *
+ * Within `MY_MACRO`, `ML99_GEN_SYM(x)` will designate the same variable as any C macro always
+ * results in a single source code line.
+ *
  * @see https://en.wikipedia.org/wiki/Hygienic_macro
  */
 #define ML99_GEN_SYM(id) ML99_CAT(id, __LINE__)
