@@ -131,8 +131,6 @@ Finally, I want to say that Metalang99 is only about syntax transformations and 
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-At this moment, contributions that optimise the interpreter and the standard library are highly appreciated.
-
 ## Architecture
 
 See [`ARCHITECTURE.md`](ARCHITECTURE.md).
