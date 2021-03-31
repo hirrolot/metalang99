@@ -16,9 +16,9 @@
 #include <metalang99/variadics.h>
 
 /**
- * Pastes @p id with the current line number.
+ * Pastes @p prefix, @p id, and the current line number together.
  *
- * Used to imitate macro hygiene.
+ * It is used to imitate macro hygiene.
  *
  * # Examples
  *
@@ -26,16 +26,16 @@
  * #include <metalang99/gen.h>
  *
  * #define MY_MACRO \
- *     const int ML99_GEN_SYM(x) = 5; \
- *     printf("%d\n", ML99_GEN_SYM(x));
+ *     int ML99_GEN_SYM(MY_MACRO_, x) = 5; \
+ *     printf("%d\n", ML99_GEN_SYM(MY_MACRO_, x));
  * @endcode
  *
- * Within `MY_MACRO`, `ML99_GEN_SYM(x)` will designate the same variable as any C macro always
- * results in a single source code line.
+ * Within `MY_MACRO`, `ML99_GEN_SYM(MY_MACRO_, x)` will designate the same variable because any C
+ * macro always results in a single source code line.
  *
  * @see https://en.wikipedia.org/wiki/Hygienic_macro
  */
-#define ML99_GEN_SYM(id) ML99_CAT(id, __LINE__)
+#define ML99_GEN_SYM(prefix, id) ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, __LINE__)))
 
 /**
  * Puts provided arguments into braces.

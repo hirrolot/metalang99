@@ -7,9 +7,9 @@
 static void test_GEN_SYM(void) {
 
 #define TEST                                                                                       \
-    int ML99_GEN_SYM(test) = 5;                                                                    \
-    ML99_GEN_SYM(test) = 7;                                                                        \
-    (void)ML99_GEN_SYM(test)
+    int ML99_GEN_SYM(TEST_, test) = 5;                                                             \
+    ML99_GEN_SYM(TEST_, test) = 7;                                                                 \
+    (void)ML99_GEN_SYM(TEST_, test)
 
     TEST;
 
