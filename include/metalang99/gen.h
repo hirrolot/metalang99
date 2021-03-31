@@ -197,11 +197,9 @@
  * @endcode
  */
 #define ML99_INTRODUCE_VAR_TO_STMT(...)                                                            \
-    ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
-    ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
-    for (__VA_ARGS__, *ml99_priv_break = (void *)0; ml99_priv_break != (void *)1;                  \
-         ml99_priv_break = (void *)1)                                                              \
-        ML99_CLANG_PRAGMA("clang diagnostic pop")
+    ML99_PRIV_SHADOWS(for (__VA_ARGS__, *ml99_priv_break = (void *)0;                              \
+                           ml99_priv_break != (void *)1;                                           \
+                           ml99_priv_break = (void *)1))
 
 /**
  * The same as #ML99_INTRODUCE_VAR_TO_STMT but deals with a single non-`NULL` pointer.
@@ -218,18 +216,39 @@
  *
  * for (int i = 0; i < 10; i++)
  *     ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, x_ptr, &x)
- *     ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, y_ptr, &y)
- *         printf("i = %d, x = %f, y = %f\n", i, *x_ptr, *y_ptr);
+ *         ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, y_ptr, &y)
+ *             printf("i = %d, x = %f, y = %f\n", i, *x_ptr, *y_ptr);
  * @endcode
  *
  * @note Unlike #ML99_INTRODUCE_VAR_TO_STMT, the generated pointer is guaranteed to be used at least
  * once, meaning that you do not need to suppress the unused variable warning.
+ * @note @p init is guaranteed to be executed only once.
  */
 #define ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(ty, name, init)                                        \
-    ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
-    ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
-    for (ty *name = (init); name != (void *)0; name = (void *)0)                                   \
-        ML99_CLANG_PRAGMA("clang diagnostic pop")
+    ML99_PRIV_SHADOWS(for (ty *name = (init); name != (void *)0; name = (void *)0))
+
+/**
+ * Executes an expression statement derived from @p expr right before the next statement.
+ *
+ * An invocation of #ML99_CHAIN_EXPR_STMT together with a statement right after it forms a single
+ * statement.
+ *
+ * # Example
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * int x;
+ *
+ * for(;;)
+ *     ML99_CHAIN_EXPR_STMT(x = 5)
+ *         ML99_CHAIN_EXPR_STMT(printf("%d\n", x))
+ * @endcode
+ */
+#define ML99_CHAIN_EXPR_STMT(expr)                                                                 \
+    ML99_PRIV_SHADOWS(for (int ml99_priv_expr_stmt_break = ((expr), 0);                            \
+                           ml99_priv_expr_stmt_break != 1;                                         \
+                           ml99_priv_expr_stmt_break = 1))
 
 /**
  * Suppresses the "unused X" warning right before a statement after its invocation.
@@ -250,14 +269,15 @@
  *         puts("abc");
  * @endcode
  */
-#define ML99_SUPPRESS_UNUSED_BEFORE_STMT(expr)                                                     \
-    ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
-    ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
-    for (int ml99_priv_wunused_break = 0; ((void)(expr), ml99_priv_wunused_break != 1);            \
-         ml99_priv_wunused_break = 1)                                                              \
-        ML99_CLANG_PRAGMA("clang diagnostic pop")
+#define ML99_SUPPRESS_UNUSED_BEFORE_STMT(expr) ML99_CHAIN_EXPR_STMT((void)expr)
 
 #ifndef DOXYGEN_IGNORE
+
+#define ML99_PRIV_SHADOWS(...)                                                                     \
+    ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \
+    ML99_CLANG_PRAGMA("clang diagnostic ignored \"-Wshadow\"")                                     \
+    __VA_ARGS__                                                                                    \
+    ML99_CLANG_PRAGMA("clang diagnostic pop")
 
 #define ML99_braced_IMPL(...)         v({__VA_ARGS__})
 #define ML99_typedef_IMPL(ident, ...) v(typedef __VA_ARGS__ ident;)

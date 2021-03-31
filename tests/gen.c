@@ -35,6 +35,21 @@ static void test_INTRODUCE_NON_NULL_PTR_TO_STMT(void) {
 }
 // }
 
+// ML99_CHAIN_EXPR_STMT {
+static void test_ML99_CHAIN_EXPR_STMT(void) {
+    int x, y;
+
+    // clang-format off
+    for (int i = 0; i < 10; i++)
+        ML99_CHAIN_EXPR_STMT(x = 1)
+            ML99_CHAIN_EXPR_STMT(y = 2) {
+                (void)(x);
+                (void)(y);
+            }
+    // clang-format on
+}
+// }
+
 // ML99_SUPPRESS_UNUSED_BEFORE_STMT {
 static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
     int x, y;
@@ -47,6 +62,17 @@ static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
     // clang-format on
 }
 // }
+
+static void test_statement_chaining(void) {
+    // clang-format off
+    ML99_INTRODUCE_VAR_TO_STMT(int x = 5)
+        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(int, x_ptr, &x)
+            ML99_CHAIN_EXPR_STMT(x = 7)
+                ML99_INTRODUCE_VAR_TO_STMT(int y = 5)
+                    ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
+                        ;
+    // clang-format on
+}
 
 // ML99_braced {
 struct TestBraced ML99_EVAL(ML99_braced(v(int a, b, c;)));
@@ -220,7 +246,10 @@ int main(void) {
 
     (void)test_INTRODUCE_VAR_TO_STMT;
     (void)test_INTRODUCE_NON_NULL_PTR_TO_STMT;
+    (void)test_ML99_CHAIN_EXPR_STMT;
     (void)test_SUPPRESS_UNUSED_BEFORE_STMT;
+    (void)test_statement_chaining;
+
     (void)test_typedef;
     (void)test_struct;
     (void)test_anon_struct;
