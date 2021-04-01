@@ -1,6 +1,9 @@
 /**
  * @file
  * Static assertions.
+ *
+ * @note Any of the following assertion macros must **not** appear on the same line number twice
+ * with itself as well as with any other Metalang99 assertion macro.
  */
 
 #ifndef ML99_ASSERT_H
