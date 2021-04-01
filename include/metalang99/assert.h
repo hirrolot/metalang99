@@ -56,7 +56,7 @@
 #define ML99_ASSERT_UNEVAL(expr)                                                                   \
     /* How to imitate static assertions in C99: <https://stackoverflow.com/a/3385694/13166656>. */ \
     static const char ML99_CAT(                                                                    \
-        metalang99_assert_,                                                                        \
+        ml99_assert_,                                                                              \
         __LINE__)[(expr) ? 1 : -1] ML99_PRIV_COMPILER_ATTR_UNUSED = {0}
 
 /**
