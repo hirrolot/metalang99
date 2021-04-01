@@ -1,6 +1,22 @@
 #include <metalang99/assert.h>
 #include <metalang99/logical.h>
 
+// ML99_true, ML99_false {
+ML99_ASSERT_EQ(ML99_true(), v(1));
+ML99_ASSERT_EQ(ML99_true(~, ~, ~), v(1));
+
+ML99_ASSERT_EQ(ML99_false(), v(0));
+ML99_ASSERT_EQ(ML99_false(~, ~, ~), v(0));
+// }
+
+// ML99_TRUE, ML99_FALSE {
+ML99_ASSERT_UNEVAL(ML99_TRUE());
+ML99_ASSERT_UNEVAL(ML99_TRUE(~, ~, ~));
+
+ML99_ASSERT_UNEVAL(!ML99_FALSE());
+ML99_ASSERT_UNEVAL(!ML99_FALSE(~, ~, ~));
+// }
+
 // ML99_not {
 ML99_ASSERT_EQ(ML99_not(v(0)), v(1));
 ML99_ASSERT_EQ(ML99_not(v(1)), v(0));
