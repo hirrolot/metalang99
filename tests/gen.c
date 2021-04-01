@@ -55,9 +55,16 @@ static void test_ML99_CHAIN_EXPR_STMT(void) {
     for (int i = 0; i < 10; i++)
         ML99_CHAIN_EXPR_STMT(x = 1)
             ML99_CHAIN_EXPR_STMT(y = 2) {
-                (void)(x);
-                (void)(y);
+                (void)x;
+                (void)y;
             }
+
+    // Test -Wunused suppression via ML99_CHAIN_EXPR_STMT.
+    int z;
+
+    for (int i = 0; i < 10; i++)
+        ML99_CHAIN_EXPR_STMT((void)z)
+            ;
     // clang-format on
 }
 // }
@@ -70,7 +77,7 @@ static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
     for (int i = 0; i < 10; i++)
         ML99_SUPPRESS_UNUSED_BEFORE_STMT(x)
         ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
-            (void)(1 + 1);
+            ;
     // clang-format on
 }
 // }
