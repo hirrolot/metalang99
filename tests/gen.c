@@ -174,11 +174,8 @@ static void test_anon_enum(void) {
 // }
 
 // ML99_indexedParams {
-#define CHECK_void
-
-ML99_EVAL(ML99_cat(v(CHECK_), ML99_untuple(ML99_indexedParams(ML99_nil()))))
-
-#undef CHECK_void
+ML99_ASSERT_UNEVAL(ML99_DETECT_IDENT(
+    ML99_DETECTOR(void), ML99_EVAL(ML99_untuple(ML99_indexedParams(ML99_nil())))));
 
 static void
     test_indexed_params ML99_EVAL(ML99_indexedParams(ML99_list(v(int, long long, const char *))))

@@ -43,4 +43,67 @@ ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(BAR_, defghi));
 #undef FOO_y
 // }
 
+// ML99_DETECTOR {
+#define TEST(ident)                                                                                \
+    ML99_ASSERT_UNEVAL(                                                                            \
+        ML99_DETECT_IDENT(ML99_DETECTOR(ident), ident) &&                                          \
+        !ML99_DETECT_IDENT(ML99_DETECTOR(ident), blah) &&                                          \
+        !ML99_DETECT_IDENT(ML99_DETECTOR(ident), ML99_EMPTY()))
+
+TEST(auto);
+TEST(break);
+TEST(case);
+TEST(char);
+TEST(const);
+TEST(continue);
+TEST(default);
+TEST(do);
+TEST(double);
+TEST(else);
+TEST(enum);
+TEST(extern);
+TEST(float);
+TEST(for);
+TEST(goto);
+TEST(if);
+TEST(inline);
+TEST(int);
+TEST(long);
+TEST(register);
+TEST(restrict);
+// clang-format off
+TEST(return);
+// clang-format on
+TEST(short);
+TEST(signed);
+TEST(sizeof);
+TEST(static);
+TEST(struct);
+TEST(switch);
+TEST(typedef);
+TEST(union);
+TEST(unsigned);
+TEST(void);
+TEST(volatile);
+TEST(while);
+TEST(_Alignas);
+TEST(_Alignof);
+TEST(_Atomic);
+TEST(_Bool);
+TEST(_Complex);
+TEST(_Generic);
+TEST(_Imaginary);
+TEST(_Noreturn);
+TEST(_Static_assert);
+TEST(_Thread_local);
+TEST(_);
+
+#undef TEST
+
+ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(restrict), void));
+ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(case), while));
+ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(volatile), _Alignof));
+ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(_Generic), _Alignas));
+// }
+
 int main(void) {}

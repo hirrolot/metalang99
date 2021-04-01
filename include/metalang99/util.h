@@ -171,6 +171,29 @@
 #define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_CAT(prefix, ident))
 
 /**
+ * Expands to the predefined detector of @p ident which can be then passed to #ML99_DETECT_IDENT.
+ *
+ * @p ident ranges over all the <a href="https://en.cppreference.com/w/c/keyword">C11 keywords</a>
+ * and the underscore character (`_`).
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // 1
+ * ML99_DETECT_IDENT(ML99_DETECTOR(while), while)
+ *
+ * // 1
+ * ML99_DETECT_IDENT(ML99_DETECTOR(_), _)
+ *
+ * // 0
+ * ML99_DETECT_IDENT(ML99_DETECTOR(return), _Generic)
+ * @endcode
+ */
+#define ML99_DETECTOR(ident) ML99_CAT(ML99_CAT(ML99_PRIV_DETECTOR_, ident), _)
+
+/**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
  */
 #define ML99_GCC_PRAGMA(str) ML99_PRIV_GCC_PRAGMA(str)
@@ -195,6 +218,54 @@
 #define ML99_const_IMPL(x, _a)       v(x)
 #define ML99_flip_IMPL(f)            ML99_appl_IMPL(ML99_PRIV_flip, f)
 #define ML99_PRIV_flip_IMPL(f, a, b) ML99_appl2_IMPL(f, b, a)
+
+#define ML99_PRIV_DETECTOR_auto_auto                     ()
+#define ML99_PRIV_DETECTOR_break_break                   ()
+#define ML99_PRIV_DETECTOR_case_case                     ()
+#define ML99_PRIV_DETECTOR_char_char                     ()
+#define ML99_PRIV_DETECTOR_const_const                   ()
+#define ML99_PRIV_DETECTOR_continue_continue             ()
+#define ML99_PRIV_DETECTOR_default_default               ()
+#define ML99_PRIV_DETECTOR_do_do                         ()
+#define ML99_PRIV_DETECTOR_double_double                 ()
+#define ML99_PRIV_DETECTOR_else_else                     ()
+#define ML99_PRIV_DETECTOR_enum_enum                     ()
+#define ML99_PRIV_DETECTOR_extern_extern                 ()
+#define ML99_PRIV_DETECTOR_float_float                   ()
+#define ML99_PRIV_DETECTOR_for_for                       ()
+#define ML99_PRIV_DETECTOR_goto_goto                     ()
+#define ML99_PRIV_DETECTOR_if_if                         ()
+#define ML99_PRIV_DETECTOR_inline_inline                 ()
+#define ML99_PRIV_DETECTOR_int_int                       ()
+#define ML99_PRIV_DETECTOR_long_long                     ()
+#define ML99_PRIV_DETECTOR_register_register             ()
+#define ML99_PRIV_DETECTOR_restrict_restrict             ()
+#define ML99_PRIV_DETECTOR_return_return                 ()
+#define ML99_PRIV_DETECTOR_short_short                   ()
+#define ML99_PRIV_DETECTOR_signed_signed                 ()
+#define ML99_PRIV_DETECTOR_sizeof_sizeof                 ()
+#define ML99_PRIV_DETECTOR_static_static                 ()
+#define ML99_PRIV_DETECTOR_struct_struct                 ()
+#define ML99_PRIV_DETECTOR_switch_switch                 ()
+#define ML99_PRIV_DETECTOR_typedef_typedef               ()
+#define ML99_PRIV_DETECTOR_union_union                   ()
+#define ML99_PRIV_DETECTOR_unsigned_unsigned             ()
+#define ML99_PRIV_DETECTOR_void_void                     ()
+#define ML99_PRIV_DETECTOR_volatile_volatile             ()
+#define ML99_PRIV_DETECTOR_while_while                   ()
+#define ML99_PRIV_DETECTOR__Alignas__Alignas             ()
+#define ML99_PRIV_DETECTOR__Alignof__Alignof             ()
+#define ML99_PRIV_DETECTOR__Atomic__Atomic               ()
+#define ML99_PRIV_DETECTOR__Bool__Bool                   ()
+#define ML99_PRIV_DETECTOR__Complex__Complex             ()
+#define ML99_PRIV_DETECTOR__Generic__Generic             ()
+#define ML99_PRIV_DETECTOR__Imaginary__Imaginary         ()
+#define ML99_PRIV_DETECTOR__Noreturn__Noreturn           ()
+#define ML99_PRIV_DETECTOR__Static_assert__Static_assert ()
+#define ML99_PRIV_DETECTOR__Thread_local__Thread_local   ()
+
+// Handles the underscore character (_).
+#define ML99_PRIV_DETECTOR____ ()
 
 #if defined(__GNUC__) && !defined(__clang__)
 #define ML99_PRIV_GCC_PRAGMA(str) _Pragma(str)
