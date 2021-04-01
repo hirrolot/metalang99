@@ -27,7 +27,7 @@ Sometimes, there exist two versions of the same macro: one is plain, and the oth
 
 Both metaprograms result in `1, 2, 3`.
 
-Note that macros standing for the language terms such as `ML99_call`, `v`, and the others (`lang.h`), are technically plain macros as well.
+There is one exception from the rule: macros standing for the language terms such as `ML99_call`, `v`, and the others (defined in `lang.h`), are technically plain macros as well although they follow the `camelCase` convention.
 
 .. toctree::
    :hidden:
