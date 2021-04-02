@@ -4,6 +4,7 @@
 #include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
+// ML99_GEN_SYM {
 static void test_GEN_SYM(void) {
 
 #define TEST                                                                                       \
@@ -15,6 +16,12 @@ static void test_GEN_SYM(void) {
 
 #undef TEST
 }
+// }
+
+// ML99_TRAILING_SEMICOLON {
+ML99_TRAILING_SEMICOLON();
+ML99_TRAILING_SEMICOLON(~, ~, ~);
+// }
 
 // ML99_INTRODUCE_VAR_TO_STMT {
 static void test_INTRODUCE_VAR_TO_STMT(void) {

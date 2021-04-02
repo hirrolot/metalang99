@@ -11,23 +11,23 @@
  * How can this be helpful? Imagine you are writing a macro with the following syntax:
  *
  * @code
- * YOUR_MACRO(...) { bla bla bla }
+ * MY_MACRO(...) { bla bla bla }
  * @endcode
  *
- * Then `YOUR_MACRO` must expand to a _statement prefix_, i.e. something that expects a statement
- * after itself. One possible solution is to make `YOUR_MACRO` expand to a sequence of statement
+ * Then `MY_MACRO` must expand to a _statement prefix_, i.e. something that expects a statement
+ * after itself. One possible solution is to make `MY_MACRO` expand to a sequence of statement
  * chaining macros like this:
  *
  * @code
- * #define YOUR_MACRO(...) \
+ * #define MY_MACRO(...) \
  *     ML99_INTRODUCE_VAR_TO_STMT(int x = 5) \
  *         ML99_CHAIN_EXPR_STMT(printf("%d\n", x)) \
  *             and so on...
  * @endcode
  *
  * Here `ML99_CHAIN_EXPR_STMT` accepts the statement formed by `ML99_CHAIN_EXPR_STMT`, which in turn
- * accepts the next statement and so on, until a caller of `YOUR_MACRO` specifies the final
- * statement, thus completing the chain.
+ * accepts the next statement and so on, until a caller of `MY_MACRO` specifies the final statement,
+ * thus completing the chain.
  *
  * @see https://www.chiark.greenend.org.uk/~sgtatham/mp/ for analysis of statement prefixes as well
  * as the whole idea.
@@ -66,6 +66,26 @@
  * @see https://en.wikipedia.org/wiki/Hygienic_macro
  */
 #define ML99_GEN_SYM(prefix, id) ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, __LINE__)))
+
+/**
+ * Forces a caller to put a trailing semicolon.
+ *
+ * It is useful when defining macros, to make them formatted as complete statements.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * #define MY_MACRO(fn_name, val_ty, val) \
+ *     inline static val_ty fn_name(void) { return val; } \
+ *     ML99_TRAILING_SEMICOLON()
+ *
+ * // Defines a function which always returns 0.
+ * MY_MACRO(zero, int, 0);
+ * @endcode
+ */
+#define ML99_TRAILING_SEMICOLON(...) struct ml99_priv_trailing_semicolon
 
 /**
  * Puts a semicolon after provided arguments.
