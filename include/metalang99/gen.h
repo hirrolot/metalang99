@@ -393,7 +393,9 @@
 #define ML99_PRIV_indexedItem_IMPL(i) v(, _##i)
 
 // Arity specifiers {
+#define ML99_semicoloned_ARITY            1
 #define ML99_braced_ARITY                 1
+#define ML99_assign_ARITY                 2
 #define ML99_typedef_ARITY                2
 #define ML99_struct_ARITY                 2
 #define ML99_anonStruct_ARITY             1
