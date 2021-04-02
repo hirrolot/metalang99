@@ -22,6 +22,11 @@ ML99_ASSERT(ML99_appl2(ML99_flip(v(ML99_catEval)), v(C), v(AB)));
 #undef ABC
 // }
 
+// ML99_uncomma {
+ML99_ASSERT_EMPTY(ML99_uncomma(ML99_QUOTE(v())));
+ML99_ASSERT_EQ(ML99_uncomma(ML99_QUOTE(v(1), v(+), v(2), v(+), v(3))), v(1 + 2 + 3));
+// }
+
 // ML99_empty {
 ML99_ASSERT_EMPTY(ML99_empty(v()));
 ML99_ASSERT_EMPTY(ML99_empty(v(1, 2, 3)));

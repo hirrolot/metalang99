@@ -110,6 +110,20 @@
 #define ML99_flip(f) ML99_call(ML99_flip, f)
 
 /**
+ * Accepts terms and evaluates them with the space-separator.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // 1 2 3
+ * ML99_uncomma(ML99_QUOTE(v(1), v(2), v(3)))
+ * @endcode
+ */
+#define ML99_uncomma(...) ML99_call(ML99_uncomma, __VA_ARGS__)
+
+/**
  * Concatenates @p x with @p y as-is, without expanding them.
  *
  * # Examples
@@ -217,6 +231,7 @@
 #define ML99_id_IMPL(...)            v(ML99_ID(__VA_ARGS__))
 #define ML99_const_IMPL(x, _a)       v(x)
 #define ML99_flip_IMPL(f)            ML99_appl_IMPL(ML99_PRIV_flip, f)
+#define ML99_uncomma_IMPL(...)       __VA_ARGS__
 #define ML99_PRIV_flip_IMPL(f, a, b) ML99_appl2_IMPL(f, b, a)
 
 #define ML99_PRIV_DETECTOR_auto_auto                     ()
@@ -287,6 +302,7 @@
 #define ML99_id_ARITY        1
 #define ML99_const_ARITY     2
 #define ML99_flip_ARITY      1
+#define ML99_uncomma_ARITY   1
 
 #define ML99_PRIV_flip_ARITY 3
 // }
