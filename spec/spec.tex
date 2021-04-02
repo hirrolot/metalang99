@@ -137,7 +137,7 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
     to flexibly append a newly evaluated term to an accumulator without extra reduction
     steps. There are the only two folders:
     \begin{itemize}
-        \item $fappend(acc, \overline{tok}) \coloneqq acc \ \overline{tok}$
+        \item $fspace(acc, \overline{tok}) \coloneqq acc \ \overline{tok}$
         \item $fcomma(acc, \overline{tok}) \coloneqq if (acc \ is \ ()) \ then \ \overline{tok} \ else \ acc \ "," \ \overline{tok}$
     \end{itemize}
 
@@ -159,19 +159,19 @@ machine executes configurations of the form $\langle K; F; A; C \rangle$:
             & \ \ \ \ (); \\
             & \ \ \ \ t, \overline{a} \rangle \\
         (args): & \ \langle K; F; A; \texttt{ML99\_call}(ident, \overline{a}), \overline{t} \rangle \to \langle \\
-            & \ \ \ \ \langle \langle K; F; F(A, ?); \overline{t} \rangle; fappend; (); ident\texttt{\_IMPL}(?) \rangle; \\
+            & \ \ \ \ \langle \langle K; F; F(A, ?); \overline{t} \rangle; fspace; (); ident\texttt{\_IMPL}(?) \rangle; \\
             & \ \ \ \ fcomma; \\
             & \ \ \ \ (); \\
             & \ \ \ \ \overline{a} \rangle \\
         (callUneval): & \ \langle K; F; A; \texttt{ML99\_callUneval}(ident, \overline{tok}), \overline{t} \rangle \to \langle \\
             & \ \ \ \ \langle K; F; F(A, ?); \overline{t} \rangle; \\
-            & \ \ \ \ fappend; \\
+            & \ \ \ \ fspace; \\
             & \ \ \ \ (); \\
             & \ \ \ \ ident\texttt{\_IMPL}(\overline{tok}) \rangle \\
-        (abort): & \ \langle K; F; A; \texttt{ML99\_abort}(\overline{t}), \overline{t'} \rangle \to \langle halt; fappend; (); \overline{t} \rangle \\
+        (abort): & \ \langle K; F; A; \texttt{ML99\_abort}(\overline{t}), \overline{t'} \rangle \to \langle halt; fspace; (); \overline{t} \rangle \\
         (fatal): & \ \langle K; F; A; \texttt{ML99\_fatal}(ident, \overline{tok}), \overline{t} \rangle \to halt(\ldots) \\
         (end): & \ \langle K; F; A; () \rangle \to K(A) \\
-        (start): & \ \texttt{ML99\_call}(\overline{t}) \to \langle halt; fappend; (); \overline{t} \rangle
+        (start): & \ \texttt{ML99\_call}(\overline{t}) \to \langle halt; fspace; (); \overline{t} \rangle
     \end{align*}
     \label{ReductionSemantics}
 \end{figure}
@@ -216,20 +216,20 @@ See how \texttt{ML99\_call(X, v(CALL\_X))} is evaluated:
 \begin{example}[Evaluation of terms]
 \begin{align*}
     \texttt{ML99\_EVAL}(\texttt{ML99\_call}(X, \texttt{v}(\texttt{CALL\_X}))) & \ \underrightarrow{(start)} \\
-    \langle halt; fappend; (); \texttt{ML99\_call}(X, \texttt{v}(\texttt{CALL\_X})) \rangle & \ \underrightarrow{(args)} \\
-    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{CALL\_X}) \rangle & \ \underrightarrow{(v)} \\
-    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; \texttt{CALL\_X}; () \rangle & \ \underrightarrow{(end)} \\
-    \langle halt; fappend; (); \texttt{ML99\_call}(\texttt{CALL\_X}, \texttt{v}(123)) \rangle & \ \underrightarrow{(args)} \\
-    \langle \langle halt; fappend; (); \texttt{CALL\_X}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
-    \langle \langle halt; fappend; (); \texttt{CALL\_X}(?) \rangle; fcomma; 123; () \rangle & \ \underrightarrow{(end)} \\
-    \langle halt; fappend; (); \texttt{ML99\_call}(X, \texttt{v}(\texttt{ID})) \rangle & \ \underrightarrow{(args)} \\
-    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{ID}) \rangle & \ \underrightarrow{(v)} \\
-    \langle \langle halt; fappend; (); \texttt{X}(?) \rangle; fcomma; \texttt{ID}; \rangle & \ \underrightarrow{(end)} \\
-    \langle halt; fappend; (); \texttt{ML99\_call}(\texttt{ID}, \texttt{v}(123)) \rangle & \ \underrightarrow{(args)} \\
-    \langle \langle halt; fappend; (); \texttt{ID}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
-    \langle \langle halt; fappend; (); \texttt{ID}(?) \rangle; fcomma; 123; () \rangle & \ \underrightarrow{(end)} \\
-    \langle halt; fappend; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
-    \langle halt; fappend; 123; () \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fspace; (); \texttt{ML99\_call}(X, \texttt{v}(\texttt{CALL\_X})) \rangle & \ \underrightarrow{(args)} \\
+    \langle \langle halt; fspace; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{CALL\_X}) \rangle & \ \underrightarrow{(v)} \\
+    \langle \langle halt; fspace; (); \texttt{X}(?) \rangle; fcomma; \texttt{CALL\_X}; () \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fspace; (); \texttt{ML99\_call}(\texttt{CALL\_X}, \texttt{v}(123)) \rangle & \ \underrightarrow{(args)} \\
+    \langle \langle halt; fspace; (); \texttt{CALL\_X}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
+    \langle \langle halt; fspace; (); \texttt{CALL\_X}(?) \rangle; fcomma; 123; () \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fspace; (); \texttt{ML99\_call}(X, \texttt{v}(\texttt{ID})) \rangle & \ \underrightarrow{(args)} \\
+    \langle \langle halt; fspace; (); \texttt{X}(?) \rangle; fcomma; (); \texttt{v}(\texttt{ID}) \rangle & \ \underrightarrow{(v)} \\
+    \langle \langle halt; fspace; (); \texttt{X}(?) \rangle; fcomma; \texttt{ID}; \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fspace; (); \texttt{ML99\_call}(\texttt{ID}, \texttt{v}(123)) \rangle & \ \underrightarrow{(args)} \\
+    \langle \langle halt; fspace; (); \texttt{ID}(?) \rangle; fcomma; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
+    \langle \langle halt; fspace; (); \texttt{ID}(?) \rangle; fcomma; 123; () \rangle & \ \underrightarrow{(end)} \\
+    \langle halt; fspace; (); \texttt{v}(123) \rangle & \ \underrightarrow{(v)} \\
+    \langle halt; fspace; 123; () \rangle & \ \underrightarrow{(end)} \\
     halt(123) &
 \end{align*}
 \end{example}
