@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - The ability to specify several variables in `ML99_INTRODUCE_VAR_TO_STMT`.
  - `ML99_DETECTOR` handling all the C11 keywords and the underscore character (`_`).
  - `ML99_uncomma`
+ - `ML99_reify`
 
 ### Deprecated
 

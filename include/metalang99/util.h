@@ -231,8 +231,8 @@
 #define ML99_id_IMPL(...)            v(ML99_ID(__VA_ARGS__))
 #define ML99_const_IMPL(x, _a)       v(x)
 #define ML99_flip_IMPL(f)            ML99_appl_IMPL(ML99_PRIV_flip, f)
-#define ML99_uncomma_IMPL(...)       __VA_ARGS__
 #define ML99_PRIV_flip_IMPL(f, a, b) ML99_appl2_IMPL(f, b, a)
+#define ML99_uncomma_IMPL(...)       __VA_ARGS__
 
 #define ML99_PRIV_DETECTOR_auto_auto                     ()
 #define ML99_PRIV_DETECTOR_break_break                   ()
