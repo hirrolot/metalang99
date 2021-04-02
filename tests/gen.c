@@ -97,6 +97,14 @@ static void test_statement_chaining(void) {
 struct TestBraced ML99_EVAL(ML99_braced(v(int a, b, c;)));
 // }
 
+// ML99_semicoloned {
+ML99_EVAL(ML99_semicoloned(v(struct TestSemicoloned { int a, b, c; })))
+// }
+
+// ML99_assign {
+ML99_EVAL(ML99_assign(v(static int test_assign), v(5)));
+// }
+
 // ML99_typedef {
 static void test_typedef(void) {
     ML99_EVAL(ML99_typedef(v(Point), v(struct { int x, y; })));
@@ -267,6 +275,8 @@ int main(void) {
     (void)test_ML99_CHAIN_EXPR_STMT;
     (void)test_SUPPRESS_UNUSED_BEFORE_STMT;
     (void)test_statement_chaining;
+
+    (void)test_assign;
 
     (void)test_typedef;
     (void)test_struct;

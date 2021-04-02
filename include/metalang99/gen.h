@@ -4,9 +4,9 @@
  *
  * # Statement chaining
  *
- * This module exports several so-called _statement chaining macros_: they expect a statement right
- * after their invocation, and moreover, an invocation of such a macro with a statement afterwards
- * altogether form a single statement.
+ * This module exports a bunch of so-called _statement chaining macros_: they expect a statement
+ * right after their invocation, and moreover, an invocation of such a macro with a statement
+ * afterwards altogether form a single statement.
  *
  * How can this be helpful? Imagine you are writing a macro with the following syntax:
  *
@@ -68,6 +68,20 @@
 #define ML99_GEN_SYM(prefix, id) ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, __LINE__)))
 
 /**
+ * Puts a semicolon after provided arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * // int x = 5;
+ * ML99_semicoloned(v(int x = 5))
+ * @endcode
+ */
+#define ML99_semicoloned(...) ML99_call(ML99_semicoloned, __VA_ARGS__)
+
+/**
  * Puts provided arguments into braces.
  *
  * # Examples
@@ -80,6 +94,20 @@
  * @endcode
  */
 #define ML99_braced(...) ML99_call(ML99_braced, __VA_ARGS__)
+
+/**
+ * Generates an assignment of provided variadic arguments to @p lhs.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * // x = 5, 6, 7
+ * ML99_assign(v(x), v(5, 6, 7))
+ * @endcode
+ */
+#define ML99_assign(lhs, ...) ML99_call(ML99_assign, lhs, __VA_ARGS__)
 
 /**
  * Generates a type definition.
@@ -318,7 +346,9 @@
     __VA_ARGS__                                                                                    \
     ML99_CLANG_PRAGMA("clang diagnostic pop")
 
+#define ML99_semicoloned_IMPL(...)    v(__VA_ARGS__;)
 #define ML99_braced_IMPL(...)         v({__VA_ARGS__})
+#define ML99_assign_IMPL(lhs, ...)    v(lhs = __VA_ARGS__)
 #define ML99_typedef_IMPL(ident, ...) v(typedef __VA_ARGS__ ident;)
 #define ML99_struct_IMPL(ident, ...)  v(struct ident{__VA_ARGS__})
 #define ML99_anonStruct_IMPL(...)     v(struct {__VA_ARGS__})
