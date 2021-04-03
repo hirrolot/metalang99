@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.16)
 project(examples LANGUAGES C)
 
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
-  add_compile_options(-Wall -Wextra -ftrack-macro-expansion=0)
+  add_compile_options(-Wall -Wextra -pedantic -std=c99
+                      -ftrack-macro-expansion=0)
 elseif(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
   # Enable a standard-confirming C99/C11 preprocessor.
   add_compile_options("/std:c11")
@@ -10,12 +11,13 @@ endif()
 
 include_directories(../include)
 
-file(GLOB EXAMPLES *.c)
-
-foreach(EXAMPLE ${EXAMPLES})
-  get_filename_component(EXAMPLE_NAME ${EXAMPLE} NAME_WE)
-  add_executable(${EXAMPLE_NAME} ${EXAMPLE})
-endforeach()
+add_executable(ackermann ackermann.c)
+add_executable(binary_tree binary_tree.c)
+add_executable(demo demo.c)
+add_executable(duffs_device duffs_device.c)
+add_executable(factorial factorial.c)
+add_executable(overload overload.c)
+add_executable(rectangle rectangle.c)
 
 foreach(TARGET ${BUILDSYSTEM_TARGETS})
   set_target_properties(TARGET PROPERTIES C_STANDARD 99 C_STANDARD_REQUIRED ON)
