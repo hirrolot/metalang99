@@ -575,7 +575,7 @@
 #define ML99_listDropWhile(f, list) ML99_call(ML99_listDropWhile, f, list)
 
 /**
- * Computes a list of corresponding pairs (as tuples) from @p list and @p other.
+ * Computes a list of two-place tuples of the corresponding items from @p list and @p other.
  *
  * # Examples
  *
@@ -589,7 +589,7 @@
 #define ML99_listZip(list, other) ML99_call(ML99_listZip, list, other)
 
 /**
- * Transforms a list of pairs (as tuples) into a tuple of a list of the first components and a list
+ * Transforms a list of two-place tuples into a tuple of a list of the first components and a list
  * of the second components.
  *
  * # Examples
@@ -622,7 +622,7 @@
 #define ML99_listReplicate(n, item) ML99_call(ML99_listReplicate, n, item)
 
 /**
- * Returns a pair (as tuple) of lists: those items of @p list the do and do not satisfy the
+ * Returns a two-place tuple of lists: those items of @p list the do and do not satisfy the
  * predicate @p f, respectively.
  *
  * # Examples
