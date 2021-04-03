@@ -76,6 +76,21 @@ static void test_ML99_CHAIN_EXPR_STMT(void) {
 }
 // }
 
+// ML99_CHAIN_EXPR_STMT_AFTER {
+static void test_ML99_CHAIN_EXPR_STMT_AFTER(void) {
+    int x, y;
+
+    // clang-format off
+    for (int i = 0; i < 10; i++)
+        ML99_CHAIN_EXPR_STMT_AFTER(x = 1)
+            ML99_CHAIN_EXPR_STMT_AFTER(y = 2) {
+                (void)x;
+                (void)y;
+            }
+    // clang-format on
+}
+// }
+
 // ML99_SUPPRESS_UNUSED_BEFORE_STMT {
 static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
     int x, y;
@@ -280,6 +295,7 @@ int main(void) {
     (void)test_INTRODUCE_VAR_TO_STMT;
     (void)test_INTRODUCE_NON_NULL_PTR_TO_STMT;
     (void)test_ML99_CHAIN_EXPR_STMT;
+    (void)test_ML99_CHAIN_EXPR_STMT_AFTER;
     (void)test_SUPPRESS_UNUSED_BEFORE_STMT;
     (void)test_statement_chaining;
 

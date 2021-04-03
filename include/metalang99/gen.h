@@ -338,6 +338,14 @@
                            ml99_priv_expr_stmt_break = 1))
 
 /**
+ * The same as #ML99_CHAIN_EXPR_STMT but executes @p expr **after** the next statement.
+ */
+#define ML99_CHAIN_EXPR_STMT_AFTER(expr)                                                           \
+    ML99_PRIV_SHADOWS(for (int ml99_priv_expr_stmt_after_break = 0;                                \
+                           ml99_priv_expr_stmt_after_break != 1;                                   \
+                           ((expr), ml99_priv_expr_stmt_after_break = 1)))
+
+/**
  * A statement chaining macro which suppresses the "unused X" warning right before a statement after
  * its invocation.
  *
