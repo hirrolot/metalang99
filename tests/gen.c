@@ -5,6 +5,14 @@
 #include <metalang99/util.h>
 
 // ML99_GEN_SYM {
+
+// Make sure that two identical calls to `ML99_GEN_SYM` but inside different headers will not clash
+// with each other (due to `#include ML99_UPDATE_COUNTER()`).
+#include "gen_sym/1.h"
+#include "gen_sym/2.h"
+
+#include ML99_UPDATE_COUNTER()
+
 static void test_GEN_SYM(void) {
 
 #define TEST                                                                                       \
@@ -284,6 +292,8 @@ static void test_indexed_args(int i, long long ll, const char *str) {
 // }
 
 int main(void) {
+    (void)TEST_GEN_SYM_x_0_3;
+    (void)TEST_GEN_SYM_x_1_3;
     (void)test_GEN_SYM;
 
     (void)test_indexed_params;

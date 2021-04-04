@@ -46,26 +46,37 @@
 #include <metalang99/variadics.h>
 
 /**
- * Pastes @p prefix, @p id, and the current line number together.
+ * Generates a unique identifier.
  *
- * It is used to imitate macro hygiene.
+ * It is used to achieve macro hygiene. Before using #ML99_GEN_SYM, you must invoke
+ * #ML99_UPDATE_COUNTER in order to establish the counter.
  *
  * # Examples
  *
  * @code
  * #include <metalang99/gen.h>
  *
- * #define MY_MACRO \
+ * #define MY_MACRO(...) \
  *     int ML99_GEN_SYM(MY_MACRO_, x) = 5; \
- *     printf("%d\n", ML99_GEN_SYM(MY_MACRO_, x));
+ *     __VA_ARGS__
+ *
+ * #include ML99_UPDATE_COUNTER()
+ *
+ * // `x` here will not conflict with the `x` defined by `MY_MACRO`.
+ * MY_MACRO(int x = 5);
  * @endcode
  *
- * Within `MY_MACRO`, `ML99_GEN_SYM(MY_MACRO_, x)` will designate the same variable because any C
- * macro always results in a single source code line.
+ * Within `MY_MACRO`, `ML99_GEN_SYM(MY_MACRO_, x)` will designate the same variable.
  *
+ * @note Typically, @p prefix is just your macro name, say `FOO`, appended by the underscore
+ * character (that is, `FOO_`).
+ * @note Two identical calls to #ML99_GEN_SYM on the same line will result in two equivalent
+ * identifiers; therefore, if you supply the above `MY_MACRO`, say, `MY_MACRO((void)123;)` (as an
+ * argument), compilation will fail.
  * @see https://en.wikipedia.org/wiki/Hygienic_macro
  */
-#define ML99_GEN_SYM(prefix, id) ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, __LINE__)))
+#define ML99_GEN_SYM(prefix, id)                                                                   \
+    ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, ML99_CAT(ML99_COUNTER(), ML99_CAT(_, __LINE__)))))
 
 /**
  * Forces a caller to put a trailing semicolon.
