@@ -217,6 +217,45 @@
  */
 #define ML99_CLANG_PRAGMA(str) ML99_PRIV_CLANG_PRAGMA(str)
 
+/**
+ * `#include ML99_UPDATE_COUNTER()` increments the counter ML99_COUNTER() or assigns it to 0 on the
+ * first invocation.
+ *
+ * It can be used to generate unique identifiers, see #ML99_GEN_SYM.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * #include ML99_UPDATE_COUNTER()
+ * ML99_COUNTER() // 0
+ *
+ * #include ML99_UPDATE_COUNTER()
+ * ML99_COUNTER() // 1
+ *
+ * #include ML99_UPDATE_COUNTER()
+ * ML99_COUNTER() // 2
+ * @endcode
+ *
+ * @see #ML99_COUNTER_MAX
+ */
+#define ML99_UPDATE_COUNTER(...) "metalang99/priv/counter.h"
+
+/**
+ * Expands to the last value established by #ML99_UPDATE_COUNTER.
+ *
+ * @note Before invocation of #ML99_COUNTER, the counter must be established by
+ * #ML99_UPDATE_COUNTER.
+ * @see #ML99_COUNTER_MAX
+ */
+#define ML99_COUNTER(...) ML99_PRIV_COUNTER
+
+/**
+ * The maximum value of ML99_COUNTER(), currently 255.
+ */
+#define ML99_COUNTER_MAX 255
+
 #define ML99_CAT(x, y)      ML99_CAT_PRIMITIVE(x, y)
 #define ML99_STRINGIFY(...) ML99_STRINGIFY_PRIMITIVE(__VA_ARGS__)
 #define ML99_EMPTY(...)
