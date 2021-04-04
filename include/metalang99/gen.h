@@ -68,8 +68,8 @@
  *
  * Within `MY_MACRO`, `ML99_GEN_SYM(MY_MACRO_, x)` will designate the same variable.
  *
- * @note Typically, @p prefix is just your macro name, say `FOO`, appended by the underscore
- * character (that is, `FOO_`).
+ * @note Typically, @p prefix is just your macro name, say `FOO`, with the underscore character
+ * appended (that is, `FOO_`).
  * @note Two identical calls to #ML99_GEN_SYM on the same line will result in two equivalent
  * identifiers; therefore, if you supply the above `MY_MACRO`, say, `MY_MACRO((void)123;)` (as an
  * argument), compilation will fail.
