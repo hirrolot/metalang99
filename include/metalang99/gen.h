@@ -76,6 +76,9 @@
  * @see https://en.wikipedia.org/wiki/Hygienic_macro
  */
 #define ML99_GEN_SYM(prefix, id)                                                                   \
+    /* `ML99_COUNTER()` is necessary to differentiate between source files when they are included  \
+     * into a single TU; thus, even if identifiers appear on the same line numbers but in          \
+     * different source files, they will be nevertheless diverse. */                               \
     ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, ML99_CAT(ML99_COUNTER(), ML99_CAT(_, __LINE__)))))
 
 /**
