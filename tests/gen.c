@@ -4,6 +4,8 @@
 #include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
+#include <assert.h>
+
 // ML99_GEN_SYM {
 
 // Make sure that two identical calls to `ML99_GEN_SYM` but inside different headers will not clash
@@ -15,12 +17,17 @@
 
 static void test_GEN_SYM(void) {
 
-#define TEST                                                                                       \
-    int ML99_GEN_SYM(TEST_, test) = 5;                                                             \
-    ML99_GEN_SYM(TEST_, test) = 7;                                                                 \
-    (void)ML99_GEN_SYM(TEST_, test)
+    // clang-format off
 
-    TEST;
+#define TEST(...) \
+    int ML99_GEN_SYM(TEST_, test) = 5; \
+    ML99_GEN_SYM(TEST_, test) = 7; \
+    __VA_ARGS__ \
+    (void) ML99_GEN_SYM(TEST_, test)
+
+    // clang-format on
+
+    TEST(int test = 123; (void)test;);
 
 #undef TEST
 }
@@ -33,30 +40,24 @@ ML99_TRAILING_SEMICOLON(~, ~, ~);
 
 // ML99_INTRODUCE_VAR_TO_STMT {
 static void test_INTRODUCE_VAR_TO_STMT(void) {
-    // clang-format off
-    for (int i = 0; i < 10; i++)
-        ML99_INTRODUCE_VAR_TO_STMT(double x = 5.0, y = 7.0) {
-            x = y = 123.456;
-            double z = y;
-            (void)x;
-            (void)z;
+    if (1)
+        ML99_INTRODUCE_VAR_TO_STMT(int x = 5, y = 7) {
+            assert(5 == x);
+            assert(7 == y);
         }
-    // clang-format on
 }
 // }
 
 // ML99_INTRODUCE_NON_NULL_PTR_TO_STMT {
 static void test_INTRODUCE_NON_NULL_PTR_TO_STMT(void) {
-    double x = 5.0, y = 7.0;
+    int x = 5, y = 7;
 
     // clang-format off
-    for (int i = 0; i < 10; i++)
-        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, x_ptr, &x)
-        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(double, y_ptr, &y) {
-            *x_ptr = *y_ptr = 123.456;
-            double z = *y_ptr;
-            (void)x;
-            (void)z;
+    if (1)
+        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(int, x_ptr, &x)
+        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(int, y_ptr, &y) {
+            assert(x == *x_ptr);
+            assert(y == *y_ptr);
         }
     // clang-format on
 }
@@ -67,17 +68,17 @@ static void test_ML99_CHAIN_EXPR_STMT(void) {
     int x, y;
 
     // clang-format off
-    for (int i = 0; i < 10; i++)
+    if (1)
         ML99_CHAIN_EXPR_STMT(x = 1)
             ML99_CHAIN_EXPR_STMT(y = 2) {
-                (void)x;
-                (void)y;
+                assert(1 == x);
+                assert(2 == y);
             }
 
     // Test -Wunused suppression via ML99_CHAIN_EXPR_STMT.
     int z;
 
-    for (int i = 0; i < 10; i++)
+    if (1)
         ML99_CHAIN_EXPR_STMT((void)z)
             ;
     // clang-format on
@@ -86,16 +87,28 @@ static void test_ML99_CHAIN_EXPR_STMT(void) {
 
 // ML99_CHAIN_EXPR_STMT_AFTER {
 static void test_ML99_CHAIN_EXPR_STMT_AFTER(void) {
-    int x, y;
+    int x = 5, y = 7;
 
-    // clang-format off
-    for (int i = 0; i < 10; i++)
-        ML99_CHAIN_EXPR_STMT_AFTER(x = 1)
+    if (1) {
+        assert(5 == x);
+        assert(7 == y);
+
+        ML99_CHAIN_EXPR_STMT_AFTER(x = 1) {
+            assert(5 == x);
+            assert(7 == y);
+
             ML99_CHAIN_EXPR_STMT_AFTER(y = 2) {
-                (void)x;
-                (void)y;
+                assert(5 == x);
+                assert(7 == y);
             }
-    // clang-format on
+
+            assert(5 == x);
+            assert(2 == y);
+        }
+
+        assert(1 == x);
+        assert(2 == y);
+    }
 }
 // }
 
@@ -104,7 +117,7 @@ static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
     int x, y;
 
     // clang-format off
-    for (int i = 0; i < 10; i++)
+    if (1)
         ML99_SUPPRESS_UNUSED_BEFORE_STMT(x)
         ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
             ;
@@ -115,11 +128,19 @@ static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
 static void test_statement_chaining(void) {
     // clang-format off
     ML99_INTRODUCE_VAR_TO_STMT(int x = 5)
-        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(int, x_ptr, &x)
+        ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(int, x_ptr, &x) {
+            assert(x == *x_ptr);
+
             ML99_CHAIN_EXPR_STMT(x = 7)
                 ML99_INTRODUCE_VAR_TO_STMT(int y = 5)
-                    ML99_SUPPRESS_UNUSED_BEFORE_STMT(y)
-                        ;
+                    ML99_SUPPRESS_UNUSED_BEFORE_STMT(y) {
+                        ML99_CHAIN_EXPR_STMT_AFTER(x = 123) {
+                            assert(7 == x);
+                        }
+
+                        assert(123 == x);
+                    }
+        }
     // clang-format on
 }
 
@@ -132,7 +153,10 @@ ML99_EVAL(ML99_semicoloned(v(struct TestSemicoloned { int a, b, c; })))
 // }
 
 // ML99_assign {
-ML99_EVAL(ML99_assign(v(static int test_assign), v(5)));
+static void test_assign(void) {
+    ML99_EVAL(ML99_assign(v(int x), v(5)));
+    assert(5 == x);
+}
 // }
 
 // ML99_typedef {
@@ -254,11 +278,17 @@ static void test_indexed_fields(void) {
 // }
 
 // ML99_indexedInitializerList {
-static struct {
-    int _0;
-    long long _1;
-    const char *_2;
-} test_indexed_initialiser_list_z = ML99_EVAL(ML99_indexedInitializerList(v(0)));
+static void test_indexed_initialiser_list_z(void) {
+    const struct {
+        int _0;
+        long long _1;
+        const char *_2;
+    } test = ML99_EVAL(ML99_indexedInitializerList(v(0)));
+
+    assert(0 == test._0);
+    assert(0 == test._1);
+    assert(0 == test._2);
+}
 
 static void test_indexed_initialiser_list_s(void) {
     int _0 = 123;
@@ -278,16 +308,20 @@ static void test_indexed_initialiser_list_s(void) {
 // ML99_indexedArgs {
 ML99_ASSERT_EMPTY(ML99_indexedArgs(v(0)));
 
-static void test_indexed_args(int i, long long ll, const char *str) {
-    (void)i;
-    (void)ll;
-    (void)str;
-
+static void test_indexed_args(void) {
     int _0 = 123;
     long long _1 = 149494456;
     const char *_2 = "abc";
 
-    test_indexed_args(ML99_EVAL(ML99_indexedArgs(v(3))));
+    const struct {
+        int i;
+        long long ll;
+        const char *str;
+    } test = { ML99_EVAL(ML99_indexedArgs(v(3))) };
+
+    assert(test.i == _0);
+    assert(test.ll == _1);
+    assert(test.str == _2);
 }
 // }
 
@@ -298,18 +332,18 @@ int main(void) {
 
     (void)test_indexed_params;
     (void)test_indexed_fields;
-    (void)test_indexed_initialiser_list_z;
-    (void)test_indexed_initialiser_list_s;
-    (void)test_indexed_args;
+    test_indexed_initialiser_list_z();
+    test_indexed_initialiser_list_s();
+    test_indexed_args();
 
-    (void)test_INTRODUCE_VAR_TO_STMT;
-    (void)test_INTRODUCE_NON_NULL_PTR_TO_STMT;
-    (void)test_ML99_CHAIN_EXPR_STMT;
-    (void)test_ML99_CHAIN_EXPR_STMT_AFTER;
-    (void)test_SUPPRESS_UNUSED_BEFORE_STMT;
-    (void)test_statement_chaining;
+    test_INTRODUCE_VAR_TO_STMT();
+    test_INTRODUCE_NON_NULL_PTR_TO_STMT();
+    test_ML99_CHAIN_EXPR_STMT();
+    test_ML99_CHAIN_EXPR_STMT_AFTER();
+    test_SUPPRESS_UNUSED_BEFORE_STMT();
+    test_statement_chaining();
 
-    (void)test_assign;
+    test_assign();
 
     (void)test_typedef;
     (void)test_struct;

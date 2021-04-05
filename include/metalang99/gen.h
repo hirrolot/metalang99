@@ -49,7 +49,7 @@
  * Generates a unique identifier.
  *
  * It is used to achieve macro hygiene. Before using #ML99_GEN_SYM, you must invoke
- * #ML99_UPDATE_COUNTER in order to establish the counter.
+ * #ML99_UPDATE_COUNTER in the same source file in order to establish the counter.
  *
  * # Examples
  *
