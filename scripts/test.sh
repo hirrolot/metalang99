@@ -5,8 +5,7 @@ cd tests/build
 cmake ..
 cmake --build .
 
-if [[ "$OSTYPE" == "msys" ]]; then
-    ./gen.exe
-else
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    echo "Testing ./gen ..."
     ./gen
 fi
