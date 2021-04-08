@@ -18,18 +18,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Tests
-      run: |
-        mkdir tests/build
-        cd tests/build
-        cmake ..
-        cmake --build .
+      run: bash scripts/test.sh
 
-    - name: Examples
-      run: |
-        mkdir examples/build
-        cd examples/build
-        cmake ..
-        cmake --build .
+    - name: Test examples
+      run: bash scripts/test-examples.sh
 
   bench:
     runs-on: ubuntu-latest
