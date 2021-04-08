@@ -5,4 +5,8 @@ cd tests/build
 cmake ..
 cmake --build .
 
-./gen
+if [[ "$OSTYPE" == "win32" ]]; then
+    ./gen.exe
+else
+    ./gen
+fi
