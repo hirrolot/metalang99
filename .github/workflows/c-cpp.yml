@@ -40,6 +40,15 @@ jobs:
       - name: Bench
         run: bash scripts/bench.sh
 
+  check-arities:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check arity specifiers
+        run: ./scripts/check-arities.py
+
   check-fmt:
     runs-on: ubuntu-latest
 
