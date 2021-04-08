@@ -4,6 +4,9 @@
 
 import re
 import xml.etree.ElementTree as ET
+import subprocess
+
+subprocess.call("doxygen > /dev/null 2> /dev/null", shell=True)
 
 
 def check_file(filename):
