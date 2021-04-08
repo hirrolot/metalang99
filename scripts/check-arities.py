@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 import subprocess
 
 subprocess.call("doxygen > /dev/null 2> /dev/null", shell=True)
-subprocess.call("ls xml", shell=True)
+subprocess.call("ls", shell=True)
 
 def check_file(filename):
     tree = ET.parse(f"xml/{filename}_8h.xml")
