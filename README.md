@@ -175,7 +175,7 @@ A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.
 
 ### Q: Why not third-party code generators?
 
-The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right afterwards: this way, it can be far more seamlessly integrated into existing code bases. For example, imagine defining each data type with [Datatype99] inside comments or separate files -- clearly not the most convenient way both in terms of IDE support and maintenance.
+The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right afterwards: this way, it can be far more seamlessly integrated into existing code bases. For example, imagine defining each data type with [Datatype99] inside comments or separate files, which is clearly not the most convenient way both in terms of IDE support and maintenance.
 
 ### Q: Compilation times?
 
