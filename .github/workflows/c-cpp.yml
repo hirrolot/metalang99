@@ -46,6 +46,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install Doxygen
+        run: sudo apt install doxygen
+
       - name: Check arity specifiers
         run: python3 scripts/check-arities.py
 
