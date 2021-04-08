@@ -1,20 +1,13 @@
 #!/bin/bash
 
-echo "compare_25_items.h"
-time gcc bench/compare_25_items.h -ftrack-macro-expansion=0 -Iinclude
+bench() {
+    echo $1
+    time gcc bench/$1 -ftrack-macro-expansion=0 -Iinclude
+    echo ""
+}
 
-echo ""
-echo "list_of_63_items.h"
-time gcc bench/list_of_63_items.h -ftrack-macro-expansion=0 -Iinclude
-
-echo ""
-echo "100_v.h"
-time gcc bench/100_v.h -ftrack-macro-expansion=0 -Iinclude
-
-echo ""
-echo "100_call.h"
-time gcc bench/100_call.h -ftrack-macro-expansion=0 -Iinclude
-
-echo ""
-echo "many_call_in_arg_pos.h"
-time gcc bench/many_call_in_arg_pos.h -ftrack-macro-expansion=0 -Iinclude
+bench "compare_25_items.h"
+bench "list_of_63_items.h"
+bench "100_v.h"
+bench "100_call.h"
+bench "many_call_in_arg_pos.h"
