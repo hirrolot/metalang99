@@ -12,18 +12,17 @@
 #include <assert.h>
 
 #define DUFFS_DEVICE(unrolling_factor, counter_ty, count, ...)                                     \
-    if ((count) > 0) {                                                                             \
-        counter_ty DUFFS_DEVICE_n = ((count) + ML99_DEC(unrolling_factor)) / unrolling_factor;     \
-        switch ((count) % unrolling_factor) {                                                      \
-        case 0:                                                                                    \
-            do {                                                                                   \
-                __VA_ARGS__                                                                        \
-                ML99_EVAL(ML99_callUneval(GEN_CASES, ML99_DEC(unrolling_factor), __VA_ARGS__))     \
-            } while (--DUFFS_DEVICE_n > 0);                                                        \
-        }                                                                                          \
-    }                                                                                              \
-                                                                                                   \
     do {                                                                                           \
+        if ((count) > 0) {                                                                         \
+            counter_ty DUFFS_DEVICE_n = ((count) + ML99_DEC(unrolling_factor)) / unrolling_factor; \
+            switch ((count) % unrolling_factor) {                                                  \
+            case 0:                                                                                \
+                do {                                                                               \
+                    __VA_ARGS__                                                                    \
+                    ML99_EVAL(ML99_callUneval(GEN_CASES, ML99_DEC(unrolling_factor), __VA_ARGS__)) \
+                } while (--DUFFS_DEVICE_n > 0);                                                    \
+            }                                                                                      \
+        }                                                                                          \
     } while (0)
 
 #define GEN_CASES_IMPL(i, ...)                                                                     \
