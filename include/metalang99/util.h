@@ -249,7 +249,7 @@
  * #ML99_UPDATE_COUNTER.
  * @see #ML99_COUNTER_MAX
  */
-#define ML99_COUNTER(...) ML99_PRIV_COUNTER
+#define ML99_COUNTER(...) ML99_PRIV_COUNTER_INDIRECTION
 
 /**
  * The maximum value of ML99_COUNTER(), currently 255.
@@ -331,6 +331,12 @@
 #define ML99_PRIV_CLANG_PRAGMA(str) _Pragma(str)
 #else
 #define ML99_PRIV_CLANG_PRAGMA(str)
+#endif
+
+#ifdef ML99_PRIV_COUNTER
+#define ML99_PRIV_COUNTER_INDIRECTION ML99_PRIV_COUNTER
+#else
+#define ML99_PRIV_COUNTER_INDIRECTION ~
 #endif
 
 // Arity specifiers {
