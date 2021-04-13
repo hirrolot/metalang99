@@ -124,6 +124,33 @@
 #define ML99_uncomma(...) ML99_call(ML99_uncomma, __VA_ARGS__)
 
 /**
+ * Turns @p f into a Metalang99-compliant metafunction with the arity of 1, which can be then called
+ * by #ML99_appl.
+ *
+ * @p f can be any C function or function-like macro.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ * #include <metalang99/variadics.h>
+ *
+ * #define F(x) @x
+ *
+ * // @1 @2 @3
+ * ML99_variadicsForEach(ML99_reify(v(F)), v(1, 2, 3))
+ * @endcode
+ *
+ * Without #ML99_reify, you would need to write some additional boilerplate:
+ *
+ * @code
+ * #define F_IMPL(x) v(@x)
+ * #define F_ARITY   1
+ * @endcode
+ */
+#define ML99_reify(f) ML99_call(ML99_reify, f)
+
+/**
  * Concatenates @p x with @p y as-is, without expanding them.
  *
  * # Examples

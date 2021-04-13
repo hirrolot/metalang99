@@ -137,33 +137,6 @@
 #define ML99_compose(f, g) ML99_call(ML99_compose, f, g)
 
 /**
- * Turns @p f into a Metalang99-compliant metafunction with the arity of 1, which can be then called
- * by #ML99_appl.
- *
- * @p f can be any function-like macro, even variadic.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/lang.h>
- * #include <metalang99/variadics.h>
- *
- * #define F(x) @x
- *
- * // @1 @2 @3
- * ML99_variadicsForEach(ML99_reify(v(F)), v(1, 2, 3))
- * @endcode
- *
- * Without #ML99_reify, you would need to write some additional boilerplate:
- *
- * @code
- * #define F_IMPL(x) v(@x)
- * #define F_ARITY   1
- * @endcode
- */
-#define ML99_reify(f) ML99_call(ML99_reify, f)
-
-/**
  * A value that is pasted as-is; no evaluation occurs on provided arguments.
  */
 #define v(...) (0v, __VA_ARGS__)

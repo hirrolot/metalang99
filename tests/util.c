@@ -27,6 +27,14 @@ ML99_ASSERT_EMPTY(ML99_uncomma(ML99_QUOTE(v())));
 ML99_ASSERT_EQ(ML99_uncomma(ML99_QUOTE(v(1), v(+), v(2), v(+), v(3))), v(1 + 2 + 3));
 // }
 
+// ML99_reify {
+#define F(x, y, z) x + y + z
+
+ML99_ASSERT_EQ(ML99_appl(ML99_reify(v(F)), v(1, 2, 3)), v(1 + 2 + 3));
+
+#undef F
+// }
+
 // ML99_empty {
 ML99_ASSERT_EMPTY(ML99_empty(v()));
 ML99_ASSERT_EMPTY(ML99_empty(v(1, 2, 3)));
