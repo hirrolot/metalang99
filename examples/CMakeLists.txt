@@ -12,6 +12,7 @@ endif()
 include_directories(../include)
 
 add_executable(ackermann ackermann.c)
+add_executable(assert_for_each assert_for_each.c)
 add_executable(binary_tree binary_tree.c)
 add_executable(demo demo.c)
 add_executable(duffs_device duffs_device.c)
