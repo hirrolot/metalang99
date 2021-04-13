@@ -18,11 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
- - `ML99_INTRODUCE_VAR_TO_STMT` can deal with several variables.
+ - `gen.h`: `ML99_INTRODUCE_VAR_TO_STMT` can deal with several variables.
 
 ### Deprecated
 
- - `ML99_SUPPRESS_UNUSED_BEFORE_STMT`
+ - `gen.h`: `ML99_SUPPRESS_UNUSED_BEFORE_STMT`.
 
 ## [1.0.0] - 2021-03-27
 

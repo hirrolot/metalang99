@@ -369,8 +369,10 @@
 #define ML99_const_ARITY     2
 #define ML99_flip_ARITY      1
 #define ML99_uncomma_ARITY   1
+#define ML99_reify_ARITY     1
 
-#define ML99_PRIV_flip_ARITY 3
+#define ML99_PRIV_flip_ARITY  3
+#define ML99_PRIV_reify_ARITY 2
 // }
 
 #endif // DOXYGEN_IGNORE

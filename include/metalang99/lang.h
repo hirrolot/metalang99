@@ -211,10 +211,8 @@
 #define ML99_appl3_ARITY   4
 #define ML99_appl4_ARITY   5
 #define ML99_compose_ARITY 2
-#define ML99_reify_ARITY   1
 
 #define ML99_PRIV_compose_ARITY 3
-#define ML99_PRIV_reify_ARITY   2
 // }
 
 #endif // DOXYGEN_IGNORE
