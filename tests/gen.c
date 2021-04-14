@@ -7,27 +7,31 @@
 #include <assert.h>
 
 // ML99_GEN_SYM {
-
-// Make sure that two identical calls to `ML99_GEN_SYM` but inside different headers will not clash
-// with each other (due to `#include ML99_UPDATE_COUNTER()`).
-#include "gen_sym/1.h"
-#include "gen_sym/2.h"
-
-#include ML99_UPDATE_COUNTER()
-
 static void test_GEN_SYM(void) {
 
-    // clang-format off
+#define TEST(...) TEST_NAMED(ML99_GEN_SYM(TEST_, x), __VA_ARGS__)
+#define TEST_NAMED(x_sym, ...)                                                                     \
+    do {                                                                                           \
+        int x_sym = 5;                                                                             \
+        (void)x_sym;                                                                               \
+        __VA_ARGS__                                                                                \
+    } while (0)
 
-#define TEST(...) \
-    int ML99_GEN_SYM(TEST_, test) = 5; \
-    ML99_GEN_SYM(TEST_, test) = 7; \
-    __VA_ARGS__ \
-    (void) ML99_GEN_SYM(TEST_, test)
+    // `x` here will not conflict the the `x` inside `TEST`.
+    TEST(int x = 123; (void)x;);
 
-    // clang-format on
+#undef TEST
+#undef TEST_NAMED
 
-    TEST(int test = 123; (void)test;);
+// Two identical calls to `ML99_GEN_SYM` must yield different identifiers.
+#define TEST(x1_sym, x2_sym)                                                                       \
+    do {                                                                                           \
+        int x1_sym, x2_sym;                                                                        \
+        (void)x1_sym;                                                                              \
+        (void)x2_sym;                                                                              \
+    } while (0)
+
+    TEST(ML99_GEN_SYM(TEST_, x), ML99_GEN_SYM(TEST_, x));
 
 #undef TEST
 }
@@ -326,8 +330,6 @@ static void test_indexed_args(void) {
 // }
 
 int main(void) {
-    (void)TEST_GEN_SYM_x_0_3;
-    (void)TEST_GEN_SYM_x_1_3;
     (void)test_GEN_SYM;
 
     (void)test_indexed_params;

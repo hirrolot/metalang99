@@ -12,9 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `gen.h`:
    - Statement chaining macros: `ML99_CHAIN_EXPR_STMT`, `ML99_CHAIN_EXPR_STMT_AFTER`, `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`.
    - Other: `ML99_GEN_SYM`, `ML99_TRAILING_SEMICOLON`, `ML99_semicoloned`, `ML99_assign`.
- - `util.h`:
-   - A mutable counter: `ML99_UPDATE_COUNTER`, `ML99_COUNTER`, `ML99_COUNTER_MAX`.
-   - Other: `ML99_uncomma`, `ML99_reify`, `ML99_DETECTOR`.
+ - `util.h`: `ML99_uncomma`, `ML99_reify`, `ML99_DETECTOR`.
 
 ### Changed
 

@@ -45,41 +45,42 @@
 #include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
+#ifdef __COUNTER__
+
 /**
  * Generates a unique identifier.
  *
- * It is used to achieve macro hygiene. Before using #ML99_GEN_SYM, you must invoke
- * #ML99_UPDATE_COUNTER in the same source file in order to establish the counter.
+ * Typically, @p prefix stands for the name of an enclosing macro, say `FOO`, with the underscore
+ * character appended, that is, `FOO_`; @p id must stand for the identifier name (this makes your
+ * code somewhat easier to debug).
  *
  * # Examples
  *
  * @code
  * #include <metalang99/gen.h>
  *
- * #define MY_MACRO(...) \
- *     int ML99_GEN_SYM(MY_MACRO_, x) = 5; \
- *     __VA_ARGS__
+ * #define FOO(...) FOO_NAMED(ML99_GEN_SYM(FOO_, x), __VA_ARGS__)
+ * #define FOO_NAMED(x_sym, ...) \
+ *      do { int x_sym = 5; __VA_ARGS__ } while (0)
  *
- * #include ML99_UPDATE_COUNTER()
- *
- * // `x` here will not conflict with the `x` defined by `MY_MACRO`.
- * MY_MACRO(int x = 5);
+ * // `x` here will not conflict with the `x` inside `FOO`.
+ * FOO({
+ *     int x = 7;
+ *     printf("x is %d\n", x); // x is 7
+ * });
  * @endcode
  *
- * Within `MY_MACRO`, `ML99_GEN_SYM(MY_MACRO_, x)` will designate the same variable.
- *
- * @note Typically, @p prefix is just your macro name, say `FOO`, with the underscore character
- * appended (that is, `FOO_`).
- * @note Two identical calls to #ML99_GEN_SYM on the same line will result in two equivalent
- * identifiers; therefore, if you supply the above `MY_MACRO`, say, `MY_MACRO((void)123;)` (as an
- * argument), compilation will fail.
+ * @note Two identical calls to #ML99_GEN_SYM will yield different identifiers, therefore, to refer
+ * to the result later, you must save it in an auxiliary macro's parameter, as shown in the example
+ * above.
+ * @note #ML99_GEN_SYM is defined only if `__COUNTER__` is defined, which must be a macro yielding
+ * integral literals starting from 0 incremented by 1 each time it is called. Currently, it is
+ * supported at least by Clang, GCC, and MSVC.
  * @see https://en.wikipedia.org/wiki/Hygienic_macro
  */
-#define ML99_GEN_SYM(prefix, id)                                                                   \
-    /* `ML99_COUNTER()` is necessary to differentiate between source files when they are included  \
-     * into a single TU; thus, even if identifiers appear on the same line numbers but in          \
-     * different source files, they will be nevertheless diverse. */                               \
-    ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, ML99_CAT(ML99_COUNTER(), ML99_CAT(_, __LINE__)))))
+#define ML99_GEN_SYM(prefix, id) ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, __COUNTER__)))
+
+#endif // __COUNTER__
 
 /**
  * Forces a caller to put a trailing semicolon.
