@@ -48,11 +48,10 @@
 #ifdef __COUNTER__
 
 /**
- * Generates a unique identifier.
+ * Generates a unique identifier @p id in the namespace @p prefix.
  *
- * Typically, @p prefix stands for the name of an enclosing macro, say `FOO`, with the underscore
- * character appended, that is, `FOO_`; @p id must stand for the identifier name (this makes your
- * code somewhat easier to debug).
+ * Let `FOO` be the name of an enclosing macro. Then `FOO_` must be specified for @p prefix, and @p
+ * id should be given any meaningful name (this makes debugging easier).
  *
  * # Examples
  *
