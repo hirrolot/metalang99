@@ -98,6 +98,8 @@
  * // Defines a function which always returns 0.
  * MY_MACRO(zero, int, 0);
  * @endcode
+ *
+ * @note This macro expands to a C declaration, therefore, it can be used outside of functions too.
  */
 #define ML99_TRAILING_SEMICOLON(...) struct ml99_priv_trailing_semicolon
 
