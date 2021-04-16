@@ -3,7 +3,6 @@
 
 #include <metalang99/nat/eq.h>
 #include <metalang99/priv/util.h>
-#include <metalang99/priv/variadics/get.h>
 
 #include <metalang99/lang.h>
 #include <metalang99/maybe.h>
@@ -21,7 +20,7 @@
         ML99_PRIV_IF(                                                                              \
             ML99_PRIV_NAT_EQ(x, y),                                                                \
             ML99_JUST(1),                                                                          \
-            ML99_UNTUPLE(ML99_PRIV_VARIADICS_SND(ML99_PRIV_DIV_##x##_##y, (ML99_NOTHING())))))
+            ML99_UNTUPLE(ML99_SND(ML99_PRIV_DIV_##x##_##y, (ML99_NOTHING())))))
 
 #define ML99_PRIV_DIV_4_2 ~, (ML99_JUST(2))
 

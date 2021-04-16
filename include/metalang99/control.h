@@ -6,10 +6,11 @@
 #ifndef ML99_CONTROL_H
 #define ML99_CONTROL_H
 
-#include <metalang99/priv/variadics/count.h>
+#include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
 #include <metalang99/nat.h>
+#include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
 /**
@@ -97,7 +98,7 @@
  * @note @p x and @p y can possibly expand to commas. It means that you can supply `ML99_TERMS(...)`
  * as a branch, for example.
  */
-#define ML99_IF(cond, x, y) ML99_PRIV_UNTUPLE(ML99_PRIV_IF(cond, (x), (y)))
+#define ML99_IF(cond, x, y) ML99_UNTUPLE(ML99_PRIV_IF(cond, (x), (y)))
 
 #ifndef DOXYGEN_IGNORE
 

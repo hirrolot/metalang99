@@ -13,7 +13,7 @@
 #ifndef ML99_CHOICE_H
 #define ML99_CHOICE_H
 
-#include <metalang99/priv/variadics/get.h>
+#include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
 #include <metalang99/util.h>
@@ -78,7 +78,7 @@
     ML99_call(ML99_matchWithArgs, choice, matcher, __VA_ARGS__)
 
 #define ML99_CHOICE(tag, ...)   (tag, __VA_ARGS__)
-#define ML99_CHOICE_TAG(choice) ML99_PRIV_VARIADICS_HEAD_AUX choice
+#define ML99_CHOICE_TAG(choice) ML99_PRIV_HEAD_AUX choice
 
 #ifndef DOXYGEN_IGNORE
 
@@ -86,17 +86,15 @@
 #define ML99_choiceTag_IMPL(choice) v(ML99_CHOICE_TAG(choice))
 
 #define ML99_match_IMPL(choice, matcher)                                                           \
-    ML99_callUneval(                                                                               \
-        ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
-        ML99_PRIV_CHOICE_DATA choice)
+    ML99_callUneval(ML99_CAT(matcher, ML99_PRIV_HEAD_AUX choice), ML99_PRIV_CHOICE_DATA choice)
 
 #define ML99_matchWithArgs_IMPL(choice, matcher, ...)                                              \
     ML99_callUneval(                                                                               \
-        ML99_CAT(matcher, ML99_PRIV_VARIADICS_HEAD_AUX choice),                                    \
+        ML99_CAT(matcher, ML99_PRIV_HEAD_AUX choice),                                              \
         ML99_PRIV_CHOICE_DATA choice,                                                              \
         __VA_ARGS__)
 
-#define ML99_PRIV_CHOICE_DATA ML99_PRIV_VARIADICS_TAIL_AUX
+#define ML99_PRIV_CHOICE_DATA ML99_PRIV_TAIL_AUX
 
 // Arity specifiers {
 #define ML99_choice_ARITY        2

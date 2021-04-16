@@ -1,10 +1,10 @@
 #ifndef ML99_NAT_EQ_H
 #define ML99_NAT_EQ_H
 
-#include <metalang99/priv/variadics/get.h>
+#include <metalang99/priv/util.h>
 
 #define ML99_PRIV_NAT_EQ(x, y)     ML99_PRIV_NAT_EQ_AUX(x, y)
-#define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_PRIV_VARIADICS_SND(ML99_PRIV_NAT_EQ_##x##_##y, 0)
+#define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_SND(ML99_PRIV_NAT_EQ_##x##_##y, 0)
 
 #define ML99_PRIV_NAT_EQ_0_0     ~, 1
 #define ML99_PRIV_NAT_EQ_1_1     ~, 1

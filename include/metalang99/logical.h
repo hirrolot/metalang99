@@ -118,7 +118,7 @@
 
 #define ML99_TRUE(...)     1
 #define ML99_FALSE(...)    0
-#define ML99_NOT(x)        ML99_PRIV_CAT(ML99_PRIV_NOT_, x)
+#define ML99_NOT(x)        ML99_PRIV_NOT(x)
 #define ML99_AND(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_AND_, x, y)
 #define ML99_OR(x, y)      ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_OR_, x, y)
 #define ML99_XOR(x, y)     ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_XOR_, x, y)
@@ -134,9 +134,6 @@
 #define ML99_or_IMPL(x, y)     v(ML99_OR(x, y))
 #define ML99_xor_IMPL(x, y)    v(ML99_XOR(x, y))
 #define ML99_boolEq_IMPL(x, y) v(ML99_BOOL_EQ(x, y))
-
-#define ML99_PRIV_NOT_0 1
-#define ML99_PRIV_NOT_1 0
 
 #define ML99_PRIV_AND_00 0
 #define ML99_PRIV_AND_01 0

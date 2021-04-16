@@ -6,7 +6,7 @@
 #ifndef ML99_LIST_H
 #define ML99_LIST_H
 
-#include <metalang99/priv/variadics/count.h>
+#include <metalang99/priv/util.h>
 
 #include <metalang99/choice.h>
 #include <metalang99/control.h>
