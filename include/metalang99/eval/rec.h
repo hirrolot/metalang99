@@ -1,5 +1,5 @@
-#ifndef METALANG99_EVAL_REC_H
-#define METALANG99_EVAL_REC_H
+#ifndef ML99_EVAL_REC_H
+#define ML99_EVAL_REC_H
 
 #define ML99_PRIV_REC_CONTINUE(k)      0continue, ML99_PRIV_REC_DEFER(k##_HOOK)()
 #define ML99_PRIV_REC_STOP(_k_cx, ...) 0stop, __VA_ARGS__
@@ -1066,4 +1066,4 @@
 #define ML99_PRIV_REC_1022(choice, ...) ML99_PRIV_REC_NEXT(1023, choice)(__VA_ARGS__)
 #define ML99_PRIV_REC_1023              ML99_PRIV_REC_DEFER(ML99_PRIV_REC_1_HOOK)()
 
-#endif // METALANG99_EVAL_REC_H
+#endif // ML99_EVAL_REC_H

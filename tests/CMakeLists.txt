@@ -23,6 +23,7 @@ add_executable(nat nat.c)
 add_executable(tuple tuple.c)
 add_executable(util util.c)
 add_executable(variadics variadics.c)
+add_executable(rec eval/rec.c)
 
 foreach(TARGET ${BUILDSYSTEM_TARGETS})
   set_target_properties(TARGET PROPERTIES C_STANDARD 99 C_STANDARD_REQUIRED ON)
