@@ -13,7 +13,7 @@
         ML99_PRIV_REC_STOP,                                                                        \
         (~),                                                                                       \
         0fspace,                                                                                   \
-        ML99_PRIV_EVAL_ACC(),                                                                      \
+        ML99_PRIV_EVAL_ACC,                                                                        \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~))
@@ -42,7 +42,7 @@
 
 #define ML99_PRIV_EVAL_0abort(_k, k_cx, folder, acc, _tail, ...)                                   \
     ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_MATCH)                                                   \
-    (ML99_PRIV_REC_STOP, (~), 0fspace, ML99_PRIV_EVAL_ACC(), __VA_ARGS__, (0end, ~), ~)
+    (ML99_PRIV_REC_STOP, (~), 0fspace, ML99_PRIV_EVAL_ACC, __VA_ARGS__, (0end, ~), ~)
 
 #define ML99_PRIV_EVAL_0end(k, k_cx, _folder, acc, _tail, _)                                       \
     ML99_PRIV_REC_CONTINUE(k)                                                                      \
@@ -63,7 +63,7 @@
         ML99_PRIV_EVAL_0callUneval_K,                                                              \
         (k, k_cx, folder, acc, tail, op),                                                          \
         0fcomma,                                                                                   \
-        ML99_PRIV_EVAL_ACC_COMMA_SEP(),                                                            \
+        ML99_PRIV_EVAL_ACC_COMMA_SEP,                                                              \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
@@ -73,7 +73,7 @@
         ML99_PRIV_EVAL_0callUneval_K,                                                              \
         (k, k_cx, folder, acc, tail),                                                              \
         0fcomma,                                                                                   \
-        ML99_PRIV_EVAL_ACC_COMMA_SEP(),                                                            \
+        ML99_PRIV_EVAL_ACC_COMMA_SEP,                                                              \
         op,                                                                                        \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
@@ -97,7 +97,7 @@
         ML99_PRIV_EVAL_0v_K,                                                                       \
         (k, k_cx, folder, acc, tail),                                                              \
         0fspace,                                                                                   \
-        ML99_PRIV_EVAL_ACC(),                                                                      \
+        ML99_PRIV_EVAL_ACC,                                                                        \
         __VA_ARGS__,                                                                               \
         (0end, ~),                                                                                 \
         ~)
