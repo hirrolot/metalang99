@@ -24,10 +24,7 @@
 #define ML99_assert(expr) ML99_call(ML99_assert, expr)
 
 /**
- * The same as #ML99_ASSERT_EQ but results in a Metalang99 term.
- *
- * It can be used inside other Metalang99-compliant macros, unlike #ML99_ASSERT_EQ, which uses
- * #ML99_EVAL internally.
+ * Like #ML99_assert but compares @p lhs with @p rhs for equality (`==`).
  */
 #define ML99_assertEq(lhs, rhs) ML99_call(ML99_assertEq, lhs, rhs)
 
@@ -45,7 +42,7 @@
 #define ML99_ASSERT(expr) ML99_ASSERT_EQ(expr, ML99_true())
 
 /**
- * Asserts the equality of `ML99_EVAL(lhs)` and `ML99_EVAL(rhs)` at compile-time.
+ * Asserts `ML99_EVAL(lhs) == ML99_EVAL(rhs)` at compile-time.
  *
  * # Examples
  *

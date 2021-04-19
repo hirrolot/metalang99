@@ -29,10 +29,7 @@
  * accepts the next statement and so on, until a caller of `MY_MACRO` specifies the final statement,
  * thus completing the chain.
  *
- * @attention The statement chaining macros prohibit `break`/`continue` inside user-provided
- * statements; instead, use `goto` labels.
- * @see https://www.chiark.greenend.org.uk/~sgtatham/mp/ for analysis of statement prefixes as well
- * as the whole idea.
+ * @see https://www.chiark.greenend.org.uk/~sgtatham/mp/ for a more involved explanation.
  */
 
 #ifndef ML99_GEN_H
@@ -291,6 +288,8 @@
  *
  * Variable definitions must be specified as in the first clause of the for-loop.
  *
+ * `break`/`continue` inside a user-provided statement are prohibited.
+ *
  * # Example
  *
  * @code
@@ -312,6 +311,8 @@
  *
  * In comparison with #ML99_INTRODUCE_VAR_TO_STMT, this macro generates a little less code. It
  * introduces a pointer to @p ty identified by @p name and initialised to @p init.
+ *
+ * `break`/`continue` inside a user-provided statement are prohibited.
  *
  * # Example
  *
@@ -336,6 +337,8 @@
 /**
  * A statement chaining macro which executes an expression statement derived from @p expr right
  * before the next statement.
+ *
+ * `break`/`continue` inside a user-provided statement are prohibited.
  *
  * # Example
  *
@@ -366,6 +369,8 @@
 /**
  * A statement chaining macro which suppresses the "unused X" warning right before a statement after
  * its invocation.
+ *
+ * `break`/`continue` inside a user-provided statement are prohibited.
  *
  * # Example
  *
