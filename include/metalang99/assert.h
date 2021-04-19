@@ -55,7 +55,7 @@
  * ML99_ASSERT_EQ(v(123), v(123));
  * @endcode
  */
-#define ML99_ASSERT_EQ(lhs, rhs) ML99_ASSERT_UNEVAL(ML99_EVAL(lhs) == ML99_EVAL(rhs))
+#define ML99_ASSERT_EQ(lhs, rhs) ML99_ASSERT_UNEVAL((ML99_EVAL(lhs)) == (ML99_EVAL(rhs)))
 
 /**
  * Asserts the C constant expression @p expr; <a
@@ -112,7 +112,7 @@
 #ifndef DOXYGEN_IGNORE
 
 #define ML99_assert_IMPL(expr)       v(ML99_ASSERT_UNEVAL(expr))
-#define ML99_assertEq_IMPL(lhs, rhs) v(ML99_ASSERT_UNEVAL(lhs == rhs))
+#define ML99_assertEq_IMPL(lhs, rhs) v(ML99_ASSERT_UNEVAL((lhs) == (rhs)))
 
 #define ML99_PRIV_ASSERT_EMPTY_ 1
 

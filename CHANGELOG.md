@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `util.h`: `ML99_uncomma`, `ML99_reify`, `ML99_DETECTOR`.
  - `assert.h`: `ML99_assert`, `ML99_assertEq`.
 
+### Fixed
+
+ - `assert.h`: parenthesise expressions passed to `ML99_ASSERT`, `ML99_ASSERT_EQ`.
+
 ### Changed
 
  - `gen.h`: `ML99_INTRODUCE_VAR_TO_STMT` can deal with several variables.
