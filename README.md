@@ -185,7 +185,7 @@ A: To run the benchmarks, execute `./scripts/bench.sh` from the root directory.
 
 The interpreter implementation is inherently non-trivial, with plenty of subtle details. Having an abstract picture of what is happening is extremely helpful not to mess up, especially when we are talking about corner cases. Additionally, the specification helps to figure out how the language would behave under some exotic circumstances.
 
-### Q: Is Metalang99 Turing-complete?
+### Q: Is it Turing-complete?
 
 A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit (see this [SO question](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete)). For Metalang99, this limit is defined in terms of reductions steps (see the [specification]).
 
