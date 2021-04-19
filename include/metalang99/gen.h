@@ -29,6 +29,8 @@
  * accepts the next statement and so on, until a caller of `MY_MACRO` specifies the final statement,
  * thus completing the chain.
  *
+ * @attention `break`/`continue` in user-provided statements are prohibited; instead, use `goto`
+ * labels.
  * @see https://www.chiark.greenend.org.uk/~sgtatham/mp/ for analysis of statement prefixes as well
  * as the whole idea.
  */
