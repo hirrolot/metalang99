@@ -16,6 +16,22 @@
 #include <metalang99/util.h>
 
 /**
+ * The same as #ML99_ASSERT but results in a Metalang99 term.
+ *
+ * It can be used inside other Metalang99-compliant macros, unlike #ML99_ASSERT, which uses
+ * #ML99_EVAL internally.
+ */
+#define ML99_assert(expr) ML99_call(ML99_assert, expr)
+
+/**
+ * The same as #ML99_ASSERT_EQ but results in a Metalang99 term.
+ *
+ * It can be used inside other Metalang99-compliant macros, unlike #ML99_ASSERT_EQ, which uses
+ * #ML99_EVAL internally.
+ */
+#define ML99_assertEq(lhs, rhs) ML99_call(ML99_assertEq, lhs, rhs)
+
+/**
  * Asserts `ML99_EVAL(expr)` at compile-time.
  *
  * # Examples
@@ -95,7 +111,15 @@
 
 #ifndef DOXYGEN_IGNORE
 
+#define ML99_assert_IMPL(expr)       v(ML99_ASSERT_UNEVAL(expr))
+#define ML99_assertEq_IMPL(lhs, rhs) v(ML99_ASSERT_UNEVAL(lhs == rhs))
+
 #define ML99_PRIV_ASSERT_EMPTY_ 1
+
+// Arity specifiers {
+#define ML99_assert_ARITY   1
+#define ML99_assertEq_ARITY 2
+// }
 
 #endif // DOXYGEN_IGNORE
 

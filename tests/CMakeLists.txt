@@ -11,6 +11,7 @@ endif()
 
 include_directories(../include)
 
+add_executable(assert assert.c)
 add_executable(choice choice.c)
 add_executable(control control.c)
 add_executable(either either.c)
