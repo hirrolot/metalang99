@@ -15,6 +15,7 @@
 #include <metalang99/lang.h>
 #include <metalang99/logical.h>
 #include <metalang99/maybe.h>
+#include <metalang99/util.h>
 
 /**
  * \f$x + 1\f$
@@ -378,6 +379,25 @@
  */
 #define ML99_max(x, y) ML99_call(ML99_max, x, y)
 
+/**
+ * Emits a fatal error if @p x is not a natural number, otherwise results in emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/nat.h>
+ *
+ * #define F_IMPL(x) ML99_TERMS(ML99_assertIsNat(v(x)), ML99_inc(v(x)))
+ *
+ * // 6
+ * ML99_call(F, v(5))
+ *
+ * // !"Metalang99 error" (ML99_assertIsNat): "blah must be within [0; 255]"
+ * ML99_call(F, v(blah))
+ * @endcode
+ */
+#define ML99_assertIsNat(x) ML99_call(ML99_assertIsNat, x)
+
 #define ML99_INC(x)            ML99_PRIV_INC(x)
 #define ML99_DEC(x)            ML99_PRIV_DEC(x)
 #define ML99_NAT_EQ(x, y)      ML99_PRIV_NAT_EQ(x, y)
@@ -455,6 +475,13 @@
 #define ML99_min_IMPL(x, y) ML99_call(ML99_if, ML99_lesser_IMPL(x, y), v(x, y))
 #define ML99_max_IMPL(x, y) ML99_call(ML99_if, ML99_lesser_IMPL(x, y), v(y, x))
 
+#define ML99_assertIsNat_IMPL(x)                                                                   \
+    ML99_IF(ML99_PRIV_NAT_EQ(x, x), ML99_empty(), ML99_PRIV_ASSERT_IS_NAT_FATAL(x, ML99_NAT_MAX))
+
+// clang-format off
+#define ML99_PRIV_ASSERT_IS_NAT_FATAL(x, max) ML99_fatal(ML99_assertIsNat, x must be within [0; max])
+// clang-format on
+
 // Arity specifiers {
 #define ML99_inc_ARITY              1
 #define ML99_dec_ARITY              1
@@ -478,6 +505,7 @@
 #define ML99_div3_ARITY             3
 #define ML99_min_ARITY              2
 #define ML99_max_ARITY              2
+#define ML99_assertIsNat_ARITY      1
 // }
 
 #endif // DOXYGEN_IGNORE

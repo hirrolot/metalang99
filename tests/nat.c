@@ -191,4 +191,10 @@ ML99_ASSERT_EQ(ML99_max(v(5), v(7)), v(7));
 ML99_ASSERT_EQ(ML99_max(v(200), v(ML99_NAT_MAX)), v(ML99_NAT_MAX));
 // }
 
+// ML99_assertIsNat {
+ML99_EVAL(ML99_assertIsNat(v(0)))
+ML99_EVAL(ML99_assertIsNat(v(13)))
+ML99_EVAL(ML99_assertIsNat(v(255)))
+// }
+
 int main(void) {}

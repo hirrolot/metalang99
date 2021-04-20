@@ -1,266 +1,266 @@
 #ifndef ML99_NAT_EQ_H
 #define ML99_NAT_EQ_H
 
-#include <metalang99/priv/util.h>
+#include <metalang99/util.h>
 
 #define ML99_PRIV_NAT_EQ(x, y)     ML99_PRIV_NAT_EQ_AUX(x, y)
-#define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_PRIV_SND(ML99_PRIV_NAT_EQ_##x##_##y, 0)
+#define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_DETECT_IDENT(ML99_PRIV_NAT_EQ_##x##_, y)
 
-#define ML99_PRIV_NAT_EQ_0_0     ~, 1
-#define ML99_PRIV_NAT_EQ_1_1     ~, 1
-#define ML99_PRIV_NAT_EQ_2_2     ~, 1
-#define ML99_PRIV_NAT_EQ_3_3     ~, 1
-#define ML99_PRIV_NAT_EQ_4_4     ~, 1
-#define ML99_PRIV_NAT_EQ_5_5     ~, 1
-#define ML99_PRIV_NAT_EQ_6_6     ~, 1
-#define ML99_PRIV_NAT_EQ_7_7     ~, 1
-#define ML99_PRIV_NAT_EQ_8_8     ~, 1
-#define ML99_PRIV_NAT_EQ_9_9     ~, 1
-#define ML99_PRIV_NAT_EQ_10_10   ~, 1
-#define ML99_PRIV_NAT_EQ_11_11   ~, 1
-#define ML99_PRIV_NAT_EQ_12_12   ~, 1
-#define ML99_PRIV_NAT_EQ_13_13   ~, 1
-#define ML99_PRIV_NAT_EQ_14_14   ~, 1
-#define ML99_PRIV_NAT_EQ_15_15   ~, 1
-#define ML99_PRIV_NAT_EQ_16_16   ~, 1
-#define ML99_PRIV_NAT_EQ_17_17   ~, 1
-#define ML99_PRIV_NAT_EQ_18_18   ~, 1
-#define ML99_PRIV_NAT_EQ_19_19   ~, 1
-#define ML99_PRIV_NAT_EQ_20_20   ~, 1
-#define ML99_PRIV_NAT_EQ_21_21   ~, 1
-#define ML99_PRIV_NAT_EQ_22_22   ~, 1
-#define ML99_PRIV_NAT_EQ_23_23   ~, 1
-#define ML99_PRIV_NAT_EQ_24_24   ~, 1
-#define ML99_PRIV_NAT_EQ_25_25   ~, 1
-#define ML99_PRIV_NAT_EQ_26_26   ~, 1
-#define ML99_PRIV_NAT_EQ_27_27   ~, 1
-#define ML99_PRIV_NAT_EQ_28_28   ~, 1
-#define ML99_PRIV_NAT_EQ_29_29   ~, 1
-#define ML99_PRIV_NAT_EQ_30_30   ~, 1
-#define ML99_PRIV_NAT_EQ_31_31   ~, 1
-#define ML99_PRIV_NAT_EQ_32_32   ~, 1
-#define ML99_PRIV_NAT_EQ_33_33   ~, 1
-#define ML99_PRIV_NAT_EQ_34_34   ~, 1
-#define ML99_PRIV_NAT_EQ_35_35   ~, 1
-#define ML99_PRIV_NAT_EQ_36_36   ~, 1
-#define ML99_PRIV_NAT_EQ_37_37   ~, 1
-#define ML99_PRIV_NAT_EQ_38_38   ~, 1
-#define ML99_PRIV_NAT_EQ_39_39   ~, 1
-#define ML99_PRIV_NAT_EQ_40_40   ~, 1
-#define ML99_PRIV_NAT_EQ_41_41   ~, 1
-#define ML99_PRIV_NAT_EQ_42_42   ~, 1
-#define ML99_PRIV_NAT_EQ_43_43   ~, 1
-#define ML99_PRIV_NAT_EQ_44_44   ~, 1
-#define ML99_PRIV_NAT_EQ_45_45   ~, 1
-#define ML99_PRIV_NAT_EQ_46_46   ~, 1
-#define ML99_PRIV_NAT_EQ_47_47   ~, 1
-#define ML99_PRIV_NAT_EQ_48_48   ~, 1
-#define ML99_PRIV_NAT_EQ_49_49   ~, 1
-#define ML99_PRIV_NAT_EQ_50_50   ~, 1
-#define ML99_PRIV_NAT_EQ_51_51   ~, 1
-#define ML99_PRIV_NAT_EQ_52_52   ~, 1
-#define ML99_PRIV_NAT_EQ_53_53   ~, 1
-#define ML99_PRIV_NAT_EQ_54_54   ~, 1
-#define ML99_PRIV_NAT_EQ_55_55   ~, 1
-#define ML99_PRIV_NAT_EQ_56_56   ~, 1
-#define ML99_PRIV_NAT_EQ_57_57   ~, 1
-#define ML99_PRIV_NAT_EQ_58_58   ~, 1
-#define ML99_PRIV_NAT_EQ_59_59   ~, 1
-#define ML99_PRIV_NAT_EQ_60_60   ~, 1
-#define ML99_PRIV_NAT_EQ_61_61   ~, 1
-#define ML99_PRIV_NAT_EQ_62_62   ~, 1
-#define ML99_PRIV_NAT_EQ_63_63   ~, 1
-#define ML99_PRIV_NAT_EQ_64_64   ~, 1
-#define ML99_PRIV_NAT_EQ_65_65   ~, 1
-#define ML99_PRIV_NAT_EQ_66_66   ~, 1
-#define ML99_PRIV_NAT_EQ_67_67   ~, 1
-#define ML99_PRIV_NAT_EQ_68_68   ~, 1
-#define ML99_PRIV_NAT_EQ_69_69   ~, 1
-#define ML99_PRIV_NAT_EQ_70_70   ~, 1
-#define ML99_PRIV_NAT_EQ_71_71   ~, 1
-#define ML99_PRIV_NAT_EQ_72_72   ~, 1
-#define ML99_PRIV_NAT_EQ_73_73   ~, 1
-#define ML99_PRIV_NAT_EQ_74_74   ~, 1
-#define ML99_PRIV_NAT_EQ_75_75   ~, 1
-#define ML99_PRIV_NAT_EQ_76_76   ~, 1
-#define ML99_PRIV_NAT_EQ_77_77   ~, 1
-#define ML99_PRIV_NAT_EQ_78_78   ~, 1
-#define ML99_PRIV_NAT_EQ_79_79   ~, 1
-#define ML99_PRIV_NAT_EQ_80_80   ~, 1
-#define ML99_PRIV_NAT_EQ_81_81   ~, 1
-#define ML99_PRIV_NAT_EQ_82_82   ~, 1
-#define ML99_PRIV_NAT_EQ_83_83   ~, 1
-#define ML99_PRIV_NAT_EQ_84_84   ~, 1
-#define ML99_PRIV_NAT_EQ_85_85   ~, 1
-#define ML99_PRIV_NAT_EQ_86_86   ~, 1
-#define ML99_PRIV_NAT_EQ_87_87   ~, 1
-#define ML99_PRIV_NAT_EQ_88_88   ~, 1
-#define ML99_PRIV_NAT_EQ_89_89   ~, 1
-#define ML99_PRIV_NAT_EQ_90_90   ~, 1
-#define ML99_PRIV_NAT_EQ_91_91   ~, 1
-#define ML99_PRIV_NAT_EQ_92_92   ~, 1
-#define ML99_PRIV_NAT_EQ_93_93   ~, 1
-#define ML99_PRIV_NAT_EQ_94_94   ~, 1
-#define ML99_PRIV_NAT_EQ_95_95   ~, 1
-#define ML99_PRIV_NAT_EQ_96_96   ~, 1
-#define ML99_PRIV_NAT_EQ_97_97   ~, 1
-#define ML99_PRIV_NAT_EQ_98_98   ~, 1
-#define ML99_PRIV_NAT_EQ_99_99   ~, 1
-#define ML99_PRIV_NAT_EQ_100_100 ~, 1
-#define ML99_PRIV_NAT_EQ_101_101 ~, 1
-#define ML99_PRIV_NAT_EQ_102_102 ~, 1
-#define ML99_PRIV_NAT_EQ_103_103 ~, 1
-#define ML99_PRIV_NAT_EQ_104_104 ~, 1
-#define ML99_PRIV_NAT_EQ_105_105 ~, 1
-#define ML99_PRIV_NAT_EQ_106_106 ~, 1
-#define ML99_PRIV_NAT_EQ_107_107 ~, 1
-#define ML99_PRIV_NAT_EQ_108_108 ~, 1
-#define ML99_PRIV_NAT_EQ_109_109 ~, 1
-#define ML99_PRIV_NAT_EQ_110_110 ~, 1
-#define ML99_PRIV_NAT_EQ_111_111 ~, 1
-#define ML99_PRIV_NAT_EQ_112_112 ~, 1
-#define ML99_PRIV_NAT_EQ_113_113 ~, 1
-#define ML99_PRIV_NAT_EQ_114_114 ~, 1
-#define ML99_PRIV_NAT_EQ_115_115 ~, 1
-#define ML99_PRIV_NAT_EQ_116_116 ~, 1
-#define ML99_PRIV_NAT_EQ_117_117 ~, 1
-#define ML99_PRIV_NAT_EQ_118_118 ~, 1
-#define ML99_PRIV_NAT_EQ_119_119 ~, 1
-#define ML99_PRIV_NAT_EQ_120_120 ~, 1
-#define ML99_PRIV_NAT_EQ_121_121 ~, 1
-#define ML99_PRIV_NAT_EQ_122_122 ~, 1
-#define ML99_PRIV_NAT_EQ_123_123 ~, 1
-#define ML99_PRIV_NAT_EQ_124_124 ~, 1
-#define ML99_PRIV_NAT_EQ_125_125 ~, 1
-#define ML99_PRIV_NAT_EQ_126_126 ~, 1
-#define ML99_PRIV_NAT_EQ_127_127 ~, 1
-#define ML99_PRIV_NAT_EQ_128_128 ~, 1
-#define ML99_PRIV_NAT_EQ_129_129 ~, 1
-#define ML99_PRIV_NAT_EQ_130_130 ~, 1
-#define ML99_PRIV_NAT_EQ_131_131 ~, 1
-#define ML99_PRIV_NAT_EQ_132_132 ~, 1
-#define ML99_PRIV_NAT_EQ_133_133 ~, 1
-#define ML99_PRIV_NAT_EQ_134_134 ~, 1
-#define ML99_PRIV_NAT_EQ_135_135 ~, 1
-#define ML99_PRIV_NAT_EQ_136_136 ~, 1
-#define ML99_PRIV_NAT_EQ_137_137 ~, 1
-#define ML99_PRIV_NAT_EQ_138_138 ~, 1
-#define ML99_PRIV_NAT_EQ_139_139 ~, 1
-#define ML99_PRIV_NAT_EQ_140_140 ~, 1
-#define ML99_PRIV_NAT_EQ_141_141 ~, 1
-#define ML99_PRIV_NAT_EQ_142_142 ~, 1
-#define ML99_PRIV_NAT_EQ_143_143 ~, 1
-#define ML99_PRIV_NAT_EQ_144_144 ~, 1
-#define ML99_PRIV_NAT_EQ_145_145 ~, 1
-#define ML99_PRIV_NAT_EQ_146_146 ~, 1
-#define ML99_PRIV_NAT_EQ_147_147 ~, 1
-#define ML99_PRIV_NAT_EQ_148_148 ~, 1
-#define ML99_PRIV_NAT_EQ_149_149 ~, 1
-#define ML99_PRIV_NAT_EQ_150_150 ~, 1
-#define ML99_PRIV_NAT_EQ_151_151 ~, 1
-#define ML99_PRIV_NAT_EQ_152_152 ~, 1
-#define ML99_PRIV_NAT_EQ_153_153 ~, 1
-#define ML99_PRIV_NAT_EQ_154_154 ~, 1
-#define ML99_PRIV_NAT_EQ_155_155 ~, 1
-#define ML99_PRIV_NAT_EQ_156_156 ~, 1
-#define ML99_PRIV_NAT_EQ_157_157 ~, 1
-#define ML99_PRIV_NAT_EQ_158_158 ~, 1
-#define ML99_PRIV_NAT_EQ_159_159 ~, 1
-#define ML99_PRIV_NAT_EQ_160_160 ~, 1
-#define ML99_PRIV_NAT_EQ_161_161 ~, 1
-#define ML99_PRIV_NAT_EQ_162_162 ~, 1
-#define ML99_PRIV_NAT_EQ_163_163 ~, 1
-#define ML99_PRIV_NAT_EQ_164_164 ~, 1
-#define ML99_PRIV_NAT_EQ_165_165 ~, 1
-#define ML99_PRIV_NAT_EQ_166_166 ~, 1
-#define ML99_PRIV_NAT_EQ_167_167 ~, 1
-#define ML99_PRIV_NAT_EQ_168_168 ~, 1
-#define ML99_PRIV_NAT_EQ_169_169 ~, 1
-#define ML99_PRIV_NAT_EQ_170_170 ~, 1
-#define ML99_PRIV_NAT_EQ_171_171 ~, 1
-#define ML99_PRIV_NAT_EQ_172_172 ~, 1
-#define ML99_PRIV_NAT_EQ_173_173 ~, 1
-#define ML99_PRIV_NAT_EQ_174_174 ~, 1
-#define ML99_PRIV_NAT_EQ_175_175 ~, 1
-#define ML99_PRIV_NAT_EQ_176_176 ~, 1
-#define ML99_PRIV_NAT_EQ_177_177 ~, 1
-#define ML99_PRIV_NAT_EQ_178_178 ~, 1
-#define ML99_PRIV_NAT_EQ_179_179 ~, 1
-#define ML99_PRIV_NAT_EQ_180_180 ~, 1
-#define ML99_PRIV_NAT_EQ_181_181 ~, 1
-#define ML99_PRIV_NAT_EQ_182_182 ~, 1
-#define ML99_PRIV_NAT_EQ_183_183 ~, 1
-#define ML99_PRIV_NAT_EQ_184_184 ~, 1
-#define ML99_PRIV_NAT_EQ_185_185 ~, 1
-#define ML99_PRIV_NAT_EQ_186_186 ~, 1
-#define ML99_PRIV_NAT_EQ_187_187 ~, 1
-#define ML99_PRIV_NAT_EQ_188_188 ~, 1
-#define ML99_PRIV_NAT_EQ_189_189 ~, 1
-#define ML99_PRIV_NAT_EQ_190_190 ~, 1
-#define ML99_PRIV_NAT_EQ_191_191 ~, 1
-#define ML99_PRIV_NAT_EQ_192_192 ~, 1
-#define ML99_PRIV_NAT_EQ_193_193 ~, 1
-#define ML99_PRIV_NAT_EQ_194_194 ~, 1
-#define ML99_PRIV_NAT_EQ_195_195 ~, 1
-#define ML99_PRIV_NAT_EQ_196_196 ~, 1
-#define ML99_PRIV_NAT_EQ_197_197 ~, 1
-#define ML99_PRIV_NAT_EQ_198_198 ~, 1
-#define ML99_PRIV_NAT_EQ_199_199 ~, 1
-#define ML99_PRIV_NAT_EQ_200_200 ~, 1
-#define ML99_PRIV_NAT_EQ_201_201 ~, 1
-#define ML99_PRIV_NAT_EQ_202_202 ~, 1
-#define ML99_PRIV_NAT_EQ_203_203 ~, 1
-#define ML99_PRIV_NAT_EQ_204_204 ~, 1
-#define ML99_PRIV_NAT_EQ_205_205 ~, 1
-#define ML99_PRIV_NAT_EQ_206_206 ~, 1
-#define ML99_PRIV_NAT_EQ_207_207 ~, 1
-#define ML99_PRIV_NAT_EQ_208_208 ~, 1
-#define ML99_PRIV_NAT_EQ_209_209 ~, 1
-#define ML99_PRIV_NAT_EQ_210_210 ~, 1
-#define ML99_PRIV_NAT_EQ_211_211 ~, 1
-#define ML99_PRIV_NAT_EQ_212_212 ~, 1
-#define ML99_PRIV_NAT_EQ_213_213 ~, 1
-#define ML99_PRIV_NAT_EQ_214_214 ~, 1
-#define ML99_PRIV_NAT_EQ_215_215 ~, 1
-#define ML99_PRIV_NAT_EQ_216_216 ~, 1
-#define ML99_PRIV_NAT_EQ_217_217 ~, 1
-#define ML99_PRIV_NAT_EQ_218_218 ~, 1
-#define ML99_PRIV_NAT_EQ_219_219 ~, 1
-#define ML99_PRIV_NAT_EQ_220_220 ~, 1
-#define ML99_PRIV_NAT_EQ_221_221 ~, 1
-#define ML99_PRIV_NAT_EQ_222_222 ~, 1
-#define ML99_PRIV_NAT_EQ_223_223 ~, 1
-#define ML99_PRIV_NAT_EQ_224_224 ~, 1
-#define ML99_PRIV_NAT_EQ_225_225 ~, 1
-#define ML99_PRIV_NAT_EQ_226_226 ~, 1
-#define ML99_PRIV_NAT_EQ_227_227 ~, 1
-#define ML99_PRIV_NAT_EQ_228_228 ~, 1
-#define ML99_PRIV_NAT_EQ_229_229 ~, 1
-#define ML99_PRIV_NAT_EQ_230_230 ~, 1
-#define ML99_PRIV_NAT_EQ_231_231 ~, 1
-#define ML99_PRIV_NAT_EQ_232_232 ~, 1
-#define ML99_PRIV_NAT_EQ_233_233 ~, 1
-#define ML99_PRIV_NAT_EQ_234_234 ~, 1
-#define ML99_PRIV_NAT_EQ_235_235 ~, 1
-#define ML99_PRIV_NAT_EQ_236_236 ~, 1
-#define ML99_PRIV_NAT_EQ_237_237 ~, 1
-#define ML99_PRIV_NAT_EQ_238_238 ~, 1
-#define ML99_PRIV_NAT_EQ_239_239 ~, 1
-#define ML99_PRIV_NAT_EQ_240_240 ~, 1
-#define ML99_PRIV_NAT_EQ_241_241 ~, 1
-#define ML99_PRIV_NAT_EQ_242_242 ~, 1
-#define ML99_PRIV_NAT_EQ_243_243 ~, 1
-#define ML99_PRIV_NAT_EQ_244_244 ~, 1
-#define ML99_PRIV_NAT_EQ_245_245 ~, 1
-#define ML99_PRIV_NAT_EQ_246_246 ~, 1
-#define ML99_PRIV_NAT_EQ_247_247 ~, 1
-#define ML99_PRIV_NAT_EQ_248_248 ~, 1
-#define ML99_PRIV_NAT_EQ_249_249 ~, 1
-#define ML99_PRIV_NAT_EQ_250_250 ~, 1
-#define ML99_PRIV_NAT_EQ_251_251 ~, 1
-#define ML99_PRIV_NAT_EQ_252_252 ~, 1
-#define ML99_PRIV_NAT_EQ_253_253 ~, 1
-#define ML99_PRIV_NAT_EQ_254_254 ~, 1
-#define ML99_PRIV_NAT_EQ_255_255 ~, 1
+#define ML99_PRIV_NAT_EQ_0_0     ()
+#define ML99_PRIV_NAT_EQ_1_1     ()
+#define ML99_PRIV_NAT_EQ_2_2     ()
+#define ML99_PRIV_NAT_EQ_3_3     ()
+#define ML99_PRIV_NAT_EQ_4_4     ()
+#define ML99_PRIV_NAT_EQ_5_5     ()
+#define ML99_PRIV_NAT_EQ_6_6     ()
+#define ML99_PRIV_NAT_EQ_7_7     ()
+#define ML99_PRIV_NAT_EQ_8_8     ()
+#define ML99_PRIV_NAT_EQ_9_9     ()
+#define ML99_PRIV_NAT_EQ_10_10   ()
+#define ML99_PRIV_NAT_EQ_11_11   ()
+#define ML99_PRIV_NAT_EQ_12_12   ()
+#define ML99_PRIV_NAT_EQ_13_13   ()
+#define ML99_PRIV_NAT_EQ_14_14   ()
+#define ML99_PRIV_NAT_EQ_15_15   ()
+#define ML99_PRIV_NAT_EQ_16_16   ()
+#define ML99_PRIV_NAT_EQ_17_17   ()
+#define ML99_PRIV_NAT_EQ_18_18   ()
+#define ML99_PRIV_NAT_EQ_19_19   ()
+#define ML99_PRIV_NAT_EQ_20_20   ()
+#define ML99_PRIV_NAT_EQ_21_21   ()
+#define ML99_PRIV_NAT_EQ_22_22   ()
+#define ML99_PRIV_NAT_EQ_23_23   ()
+#define ML99_PRIV_NAT_EQ_24_24   ()
+#define ML99_PRIV_NAT_EQ_25_25   ()
+#define ML99_PRIV_NAT_EQ_26_26   ()
+#define ML99_PRIV_NAT_EQ_27_27   ()
+#define ML99_PRIV_NAT_EQ_28_28   ()
+#define ML99_PRIV_NAT_EQ_29_29   ()
+#define ML99_PRIV_NAT_EQ_30_30   ()
+#define ML99_PRIV_NAT_EQ_31_31   ()
+#define ML99_PRIV_NAT_EQ_32_32   ()
+#define ML99_PRIV_NAT_EQ_33_33   ()
+#define ML99_PRIV_NAT_EQ_34_34   ()
+#define ML99_PRIV_NAT_EQ_35_35   ()
+#define ML99_PRIV_NAT_EQ_36_36   ()
+#define ML99_PRIV_NAT_EQ_37_37   ()
+#define ML99_PRIV_NAT_EQ_38_38   ()
+#define ML99_PRIV_NAT_EQ_39_39   ()
+#define ML99_PRIV_NAT_EQ_40_40   ()
+#define ML99_PRIV_NAT_EQ_41_41   ()
+#define ML99_PRIV_NAT_EQ_42_42   ()
+#define ML99_PRIV_NAT_EQ_43_43   ()
+#define ML99_PRIV_NAT_EQ_44_44   ()
+#define ML99_PRIV_NAT_EQ_45_45   ()
+#define ML99_PRIV_NAT_EQ_46_46   ()
+#define ML99_PRIV_NAT_EQ_47_47   ()
+#define ML99_PRIV_NAT_EQ_48_48   ()
+#define ML99_PRIV_NAT_EQ_49_49   ()
+#define ML99_PRIV_NAT_EQ_50_50   ()
+#define ML99_PRIV_NAT_EQ_51_51   ()
+#define ML99_PRIV_NAT_EQ_52_52   ()
+#define ML99_PRIV_NAT_EQ_53_53   ()
+#define ML99_PRIV_NAT_EQ_54_54   ()
+#define ML99_PRIV_NAT_EQ_55_55   ()
+#define ML99_PRIV_NAT_EQ_56_56   ()
+#define ML99_PRIV_NAT_EQ_57_57   ()
+#define ML99_PRIV_NAT_EQ_58_58   ()
+#define ML99_PRIV_NAT_EQ_59_59   ()
+#define ML99_PRIV_NAT_EQ_60_60   ()
+#define ML99_PRIV_NAT_EQ_61_61   ()
+#define ML99_PRIV_NAT_EQ_62_62   ()
+#define ML99_PRIV_NAT_EQ_63_63   ()
+#define ML99_PRIV_NAT_EQ_64_64   ()
+#define ML99_PRIV_NAT_EQ_65_65   ()
+#define ML99_PRIV_NAT_EQ_66_66   ()
+#define ML99_PRIV_NAT_EQ_67_67   ()
+#define ML99_PRIV_NAT_EQ_68_68   ()
+#define ML99_PRIV_NAT_EQ_69_69   ()
+#define ML99_PRIV_NAT_EQ_70_70   ()
+#define ML99_PRIV_NAT_EQ_71_71   ()
+#define ML99_PRIV_NAT_EQ_72_72   ()
+#define ML99_PRIV_NAT_EQ_73_73   ()
+#define ML99_PRIV_NAT_EQ_74_74   ()
+#define ML99_PRIV_NAT_EQ_75_75   ()
+#define ML99_PRIV_NAT_EQ_76_76   ()
+#define ML99_PRIV_NAT_EQ_77_77   ()
+#define ML99_PRIV_NAT_EQ_78_78   ()
+#define ML99_PRIV_NAT_EQ_79_79   ()
+#define ML99_PRIV_NAT_EQ_80_80   ()
+#define ML99_PRIV_NAT_EQ_81_81   ()
+#define ML99_PRIV_NAT_EQ_82_82   ()
+#define ML99_PRIV_NAT_EQ_83_83   ()
+#define ML99_PRIV_NAT_EQ_84_84   ()
+#define ML99_PRIV_NAT_EQ_85_85   ()
+#define ML99_PRIV_NAT_EQ_86_86   ()
+#define ML99_PRIV_NAT_EQ_87_87   ()
+#define ML99_PRIV_NAT_EQ_88_88   ()
+#define ML99_PRIV_NAT_EQ_89_89   ()
+#define ML99_PRIV_NAT_EQ_90_90   ()
+#define ML99_PRIV_NAT_EQ_91_91   ()
+#define ML99_PRIV_NAT_EQ_92_92   ()
+#define ML99_PRIV_NAT_EQ_93_93   ()
+#define ML99_PRIV_NAT_EQ_94_94   ()
+#define ML99_PRIV_NAT_EQ_95_95   ()
+#define ML99_PRIV_NAT_EQ_96_96   ()
+#define ML99_PRIV_NAT_EQ_97_97   ()
+#define ML99_PRIV_NAT_EQ_98_98   ()
+#define ML99_PRIV_NAT_EQ_99_99   ()
+#define ML99_PRIV_NAT_EQ_100_100 ()
+#define ML99_PRIV_NAT_EQ_101_101 ()
+#define ML99_PRIV_NAT_EQ_102_102 ()
+#define ML99_PRIV_NAT_EQ_103_103 ()
+#define ML99_PRIV_NAT_EQ_104_104 ()
+#define ML99_PRIV_NAT_EQ_105_105 ()
+#define ML99_PRIV_NAT_EQ_106_106 ()
+#define ML99_PRIV_NAT_EQ_107_107 ()
+#define ML99_PRIV_NAT_EQ_108_108 ()
+#define ML99_PRIV_NAT_EQ_109_109 ()
+#define ML99_PRIV_NAT_EQ_110_110 ()
+#define ML99_PRIV_NAT_EQ_111_111 ()
+#define ML99_PRIV_NAT_EQ_112_112 ()
+#define ML99_PRIV_NAT_EQ_113_113 ()
+#define ML99_PRIV_NAT_EQ_114_114 ()
+#define ML99_PRIV_NAT_EQ_115_115 ()
+#define ML99_PRIV_NAT_EQ_116_116 ()
+#define ML99_PRIV_NAT_EQ_117_117 ()
+#define ML99_PRIV_NAT_EQ_118_118 ()
+#define ML99_PRIV_NAT_EQ_119_119 ()
+#define ML99_PRIV_NAT_EQ_120_120 ()
+#define ML99_PRIV_NAT_EQ_121_121 ()
+#define ML99_PRIV_NAT_EQ_122_122 ()
+#define ML99_PRIV_NAT_EQ_123_123 ()
+#define ML99_PRIV_NAT_EQ_124_124 ()
+#define ML99_PRIV_NAT_EQ_125_125 ()
+#define ML99_PRIV_NAT_EQ_126_126 ()
+#define ML99_PRIV_NAT_EQ_127_127 ()
+#define ML99_PRIV_NAT_EQ_128_128 ()
+#define ML99_PRIV_NAT_EQ_129_129 ()
+#define ML99_PRIV_NAT_EQ_130_130 ()
+#define ML99_PRIV_NAT_EQ_131_131 ()
+#define ML99_PRIV_NAT_EQ_132_132 ()
+#define ML99_PRIV_NAT_EQ_133_133 ()
+#define ML99_PRIV_NAT_EQ_134_134 ()
+#define ML99_PRIV_NAT_EQ_135_135 ()
+#define ML99_PRIV_NAT_EQ_136_136 ()
+#define ML99_PRIV_NAT_EQ_137_137 ()
+#define ML99_PRIV_NAT_EQ_138_138 ()
+#define ML99_PRIV_NAT_EQ_139_139 ()
+#define ML99_PRIV_NAT_EQ_140_140 ()
+#define ML99_PRIV_NAT_EQ_141_141 ()
+#define ML99_PRIV_NAT_EQ_142_142 ()
+#define ML99_PRIV_NAT_EQ_143_143 ()
+#define ML99_PRIV_NAT_EQ_144_144 ()
+#define ML99_PRIV_NAT_EQ_145_145 ()
+#define ML99_PRIV_NAT_EQ_146_146 ()
+#define ML99_PRIV_NAT_EQ_147_147 ()
+#define ML99_PRIV_NAT_EQ_148_148 ()
+#define ML99_PRIV_NAT_EQ_149_149 ()
+#define ML99_PRIV_NAT_EQ_150_150 ()
+#define ML99_PRIV_NAT_EQ_151_151 ()
+#define ML99_PRIV_NAT_EQ_152_152 ()
+#define ML99_PRIV_NAT_EQ_153_153 ()
+#define ML99_PRIV_NAT_EQ_154_154 ()
+#define ML99_PRIV_NAT_EQ_155_155 ()
+#define ML99_PRIV_NAT_EQ_156_156 ()
+#define ML99_PRIV_NAT_EQ_157_157 ()
+#define ML99_PRIV_NAT_EQ_158_158 ()
+#define ML99_PRIV_NAT_EQ_159_159 ()
+#define ML99_PRIV_NAT_EQ_160_160 ()
+#define ML99_PRIV_NAT_EQ_161_161 ()
+#define ML99_PRIV_NAT_EQ_162_162 ()
+#define ML99_PRIV_NAT_EQ_163_163 ()
+#define ML99_PRIV_NAT_EQ_164_164 ()
+#define ML99_PRIV_NAT_EQ_165_165 ()
+#define ML99_PRIV_NAT_EQ_166_166 ()
+#define ML99_PRIV_NAT_EQ_167_167 ()
+#define ML99_PRIV_NAT_EQ_168_168 ()
+#define ML99_PRIV_NAT_EQ_169_169 ()
+#define ML99_PRIV_NAT_EQ_170_170 ()
+#define ML99_PRIV_NAT_EQ_171_171 ()
+#define ML99_PRIV_NAT_EQ_172_172 ()
+#define ML99_PRIV_NAT_EQ_173_173 ()
+#define ML99_PRIV_NAT_EQ_174_174 ()
+#define ML99_PRIV_NAT_EQ_175_175 ()
+#define ML99_PRIV_NAT_EQ_176_176 ()
+#define ML99_PRIV_NAT_EQ_177_177 ()
+#define ML99_PRIV_NAT_EQ_178_178 ()
+#define ML99_PRIV_NAT_EQ_179_179 ()
+#define ML99_PRIV_NAT_EQ_180_180 ()
+#define ML99_PRIV_NAT_EQ_181_181 ()
+#define ML99_PRIV_NAT_EQ_182_182 ()
+#define ML99_PRIV_NAT_EQ_183_183 ()
+#define ML99_PRIV_NAT_EQ_184_184 ()
+#define ML99_PRIV_NAT_EQ_185_185 ()
+#define ML99_PRIV_NAT_EQ_186_186 ()
+#define ML99_PRIV_NAT_EQ_187_187 ()
+#define ML99_PRIV_NAT_EQ_188_188 ()
+#define ML99_PRIV_NAT_EQ_189_189 ()
+#define ML99_PRIV_NAT_EQ_190_190 ()
+#define ML99_PRIV_NAT_EQ_191_191 ()
+#define ML99_PRIV_NAT_EQ_192_192 ()
+#define ML99_PRIV_NAT_EQ_193_193 ()
+#define ML99_PRIV_NAT_EQ_194_194 ()
+#define ML99_PRIV_NAT_EQ_195_195 ()
+#define ML99_PRIV_NAT_EQ_196_196 ()
+#define ML99_PRIV_NAT_EQ_197_197 ()
+#define ML99_PRIV_NAT_EQ_198_198 ()
+#define ML99_PRIV_NAT_EQ_199_199 ()
+#define ML99_PRIV_NAT_EQ_200_200 ()
+#define ML99_PRIV_NAT_EQ_201_201 ()
+#define ML99_PRIV_NAT_EQ_202_202 ()
+#define ML99_PRIV_NAT_EQ_203_203 ()
+#define ML99_PRIV_NAT_EQ_204_204 ()
+#define ML99_PRIV_NAT_EQ_205_205 ()
+#define ML99_PRIV_NAT_EQ_206_206 ()
+#define ML99_PRIV_NAT_EQ_207_207 ()
+#define ML99_PRIV_NAT_EQ_208_208 ()
+#define ML99_PRIV_NAT_EQ_209_209 ()
+#define ML99_PRIV_NAT_EQ_210_210 ()
+#define ML99_PRIV_NAT_EQ_211_211 ()
+#define ML99_PRIV_NAT_EQ_212_212 ()
+#define ML99_PRIV_NAT_EQ_213_213 ()
+#define ML99_PRIV_NAT_EQ_214_214 ()
+#define ML99_PRIV_NAT_EQ_215_215 ()
+#define ML99_PRIV_NAT_EQ_216_216 ()
+#define ML99_PRIV_NAT_EQ_217_217 ()
+#define ML99_PRIV_NAT_EQ_218_218 ()
+#define ML99_PRIV_NAT_EQ_219_219 ()
+#define ML99_PRIV_NAT_EQ_220_220 ()
+#define ML99_PRIV_NAT_EQ_221_221 ()
+#define ML99_PRIV_NAT_EQ_222_222 ()
+#define ML99_PRIV_NAT_EQ_223_223 ()
+#define ML99_PRIV_NAT_EQ_224_224 ()
+#define ML99_PRIV_NAT_EQ_225_225 ()
+#define ML99_PRIV_NAT_EQ_226_226 ()
+#define ML99_PRIV_NAT_EQ_227_227 ()
+#define ML99_PRIV_NAT_EQ_228_228 ()
+#define ML99_PRIV_NAT_EQ_229_229 ()
+#define ML99_PRIV_NAT_EQ_230_230 ()
+#define ML99_PRIV_NAT_EQ_231_231 ()
+#define ML99_PRIV_NAT_EQ_232_232 ()
+#define ML99_PRIV_NAT_EQ_233_233 ()
+#define ML99_PRIV_NAT_EQ_234_234 ()
+#define ML99_PRIV_NAT_EQ_235_235 ()
+#define ML99_PRIV_NAT_EQ_236_236 ()
+#define ML99_PRIV_NAT_EQ_237_237 ()
+#define ML99_PRIV_NAT_EQ_238_238 ()
+#define ML99_PRIV_NAT_EQ_239_239 ()
+#define ML99_PRIV_NAT_EQ_240_240 ()
+#define ML99_PRIV_NAT_EQ_241_241 ()
+#define ML99_PRIV_NAT_EQ_242_242 ()
+#define ML99_PRIV_NAT_EQ_243_243 ()
+#define ML99_PRIV_NAT_EQ_244_244 ()
+#define ML99_PRIV_NAT_EQ_245_245 ()
+#define ML99_PRIV_NAT_EQ_246_246 ()
+#define ML99_PRIV_NAT_EQ_247_247 ()
+#define ML99_PRIV_NAT_EQ_248_248 ()
+#define ML99_PRIV_NAT_EQ_249_249 ()
+#define ML99_PRIV_NAT_EQ_250_250 ()
+#define ML99_PRIV_NAT_EQ_251_251 ()
+#define ML99_PRIV_NAT_EQ_252_252 ()
+#define ML99_PRIV_NAT_EQ_253_253 ()
+#define ML99_PRIV_NAT_EQ_254_254 ()
+#define ML99_PRIV_NAT_EQ_255_255 ()
 
 #endif // ML99_NAT_EQ_H

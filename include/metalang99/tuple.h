@@ -18,6 +18,7 @@
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
+#include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
 /**
@@ -176,6 +177,25 @@
  */
 #define ML99_tuplePrepend(x, ...) ML99_call(ML99_tuplePrepend, x, __VA_ARGS__)
 
+/**
+ * Emits a fatal error if @p x is not a tuple, otherwise results in emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/tuple.h>
+ *
+ * #define F_IMPL(x) ML99_TERMS(ML99_assertIsTuple(v(x)), ML99_untuple(v(x)))
+ *
+ * // 1, 2, 3
+ * ML99_call(F, v((1, 2, 3)))
+ *
+ * // !"Metalang99 error" (ML99_assertIsTuple): "123 must be (x1, ..., xN)"
+ * ML99_call(F, v(123))
+ * @endcode
+ */
+#define ML99_assertIsTuple(x) ML99_call(ML99_assertIsTuple, x)
+
 #define ML99_TUPLE(...)            (__VA_ARGS__)
 #define ML99_UNTUPLE(x)            ML99_PRIV_EXPAND x
 #define ML99_IS_TUPLE(x)           ML99_PRIV_IS_TUPLE(x)
@@ -226,16 +246,22 @@
 #define ML99_tupleAppend_IMPL(x, ...)  v(ML99_TUPLE_APPEND(x, __VA_ARGS__))
 #define ML99_tuplePrepend_IMPL(x, ...) v(ML99_TUPLE_PREPEND(x, __VA_ARGS__))
 
+// clang-format off
+#define ML99_assertIsTuple_IMPL(x) \
+    ML99_IF(ML99_IS_TUPLE(x), ML99_empty(), ML99_fatal(ML99_assertIsTuple, x must be (x1, ..., xN)))
+// clang-format on
+
 // Arity specifiers {
-#define ML99_tuple_ARITY        1
-#define ML99_tupleEval_ARITY    1
-#define ML99_untuple_ARITY      1
-#define ML99_untupleEval_ARITY  1
-#define ML99_isTuple_ARITY      1
-#define ML99_isUntuple_ARITY    1
-#define ML99_tupleTail_ARITY    1
-#define ML99_tupleAppend_ARITY  2
-#define ML99_tuplePrepend_ARITY 2
+#define ML99_tuple_ARITY         1
+#define ML99_tupleEval_ARITY     1
+#define ML99_untuple_ARITY       1
+#define ML99_untupleEval_ARITY   1
+#define ML99_isTuple_ARITY       1
+#define ML99_isUntuple_ARITY     1
+#define ML99_tupleTail_ARITY     1
+#define ML99_tupleAppend_ARITY   2
+#define ML99_tuplePrepend_ARITY  2
+#define ML99_assertIsTuple_ARITY 1
 
 #define ML99_PRIV_tupleGet_0_ARITY 1
 #define ML99_PRIV_tupleGet_1_ARITY 1

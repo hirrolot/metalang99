@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - Other: `ML99_GEN_SYM`, `ML99_TRAILING_SEMICOLON`, `ML99_semicoloned`, `ML99_assign`.
  - `util.h`: `ML99_uncomma`, `ML99_reify`, `ML99_DETECTOR`.
  - `assert.h`: `ML99_assert`, `ML99_assertEq`.
+ - `tuple.h`: `ML99_assertIsTuple`.
+ - `nat.h`: `ML99_assertIsNat`.
 
 ### Fixed
 

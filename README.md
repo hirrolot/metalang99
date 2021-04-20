@@ -135,7 +135,7 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
-## Optimisation guide
+## Optimisation tips
 
 Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here's its informal (and imprecise) description:
 
@@ -147,6 +147,10 @@ To perform fewer reduction steps, you can:
  - Use `ML99_callUneval`,
  - Use the plain versions (e.g. `ML99_CAT` instead of `ML99_cat`),
  - Call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and macro blueprinting will not happen. I strongly recommend to use this trick only if `X` is placed locally to a caller in order to ensure the correctness of expansion.
+
+## Guidelines
+
+ - If possible, assert macro parameters for well-formedness using `ML99_assertIsTuple`, `ML99_assertIsNat`, etc.
 
 ## FAQ
 

@@ -81,4 +81,8 @@ ML99_EVAL(v(CHECK), ML99_tuplePrepend(ML99_tuple(v(3)), v(1, 2)));
 #undef CHECK
 // }
 
+// ML99_assertIsTuple {
+ML99_EVAL(ML99_assertIsTuple(ML99_tuple(v(1, 2, 3))))
+// }
+
 int main(void) {}
