@@ -150,7 +150,7 @@ To perform fewer reduction steps, you can:
 
 ## Guidelines
 
- - If possible, assert macro parameters for well-formedness using `ML99_assertIsTuple`, `ML99_assertIsNat`, etc.
+ - If possible, assert macro parameters for well-formedness using `ML99_assertIsTuple`, `ML99_assertIsNat`, etc. for better diagnostic messages.
 
 ## FAQ
 
