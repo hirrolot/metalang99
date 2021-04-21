@@ -145,6 +145,20 @@
 #define ML99_assign(lhs, ...) ML99_call(ML99_assign, lhs, __VA_ARGS__)
 
 /**
+ * Invokes `f(...)`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * // If you are on C11.
+ * ML99_invoke(v(_Static_assert), v(1 == 1, "Must be true"))
+ * @endcode
+ */
+#define ML99_invoke(f, ...) ML99_call(ML99_invoke, f, __VA_ARGS__)
+
+/**
  * Generates a type definition.
  *
  * # Examples
@@ -400,6 +414,7 @@
 #define ML99_semicoloned_IMPL(...)    v(__VA_ARGS__;)
 #define ML99_braced_IMPL(...)         v({__VA_ARGS__})
 #define ML99_assign_IMPL(lhs, ...)    v(lhs = __VA_ARGS__)
+#define ML99_invoke_IMPL(f, ...)      v(f(__VA_ARGS__))
 #define ML99_typedef_IMPL(ident, ...) v(typedef __VA_ARGS__ ident;)
 #define ML99_struct_IMPL(ident, ...)  v(struct ident{__VA_ARGS__})
 #define ML99_anonStruct_IMPL(...)     v(struct {__VA_ARGS__})
@@ -447,6 +462,7 @@
 #define ML99_semicoloned_ARITY            1
 #define ML99_braced_ARITY                 1
 #define ML99_assign_ARITY                 2
+#define ML99_invoke_ARITY                 2
 #define ML99_typedef_ARITY                2
 #define ML99_struct_ARITY                 2
 #define ML99_anonStruct_ARITY             1

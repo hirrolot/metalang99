@@ -163,6 +163,14 @@ static void test_assign(void) {
 }
 // }
 
+// ML99_invoke {
+#define F(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
+
+ML99_EVAL(ML99_invoke(v(F), v(1, 2, 3)));
+
+#undef F
+// }
+
 // ML99_typedef {
 static void test_typedef(void) {
     ML99_EVAL(ML99_typedef(v(Point), v(struct { int x, y; })));
