@@ -34,8 +34,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `assert.h`:
    - `ML99_assert`, `ML99_assertEq`.
  - Built-in data type assertion macros:
-   - `ML99_assertIsTuple`.
-   - `ML99_assertIsNat`.
+   - `tuple.h`: `ML99_assertIsTuple`.
+   - `nat.h`: `ML99_assertIsNat`.
 
 ### Fixed
 
