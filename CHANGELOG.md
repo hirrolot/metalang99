@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `gen.h`:
    - Statement chaining macros:
-     - `ML99_CHAIN_EXPR_STMT` to execute a statement before.
+     - `ML99_CHAIN_EXPR_STMT` to execute a statement before the next statement.
      - `ML99_CHAIN_EXPR_STMT_AFTER` to execute a statement afterwards.
      - `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT` to introduce a non-null pointer to a statement.
    - Other:
