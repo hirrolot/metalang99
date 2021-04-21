@@ -10,25 +10,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
  - `gen.h`:
-   - Statement chaining macros: `ML99_CHAIN_EXPR_STMT`, `ML99_CHAIN_EXPR_STMT_AFTER`, `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`.
-   - Other: `ML99_GEN_SYM`, `ML99_TRAILING_SEMICOLON`, `ML99_semicoloned`, `ML99_assign`, `ML99_invoke`.
+   - Statement chaining macros:
+     - `ML99_CHAIN_EXPR_STMT`.
+     - `ML99_CHAIN_EXPR_STMT_AFTER`.
+     - `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`.
+   - Other:
+     - `ML99_GEN_SYM`.
+     - `ML99_TRAILING_SEMICOLON`.
+     - `ML99_semicoloned`.
+     - `ML99_assign`.
+     - `ML99_invoke`.
  - `util.h`:
-   - Dealing with identifiers: `ML99_detector`, `ML99_DETECTOR`, `ML99_identEq`, `ML99_IDENT_EQ`, `ML99_detectIdent`.
-   - Other: `ML99_uncomma`, `ML99_reify`.
- - `assert.h`: `ML99_assert`, `ML99_assertEq`.
- - Built-in data type assertion macros: `ML99_assertIsTuple`, `ML99_assertIsNat`.
+   - Dealing with identifiers:
+     - `ML99_detectIdent`.
+     - `ML99_identEq`, `ML99_IDENT_EQ`.
+     - `ML99_C_KEYWORD_DETECTOR`.
+     - `ML99_UNDERSCORE_DETECTOR`.
+   - Other:
+     - `ML99_uncomma`.
+     - `ML99_reify`.
+     - `ML99_cat3`, `ML99_CAT3`, `ML99_CAT3_PRIMITIVE`.
+     - `ML99_cat4`, `ML99_CAT4`, `ML99_CAT4_PRIMITIVE`.
+ - `assert.h`:
+   - `ML99_assert`, `ML99_assertEq`.
+ - Built-in data type assertion macros:
+   - `ML99_assertIsTuple`.
+   - `ML99_assertIsNat`.
 
 ### Fixed
 
- - `assert.h`: parenthesise expressions passed to `ML99_ASSERT`, `ML99_ASSERT_EQ`.
+ - `assert.h`:
+   - Parenthesise expressions passed to `ML99_ASSERT`, `ML99_ASSERT_EQ`.
 
 ### Changed
 
- - `gen.h`: `ML99_INTRODUCE_VAR_TO_STMT` can deal with several variables.
+ - `gen.h`:
+   - `ML99_INTRODUCE_VAR_TO_STMT` can deal with several variables.
 
 ### Deprecated
 
- - `gen.h`: `ML99_SUPPRESS_UNUSED_BEFORE_STMT`.
+ - `gen.h`:
+   - `ML99_SUPPRESS_UNUSED_BEFORE_STMT`.
 
 ## [1.0.0] - 2021-03-27
 

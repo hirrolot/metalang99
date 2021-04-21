@@ -76,7 +76,7 @@
  * supported at least by Clang, GCC, and MSVC.
  * @see https://en.wikipedia.org/wiki/Hygienic_macro
  */
-#define ML99_GEN_SYM(prefix, id) ML99_CAT(prefix, ML99_CAT(id, ML99_CAT(_, __COUNTER__)))
+#define ML99_GEN_SYM(prefix, id) ML99_CAT4(prefix, id, _, __COUNTER__)
 
 #endif // __COUNTER__
 
