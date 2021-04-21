@@ -50,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 
  - `gen.h`:
-   - `ML99_SUPPRESS_UNUSED_BEFORE_STMT`.
+   - `ML99_SUPPRESS_UNUSED_BEFORE_STMT` (use `ML99_CHAIN_EXPR_STMT((void)expr)` instead).
 
 ## [1.0.0] - 2021-03-27
 
