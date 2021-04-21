@@ -151,6 +151,7 @@ To perform fewer reduction steps, you can:
 ## Guidelines
 
  - If possible, assert macro parameters for well-formedness using `ML99_assertIsTuple`, `ML99_assertIsNat`, etc. for better diagnostic messages.
+ - Use the `##` token-pasting operator in Metalang99-compliant macros (those which are postfixed with `_IMPL`) instead of `ML99_cat`, because arguments will nevertheless be fully expanded.
 
 ## Idioms
 
