@@ -11,24 +11,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `gen.h`:
    - Statement chaining macros:
-     - `ML99_CHAIN_EXPR_STMT`.
-     - `ML99_CHAIN_EXPR_STMT_AFTER`.
-     - `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`.
+     - `ML99_CHAIN_EXPR_STMT` to execute a statement before.
+     - `ML99_CHAIN_EXPR_STMT_AFTER` to execute a statement afterwards.
+     - `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT` to introduce a non-null pointer to a statement.
    - Other:
-     - `ML99_GEN_SYM`.
-     - `ML99_TRAILING_SEMICOLON`.
-     - `ML99_semicoloned`.
-     - `ML99_assign`.
-     - `ML99_invoke`.
+     - `ML99_GEN_SYM` to generate unique identifiers.
+     - `ML99_TRAILING_SEMICOLON` to force a trailing semicolon.
+     - `ML99_semicoloned` which puts a semicolon after its argument.
+     - `ML99_assign` to assign something to something.
+     - `ML99_invoke` to invoke a macro/function.
  - `util.h`:
    - Dealing with identifiers:
      - `ML99_detectIdent`.
-     - `ML99_identEq`, `ML99_IDENT_EQ`.
-     - `ML99_C_KEYWORD_DETECTOR`.
-     - `ML99_UNDERSCORE_DETECTOR`.
+     - `ML99_identEq`, `ML99_IDENT_EQ` to compare two identifiers.
+     - `ML99_C_KEYWORD_DETECTOR` to detect the C11 keywords.
+     - `ML99_UNDERSCORE_DETECTOR` to detect the underscore character (`_`).
    - Other:
-     - `ML99_uncomma`.
-     - `ML99_reify`.
+     - `ML99_uncomma` to evaluate terms with the space-separator.
+     - `ML99_reify` to reify a macro/function to a Metalang99-compliant metafunction.
      - `ML99_cat3`, `ML99_CAT3`, `ML99_CAT3_PRIMITIVE`.
      - `ML99_cat4`, `ML99_CAT4`, `ML99_CAT4_PRIMITIVE`.
  - `assert.h`:
