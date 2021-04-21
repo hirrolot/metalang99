@@ -52,6 +52,9 @@ ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(BAR_, x));
 ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(BAR_, abc));
 ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(BAR_, defghi));
 
+ML99_ASSERT(ML99_detectIdent(v(FOO_), v(x)));
+ML99_ASSERT(ML99_not(ML99_detectIdent(v(BAR_), v(x))));
+
 #undef FOO_x
 #undef FOO_y
 // }
@@ -118,6 +121,9 @@ ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(case), while));
 ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(volatile), _Alignof));
 ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(_Generic), _Alignas));
 ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(_), _Bool));
+
+ML99_ASSERT(ML99_detectIdent(ML99_detector(v(_Bool)), v(_Bool)));
+ML99_ASSERT(ML99_not(ML99_detectIdent(ML99_detector(v(_)), v(_Bool))));
 // }
 
 int main(void) {}

@@ -200,16 +200,16 @@
  * #define FOO_y ()
  *
  * // 1
- * ML99_DETECT_IDENT(FOO_, x)
+ * ML99_detectIdent(v(FOO_), v(x))
  *
  * // 1
- * ML99_DETECT_IDENT(FOO_, y)
+ * ML99_detectIdent(v(FOO_), v(y))
  *
  * // 0
- * ML99_DETECT_IDENT(FOO_, z)
+ * ML99_detectIdent(v(FOO_), v(z))
  * @endcode
  */
-#define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_CAT(prefix, ident))
+#define ML99_detectIdent(prefix, ident) ML99_call(ML99_detectIdent, prefix, ident)
 
 /**
  * Expands to the predefined detector of @p ident which can be then passed to #ML99_DETECT_IDENT.
@@ -223,16 +223,16 @@
  * #include <metalang99/util.h>
  *
  * // 1
- * ML99_DETECT_IDENT(ML99_DETECTOR(while), while)
+ * ML99_detectIdent(ML99_detector(v(while)), v(while))
  *
  * // 1
- * ML99_DETECT_IDENT(ML99_DETECTOR(_), _)
+ * ML99_detectIdent(ML99_detector(v(_)), v(_))
  *
  * // 0
- * ML99_DETECT_IDENT(ML99_DETECTOR(return), _Generic)
+ * ML99_detectIdent(ML99_detector(v(return)), v(_Generic))
  * @endcode
  */
-#define ML99_DETECTOR(ident) ML99_CAT(ML99_CAT(ML99_PRIV_DETECTOR_, ident), _)
+#define ML99_detector(ident) ML99_call(ML99_detector, ident)
 
 /**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
@@ -247,19 +247,23 @@
 #define ML99_CAT(x, y)      ML99_CAT_PRIMITIVE(x, y)
 #define ML99_STRINGIFY(...) ML99_STRINGIFY_PRIMITIVE(__VA_ARGS__)
 #define ML99_EMPTY(...)
-#define ML99_ID(...) __VA_ARGS__
+#define ML99_ID(...)                     __VA_ARGS__
+#define ML99_DETECTOR(ident)             ML99_CAT(ML99_CAT(ML99_PRIV_DETECTOR_, ident), _)
+#define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_CAT(prefix, ident))
 
 #ifndef DOXYGEN_IGNORE
 
-#define ML99_catEval_IMPL(x, y)      x##y
-#define ML99_cat_IMPL(x, y)          v(ML99_CAT(x, y))
-#define ML99_stringify_IMPL(...)     v(ML99_STRINGIFY(__VA_ARGS__))
-#define ML99_empty_IMPL(...)         v(ML99_EMPTY())
-#define ML99_id_IMPL(...)            v(ML99_ID(__VA_ARGS__))
-#define ML99_const_IMPL(x, _a)       v(x)
-#define ML99_flip_IMPL(f)            ML99_appl_IMPL(ML99_PRIV_flip, f)
-#define ML99_PRIV_flip_IMPL(f, a, b) ML99_appl2_IMPL(f, b, a)
-#define ML99_uncomma_IMPL(...)       __VA_ARGS__
+#define ML99_catEval_IMPL(x, y)              x##y
+#define ML99_cat_IMPL(x, y)                  v(ML99_CAT(x, y))
+#define ML99_stringify_IMPL(...)             v(ML99_STRINGIFY(__VA_ARGS__))
+#define ML99_empty_IMPL(...)                 v(ML99_EMPTY())
+#define ML99_id_IMPL(...)                    v(ML99_ID(__VA_ARGS__))
+#define ML99_const_IMPL(x, _a)               v(x)
+#define ML99_flip_IMPL(f)                    ML99_appl_IMPL(ML99_PRIV_flip, f)
+#define ML99_PRIV_flip_IMPL(f, a, b)         ML99_appl2_IMPL(f, b, a)
+#define ML99_uncomma_IMPL(...)               __VA_ARGS__
+#define ML99_detectIdent_IMPL(prefix, ident) v(ML99_DETECT_IDENT(prefix, ident))
+#define ML99_detector_IMPL(ident)            v(ML99_DETECTOR(ident))
 
 #define ML99_PRIV_DETECTOR_auto_auto                     ()
 #define ML99_PRIV_DETECTOR_break_break                   ()
@@ -322,15 +326,17 @@
 #endif
 
 // Arity specifiers {
-#define ML99_catEval_ARITY   2
-#define ML99_cat_ARITY       2
-#define ML99_stringify_ARITY 1
-#define ML99_empty_ARITY     1
-#define ML99_id_ARITY        1
-#define ML99_const_ARITY     2
-#define ML99_flip_ARITY      1
-#define ML99_uncomma_ARITY   1
-#define ML99_reify_ARITY     1
+#define ML99_catEval_ARITY     2
+#define ML99_cat_ARITY         2
+#define ML99_stringify_ARITY   1
+#define ML99_empty_ARITY       1
+#define ML99_id_ARITY          1
+#define ML99_const_ARITY       2
+#define ML99_flip_ARITY        1
+#define ML99_uncomma_ARITY     1
+#define ML99_reify_ARITY       1
+#define ML99_detectIdent_ARITY 2
+#define ML99_detector_ARITY    1
 
 #define ML99_PRIV_flip_ARITY  3
 #define ML99_PRIV_reify_ARITY 2
