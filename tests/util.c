@@ -123,7 +123,27 @@ ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(_Generic), _Alignas));
 ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(ML99_DETECTOR(_), _Bool));
 
 ML99_ASSERT(ML99_detectIdent(ML99_detector(v(_Bool)), v(_Bool)));
-ML99_ASSERT(ML99_not(ML99_detectIdent(ML99_detector(v(_)), v(_Bool))));
+ML99_ASSERT(ML99_not(ML99_detectIdent(ML99_detector(v(_Atomic)), v(_Bool))));
+// }
+
+// ML99_IDENT_EQ {
+#define FOO_x_x ()
+#define FOO_y_y ()
+
+ML99_ASSERT_UNEVAL(ML99_IDENT_EQ(FOO_, x, x));
+ML99_ASSERT_UNEVAL(ML99_IDENT_EQ(FOO_, y, y));
+
+ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, x, y));
+ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, abc, d));
+ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, x, ML99_EMPTY()));
+ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, ML99_EMPTY(), y));
+ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, ML99_EMPTY(), ML99_EMPTY()));
+
+ML99_ASSERT(ML99_identEq(v(FOO_), v(x), v(x)));
+ML99_ASSERT(ML99_not(ML99_identEq(v(FOO_), v(x), v(y))));
+
+#undef FOO_x_x
+#undef FOO_y_y
 // }
 
 int main(void) {}

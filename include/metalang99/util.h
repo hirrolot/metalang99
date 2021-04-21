@@ -212,7 +212,7 @@
 #define ML99_detectIdent(prefix, ident) ML99_call(ML99_detectIdent, prefix, ident)
 
 /**
- * Expands to the predefined detector of @p ident which can be then passed to #ML99_DETECT_IDENT.
+ * Expands to the predefined detector of @p ident which can be then passed to #ML99_detectIdent.
  *
  * @p ident ranges over all the <a href="https://en.cppreference.com/w/c/keyword">C11 keywords</a>
  * and the underscore character (`_`).
@@ -235,6 +235,31 @@
 #define ML99_detector(ident) ML99_call(ML99_detector, ident)
 
 /**
+ * Compares two identifiers @p x and @p y for equality.
+ *
+ * This macro is a shortcut to `ML99_detectIdent(ML99_cat(prefix, ML99_cat(x, v(_))), y)`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * #define FOO_x_x ()
+ * #define FOO_y_y ()
+ *
+ * // 1
+ * ML99_identEq(v(FOO_), v(x), v(x))
+ *
+ * // 1
+ * ML99_identEq(v(FOO_), v(y), v(y))
+ *
+ * // 0
+ * ML99_identEq(v(FOO_), v(x), v(y))
+ * @endcode
+ */
+#define ML99_identEq(prefix, x, y) ML99_call(ML99_identEq, prefix, x, y)
+
+/**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
  */
 #define ML99_GCC_PRAGMA(str) ML99_PRIV_GCC_PRAGMA(str)
@@ -250,6 +275,7 @@
 #define ML99_ID(...)                     __VA_ARGS__
 #define ML99_DETECTOR(ident)             ML99_CAT(ML99_CAT(ML99_PRIV_DETECTOR_, ident), _)
 #define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_CAT(prefix, ident))
+#define ML99_IDENT_EQ(prefix, x, y)      ML99_DETECT_IDENT(ML99_CAT(prefix, ML99_CAT(x, _)), y)
 
 #ifndef DOXYGEN_IGNORE
 
@@ -264,6 +290,7 @@
 #define ML99_uncomma_IMPL(...)               __VA_ARGS__
 #define ML99_detectIdent_IMPL(prefix, ident) v(ML99_DETECT_IDENT(prefix, ident))
 #define ML99_detector_IMPL(ident)            v(ML99_DETECTOR(ident))
+#define ML99_identEq_IMPL(prefix, x, y)      v(ML99_IDENT_EQ(prefix, x, y))
 
 #define ML99_PRIV_DETECTOR_auto_auto                     ()
 #define ML99_PRIV_DETECTOR_break_break                   ()
@@ -337,6 +364,7 @@
 #define ML99_reify_ARITY       1
 #define ML99_detectIdent_ARITY 2
 #define ML99_detector_ARITY    1
+#define ML99_identEq_ARITY     3
 
 #define ML99_PRIV_flip_ARITY  3
 #define ML99_PRIV_reify_ARITY 2
