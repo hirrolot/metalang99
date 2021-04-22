@@ -8,8 +8,6 @@ The Metalang99 Standard Library
 
 The Metalang99 standard library exports a set of macros implemented using the `Metalang99 metalanguage`_.
 
-The `ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` macros denote the major, the minor, and the patch numbers, respectively. They are defined in `metalang99.h`.
-
 Naming conventions
 ------------------
 
@@ -28,6 +26,11 @@ Sometimes, there exist two versions of the same macro: one is plain, and the oth
 Both metaprograms result in `1, 2, 3`.
 
 There is one exception from the rule: macros standing for the language terms such as `ML99_call`, `v`, and the others (defined in `lang.h`), are technically plain macros as well although they follow the `camelCase` convention.
+
+Miscellaneous
+-------------
+
+ - `ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` defined by `metalang99.h` denote the major, the minor, and the patch numbers, respectively.
 
 .. toctree::
    :hidden:
