@@ -8,18 +8,19 @@ The Metalang99 Standard Library
 
 The Metalang99 standard library exports a set of macros implemented using the `Metalang99 metalanguage`_.
 
-Naming conventions
-------------------
-
-Definitions:
+Definitions
+-----------
 
  - A plain macro is a macro whose result can be computed only by preprocessor expansion.
  - A Metalang99-compliant macro is a macro called through `ML99_call`/`ML99_callUneval`, directly or indirectly. To compute its result, the Metalang99 interpreter is needed.
+ - A desugaring macro is a convenience macro `X(params...)` which expands to `ML99_call(X, params...)` so that you can invoke `X` as `X(v(1), v(2), v(3))`. Desugaring macros are provided for all public Metalang99-compliant macros.
 
-Different types of macros are named differently [1]_:
+Naming conventions
+------------------
 
  - Plain macros follow the `SCREAMING_CASE` convention.
  - Metalang99-compliant macros follow the `camelCase` convention.
+ - Macros denoting language terms (defined by `lang.h`) follow the `camelCase` convention.
 
 Sometimes, there exist two versions of the same macro: one is plain, and the other is Metalang99-compliant. For example, here are two complete metaprograms, one using `ML99_untuple` and the second one using `ML99_UNTUPLE`:
 
@@ -33,12 +34,10 @@ Sometimes, there exist two versions of the same macro: one is plain, and the oth
 
 Both metaprograms result in `1, 2, 3`.
 
-.. [1] There is one exception from the rule: macros standing for the language terms such as `ML99_call`, `v`, and the others (defined in `lang.h`), are technically plain, although they follow the `camelCase` convention.
-
 Miscellaneous
 -------------
 
- - `ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` defined by `metalang99.h` denote the major, the minor, and the patch numbers, respectively.
+ - `ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` defined by `metalang99.h` denote the major, the minor, and the patch version numbers, respectively.
 
 .. toctree::
    :hidden:
