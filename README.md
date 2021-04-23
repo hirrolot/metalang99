@@ -184,6 +184,18 @@ DETECT_ABRACADABRA(abracadabra(1, 2, 3))
 DETECT_ABRACADABRA(blah)
 ```
 
+### Extracting a value of a keyword followed by parentheses
+
+To get `1, 2, 3` from `abracadabra(1, 2, 3)`:
+
+```c
+#define EXTRACT_ABRACADABRA(x)               ML99_CAT(EXTRACT_ABRACADABRA_, x)
+#define EXTRACT_ABRACADABRA_abracadabra(...) __VA_ARGS__
+
+// 1, 2, 3
+EXTRACT_ABRACADABRA(abracadabra(1, 2, 3))
+```
+
 ## FAQ
 
 ### Q: What about compile-time errors?
