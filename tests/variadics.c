@@ -72,10 +72,14 @@ ML99_ASSERT_EQ(v(ML99_VARIADICS_COUNT(~, ~, ~)), v(3));
 #undef _100_ARGS
 // }
 
-// ML99_variadicsIsSingle {
+// ML99_variadicsIsSingle, ML99_VARIADICS_IS_SINGLE {
 ML99_ASSERT(ML99_variadicsIsSingle(v()));
 ML99_ASSERT(ML99_variadicsIsSingle(v(~)));
 ML99_ASSERT(ML99_not(ML99_variadicsIsSingle(v(~, ~, ~))));
+
+ML99_ASSERT_UNEVAL(ML99_VARIADICS_IS_SINGLE());
+ML99_ASSERT_UNEVAL(ML99_VARIADICS_IS_SINGLE(~));
+ML99_ASSERT_UNEVAL(ML99_NOT(ML99_VARIADICS_IS_SINGLE(~, ~, ~)));
 // }
 
 // ML99_variadicsForEach {
