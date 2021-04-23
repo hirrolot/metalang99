@@ -11,7 +11,15 @@ The Metalang99 standard library exports a set of macros implemented using the `M
 Naming conventions
 ------------------
 
-Macros following the `SCREAMING_CASE` naming convention are called "plain" macros. To compute a final result of a plain macro, only preprocessor expansion is required (i.e. without involving the Metalang99 evaluator). Plain macros are used to save some reduction steps, thereby making metaprograms faster.
+Definitions:
+
+ - A plain macro is a macro whose result can be computed only by preprocessor expansion.
+ - A Metalang99-compliant macro is a macro called through `ML99_call`/`ML99_callUneval`, directly or indirectly. To compute its result, the Metalang99 interpreter is needed.
+
+Different types of macros are named differently [1]_:
+
+ - Plain macros follow the `SCREAMING_CASE` convention.
+ - Metalang99-compliant macros follow the `camelCase` convention.
 
 Sometimes, there exist two versions of the same macro: one is plain, and the other is Metalang99-compliant. For example, here are two complete metaprograms, one using `ML99_untuple` and the second one using `ML99_UNTUPLE`:
 
@@ -25,7 +33,7 @@ Sometimes, there exist two versions of the same macro: one is plain, and the oth
 
 Both metaprograms result in `1, 2, 3`.
 
-There is one exception from the rule: macros standing for the language terms such as `ML99_call`, `v`, and the others (defined in `lang.h`), are technically plain macros as well although they follow the `camelCase` convention.
+.. [1] There is one exception from the rule: macros standing for the language terms such as `ML99_call`, `v`, and the others (defined in `lang.h`), are technically plain, although they follow the `camelCase` convention.
 
 Miscellaneous
 -------------
