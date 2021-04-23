@@ -146,7 +146,7 @@ To perform fewer reduction steps, you can:
 
  - use `ML99_callUneval`,
  - use plain macros (e.g. `ML99_CAT` instead of `ML99_cat`),
- - call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and macro blueprinting will not happen. (I strongly recommend to use this trick only if `X` is defined locally to a caller in order to ensure the correctness of expansion.)
+ - call a macro as `<X>_IMPL(...)`, if all the arguments are evaluated. (I strongly recommend to use this trick only if `X` is defined locally to a caller in order to ensure the correctness of expansion.)
 
 ## Guidelines
 
