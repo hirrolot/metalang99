@@ -137,16 +137,16 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ## Optimisation tips
 
-Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here's its informal (and imprecise) description:
+Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here is its informal (and imprecise) description:
 
  - Every `v(...)` is a reduction step.
  - Every `ML99_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
 
 To perform fewer reduction steps, you can:
 
- - Use `ML99_callUneval`,
- - Use the plain versions (e.g. `ML99_CAT` instead of `ML99_cat`),
- - Call a macro as `<X>_IMPL(...)`, provided that all the arguments are evaluated and macro blueprinting will not happen. I strongly recommend to use this trick only if `X` is placed locally to a caller in order to ensure the correctness of expansion.
+ - use `ML99_callUneval`,
+ - use plain macros (e.g. `ML99_CAT` instead of `ML99_cat`),
+ - call a macro as `<X>_IMPL(...)`, if all the arguments are evaluated. (I strongly recommend to use this trick only if `X` is defined locally to a caller in order to ensure the correctness of expansion.)
 
 ## Guidelines
 
@@ -156,20 +156,6 @@ To perform fewer reduction steps, you can:
 [Metalang99-compliant macros]: https://metalang99.readthedocs.io/en/latest/#naming-conventions
 
 ## Idioms
-
-### Interspersing a comma
-
-To intersperse a comma between one or more elements, put a comma before each element and pass them all to `ML99_variadicsTail`:
-
-```c
-#define ARRAY_SUBSCRIPTS(array, n)                                                                 \
-    ML99_EVAL(ML99_variadicsTail(ML99_repeat(v(n), ML99_appl(v(GEN_SUBSCRIPT), v(array)))))
-#define GEN_SUBSCRIPT_IMPL(array, i) v(, (array)[i])
-#define GEN_SUBSCRIPT_ARITY          2
-
-// (animals)[0], (animals)[1], (animals)[2]
-ARRAY_SUBSCRIPTS(animals, 3)
-```
 
 ### Detecting a keyword followed by parentheses
 
@@ -196,6 +182,20 @@ To get `1, 2, 3` from `abracadabra(1, 2, 3)`:
 
 // 1, 2, 3
 EXTRACT_ABRACADABRA(abracadabra(1, 2, 3))
+```
+
+### Interspersing a comma
+
+To intersperse a comma between one or more elements, put a comma before each element and pass them all to `ML99_variadicsTail`:
+
+```c
+#define ARRAY_SUBSCRIPTS(array, n)                                                                 \
+    ML99_EVAL(ML99_variadicsTail(ML99_repeat(v(n), ML99_appl(v(GEN_SUBSCRIPT), v(array)))))
+#define GEN_SUBSCRIPT_IMPL(array, i) v(, (array)[i])
+#define GEN_SUBSCRIPT_ARITY          2
+
+// (animals)[0], (animals)[1], (animals)[2]
+ARRAY_SUBSCRIPTS(animals, 3)
 ```
 
 ## FAQ
