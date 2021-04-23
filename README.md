@@ -148,9 +148,9 @@ To perform fewer reduction steps, you can:
  - use plain macros (e.g. `ML99_CAT` instead of `ML99_cat`),
  - use optimised versions (e.g. `ML99_listMapInPlace`),
  - use tuples/variadics instead of lists,
- - call a macro as `<X>_IMPL(...)`, if all the arguments are evaluated.
+ - call a macro as `<X>_IMPL(...)`, if all the arguments are already evaluated.
 
-(I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to ensure the correctness of expansion.)
+(I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to control the correctness of expansion.)
 
 ## Guidelines
 
