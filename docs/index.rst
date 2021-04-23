@@ -12,7 +12,9 @@ Definitions
 -----------
 
  - A plain macro is a macro whose result can be computed only by preprocessor expansion.
+
  - A Metalang99-compliant macro is a macro called through `ML99_call`/`ML99_callUneval`, directly or indirectly. To compute its result, the Metalang99 interpreter is needed.
+
  - A desugaring macro is a convenience macro `X(params...)` which expands to `ML99_call(X, params...)` so that you can invoke `X` as `X(v(1), v(2), v(3))`. Desugaring macros are provided for all public Metalang99-compliant macros.
 
 Naming conventions
