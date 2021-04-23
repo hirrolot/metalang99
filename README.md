@@ -155,20 +155,6 @@ To perform fewer reduction steps, you can:
 
 ## Idioms
 
-### Interspersing a comma
-
-To intersperse a comma between one or more elements, put a comma before each element and pass them all to `ML99_variadicsTail`:
-
-```c
-#define ARRAY_SUBSCRIPTS(array, n)                                                                 \
-    ML99_EVAL(ML99_variadicsTail(ML99_repeat(v(n), ML99_appl(v(GEN_SUBSCRIPT), v(array)))))
-#define GEN_SUBSCRIPT_IMPL(array, i) v(, (array)[i])
-#define GEN_SUBSCRIPT_ARITY          2
-
-// (animals)[0], (animals)[1], (animals)[2]
-ARRAY_SUBSCRIPTS(animals, 3)
-```
-
 ### Detecting a keyword followed by parentheses
 
 To detect something like `abracadabra(1, 2, 3)`, follow this simple pattern:
@@ -194,6 +180,20 @@ To get `1, 2, 3` from `abracadabra(1, 2, 3)`:
 
 // 1, 2, 3
 EXTRACT_ABRACADABRA(abracadabra(1, 2, 3))
+```
+
+### Interspersing a comma
+
+To intersperse a comma between one or more elements, put a comma before each element and pass them all to `ML99_variadicsTail`:
+
+```c
+#define ARRAY_SUBSCRIPTS(array, n)                                                                 \
+    ML99_EVAL(ML99_variadicsTail(ML99_repeat(v(n), ML99_appl(v(GEN_SUBSCRIPT), v(array)))))
+#define GEN_SUBSCRIPT_IMPL(array, i) v(, (array)[i])
+#define GEN_SUBSCRIPT_ARITY          2
+
+// (animals)[0], (animals)[1], (animals)[2]
+ARRAY_SUBSCRIPTS(animals, 3)
 ```
 
 ## FAQ
