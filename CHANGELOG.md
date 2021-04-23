@@ -33,6 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - `ML99_cat4`, `ML99_CAT4`, `ML99_CAT4_PRIMITIVE`.
  - `assert.h`:
    - `ML99_assert`, `ML99_assertEq`.
+ - `variadics.h`:
+   - `ML99_variadicsIsSingle`, `ML99_VARIADICS_IS_SINGLE`.
  - Built-in data type assertion macros:
    - `tuple.h`: `ML99_assertIsTuple`.
    - `nat.h`: `ML99_assertIsNat`.

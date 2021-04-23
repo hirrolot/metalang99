@@ -72,6 +72,12 @@ ML99_ASSERT_EQ(v(ML99_VARIADICS_COUNT(~, ~, ~)), v(3));
 #undef _100_ARGS
 // }
 
+// ML99_variadicsIsSingle {
+ML99_ASSERT(ML99_variadicsIsSingle(v()));
+ML99_ASSERT(ML99_variadicsIsSingle(v(~)));
+ML99_ASSERT(ML99_not(ML99_variadicsIsSingle(v(~, ~, ~))));
+// }
+
 // ML99_variadicsForEach {
 #define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 2 && y == 3 && z == 4)
 #define F_IMPL(x)         v(, ML99_INC(x))

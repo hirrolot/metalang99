@@ -34,6 +34,23 @@
 #define ML99_variadicsCount(...) ML99_call(ML99_variadicsCount, __VA_ARGS__)
 
 /**
+ * Tells if it received only one argument or not.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/variadics.h>
+ *
+ * // 1
+ * ML99_variadicsIsSingle(v(~))
+ *
+ * // 0
+ * ML99_variadicsIsSingle(v(~, ~, ~))
+ * @endcode
+ */
+#define ML99_variadicsIsSingle(...) ML99_call(ML99_variadicsIsSingle, __VA_ARGS__)
+
+/**
  * Expands to a metafunction extracting the @p i -indexed argument.
  *
  * @p i can range from 0 to 7, inclusively.
@@ -105,13 +122,15 @@
  */
 #define ML99_variadicsForEachI(f, ...) ML99_call(ML99_variadicsForEachI, f, __VA_ARGS__)
 
-#define ML99_VARIADICS_COUNT(...) ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
-#define ML99_VARIADICS_GET(i)     ML99_CAT(ML99_PRIV_VARIADICS_GET_, i)
-#define ML99_VARIADICS_TAIL(...)  ML99_PRIV_TAIL(__VA_ARGS__)
+#define ML99_VARIADICS_COUNT(...)     ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
+#define ML99_VARIADICS_IS_SINGLE(...) ML99_NOT(ML99_PRIV_CONTAINS_COMMA(__VA_ARGS__))
+#define ML99_VARIADICS_GET(i)         ML99_CAT(ML99_PRIV_VARIADICS_GET_, i)
+#define ML99_VARIADICS_TAIL(...)      ML99_PRIV_TAIL(__VA_ARGS__)
 
 #ifndef DOXYGEN_IGNORE
 
-#define ML99_variadicsCount_IMPL(...) v(ML99_VARIADICS_COUNT(__VA_ARGS__))
+#define ML99_variadicsCount_IMPL(...)    v(ML99_VARIADICS_COUNT(__VA_ARGS__))
+#define ML99_variadicsIsSingle_IMPL(...) v(ML99_VARIADICS_IS_SINGLE(__VA_ARGS__))
 
 #define ML99_PRIV_variadicsGet_0(...) ML99_call(ML99_PRIV_variadicsGet_0, __VA_ARGS__)
 #define ML99_PRIV_variadicsGet_1(...) ML99_call(ML99_PRIV_variadicsGet_1, __VA_ARGS__)
@@ -234,6 +253,7 @@
 
 // Arity specifiers {
 #define ML99_variadicsCount_ARITY    1
+#define ML99_variadicsIsSingle_ARITY 1
 #define ML99_variadicsTail_ARITY     1
 #define ML99_variadicsForEach_ARITY  2
 #define ML99_variadicsForEachI_ARITY 2
