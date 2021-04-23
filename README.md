@@ -137,10 +137,10 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ## Optimisation tips
 
-Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept formally defined in the [specification]. Here is its informal (and imprecise) description:
+Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept defined formally by the [specification]. Here is its informal (and imprecise) description:
 
  - Every `v(...)` is a reduction step.
- - Every `ML99_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...` plus 1.
+ - Every `ML99_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...`.
 
 To perform fewer reduction steps, you can:
 
@@ -150,7 +150,7 @@ To perform fewer reduction steps, you can:
  - use tuples/variadics instead of lists,
  - call a macro as `<X>_IMPL(...)`, if all the arguments are evaluated.
 
-I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to ensure the correctness of expansion.
+(I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to ensure the correctness of expansion.)
 
 ## Guidelines
 
