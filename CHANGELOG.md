@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - `ML99_assign` to assign something to something.
      - `ML99_assignStmt` to generate an assignment statement.
      - `ML99_invoke` to invoke a macro/function.
-     - `ML99_invokeStmt` to generate `f(...);`.
+     - `ML99_invokeStmt` to generate a macro/function invocation statement.
      - `ML99_prefixedBlock` to generate `prefix { code }`.
  - `util.h`:
    - Dealing with identifiers:
