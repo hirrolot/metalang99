@@ -1,8 +1,3 @@
-/**
- * @file
- * Everything Metalang99 provides.
- */
-
 #ifndef ML99_H
 #define ML99_H
 
@@ -23,7 +18,7 @@
 #include <metalang99/variadics.h>
 
 #define ML99_MAJOR 1
-#define ML99_MINOR 0
+#define ML99_MINOR 1
 #define ML99_PATCH 0
 
 #endif // ML99_H
