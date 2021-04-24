@@ -92,8 +92,11 @@
 /**
  * The plain version of #ML99_if.
  *
- * In particular, this macro can be used to imitate lazy evaluation: `ML99_IF(<cond>, <term>,
- * <another-term>)` will expand to one of the terms, which can be evaluated further.
+ * This macro can be used to imitate lazy evaluation: `ML99_IF(<cond>, <term>, <another-term>)` will
+ * expand to one of the terms, which can be evaluated further.
+ *
+ * Also, you can conditionally call a plain macro like this: `ML99_IF(<cond>, <F>, <G>)(args...)`,
+ * where `<F>` and `<G>` are plain macros.
  *
  * @note @p x and @p y can possibly expand to commas. It means that you can supply `ML99_TERMS(...)`
  * as a branch, for example.
