@@ -171,6 +171,16 @@ ML99_EVAL(ML99_invoke(v(F), v(1, 2, 3)));
 #undef F
 // }
 
+// ML99_macroOpenedBlock {
+static void test_macro_open_block(void) {
+    ML99_EVAL(
+        ML99_macroOpenedBlock(v(ML99_INTRODUCE_VAR_TO_STMT(int x = 5)), v(assert(x == 5); return;)))
+
+    // Unreachable code.
+    assert(0);
+}
+// }
+
 // ML99_typedef {
 static void test_typedef(void) {
     ML99_EVAL(ML99_typedef(v(Point), v(struct { int x, y; })));
@@ -354,6 +364,7 @@ int main(void) {
     test_statement_chaining();
 
     test_assign();
+    test_macro_open_block();
 
     (void)test_typedef;
     (void)test_struct;

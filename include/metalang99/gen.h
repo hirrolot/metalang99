@@ -159,6 +159,25 @@
 #define ML99_invoke(f, ...) ML99_call(ML99_invoke, f, __VA_ARGS__)
 
 /**
+ * Generates `macro_call { bla-bla-bla }`.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * // ML99_INTRODUCE_VAR_TO_STMT(int x = 5) {
+ * //     printf("x = %d\n", x);
+ * // }
+ * ML99_macroOpenedBlock(
+ *     v(ML99_INTRODUCE_VAR_TO_STMT(int x = 5)),
+ *     v(printf("x = %d\n", x);))
+ * @endcode
+ */
+#define ML99_macroOpenedBlock(macro_call, ...)                                                     \
+    ML99_call(ML99_macroOpenedBlock, macro_call, __VA_ARGS__)
+
+/**
  * Generates a type definition.
  *
  * # Examples
@@ -416,12 +435,16 @@
 #define ML99_assign_IMPL(lhs, ...)    v(lhs = __VA_ARGS__)
 #define ML99_invoke_IMPL(f, ...)      v(f(__VA_ARGS__))
 #define ML99_typedef_IMPL(ident, ...) v(typedef __VA_ARGS__ ident;)
-#define ML99_struct_IMPL(ident, ...)  v(struct ident{__VA_ARGS__})
-#define ML99_anonStruct_IMPL(...)     v(struct {__VA_ARGS__})
-#define ML99_union_IMPL(ident, ...)   v(union ident{__VA_ARGS__})
-#define ML99_anonUnion_IMPL(...)      v(union {__VA_ARGS__})
-#define ML99_enum_IMPL(ident, ...)    v(enum ident{__VA_ARGS__})
-#define ML99_anonEnum_IMPL(...)       v(enum {__VA_ARGS__})
+
+// clang-format off
+#define ML99_macroOpenedBlock_IMPL(macro_call, ...) v(macro_call {__VA_ARGS__})
+#define ML99_struct_IMPL(ident, ...) v(struct ident{__VA_ARGS__})
+#define ML99_anonStruct_IMPL(...) v(struct {__VA_ARGS__})
+#define ML99_union_IMPL(ident, ...) v(union ident {__VA_ARGS__})
+#define ML99_anonUnion_IMPL(...) v(union {__VA_ARGS__})
+#define ML99_enum_IMPL(ident, ...) v(enum ident {__VA_ARGS__})
+#define ML99_anonEnum_IMPL(...) v(enum {__VA_ARGS__})
+// clang-format on
 
 // ML99_indexedParams_IMPL {
 #define ML99_indexedParams_IMPL(type_list)                                                         \
@@ -463,6 +486,7 @@
 #define ML99_braced_ARITY                 1
 #define ML99_assign_ARITY                 2
 #define ML99_invoke_ARITY                 2
+#define ML99_macroOpenedBlock_ARITY       2
 #define ML99_typedef_ARITY                2
 #define ML99_struct_ARITY                 2
 #define ML99_anonStruct_ARITY             1

@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - `ML99_semicoloned` which puts a semicolon after its argument.
      - `ML99_assign` to assign something to something.
      - `ML99_invoke` to invoke a macro/function.
+     - `ML99_macroOpenedBlock` to generate `macro(...) { ... }`.
  - `util.h`:
    - Dealing with identifiers:
      - `ML99_detectIdent`.
