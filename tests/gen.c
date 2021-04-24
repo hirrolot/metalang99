@@ -156,10 +156,15 @@ struct TestBraced ML99_EVAL(ML99_braced(v(int a, b, c;)));
 ML99_EVAL(ML99_semicoloned(v(struct TestSemicoloned { int a, b, c; })))
 // }
 
-// ML99_assign {
+// ML99_assign, ML99_assignStmt {
 static void test_assign(void) {
-    ML99_EVAL(ML99_assign(v(int x), v(5)));
+    int x = 0;
+
+    ML99_EVAL(ML99_assign(v(x), v(5)));
     assert(5 == x);
+
+    ML99_EVAL(ML99_assignStmt(v(x), v(7)))
+    assert(7 == x);
 }
 // }
 
