@@ -119,7 +119,7 @@ Happy hacking!
 
 ## Philosophy and origins
 
-My work on [Poica], a research programming language implemented upon [Boost/Preprocessor], has left me unsatisfied with the result. The fundamental downsides of Boost/Preprocessor made themselves felt: recursive macro blocking was a really hard-to-debug disaster, especially in the case of higher-order metafunctions, and the absence of partial application forced me to reify the same patterns into macros each time. The code base got simply unmaintainable.
+My work on [Poica], a research programming language implemented upon [Boost/Preprocessor], has left me unsatisfied with the result. The fundamental downsides of Boost/Preprocessor made themselves felt: blocking of recursive macro calls was a really hard-to-debug disaster, especially in the case of higher-order metafunctions, and the absence of partial application forced me to reify the same patterns into macros each time. The code base got simply unmaintainable.
 
 After I realised that the metaprogramming framework lacks abstractions, I started to implement Metalang99. Honestly, it turned out to be a much tougher and fascinating challenge than I expected -- it took half of a year of hard work to release v0.1.0. As a real-world application of Metalang99, I created [Datatype99] exactly of the same form I wanted it to be: the implementation is highly declarative, the syntax is nifty, and the semantics is well-defined.
 
