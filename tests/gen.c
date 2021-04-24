@@ -163,10 +163,11 @@ static void test_assign(void) {
 }
 // }
 
-// ML99_invoke {
+// ML99_invoke, ML99_invokeStmt {
 #define F(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
 
 ML99_EVAL(ML99_invoke(v(F), v(1, 2, 3)));
+ML99_EVAL(ML99_invokeStmt(v(F), v(1, 2, 3)))
 
 #undef F
 // }

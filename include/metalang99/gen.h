@@ -145,7 +145,7 @@
 #define ML99_assign(lhs, ...) ML99_call(ML99_assign, lhs, __VA_ARGS__)
 
 /**
- * Invokes `f(...)`.
+ * Generates a function/macro invocation.
  *
  * # Examples
  *
@@ -157,6 +157,11 @@
  * @endcode
  */
 #define ML99_invoke(f, ...) ML99_call(ML99_invoke, f, __VA_ARGS__)
+
+/**
+ * Generates `f(...);`.
+ */
+#define ML99_invokeStmt(f, ...) ML99_call(ML99_invokeStmt, f, __VA_ARGS__)
 
 /**
  * Generates `prefix { code }`.
@@ -433,6 +438,7 @@
 #define ML99_braced_IMPL(...)         v({__VA_ARGS__})
 #define ML99_assign_IMPL(lhs, ...)    v(lhs = __VA_ARGS__)
 #define ML99_invoke_IMPL(f, ...)      v(f(__VA_ARGS__))
+#define ML99_invokeStmt_IMPL(f, ...)  v(f(__VA_ARGS__);)
 #define ML99_typedef_IMPL(ident, ...) v(typedef __VA_ARGS__ ident;)
 
 // clang-format off
@@ -485,6 +491,7 @@
 #define ML99_braced_ARITY                 1
 #define ML99_assign_ARITY                 2
 #define ML99_invoke_ARITY                 2
+#define ML99_invokeStmt_ARITY             2
 #define ML99_prefixedBlock_ARITY          2
 #define ML99_typedef_ARITY                2
 #define ML99_struct_ARITY                 2
