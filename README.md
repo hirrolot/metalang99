@@ -150,7 +150,7 @@ To perform fewer reduction steps, you can:
  - use tuples/variadics instead of lists,
  - call a macro as `<X>_IMPL(...)`, if all the arguments are already evaluated.
 
-(I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to control the correctness of expansion. For example, `X` can become painted blue, it can emit unexpected commas acting as separators of multiple terms, the `#` and `##` operators can block expansion of parameters, and a plenty of other nasty things.)
+(I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to control the correctness of expansion. For example, `X` can become painted blue, it can emit unexpected commas, the `#` and `##` operators can block expansion of parameters, and a plenty of other nasty things.)
 
 ## Guidelines
 
