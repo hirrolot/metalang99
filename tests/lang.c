@@ -1,4 +1,5 @@
 #include <metalang99/assert.h>
+#include <metalang99/util.h>
 
 ML99_ASSERT_EMPTY_UNEVAL(ML99_EVAL(v()));
 

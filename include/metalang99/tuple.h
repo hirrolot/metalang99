@@ -130,7 +130,7 @@
  * ML99_tupleGet(1)(v((1, 2, 3)))
  * @endcode
  */
-#define ML99_tupleGet(i) ML99_CAT(ML99_PRIV_tupleGet_, i)
+#define ML99_tupleGet(i) ML99_PRIV_CAT(ML99_PRIV_tupleGet_, i)
 
 /**
  * Extracts the tuple's tail.
