@@ -10,7 +10,7 @@
 #define ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR(term, ...)                                             \
     ML99_PRIV_SYNTAX_ERROR(term)                                                                   \
     /* Consume arguments passed to ML99_PRIV_TERM_MATCH, see eval.h. */                            \
-    ML99_PRIV_CONSUME
+    ML99_PRIV_EMPTY
 
 // clang-format off
 #define ML99_PRIV_SYNTAX_ERROR(invalid_term) \

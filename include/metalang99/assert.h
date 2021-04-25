@@ -13,7 +13,6 @@
 
 #include <metalang99/lang.h>
 #include <metalang99/logical.h>
-#include <metalang99/util.h>
 
 /**
  * The same as #ML99_ASSERT but results in a Metalang99 term.
@@ -68,7 +67,7 @@
  */
 #define ML99_ASSERT_UNEVAL(expr)                                                                   \
     /* How to imitate static assertions in C99: <https://stackoverflow.com/a/3385694/13166656>. */ \
-    static const char ML99_CAT(                                                                    \
+    static const char ML99_PRIV_CAT(                                                               \
         ml99_assert_,                                                                              \
         __LINE__)[(expr) ? 1 : -1] ML99_PRIV_COMPILER_ATTR_UNUSED = {0}
 
@@ -104,7 +103,8 @@
  * ML99_ASSERT_EMPTY_UNEVAL(123);
  * @endcode
  */
-#define ML99_ASSERT_EMPTY_UNEVAL(expr) ML99_ASSERT_UNEVAL(ML99_CAT(ML99_PRIV_ASSERT_EMPTY_, expr))
+#define ML99_ASSERT_EMPTY_UNEVAL(expr)                                                             \
+    ML99_ASSERT_UNEVAL(ML99_PRIV_CAT(ML99_PRIV_ASSERT_EMPTY_, expr))
 
 #ifndef DOXYGEN_IGNORE
 

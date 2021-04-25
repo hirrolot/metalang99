@@ -9,12 +9,11 @@
 #ifndef ML99_VARIADICS_H
 #define ML99_VARIADICS_H
 
+#include <metalang99/nat/eq.h>
 #include <metalang99/priv/util.h>
 
-#include <metalang99/control.h>
 #include <metalang99/lang.h>
-#include <metalang99/nat.h>
-#include <metalang99/util.h>
+#include <metalang99/logical.h>
 
 /**
  * Computes a count of its arguments.
@@ -126,7 +125,7 @@
 
 #define ML99_VARIADICS_COUNT(...)     ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
 #define ML99_VARIADICS_IS_SINGLE(...) ML99_NOT(ML99_PRIV_CONTAINS_COMMA(__VA_ARGS__))
-#define ML99_VARIADICS_GET(i)         ML99_CAT(ML99_PRIV_VARIADICS_GET_, i)
+#define ML99_VARIADICS_GET(i)         ML99_PRIV_CAT(ML99_PRIV_VARIADICS_GET_, i)
 #define ML99_VARIADICS_TAIL(...)      ML99_PRIV_TAIL(__VA_ARGS__)
 
 #ifndef DOXYGEN_IGNORE
@@ -178,7 +177,7 @@
 
 #define ML99_PRIV_variadicsForEachAux_IMPL(f, count, ...)                                          \
     ML99_PRIV_IF(                                                                                  \
-        ML99_NAT_EQ(count, 1),                                                                     \
+        ML99_PRIV_NAT_EQ(count, 1),                                                                \
         ML99_PRIV_VARIADICS_FOR_EACH_DONE,                                                         \
         ML99_PRIV_VARIADICS_FOR_EACH_PROGRESS)                                                     \
     (f, count, __VA_ARGS__)
@@ -187,7 +186,7 @@
 #define ML99_PRIV_VARIADICS_FOR_EACH_PROGRESS(f, count, x, ...)                                    \
     ML99_TERMS(                                                                                    \
         ML99_appl_IMPL(f, x),                                                                      \
-        ML99_callUneval(ML99_PRIV_variadicsForEachAux, f, ML99_DEC(count), __VA_ARGS__))
+        ML99_callUneval(ML99_PRIV_variadicsForEachAux, f, ML99_PRIV_DEC(count), __VA_ARGS__))
 // }
 
 // ML99_variadicsForEachI_IMPL {
@@ -201,7 +200,7 @@
 
 #define ML99_PRIV_variadicsForEachIAux_IMPL(f, i, count, ...)                                      \
     ML99_PRIV_IF(                                                                                  \
-        ML99_NAT_EQ(count, 1),                                                                     \
+        ML99_PRIV_NAT_EQ(count, 1),                                                                \
         ML99_PRIV_VARIADICS_FOR_EACH_I_DONE,                                                       \
         ML99_PRIV_VARIADICS_FOR_EACH_I_PROGRESS)                                                   \
     (f, i, count, __VA_ARGS__)
@@ -213,8 +212,8 @@
         ML99_callUneval(                                                                           \
             ML99_PRIV_variadicsForEachIAux,                                                        \
             f,                                                                                     \
-            ML99_INC(i),                                                                           \
-            ML99_DEC(count),                                                                       \
+            ML99_PRIV_INC(i),                                                                      \
+            ML99_PRIV_DEC(count),                                                                  \
             __VA_ARGS__))
 // }
 

@@ -11,11 +11,8 @@
 #include <metalang99/nat/eq.h>
 #include <metalang99/nat/inc.h>
 
-#include <metalang99/control.h>
 #include <metalang99/lang.h>
 #include <metalang99/logical.h>
-#include <metalang99/maybe.h>
-#include <metalang99/util.h>
 
 /**
  * \f$x + 1\f$
@@ -476,7 +473,10 @@
 #define ML99_max_IMPL(x, y) ML99_call(ML99_if, ML99_lesser_IMPL(x, y), v(y, x))
 
 #define ML99_assertIsNat_IMPL(x)                                                                   \
-    ML99_IF(ML99_PRIV_NAT_EQ(x, x), ML99_empty(), ML99_PRIV_ASSERT_IS_NAT_FATAL(x, ML99_NAT_MAX))
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_NAT_EQ(x, x),                                                                    \
+        v(ML99_PRIV_EMPTY()),                                                                      \
+        ML99_PRIV_ASSERT_IS_NAT_FATAL(x, ML99_NAT_MAX))
 
 // clang-format off
 #define ML99_PRIV_ASSERT_IS_NAT_FATAL(x, max) ML99_fatal(ML99_assertIsNat, x must be within [0; max])

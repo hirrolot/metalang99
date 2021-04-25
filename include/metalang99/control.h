@@ -11,7 +11,6 @@
 #include <metalang99/lang.h>
 #include <metalang99/nat.h>
 #include <metalang99/tuple.h>
-#include <metalang99/util.h>
 
 /**
  * If @p cond is true, evaluates to @p x, otherwise @p y.
@@ -87,7 +86,7 @@
  * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `ML99_CAT(f,
  * ML99_VARIADICS_COUNT(...))(...)`.
  */
-#define ML99_OVERLOAD(f, ...) ML99_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
+#define ML99_OVERLOAD(f, ...) ML99_PRIV_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
 
 /**
  * The plain version of #ML99_if.
@@ -108,11 +107,11 @@
 #define ML99_if_IMPL(cond, x, y) v(ML99_PRIV_IF(cond, x, y))
 
 #define ML99_repeat_IMPL(n, f)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_repeat_, f)
-#define ML99_PRIV_repeat_Z_IMPL(...)  v(ML99_EMPTY())
+#define ML99_PRIV_repeat_Z_IMPL(...)  v(ML99_PRIV_EMPTY())
 #define ML99_PRIV_repeat_S_IMPL(i, f) ML99_TERMS(ML99_repeat_IMPL(i, f), ML99_appl_IMPL(f, i))
 
 #define ML99_times_IMPL(n, ...)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_times_, __VA_ARGS__)
-#define ML99_PRIV_times_Z_IMPL(...)    v(ML99_EMPTY())
+#define ML99_PRIV_times_Z_IMPL(...)    v(ML99_PRIV_EMPTY())
 #define ML99_PRIV_times_S_IMPL(i, ...) ML99_TERMS(v(__VA_ARGS__), ML99_times_IMPL(i, __VA_ARGS__))
 
 // Arity specifiers {

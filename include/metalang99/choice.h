@@ -16,7 +16,6 @@
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
-#include <metalang99/util.h>
 
 /**
  * Constructs an instance of a choice type.
@@ -86,11 +85,11 @@
 #define ML99_choiceTag_IMPL(choice) v(ML99_CHOICE_TAG(choice))
 
 #define ML99_match_IMPL(choice, matcher)                                                           \
-    ML99_callUneval(ML99_CAT(matcher, ML99_PRIV_HEAD_AUX choice), ML99_PRIV_CHOICE_DATA choice)
+    ML99_callUneval(ML99_PRIV_CAT(matcher, ML99_PRIV_HEAD_AUX choice), ML99_PRIV_CHOICE_DATA choice)
 
 #define ML99_matchWithArgs_IMPL(choice, matcher, ...)                                              \
     ML99_callUneval(                                                                               \
-        ML99_CAT(matcher, ML99_PRIV_HEAD_AUX choice),                                              \
+        ML99_PRIV_CAT(matcher, ML99_PRIV_HEAD_AUX choice),                                         \
         ML99_PRIV_CHOICE_DATA choice,                                                              \
         __VA_ARGS__)
 

@@ -1,9 +1,8 @@
 #ifndef ML99_NAT_INC_H
 #define ML99_NAT_INC_H
 
-#include <metalang99/priv/util.h>
-
-#define ML99_PRIV_INC(x) ML99_PRIV_PRIMITIVE_CAT(ML99_PRIV_INC_, x)
+#define ML99_PRIV_INC(x)     ML99_PRIV_INC_AUX(x)
+#define ML99_PRIV_INC_AUX(x) ML99_PRIV_INC_##x
 
 #define ML99_PRIV_INC_0   1
 #define ML99_PRIV_INC_1   2

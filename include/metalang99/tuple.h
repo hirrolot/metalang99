@@ -18,7 +18,6 @@
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
-#include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
 /**
@@ -200,7 +199,7 @@
 #define ML99_UNTUPLE(x)            ML99_PRIV_EXPAND x
 #define ML99_IS_TUPLE(x)           ML99_PRIV_IS_TUPLE(x)
 #define ML99_IS_UNTUPLE(x)         ML99_PRIV_IS_UNTUPLE(x)
-#define ML99_TUPLE_GET(i)          ML99_CAT(ML99_PRIV_TUPLE_GET_, i)
+#define ML99_TUPLE_GET(i)          ML99_PRIV_CAT(ML99_PRIV_TUPLE_GET_, i)
 #define ML99_TUPLE_TAIL(x)         ML99_VARIADICS_TAIL(ML99_UNTUPLE(x))
 #define ML99_TUPLE_APPEND(x, ...)  (ML99_UNTUPLE(x), __VA_ARGS__)
 #define ML99_TUPLE_PREPEND(x, ...) (__VA_ARGS__, ML99_UNTUPLE(x))
@@ -248,7 +247,7 @@
 
 // clang-format off
 #define ML99_assertIsTuple_IMPL(x) \
-    ML99_IF(ML99_IS_TUPLE(x), ML99_empty(), ML99_fatal(ML99_assertIsTuple, x must be (x1, ..., xN)))
+    ML99_PRIV_IF(ML99_IS_TUPLE(x), v(ML99_PRIV_EMPTY()), ML99_fatal(ML99_assertIsTuple, x must be (x1, ..., xN)))
 // clang-format on
 
 // Arity specifiers {

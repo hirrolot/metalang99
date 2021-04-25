@@ -1,10 +1,8 @@
 #ifndef ML99_NAT_DIV_H
 #define ML99_NAT_DIV_H
 
-#include <metalang99/nat/eq.h>
 #include <metalang99/priv/util.h>
 
-#include <metalang99/lang.h>
 #include <metalang99/maybe.h>
 #include <metalang99/tuple.h>
 

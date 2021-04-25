@@ -5,7 +5,7 @@
 #define ML99_PRIV_PRIMITIVE_CAT(x, y) x##y
 
 #define ML99_PRIV_EXPAND(...) __VA_ARGS__
-#define ML99_PRIV_CONSUME(...)
+#define ML99_PRIV_EMPTY(...)
 
 #define ML99_PRIV_HEAD(...)        ML99_PRIV_HEAD_AUX(__VA_ARGS__, ~)
 #define ML99_PRIV_HEAD_AUX(x, ...) x

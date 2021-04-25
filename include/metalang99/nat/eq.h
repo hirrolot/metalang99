@@ -1,10 +1,10 @@
 #ifndef ML99_NAT_EQ_H
 #define ML99_NAT_EQ_H
 
-#include <metalang99/util.h>
+#include <metalang99/priv/util.h>
 
 #define ML99_PRIV_NAT_EQ(x, y)     ML99_PRIV_NAT_EQ_AUX(x, y)
-#define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_DETECT_IDENT(ML99_PRIV_NAT_EQ_##x##_, y)
+#define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_PRIV_IS_TUPLE(ML99_PRIV_NAT_EQ_##x##_##y)
 
 #define ML99_PRIV_NAT_EQ_0_0     ()
 #define ML99_PRIV_NAT_EQ_1_1     ()
