@@ -25,7 +25,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Tests
-      run: bash scripts/test-all.sh
+      run: CC=${{ matrix.compiler }} bash scripts/test-all.sh
 
   bench:
     runs-on: ubuntu-latest
