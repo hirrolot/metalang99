@@ -20,15 +20,19 @@ jobs:
             compiler: msvc
 
     runs-on: ${{ matrix.os }}
+    env:
+      CC: ${{ matrix.compiler }}
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Tests
-      run: CC=${{ matrix.compiler }} bash scripts/test-all.sh
+    - name: Test
+      run: bash scripts/test-all.sh
 
   test-tcc:
     runs-on: ubuntu-latest
+    env:
+      CC: tcc
 
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +41,7 @@ jobs:
         run: sudo apt install tcc
 
       - name: Test
-        run: CC=tcc bash scripts/test.sh
+        run: bash scripts/test-all.sh
 
   bench:
     runs-on: ubuntu-latest
