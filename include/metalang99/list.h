@@ -112,6 +112,30 @@
 #define ML99_list(...) ML99_call(ML99_list, __VA_ARGS__)
 
 /**
+ * Constructs a list from comma-separated tuples.
+ *
+ * It sequentially applies @p f to each untupled argument, thus forming the resulting list. If some
+ * argument is not a tuple, a fatal error is emitted.
+ *
+ * The result is `ML99_list(ML99_appl(f, ML99_untuple(x1)), ..., ML99_appl(f, ML99_untuple(xN)))`.
+ *
+ * At most 63 arguments are acceptable.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/list.h>
+ *
+ * #define F_IMPL(x, y) v(x + y)
+ * #define F_ARITY      1
+ *
+ * // ML99_list(v(1 + 2, 3 + 4, 5 + 6))
+ * ML99_listFromTuples(v(F), v((1, 2), (3, 4), (5, 6)))
+ * @endcode
+ */
+#define ML99_listFromTuples(f, ...) ML99_call(ML99_listFromTuples, f, __VA_ARGS__)
+
+/**
  * Computes the length of @p list.
  *
  * # Examples
@@ -733,6 +757,27 @@
     v(ML99_CONS(a, ML99_CONS(b, ML99_CONS(c, ML99_CONS(d, ML99_NIL())))))
 // } (ML99_list_IMPL)
 
+// ML99_listFromTuples {
+#define ML99_listFromTuples_IMPL(f, ...)                                                           \
+    ML99_PRIV_listFromTuplesProgress_IMPL(f, ML99_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
+
+#define ML99_PRIV_listFromTuplesProgress_IMPL(f, count, x, ...)                                    \
+    ML99_PRIV_IF(                                                                                  \
+        ML99_IS_UNTUPLE(x),                                                                        \
+        ML99_PRIV_listFromTuplesError,                                                             \
+        ML99_PRIV_listFromTuplesProgressAux)                                                       \
+    (f, count, x, __VA_ARGS__)
+
+#define ML99_PRIV_listFromTuplesError(_f, _count, x, ...) ML99_PRIV_NOT_TUPLE_ERROR(x)
+#define ML99_PRIV_listFromTuplesProgressAux(f, count, x, ...)                                      \
+    ML99_cons(                                                                                     \
+        ML99_appl_IMPL(f, ML99_UNTUPLE(x)),                                                        \
+        ML99_PRIV_IF(                                                                              \
+            ML99_NAT_EQ(count, 1),                                                                 \
+            v(ML99_NIL()),                                                                         \
+            ML99_callUneval(ML99_PRIV_listFromTuplesProgress, f, ML99_DEC(count), __VA_ARGS__)))
+// }
+
 // ML99_listLen_IMPL {
 #define ML99_listLen_IMPL(list)             ML99_match_IMPL(list, ML99_PRIV_listLen_)
 #define ML99_PRIV_listLen_nil_IMPL(_)       v(0)
@@ -1025,6 +1070,7 @@
 #define ML99_listLast_ARITY           1
 #define ML99_listInit_ARITY           1
 #define ML99_list_ARITY               1
+#define ML99_listFromTuples_ARITY     2
 #define ML99_listLen_ARITY            1
 #define ML99_listAppend_ARITY         2
 #define ML99_listAppendItem_ARITY     2

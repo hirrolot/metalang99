@@ -245,9 +245,11 @@
 #define ML99_tupleAppend_IMPL(x, ...)  v(ML99_TUPLE_APPEND(x, __VA_ARGS__))
 #define ML99_tuplePrepend_IMPL(x, ...) v(ML99_TUPLE_PREPEND(x, __VA_ARGS__))
 
+#define ML99_assertIsTuple_IMPL(x)                                                                 \
+    ML99_PRIV_IF(ML99_IS_UNTUPLE(x), ML99_PRIV_NOT_TUPLE_ERROR(x), v(ML99_PRIV_EMPTY()))
+
 // clang-format off
-#define ML99_assertIsTuple_IMPL(x) \
-    ML99_PRIV_IF(ML99_IS_TUPLE(x), v(ML99_PRIV_EMPTY()), ML99_fatal(ML99_assertIsTuple, x must be (x1, ..., xN)))
+#define ML99_PRIV_NOT_TUPLE_ERROR(x) ML99_fatal(ML99_assertIsTuple, x must be (x1, ..., xN))
 // clang-format on
 
 // Arity specifiers {

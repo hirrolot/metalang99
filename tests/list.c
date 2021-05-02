@@ -18,6 +18,18 @@ ML99_ASSERT(ML99_listEq(
                 ML99_cons(v(4), ML99_cons(v(5), ML99_cons(v(6), ML99_cons(v(7), ML99_nil())))))))));
 // }
 
+// ML99_listFromTuples {
+#define F_IMPL(x, y) ML99_add(v(x), v(y))
+#define F_ARITY      1
+
+ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listFromTuples(v(F), v((1, 2))), ML99_list(v(3))));
+ML99_ASSERT(ML99_listEq(
+    v(ML99_natEq), ML99_listFromTuples(v(F), v((1, 2), (3, 4), (5, 6))), ML99_list(v(3, 7, 11))));
+
+#undef F_IMPL
+#undef F_ARITY
+// }
+
 // ML99_listHead {
 ML99_ASSERT_EQ(ML99_listHead(ML99_list(v(1))), v(1));
 ML99_ASSERT_EQ(ML99_listHead(ML99_list(v(1, 2))), v(1));

@@ -86,7 +86,7 @@
 /**
  * Applies @p f to each argument.
  *
- * The result is `ML99_appl(v(f), v(x1)) ... ML99_appl(v(f), v(xN))`.
+ * The result is `ML99_appl(f, x1) ... ML99_appl(f, xN)`.
  *
  * If you already have variadics, using this macro is more efficient than
  * `ML99_listUnwrap(ML99_listMap(v(f), ML99_list(v(...))))`.
@@ -112,7 +112,7 @@
 /**
  * Applies @p f to each argument with an index.
  *
- * The result is `ML99_appl2(v(f), v(x1), v(0)) ... ML99_appl2(v(f), v(xN), v(N))`.
+ * The result is `ML99_appl2(f, x1, 0) ... ML99_appl2(f, xN, N)`.
  *
  * If you already have variadics, using this macro is more efficient than
  * `ML99_listUnwrap(ML99_listMapI(v(f), ML99_list(v(...))))`.
