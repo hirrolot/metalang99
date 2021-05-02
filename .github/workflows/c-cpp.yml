@@ -13,7 +13,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         include:
           - os: ubuntu-latest
-            compiler: tcc
+            compiler: gcc
           - os: macos-latest
             compiler: clang
           - os: windows-latest
@@ -26,6 +26,18 @@ jobs:
 
     - name: Tests
       run: CC=${{ matrix.compiler }} bash scripts/test-all.sh
+
+  test-tcc:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install TCC
+      - run: sudo apt install tcc
+
+      - name: Test
+      - run: CC=tcc bash scripts/test.sh
 
   bench:
     runs-on: ubuntu-latest
