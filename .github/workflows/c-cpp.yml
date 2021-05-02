@@ -14,6 +14,10 @@ jobs:
         include:
           - os: ubuntu-latest
             compiler: tcc
+          - os: macos-latest
+            compiler: clang
+          - os: windows-latest
+            compiler: msvc
 
     runs-on: ${{ matrix.os }}
 
