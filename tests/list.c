@@ -4,8 +4,10 @@
 #include <metalang99/tuple.h>
 #include <metalang99/util.h>
 
+#define CMP_NATURALS(lhs, rhs) ML99_listEq(v(ML99_natEq), lhs, rhs)
+
 // ML99_list, ML99_cons, ML99_nil {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_nil(v(~, ~, ~)), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_nil(v(~, ~, ~)), ML99_nil()));
 
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_list(v(1, 2, 3, 4, 5, 6, 7)),
@@ -22,7 +24,7 @@ ML99_ASSERT(ML99_listEq(
 #define F_IMPL(x, y) ML99_add(v(x), v(y))
 #define F_ARITY      1
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listFromTuples(v(F), v((1, 2))), ML99_list(v(3))));
+ML99_ASSERT(CMP_NATURALS(ML99_listFromTuples(v(F), v((1, 2))), ML99_list(v(3))));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listFromTuples(v(F), v((1, 2), (3, 4), (5, 6))), ML99_list(v(3, 7, 11))));
 
@@ -37,9 +39,9 @@ ML99_ASSERT_EQ(ML99_listHead(ML99_list(v(1, 2, 3))), v(1));
 // }
 
 // ML99_listTail {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listTail(ML99_list(v(1))), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listTail(ML99_list(v(1, 2))), ML99_list(v(2))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listTail(ML99_list(v(1, 2, 3))), ML99_list(v(2, 3))));
+ML99_ASSERT(CMP_NATURALS(ML99_listTail(ML99_list(v(1))), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listTail(ML99_list(v(1, 2))), ML99_list(v(2))));
+ML99_ASSERT(CMP_NATURALS(ML99_listTail(ML99_list(v(1, 2, 3))), ML99_list(v(2, 3))));
 // }
 
 // ML99_listLast {
@@ -49,9 +51,9 @@ ML99_ASSERT_EQ(ML99_listLast(ML99_list(v(1, 2, 3))), v(3));
 // }
 
 // ML99_listInit {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listInit(ML99_list(v(1))), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listInit(ML99_list(v(1, 2))), ML99_list(v(1))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listInit(ML99_list(v(1, 2, 3))), ML99_list(v(1, 2))));
+ML99_ASSERT(CMP_NATURALS(ML99_listInit(ML99_list(v(1))), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listInit(ML99_list(v(1, 2))), ML99_list(v(1))));
+ML99_ASSERT(CMP_NATURALS(ML99_listInit(ML99_list(v(1, 2, 3))), ML99_list(v(1, 2))));
 // }
 
 // ML99_listLen {
@@ -62,7 +64,7 @@ ML99_ASSERT_EQ(ML99_listLen(ML99_list(v(123, 222, 18))), v(3));
 // }
 
 // ML99_listAppend {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listAppend(ML99_nil(), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listAppend(ML99_nil(), ML99_nil()), ML99_nil()));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listAppend(ML99_nil(), ML99_list(v(1, 2, 3))), ML99_list(v(1, 2, 3))));
 ML99_ASSERT(ML99_listEq(
@@ -74,15 +76,14 @@ ML99_ASSERT(ML99_listEq(
 // }
 
 // ML99_listAppendItem {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listAppendItem(v(123), ML99_nil()), ML99_list(v(123))));
+ML99_ASSERT(CMP_NATURALS(ML99_listAppendItem(v(123), ML99_nil()), ML99_list(v(123))));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listAppendItem(v(222), ML99_list(v(1, 2, 3))), ML99_list(v(1, 2, 3, 222))));
 // }
 
 // ML99_listReverse {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listReverse(ML99_nil()), ML99_nil()));
-ML99_ASSERT(
-    ML99_listEq(v(ML99_natEq), ML99_listReverse(ML99_list(v(1, 2, 3))), ML99_list(v(3, 2, 1))));
+ML99_ASSERT(CMP_NATURALS(ML99_listReverse(ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listReverse(ML99_list(v(1, 2, 3))), ML99_list(v(3, 2, 1))));
 // }
 
 // ML99_listContains {
@@ -141,15 +142,12 @@ ML99_ASSERT_EQ(ML99_listGet(v(1), ML99_list(v(123, 222))), v(222));
 // }
 
 // ML99_listTake {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listTake(v(1), ML99_nil()), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listTake(v(200), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listTake(v(1), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listTake(v(200), ML99_nil()), ML99_nil()));
 
-ML99_ASSERT(
-    ML99_listEq(v(ML99_natEq), ML99_listTake(v(1), ML99_list(v(1, 2, 3))), ML99_list(v(1))));
-ML99_ASSERT(
-    ML99_listEq(v(ML99_natEq), ML99_listTake(v(2), ML99_list(v(1, 2, 3))), ML99_list(v(1, 2))));
-ML99_ASSERT(
-    ML99_listEq(v(ML99_natEq), ML99_listTake(v(3), ML99_list(v(1, 2, 3))), ML99_list(v(1, 2, 3))));
+ML99_ASSERT(CMP_NATURALS(ML99_listTake(v(1), ML99_list(v(1, 2, 3))), ML99_list(v(1))));
+ML99_ASSERT(CMP_NATURALS(ML99_listTake(v(2), ML99_list(v(1, 2, 3))), ML99_list(v(1, 2))));
+ML99_ASSERT(CMP_NATURALS(ML99_listTake(v(3), ML99_list(v(1, 2, 3))), ML99_list(v(1, 2, 3))));
 // }
 
 // ML99_listTakeWhile {
@@ -171,14 +169,12 @@ ML99_ASSERT(ML99_listEq(
 // }
 
 // ML99_listDrop {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listDrop(v(1), ML99_nil()), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listDrop(v(200), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listDrop(v(1), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listDrop(v(200), ML99_nil()), ML99_nil()));
 
-ML99_ASSERT(
-    ML99_listEq(v(ML99_natEq), ML99_listDrop(v(1), ML99_list(v(1, 2, 3))), ML99_list(v(2, 3))));
-ML99_ASSERT(
-    ML99_listEq(v(ML99_natEq), ML99_listDrop(v(2), ML99_list(v(1, 2, 3))), ML99_list(v(3))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listDrop(v(3), ML99_list(v(1, 2, 3))), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listDrop(v(1), ML99_list(v(1, 2, 3))), ML99_list(v(2, 3))));
+ML99_ASSERT(CMP_NATURALS(ML99_listDrop(v(2), ML99_list(v(1, 2, 3))), ML99_list(v(3))));
+ML99_ASSERT(CMP_NATURALS(ML99_listDrop(v(3), ML99_list(v(1, 2, 3))), ML99_nil()));
 // }
 
 // ML99_listDropWhile {
@@ -229,28 +225,28 @@ ML99_ASSERT(ML99_listEq(
 // ML99_listUnzip & ML99_listZip {
 #define UNZIPPED ML99_listUnzip(ML99_nil())
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(UNZIPPED), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(UNZIPPED), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(UNZIPPED), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(UNZIPPED), ML99_nil()));
 
 #undef UNZIPPED
 
 #define UNZIPPED ML99_listUnzip(ML99_listZip(ML99_list(v(1, 2)), ML99_list(v(4, 5))))
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(UNZIPPED), ML99_list(v(1, 2))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(UNZIPPED), ML99_list(v(4, 5))));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(UNZIPPED), ML99_list(v(1, 2))));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(UNZIPPED), ML99_list(v(4, 5))));
 
 #undef UNZIPPED
 // }
 
 // ML99_listEq {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_nil(), ML99_nil()));
-ML99_ASSERT(ML99_not(ML99_listEq(v(ML99_natEq), ML99_nil(), ML99_list(v(25, 88, 1)))));
-ML99_ASSERT(ML99_not(ML99_listEq(v(ML99_natEq), ML99_list(v(25, 88, 1)), ML99_nil())));
+ML99_ASSERT(CMP_NATURALS(ML99_nil(), ML99_nil()));
+ML99_ASSERT(ML99_not(CMP_NATURALS(ML99_nil(), ML99_list(v(25, 88, 1)))));
+ML99_ASSERT(ML99_not(CMP_NATURALS(ML99_list(v(25, 88, 1)), ML99_nil())));
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_list(v(1, 2, 3)), ML99_list(v(1, 2, 3))));
-ML99_ASSERT(ML99_not(ML99_listEq(v(ML99_natEq), ML99_list(v(1, 2, 3)), ML99_list(v(1)))));
-ML99_ASSERT(ML99_not(ML99_listEq(v(ML99_natEq), ML99_list(v(1)), ML99_list(v(1, 2, 3)))));
-ML99_ASSERT(ML99_not(ML99_listEq(v(ML99_natEq), ML99_list(v(0, 5, 6, 6)), ML99_list(v(6, 7)))));
+ML99_ASSERT(CMP_NATURALS(ML99_list(v(1, 2, 3)), ML99_list(v(1, 2, 3))));
+ML99_ASSERT(ML99_not(CMP_NATURALS(ML99_list(v(1, 2, 3)), ML99_list(v(1)))));
+ML99_ASSERT(ML99_not(CMP_NATURALS(ML99_list(v(1)), ML99_list(v(1, 2, 3)))));
+ML99_ASSERT(ML99_not(CMP_NATURALS(ML99_list(v(0, 5, 6, 6)), ML99_list(v(6, 7)))));
 // }
 
 // ML99_listAppl {
@@ -260,14 +256,14 @@ ML99_ASSERT_EQ(ML99_listAppl(v(ML99_add), ML99_list(v(6, 9))), v(6 + 9));
 // }
 
 // ML99_listPrependToAll {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listPrependToAll(v(+), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listPrependToAll(v(+), ML99_nil()), ML99_nil()));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listPrependToAll(v(111), ML99_list(v(5, 9, 22))),
     ML99_list(v(111, 5, 111, 9, 111, 22))));
 // }
 
 // ML99_listIntersperse {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listIntersperse(v(+), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listIntersperse(v(+), ML99_nil()), ML99_nil()));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listIntersperse(v(111), ML99_list(v(5, 9, 22))),
     ML99_list(v(5, 111, 9, 111, 22))));
@@ -292,8 +288,7 @@ ML99_ASSERT(ML99_listFoldl1(v(ML99_cat), ML99_list(v(AB, CDEF, G))));
 #undef ABCDEFG
 
 // ML99_listMap {
-ML99_ASSERT(
-    ML99_listEq(v(ML99_natEq), ML99_listMap(ML99_appl(v(ML99_add), v(3)), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listMap(ML99_appl(v(ML99_add), v(3)), ML99_nil()), ML99_nil()));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listMap(ML99_appl(v(ML99_add), v(3)), ML99_list(v(1, 2, 3))),
     ML99_list(v(4, 5, 6))));
@@ -304,7 +299,7 @@ ML99_ASSERT(ML99_listEq(
 #define B1 6
 #define C2 11
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listMapI(v(ML99_cat), ML99_nil()), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listMapI(v(ML99_cat), ML99_nil()), ML99_nil()));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listMapI(v(ML99_cat), ML99_list(v(A, B, C))), ML99_list(v(19, 6, 11))));
 
@@ -346,8 +341,7 @@ ML99_EVAL(ML99_listMapInPlaceI(v(MY_CAT), ML99_list(v(x, y, z))))
 // }
 
 // ML99_listFor {
-ML99_ASSERT(
-    ML99_listEq(v(ML99_natEq), ML99_listFor(ML99_nil(), ML99_appl(v(ML99_add), v(3))), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listFor(ML99_nil(), ML99_appl(v(ML99_add), v(3))), ML99_nil()));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listFor(ML99_list(v(1, 2, 3)), ML99_appl(v(ML99_add), v(3))),
     ML99_list(v(4, 5, 6))));
@@ -389,8 +383,8 @@ ML99_ASSERT(ML99_listEq(
 // }
 
 // ML99_listReplicate {
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listReplicate(v(0), v(~)), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listReplicate(v(3), v(7)), ML99_list(v(7, 7, 7))));
+ML99_ASSERT(CMP_NATURALS(ML99_listReplicate(v(0), v(~)), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_listReplicate(v(3), v(7)), ML99_list(v(7, 7, 7))));
 // }
 
 // ML99_listPartition {
@@ -398,8 +392,8 @@ ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_listReplicate(v(3), v(7)), ML99_list
 // Partitioning ML99_nil() {
 #define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_nil())
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(PARTITIONED), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(PARTITIONED), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(PARTITIONED), ML99_nil()));
 
 #undef PARTITIONED
 // }
@@ -407,8 +401,8 @@ ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_nil()
 // Only the second list contains items {
 #define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(11, 12, 13)))
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(PARTITIONED), ML99_nil()));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_list(v(11, 12, 13))));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(PARTITIONED), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(PARTITIONED), ML99_list(v(11, 12, 13))));
 
 #undef PARTITIONED
 // }
@@ -416,8 +410,8 @@ ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_list(
 // Only the first list contains items {
 #define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(4, 7)))
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(PARTITIONED), ML99_list(v(4, 7))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_nil()));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(PARTITIONED), ML99_list(v(4, 7))));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(PARTITIONED), ML99_nil()));
 
 #undef PARTITIONED
 // }
@@ -426,8 +420,8 @@ ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_nil()
 #define PARTITIONED                                                                                \
     ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(11, 4, 12, 13, 7)))
 
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(0)(PARTITIONED), ML99_list(v(4, 7))));
-ML99_ASSERT(ML99_listEq(v(ML99_natEq), ML99_tupleGet(1)(PARTITIONED), ML99_list(v(11, 12, 13))));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(PARTITIONED), ML99_list(v(4, 7))));
+ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(PARTITIONED), ML99_list(v(11, 12, 13))));
 
 #undef PARTITIONED
 // }
