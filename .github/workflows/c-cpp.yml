@@ -34,10 +34,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install TCC
-      - run: sudo apt install tcc
+        run: sudo apt install tcc
 
       - name: Test
-      - run: CC=tcc bash scripts/test.sh
+        run: CC=tcc bash scripts/test.sh
 
   bench:
     runs-on: ubuntu-latest
