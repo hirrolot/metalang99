@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `ML99_listFromTuples` to transform comma-separated tuples into a list.
 
+### Fixed
+
+ - Make Metalang99 work on TCC (see [datatype99/issues/10](https://github.com/Hirrolot/datatype99/issues/10)).
+
 ## [1.1.0] - 2021-04-24
 
 ### Added

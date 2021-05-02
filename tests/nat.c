@@ -1,9 +1,12 @@
+// `...` is sometimes used to workaround a TCC bug, see
+// <https://github.com/Hirrolot/datatype99/issues/10#issuecomment-830813172>.
+
 #include <metalang99/assert.h>
 #include <metalang99/nat.h>
 
 // ML99_natMatch {
-#define MATCH_Z_IMPL()  v(88)
-#define MATCH_S_IMPL(x) v(x)
+#define MATCH_Z_IMPL(...) v(88) // `...` due to a TCC's bug.
+#define MATCH_S_IMPL(x)   v(x)
 
 ML99_ASSERT_EQ(ML99_natMatch(v(0), v(MATCH_)), v(88));
 ML99_ASSERT_EQ(ML99_natMatch(v(123), v(MATCH_)), v(122));

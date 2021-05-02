@@ -209,7 +209,7 @@ To perform fewer reduction steps, you can:
 A: Metalang99 detects and reports about syntax mismatches, where possible. For example (`-E` flag):
 
 ```c
-// !"Metalang99 syntax error": `123`
+// !"Metalang99 syntax error": {123}
 ML99_EVAL(123)
 ```
 

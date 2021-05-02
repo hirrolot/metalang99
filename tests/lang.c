@@ -1,10 +1,13 @@
+// `...` is sometimes used to workaround a TCC bug, see
+// <https://github.com/Hirrolot/datatype99/issues/10#issuecomment-830813172>.
+
 #include <metalang99/assert.h>
 #include <metalang99/util.h>
 
 ML99_ASSERT_EMPTY_UNEVAL(ML99_EVAL(v()));
 
 // A function with zero arguments {
-#define F_IMPL() v(123)
+#define F_IMPL(...) v(123) // `...` due to a TCC's bug.
 
 ML99_ASSERT_EQ(ML99_call(F, v()), v(123));
 ML99_ASSERT_EQ(ML99_call(v(F), v()), v(123));
@@ -31,7 +34,7 @@ ML99_ASSERT_EQ(ML99_callUneval(BAR, 5, 7), v(5 + 7));
 
 // Even if a term in the argument position evaluates to more than one terms, they should be appended
 // to each other but not interspersed with a comma.
-#define F_IMPL()    ML99_TERMS(v(1), v(2), v(3))
+#define F_IMPL(...) ML99_TERMS(v(1), v(2), v(3)) // `...` due to a TCC's bug.
 #define BAR_IMPL(x) v()
 
 ML99_EVAL(ML99_call(BAR, ML99_call(F, v())))
@@ -57,7 +60,7 @@ ML99_ASSERT_EQ(ML99_abort(v(815057)), v(815057));
 ML99_ASSERT_UNEVAL(ML99_EVAL(v(~), ML99_abort(v(123)), v(~)) == 123);
 
 // Ensure that `ML99_abort` also works correctly after some evaluations.
-#define F_IMPL() ML99_call(G, v(1, 2), ML99_call(H, v(123)))
+#define F_IMPL(...) ML99_call(G, v(1, 2), ML99_call(H, v(123))) // `...` due to a TCC's bug.
 #define G_IMPL(_1, _2, _123_plus_1)                                                                \
     ML99_abort(v(ML99_ASSERT_UNEVAL(_1 == 1 && _2 == 2 && _123_plus_1 == 123 + 1)))
 #define H_IMPL(a) v(a + 1)
@@ -75,8 +78,8 @@ ML99_ASSERT_EQ(ML99_call(NonExistingF, ML99_abort(v(123))), v(123));
 // Partial application {
 
 // The arity of a function with zero arguments must be 1 {
-#define F_IMPL() v(123)
-#define F_ARITY  1
+#define F_IMPL(...) v(123) // // `...` due to a TCC's bug.
+#define F_ARITY     1
 
 ML99_ASSERT_EQ(ML99_appl(v(F), v()), v(123));
 
