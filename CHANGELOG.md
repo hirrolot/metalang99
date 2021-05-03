@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
- - `ML99_listFromTuples` to transform comma-separated tuples into a list.
+ - `list.h`:
+   - `ML99_listFromTuples` to transform comma-separated tuples into a list.
 
 ### Fixed
 
