@@ -202,15 +202,6 @@ To perform fewer reduction steps, you can:
 
 (I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to control the correctness of expansion. For example, `X` can become painted blue, it can emit unexpected commas, the `#` and `##` operators can block expansion of parameters, and a plenty of other nasty things.)
 
-## Tested compilers
-
-Metalang99 is known to work on these compilers:
-
- - GCC
- - Clang
- - MSVC
- - TCC
-
 ## FAQ
 
 ### Q: What about compile-time errors?
@@ -262,12 +253,21 @@ A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit
 
 A: Metalang99 is primarily targeted at pure C, and C lacks templates. But anyway, you can find the argumentation for C++ at the website of [Boost/Preprocessor].
 
-### Q: What standards are supported?
-
-A: C99/C++11 and onwards.
-
 ### Q: Where is an amalgamated header?
 
 A: I am against amalgamated headers because of burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
+### Q: What standards are supported?
+
+A: C99/C++11 and onwards.
+
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+### Q: What compilers are tested?
+
+A: Metalang99 is known to work on these compilers:
+
+ - GCC
+ - Clang
+ - MSVC
+ - TCC
