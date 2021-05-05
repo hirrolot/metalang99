@@ -202,6 +202,15 @@ To perform fewer reduction steps, you can:
 
 (I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to control the correctness of expansion. For example, `X` can become painted blue, it can emit unexpected commas, the `#` and `##` operators can block expansion of parameters, and a plenty of other nasty things.)
 
+## Tested compilers
+
+Metalang99 is known to work on these compilers:
+
+ - GCC
+ - Clang
+ - MSVC
+ - TCC
+
 ## FAQ
 
 ### Q: What about compile-time errors?
