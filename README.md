@@ -202,6 +202,8 @@ To perform fewer reduction steps, you can:
 
 (I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to control the correctness of expansion. For example, `X` can become painted blue, it can emit unexpected commas, the `#` and `##` operators can block expansion of parameters, and a plenty of other nasty things.)
 
+[specification]: spec/spec.pdf
+
 ## FAQ
 
 ### Q: What about compile-time errors?
@@ -251,9 +253,7 @@ The interpreter implementation is inherently non-trivial, with plenty of subtle 
 
 ### Q: Is it Turing-complete?
 
-A: Nope. The C/C++ preprocessor is capable to iterate only [up to a certain limit](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete). For Metalang99, this limit is defined in terms of reductions steps (see the [specification]).
-
-[specification]: https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf
+A: Nope. The C/C++ preprocessor is capable to iterate only [up to a certain limit](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete). For Metalang99, this limit is defined in terms of reductions steps: once a fixed amount of reduction steps has exhausted, your metaprogram would not be able to execute anymore.
 
 ### Q: Why macros if we have templates?
 
