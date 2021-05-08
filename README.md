@@ -239,7 +239,7 @@ A:
 
  - **Burden of third-party tools.** You need to setup, distribute, and maintain third-party code generators, whilst macros are already to be used like any other C code.
 
-In summary, preprocessor macros is a _built-in_ tool to generate code, and therefore, they require no ad-hoc machinery to work.
+In summary, preprocessor macros is a _built-in_ tool to generate code, therefore, they require no ad-hoc machinery to work.
 
 ### Q: Compilation times?
 
