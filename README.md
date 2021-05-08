@@ -239,7 +239,7 @@ A:
 
  - **Burden of third-party tools.** You need to setup, distribute, and maintain third-party code generators, whilst macros are already to be used like any other C code.
 
-In summary, preprocessor macros is a _built-in_ tool to generate code, therefore, they require no ad-hoc machinery to work.
+In summary, preprocessor macros is a _built-in_ tool to generate code, therefore, they do not require external ad-hoc machinery to work.
 
 ### Q: Compilation times?
 
@@ -251,7 +251,7 @@ The interpreter implementation is inherently non-trivial, with plenty of subtle 
 
 ### Q: Is it Turing-complete?
 
-A: Nope. The C/C++ preprocessor is capable to iterate only up to a certain limit (see this [SO question](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete)). For Metalang99, this limit is defined in terms of reductions steps (see the [specification]).
+A: Nope. The C/C++ preprocessor is capable to iterate only [up to a certain limit](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete). For Metalang99, this limit is defined in terms of reductions steps (see the [specification]).
 
 [specification]: https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf
 
