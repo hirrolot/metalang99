@@ -219,7 +219,9 @@ However, compile-time errors can be still quite obscured. If so, try to debug yo
 
 ### Q: How does it work?
 
-Because macro recursion is prohibited, there is an ad-hoc [recursion engine] which works by deferring macro expansions and passing continuations here and there. Upon it, the [continuation-passing style] [interpreter] reduces language expressions into final results. The standard library is nothing but a set of metafunctions implemented using the core metalanguage.
+ 1. Because macro recursion is prohibited, there is an ad-hoc [recursion engine] which works by deferring macro expansions and passing continuations here and there.
+ 2. Upon it, the [continuation-passing style] [interpreter] reduces language expressions into final results.
+ 3. The standard library is nothing but a set of metafunctions implemented using the core metalanguage, i.e. they are to be evaluated by the interpreter.
 
 [recursion engine]: include/metalang99/eval/rec.h
 [interpreter]: include/metalang99/eval/eval.h
