@@ -208,18 +208,18 @@ To perform fewer reduction steps, you can:
 
 ### Q: What about compile-time errors?
 
-A: Metalang99 detects and reports about syntax mismatches, where possible. For example (`-E` flag):
+A: Metalang99 detects and reports syntax mismatches, where possible. For example (`-E` flag):
 
 ```c
 // !"Metalang99 syntax error": {123}
 ML99_EVAL(123)
 ```
 
-However, compile-time errors can be still quite obscured. I strongly recommend using `-ftrack-macro-expansion=0` (GCC) as it tells a compiler to not print a useless bedsheet of macro expansions.
+However, compile-time errors can be still quite obscured. If so, try to debug your metaprogram with `ML99_abort` and the situation could get clearer.
 
 ### Q: How does it work?
 
-First of all, there is a [recursion engine] that works by deferring macro expansions and passing continuations here and there (there is no macro recursion out-of-the-box). Upon it, the [continuation-passing style] [interpreter] reduces language expressions into final results. The standard library is nothing but a set of metafunctions implemented using the core metalanguage.
+Because macro recursion is prohibited, there is an ad-hoc [recursion engine] which works by deferring macro expansions and passing continuations here and there. Upon it, the [continuation-passing style] [interpreter] reduces language expressions into final results. The standard library is nothing but a set of metafunctions implemented using the core metalanguage.
 
 [recursion engine]: include/metalang99/eval/rec.h
 [interpreter]: include/metalang99/eval/eval.h
@@ -231,7 +231,7 @@ A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.
 
 ### Q: What about IDE support?
 
-A: I use VS Code for development. It enables pop-up suggestments of macro-generated constructions but, of course, it does not highlight macro syntax.
+A: I use VS Code for development. It enables pop-up suggestments of macro-generated constructions but, of course, it does not support macro syntax highlightment.
 
 ### Q: Why not third-party code generators?
 
@@ -253,7 +253,7 @@ The interpreter implementation is inherently non-trivial, with plenty of subtle 
 
 ### Q: Is it Turing-complete?
 
-A: Nope. The C/C++ preprocessor is capable to iterate only [up to a certain limit](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete). For Metalang99, this limit is defined in terms of reductions steps: once a fixed amount of reduction steps has exhausted, your metaprogram would not be able to execute anymore.
+A: The C/C++ preprocessor is capable to iterate only [up to a certain limit](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete). For Metalang99, this limit is defined in terms of reductions steps: once a fixed amount of reduction steps has exhausted, your metaprogram will not be able to execute anymore.
 
 ### Q: Why macros if we have templates?
 
@@ -261,7 +261,7 @@ A: Metalang99 is primarily targeted at pure C, and C lacks templates. But anyway
 
 ### Q: Where is an amalgamated header?
 
-A: I am against amalgamated headers because of burden with updating. In contrast to this, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
+A: I am against amalgamated headers because of burden with updating. Instead, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
 ### Q: What standards are supported?
 
