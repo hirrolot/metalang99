@@ -239,6 +239,8 @@ A:
 
  - **Burden of third-party tools.** You need to setup, distribute, and maintain third-party code generators, whilst macros are already to be used like any other C code.
 
+In summary, preprocessor macros is a _built-in_, and therefore, less ad-hoc tool to generate code.
+
 ### Q: Compilation times?
 
 A: To run the benchmarks, execute `./scripts/bench.sh` from the root directory.
