@@ -236,6 +236,7 @@ A: I use VS Code for development. It enables suggestments for constructions gene
 A:
 
  - **Seamless cooperation with the rest of C code**. Programming inside comments or DSL-specific files is clearly not the most convenient way, both in terms of IDE support and maintenance.
+
  - **Burden of third-party tools.** You need to setup, distribute, and maintain third-party code generators, whilst macros are already to be used like any other C code.
 
 ### Q: Compilation times?
