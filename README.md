@@ -233,7 +233,10 @@ A: I use VS Code for development. It enables suggestments for constructions gene
 
 ### Q: Why not third-party code generators?
 
-The idea behind Metalang99 is that you type `#include <metalang99.h>` and express your meta-stuff right afterwards: this way, it can far more seamlessly cooperate with the rest of C code. For example, imagine defining each data type with [Datatype99] inside comments or separate files, which is clearly not the most convenient way both in terms of IDE support and maintenance.
+A:
+
+ - **Seamless cooperation with the rest of C code**. Programming inside comments or DSL-specific files is clearly not the most convenient way, both in terms of IDE support and maintenance.
+ - **Burden of third-party tools.** You need to setup, distribute, and maintain third-party code generators, whilst macros are already to be used like any other C code.
 
 ### Q: Compilation times?
 
