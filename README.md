@@ -235,7 +235,7 @@ A: I use VS Code for development. It enables pop-up suggestments of macro-genera
 
 A:
 
- - **Seamless cooperation with the rest of C code**. Programming inside comments or DSL-specific files is clearly not the most convenient way, both in terms of IDE support and maintenance.
+ - **Seamless cooperation with the rest of C code**. Programming inside comments or DSL-specific files is clearly not the most convenient way, both in terms of IDE support and maintenance. This is especially true for meta-abstractions that are to be considered as a part of the host language, like [Datatype99].
 
  - **Burden of third-party tools.** You need to setup, distribute, and maintain third-party code generators, whilst macros are already to be used like any other C code.
 
