@@ -219,6 +219,8 @@ However, compile-time errors can be still quite obscured. If so, try to debug yo
 
 ### Q: How does it work?
 
+A:
+
  1. Because macro recursion is prohibited, there is an ad-hoc [recursion engine] which works by deferring macro expansions and passing continuations here and there.
  2. Upon it, the [continuation-passing style] [interpreter] reduces language expressions into final results.
  3. The standard library is nothing but a set of metafunctions implemented using the core metalanguage, i.e. they are to be evaluated by the interpreter.
@@ -251,7 +253,7 @@ A: To run the benchmarks, execute `./scripts/bench.sh` from the root directory.
 
 ### Q: Why formal specification?
 
-The interpreter implementation is inherently non-trivial, with plenty of subtle details. Having an abstract picture of what is happening is extremely helpful not to mess up, especially when we are talking about corner cases. Additionally, the specification helps to figure out how the language would behave under some exotic circumstances.
+A: The interpreter implementation is inherently non-trivial, with plenty of subtle details. Having an abstract picture of what is happening is extremely helpful not to mess up, especially when we are talking about corner cases. Additionally, the specification helps to figure out how the language would behave under some exotic circumstances.
 
 ### Q: Is it Turing-complete?
 
