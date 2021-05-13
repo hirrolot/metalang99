@@ -82,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - Move `ML99_TERMS` from `util.h` to `lang.h`.
  - Return a list of tuples from `ML99_listZip`, accept a list of tuples in `ML99_listUnzip`, return a tuple of lists from `ML99_listPartition`.
- - `ML99_listEval` -> `ML99_LIST_EVAL`, `ML99_listEvalCommaSep` -> `ML99_LIST_EVAL_COMMA_SEP`.
+ - `ML99_listEval` => `ML99_LIST_EVAL`, `ML99_listEvalCommaSep` => `ML99_LIST_EVAL_COMMA_SEP`.
  - Accept ignored variadics in `ML99_nil`, `ML99_empty`, `ML99_true`, `ML99_false`, `ML99_nothing` (and their plain versions).
 
 ### Fixed
@@ -124,19 +124,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Employ the `SCREAMING_CASE` naming convention for plain macros.
  - All macros are prefixed with `ML99_`, unconditionally.
  - Accept a number as a first argument and a function as the second in `ML99_repeat`.
- - `M_get` -> `ML99_listGet`.
- - `M_overloadPlain` -> `ML99_OVERLOAD`.
- - `M_eval` -> `ML99_EVAL`.
- - `M_callTrivial` -> `ML99_callUneval`.
+ - `M_get` => `ML99_listGet`.
+ - `M_overloadPlain` => `ML99_OVERLOAD`.
+ - `M_eval` => `ML99_EVAL`.
+ - `M_callTrivial` => `ML99_callUneval`.
  - Move `ML99_repeat` from `misc.h` to `control.h`.
  - Move `ML99_indexed(Params, Fields, InitializerList, Args)` from `misc.h` to `gen.h`.
  - Move `ML99_braced`, `ML99_typedef`, `ML99_struct`, `ML99_anonStruct`, `ML99_union`, `ML99_anonUnion`, `ML99_enum`, `ML99_anonEnum` from `util.h` to `gen.h`.
- - `M_assertPlain` -> `ML99_ASSERT_UNEVAL`, `M_assertEmptyPlain` -> `ML99_ASSERT_EMPTY_UNEVAL`.
+ - `M_assertPlain` => `ML99_ASSERT_UNEVAL`, `M_assertEmptyPlain` => `ML99_ASSERT_EMPTY_UNEVAL`.
  - Rename "unsigned integers" to "natural numbers":
-   - `uint.h` -> `nat.h`.
-   - `M_uintMatch(WithArgs)` -> `ML99_natMatch(WithArgs)`.
-   - `M_uintEq` -> `ML99_natEq`.
-   - `M_uintNeq` -> `ML99_natNeq`.
+   - `uint.h` => `nat.h`.
+   - `M_uintMatch(WithArgs)` => `ML99_natMatch(WithArgs)`.
+   - `M_uintEq` => `ML99_natEq`.
+   - `M_uintNeq` => `ML99_natNeq`.
 
 ### Fixed
 
@@ -204,28 +204,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Terms now need to be separated by commas, e.g. instead of `v(1) M_call(F, v(2)) v(3)`, write `v(1), M_call(F, v(2)), v(3)` or `M_terms(v(1), M_call(F, v(2)), v(3)`.
  - The empty sequence is prohibited by `M_eval`, `M_call` and `M_abort`.
  - Use American style endings (because it is prevalent):
-   - `M_(un)parenthesise(Eval)` -> `M_(un)tuple(Eval)`.
-   - `M_isParenthesised` -> `M_isTuple`.
-   - `M_isUnparenthesised` -> `M_isUntuple`.
-   - `M_parenthesisedVariadics(Head|Tail)` -> `M_tuple(Head|Tail)`.
+   - `M_(un)parenthesise(Eval)` => `M_(un)tuple(Eval)`.
+   - `M_isParenthesised` => `M_isTuple`.
+   - `M_isUnparenthesised` => `M_isUntuple`.
+   - `M_parenthesisedVariadics(Head|Tail)` => `M_tuple(Head|Tail)`.
  - Shorten functions on unsigned integers:
-   - `M_uintInc(Plain)` -> `M_inc(Plain)`.
-   - `M_uintDec(Plain)` -> `M_dec(Plain)`.
-   - `M_uintAdd(3)` -> `M_add(3)`.
-   - `M_uintSub(3)` -> `M_sub(3)`.
-   - `M_uintMul(3)` -> `M_mul(3)`.
-   - `M_uintDiv(3)` -> `M_div(3)`.
-   - `M_uintDivChecked` -> `M_divChecked`.
-   - `M_uintLesser(Eq)` -> `M_lesser(Eq)`.
-   - `M_uintGreater(Eq)` -> `M_greater(Eq)`.
-   - `M_uintMod` -> `M_mod`.
-   - `M_uintMin` -> `M_min`.
-   - `M_uintMax` -> `M_max`.
- - `M_variadicsMap` -> `M_variadicsForEach`, `M_variadicsMapI` -> `M_variadicsForEachI`.
+   - `M_uintInc(Plain)` => `M_inc(Plain)`.
+   - `M_uintDec(Plain)` => `M_dec(Plain)`.
+   - `M_uintAdd(3)` => `M_add(3)`.
+   - `M_uintSub(3)` => `M_sub(3)`.
+   - `M_uintMul(3)` => `M_mul(3)`.
+   - `M_uintDiv(3)` => `M_div(3)`.
+   - `M_uintDivChecked` => `M_divChecked`.
+   - `M_uintLesser(Eq)` => `M_lesser(Eq)`.
+   - `M_uintGreater(Eq)` => `M_greater(Eq)`.
+   - `M_uintMod` => `M_mod`.
+   - `M_uintMin` => `M_min`.
+   - `M_uintMax` => `M_max`.
+ - `M_variadicsMap` => `M_variadicsForEach`, `M_variadicsMapI` => `M_variadicsForEachI`.
 
 ### Fixed
 
- - `aux.*` -> `util.*` for compatibility with Windows.
+ - `aux.*` => `util.*` for compatibility with Windows.
 
 ### Removed
 
@@ -236,7 +236,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
- - The project name `Epilepsy` -> `Metalang99` (more neutral).
+ - The project name `Epilepsy` => `Metalang99` (more neutral).
 
 ### Fixed
 
