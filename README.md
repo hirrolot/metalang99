@@ -195,8 +195,8 @@ Generally speaking, the fewer reduction steps you perform, the faster you become
 To perform fewer reduction steps, you can:
 
  - use `ML99_callUneval`,
- - use plain macros (e.g. `ML99_CAT` instead of `ML99_cat`),
- - use optimised versions (e.g. `ML99_listMapInPlace`),
+ - use plain macros (e.g., `ML99_CAT` instead of `ML99_cat`),
+ - use optimised versions (e.g., `ML99_listMapInPlace`),
  - use tuples/variadics instead of lists,
  - call a macro as `<X>_IMPL(...)`, if all the arguments are already evaluated.
 
