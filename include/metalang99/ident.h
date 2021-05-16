@@ -291,7 +291,7 @@
 #define ML99_charEq_ARITY      2
 #define ML99_isLowercase_ARITY 1
 #define ML99_isUppercase_ARITY 1
-#define ML99_isDigitARITY      1
+#define ML99_isDigit_ARITY     1
 #define ML99_isChar_ARITY      1
 // }
 
