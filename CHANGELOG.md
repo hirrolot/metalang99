@@ -17,8 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `ML99_UPPERCASE_DETECTOR` to detect uppercase characters.
    - `ML99_DIGIT_DETECTOR` to detect digits.
    - `ML99_char_eq`, `ML99_CHAR_EQ` to compare two characters.
-   - `ML99_isLowercase`, `ML99_IS_LOWERCASE` to check whether a letter is lowercased.
-   - `ML99_isUppercase`, `ML99_IS_UPPERCASE` to check whether a letter is uppercased.
+   - `ML99_is(Lower/Upper)case`, `ML99_IS_(LOWER|UPPER)CASE` to check whether a letter is lowercased/uppercased.
    - `ML99_isDigit`, `ML99_IS_DIGIT` to check whether a character is digit.
    - `ML99_isChar`, `ML99_IS_CHAR` to check whether an identifier is a character.
 
