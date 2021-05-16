@@ -52,6 +52,7 @@ Miscellaneous
    either
    maybe
    nat
+   ident
    logical
    util
    control
@@ -69,6 +70,7 @@ Contents
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
  - `nat.h`_ - Natural numbers ([0; 255]).
+ - `ident.h`_ - Identifier manipulation.
  - `logical.h`_ - Boolean algebra.
  - `control.h`_ - Control flow operators.
  - `assert.h`_ - Static assertions.
@@ -91,6 +93,7 @@ Indices and tables
 .. _either.h: either.html
 .. _maybe.h: maybe.html
 .. _nat.h: nat.html
+.. _ident.h: ident.html
 .. _logical.h: logical.html
 .. _control.h: control.html
 .. _assert.h: assert.html

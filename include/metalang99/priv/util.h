@@ -4,6 +4,9 @@
 #define ML99_PRIV_CAT(x, y)           ML99_PRIV_PRIMITIVE_CAT(x, y)
 #define ML99_PRIV_PRIMITIVE_CAT(x, y) x##y
 
+#define ML99_PRIV_CAT3(x, y, z)           ML99_PRIV_PRIMITIVE_CAT3(x, y, z)
+#define ML99_PRIV_PRIMITIVE_CAT3(x, y, z) x##y##z
+
 #define ML99_PRIV_EXPAND(...) __VA_ARGS__
 #define ML99_PRIV_EMPTY(...)
 
