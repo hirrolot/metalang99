@@ -43,6 +43,28 @@ ML99_ASSERT(ML99_not(ML99_identEq(v(FOO_), v(x), v(y))));
 #undef FOO_y_y
 // }
 
+// ML99_CHAR_EQ {
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(a, a));
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(x, x));
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(e, e));
+
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(T, T));
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(J, J));
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(D, D));
+
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(0, 0));
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(5, 5));
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(9, 9));
+
+ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(a, idf2));
+ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(T, abracadabra));
+ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(0, 123));
+ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(abracadabra, abracadabra));
+
+ML99_ASSERT(ML99_charEq(v(x), v(x)));
+ML99_ASSERT(ML99_not(ML99_charEq(v(x), v(0))));
+// }
+
 // ML99_C_KEYWORD_DETECTOR {
 #define TEST(keyword)                                                                              \
     ML99_ASSERT_UNEVAL(                                                                            \

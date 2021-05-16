@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `ML99_LOWERCASE_DETECTOR` to detect lowercase characters.
    - `ML99_UPPERCASE_DETECTOR` to detect uppercase characters.
    - `ML99_DIGIT_DETECTOR` to detect digits.
+   - `ML99_char_eq`, `ML99_CHAR_EQ` to compare two characters.
 
 ### Changed
 

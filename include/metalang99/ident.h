@@ -2,8 +2,9 @@
  * @file
  * Identifier manipulation.
  *
- * An identifier is a sequence of characters, digits, and the underscore (`_`), in any order. For
- * example: `_ak39A`, `192_iAjP_2`, `ro11`.
+ * An identifier is a sequence of characters. A character is either one of `_`, `0123456789`,
+ * `abcdefghijklmnopqrstuvwxyz`, or `ABCDEFGHIJKLMNOPQRSTUVWXYZ`. For example, here are identifiers:
+ * `_ak39A`, `192_iAjP_2`, `r9`. But these are **not** identifiers: `~18nA`, `o78*`, `3i#^hdd`.
  */
 
 #ifndef ML99_IDENT_H
@@ -12,6 +13,7 @@
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
+#include <metalang99/logical.h>
 
 /**
  * Tells whether @p ident belongs to a set of identifiers defined by @p prefix.
@@ -64,6 +66,28 @@
  * @endcode
  */
 #define ML99_identEq(prefix, x, y) ML99_call(ML99_identEq, prefix, x, y)
+
+/**
+ * Compares two characters @p x and @p y for equality.
+ *
+ * @p x and @p y can be any identifiers, though this function evaluates to true only for characters.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/ident.h>
+ *
+ * // 1
+ * ML99_charEq(v(t), v(t))
+ *
+ * // 0
+ * ML99_charEq(v(9), v(A))
+ *
+ * // 0
+ * ML99_charEq(v(9), v(abcd))
+ * @endcode
+ */
+#define ML99_charEq(x, y) ML99_call(ML99_charEq, x, y)
 
 /**
  * The predefined #ML99_identEq detector prefix of C keywords.
@@ -131,11 +155,21 @@
 
 #define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_PRIV_CAT(prefix, ident))
 #define ML99_IDENT_EQ(prefix, x, y)      ML99_DETECT_IDENT(ML99_PRIV_CAT3(prefix, x, _), y)
+#define ML99_CHAR_EQ(x, y)                                                                         \
+    ML99_PRIV_IF(                                                                                  \
+        ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, x),                                            \
+        ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, y),                                            \
+        ML99_OR(                                                                                   \
+            ML99_IDENT_EQ(ML99_LOWERCASE_DETECTOR, x, y),                                          \
+            ML99_OR(                                                                               \
+                ML99_IDENT_EQ(ML99_UPPERCASE_DETECTOR, x, y),                                      \
+                ML99_IDENT_EQ(ML99_DIGIT_DETECTOR, x, y))))
 
 #ifndef DOXYGEN_IGNORE
 
 #define ML99_detectIdent_IMPL(prefix, ident) v(ML99_DETECT_IDENT(prefix, ident))
 #define ML99_identEq_IMPL(prefix, x, y)      v(ML99_IDENT_EQ(prefix, x, y))
+#define ML99_charEq_IMPL(x, y)               v(ML99_CHAR_EQ(x, y))
 
 #define ML99_PRIV_C_KEYWORD_DETECTOR_auto_auto                     ()
 #define ML99_PRIV_C_KEYWORD_DETECTOR_break_break                   ()
@@ -252,6 +286,7 @@
 // Arity specifiers {
 #define ML99_detectIdent_ARITY 2
 #define ML99_identEq_ARITY     3
+#define ML99_charEq_ARITY      2
 // }
 
 #endif // DOXYGEN_IGNORE

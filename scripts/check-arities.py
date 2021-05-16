@@ -8,6 +8,7 @@ import subprocess
 
 subprocess.call("doxygen > /dev/null 2> /dev/null", shell=True)
 
+
 def check_file(filename):
     tree = ET.parse(f"xml/{filename}_8h.xml")
     root = tree.getroot()
@@ -52,7 +53,7 @@ def gather_arity_specifiers(root):
 
 
 filenames = ["assert", "choice", "control", "either", "gen", "lang",
-             "list", "logical", "maybe", "nat", "tuple", "util", "variadics"]
+             "list", "logical", "maybe", "nat", "ident", "tuple", "util", "variadics"]
 
 for filename in filenames:
     check_file(filename)
