@@ -2,9 +2,15 @@
  * @file
  * Identifier manipulation.
  *
- * An identifier is a sequence of characters. A character is either one of `_`, `0123456789`,
- * `abcdefghijklmnopqrstuvwxyz`, or `ABCDEFGHIJKLMNOPQRSTUVWXYZ`. For example, here are identifiers:
- * `_ak39A`, `192_iAjP_2`, `r9`. But these are **not** identifiers: `~18nA`, `o78*`, `3i#^hdd`.
+ * An identifier is a sequence of characters. A character is one of:
+ *
+ *  - digits (`0123456789`),
+ *  - lowercase letters (`abcdefghijklmnopqrstuvwxyz`),
+ *  - uppercase letters (`ABCDEFGHIJKLMNOPQRSTUVWXYZ`),
+ *  - the underscore character (`_`).
+ *
+ * For example, here are identifiers: `_ak39A`, `192_iAjP_2`, `r9`. But these are **not**
+ * identifiers: `~18nA`, `o78*`, `3i#^hdd`.
  */
 
 #ifndef ML99_IDENT_H
@@ -110,6 +116,26 @@
  */
 #define ML99_charEq(x, y) ML99_call(ML99_charEq, x, y)
 
+/**
+ * Tells whether the identifier @p x is a lowercase letter.
+ */
+#define ML99_isLowercase(x) ML99_call(ML99_isLowercase, x)
+
+/**
+ * Tells whether the identifier @p x is an uppercase letter.
+ */
+#define ML99_isUppercase(x) ML99_call(ML99_isUppercase, x)
+
+/**
+ * Tells whether the identifier @p x is a digit.
+ */
+#define ML99_isDigit(x) ML99_call(ML99_isDigit, x)
+
+/**
+ * Tells whether the identifier @p x is a character.
+ */
+#define ML99_isChar(x) ML99_call(ML99_isChar, x)
+
 #define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_PRIV_CAT(prefix, ident))
 #define ML99_IDENT_EQ(prefix, x, y)      ML99_DETECT_IDENT(ML99_PRIV_CAT3(prefix, x, _), y)
 #define ML99_CHAR_EQ(x, y)                                                                         \
@@ -121,12 +147,25 @@
             ML99_OR(                                                                               \
                 ML99_IDENT_EQ(ML99_UPPERCASE_DETECTOR, x, y),                                      \
                 ML99_IDENT_EQ(ML99_DIGIT_DETECTOR, x, y))))
+#define ML99_IS_LOWERCASE(x) ML99_IDENT_EQ(ML99_LOWERCASE_DETECTOR, x, x)
+#define ML99_IS_UPPERCASE(x) ML99_IDENT_EQ(ML99_UPPERCASE_DETECTOR, x, x)
+#define ML99_IS_DIGIT(x)     ML99_IDENT_EQ(ML99_DIGIT_DETECTOR, x, x)
+#define ML99_IS_CHAR(x)                                                                            \
+    ML99_OR(                                                                                       \
+        ML99_IS_LOWERCASE(x),                                                                      \
+        ML99_OR(                                                                                   \
+            ML99_IS_UPPERCASE(x),                                                                  \
+            ML99_OR(ML99_IS_DIGIT(x), ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, x))))
 
 #ifndef DOXYGEN_IGNORE
 
 #define ML99_detectIdent_IMPL(prefix, ident) v(ML99_DETECT_IDENT(prefix, ident))
 #define ML99_identEq_IMPL(prefix, x, y)      v(ML99_IDENT_EQ(prefix, x, y))
 #define ML99_charEq_IMPL(x, y)               v(ML99_CHAR_EQ(x, y))
+#define ML99_isLowercase_IMPL(x)             v(ML99_IS_LOWERCASE(x))
+#define ML99_isUppercase_IMPL(x)             v(ML99_IS_UPPERCASE(x))
+#define ML99_isDigit_IMPL(x)                 v(ML99_IS_DIGIT(x))
+#define ML99_isChar_IMPL(x)                  v(ML99_IS_CHAR(x))
 
 #define ML99_UNDERSCORE_DETECTOR ML99_PRIV_UNDERSCORE_DETECTOR_
 #define ML99_C_KEYWORD_DETECTOR  ML99_PRIV_C_KEYWORD_DETECTOR_
@@ -250,6 +289,10 @@
 #define ML99_detectIdent_ARITY 2
 #define ML99_identEq_ARITY     3
 #define ML99_charEq_ARITY      2
+#define ML99_isLowercase_ARITY 1
+#define ML99_isUppercase_ARITY 1
+#define ML99_isDigitARITY      1
+#define ML99_isChar_ARITY      1
 // }
 
 #endif // DOXYGEN_IGNORE
