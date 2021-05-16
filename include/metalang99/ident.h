@@ -22,6 +22,10 @@
  * so, `ML99_detectIdent(prefix, ident)` will expand to truth, otherwise (`ML99_cat(prefix, ident)`
  * does **not** exist), `ML99_detectIdent(prefix, ident)` will expand to falsehood.
  *
+ * # Predefined detectors
+ *
+ *  - `ML99_UNDERSCORE_DETECTOR` detects the underscore character (`_`).
+ *
  * # Examples
  *
  * @code
@@ -38,6 +42,9 @@
  *
  * // 0
  * ML99_detectIdent(v(FOO_), v(z))
+ *
+ * // 1
+ * ML99_detectIdent(v(ML99_UNDERSCORE_DETECTOR), v(_))
  * @endcode
  */
 #define ML99_detectIdent(prefix, ident) ML99_call(ML99_detectIdent, prefix, ident)
@@ -46,6 +53,14 @@
  * Compares two identifiers @p x and @p y for equality.
  *
  * This macro is a shortcut to `ML99_detectIdent(ML99_cat3(prefix, x, v(_)), y)`.
+ *
+ * # Predefined detectors
+ *
+ *  - `ML99_C_KEYWORD_DETECTOR` detects all the <a
+ * href="https://en.cppreference.com/w/c/keyword">C11 keywords</a>.
+ *  - `ML99_LOWERCASE_DETECTOR` detects lowercase letters (`abcdefghijklmnopqrstuvwxyz`).
+ *  - `ML99_UPPERCASE_DETECTOR` detects uppercase letters (`ABCDEFGHIJKLMNOPQRSTUVWXYZ`).
+ *  - `ML99_DIGIT_DETECTOR` detects digits (`0123456789`).
  *
  * # Examples
  *
@@ -63,6 +78,12 @@
  *
  * // 0
  * ML99_identEq(v(FOO_), v(x), v(y))
+ *
+ * // 1
+ * ML99_identEq(v(ML99_C_KEYWORD_DETECTOR), v(while), v(while))
+ * ML99_identEq(v(ML99_LOWERCASE_DETECTOR), v(x), v(x))
+ * ML99_identEq(v(ML99_UPPERCASE_DETECTOR), v(X), v(X))
+ * ML99_identEq(v(ML99_DIGIT_DETECTOR), v(5), v(5))
  * @endcode
  */
 #define ML99_identEq(prefix, x, y) ML99_call(ML99_identEq, prefix, x, y)
@@ -89,70 +110,6 @@
  */
 #define ML99_charEq(x, y) ML99_call(ML99_charEq, x, y)
 
-/**
- * The predefined #ML99_identEq detector prefix of C keywords.
- *
- * It can handle all the <a href="https://en.cppreference.com/w/c/keyword">C11 keywords</a>.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/ident.h>
- *
- * // 1
- * ML99_identEq(v(ML99_C_KEYWORD_DETECTOR), v(while), v(while))
- * @endcode
- */
-#define ML99_C_KEYWORD_DETECTOR ML99_PRIV_C_KEYWORD_DETECTOR_
-
-/**
- * The predefined #ML99_detectIdent detector prefix of the underscore character (`_`).
- *
- * # Examples
- *
- * @code
- * #include <metalang99/ident.h>
- *
- * // 1
- * ML99_detectIdent(v(ML99_UNDERSCORE_DETECTOR), v(_))
- * @endcode
- */
-#define ML99_UNDERSCORE_DETECTOR ML99_PRIV_UNDERSCORE_DETECTOR_
-
-/**
- * The predefined #ML99_identEq detector prefix of lowercase characters
- * (`abcdefghijklmnopqrstuvwxyz`).
- *
- * # Examples
- *
- * @code
- * #include <metalang99/ident.h>
- *
- * // 1
- * ML99_identEq(v(ML99_LOWERCASE_DETECTOR), v(x), v(x))
- * @endcode
- */
-#define ML99_LOWERCASE_DETECTOR ML99_PRIV_LOWER_DETECTOR_
-
-/**
- * The same as #ML99_LOWERCASE_DETECTOR but deals with the corresponding uppercase characters.
- */
-#define ML99_UPPERCASE_DETECTOR ML99_PRIV_UPPER_DETECTOR_
-
-/**
- * The predefined #ML99_identEq detector prefix of digits (`0123456789`).
- *
- * # Examples
- *
- * @code
- * #include <metalang99/ident.h>
- *
- * // 1
- * ML99_identEq(v(ML99_DIGIT_DETECTOR), v(5), v(5))
- * @endcode
- */
-#define ML99_DIGIT_DETECTOR ML99_PRIV_DIGIT_DETECTOR_
-
 #define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_PRIV_CAT(prefix, ident))
 #define ML99_IDENT_EQ(prefix, x, y)      ML99_DETECT_IDENT(ML99_PRIV_CAT3(prefix, x, _), y)
 #define ML99_CHAR_EQ(x, y)                                                                         \
@@ -170,6 +127,12 @@
 #define ML99_detectIdent_IMPL(prefix, ident) v(ML99_DETECT_IDENT(prefix, ident))
 #define ML99_identEq_IMPL(prefix, x, y)      v(ML99_IDENT_EQ(prefix, x, y))
 #define ML99_charEq_IMPL(x, y)               v(ML99_CHAR_EQ(x, y))
+
+#define ML99_UNDERSCORE_DETECTOR ML99_PRIV_UNDERSCORE_DETECTOR_
+#define ML99_C_KEYWORD_DETECTOR  ML99_PRIV_C_KEYWORD_DETECTOR_
+#define ML99_LOWERCASE_DETECTOR  ML99_PRIV_LOWER_DETECTOR_
+#define ML99_UPPERCASE_DETECTOR  ML99_PRIV_UPPER_DETECTOR_
+#define ML99_DIGIT_DETECTOR      ML99_PRIV_DIGIT_DETECTOR_
 
 #define ML99_PRIV_C_KEYWORD_DETECTOR_auto_auto                     ()
 #define ML99_PRIV_C_KEYWORD_DETECTOR_break_break                   ()
