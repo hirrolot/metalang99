@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `list.h`:
    - `ML99_listFromTuples` to transform comma-separated tuples into a list.
+ - `util.h`:
+   - `ML99_LOWER_DETECTOR` to detect lowercase characters.
+   - `ML99_UPPER_DETECTOR` to detect uppercase characters.
+   - `ML99_DIGIT_DETECTOR` to detect digits.
 
 ### Fixed
 

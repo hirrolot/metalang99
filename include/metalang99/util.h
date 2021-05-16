@@ -288,6 +288,41 @@
 #define ML99_UNDERSCORE_DETECTOR ML99_PRIV_UNDERSCORE_DETECTOR_
 
 /**
+ * Expands to the predefined detector prefix of all the lowercase characters
+ * (`abcdefghijklmnopqrstuvwxyz`), which can be passed to #ML99_identEq.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // 1
+ * ML99_identEq(v(ML99_LOWER_DETECTOR), v(x), v(x))
+ * @endcode
+ */
+#define ML99_LOWER_DETECTOR ML99_PRIV_LOWER_DETECTOR_
+
+/**
+ * The same as #ML99_LOWER_DETECTOR but deals with the corresponding uppercase characters.
+ */
+#define ML99_UPPER_DETECTOR ML99_PRIV_UPPER_DETECTOR_
+
+/**
+ * Expands to the predefined detector prefix of all the digits (`0123456789`), which can be passed
+ * to #ML99_identEq.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // 1
+ * ML99_identEq(v(ML99_DIGIT_DETECTOR), v(5), v(5))
+ * @endcode
+ */
+#define ML99_DIGIT_DETECTOR ML99_PRIV_DIGIT_DETECTOR_
+
+/**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
  */
 #define ML99_GCC_PRAGMA(str) ML99_PRIV_GCC_PRAGMA(str)
@@ -368,6 +403,71 @@
 #define ML99_PRIV_C_KEYWORD_DETECTOR__Thread_local__Thread_local   ()
 
 #define ML99_PRIV_UNDERSCORE_DETECTOR__ ()
+
+#define ML99_PRIV_LOWER_DETECTOR_a_a ()
+#define ML99_PRIV_LOWER_DETECTOR_b_b ()
+#define ML99_PRIV_LOWER_DETECTOR_c_c ()
+#define ML99_PRIV_LOWER_DETECTOR_d_d ()
+#define ML99_PRIV_LOWER_DETECTOR_e_e ()
+#define ML99_PRIV_LOWER_DETECTOR_f_f ()
+#define ML99_PRIV_LOWER_DETECTOR_g_g ()
+#define ML99_PRIV_LOWER_DETECTOR_h_h ()
+#define ML99_PRIV_LOWER_DETECTOR_i_i ()
+#define ML99_PRIV_LOWER_DETECTOR_j_j ()
+#define ML99_PRIV_LOWER_DETECTOR_k_k ()
+#define ML99_PRIV_LOWER_DETECTOR_l_l ()
+#define ML99_PRIV_LOWER_DETECTOR_m_m ()
+#define ML99_PRIV_LOWER_DETECTOR_n_n ()
+#define ML99_PRIV_LOWER_DETECTOR_o_o ()
+#define ML99_PRIV_LOWER_DETECTOR_p_p ()
+#define ML99_PRIV_LOWER_DETECTOR_q_q ()
+#define ML99_PRIV_LOWER_DETECTOR_r_r ()
+#define ML99_PRIV_LOWER_DETECTOR_s_s ()
+#define ML99_PRIV_LOWER_DETECTOR_t_t ()
+#define ML99_PRIV_LOWER_DETECTOR_u_u ()
+#define ML99_PRIV_LOWER_DETECTOR_v_v ()
+#define ML99_PRIV_LOWER_DETECTOR_w_w ()
+#define ML99_PRIV_LOWER_DETECTOR_x_x ()
+#define ML99_PRIV_LOWER_DETECTOR_y_y ()
+#define ML99_PRIV_LOWER_DETECTOR_z_z ()
+
+#define ML99_PRIV_UPPER_DETECTOR_A_A ()
+#define ML99_PRIV_UPPER_DETECTOR_B_B ()
+#define ML99_PRIV_UPPER_DETECTOR_C_C ()
+#define ML99_PRIV_UPPER_DETECTOR_D_D ()
+#define ML99_PRIV_UPPER_DETECTOR_E_E ()
+#define ML99_PRIV_UPPER_DETECTOR_F_F ()
+#define ML99_PRIV_UPPER_DETECTOR_G_G ()
+#define ML99_PRIV_UPPER_DETECTOR_H_H ()
+#define ML99_PRIV_UPPER_DETECTOR_I_I ()
+#define ML99_PRIV_UPPER_DETECTOR_J_J ()
+#define ML99_PRIV_UPPER_DETECTOR_K_K ()
+#define ML99_PRIV_UPPER_DETECTOR_L_L ()
+#define ML99_PRIV_UPPER_DETECTOR_M_M ()
+#define ML99_PRIV_UPPER_DETECTOR_N_N ()
+#define ML99_PRIV_UPPER_DETECTOR_O_O ()
+#define ML99_PRIV_UPPER_DETECTOR_P_P ()
+#define ML99_PRIV_UPPER_DETECTOR_Q_Q ()
+#define ML99_PRIV_UPPER_DETECTOR_R_R ()
+#define ML99_PRIV_UPPER_DETECTOR_S_S ()
+#define ML99_PRIV_UPPER_DETECTOR_T_T ()
+#define ML99_PRIV_UPPER_DETECTOR_U_U ()
+#define ML99_PRIV_UPPER_DETECTOR_V_V ()
+#define ML99_PRIV_UPPER_DETECTOR_W_W ()
+#define ML99_PRIV_UPPER_DETECTOR_X_X ()
+#define ML99_PRIV_UPPER_DETECTOR_Y_Y ()
+#define ML99_PRIV_UPPER_DETECTOR_Z_Z ()
+
+#define ML99_PRIV_DIGIT_DETECTOR_0_0 ()
+#define ML99_PRIV_DIGIT_DETECTOR_1_1 ()
+#define ML99_PRIV_DIGIT_DETECTOR_2_2 ()
+#define ML99_PRIV_DIGIT_DETECTOR_3_3 ()
+#define ML99_PRIV_DIGIT_DETECTOR_4_4 ()
+#define ML99_PRIV_DIGIT_DETECTOR_5_5 ()
+#define ML99_PRIV_DIGIT_DETECTOR_6_6 ()
+#define ML99_PRIV_DIGIT_DETECTOR_7_7 ()
+#define ML99_PRIV_DIGIT_DETECTOR_8_8 ()
+#define ML99_PRIV_DIGIT_DETECTOR_9_9 ()
 
 #if defined(__GNUC__) && !defined(__clang__)
 #define ML99_PRIV_GCC_PRAGMA(str) _Pragma(str)
