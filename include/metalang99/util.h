@@ -297,15 +297,15 @@
  * #include <metalang99/util.h>
  *
  * // 1
- * ML99_identEq(v(ML99_LOWER_DETECTOR), v(x), v(x))
+ * ML99_identEq(v(ML99_LOWERCASE_DETECTOR), v(x), v(x))
  * @endcode
  */
-#define ML99_LOWER_DETECTOR ML99_PRIV_LOWER_DETECTOR_
+#define ML99_LOWERCASE_DETECTOR ML99_PRIV_LOWER_DETECTOR_
 
 /**
- * The same as #ML99_LOWER_DETECTOR but deals with the corresponding uppercase characters.
+ * The same as #ML99_LOWERCASE_DETECTOR but deals with the corresponding uppercase characters.
  */
-#define ML99_UPPER_DETECTOR ML99_PRIV_UPPER_DETECTOR_
+#define ML99_UPPERCASE_DETECTOR ML99_PRIV_UPPER_DETECTOR_
 
 /**
  * Expands to the predefined detector prefix of all the digits (`0123456789`), which can be passed
