@@ -273,4 +273,16 @@ ML99_ASSERT(ML99_isChar(v(z)));
 ML99_ASSERT(ML99_not(ML99_isChar(v(xyz))));
 // }
 
+// ML99_LOWERCASE_CHARS, ML99_UPPERCASE_CHARS, ML99_DIGITS {
+#define FST(...)        FST_AUX(__VA_ARGS__)
+#define FST_AUX(x, ...) x
+
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(a, FST(ML99_LOWERCASE_CHARS(~, ~, ~))));
+ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(A, FST(ML99_UPPERCASE_CHARS(~, ~, ~))));
+ML99_ASSERT_UNEVAL(FST(ML99_DIGITS(~, ~, ~)) == 0);
+
+#undef FST
+#undef FST_AUX
+// }
+
 int main(void) {}

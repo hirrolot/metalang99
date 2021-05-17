@@ -136,6 +136,38 @@
  */
 #define ML99_isChar(x) ML99_call(ML99_isChar, x)
 
+/**
+ * Expands to all comma-separated lowercase letters.
+ *
+ * This macro consumes all arguments.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/ident.h>
+ * #include <metalang99/variadics.h>
+ *
+ * #define F_IMPL(x) v([x])
+ * #define F_ARITY   1
+ *
+ * // [a] [b] [c] ... [x] [y] [z]
+ * ML99_variadicsForEach(v(F), v(ML99_LOWERCASE_CHARS()))
+ * @endcode
+ */
+#define ML99_LOWERCASE_CHARS(...)                                                                  \
+    a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
+
+/**
+ * The same as #ML99_LOWERCASE_CHARS but for uppercase characters.
+ */
+#define ML99_UPPERCASE_CHARS(...)                                                                  \
+    A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z
+
+/**
+ * The same as #ML99_LOWERCASE_CHARS but for digits.
+ */
+#define ML99_DIGITS(...) 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+
 #define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_PRIV_CAT(prefix, ident))
 #define ML99_IDENT_EQ(prefix, x, y)      ML99_DETECT_IDENT(ML99_PRIV_CAT3(prefix, x, _), y)
 #define ML99_CHAR_EQ(x, y)                                                                         \
