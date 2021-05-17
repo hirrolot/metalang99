@@ -13,14 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `ML99_listFromTuples` to transform comma-separated tuples into a list.
  - New module `ident.h`:
    - Migrate `ML99_detectIdent`, `ML99_identEq`, `ML99_DETECT_IDENT`, `ML99_IDENT_EQ`, `ML99_C_KEYWORD_DETECTOR`, `ML99_UNDERSCORE_DETECTOR` from `util.h`.
-   - `ML99_LOWERCASE_DETECTOR` to detect lowercase characters.
-   - `ML99_UPPERCASE_DETECTOR` to detect uppercase characters.
+   - `ML99_(LOWER|UPPER)CASE_DETECTOR` to detect lower/uppercase characters.
    - `ML99_DIGIT_DETECTOR` to detect digits.
    - `ML99_char_eq`, `ML99_CHAR_EQ` to compare two characters.
-   - `ML99_is(Lower|Upper)case`, `ML99_IS_(LOWER|UPPER)CASE` to check whether a letter is lowercased/uppercased.
+   - `ML99_is(Lower|Upper)case`, `ML99_IS_(LOWER|UPPER)CASE` to check whether a letter is lower/uppercased.
    - `ML99_isDigit`, `ML99_IS_DIGIT` to check whether a character is digit.
    - `ML99_isChar`, `ML99_IS_CHAR` to check whether an identifier is a character.
-   - `ML99_(LOWER|UPPER)CASE_CHARS` which expands to all comma-separated lowercase/uppercase characters.
+   - `ML99_(LOWER|UPPER)CASE_CHARS` which expands to all comma-separated lower/uppercase characters.
    - `ML99_DIGITS` which expands to all comma-separated digits.
 
 ### Changed
