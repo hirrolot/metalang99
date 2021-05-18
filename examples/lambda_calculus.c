@@ -57,6 +57,8 @@
 #define termEq_Lam_Lam_IMPL(x, M, x1, M1)   ML99_and(ML99_charEq(v(x), v(x1)), termEq(v(M), v(M1)))
 // }
 
+#define ASSERT_REDUCES_TO(lhs, rhs) ML99_ASSERT(termEq(eval(lhs), rhs))
+
 // The identity combinator {
 #define I Lam(v(a), Var(v(a)))
 
@@ -75,36 +77,36 @@ ML99_ASSERT(termEq(eval(Appl(I, Var(v(q)))), Var(v(q))));
 #define IF Lam(v(l), Lam(v(m), Lam(v(n), Appl(Appl(Var(v(l)), Var(v(m))), Var(v(n))))))
 
 // NOT {
-ML99_ASSERT(termEq(eval(Appl(NOT, T)), F));
-ML99_ASSERT(termEq(eval(Appl(NOT, F)), T));
-ML99_ASSERT(termEq(eval(Appl(NOT, Appl(NOT, T))), T));
-ML99_ASSERT(termEq(eval(Appl(NOT, Appl(NOT, F))), F));
+ASSERT_REDUCES_TO(Appl(NOT, T), F);
+ASSERT_REDUCES_TO(Appl(NOT, F), T);
+ASSERT_REDUCES_TO(Appl(NOT, Appl(NOT, T)), T);
+ASSERT_REDUCES_TO(Appl(NOT, Appl(NOT, F)), F);
 // }
 
 // AND {
-ML99_ASSERT(termEq(eval(Appl(Appl(AND, T), T)), T));
-ML99_ASSERT(termEq(eval(Appl(Appl(AND, T), F)), F));
-ML99_ASSERT(termEq(eval(Appl(Appl(AND, F), T)), F));
-ML99_ASSERT(termEq(eval(Appl(Appl(AND, F), F)), F));
+ASSERT_REDUCES_TO(Appl(Appl(AND, T), T), T);
+ASSERT_REDUCES_TO(Appl(Appl(AND, T), F), F);
+ASSERT_REDUCES_TO(Appl(Appl(AND, F), T), F);
+ASSERT_REDUCES_TO(Appl(Appl(AND, F), F), F);
 // }
 
 // OR {
-ML99_ASSERT(termEq(eval(Appl(Appl(OR, T), T)), T));
-ML99_ASSERT(termEq(eval(Appl(Appl(OR, T), F)), T));
-ML99_ASSERT(termEq(eval(Appl(Appl(OR, F), T)), T));
-ML99_ASSERT(termEq(eval(Appl(Appl(OR, F), F)), F));
+ASSERT_REDUCES_TO(Appl(Appl(OR, T), T), T);
+ASSERT_REDUCES_TO(Appl(Appl(OR, T), F), T);
+ASSERT_REDUCES_TO(Appl(Appl(OR, F), T), T);
+ASSERT_REDUCES_TO(Appl(Appl(OR, F), F), F);
 // }
 
 // XOR {
-ML99_ASSERT(termEq(eval(Appl(Appl(XOR, T), T)), F));
-ML99_ASSERT(termEq(eval(Appl(Appl(XOR, T), F)), T));
-ML99_ASSERT(termEq(eval(Appl(Appl(XOR, F), T)), T));
-ML99_ASSERT(termEq(eval(Appl(Appl(XOR, F), F)), F));
+ASSERT_REDUCES_TO(Appl(Appl(XOR, T), T), F);
+ASSERT_REDUCES_TO(Appl(Appl(XOR, T), F), T);
+ASSERT_REDUCES_TO(Appl(Appl(XOR, F), T), T);
+ASSERT_REDUCES_TO(Appl(Appl(XOR, F), F), F);
 // }
 
 // IF {
-ML99_ASSERT(termEq(eval(Appl(Appl(Appl(IF, T), Var(v(q))), Var(v(z)))), Var(v(q))));
-ML99_ASSERT(termEq(eval(Appl(Appl(Appl(IF, F), Var(v(q))), Var(v(z)))), Var(v(z))));
+ASSERT_REDUCES_TO(Appl(Appl(Appl(IF, T), Var(v(q))), Var(v(z))), Var(v(q)));
+ASSERT_REDUCES_TO(Appl(Appl(Appl(IF, F), Var(v(q))), Var(v(z))), Var(v(z)));
 // }
 
 // } (Church booleans)
