@@ -57,7 +57,10 @@
 #define termEq_Lam_Lam_IMPL(x, M, x1, M1)   ML99_and(ML99_charEq(v(x), v(x1)), termEq(v(M), v(M1)))
 // }
 
-#define ASSERT_REDUCES_TO(lhs, rhs) ML99_ASSERT(termEq(eval(lhs), rhs))
+#define ASSERT_REDUCES_TO(lhs, rhs)                                                                \
+    /* Use two interpreter passes: one for `eval(lhs)`, one for `termEq`. Thereby we achieve more  \
+     * Metalang99 reduction steps available. */                                                    \
+    ML99_ASSERT_UNEVAL(ML99_EVAL(termEq(v(ML99_EVAL(eval(lhs))), rhs)))
 
 // The identity combinator {
 #define I Lam(v(a), Var(v(a)))
