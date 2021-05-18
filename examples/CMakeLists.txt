@@ -19,6 +19,7 @@ add_executable(duffs_device duffs_device.c)
 add_executable(factorial factorial.c)
 add_executable(overload overload.c)
 add_executable(rectangle rectangle.c)
+add_executable(lambda_calculus lambda_calculus.c)
 
 foreach(TARGET ${BUILDSYSTEM_TARGETS})
   set_target_properties(TARGET PROPERTIES C_STANDARD 99 C_STANDARD_REQUIRED ON)
