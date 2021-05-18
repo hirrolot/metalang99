@@ -21,9 +21,8 @@
 // }
 
 // Substitution: `M[lhs=rhs]` {
-#define subst(M, lhs, rhs) ML99_matchWithArgs(M, v(subst_), lhs, rhs)
-#define subst_Var_IMPL(x, lhs, rhs)                                                                \
-    ML99_if(ML99_identEq(v(ML99_LOWERCASE_DETECTOR), v(x), v(lhs)), v(rhs), Var(v(x)))
+#define subst(M, lhs, rhs)          ML99_matchWithArgs(M, v(subst_), lhs, rhs)
+#define subst_Var_IMPL(x, lhs, rhs) ML99_if(ML99_charEq(v(x), v(lhs)), v(rhs), Var(v(x)))
 #define subst_Appl_IMPL(M, N, lhs, rhs)                                                            \
     Appl(subst(v(M), v(lhs), v(rhs)), subst(v(N), v(lhs), v(rhs)))
 #define subst_Lam_IMPL(x, M, lhs, rhs)                                                             \
