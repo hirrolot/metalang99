@@ -40,4 +40,15 @@ ML99_ASSERT_EMPTY(ML99_empty(v()));
 ML99_ASSERT_EMPTY(ML99_empty(v(1, 2, 3)));
 // }
 
+// ML99_LPAREN, ML99_RPAREN {
+#define F             3 ML99_RPAREN(~, ~, ~) + G ML99_LPAREN(~, ~, ~) 1, 2,
+#define G(_1, _2, _3) _1##_2##_3
+
+// G(1, 2, 3) + G(1, 2, 3) + G(1, 2, 3) + G(1, 2, 3)
+ML99_ASSERT_UNEVAL(ML99_ID(G ML99_LPAREN() 1, 2, F F F 3 ML99_RPAREN() == 123 * 4));
+
+#undef F
+#undef G
+// }
+
 int main(void) {}

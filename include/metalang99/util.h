@@ -206,6 +206,22 @@
 #define ML99_STRINGIFY_PRIMITIVE(...) #__VA_ARGS__
 
 /**
+ * Expands to an opening parenthesis (`(`).
+ *
+ * This is helpful when you want to delay macro arguments passing: just type `BAR ML99_LPAREN()
+ * initial args...` at the end of some macro `FOO` and complete the invocation of `BAR` with
+ * `the rest of args...)` in future.
+ *
+ * This macro consumes all its arguments.
+ */
+#define ML99_LPAREN(...) (
+
+/**
+ * The same as #ML99_LPAREN but emits a closing parenthesis.
+ */
+#define ML99_RPAREN(...) )
+
+/**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
  */
 #define ML99_GCC_PRAGMA(str) ML99_PRIV_GCC_PRAGMA(str)

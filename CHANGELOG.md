@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `list.h`:
    - `ML99_listFromTuples` to transform comma-separated tuples into a list.
+ - `util.h`:
+   - `ML99_(L|R)PAREN` which expands to an opening/closing parenthesis.
  - New module `ident.h`:
    - Migrate `ML99_detectIdent`, `ML99_identEq`, `ML99_DETECT_IDENT`, `ML99_IDENT_EQ`, `ML99_C_KEYWORD_DETECTOR`, `ML99_UNDERSCORE_DETECTOR` from `util.h`.
    - `ML99_(LOWER|UPPER)CASE_DETECTOR` to detect lower/uppercase characters.
