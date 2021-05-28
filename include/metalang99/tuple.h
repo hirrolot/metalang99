@@ -49,7 +49,7 @@
 #define ML99_tupleEval(...) ML99_call(ML99_tupleEval, __VA_ARGS__)
 
 /**
- * Untuples a sequence of arguments, leaving the result unevaluated.
+ * Untuples the tuple @p x, leaving the result unevaluated.
  *
  * # Examples
  *
@@ -63,7 +63,15 @@
 #define ML99_untuple(x) ML99_call(ML99_untuple, x)
 
 /**
- * Untuples a sequence of arguments and evaluates the result.
+ * The same as #ML99_untuple, except that it emits a fatal error if @p x is not a tuple.
+ *
+ * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g.,
+ * `() 123` is disallowed.
+ */
+#define ML99_untupleChecked(x) ML99_call(ML99_untupleChecked, x)
+
+/**
+ * Untuples the tuple @p x and evaluates the result.
  *
  * # Examples
  *
@@ -79,8 +87,8 @@
 /**
  * Tests whether @p x is inside parentheses or not.
  *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
- * 123` is disallowed.
+ * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g.,
+ * `() 123` is disallowed.
  *
  * # Examples
  *
@@ -99,8 +107,8 @@
 /**
  * The inverse of #ML99_isTuple.
  *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g. `()
- * 123` is disallowed.
+ * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g.,
+ * `() 123` is disallowed.
  *
  * # Examples
  *
@@ -206,12 +214,16 @@
 
 #ifndef DOXYGEN_IGNORE
 
-#define ML99_tupleEval_IMPL(...) v((v(__VA_ARGS__)))
 #define ML99_tuple_IMPL(...)     v(ML99_TUPLE(__VA_ARGS__))
-#define ML99_untupleEval_IMPL(x) ML99_PRIV_EXPAND x
+#define ML99_tupleEval_IMPL(...) v((v(__VA_ARGS__)))
 #define ML99_untuple_IMPL(x)     v(ML99_UNTUPLE(x))
+#define ML99_untupleChecked_IMPL(x)                                                                \
+    ML99_PRIV_IF(ML99_IS_TUPLE(x), ML99_PRIV_UNTUPLE_CHECKED_AUX, ML99_PRIV_NOT_TUPLE_ERROR)(x)
+#define ML99_untupleEval_IMPL(x) ML99_PRIV_EXPAND x
 #define ML99_isTuple_IMPL(x)     v(ML99_IS_TUPLE(x))
 #define ML99_isUntuple_IMPL(x)   v(ML99_IS_UNTUPLE(x))
+
+#define ML99_PRIV_UNTUPLE_CHECKED_AUX(x) v(ML99_UNTUPLE(x))
 
 #define ML99_PRIV_tupleGet_0(x) ML99_call(ML99_PRIV_tupleGet_0, x)
 #define ML99_PRIV_tupleGet_1(x) ML99_call(ML99_PRIV_tupleGet_1, x)
@@ -253,16 +265,17 @@
 // clang-format on
 
 // Arity specifiers {
-#define ML99_tuple_ARITY         1
-#define ML99_tupleEval_ARITY     1
-#define ML99_untuple_ARITY       1
-#define ML99_untupleEval_ARITY   1
-#define ML99_isTuple_ARITY       1
-#define ML99_isUntuple_ARITY     1
-#define ML99_tupleTail_ARITY     1
-#define ML99_tupleAppend_ARITY   2
-#define ML99_tuplePrepend_ARITY  2
-#define ML99_assertIsTuple_ARITY 1
+#define ML99_tuple_ARITY          1
+#define ML99_tupleEval_ARITY      1
+#define ML99_untuple_ARITY        1
+#define ML99_untupleChecked_ARITY 1
+#define ML99_untupleEval_ARITY    1
+#define ML99_isTuple_ARITY        1
+#define ML99_isUntuple_ARITY      1
+#define ML99_tupleTail_ARITY      1
+#define ML99_tupleAppend_ARITY    2
+#define ML99_tuplePrepend_ARITY   2
+#define ML99_assertIsTuple_ARITY  1
 
 #define ML99_PRIV_tupleGet_0_ARITY 1
 #define ML99_PRIV_tupleGet_1_ARITY 1

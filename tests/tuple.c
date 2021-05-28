@@ -13,8 +13,9 @@ ML99_EVAL(v(CHECK), ML99_tuple(v(518, 1910)));
 ML99_ASSERT_EQ(ML99_untupleEval(v((v(198)))), v(198));
 // }
 
-// ML99_untuple {
+// ML99_untuple, ML99_untupleChceked {
 ML99_ASSERT_EQ(ML99_untuple(v((198))), v(198));
+ML99_ASSERT_EQ(ML99_untupleChecked(v((198))), v(198));
 // }
 
 // ML99_tupleEval + ML99_untupleEval {
