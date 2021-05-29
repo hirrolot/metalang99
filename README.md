@@ -85,9 +85,38 @@ int sum(const BinaryTree *tree) {
 }
 ```
 
+Or [Interface99]:
+
+```c
+
+#include <interface99.h>
+
+#define State_INTERFACE               \
+    iFn(int, get, void *self);        \
+    iFn(void, set, void *self, int x);
+
+interface(State);
+
+typedef struct {
+    int x;
+} Num;
+
+int Num_State_get(void *self) {
+    return ((Num *)self)->x;
+}
+
+void Num_State_set(void *self, int x) {
+    ((Num *)self)->x = x;
+}
+
+impl(State, Num);
+```
+
 As you can see, advanced metaprogramming with Metalang99 allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
 
 [Datatype99]: https://github.com/Hirrolot/datatype99
+[Interface99]: https://github.com/Hirrolot/interface99
+
 
 ## Getting started
 
