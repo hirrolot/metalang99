@@ -73,7 +73,7 @@
 // The identity combinator {
 #define I Lam(Var(v(1)))
 
-ML99_ASSERT(termEq(eval(Appl(I, Var(v(5)))), Var(v(5))));
+ASSERT_REDUCES_TO(Appl(I, Var(v(5))), Var(v(5)));
 // }
 
 // Church booleans {
