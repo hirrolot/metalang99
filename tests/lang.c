@@ -7,7 +7,11 @@
 ML99_ASSERT_EMPTY_UNEVAL(ML99_EVAL(v()));
 
 // A function with zero arguments {
+#ifndef __TINYC__
+#define F_IMPL() v(123)
+#else
 #define F_IMPL(...) v(123) // `...` due to a TCC's bug.
+#endif
 
 ML99_ASSERT_EQ(ML99_call(F, v()), v(123));
 ML99_ASSERT_EQ(ML99_call(v(F), v()), v(123));
@@ -78,8 +82,14 @@ ML99_ASSERT_EQ(ML99_call(NonExistingF, ML99_abort(v(123))), v(123));
 // Partial application {
 
 // The arity of a function with zero arguments must be 1 {
+
+#ifndef __TINYC__
+#define F_IMPL() v(123)
+#else
 #define F_IMPL(...) v(123) // // `...` due to a TCC's bug.
-#define F_ARITY     1
+#endif
+
+#define F_ARITY 1
 
 ML99_ASSERT_EQ(ML99_appl(v(F), v()), v(123));
 
