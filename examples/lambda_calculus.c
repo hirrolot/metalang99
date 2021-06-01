@@ -10,6 +10,7 @@
 #include <metalang99.h>
 
 // Grammar: Var(iable), Appl(ication), and Lam(bda abstraction) {
+
 #define Var(i)     ML99_call(Var, i)
 #define Appl(M, N) ML99_call(Appl, M, N)
 #define Lam(M)     ML99_call(Lam, M)
@@ -24,6 +25,7 @@
 // }
 
 // Variable substitution: `M[1=x]` {
+
 #define subst(M, x) ML99_call(subst, M, x)
 
 #define subst_IMPL(M, x)           substAux_IMPL(M, x, 1)
@@ -41,6 +43,7 @@
 // }
 
 // Increment all free variables in `M` {
+
 #define incFreeVars(M) ML99_call(incFreeVars, M)
 
 #define incFreeVars_IMPL(M)           incFreeVarsAux_IMPL(M, 1)
@@ -54,7 +57,9 @@
 // }
 
 // Evaluation {
-#define eval(M)              ML99_call(eval, M)
+
+#define eval(M) ML99_call(eval, M)
+
 #define eval_IMPL(M)         ML99_callUneval(ML99_match, M, eval_)
 #define eval_Var_IMPL(i)     v(VAR(i))
 #define eval_Appl_IMPL(M, N) ML99_callUneval(ML99_matchWithArgs, M, eval_Appl_, N)
@@ -71,6 +76,7 @@
 // }
 
 // Syntactical equality of two terms {
+
 #define termEq(lhs, rhs)            ML99_matchWithArgs(lhs, v(termEq_), rhs)
 #define termEq_Var_IMPL(i, rhs)     termEqPropagate(Var, rhs, i)
 #define termEq_Appl_IMPL(M, N, rhs) termEqPropagate(Appl, rhs, M, N)
@@ -97,12 +103,14 @@
     ML99_ASSERT_UNEVAL(ML99_EVAL(termEq(v(ML99_EVAL(eval(v(lhs)))), v(ML99_EVAL(eval(v(rhs)))))))
 
 // The identity combinator {
+
 #define I LAM(VAR(1))
 
 ASSERT_REDUCES_TO(APPL(I, VAR(5)), VAR(5));
 // }
 
 // The K, S combinators {
+
 #define K LAM(LAM(VAR(2)))
 #define S LAM(LAM(LAM(APPL(APPL(VAR(3), VAR(1)), APPL(VAR(2), VAR(1))))))
 
@@ -114,6 +122,7 @@ ASSERT_REDUCES_TO(APPL(APPL(K, VAR(5)), VAR(6)), VAR(5));
 // }
 
 // Church booleans {
+
 #define T LAM(LAM(VAR(2)))
 #define F LAM(LAM(VAR(1)))
 
@@ -160,6 +169,7 @@ ASSERT_REDUCES_TO(APPL(APPL(APPL(IF, F), VAR(5)), VAR(6)), VAR(6));
 // } (Church booleans)
 
 // Church numerals {
+
 #define ZERO LAM(LAM(VAR(1)))
 #define SUCC LAM(LAM(LAM(APPL(VAR(2), APPL(APPL(VAR(3), VAR(2)), VAR(1))))))
 
@@ -180,9 +190,28 @@ ASSERT_REDUCES_TO(APPL(APPL(MUL, ZERO), ZERO), ZERO);
 ASSERT_REDUCES_TO(APPL(APPL(MUL, ZERO), ONE), ZERO);
 ASSERT_REDUCES_TO(APPL(APPL(MUL, ONE), ZERO), ZERO);
 ASSERT_REDUCES_TO(APPL(APPL(MUL, TWO), TWO), FOUR);
-
 // } (Church numerals)
 
-// TODO: Y-combinator, the factorial function.
+// Church pairs {
+
+#define PAIR LAM(LAM(LAM(APPL(APPL(VAR(1), VAR(3)), VAR(2)))))
+#define FST  LAM(APPL(VAR(1), T))
+#define SND  LAM(APPL(VAR(1), F))
+
+ASSERT_REDUCES_TO(APPL(FST, APPL(APPL(PAIR, VAR(5)), VAR(6))), VAR(5));
+ASSERT_REDUCES_TO(APPL(SND, APPL(APPL(PAIR, VAR(5)), VAR(6))), VAR(6));
+// } (Church pairs)
+
+// Church lists {
+
+#define NIL    F
+#define CONS   PAIR
+#define IS_NIL LAM(APPL(APPL(VAR(1), LAM(LAM(LAM(F)))), T))
+
+#define LIST_1_2_3 APPL(APPL(CONS, VAR(1)), APPL(APPL(CONS, VAR(2)), APPL(APPL(CONS, VAR(3)), NIL)))
+
+ASSERT_REDUCES_TO(APPL(IS_NIL, NIL), T);
+ASSERT_REDUCES_TO(APPL(IS_NIL, LIST_1_2_3), F);
+// } (Church lists)
 
 int main(void) {}
