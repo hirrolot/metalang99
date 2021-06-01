@@ -10,45 +10,54 @@
 #include <metalang99.h>
 
 // Grammar: Var(iable), Appl(ication), and Lam(bda abstraction) {
-#define Var(i)     v(ML99_CHOICE(Var, i))
-#define Appl(M, N) ML99_choice(v(Appl), M, N)
-#define Lam(M)     ML99_choice(v(Lam), M)
+#define Var(i)     ML99_call(Var, i)
+#define Appl(M, N) ML99_call(Appl, M, N)
+#define Lam(M)     ML99_call(Lam, M)
+
+#define Var_IMPL(i)     v(VAR(i))
+#define Appl_IMPL(M, N) v(APPL(M, N))
+#define Lam_IMPL(M)     v(LAM(M))
+
+#define VAR(i)     ML99_CHOICE(Var, i)
+#define APPL(M, N) ML99_CHOICE(Appl, M, N)
+#define LAM(M)     ML99_CHOICE(Lam, M)
 // }
 
-// Substitution: `M[lhs=rhs]` {
+// Variable substitution: `M[1=x]`.
 #define subst(M, x)           substAux(M, x, v(1))
 #define substAux(M, x, depth) ML99_matchWithArgs(M, v(substAux_), x, depth)
 #define substAux_Var_IMPL(i, x, depth)                                                             \
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(i, depth),                                                                     \
         v(x),                                                                                      \
-        ML99_if(ML99_greater(v(i), v(depth)), Var(ML99_DEC(i)), Var(i)))
+        ML99_call(ML99_if, ML99_callUneval(ML99_greater, i, depth), v(VAR(ML99_DEC(i)), VAR(i))))
 #define substAux_Appl_IMPL(M, N, x, depth)                                                         \
     Appl(substAux(v(M), v(x), v(depth)), substAux(v(N), v(x), v(depth)))
-#define substAux_Lam_IMPL(M, x, depth) Lam(substAux(v(M), incFreeVars(v(x)), v(ML99_INC(depth))))
+#define substAux_Lam_IMPL(M, x, depth) Lam(substAux(v(M), incFreeVars(x), v(ML99_INC(depth))))
 
-#define incFreeVars(M)           incFreeVarsAux(M, v(1))
-#define incFreeVarsAux(M, depth) ML99_matchWithArgs(M, v(incFreeVarsAux_), depth)
+// Increment all free variables in `M`.
+#define incFreeVars(M)           incFreeVarsAux(M, 1)
+#define incFreeVarsAux(M, depth) ML99_callUneval(ML99_matchWithArgs, M, incFreeVarsAux_, depth)
 #define incFreeVarsAux_Var_IMPL(i, depth)                                                          \
-    ML99_if(ML99_greaterEq(v(i), v(depth)), Var(ML99_INC(i)), Var(i))
+    ML99_call(ML99_if, ML99_callUneval(ML99_greaterEq, i, depth), v(VAR(ML99_INC(i)), VAR(i)))
 #define incFreeVarsAux_Appl_IMPL(M, N, depth)                                                      \
-    Appl(incFreeVarsAux(v(M), v(depth)), incFreeVarsAux(v(N), v(depth)))
-#define incFreeVarsAux_Lam_IMPL(M, depth) Lam(incFreeVarsAux(v(M), v(ML99_INC(depth))))
-// }
+    Appl(incFreeVarsAux(M, depth), incFreeVarsAux(N, depth))
+#define incFreeVarsAux_Lam_IMPL(M, depth) Lam(incFreeVarsAux(M, ML99_INC(depth)))
 
 // Evaluation {
-#define eval(M)              ML99_match(M, v(eval_))
-#define eval_Var_IMPL(i)     Var(i)
-#define eval_Appl_IMPL(M, N) ML99_matchWithArgs(v(M), v(eval_Appl_), v(N))
-#define eval_Lam_IMPL(M)     Lam(eval(v(M)))
+#define eval(M)              ML99_call(eval, M)
+#define eval_IMPL(M)         ML99_callUneval(ML99_match, M, eval_)
+#define eval_Var_IMPL(i)     v(VAR(i))
+#define eval_Appl_IMPL(M, N) ML99_callUneval(ML99_matchWithArgs, M, eval_Appl_, N)
+#define eval_Lam_IMPL(M)     Lam(eval_IMPL(M))
 
-#define eval_Appl_Var_IMPL(i, N) Appl(Var(i), eval(v(N)))
+#define eval_Appl_Var_IMPL(i, N) Appl(v(VAR(i)), eval_IMPL(N))
 #define eval_Appl_Appl_IMPL(M, N, N1)                                                              \
-    ML99_matchWithArgs(eval(Appl(v(M), v(N))), v(eval_Appl_Appl_), v(N1))
+    ML99_call(ML99_matchWithArgs, eval(Appl_IMPL(M, N)), v(eval_Appl_Appl_, N1))
 #define eval_Appl_Lam_IMPL(M, N) eval(subst(v(M), v(N)))
 
 #define eval_Appl_Appl_Var_IMPL            eval_Appl_Var_IMPL
-#define eval_Appl_Appl_Appl_IMPL(M, N, N1) Appl(Appl(v(M), v(N)), eval(v(N1)))
+#define eval_Appl_Appl_Appl_IMPL(M, N, N1) Appl(Appl_IMPL(M, N), eval_IMPL(N1))
 #define eval_Appl_Appl_Lam_IMPL            eval_Appl_Lam_IMPL
 // }
 
@@ -76,82 +85,81 @@
 #define ASSERT_REDUCES_TO(lhs, rhs)                                                                \
     /* Use two interpreter passes: one for `eval(lhs)`, one for `termEq`. Thereby we achieve more  \
      * Metalang99 reduction steps available. */                                                    \
-    ML99_ASSERT_UNEVAL(ML99_EVAL(termEq(v(ML99_EVAL(eval(lhs))), v(ML99_EVAL(eval(rhs))))))
+    ML99_ASSERT_UNEVAL(ML99_EVAL(termEq(v(ML99_EVAL(eval(v(lhs)))), v(ML99_EVAL(eval(v(rhs)))))))
 
 // The identity combinator {
-#define I Lam(Var(1))
+#define I LAM(VAR(1))
 
-ASSERT_REDUCES_TO(Appl(I, Var(5)), Var(5));
+ASSERT_REDUCES_TO(APPL(I, VAR(5)), VAR(5));
 // }
 
 // Church booleans {
-#define T Lam(Lam(Var(2)))
-#define F Lam(Lam(Var(1)))
+#define T LAM(LAM(VAR(2)))
+#define F LAM(LAM(VAR(1)))
 
-#define NOT Lam(Appl(Appl(Var(1), F), T))
-#define AND Lam(Lam(Appl(Appl(Var(2), Var(1)), Var(2))))
-#define OR  Lam(Lam(Appl(Appl(Var(2), Var(2)), Var(1))))
-#define XOR Lam(Lam(Appl(Appl(Var(2), Appl(NOT, Var(1))), Var(1))))
+#define NOT LAM(APPL(APPL(VAR(1), F), T))
+#define AND LAM(LAM(APPL(APPL(VAR(2), VAR(1)), VAR(2))))
+#define OR  LAM(LAM(APPL(APPL(VAR(2), VAR(2)), VAR(1))))
+#define XOR LAM(LAM(APPL(APPL(VAR(2), APPL(NOT, VAR(1))), VAR(1))))
 
-#define IF Lam(Lam(Lam(Appl(Appl(Var(3), Var(2)), Var(1)))))
+#define IF LAM(LAM(LAM(APPL(APPL(VAR(3), VAR(2)), VAR(1)))))
 
 // NOT {
-ASSERT_REDUCES_TO(Appl(NOT, T), F);
-ASSERT_REDUCES_TO(Appl(NOT, F), T);
-ASSERT_REDUCES_TO(Appl(NOT, Appl(NOT, T)), T);
-ASSERT_REDUCES_TO(Appl(NOT, Appl(NOT, F)), F);
+ASSERT_REDUCES_TO(APPL(NOT, T), F);
+ASSERT_REDUCES_TO(APPL(NOT, F), T);
+ASSERT_REDUCES_TO(APPL(NOT, APPL(NOT, T)), T);
+ASSERT_REDUCES_TO(APPL(NOT, APPL(NOT, F)), F);
 // }
 
 // AND {
-ASSERT_REDUCES_TO(Appl(Appl(AND, T), T), T);
-ASSERT_REDUCES_TO(Appl(Appl(AND, T), F), F);
-ASSERT_REDUCES_TO(Appl(Appl(AND, F), T), F);
-ASSERT_REDUCES_TO(Appl(Appl(AND, F), F), F);
+ASSERT_REDUCES_TO(APPL(APPL(AND, T), T), T);
+ASSERT_REDUCES_TO(APPL(APPL(AND, T), F), F);
+ASSERT_REDUCES_TO(APPL(APPL(AND, F), T), F);
+ASSERT_REDUCES_TO(APPL(APPL(AND, F), F), F);
 // }
 
 // OR {
-ASSERT_REDUCES_TO(Appl(Appl(OR, T), T), T);
-ASSERT_REDUCES_TO(Appl(Appl(OR, T), F), T);
-ASSERT_REDUCES_TO(Appl(Appl(OR, F), T), T);
-ASSERT_REDUCES_TO(Appl(Appl(OR, F), F), F);
+ASSERT_REDUCES_TO(APPL(APPL(OR, T), T), T);
+ASSERT_REDUCES_TO(APPL(APPL(OR, T), F), T);
+ASSERT_REDUCES_TO(APPL(APPL(OR, F), T), T);
+ASSERT_REDUCES_TO(APPL(APPL(OR, F), F), F);
 // }
 
 // XOR {
-ASSERT_REDUCES_TO(Appl(Appl(XOR, T), T), F);
-ASSERT_REDUCES_TO(Appl(Appl(XOR, T), F), T);
-ASSERT_REDUCES_TO(Appl(Appl(XOR, F), T), T);
-ASSERT_REDUCES_TO(Appl(Appl(XOR, F), F), F);
+ASSERT_REDUCES_TO(APPL(APPL(XOR, T), T), F);
+ASSERT_REDUCES_TO(APPL(APPL(XOR, T), F), T);
+ASSERT_REDUCES_TO(APPL(APPL(XOR, F), T), T);
+ASSERT_REDUCES_TO(APPL(APPL(XOR, F), F), F);
 // }
 
 // IF {
-ASSERT_REDUCES_TO(Appl(Appl(Appl(IF, T), Var(5)), Var(6)), Var(5));
-ASSERT_REDUCES_TO(Appl(Appl(Appl(IF, F), Var(5)), Var(6)), Var(6));
+ASSERT_REDUCES_TO(APPL(APPL(APPL(IF, T), VAR(5)), VAR(6)), VAR(5));
+ASSERT_REDUCES_TO(APPL(APPL(APPL(IF, F), VAR(5)), VAR(6)), VAR(6));
 // }
 
 // } (Church booleans)
 
 // Church numerals {
+#define ZERO LAM(LAM(VAR(1)))
+#define SUCC LAM(LAM(LAM(APPL(VAR(2), APPL(APPL(VAR(3), VAR(2)), VAR(1))))))
 
-#define ZERO Lam(Lam(Var(1)))
-#define SUCC Lam(Lam(Lam(Appl(Var(2), Appl(Appl(Var(3), Var(2)), Var(1))))))
+#define ONE   APPL(SUCC, ZERO)
+#define TWO   APPL(SUCC, ONE)
+#define THREE APPL(SUCC, TWO)
+#define FOUR  APPL(SUCC, THREE)
 
-#define ONE   Appl(SUCC, ZERO)
-#define TWO   Appl(SUCC, ONE)
-#define THREE Appl(SUCC, TWO)
-#define FOUR  Appl(SUCC, THREE)
+#define ADD LAM(LAM(LAM(LAM(APPL(APPL(VAR(4), VAR(2)), APPL(APPL(VAR(3), VAR(2)), VAR(1)))))))
+#define MUL LAM(LAM(LAM(LAM(APPL(APPL(VAR(4), APPL(VAR(3), VAR(2))), VAR(1))))))
 
-#define ADD Lam(Lam(Lam(Lam(Appl(Appl(Var(4), Var(2)), Appl(Appl(Var(3), Var(2)), Var(1)))))))
-#define MUL Lam(Lam(Lam(Lam(Appl(Appl(Var(4), Appl(Var(3), Var(2))), Var(1))))))
+ASSERT_REDUCES_TO(APPL(APPL(ADD, ZERO), ZERO), ZERO);
+ASSERT_REDUCES_TO(APPL(APPL(ADD, ZERO), ONE), ONE);
+ASSERT_REDUCES_TO(APPL(APPL(ADD, ONE), ZERO), ONE);
+ASSERT_REDUCES_TO(APPL(APPL(ADD, ONE), TWO), THREE);
 
-ASSERT_REDUCES_TO(Appl(Appl(ADD, ZERO), ZERO), ZERO);
-ASSERT_REDUCES_TO(Appl(Appl(ADD, ZERO), ONE), ONE);
-ASSERT_REDUCES_TO(Appl(Appl(ADD, ONE), ZERO), ONE);
-ASSERT_REDUCES_TO(Appl(Appl(ADD, ONE), TWO), THREE);
-
-ASSERT_REDUCES_TO(Appl(Appl(MUL, ZERO), ZERO), ZERO);
-ASSERT_REDUCES_TO(Appl(Appl(MUL, ZERO), ONE), ZERO);
-ASSERT_REDUCES_TO(Appl(Appl(MUL, ONE), ZERO), ZERO);
-ASSERT_REDUCES_TO(Appl(Appl(MUL, TWO), TWO), FOUR);
+ASSERT_REDUCES_TO(APPL(APPL(MUL, ZERO), ZERO), ZERO);
+ASSERT_REDUCES_TO(APPL(APPL(MUL, ZERO), ONE), ZERO);
+ASSERT_REDUCES_TO(APPL(APPL(MUL, ONE), ZERO), ZERO);
+ASSERT_REDUCES_TO(APPL(APPL(MUL, TWO), TWO), FOUR);
 
 // } (Church numerals)
 
