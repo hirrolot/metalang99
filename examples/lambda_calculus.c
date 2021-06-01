@@ -1,8 +1,10 @@
 /*
- * A call-by-name untyped lambda calculus [1] interpreter using De Bruijn indices [2].
+ * An untyped lambda calculus [1] interpreter using De Bruijn indices [2] and normal order
+ * evaluation strategy [3].
  *
  * [1]: https://en.wikipedia.org/wiki/Lambda_calculus
  * [2]: https://en.wikipedia.org/wiki/De_Bruijn_index
+ * [3]: https://en.wikipedia.org/wiki/Evaluation_strategy#Normal_order
  */
 
 #include <metalang99.h>
@@ -14,33 +16,40 @@
 // }
 
 // Substitution: `M[lhs=rhs]` {
-#define subst(M, x)                    substAux(M, x, v(1))
-#define substAux(M, x, depth)          ML99_matchWithArgs(M, v(substAux_), x, depth)
-#define substAux_Var_IMPL(i, x, depth) ML99_IF(ML99_NAT_EQ(i, depth), v(x), Var(i))
+#define subst(M, x)           substAux(M, x, v(1))
+#define substAux(M, x, depth) ML99_matchWithArgs(M, v(substAux_), x, depth)
+#define substAux_Var_IMPL(i, x, depth)                                                             \
+    ML99_IF(                                                                                       \
+        ML99_NAT_EQ(i, depth),                                                                     \
+        v(x),                                                                                      \
+        ML99_if(ML99_greater(v(i), v(depth)), Var(ML99_DEC(i)), Var(i)))
 #define substAux_Appl_IMPL(M, N, x, depth)                                                         \
     Appl(substAux(v(M), v(x), v(depth)), substAux(v(N), v(x), v(depth)))
-#define substAux_Lam_IMPL(M, x, depth) Lam(substAux(v(M), incVars(v(x), v(1)), v(ML99_INC(depth))))
+#define substAux_Lam_IMPL(M, x, depth) Lam(substAux(v(M), incFreeVars(v(x)), v(ML99_INC(depth))))
 
-#define incVars(M, depth) forEachVar(M, v(ML99_INC), depth)
-#define decVars(M, depth) forEachVar(M, v(ML99_DEC), depth)
-
-// `f` will be applied to all variables >= `depth`.
-#define forEachVar(M, depth, f)          ML99_matchWithArgs(M, v(forEachVar_), depth, f)
-#define forEachVar_Var_IMPL(i, depth, f) ML99_if(ML99_greaterEq(v(i), v(depth)), Var(f(i)), Var(i))
-#define forEachVar_Appl_IMPL(M, N, depth, f)                                                       \
-    Appl(forEachVar(v(M), v(depth), v(f)), forEachVar(v(N), v(depth), v(f)))
-#define forEachVar_Lam_IMPL(M, depth, f) Lam(forEachVar(v(M), v(ML99_INC(depth)), v(f)))
+#define incFreeVars(M)           incFreeVarsAux(M, v(1))
+#define incFreeVarsAux(M, depth) ML99_matchWithArgs(M, v(incFreeVarsAux_), depth)
+#define incFreeVarsAux_Var_IMPL(i, depth)                                                          \
+    ML99_if(ML99_greaterEq(v(i), v(depth)), Var(ML99_INC(i)), Var(i))
+#define incFreeVarsAux_Appl_IMPL(M, N, depth)                                                      \
+    Appl(incFreeVarsAux(v(M), v(depth)), incFreeVarsAux(v(N), v(depth)))
+#define incFreeVarsAux_Lam_IMPL(M, depth) Lam(incFreeVarsAux(v(M), v(ML99_INC(depth))))
 // }
 
 // Evaluation {
 #define eval(M)              ML99_match(M, v(eval_))
 #define eval_Var_IMPL(i)     Var(i)
 #define eval_Appl_IMPL(M, N) ML99_matchWithArgs(v(M), v(eval_Appl_), v(N))
-#define eval_Lam_IMPL(M)     Lam(v(M))
+#define eval_Lam_IMPL(M)     Lam(eval(v(M)))
 
-#define eval_Appl_Var_IMPL(i, N)      Appl(Var(i), v(N))
-#define eval_Appl_Appl_IMPL(M, N, N1) eval(Appl(eval(Appl(v(M), v(N))), v(N1)))
-#define eval_Appl_Lam_IMPL(M, N)      eval(subst(decVars(v(M), v(2)), v(N)))
+#define eval_Appl_Var_IMPL(i, N) Appl(Var(i), eval(v(N)))
+#define eval_Appl_Appl_IMPL(M, N, N1)                                                              \
+    ML99_matchWithArgs(eval(Appl(v(M), v(N))), v(eval_Appl_Appl_), v(N1))
+#define eval_Appl_Lam_IMPL(M, N) eval(subst(v(M), v(N)))
+
+#define eval_Appl_Appl_Var_IMPL            eval_Appl_Var_IMPL
+#define eval_Appl_Appl_Appl_IMPL(M, N, N1) Appl(Appl(v(M), v(N)), eval(v(N1)))
+#define eval_Appl_Appl_Lam_IMPL            eval_Appl_Lam_IMPL
 // }
 
 // Syntactical equality of two terms {
@@ -67,7 +76,7 @@
 #define ASSERT_REDUCES_TO(lhs, rhs)                                                                \
     /* Use two interpreter passes: one for `eval(lhs)`, one for `termEq`. Thereby we achieve more  \
      * Metalang99 reduction steps available. */                                                    \
-    ML99_ASSERT_UNEVAL(ML99_EVAL(termEq(v(ML99_EVAL(eval(lhs))), rhs)))
+    ML99_ASSERT_UNEVAL(ML99_EVAL(termEq(v(ML99_EVAL(eval(lhs))), v(ML99_EVAL(eval(rhs))))))
 
 // The identity combinator {
 #define I Lam(Var(1))
@@ -121,6 +130,31 @@ ASSERT_REDUCES_TO(Appl(Appl(Appl(IF, F), Var(5)), Var(6)), Var(6));
 
 // } (Church booleans)
 
-// TODO: Church numerals, Y-combinator, the factorial function.
+// Church numerals {
+
+#define ZERO Lam(Lam(Var(1)))
+#define SUCC Lam(Lam(Lam(Appl(Var(2), Appl(Appl(Var(3), Var(2)), Var(1))))))
+
+#define ONE   Appl(SUCC, ZERO)
+#define TWO   Appl(SUCC, ONE)
+#define THREE Appl(SUCC, TWO)
+#define FOUR  Appl(SUCC, THREE)
+
+#define ADD Lam(Lam(Lam(Lam(Appl(Appl(Var(4), Var(2)), Appl(Appl(Var(3), Var(2)), Var(1)))))))
+#define MUL Lam(Lam(Lam(Lam(Appl(Appl(Var(4), Appl(Var(3), Var(2))), Var(1))))))
+
+ASSERT_REDUCES_TO(Appl(Appl(ADD, ZERO), ZERO), ZERO);
+ASSERT_REDUCES_TO(Appl(Appl(ADD, ZERO), ONE), ONE);
+ASSERT_REDUCES_TO(Appl(Appl(ADD, ONE), ZERO), ONE);
+ASSERT_REDUCES_TO(Appl(Appl(ADD, ONE), TWO), THREE);
+
+ASSERT_REDUCES_TO(Appl(Appl(MUL, ZERO), ZERO), ZERO);
+ASSERT_REDUCES_TO(Appl(Appl(MUL, ZERO), ONE), ZERO);
+ASSERT_REDUCES_TO(Appl(Appl(MUL, ONE), ZERO), ZERO);
+ASSERT_REDUCES_TO(Appl(Appl(MUL, TWO), TWO), FOUR);
+
+// } (Church numerals)
+
+// TODO: Y-combinator, the factorial function.
 
 int main(void) {}
