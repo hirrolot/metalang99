@@ -102,6 +102,17 @@
 ASSERT_REDUCES_TO(APPL(I, VAR(5)), VAR(5));
 // }
 
+// The K, S combinators {
+#define K LAM(LAM(VAR(2)))
+#define S LAM(LAM(LAM(APPL(APPL(VAR(3), VAR(1)), APPL(VAR(2), VAR(1))))))
+
+ASSERT_REDUCES_TO(APPL(APPL(S, K), K), I);
+ASSERT_REDUCES_TO(APPL(APPL(APPL(S, K), S), K), K);
+
+ASSERT_REDUCES_TO(APPL(APPL(APPL(S, K), VAR(5)), VAR(6)), VAR(6));
+ASSERT_REDUCES_TO(APPL(APPL(K, VAR(5)), VAR(6)), VAR(5));
+// }
+
 // Church booleans {
 #define T LAM(LAM(VAR(2)))
 #define F LAM(LAM(VAR(1)))
