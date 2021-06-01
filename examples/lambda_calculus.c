@@ -23,26 +23,35 @@
 #define LAM(M)     ML99_CHOICE(Lam, M)
 // }
 
-// Variable substitution: `M[1=x]`.
-#define subst(M, x)           substAux(M, x, v(1))
-#define substAux(M, x, depth) ML99_matchWithArgs(M, v(substAux_), x, depth)
+// Variable substitution: `M[1=x]` {
+#define subst(M, x) ML99_call(subst, M, x)
+
+#define subst_IMPL(M, x)           substAux_IMPL(M, x, 1)
+#define substAux_IMPL(M, x, depth) ML99_callUneval(ML99_matchWithArgs, M, substAux_, x, depth)
+
 #define substAux_Var_IMPL(i, x, depth)                                                             \
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(i, depth),                                                                     \
         v(x),                                                                                      \
         ML99_call(ML99_if, ML99_callUneval(ML99_greater, i, depth), v(VAR(ML99_DEC(i)), VAR(i))))
 #define substAux_Appl_IMPL(M, N, x, depth)                                                         \
-    Appl(substAux(v(M), v(x), v(depth)), substAux(v(N), v(x), v(depth)))
-#define substAux_Lam_IMPL(M, x, depth) Lam(substAux(v(M), incFreeVars(x), v(ML99_INC(depth))))
+    Appl(substAux_IMPL(M, x, depth), substAux_IMPL(N, x, depth))
+#define substAux_Lam_IMPL(M, x, depth)                                                             \
+    Lam(ML99_call(substAux, v(M), incFreeVars_IMPL(x), v(ML99_INC(depth))))
+// }
 
-// Increment all free variables in `M`.
-#define incFreeVars(M)           incFreeVarsAux(M, 1)
-#define incFreeVarsAux(M, depth) ML99_callUneval(ML99_matchWithArgs, M, incFreeVarsAux_, depth)
+// Increment all free variables in `M` {
+#define incFreeVars(M) ML99_call(incFreeVars, M)
+
+#define incFreeVars_IMPL(M)           incFreeVarsAux_IMPL(M, 1)
+#define incFreeVarsAux_IMPL(M, depth) ML99_callUneval(ML99_matchWithArgs, M, incFreeVarsAux_, depth)
+
 #define incFreeVarsAux_Var_IMPL(i, depth)                                                          \
     ML99_call(ML99_if, ML99_callUneval(ML99_greaterEq, i, depth), v(VAR(ML99_INC(i)), VAR(i)))
 #define incFreeVarsAux_Appl_IMPL(M, N, depth)                                                      \
-    Appl(incFreeVarsAux(M, depth), incFreeVarsAux(N, depth))
-#define incFreeVarsAux_Lam_IMPL(M, depth) Lam(incFreeVarsAux(M, ML99_INC(depth)))
+    Appl(incFreeVarsAux_IMPL(M, depth), incFreeVarsAux_IMPL(N, depth))
+#define incFreeVarsAux_Lam_IMPL(M, depth) Lam(incFreeVarsAux_IMPL(M, ML99_INC(depth)))
+// }
 
 // Evaluation {
 #define eval(M)              ML99_call(eval, M)
@@ -54,7 +63,7 @@
 #define eval_Appl_Var_IMPL(i, N) Appl(v(VAR(i)), eval_IMPL(N))
 #define eval_Appl_Appl_IMPL(M, N, N1)                                                              \
     ML99_call(ML99_matchWithArgs, eval(Appl_IMPL(M, N)), v(eval_Appl_Appl_, N1))
-#define eval_Appl_Lam_IMPL(M, N) eval(subst(v(M), v(N)))
+#define eval_Appl_Lam_IMPL(M, N) eval(subst_IMPL(M, N))
 
 #define eval_Appl_Appl_Var_IMPL            eval_Appl_Var_IMPL
 #define eval_Appl_Appl_Appl_IMPL(M, N, N1) Appl(Appl_IMPL(M, N), eval_IMPL(N1))
