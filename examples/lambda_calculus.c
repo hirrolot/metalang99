@@ -214,4 +214,9 @@ ASSERT_REDUCES_TO(APPL(IS_NIL, NIL), T);
 ASSERT_REDUCES_TO(APPL(IS_NIL, LIST_1_2_3), F);
 // } (Church lists)
 
+// The Y combinator is perfectly expressible, but when executed, it exhausts the Metalang99
+// recursion engine limit.
+#define Y                                                                                          \
+    LAM(APPL(LAM(APPL(VAR(2), APPL(VAR(1), VAR(1)))), LAM(APPL(VAR(2), APPL(VAR(1), VAR(1))))))
+
 int main(void) {}
