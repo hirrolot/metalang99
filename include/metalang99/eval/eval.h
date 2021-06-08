@@ -1,6 +1,8 @@
 #ifndef ML99_EVAL_EVAL_H
 #define ML99_EVAL_EVAL_H
 
+// Explanation is in the spec: <https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf>.
+
 #include <metalang99/priv/util.h>
 
 #include <metalang99/eval/acc.h>
