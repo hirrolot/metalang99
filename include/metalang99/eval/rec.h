@@ -15,10 +15,10 @@
 
 #define ML99_PRIV_REC_HALT(...) __VA_ARGS__
 
-#define ML99_PRIV_REC_UNROLL(...) ML99_PRIV_REC_0(__VA_ARGS__)
+#define ML99_PRIV_REC_UNROLL(...) ML99_PRIV_REC_UNROLL_AUX(__VA_ARGS__)
 
 // clang-format off
-#define ML99_PRIV_REC_0(choice, ...) \
+#define ML99_PRIV_REC_UNROLL_AUX(choice, ...) \
     /* Approximately 1024 * 16 reduction steps. */ \
     ML99_PRIV_REC_EXPAND( \
     ML99_PRIV_REC_EXPAND( \
@@ -36,12 +36,11 @@
     ML99_PRIV_REC_EXPAND( \
     ML99_PRIV_REC_EXPAND( \
     ML99_PRIV_REC_EXPAND( \
-        ML99_PRIV_REC_NEXT(1, choice)(__VA_ARGS__) \
+        ML99_PRIV_REC_NEXT(0, choice)(__VA_ARGS__) \
     ))))))))))))))))
 // clang-format on
 
-#define ML99_PRIV_REC_1_HOOK() ML99_PRIV_REC_1
-
+#define ML99_PRIV_REC_0(choice, ...)    ML99_PRIV_REC_NEXT(1, choice)(__VA_ARGS__)
 #define ML99_PRIV_REC_1(choice, ...)    ML99_PRIV_REC_NEXT(2, choice)(__VA_ARGS__)
 #define ML99_PRIV_REC_2(choice, ...)    ML99_PRIV_REC_NEXT(3, choice)(__VA_ARGS__)
 #define ML99_PRIV_REC_3(choice, ...)    ML99_PRIV_REC_NEXT(4, choice)(__VA_ARGS__)
@@ -1064,6 +1063,8 @@
 #define ML99_PRIV_REC_1020(choice, ...) ML99_PRIV_REC_NEXT(1021, choice)(__VA_ARGS__)
 #define ML99_PRIV_REC_1021(choice, ...) ML99_PRIV_REC_NEXT(1022, choice)(__VA_ARGS__)
 #define ML99_PRIV_REC_1022(choice, ...) ML99_PRIV_REC_NEXT(1023, choice)(__VA_ARGS__)
-#define ML99_PRIV_REC_1023              ML99_PRIV_REC_DEFER(ML99_PRIV_REC_1_HOOK)()
+#define ML99_PRIV_REC_1023              ML99_PRIV_REC_DEFER(ML99_PRIV_REC_0_HOOK)()
+
+#define ML99_PRIV_REC_0_HOOK() ML99_PRIV_REC_0
 
 #endif // ML99_EVAL_REC_H
