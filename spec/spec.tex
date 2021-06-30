@@ -47,6 +47,8 @@ a user-friendly overview, please see the official repository \cite{Metalang99}.
 \begin{minted}{bnf}
 <eval> ::= "ML99_EVAL(" <term-seq> ")" ;
 
+<term-seq> ::= <term> { "," <term> }* ;
+
 <term> ::=
       "ML99_call(" <op> "," <term-seq> ")"
     | "ML99_callUneval(" <ident> "," <pp-token-list> ")"
@@ -55,8 +57,6 @@ a user-friendly overview, please see the official repository \cite{Metalang99}.
     | "v(" <pp-token-list> ")" ;
 
 <op> ::= <ident> | <term> ;
-
-<term-seq> ::= <term> { "," <term> }* ;
 \end{minted}
 
 \end{figure}
