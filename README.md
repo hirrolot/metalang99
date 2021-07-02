@@ -117,7 +117,6 @@ As you can see, advanced metaprogramming with Metalang99 allows to drastically i
 [Datatype99]: https://github.com/Hirrolot/datatype99
 [Interface99]: https://github.com/Hirrolot/interface99
 
-
 ## Getting started
 
  1. Download this repository.
@@ -127,6 +126,7 @@ As you can see, advanced metaprogramming with Metalang99 allows to drastically i
 Some handy advices:
 
  - **PLEASE**, use Metalang99 only with [`-ftrack-macro-expansion=0`] (GCC), [`-fmacro-backtrace-limit=1`] (Clang), or something similar, otherwise it will throw your compiler to the moon.
+
  - [Precompile headers] that use Metalang99 so that they will not be compiled each time they are included. It is helpful to reduce compilation times, but they are not mandatory.
 
 [Precompile headers]: https://en.wikipedia.org/wiki/Precompiled_header
