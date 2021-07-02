@@ -143,6 +143,22 @@
 
 /**
  * Emits a fatal error.
+ *
+ * @p f must be a macro identifier that has caused the error and the rest of arguments comprise the
+ * error message.
+ *
+ * #ML99_fatal interprets its variadic arguments without preprocessor expansion -- i.e., they are
+ * pasted as-is. This is intended because otherwise identifiers located in an error message may
+ * stand for other macros that will be unintentionally expanded.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/lang.h>
+ *
+ * // !"Metalang99 error" (F): "the description of your error"
+ * ML99_fatal(F, the description of your error)
+ * @endcode
  */
 #define ML99_fatal(f, ...) (0fatal, f, #__VA_ARGS__)
 
