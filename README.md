@@ -172,8 +172,10 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
  - If possible, assert macro parameters for well-formedness using `ML99_assertIsTuple`, `ML99_assertIsNat`, etc. for better diagnostic messages.
  - Prefer the `##` token-pasting operator inside [Metalang99-compliant macros] instead of `ML99_cat` or its friends, because arguments will nevertheless be fully expanded.
+ - Use [`ML99_todo` and its friends] to indicate unimplemented functionality.
 
 [Metalang99-compliant macros]: https://metalang99.readthedocs.io/en/latest/#definitions
+[`ML99_todo` and its friends]: https://metalang99.readthedocs.io/en/latest/util.html#c.ML99_todo
 
 ## Idioms
 
