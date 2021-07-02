@@ -124,14 +124,18 @@ As you can see, advanced metaprogramming with Metalang99 allows to drastically i
  2. Add `metalang99/include` to your include paths.
  3. `#include <metalang99.h>` beforehand (or use separate headers described in the docs).
 
-**PLEASE**, use Metalang99 only with [`-ftrack-macro-expansion=0`] (GCC) or something similar, otherwise it will throw your compiler to the moon. [Precompiled headers] are also very helpful.
+Some handy advices:
+
+ - **PLEASE**, use Metalang99 only with [`-ftrack-macro-expansion=0`] (GCC), [`-fmacro-backtrace-limit=1`] (Clang), or something similar, otherwise it will throw your compiler to the moon.
+ - [Precompile headers] that use Metalang99 so that they will not be compiled each time they are included. It is helpful to reduce compilation times, but they are not mandatory.
+
+[Precompile headers]: https://en.wikipedia.org/wiki/Precompiled_header
+[`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
+[`-fmacro-backtrace-limit=1`]: https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-fmacro-backtrace-limit
 
 [Tutorial](https://hirrolot.gitbook.io/metalang99/) | [Examples](examples/) | [User documentation](https://metalang99.readthedocs.io/en/latest/)
 
 Happy hacking!
-
-[precompiled headers]: https://en.wikipedia.org/wiki/Precompiled_header
-[`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
 
 ## Highlights
 
