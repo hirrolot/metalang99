@@ -324,6 +324,9 @@
 #define ML99_PRIV_flip_IMPL(f, a, b) ML99_appl2_IMPL(f, b, a)
 #define ML99_uncomma_IMPL(...)       __VA_ARGS__
 
+#define ML99_reify_IMPL(f)           ML99_appl_IMPL(ML99_PRIV_reify, f)
+#define ML99_PRIV_reify_IMPL(f, ...) v(f(__VA_ARGS__))
+
 // clang-format off
 #define ML99_todo_IMPL(f) ML99_abort(v(!"Metalang99 not yet implemented" (f)))
 #define ML99_todoWithMsg_IMPL(f, message) ML99_abort(v(!"Metalang99 not yet implemented" (f): message))

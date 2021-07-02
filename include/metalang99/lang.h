@@ -218,9 +218,6 @@
 #define ML99_compose_IMPL(f, g)         ML99_appl2_IMPL(ML99_PRIV_compose, f, g)
 #define ML99_PRIV_compose_IMPL(f, g, x) ML99_appl(v(f), ML99_appl_IMPL(g, x))
 
-#define ML99_reify_IMPL(f)           ML99_appl_IMPL(ML99_PRIV_reify, f)
-#define ML99_PRIV_reify_IMPL(f, ...) v(f(__VA_ARGS__))
-
 // Arity specifiers {
 #define ML99_appl_ARITY    2
 #define ML99_appl2_ARITY   3
