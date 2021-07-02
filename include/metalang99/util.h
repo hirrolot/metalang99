@@ -162,6 +162,78 @@
 #define ML99_reify(f) ML99_call(ML99_reify, f)
 
 /**
+ * Indicates not yet implemented functionality of the macro @p f.
+ *
+ * #ML99_todo is the same as #ML99_unimplemented except that the former conveys an intent that the
+ * functionality is to be implemented later but #ML99_unimplemented makes no such claims.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // !"Metalang99 not yet implemented" (F)
+ * ML99_todo(v(F))
+ * @endcode
+ *
+ * @see <a href="https://doc.rust-lang.org/core/macro.todo.html">Rust's std::todo\!</a> (thanks for
+ * the idea!)
+ */
+#define ML99_todo(f) ML99_call(ML99_todo, f)
+
+/**
+ * The same as #ML99_todo but emits a caller-supplied message.
+ *
+ * @p message must be a string literal.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // !"Metalang99 not yet implemented" (F): "your message"
+ * ML99_todoWithMsg(v(F), v("your message"))
+ * @endcode
+ */
+#define ML99_todoWithMsg(f, message) ML99_call(ML99_todoWithMsg, f, message)
+
+/**
+ * Indicates unimplemented functionality of the macro @p f.
+ *
+ * #ML99_unimplemented is the same as #ML99_todo except that the latter conveys an intent that the
+ * functionality is to be implemented later but #ML99_unimplemented makes no such claims.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // !"Metalang99 not implemented" (F)
+ * ML99_unimplemented(v(F))
+ * @endcode
+ *
+ * @see <a href="https://doc.rust-lang.org/core/macro.unimplemented.html">Rust's
+ * std::unimplemented\!</a> (thanks for the idea!)
+ */
+#define ML99_unimplemented(f) ML99_call(ML99_unimplemented, f)
+
+/**
+ * The same as #ML99_unimplemented but emits a caller-supplied message.
+ *
+ * @p message must be a string literal.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * // !"Metalang99 not implemented" (F): "your message"
+ * ML99_unimplementedWithMsg(v(F), v("your message"))
+ * @endcode
+ */
+#define ML99_unimplementedWithMsg(f, message) ML99_call(ML99_unimplementedWithMsg, f, message)
+
+/**
  * Concatenates @p a with @p b as-is, without expanding them.
  *
  * # Examples
@@ -252,6 +324,14 @@
 #define ML99_PRIV_flip_IMPL(f, a, b) ML99_appl2_IMPL(f, b, a)
 #define ML99_uncomma_IMPL(...)       __VA_ARGS__
 
+// clang-format off
+#define ML99_todo_IMPL(f) ML99_abort(v(!"Metalang99 not yet implemented" (f)))
+#define ML99_todoWithMsg_IMPL(f, message) ML99_abort(v(!"Metalang99 not yet implemented" (f): message))
+
+#define ML99_unimplemented_IMPL(f) ML99_abort(v(!"Metalang99 not implemented" (f)))
+#define ML99_unimplementedWithMsg_IMPL(f, message) ML99_abort(v(!"Metalang99 not implemented" (f): message))
+// clang-format on
+
 #if defined(__GNUC__) && !defined(__clang__)
 #define ML99_PRIV_GCC_PRAGMA(str) _Pragma(str)
 #else
@@ -265,17 +345,21 @@
 #endif
 
 // Arity specifiers {
-#define ML99_catEval_ARITY   2
-#define ML99_cat_ARITY       2
-#define ML99_cat3_ARITY      3
-#define ML99_cat4_ARITY      4
-#define ML99_stringify_ARITY 1
-#define ML99_empty_ARITY     1
-#define ML99_id_ARITY        1
-#define ML99_const_ARITY     2
-#define ML99_flip_ARITY      1
-#define ML99_uncomma_ARITY   1
-#define ML99_reify_ARITY     1
+#define ML99_catEval_ARITY              2
+#define ML99_cat_ARITY                  2
+#define ML99_cat3_ARITY                 3
+#define ML99_cat4_ARITY                 4
+#define ML99_stringify_ARITY            1
+#define ML99_empty_ARITY                1
+#define ML99_id_ARITY                   1
+#define ML99_const_ARITY                2
+#define ML99_flip_ARITY                 1
+#define ML99_uncomma_ARITY              1
+#define ML99_reify_ARITY                1
+#define ML99_todo_ARITY                 1
+#define ML99_todoWithMsg_ARITY          2
+#define ML99_unimplemented_ARITY        1
+#define ML99_unimplementedWithMsg_ARITY 2
 
 #define ML99_PRIV_flip_ARITY  3
 #define ML99_PRIV_reify_ARITY 2

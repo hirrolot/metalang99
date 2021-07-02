@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `util.h`:
+   - `ML99_todo(WithMsg)` and `ML99_unimplemented(WithMsg)` to indicate unimplemented functionality.
+
 ## [1.2.0] - 2021-06-06
 
 ### Added

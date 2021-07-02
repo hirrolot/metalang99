@@ -144,8 +144,8 @@
 /**
  * Emits a fatal error.
  *
- * @p f must be a macro identifier that has caused the error and the rest of arguments comprise the
- * error message.
+ * @p f must be a macro name that has caused the error and the rest of arguments comprise the error
+ * message.
  *
  * #ML99_fatal interprets its variadic arguments without preprocessor expansion -- i.e., they are
  * pasted as-is. This is intended because otherwise identifiers located in an error message may
