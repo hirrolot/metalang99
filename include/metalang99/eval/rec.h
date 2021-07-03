@@ -1,3 +1,29 @@
+/*
+ * This recursion engine takes its roots from map-macro [1], with a few improvements:
+ *
+ *  - It can do many more expansions (roughly 1024 * 16 or 2^14).
+ *
+ *  - The expansion chain is linear: `ML99_PRIV_REC_0` invokes `ML99_PRIV_REC_1`, `ML99_PRIV_REC_1`
+ * invokes `ML99_PRIV_REC_2`, and so on.
+ *
+ *  - If a given metaprogram does not require more expansions, then it will stop expanding. I.e.,
+ * perform only as many expansions as needed. This is controlled by `ML99_PRIV_REC_NEXT`: if
+ * `choice` is `0stop`, then just terminate the expansion chain.
+ *
+ *  - The last expander `ML99_PRIV_REC_1023` really results in a deferred `ML99_PRIV_REC_0`, not to
+ * make it painted blue. Then, in `ML99_PRIV_REC_UNROLL_AUX`, this `ML99_PRIV_REC_0` is expanded
+ * once again 16 times.
+ *
+ *  - It requires recursive macros to be written in CPS, continuation-passing style [2]. This is
+ * controlled by `ML99_PRIV_REC_CONTINUE`: the `k` parameter stands for "continuation". Also, there
+ * is a special continuation called `ML99_PRIV_REC_STOP` -- it terminates the engine.
+ *
+ * The minimal usage example is located at `tests/eval/rec.c`.
+ *
+ * [1]: https://github.com/swansontec/map-macro
+ * [2]: https://en.wikipedia.org/wiki/Continuation-passing_style
+ */
+
 #ifndef ML99_EVAL_REC_H
 #define ML99_EVAL_REC_H
 
