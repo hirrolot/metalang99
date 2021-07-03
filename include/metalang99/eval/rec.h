@@ -1,5 +1,5 @@
 /*
- * This recursion engine takes its roots from map-macro [1], with a few improvements:
+ * This recursion engine takes its roots from map-macro [1] and Cloak [2], with a few improvements:
  *
  *  - It can do many more expansions (roughly 1024 * 16 or 2^14).
  *
@@ -14,7 +14,7 @@
  * make it painted blue. Then, in `ML99_PRIV_REC_UNROLL_AUX`, this `ML99_PRIV_REC_0` is expanded
  * once again 16 times.
  *
- *  - It requires recursive macros to be written in CPS, continuation-passing style [2]. This is
+ *  - It requires recursive macros to be written in CPS, continuation-passing style [3]. This is
  * controlled by `ML99_PRIV_REC_CONTINUE`: the `k` parameter stands for "continuation". `k` must
  * eventually expand to yet another `ML99_PRIV_REC_CONTINUE`. Also, there is a special continuation
  * called `ML99_PRIV_REC_STOP` -- it terminates the engine.
@@ -22,7 +22,8 @@
  * The minimal usage example is located at `tests/eval/rec.c`.
  *
  * [1]: https://github.com/swansontec/map-macro
- * [2]: https://en.wikipedia.org/wiki/Continuation-passing_style
+ * [2]: https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms#recursion
+ * [3]: https://en.wikipedia.org/wiki/Continuation-passing_style
  */
 
 #ifndef ML99_EVAL_REC_H
