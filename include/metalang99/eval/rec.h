@@ -15,8 +15,9 @@
  * once again 16 times.
  *
  *  - It requires recursive macros to be written in CPS, continuation-passing style [2]. This is
- * controlled by `ML99_PRIV_REC_CONTINUE`: the `k` parameter stands for "continuation". Also, there
- * is a special continuation called `ML99_PRIV_REC_STOP` -- it terminates the engine.
+ * controlled by `ML99_PRIV_REC_CONTINUE`: the `k` parameter stands for "continuation". `k` must
+ * eventually expand to yet another `ML99_PRIV_REC_CONTINUE`. Also, there is a special continuation
+ * called `ML99_PRIV_REC_STOP` -- it terminates the engine.
  *
  * The minimal usage example is located at `tests/eval/rec.c`.
  *
