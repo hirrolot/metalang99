@@ -73,7 +73,7 @@
  * above.
  * @note #ML99_GEN_SYM is defined only if `__COUNTER__` is defined, which must be a macro yielding
  * integral literals starting from 0 incremented by 1 each time it is called. Currently, it is
- * supported at least by Clang, GCC, and MSVC.
+ * supported at least by Clang, GCC, TCC, and MSVC.
  * @see https://en.wikipedia.org/wiki/Hygienic_macro
  */
 #define ML99_GEN_SYM(prefix, id) ML99_CAT4(prefix, id, _, __COUNTER__)
