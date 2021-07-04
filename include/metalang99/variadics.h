@@ -235,6 +235,14 @@
  * (N)                            ---> (x)
  */
 
+/*
+ * The StackOverflow solution: <https://stackoverflow.com/a/2124385/13166656>.
+ *
+ * This macro supports at most 63 arguments because C99 allows implementations to handle only 127
+ * parameters/arguments per macro definition/invocation (C99 | 5.2.4 Environmental limits). Thus,
+ * `ML99_PRIV_VARIADICS_COUNT_AUX` already accepts 64 arguments.
+ */
+
 // clang-format off
 #define ML99_PRIV_VARIADICS_COUNT(...)                                         \
   ML99_PRIV_VARIADICS_COUNT_AUX(                                               \
