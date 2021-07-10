@@ -266,7 +266,7 @@ ML99_EVAL((~, ~, ~) blah)
 
 In this case, the best thing you can do is to iteratively debug your metaprogram.
 
-I often use the bottom-up approach: first I ensure that all utilitary macros work as expected, then move on to more general macros, and so on, till I find the problem.
+I often use the bottom-up approach: first I ensure that all utilitary macros work as expected, then move on to more general macros, and so on, till I find the problem. You can trace terms during execution with `ML99_abort`, or just copy-paste them into `ML99_EVAL(...)` in a separate file and see how it goes with `-E`.
 
 Metalang99's debugging facilities are discussed in a [dedicated chapter](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
