@@ -257,7 +257,7 @@ ML99_EVAL(123)
 ML99_EVAL(v(123) v(456))
 ```
 
-However, compile-time errors can be still quite obscured. If so, try to debug your metaprogram with `ML99_abort` and the situation could get clearer.
+However, compile-time errors can be still quite obscured. If so, try to iteratively debug your metaprogram with `ML99_abort`, in order to localise the problem. Metalang99's debugging facilities are discussed in a [dedicated chapter](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
 ### Q: How does it work?
 
