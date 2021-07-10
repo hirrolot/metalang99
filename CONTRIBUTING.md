@@ -25,6 +25,8 @@ Some useful scripts are:
 | Test both `tests/` and `examples/` | `./scripts/test-all.sh`  |
 | Generate the documentation | `./scripts/docs.sh` |
 | Open the documentation | `./scripts/open-docs.sh` |
+| Generate the specification | `./scripts/spec.sh` |
+| Open the specification | `./scripts/open-spec.sh` |
 | Run the benchmarks | `./scripts/bench.sh` |
 
 Happy hacking!
