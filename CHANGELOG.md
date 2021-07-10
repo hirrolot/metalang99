@@ -14,8 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
- - Handle the `(...) (...) ...` form in `ML99_isUntuple` and all dependent public functions -- `ML99_isTuple`, `ML99_untupleChecked`, `ML99_listFromTuples`.
-   - In particular, now the interpreter is able to emit a syntax error for `v(123) v(456)`.
+ - Handle the `(...) (...) ...` form in `ML99_isUntuple`:
+   - All the dependent public functions inherit this ability too: `ML99_isTuple`, `ML99_untupleChecked`, and `ML99_listFromTuples`.
+   - Now the interpreter is able to emit a syntax error for `v(123) v(456)`.
 
 ## [1.2.0] - 2021-06-06
 
