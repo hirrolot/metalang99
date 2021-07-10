@@ -247,7 +247,7 @@ To perform fewer reduction steps, you can:
 
 ### Q: What about compile-time errors?
 
-A: Metalang99 detects and reports syntax mismatches, where possible. For example (`-E` flag):
+A: If your macro suddenly failed to compile and you have no idea why, look at the macro's expansion (`-E` flag). Metalang99 reports syntax mismatches, where possible:
 
 ```c
 // !"Metalang99 syntax error": {123}
