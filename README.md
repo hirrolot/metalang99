@@ -264,7 +264,7 @@ However, compile-time errors can be still quite obscured:
 ML99_EVAL((~, ~, ~) blah)
 ```
 
-In this case, try to iteratively debug your metaprogram with `ML99_abort`, in order to localise the problem. I often use the bottom-up approach: first I ensure that all utilitary macros work as expected, then move on to more general macros, and so on, till I find the problem. Metalang99's debugging facilities are discussed in a [dedicated chapter](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
+In this case, try to iteratively debug your metaprogram, in order to localise the problem. I often use the bottom-up approach: first I ensure that all utilitary macros work as expected, then move on to more general macros, and so on, till I find the problem. Metalang99's debugging facilities are discussed in a [dedicated chapter](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
 ### Q: How does it work?
 
