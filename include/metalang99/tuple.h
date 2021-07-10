@@ -269,7 +269,11 @@
     ML99_PRIV_IF(ML99_IS_UNTUPLE(x), ML99_PRIV_NOT_TUPLE_ERROR(x), v(ML99_PRIV_EMPTY()))
 
 // clang-format off
-#define ML99_PRIV_NOT_TUPLE_ERROR(x) ML99_fatal(ML99_assertIsTuple, x must be (x1, ..., xN))
+#define ML99_PRIV_NOT_TUPLE_ERROR(x) \
+    ML99_PRIV_IF( \
+        ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING(x), \
+        ML99_fatal(ML99_assertIsTuple, x must be (x1, ..., xN), did you miss a comma?), \
+        ML99_fatal(ML99_assertIsTuple, x must be (x1, ..., xN)))
 // clang-format on
 
 // Arity specifiers {

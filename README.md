@@ -253,8 +253,8 @@ A: Metalang99 detects and reports syntax mismatches, where possible. For example
 // !"Metalang99 syntax error": {123}
 ML99_EVAL(123)
 
-// !"Metalang99 syntax error": {(0v, 123) (0v, 456) (0v, 789)}
-ML99_EVAL(v(123) v(456) v(789))
+// !"Metalang99 syntax error (did you miss a comma?)": {(0v, 123) (0v, 456)}
+ML99_EVAL(v(123) v(456))
 ```
 
 However, compile-time errors can be still quite obscured. If so, try to debug your metaprogram with `ML99_abort` and the situation could get clearer.
