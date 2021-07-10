@@ -257,7 +257,14 @@ ML99_EVAL(123)
 ML99_EVAL(v(123) v(456))
 ```
 
-However, compile-time errors can be still quite obscured. If so, try to iteratively debug your metaprogram with `ML99_abort`, in order to localise the problem. Metalang99's debugging facilities are discussed in a [dedicated chapter](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
+However, compile-time errors can be still quite obscured:
+
+```c
+// ML99_PRIV_REC_NEXT_ML99_PRIV_IF_0 blah(ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR, ML99_PRIV_TERM_MATCH) ((~, ~, ~) blah, ML99_PRIV_EVAL_)(ML99_PRIV_REC_STOP, (~), 0fspace, (, ), ((0end, ~), ~), ~, ~ blah)(0)()
+ML99_EVAL((~, ~, ~) blah)
+```
+
+If so, try to iteratively debug your metaprogram with `ML99_abort`, in order to localise the problem. Metalang99's debugging facilities are discussed in a [dedicated chapter](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
 ### Q: How does it work?
 
