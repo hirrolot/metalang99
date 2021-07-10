@@ -27,10 +27,31 @@
 #define ML99_PRIV_NOT_0  1
 #define ML99_PRIV_NOT_1  0
 
-#define ML99_PRIV_IS_TUPLE(x) ML99_PRIV_NOT(ML99_PRIV_IS_UNTUPLE(x))
+#define ML99_PRIV_IS_TUPLE(x)      ML99_PRIV_NOT(ML99_PRIV_IS_UNTUPLE(x))
+#define ML99_PRIV_IS_TUPLE_FAST(x) ML99_PRIV_NOT(ML99_PRIV_IS_UNTUPLE_FAST(x))
 
-#define ML99_PRIV_IS_UNTUPLE(x)        ML99_PRIV_SND(ML99_PRIV_IS_UNTUPLE_TEST x, 1)
-#define ML99_PRIV_IS_UNTUPLE_TEST(...) ~, 0
+#define ML99_PRIV_IS_UNTUPLE(x)                                                                    \
+    ML99_PRIV_IF(ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING(x), 1, ML99_PRIV_IS_UNTUPLE_FAST(x))
+
+/**
+ * The same as #ML99_PRIV_IS_UNTUPLE but does not handle the `(...) (...) ...` form.
+ */
+#define ML99_PRIV_IS_UNTUPLE_FAST(x)        ML99_PRIV_SND(ML99_PRIV_IS_UNTUPLE_FAST_TEST x, 1)
+#define ML99_PRIV_IS_UNTUPLE_FAST_TEST(...) ~, 0
+
+/**
+ * Checks whether @p x takes the form `(...) (...) ...`.
+ *
+ * This often happens when you miss a comma between items:
+ *  - `v(123) v(456)`
+ *  - `(Foo, int) (Bar, int)` (as in Datatype99)
+ *  - etc.
+ */
+#define ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING(x)                                                     \
+    ML99_PRIV_CONTAINS_COMMA(ML99_PRIV_EXPAND(                                                     \
+        ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_1 ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_0 x))
+#define ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_0(...) ML99_PRIV_EMPTY()
+#define ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_1(...) ,
 
 #define ML99_PRIV_CONTAINS_COMMA(...)                      ML99_PRIV_X_AS_COMMA(__VA_ARGS__, ML99_PRIV_COMMA, ~)
 #define ML99_PRIV_X_AS_COMMA(_head, x, ...)                ML99_PRIV_CONTAINS_COMMA_RESULT(x, 0, 1, ~)

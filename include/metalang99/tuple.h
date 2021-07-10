@@ -65,8 +65,7 @@
 /**
  * The same as #ML99_untuple, except that it emits a fatal error if @p x is not a tuple.
  *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g.,
- * `() 123` is disallowed.
+ * The preconditions are the same as of #ML99_isUntuple.
  */
 #define ML99_untupleChecked(x) ML99_call(ML99_untupleChecked, x)
 
@@ -87,8 +86,7 @@
 /**
  * Tests whether @p x is inside parentheses or not.
  *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g.,
- * `() 123` is disallowed.
+ * The preconditions are the same as of #ML99_isUntuple.
  *
  * # Examples
  *
@@ -107,8 +105,15 @@
 /**
  * The inverse of #ML99_isTuple.
  *
- * If @p x begins with an opening parenthesis, it must also end with a closing parenthesis, e.g.,
- * `() 123` is disallowed.
+ * @p x must be either of these forms:
+ *  - `(...)` (reported as non-untupled)
+ *  - `(...) (...) ...` (reported as untupled)
+ *  - anything else not beginning with `(...)` (reported as untupled)
+ *
+ * For example (respectively):
+ *  - `(~, ~, ~)` (non-untupled)
+ *  - `(~, ~, ~) (~, ~, ~)` or `(~, ~, ~) (~, ~, ~) abc` (untupled)
+ *  - `123` or `123 (~, ~, ~)` (untupled)
  *
  * # Examples
  *
@@ -120,6 +125,9 @@
  *
  * // 0
  * ML99_isUntuple(v((123)))
+ *
+ * // 1
+ * ML99_isUntuple(v((123) (456) (789)))
  * @endcode
  */
 #define ML99_isUntuple(x) ML99_call(ML99_isUntuple, x)

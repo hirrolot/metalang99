@@ -31,7 +31,23 @@ ML99_ASSERT(ML99_isTuple(v((1, 2, 3))));
 ML99_ASSERT(ML99_not(ML99_isTuple(v(123))));
 
 ML99_ASSERT(ML99_not(ML99_isUntuple(v((1, 2, 3)))));
+
 ML99_ASSERT(ML99_isUntuple(v(123)));
+ML99_ASSERT(ML99_isUntuple(v(123())));
+ML99_ASSERT(ML99_isUntuple(v(123(~))));
+ML99_ASSERT(ML99_isUntuple(v(123(~, ~, ~))));
+
+ML99_ASSERT(ML99_isUntuple(v(()())));
+ML99_ASSERT(ML99_isUntuple(v(()() ~)));
+
+ML99_ASSERT(ML99_isUntuple(v((~)(~))));
+ML99_ASSERT(ML99_isUntuple(v((~)(~) ~)));
+
+ML99_ASSERT(ML99_isUntuple(v((~, ~, ~)(~, ~, ~))));
+ML99_ASSERT(ML99_isUntuple(v((~, ~, ~)(~, ~, ~) ~)));
+
+ML99_ASSERT(ML99_isUntuple(v((~, ~, ~)(~, ~, ~)(~, ~, ~))));
+ML99_ASSERT(ML99_isUntuple(v((~, ~, ~)(~, ~, ~)(~, ~, ~) ~)));
 // }
 
 // ML99_tupleGet {

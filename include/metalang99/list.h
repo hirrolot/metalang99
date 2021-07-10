@@ -119,7 +119,8 @@
  *
  * The result is `ML99_list(ML99_appl(f, ML99_untuple(x1)), ..., ML99_appl(f, ML99_untuple(xN)))`.
  *
- * At most 63 arguments are acceptable.
+ * At most 63 arguments are acceptable. Additionally, all the preconditions of #ML99_isUntuple are
+ * inherited for each argument after @p f.
  *
  * # Examples
  *

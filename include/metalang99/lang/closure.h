@@ -23,7 +23,7 @@
  */
 
 #define ML99_appl_IMPL(f, ...)                                                                     \
-    ML99_PRIV_IF(ML99_PRIV_IS_UNTUPLE(f), ML99_PRIV_APPL_F, ML99_PRIV_APPL_CLOSURE)                \
+    ML99_PRIV_IF(ML99_PRIV_IS_UNTUPLE_FAST(f), ML99_PRIV_APPL_F, ML99_PRIV_APPL_CLOSURE)           \
     (f, __VA_ARGS__)
 
 #define ML99_PRIV_APPL_F(f, ...)                                                                   \

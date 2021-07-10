@@ -168,7 +168,7 @@
  */
 #define ML99_DIGITS(...) 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-#define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE(ML99_PRIV_CAT(prefix, ident))
+#define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE_FAST(ML99_PRIV_CAT(prefix, ident))
 #define ML99_IDENT_EQ(prefix, x, y)      ML99_DETECT_IDENT(ML99_PRIV_CAT3(prefix, x, _), y)
 #define ML99_CHAR_EQ(x, y)                                                                         \
     ML99_PRIV_IF(                                                                                  \

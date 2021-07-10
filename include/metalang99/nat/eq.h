@@ -4,7 +4,7 @@
 #include <metalang99/priv/util.h>
 
 #define ML99_PRIV_NAT_EQ(x, y)     ML99_PRIV_NAT_EQ_AUX(x, y)
-#define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_PRIV_IS_TUPLE(ML99_PRIV_NAT_EQ_##x##_##y)
+#define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_PRIV_IS_TUPLE_FAST(ML99_PRIV_NAT_EQ_##x##_##y)
 
 #define ML99_PRIV_NAT_EQ_0_0     ()
 #define ML99_PRIV_NAT_EQ_1_1     ()

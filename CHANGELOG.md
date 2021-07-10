@@ -12,6 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `util.h`:
    - `ML99_todo(WithMsg)` and `ML99_unimplemented(WithMsg)` to indicate unimplemented functionality.
 
+### Fixed
+
+ - Handle the `(...) (...) ...` form in `ML99_isUntuple` and all dependent public functions -- `ML99_isTuple`, `ML99_untupleChecked`, `ML99_listFromTuples`.
+   - In particular, now the interpreter is able to emit a syntax error for `v(123) v(456)`.
+
 ## [1.2.0] - 2021-06-06
 
 ### Added
