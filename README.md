@@ -247,15 +247,35 @@ To perform fewer reduction steps, you can:
 
 ### Q: What about compile-time errors?
 
-A: If your macro suddenly failed to compile and you have no idea why, look at the macro's expansion (`-E` flag). Metalang99 reports syntax mismatches, where possible:
+A: Metalang99 reports syntax mismatches, where possible:
 
+\[`playground.c`\]
 ```c
-// !"Metalang99 syntax error": {123}
 ML99_EVAL(123)
+```
 
-// !"Metalang99 syntax error (did you miss a comma?)": {(0v, 123) (0v, 456)}
+\[`/bin/sh`\]
+```
+playground.c: In function ‘ml99_error’:
+playground.c:3:1: error: call to ‘ml99_error’ declared with attribute error: invalid term `123`
+    3 | ML99_EVAL(123)
+      | ^~~~~~~~~
+```
+
+\[`playground.c`\]
+```c
 ML99_EVAL(v(123) v(456))
 ```
+
+\[`/bin/sh`\]
+```
+playground.c: In function ‘ml99_error’:
+playground.c:3:1: error: call to ‘ml99_error’ declared with attribute error: invalid term `(0v, 123) (0v, 456)`, did you miss a comma?
+    3 | ML99_EVAL(v(123) v(456))
+      | ^~~~~~~~~
+```
+
+(If you use GCC, you can see such neat errors right from the console. Otherwise, you have to preprocess your file with `-E` and search for Metalang99 errors by yourself.)
 
 However, compile-time errors can be still quite obscured:
 

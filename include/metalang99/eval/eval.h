@@ -38,11 +38,17 @@
 #define ML99_PRIV_EVAL_0op         ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0op_K)
 #define ML99_PRIV_EVAL_0callUneval ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0callUneval_K)
 
-// clang-format off
 #define ML99_PRIV_EVAL_0fatal(...) ML99_PRIV_EVAL_0fatal_AUX(__VA_ARGS__)
-#define ML99_PRIV_EVAL_0fatal_AUX(_k, _k_cx, _folder, _acc, _tail, f, message) \
-    ML99_PRIV_REC_CONTINUE(ML99_PRIV_REC_STOP)((~), !"Metalang99 error" (f): message)
+#define ML99_PRIV_EVAL_0fatal_AUX(_k, _k_cx, _folder, _acc, _tail, f, message)                     \
+    ML99_PRIV_REC_CONTINUE(ML99_PRIV_REC_STOP)((~), ML99_PRIV_FATAL_ERROR(f, message))
+
+#if defined(__GNUC__) && !defined(__clang__)
+#define ML99_PRIV_FATAL_ERROR(f, message) ML99_PRIV_GCC_ERROR(#f ": " message)
+#else
+// clang-format off
+#define ML99_PRIV_FATAL_ERROR(f, message) !"Metalang99 error" (f): message
 // clang-format on
+#endif
 
 #define ML99_PRIV_EVAL_0abort(_k, k_cx, folder, acc, _tail, ...)                                   \
     ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_MATCH)                                                   \

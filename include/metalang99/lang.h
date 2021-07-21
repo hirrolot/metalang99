@@ -142,6 +142,7 @@
  */
 #define v(...) (0v, __VA_ARGS__)
 
+// clang-format off
 /**
  * Emits a fatal error.
  *
@@ -154,14 +155,26 @@
  *
  * # Examples
  *
+ * \[`playground.c`\]
  * @code
  * #include <metalang99/lang.h>
  *
- * // !"Metalang99 error" (F): "the description of your error"
- * ML99_fatal(F, the description of your error)
+ * ML99_EVAL(ML99_fatal(F, the description of your error))
  * @endcode
+ * 
+ * \[`/bin/sh`\]
+ * @code{.txt}
+ * playground.c: In function ‘ml99_error’:
+ * playground.c:3:1: error: call to ‘ml99_error’ declared with attribute error: F: the description of your error
+ *     3 | ML99_EVAL(ML99_fatal(F, the description of your error))
+ *       | ^~~~~~~~~
+ * @endcode
+ * 
+ * (If you use GCC, you can see such neat errors right from the console. Otherwise, you have to
+ * preprocess your file with `-E` and search for Metalang99 errors by yourself.)
  */
 #define ML99_fatal(f, ...) (0fatal, f, #__VA_ARGS__)
+// clang-format on
 
 /**
  * Immediately aborts the interpretation with evaluated arguments.

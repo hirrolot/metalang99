@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - All the dependent public functions inherit this ability too: `ML99_isTuple`, `ML99_untupleChecked`, and `ML99_listFromTuples`.
    - Now the interpreter is able to emit a syntax error for `v(123) v(456)`.
 
+### Changed
+
+ - Emit syntax errors and errors from `ML99_fatal` right to a console if compiling on GCC.
+
 ## [1.2.0] - 2021-06-06
 
 ### Added
