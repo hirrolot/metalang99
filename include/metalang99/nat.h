@@ -393,7 +393,7 @@
  * // 6
  * ML99_call(F, v(5))
  *
- * // !"Metalang99 error" (ML99_assertIsNat): "blah must be within [0; 255]"
+ * // A compile-time number mismatch error.
  * ML99_call(F, v(blah))
  * @endcode
  */

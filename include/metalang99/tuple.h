@@ -205,7 +205,7 @@
  * // 1, 2, 3
  * ML99_call(F, v((1, 2, 3)))
  *
- * // !"Metalang99 error" (ML99_assertIsTuple): "123 must be (x1, ..., xN)"
+ * // A compile-time tuple mismatch error.
  * ML99_call(F, v(123))
  * @endcode
  */
