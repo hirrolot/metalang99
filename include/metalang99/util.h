@@ -172,7 +172,7 @@
  * @code
  * #include <metalang99/util.h>
  *
- * // !"Metalang99 not yet implemented" (F)
+ * // A not-yet implemented error.
  * ML99_todo(v(F))
  * @endcode
  *
@@ -191,7 +191,7 @@
  * @code
  * #include <metalang99/util.h>
  *
- * // !"Metalang99 not yet implemented" (F): "your message"
+ * // A not-yet-implemented error.
  * ML99_todoWithMsg(v(F), v("your message"))
  * @endcode
  */
@@ -208,7 +208,7 @@
  * @code
  * #include <metalang99/util.h>
  *
- * // !"Metalang99 not implemented" (F)
+ * // A not-implemented error.
  * ML99_unimplemented(v(F))
  * @endcode
  *
@@ -227,7 +227,7 @@
  * @code
  * #include <metalang99/util.h>
  *
- * // !"Metalang99 not implemented" (F): "your message"
+ * // A not-implemented error.
  * ML99_unimplementedWithMsg(v(F), v("your message"))
  * @endcode
  */
@@ -328,11 +328,11 @@
 #define ML99_PRIV_reify_IMPL(f, ...) v(f(__VA_ARGS__))
 
 // clang-format off
-#define ML99_todo_IMPL(f) ML99_abort(v(!"Metalang99 not yet implemented" (f)))
-#define ML99_todoWithMsg_IMPL(f, message) ML99_abort(v(!"Metalang99 not yet implemented" (f): message))
+#define ML99_todo_IMPL(f) ML99_fatal(f, not yet implemented)
+#define ML99_todoWithMsg_IMPL(f, message) ML99_fatal(f, not yet implemented: message)
 
-#define ML99_unimplemented_IMPL(f) ML99_abort(v(!"Metalang99 not implemented" (f)))
-#define ML99_unimplementedWithMsg_IMPL(f, message) ML99_abort(v(!"Metalang99 not implemented" (f): message))
+#define ML99_unimplemented_IMPL(f) ML99_fatal(f, not implemented)
+#define ML99_unimplementedWithMsg_IMPL(f, message) ML99_fatal(f, not implemented: message)
 // clang-format on
 
 #if defined(__GNUC__) && !defined(__clang__)
