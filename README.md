@@ -252,26 +252,19 @@ A: Metalang99 reports syntax mismatches, where possible:
 \[`playground.c`\]
 ```c
 ML99_EVAL(123)
-```
-
-\[`/bin/sh`\]
-```
-playground.c: In function ‘ml99_error_3’:
-playground.c:3:1: error: call to ‘ml99_error_3’ declared with attribute error: invalid term `123`
-    3 | ML99_EVAL(123)
-      | ^~~~~~~~~
-```
-
-\[`playground.c`\]
-```c
 ML99_EVAL(v(123) v(456))
 ```
 
 \[`/bin/sh`\]
 ```
+$ gcc playground.c -Imetalang99/include -ftrack-macro-expansion=0
 playground.c: In function ‘ml99_error_3’:
-playground.c:3:1: error: call to ‘ml99_error_3’ declared with attribute error: invalid term `(0v, 123) (0v, 456)`, did you miss a comma?
-    3 | ML99_EVAL(v(123) v(456))
+playground.c:3:1: error: call to ‘ml99_error_3’ declared with attribute error: invalid term `123`
+    3 | ML99_EVAL(123)
+      | ^~~~~~~~~
+playground.c: In function ‘ml99_error_4’:
+playground.c:4:1: error: call to ‘ml99_error_4’ declared with attribute error: invalid term `(0v, 123) (0v, 456)`, did you miss a comma?
+    4 | ML99_EVAL(v(123) v(456))
       | ^~~~~~~~~
 ```
 
