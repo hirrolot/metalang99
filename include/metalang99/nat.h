@@ -483,7 +483,8 @@
         ML99_PRIV_ASSERT_IS_NAT_FATAL(x, ML99_NAT_MAX))
 
 // clang-format off
-#define ML99_PRIV_ASSERT_IS_NAT_FATAL(x, max) ML99_fatal(ML99_assertIsNat, x must be within [0; max])
+#define ML99_PRIV_ASSERT_IS_NAT_FATAL(x, max) \
+    ML99_fatal(ML99_assertIsNat, `x` must be within [0; max])
 // clang-format on
 
 // Arity specifiers {
