@@ -117,6 +117,10 @@ As you can see, advanced metaprogramming with Metalang99 allows to drastically i
 [Datatype99]: https://github.com/Hirrolot/datatype99
 [Interface99]: https://github.com/Hirrolot/interface99
 
+Looks interesting? Check out the [motivational post] for more information.
+
+[motivational post]: https://hirrolot.github.io/posts/macros-on-steroids-or-how-can-pure-c-benefit-from-metaprogramming.html
+
 ## Getting started
 
  1. Download this repository.
@@ -179,6 +183,7 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ## Learning resources
 
+ - [Macros on Steroids, Or: How Can Pure C Benefit From Metaprogramming](https://hirrolot.github.io/posts/macros-on-steroids-or-how-can-pure-c-benefit-from-metaprogramming.html) by Hirrolot.
  - [_Extend Your Language, Don’t Alter It_](https://hirrolot.github.io/posts/extend-your-language-dont-alter-it.html) by Hirrolot.
 
 ## Idioms
