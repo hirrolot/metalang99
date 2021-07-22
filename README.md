@@ -308,13 +308,7 @@ A: I use VS Code for development. It enables pop-up suggestments of macro-genera
 
 ### Q: Why not third-party code generators?
 
-A:
-
- - **Seamless cooperation with the rest of C code**. Programming inside comments or DSL-specific files is clearly not the most convenient way, both in terms of IDE support and maintenance. This is especially true for meta-abstractions that are to be considered as a part of the host language, like [Datatype99].
-
- - **Burden of third-party tools.** You need to setup, distribute, and maintain third-party code generators, whilst macros are already to be used like any other C code. Macros is a _built-in_ tool to generate code, therefore, they do not require external ad-hoc machinery to work.
-
- - **Integration into existing codebases.** Being a library, Metalang99 has more chances to be considered as a dependency of already functioning C projects.
+The main reason is that native macros allow you to interleave macro invocations with the real code. Code generators, on the other hand, force you to either "program in comments" or in DSL-specific files. Imagine defining [Datatype99] sum types in separate files -- it would be clearly much less convenient.
 
 ### Q: Compilation times?
 
