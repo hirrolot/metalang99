@@ -164,8 +164,8 @@
  * 
  * \[`/bin/sh`\]
  * @code{.txt}
- * playground.c: In function ‘ml99_error’:
- * playground.c:3:1: error: call to ‘ml99_error’ declared with attribute error: F: the description of your error
+ * playground.c: In function ‘ml99_error_3’:
+ * playground.c:3:1: error: call to ‘ml99_error_3’ declared with attribute error: F: the description of your error
  *     3 | ML99_EVAL(ML99_fatal(F, the description of your error))
  *       | ^~~~~~~~~
  * @endcode

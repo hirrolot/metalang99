@@ -256,8 +256,8 @@ ML99_EVAL(123)
 
 \[`/bin/sh`\]
 ```
-playground.c: In function ‘ml99_error’:
-playground.c:3:1: error: call to ‘ml99_error’ declared with attribute error: invalid term `123`
+playground.c: In function ‘ml99_error_3’:
+playground.c:3:1: error: call to ‘ml99_error_3’ declared with attribute error: invalid term `123`
     3 | ML99_EVAL(123)
       | ^~~~~~~~~
 ```
@@ -269,8 +269,8 @@ ML99_EVAL(v(123) v(456))
 
 \[`/bin/sh`\]
 ```
-playground.c: In function ‘ml99_error’:
-playground.c:3:1: error: call to ‘ml99_error’ declared with attribute error: invalid term `(0v, 123) (0v, 456)`, did you miss a comma?
+playground.c: In function ‘ml99_error_3’:
+playground.c:3:1: error: call to ‘ml99_error_3’ declared with attribute error: invalid term `(0v, 123) (0v, 456)`, did you miss a comma?
     3 | ML99_EVAL(v(123) v(456))
       | ^~~~~~~~~
 ```

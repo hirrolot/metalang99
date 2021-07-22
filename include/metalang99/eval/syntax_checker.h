@@ -32,8 +32,8 @@
 // GCC Common Function Attributes:
 // <https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html>.
 #define ML99_PRIV_GCC_ERROR(message)                                                               \
-    void __attribute__((constructor, error(message))) ml99_error(void) {                           \
-        ml99_error();                                                                              \
+    void __attribute__((constructor, error(message))) ML99_CAT(ml99_error_, __LINE__)(void) {      \
+        ML99_CAT(ml99_error_, __LINE__)();                                                         \
     }
 
 #else
