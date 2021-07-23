@@ -308,7 +308,7 @@ A: I use VS Code for development. It enables pop-up suggestments of macro-genera
 
 ### Q: Why not third-party code generators?
 
-The main reason is that native macros allow you to interleave macro invocations with ordinary code. Code generators, on the other hand, force you to program in DSL-specific files. Can you imagine using [Datatype99] in this way? You would have to put _all_ sum types into separate files, which is clearly less convenient and less natural; it would violate the normal order in which language constructions cooperate with each other. Something like Datatype99 would no longer feel similar to the rest of your code, it would feel like an alien spacecraft fallen to Earth.
+The main reason is that native macros allow you to interleave macro invocations with ordinary code. Code generators, on the other hand, force you to program in DSL-specific files. Can you imagine using [Datatype99] in this way? You would have to put _all_ sum types into separate files, which is clearly less convenient and less natural; it would violate the normal order in which language constructions cooperate with each other.
 
 ### Q: Compilation times?
 
