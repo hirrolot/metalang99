@@ -244,7 +244,11 @@ To perform fewer reduction steps, you can:
  - use tuples/variadics instead of lists,
  - call a macro as `<X>_IMPL(...)`, if all the arguments are already evaluated.
 
-(I strongly recommend to use the last trick only if `X` is defined locally to a caller, in order to control the correctness of expansion. For example, `X` can become painted blue, it can emit unexpected commas, the `#` and `##` operators can block expansion of parameters, and a plenty of other nasty things.)
+<details>
+    <summary>Be careful with the last trick!</summary>
+
+I strongly recommend to use the last trick only if `X` is defined locally to a caller so that you can control the correctness of expansion. For example, `X` can become painted blue, it can emit unexpected commas, the `#` and `##` operators can block expansion of parameters, and a plenty of other nasty things.
+</details>
 
 [specification]: spec/spec.pdf
 
@@ -282,7 +286,9 @@ However, compile-time errors can be still quite obscured:
 ML99_EVAL((~, ~, ~) blah)
 ```
 
-In this case, the best thing you can do is iteratively debug your metaprogram. I often use the bottom-up approach: first, I ensure that all lower-level macros work as expected, then move on to more general macros, and so on, till I find the problem. It is super handy to trace terms during execution with `ML99_abort`, or just copy-paste them into `ML99_EVAL(...)` in a separate file and see how it goes with `-E`.
+In this case, the best thing you can do is iteratively debug your metaprogram.
+
+I often use the bottom-up approach: first, I ensure that all lower-level macros work as expected, then move on to more general macros, and so on, till I find the problem. It is super handy to trace terms during execution with `ML99_abort`, or just copy-paste them into `ML99_EVAL(...)` in a separate file and see how it goes with `-E`.
 
 Metalang99's debugging facilities are discussed in a [dedicated chapter](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
