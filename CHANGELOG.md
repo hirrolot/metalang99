@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [1.3.0] - 2021-07-24
+
 ### Added
 
  - `util.h`:
