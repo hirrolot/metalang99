@@ -183,8 +183,11 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ## Publications
 
+ - [_What’s the Point of the C Preprocessor, Actually?_] by Hirrolot.
  - [_Macros on Steroids, Or: How Can Pure C Benefit From Metaprogramming_](https://hirrolot.github.io/posts/macros-on-steroids-or-how-can-pure-c-benefit-from-metaprogramming.html) by Hirrolot.
  - [_Extend Your Language, Don’t Alter It_](https://hirrolot.github.io/posts/extend-your-language-dont-alter-it.html) by Hirrolot.
+
+[_What’s the Point of the C Preprocessor, Actually?_]: https://hirrolot.github.io/posts/whats-the-point-of-the-c-preprocessor-actually.html
 
 ## Idioms
 
@@ -314,7 +317,9 @@ A: I use VS Code for development. It enables pop-up suggestments of macro-genera
 
 ### Q: Why not third-party code generators?
 
-The main reason is that native macros allow you to interleave macro invocations with ordinary code. Code generators, on the other hand, force you to program in DSL-specific files. Can you imagine using [Datatype99] in this way? You would have to put _all_ sum types into separate files, which is clearly less convenient and less natural; it would violate the normal order in which language constructions cooperate with each other.
+A: The main reason is that native macros allow you to interleave macro invocations with ordinary code. Code generators, on the other hand, force you to program in DSL-specific files. Can you imagine using [Datatype99] in this way? You would have to put _all_ sum types into separate files, which is clearly less convenient and less natural; it would violate the normal order in which language constructions cooperate with each other.
+
+More on it: [_What’s the Point of the C Preprocessor, Actually?_]
 
 ### Q: Compilation times?
 
