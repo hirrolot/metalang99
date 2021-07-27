@@ -181,7 +181,7 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 [Metalang99-compliant macros]: https://metalang99.readthedocs.io/en/latest/#definitions
 [`ML99_todo` and its friends]: https://metalang99.readthedocs.io/en/latest/util.html#c.ML99_todo
 
-## Learning resources
+## Blog posts
 
  - [_Macros on Steroids, Or: How Can Pure C Benefit From Metaprogramming_](https://hirrolot.github.io/posts/macros-on-steroids-or-how-can-pure-c-benefit-from-metaprogramming.html) by Hirrolot.
  - [_Extend Your Language, Don’t Alter It_](https://hirrolot.github.io/posts/extend-your-language-dont-alter-it.html) by Hirrolot.
