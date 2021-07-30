@@ -147,7 +147,7 @@ Happy hacking!
 
  - **Almost the same syntax.** Metalang99 does not look too alien in comparison with [Order PP] because the syntax differs insignificantly from usual preprocessor code.
 
- - **Partial application.** Tracking auxiliary arguments here and there results in code clutter; partial application, in turn, allows to naturally capture an environment by applying your constant values first. Besides that, partial application facilitates better reuse of metafunctions.
+ - **Partial application.** Instead of tracking auxiliary arguments here and there (as it is done in Boost/Preprocessor), partial application allows to capture an environment by applying constant values first. Besides that, partial application facilitates better reuse of metafunctions.
 
  - **Debugging and error reporting.** You can conveniently debug your macros with `ML99_abort` and report fatal errors with `ML99_fatal`. The interpreter will immediately finish its work and do the trick.
 
