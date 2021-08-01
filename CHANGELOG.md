@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [1.3.1] - 2021-08-02
+
+### Fixed
+
+ - Emit `_Static_assert` for diagnostics where possible:
+   - C11.
+   - Clang if `__has_extension(c_static_assert)`.
+   - GCC if newer than [4.6](https://gcc.gnu.org/gcc-4.6/changes.html).
+
 ## [1.3.0] - 2021-07-24
 
 ### Added

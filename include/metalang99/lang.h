@@ -155,23 +155,19 @@
  *
  * # Examples
  *
- * \[`playground.c`\]
+ * [`playground.c`]
  * @code
  * #include <metalang99/lang.h>
  *
  * ML99_EVAL(ML99_fatal(F, the description of your error))
  * @endcode
- * 
- * \[`/bin/sh`\]
+ *
+ * [`/bin/sh`]
  * @code{.txt}
- * playground.c: In function ‘ml99_error_3’:
- * playground.c:3:1: error: call to ‘ml99_error_3’ declared with attribute error: F: the description of your error
+ * playground.c:3:1: error: static assertion failed: "F: the description of your error"
  *     3 | ML99_EVAL(ML99_fatal(F, the description of your error))
  *       | ^~~~~~~~~
  * @endcode
- * 
- * (If you use GCC, you can see such neat errors right from the console. Otherwise, you have to
- * preprocess your file with `-E` and search for Metalang99 errors by yourself.)
  */
 #define ML99_fatal(f, ...) (0fatal, f, #__VA_ARGS__)
 // clang-format on

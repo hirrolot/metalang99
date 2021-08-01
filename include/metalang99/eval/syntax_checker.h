@@ -1,6 +1,7 @@
 #ifndef ML99_EVAL_SYNTAX_CHECKER_H
 #define ML99_EVAL_SYNTAX_CHECKER_H
 
+#include <metalang99/priv/compiler_specific.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/eval/rec.h>
@@ -22,19 +23,12 @@
         ML99_PRIV_SYNTAX_ERROR_AUX)                                                                \
     (invalid_term)
 
-#if defined(__GNUC__) && !defined(__clang__)
+#ifdef ML99_PRIV_EMIT_ERROR
 
 #define ML99_PRIV_SYNTAX_ERROR_AUX(invalid_term)                                                   \
-    ML99_PRIV_GCC_ERROR("invalid term `" #invalid_term "`")
+    ML99_PRIV_EMIT_ERROR("invalid term `" #invalid_term "`");
 #define ML99_PRIV_SYNTAX_ERROR_COMMA_AUX(invalid_term)                                             \
-    ML99_PRIV_GCC_ERROR("invalid term `" #invalid_term "`, did you miss a comma?")
-
-// GCC Common Function Attributes:
-// <https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html>.
-#define ML99_PRIV_GCC_ERROR(message)                                                               \
-    void __attribute__((constructor, error(message))) ML99_CAT(ml99_error_, __LINE__)(void) {      \
-        ML99_CAT(ml99_error_, __LINE__)();                                                         \
-    }
+    ML99_PRIV_EMIT_ERROR("invalid term `" #invalid_term "`, did you miss a comma?");
 
 #else
 

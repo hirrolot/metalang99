@@ -261,26 +261,22 @@ I strongly recommend to use the last trick only if `X` is defined locally to a c
 
 A: Metalang99 reports syntax mismatches, where possible:
 
-\[`playground.c`\]
+[`playground.c`]
 ```c
 ML99_EVAL(123)
 ML99_EVAL(v(123) v(456))
 ```
 
-\[`/bin/sh`\]
+[`/bin/sh`]
 ```
 $ gcc playground.c -Imetalang99/include -ftrack-macro-expansion=0
-playground.c: In function ‘ml99_error_3’:
-playground.c:3:1: error: call to ‘ml99_error_3’ declared with attribute error: invalid term `123`
+playground.c:3:1: error: static assertion failed: "invalid term `123`"
     3 | ML99_EVAL(123)
       | ^~~~~~~~~
-playground.c: In function ‘ml99_error_4’:
-playground.c:4:1: error: call to ‘ml99_error_4’ declared with attribute error: invalid term `(0v, 123) (0v, 456)`, did you miss a comma?
+playground.c:4:1: error: static assertion failed: "invalid term `(0v, 123) (0v, 456)`, did you miss a comma?"
     4 | ML99_EVAL(v(123) v(456))
       | ^~~~~~~~~
 ```
-
-(If you use GCC, you can see such neat errors right from the console. Otherwise, you have to preprocess your file with `-E` and search for Metalang99 errors by yourself.)
 
 However, compile-time errors can be still quite obscured:
 

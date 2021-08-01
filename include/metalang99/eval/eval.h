@@ -3,6 +3,7 @@
 
 // Explanation is in the spec: <https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf>.
 
+#include <metalang99/priv/compiler_specific.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/eval/acc.h>
@@ -42,8 +43,8 @@
 #define ML99_PRIV_EVAL_0fatal_AUX(_k, _k_cx, _folder, _acc, _tail, f, message)                     \
     ML99_PRIV_REC_CONTINUE(ML99_PRIV_REC_STOP)((~), ML99_PRIV_FATAL_ERROR(f, message))
 
-#if defined(__GNUC__) && !defined(__clang__)
-#define ML99_PRIV_FATAL_ERROR(f, message) ML99_PRIV_GCC_ERROR(#f ": " message)
+#ifdef ML99_PRIV_EMIT_ERROR
+#define ML99_PRIV_FATAL_ERROR(f, message) ML99_PRIV_EMIT_ERROR(#f ": " message);
 #else
 // clang-format off
 #define ML99_PRIV_FATAL_ERROR(f, message) !"Metalang99 error" (f): message
