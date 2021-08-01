@@ -10,7 +10,7 @@
 // }
 
 // ML99_PRIV_EMIT_ERROR {
-#if __STDC__ && __STDC_VERSION__ >= 201112L // C11
+#if __STDC_VERSION__ >= 201112L // C11
 
 #define ML99_PRIV_EMIT_ERROR(message) _Static_assert(0, message)
 
