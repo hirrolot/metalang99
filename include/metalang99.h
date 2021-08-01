@@ -22,6 +22,4 @@
 #define ML99_MINOR 3
 #define ML99_PATCH 0
 
-ML99_EVAL(123)
-
 #endif // ML99_H
