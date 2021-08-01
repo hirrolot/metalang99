@@ -10,21 +10,32 @@
 // }
 
 // ML99_PRIV_EMIT_ERROR {
-#if __STDC_VERSION__ >= 201112L // C11
+#if __STDC__ && __STDC_VERSION__ >= ML99_PRIV_C11_VERSION
 
-#define ML99_PRIV_EMIT_ERROR(message) _Static_assert(0, message)
+#define ML99_PRIV_EMIT_ERROR ML99_PRIV_STATIC_ASSERT
+
+/*
+ * On MSVC, `__STDC__` expands to 0 if the `\Za` option was not specified, but the thing is that it
+ * nevertheless supports C11's `_Static_assert`.
+ *
+ * MSVC Standard predefined macros:
+ * <https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros#standard-predefined-macros>.
+ */
+#elif defined(_MSC_VER) && __STDC__VERSION >= ML99_PRIV_C11_VERSION
+
+#define ML99_PRIV_EMIT_ERROR ML99_PRIV_STATIC_ASSERT
 
 #elif defined(__clang__)
 
 #if __has_extension(c_static_assert)
-#define ML99_PRIV_EMIT_ERROR(message) _Static_assert(0, message)
+#define ML99_PRIV_EMIT_ERROR ML99_PRIV_STATIC_ASSERT
 #endif
 
 #elif defined(__GNUC__)
 
 // GCC 4.6 Release Series: <https://gcc.gnu.org/gcc-4.6/changes.html>.
 #if (__GNUC__ == 4 && __GNUC_MINOR__ >= 6) || (__GNUC__ >= 5)
-#define ML99_PRIV_EMIT_ERROR(message) _Static_assert(0, message)
+#define ML99_PRIV_EMIT_ERROR ML99_PRIV_STATIC_ASSERT
 #else
 
 // GCC Common Function Attributes:
@@ -43,6 +54,10 @@
 You'll have to search for Metalang99 errors in a preprocessed-only file (-E) by yourself. \
 Define ML99_ALLOW_POOR_DIAGNOSTICS to suppress this error.
 #endif
+
+#define ML99_PRIV_STATIC_ASSERT(message) _Static_assert(0, message)
 // } (ML99_PRIV_EMIT_ERROR)
+
+#define ML99_PRIV_C11_VERSION 201112L
 
 #endif // ML99_PRIV_COMPILER_SPECIFIC_H
