@@ -191,7 +191,8 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ## Idioms
 
-### Detecting a keyword followed by parentheses
+<details>
+    <summary>Detecting a keyword followed by parentheses</summary>
 
 To detect something like `abracadabra(1, 2, 3)`, follow this simple pattern:
 
@@ -205,8 +206,10 @@ DETECT_ABRACADABRA(abracadabra(1, 2, 3))
 // 0
 DETECT_ABRACADABRA(blah)
 ```
+</details>
 
-### Extracting a value of a keyword followed by parentheses
+<details>
+    <summary>Extracting a value of a keyword followed by parentheses</summary>
 
 To get `1, 2, 3` from `abracadabra(1, 2, 3)`:
 
@@ -217,8 +220,10 @@ To get `1, 2, 3` from `abracadabra(1, 2, 3)`:
 // 1, 2, 3
 EXTRACT_ABRACADABRA(abracadabra(1, 2, 3))
 ```
+</details>
 
-### Interspersing a comma
+<details>
+    <summary>Interspersing a comma</summary>
 
 To intersperse a comma between one or more elements, put a comma before each element and pass them all to `ML99_variadicsTail`:
 
@@ -231,6 +236,7 @@ To intersperse a comma between one or more elements, put a comma before each ele
 // (animals)[0], (animals)[1], (animals)[2]
 ARRAY_SUBSCRIPTS(animals, 3)
 ```
+</details>
 
 ## Optimisation tips
 
