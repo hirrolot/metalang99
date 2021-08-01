@@ -1,6 +1,6 @@
 # Idioms
 
-This document describes common idioms when using Metalang99, i.e., code patterns that have not been reified into abstractions yet.
+_This document describes common idioms when using Metalang99, i.e., code patterns that have not been reified into abstractions yet._
 
 ## Detecting a keyword followed by parentheses
 

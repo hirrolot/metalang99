@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes the high-level architecture of Metalang99.
+_This document describes the high-level architecture of Metalang99._
 
 ## Interpreter
 

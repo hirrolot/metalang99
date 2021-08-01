@@ -164,14 +164,6 @@ Finally, I want to say that Metalang99 is only about syntax transformations and 
 
 [Poica]: https://github.com/Hirrolot/poica
 
-## Contributing
-
-See [`CONTRIBUTING.md`](CONTRIBUTING.md).
-
-## Architecture
-
-See [`ARCHITECTURE.md`](ARCHITECTURE.md).
-
 ## Guidelines
 
  - If possible, assert macro parameters for well-formedness using `ML99_assertIsTuple`, `ML99_assertIsNat`, etc. for better diagnostic messages.
@@ -189,32 +181,21 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 [_What’s the Point of the C Preprocessor, Actually?_]: https://hirrolot.github.io/posts/whats-the-point-of-the-c-preprocessor-actually.html
 
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Architecture
+
+See [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
 ## Idioms
 
-See [`IDIOMS.md`](IDIOMS.md).
+See [`idioms.md`](idioms.md).
 
 ## Optimisation tips
 
-Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept defined formally by the [specification]. Here is its informal (and imprecise) description:
-
- - Every `v(...)` is a reduction step.
- - Every `ML99_call(op, ...)` induces as many reduction steps as required to evaluate `op` and `...`.
-
-To perform fewer reduction steps, you can:
-
- - use `ML99_callUneval`,
- - use plain macros (e.g., `ML99_CAT` instead of `ML99_cat`),
- - use optimised versions (e.g., `ML99_listMapInPlace`),
- - use tuples/variadics instead of lists,
- - call a macro as `<X>_IMPL(...)`, if all the arguments are already evaluated.
-
-<details>
-    <summary>Be careful with the last trick!</summary>
-
-I strongly recommend to use the last trick only if `X` is defined locally to a caller so that you can control the correctness of expansion. For example, `X` can become painted blue, it can emit unexpected commas, the `#` and `##` operators can block expansion of parameters, and a plenty of other nasty things.
-</details>
-
-[specification]: spec/spec.pdf
+See [`optimisation_tips.md`](optimisation_tips.md).
 
 ## FAQ
 
