@@ -330,7 +330,7 @@
  *
  * Variable definitions must be specified as in the first clause of the for-loop.
  *
- * `break`/`continue` inside a user-provided statement are prohibited.
+ * Top-level `break`/`continue` inside a user-provided statement are prohibited.
  *
  * # Example
  *
@@ -354,7 +354,7 @@
  * In comparison with #ML99_INTRODUCE_VAR_TO_STMT, this macro generates a little less code. It
  * introduces a pointer to @p ty identified by @p name and initialised to @p init.
  *
- * `break`/`continue` inside a user-provided statement are prohibited.
+ * Top-level `break`/`continue` inside a user-provided statement are prohibited.
  *
  * # Example
  *
@@ -380,7 +380,7 @@
  * A statement chaining macro which executes an expression statement derived from @p expr right
  * before the next statement.
  *
- * `break`/`continue` inside a user-provided statement are prohibited.
+ * Top-level `break`/`continue` inside a user-provided statement are prohibited.
  *
  * # Example
  *
@@ -412,7 +412,7 @@
  * A statement chaining macro which suppresses the "unused X" warning right before a statement after
  * its invocation.
  *
- * `break`/`continue` inside a user-provided statement are prohibited.
+ * Top-level `break`/`continue` inside a user-provided statement are prohibited.
  *
  * # Example
  *
