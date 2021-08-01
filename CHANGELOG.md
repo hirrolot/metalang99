@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
-## [1.3.1] - 2021-08-02
+## [1.4.0] - 2021-08-02
+
+### Added
+
+- `ML99_ALLOW_POOR_DIAGNOSTICS`: if your compiler does not support decent diagnostic messages, Metalang99 will emit an error that can be suppressed by defining this macro.
 
 ### Fixed
 
@@ -15,10 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - C11.
    - Clang if `__has_extension(c_static_assert)`.
    - GCC if newer than [4.6](https://gcc.gnu.org/gcc-4.6/changes.html).
-
-### Added
-
-- `ML99_ALLOW_POOR_DIAGNOSTICS`: if your compiler does not support decent diagnostic messages, Metalang99 will emit an error that can be suppressed by defining this macro.
 
 ## [1.3.0] - 2021-07-24
 
