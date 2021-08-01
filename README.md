@@ -201,12 +201,13 @@ See [`optimisation_tips.md`](optimisation_tips.md).
 
 ### Q: What about compile-time errors?
 
-A: Metalang99 reports syntax mismatches, where possible:
+A: Most of the time, Metalang99 reports syntax mismatches:
 
 [`playground.c`]
 ```c
 ML99_EVAL(123)
-ML99_EVAL(v(123) v(456))
+ML99_EVAL(x, y, z)
+ML99_EVAL(v(Billie) v(Jean))
 ```
 
 [`/bin/sh`]
@@ -215,8 +216,11 @@ $ gcc playground.c -Imetalang99/include -ftrack-macro-expansion=0
 playground.c:3:1: error: static assertion failed: "invalid term `123`"
     3 | ML99_EVAL(123)
       | ^~~~~~~~~
-playground.c:4:1: error: static assertion failed: "invalid term `(0v, 123) (0v, 456)`, did you miss a comma?"
-    4 | ML99_EVAL(v(123) v(456))
+playground.c:4:1: error: static assertion failed: "invalid term `x`"
+    4 | ML99_EVAL(x, y, z)
+      | ^~~~~~~~~
+playground.c:5:1: error: static assertion failed: "invalid term `(0v, Billie) (0v, Jean)`, did you miss a comma?"
+    5 | ML99_EVAL(v(Billie) v(Jean))
       | ^~~~~~~~~
 ```
 
