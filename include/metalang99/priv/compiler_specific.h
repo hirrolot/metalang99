@@ -1,6 +1,8 @@
 #ifndef ML99_PRIV_COMPILER_SPECIFIC_H
 #define ML99_PRIV_COMPILER_SPECIFIC_H
 
+#define ML99_PRIV_C11_VERSION 201112L
+
 // ML99_PRIV_COMPILER_ATTR_UNUSED {
 #ifdef __GNUC__
 #define ML99_PRIV_COMPILER_ATTR_UNUSED __attribute__((unused))
@@ -57,7 +59,5 @@ Define ML99_ALLOW_POOR_DIAGNOSTICS to suppress this error.
 
 #define ML99_PRIV_STATIC_ASSERT(message) _Static_assert(0, message)
 // } (ML99_PRIV_EMIT_ERROR)
-
-#define ML99_PRIV_C11_VERSION 201112L
 
 #endif // ML99_PRIV_COMPILER_SPECIFIC_H
