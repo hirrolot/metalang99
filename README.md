@@ -234,6 +234,18 @@ ML99_EVAL((~, ~, ~) blah)
 
 In this case, the best thing you can do is [iteratively debug your metaprogram](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
+### Q: What about debugging?
+
+A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
+
+### Q: What about IDE support?
+
+A: I use VS Code for development. It enables pop-up suggestments of macro-generated constructions but, of course, it does not support macro syntax highlightment.
+
+### Q: Compilation times?
+
+A: To run the benchmarks, execute `./scripts/bench.sh` from the root directory.
+
 ### Q: How does it work?
 
 A:
@@ -246,21 +258,9 @@ A:
 [interpreter]: include/metalang99/eval/eval.h
 [continuation-passing style]: https://en.wikipedia.org/wiki/Continuation-passing_style
 
-### Q: What about debugging?
-
-A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
-
-### Q: What about IDE support?
-
-A: I use VS Code for development. It enables pop-up suggestments of macro-generated constructions but, of course, it does not support macro syntax highlightment.
-
 ### Q: Why not third-party code generators?
 
 A: See the blog post [_What’s the Point of the C Preprocessor, Actually?_]
-
-### Q: Compilation times?
-
-A: To run the benchmarks, execute `./scripts/bench.sh` from the root directory.
 
 ### Q: Why formal specification?
 
