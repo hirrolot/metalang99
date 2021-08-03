@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
- - Fix invalid C11 standard detection for `_Static_assert` ([issue 15](https://github.com/Hirrolot/metalang99/issues/15)).
+ - Invalid C11 standard detection for `_Static_assert` ([issue 15](https://github.com/Hirrolot/metalang99/issues/15)).
+ - Invalid C11 standard detection for `_Static_assert` on MSVC ([issue 16](https://github.com/Hirrolot/metalang99/issues/16)).
 
 ## [1.4.0] - 2021-08-02
 

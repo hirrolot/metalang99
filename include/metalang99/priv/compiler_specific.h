@@ -23,7 +23,7 @@
  * MSVC Standard predefined macros:
  * <https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros#standard-predefined-macros>.
  */
-#elif defined(_MSC_VER) && __STDC__VERSION >= ML99_PRIV_C11_VERSION
+#elif defined(_MSC_VER) && __STDC_VERSION__ >= ML99_PRIV_C11_VERSION
 
 #define ML99_PRIV_EMIT_ERROR ML99_PRIV_STATIC_ASSERT
 
