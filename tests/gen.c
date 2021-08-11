@@ -168,6 +168,22 @@ static void test_assign(void) {
 }
 // }
 
+// ML99_assignInitializerList, ML99_assignInitializerListStmt {
+static void test_assign_initializer_list(void) {
+    typedef struct {
+        int x, y;
+    } Point;
+
+    ML99_EVAL(ML99_assignInitializerList(v(Point p1), v(.x = 2, .y = 3)));
+    assert(2 == p1.x);
+    assert(3 == p1.y);
+
+    ML99_EVAL(ML99_assignInitializerListStmt(v(Point p2), v(.x = 5, .y = 7)))
+    assert(5 == p2.x);
+    assert(7 == p2.y);
+}
+// }
+
 // ML99_invoke, ML99_invokeStmt {
 #define F(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
 
@@ -370,6 +386,7 @@ int main(void) {
     test_statement_chaining();
 
     test_assign();
+    test_assign_initializer_list();
     test_prefixed_block();
 
     (void)test_typedef;

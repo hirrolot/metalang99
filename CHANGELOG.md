@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `ML99_assignInitializerList(Stmt)` as `ML99_assign(Stmt)` counterparts for initializer lists.
+
 ## [1.4.1] - 2021-08-05
 
 ### Fixed
