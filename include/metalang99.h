@@ -19,7 +19,7 @@
 #include <metalang99/variadics.h>
 
 #define ML99_MAJOR 1
-#define ML99_MINOR 4
-#define ML99_PATCH 1
+#define ML99_MINOR 5
+#define ML99_PATCH 0
 
 #endif // ML99_H
