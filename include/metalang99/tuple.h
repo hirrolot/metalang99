@@ -133,6 +133,42 @@
 #define ML99_isUntuple(x) ML99_call(ML99_isUntuple, x)
 
 /**
+ * Computes the count of items in the tuple @p x.
+ *
+ * At most 63 items can be contained in @p x.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/tuple.h>
+ *
+ * // 3
+ * ML99_tupleCount(v((~, ~, ~)))
+ *
+ * // 1
+ * ML99_tupleCount(v(()))
+ * @endcode
+ */
+#define ML99_tupleCount(x) ML99_call(ML99_tupleCount, x)
+
+/**
+ * Tells if the tuple @p x contains only one item or not.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/tuple.h>
+ *
+ * // 1
+ * ML99_tupleIsSingle(v((~)))
+ *
+ * // 0
+ * ML99_tupleIsSingle(v((~, ~, ~)))
+ * @endcode
+ */
+#define ML99_tupleIsSingle(x) ML99_call(ML99_tupleIsSingle, x)
+
+/**
  * Expands to a metafunction extracting the @p i -indexed element of a tuple.
  *
  * @p i can range from 0 to 7, inclusively.
@@ -193,6 +229,16 @@
 #define ML99_tuplePrepend(x, ...) ML99_call(ML99_tuplePrepend, x, __VA_ARGS__)
 
 /**
+ * A shortcut for `ML99_variadicsForEach(f, ML99_untuple(x))`.
+ */
+#define ML99_tupleForEach(f, x) ML99_call(ML99_tupleForEach, f, x)
+
+/**
+ * A shortcut for `ML99_variadicsForEachI(f, ML99_untuple(x))`.
+ */
+#define ML99_tupleForEachI(f, x) ML99_call(ML99_tupleForEachI, f, x)
+
+/**
  * Emits a fatal error if @p x is not a tuple, otherwise results in emptiness.
  *
  * # Examples
@@ -215,6 +261,8 @@
 #define ML99_UNTUPLE(x)            ML99_PRIV_EXPAND x
 #define ML99_IS_TUPLE(x)           ML99_PRIV_IS_TUPLE(x)
 #define ML99_IS_UNTUPLE(x)         ML99_PRIV_IS_UNTUPLE(x)
+#define ML99_TUPLE_COUNT(x)        ML99_VARIADICS_COUNT(ML99_UNTUPLE(x))
+#define ML99_TUPLE_IS_SINGLE(x)    ML99_VARIADICS_IS_SINGLE(ML99_UNTUPLE(x))
 #define ML99_TUPLE_GET(i)          ML99_PRIV_CAT(ML99_PRIV_TUPLE_GET_, i)
 #define ML99_TUPLE_TAIL(x)         ML99_VARIADICS_TAIL(ML99_UNTUPLE(x))
 #define ML99_TUPLE_APPEND(x, ...)  (ML99_UNTUPLE(x), __VA_ARGS__)
@@ -227,9 +275,11 @@
 #define ML99_untuple_IMPL(x)     v(ML99_UNTUPLE(x))
 #define ML99_untupleChecked_IMPL(x)                                                                \
     ML99_PRIV_IF(ML99_IS_TUPLE(x), ML99_PRIV_UNTUPLE_CHECKED_AUX, ML99_PRIV_NOT_TUPLE_ERROR)(x)
-#define ML99_untupleEval_IMPL(x) ML99_PRIV_EXPAND x
-#define ML99_isTuple_IMPL(x)     v(ML99_IS_TUPLE(x))
-#define ML99_isUntuple_IMPL(x)   v(ML99_IS_UNTUPLE(x))
+#define ML99_untupleEval_IMPL(x)   ML99_PRIV_EXPAND x
+#define ML99_isTuple_IMPL(x)       v(ML99_IS_TUPLE(x))
+#define ML99_isUntuple_IMPL(x)     v(ML99_IS_UNTUPLE(x))
+#define ML99_tupleCount_IMPL(x)    v(ML99_TUPLE_COUNT(x))
+#define ML99_tupleIsSingle_IMPL(x) v(ML99_TUPLE_IS_SINGLE(x))
 
 #define ML99_PRIV_UNTUPLE_CHECKED_AUX(x) v(ML99_UNTUPLE(x))
 
@@ -264,6 +314,8 @@
 
 #define ML99_tupleAppend_IMPL(x, ...)  v(ML99_TUPLE_APPEND(x, __VA_ARGS__))
 #define ML99_tuplePrepend_IMPL(x, ...) v(ML99_TUPLE_PREPEND(x, __VA_ARGS__))
+#define ML99_tupleForEach_IMPL(f, x)   ML99_variadicsForEach_IMPL(f, ML99_UNTUPLE(x))
+#define ML99_tupleForEachI_IMPL(f, x)  ML99_variadicsForEachI_IMPL(f, ML99_UNTUPLE(x))
 
 #define ML99_assertIsTuple_IMPL(x)                                                                 \
     ML99_PRIV_IF(ML99_IS_UNTUPLE(x), ML99_PRIV_NOT_TUPLE_ERROR(x), v(ML99_PRIV_EMPTY()))
@@ -284,9 +336,13 @@
 #define ML99_untupleEval_ARITY    1
 #define ML99_isTuple_ARITY        1
 #define ML99_isUntuple_ARITY      1
+#define ML99_tupleCount_ARITY     1
+#define ML99_tupleIsSingle_ARITY  1
 #define ML99_tupleTail_ARITY      1
 #define ML99_tupleAppend_ARITY    2
 #define ML99_tuplePrepend_ARITY   2
+#define ML99_tupleForEach_ARITY   2
+#define ML99_tupleForEachI_ARITY  2
 #define ML99_assertIsTuple_ARITY  1
 
 #define ML99_PRIV_tupleGet_0_ARITY 1

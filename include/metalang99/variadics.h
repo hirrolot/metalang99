@@ -9,7 +9,10 @@
 #ifndef ML99_VARIADICS_H
 #define ML99_VARIADICS_H
 
+#include <metalang99/nat/dec.h>
 #include <metalang99/nat/eq.h>
+#include <metalang99/nat/inc.h>
+
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>

@@ -13,7 +13,7 @@ ML99_EVAL(v(CHECK), ML99_tuple(v(518, 1910)));
 ML99_ASSERT_EQ(ML99_untupleEval(v((v(198)))), v(198));
 // }
 
-// ML99_untuple, ML99_untupleChceked {
+// ML99_untuple, ML99_untupleChecked {
 ML99_ASSERT_EQ(ML99_untuple(v((198))), v(198));
 ML99_ASSERT_EQ(ML99_untupleChecked(v((198))), v(198));
 // }
@@ -48,6 +48,22 @@ ML99_ASSERT(ML99_isUntuple(v((~, ~, ~)(~, ~, ~) ~)));
 
 ML99_ASSERT(ML99_isUntuple(v((~, ~, ~)(~, ~, ~)(~, ~, ~))));
 ML99_ASSERT(ML99_isUntuple(v((~, ~, ~)(~, ~, ~)(~, ~, ~) ~)));
+// }
+
+// ML99_tupleCount {
+ML99_ASSERT_EQ(ML99_tupleCount(v((1, 2, 3))), v(3));
+ML99_ASSERT_EQ(ML99_tupleCount(v((*))), v(1));
+
+ML99_ASSERT_UNEVAL(ML99_TUPLE_COUNT((1, 2, 3)) == 3);
+ML99_ASSERT_UNEVAL(ML99_TUPLE_COUNT((*)) == 1);
+// }
+
+// ML99_tupleIsSingle {
+ML99_ASSERT(ML99_not(ML99_tupleIsSingle(v((1, 2, 3)))));
+ML99_ASSERT(ML99_tupleIsSingle(v((*))));
+
+ML99_ASSERT_UNEVAL(!ML99_TUPLE_IS_SINGLE((1, 2, 3)));
+ML99_ASSERT_UNEVAL(ML99_TUPLE_IS_SINGLE((*)));
 // }
 
 // ML99_tupleGet {
@@ -96,6 +112,30 @@ ML99_EVAL(v(CHECK), ML99_tupleAppend(ML99_tuple(v(1)), v(2, 3)));
 ML99_EVAL(v(CHECK), ML99_tuplePrepend(ML99_tuple(v(3)), v(1, 2)));
 
 #undef CHECK
+// }
+
+// ML99_tupleForEach {
+#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 1987 && y == 2987 && z == 3987)
+#define F_IMPL(x)         v(, x##987)
+#define F_ARITY           1
+
+ML99_EVAL(v(CHECK), ML99_tuple(ML99_tupleForEach(v(F), v((1, 2, 3)))));
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
+// }
+
+// ML99_tupleForEachI {
+#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 10 && y == 21 && z == 32)
+#define F_IMPL(x, i)      v(, ), v(x##i)
+#define F_ARITY           2
+
+ML99_EVAL(v(CHECK), ML99_tuple(ML99_tupleForEachI(v(F), v((1, 2, 3)))));
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
 // }
 
 // ML99_assertIsTuple {
