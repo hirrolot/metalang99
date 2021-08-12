@@ -13,15 +13,17 @@ ML99_ASSERT_UNEVAL(ML99_CAT3(12, 3, 45) == 12345);
 ML99_ASSERT_UNEVAL(ML99_CAT4(12, 3, 4, 5) == 12345);
 // }
 
-#define CHECK(x, y) ML99_ASSERT_UNEVAL(x == 518 && y == 1910)
+#define CHECK(x, y)        ML99_ASSERT_UNEVAL(x == 518 && y == 1910)
+#define CHECK_EXPAND(args) CHECK args
 
 // ML99_id {
 ML99_ASSERT_EMPTY(ML99_id(v()));
-ML99_EVAL(v(CHECK), ML99_id(v((518, 1910))));
+CHECK_EXPAND(ML99_EVAL(ML99_id(v((518, 1910)))));
 ML99_ASSERT_EQ(ML99_appl(ML99_compose(v(ML99_id), v(ML99_id)), v(181)), v(181));
 // }
 
 #undef CHECK
+#undef CHECK_EXPAND
 
 // ML99_ID {
 ML99_ASSERT_EMPTY_UNEVAL(ML99_ID());

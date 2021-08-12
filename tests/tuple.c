@@ -1,21 +1,19 @@
 #include <metalang99/assert.h>
 #include <metalang99/tuple.h>
 
-#define CHECK(x, y) ML99_ASSERT_UNEVAL(x == 518 && y == 1910)
+#define CHECK(x, y)        ML99_ASSERT_UNEVAL(x == 518 && y == 1910)
+#define CHECK_EXPAND(args) CHECK args
 
 // ML99_tuple {
-ML99_EVAL(v(CHECK), ML99_tuple(v(518, 1910)));
+CHECK_EXPAND(ML99_EVAL(ML99_tuple(v(518, 1910))));
 // }
-
-#define CHECK_EXPAND(args) CHECK args
 
 // ML99_TUPLE {
 CHECK_EXPAND(ML99_TUPLE(518, 1910));
 // }
 
-#undef CHECK_EXPAND
-
 #undef CHECK
+#undef CHECK_EXPAND
 
 // ML99_untupleEval {
 ML99_ASSERT_EQ(ML99_untupleEval(v((v(198)))), v(198));
@@ -146,30 +144,30 @@ CHECK_TAIL(ML99_TUPLE_TAIL((9191, 51, 21, 1, 7378)));
 #undef CHECK_TAIL
 #undef CHECK_TAIL_AUX
 
-#define CHECK(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
+#define CHECK(a, b, c)     ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
+#define CHECK_EXPAND(args) CHECK args
 
 // ML99_tuple(Append|Prepend) {
-ML99_EVAL(v(CHECK), ML99_tupleAppend(ML99_tuple(v(1)), v(2, 3)));
-ML99_EVAL(v(CHECK), ML99_tuplePrepend(ML99_tuple(v(3)), v(1, 2)));
+CHECK_EXPAND(ML99_EVAL(ML99_tupleAppend(ML99_tuple(v(1)), v(2, 3))));
+CHECK_EXPAND(ML99_EVAL(ML99_tuplePrepend(ML99_tuple(v(3)), v(1, 2))));
 // }
-
-#define CHECK_EXPAND(args) CHECK args
 
 // ML99_TUPLE(APPEND|PREPEND) {
 CHECK_EXPAND(ML99_TUPLE_APPEND((1), 2, 3));
 CHECK_EXPAND(ML99_TUPLE_PREPEND((3), 1, 2));
 // }
 
+#undef CHECK
 #undef CHECK_EXPAND
 
-#undef CHECK
+#define CHECK_EXPAND(...) CHECK(__VA_ARGS__)
 
 #define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 1987 && y == 2987 && z == 3987)
 #define F_IMPL(x)         v(, x##987)
 #define F_ARITY           1
 
 // ML99_tupleForEach {
-ML99_EVAL(v(CHECK), ML99_tuple(ML99_tupleForEach(v(F), v((1, 2, 3)))));
+CHECK_EXPAND(ML99_EVAL(ML99_tupleForEach(v(F), v((1, 2, 3)))));
 // }
 
 #undef CHECK
@@ -181,12 +179,14 @@ ML99_EVAL(v(CHECK), ML99_tuple(ML99_tupleForEach(v(F), v((1, 2, 3)))));
 #define F_ARITY           2
 
 // ML99_tupleForEachI {
-ML99_EVAL(v(CHECK), ML99_tuple(ML99_tupleForEachI(v(F), v((1, 2, 3)))));
+CHECK_EXPAND(ML99_EVAL(ML99_tupleForEachI(v(F), v((1, 2, 3)))));
 // }
 
 #undef CHECK
 #undef F_IMPL
 #undef F_ARITY
+
+#undef CHECK_EXPAND
 
 // ML99_assertIsTuple {
 ML99_EVAL(ML99_assertIsTuple(ML99_tuple(v(1, 2, 3))))

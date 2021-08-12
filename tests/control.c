@@ -1,7 +1,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/control.h>
-#include <metalang99/tuple.h>
-#include <metalang99/util.h>
+#include <metalang99/logical.h>
 
 // ML99_if {
 ML99_ASSERT_EQ(ML99_if(ML99_true(), v(24), v(848)), v(24));
@@ -46,12 +45,14 @@ X(1516, 1, 9, 111, 119, 677, 62);
 #undef X_2_IMPL
 #undef X_7_IMPL
 
+#define CHECK_EXPAND(args) CHECK(args)
+
 #define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 0 && y == 1 && z == 2)
 #define F_IMPL(x)         v(, x)
 #define F_ARITY           1
 
 // ML99_repeat {
-ML99_EVAL(v(CHECK), ML99_tuple(ML99_repeat(v(3), v(F))));
+CHECK_EXPAND(ML99_EVAL(ML99_repeat(v(3), v(F))));
 // }
 
 #undef CHECK
@@ -61,9 +62,11 @@ ML99_EVAL(v(CHECK), ML99_tuple(ML99_repeat(v(3), v(F))));
 #define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 5 && y == 5 && z == 5)
 
 // ML99_times {
-ML99_EVAL(v(CHECK), ML99_tuple(ML99_times(v(3), v(, 5))));
+CHECK_EXPAND(ML99_EVAL(ML99_times(v(3), v(, 5))));
 // }
 
 #undef CHECK
+
+#undef CHECK_EXPAND
 
 int main(void) {}

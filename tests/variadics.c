@@ -1,6 +1,4 @@
 #include <metalang99/assert.h>
-#include <metalang99/nat.h>
-#include <metalang99/tuple.h>
 #include <metalang99/variadics.h>
 
 // ML99_variadicsGet {
@@ -100,28 +98,32 @@ ML99_ASSERT_UNEVAL(ML99_VARIADICS_IS_SINGLE(~));
 ML99_ASSERT_UNEVAL(ML99_NOT(ML99_VARIADICS_IS_SINGLE(~, ~, ~)));
 // }
 
-#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 2 && y == 3 && z == 4)
-#define F_IMPL(x)         v(, ML99_INC(x))
+#define CHECK_EXPAND(...) CHECK(__VA_ARGS__)
+
+#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 1987 && y == 2987 && z == 3987)
+#define F_IMPL(x)         v(, x##987)
 #define F_ARITY           1
 
 // ML99_variadicsForEach {
-ML99_EVAL(v(CHECK), ML99_tuple(ML99_variadicsForEach(v(F), v(1, 2, 3))));
+CHECK_EXPAND(ML99_EVAL(ML99_variadicsForEach(v(F), v(1, 2, 3))));
 // }
 
 #undef CHECK
 #undef F_IMPL
 #undef F_ARITY
 
-#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 1 + 0 && y == 2 + 1 && z == 3 + 2)
-#define F_IMPL(x, i)      v(, ), ML99_add(v(x), v(i))
+#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 10 && y == 21 && z == 32)
+#define F_IMPL(x, i)      v(, ), v(x##i)
 #define F_ARITY           2
 
 // ML99_variadicsForEachI {
-ML99_EVAL(v(CHECK), ML99_tuple(ML99_variadicsForEachI(v(F), v(1, 2, 3))));
+CHECK_EXPAND(ML99_EVAL(ML99_variadicsForEachI(v(F), v(1, 2, 3))));
 // }
 
 #undef CHECK
 #undef F_IMPL
 #undef F_ARITY
+
+#undef CHECK_EXPAND
 
 int main(void) {}

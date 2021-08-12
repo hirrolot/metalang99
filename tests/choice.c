@@ -1,6 +1,5 @@
 #include <metalang99/assert.h>
 #include <metalang99/choice.h>
-#include <metalang99/util.h>
 
 #define MATCH_IMPL(foo)    ML99_match(v(foo), v(MATCH_))
 #define MATCH_FooA_IMPL(x) v(ML99_ASSERT_UNEVAL(x == 19))

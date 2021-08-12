@@ -19,7 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `util.h`:
    - `ML99_cat3` & `ML99_cat4` to desugar to themselves instead of `ML99_cat`.
  - `variadics.h`:
-   - Make `variadics.h` work without including `nat.h`.
+   - Make `variadics.h` work without including `nat.h` & `util.h`.
 
 ## [1.5.0] - 2021-08-11
 

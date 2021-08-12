@@ -68,7 +68,7 @@
  * ML99_variadicsGet(1)(v(1, 2, 3))
  * @endcode
  */
-#define ML99_variadicsGet(i) ML99_CAT(ML99_PRIV_variadicsGet_, i)
+#define ML99_variadicsGet(i) ML99_PRIV_CAT(ML99_PRIV_variadicsGet_, i)
 
 /**
  * Extracts the tail of its arguments.
