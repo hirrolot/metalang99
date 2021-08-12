@@ -196,7 +196,7 @@ See [`idioms.md`](idioms.md).
 
 ## Optimisation tips
 
-See [`optimisation_tips.md`](optimisation_tips.md).
+See [`optimization_tips.md`](optimization_tips.md).
 
 ## FAQ
 

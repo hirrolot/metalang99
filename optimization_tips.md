@@ -1,4 +1,4 @@
-# Optimisation tips
+# Optimization tips
 
 _This document describes a few optimisation tips when using Metalang99._
 
