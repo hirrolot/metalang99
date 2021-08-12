@@ -7,6 +7,7 @@
 #include <assert.h>
 
 // ML99_GEN_SYM {
+
 static void test_GEN_SYM(void) {
 
 #define TEST(...) TEST_NAMED(ML99_GEN_SYM(TEST_, x), __VA_ARGS__)
@@ -43,6 +44,7 @@ ML99_TRAILING_SEMICOLON(~, ~, ~);
 // }
 
 // ML99_INTRODUCE_VAR_TO_STMT {
+
 static void test_INTRODUCE_VAR_TO_STMT(void) {
     if (1)
         ML99_INTRODUCE_VAR_TO_STMT(int x = 5, y = 7) {
@@ -53,6 +55,7 @@ static void test_INTRODUCE_VAR_TO_STMT(void) {
 // }
 
 // ML99_INTRODUCE_NON_NULL_PTR_TO_STMT {
+
 static void test_INTRODUCE_NON_NULL_PTR_TO_STMT(void) {
     int x = 5, y = 7;
 
@@ -68,6 +71,7 @@ static void test_INTRODUCE_NON_NULL_PTR_TO_STMT(void) {
 // }
 
 // ML99_CHAIN_EXPR_STMT {
+
 static void test_ML99_CHAIN_EXPR_STMT(void) {
     int x, y;
 
@@ -90,6 +94,7 @@ static void test_ML99_CHAIN_EXPR_STMT(void) {
 // }
 
 // ML99_CHAIN_EXPR_STMT_AFTER {
+
 static void test_ML99_CHAIN_EXPR_STMT_AFTER(void) {
     int x = 5, y = 7;
 
@@ -117,6 +122,7 @@ static void test_ML99_CHAIN_EXPR_STMT_AFTER(void) {
 // }
 
 // ML99_SUPPRESS_UNUSED_BEFORE_STMT {
+
 static void test_SUPPRESS_UNUSED_BEFORE_STMT(void) {
     int x, y;
 
@@ -156,7 +162,8 @@ struct TestBraced ML99_EVAL(ML99_braced(v(int a, b, c;)));
 ML99_EVAL(ML99_semicoloned(v(struct TestSemicoloned { int a, b, c; })))
 // }
 
-// ML99_assign, ML99_assignStmt {
+// ML99_assign(Stmt) {
+
 static void test_assign(void) {
     int x = 0;
 
@@ -168,7 +175,8 @@ static void test_assign(void) {
 }
 // }
 
-// ML99_assignInitializerList, ML99_assignInitializerListStmt {
+// ML99_assignInitializerList(Stmt) {
+
 static void test_assign_initializer_list(void) {
     typedef struct {
         int x, y;
@@ -184,16 +192,17 @@ static void test_assign_initializer_list(void) {
 }
 // }
 
-// ML99_invoke, ML99_invokeStmt {
 #define F(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
 
+// ML99_invoke(Stmt) {
 ML99_EVAL(ML99_invoke(v(F), v(1, 2, 3)));
 ML99_EVAL(ML99_invokeStmt(v(F), v(1, 2, 3)))
-
-#undef F
 // }
 
+#undef F
+
 // ML99_prefixedBlock {
+
 static void test_prefixed_block(void) {
     ML99_EVAL(
         ML99_prefixedBlock(v(ML99_INTRODUCE_VAR_TO_STMT(int x = 5)), v(assert(x == 5); return;)))
@@ -204,6 +213,7 @@ static void test_prefixed_block(void) {
 // }
 
 // ML99_typedef {
+
 static void test_typedef(void) {
     ML99_EVAL(ML99_typedef(v(Point), v(struct { int x, y; })));
 
@@ -216,6 +226,7 @@ static void test_typedef(void) {
 // }
 
 // ML99_struct {
+
 static void test_struct(void) {
     ML99_EVAL(ML99_struct(v(Point), v(int x, y;)));
 
@@ -228,6 +239,7 @@ static void test_struct(void) {
 // }
 
 // ML99_anonStruct {
+
 static void test_anon_struct(void) {
     typedef ML99_EVAL(ML99_anonStruct(v(int x, y;)))
     Point;
@@ -241,6 +253,7 @@ static void test_anon_struct(void) {
 // }
 
 // ML99_union {
+
 static void test_union(void) {
     ML99_EVAL(ML99_union(v(Point), v(int x, y;)));
 
@@ -253,6 +266,7 @@ static void test_union(void) {
 // }
 
 // ML99_anonUnion {
+
 static void test_anon_union(void) {
     typedef ML99_EVAL(ML99_anonUnion(v(int x, y;)))
     Point;
@@ -266,6 +280,7 @@ static void test_anon_union(void) {
 // }
 
 // ML99_enum {
+
 static void test_enum(void) {
     ML99_EVAL(ML99_enum(v(MyEnum), v(Foo, Bar)));
 
@@ -276,6 +291,7 @@ static void test_enum(void) {
 // }
 
 // ML99_anonEnum {
+
 static void test_anon_enum(void) {
     typedef ML99_EVAL(ML99_anonEnum(v(Foo, Bar)))
     MyEnum;
@@ -322,6 +338,7 @@ static void test_indexed_fields(void) {
 // }
 
 // ML99_indexedInitializerList {
+
 static void test_indexed_initialiser_list_z(void) {
     const struct {
         int _0;

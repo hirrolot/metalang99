@@ -52,12 +52,12 @@
 /**
  * The same as #ML99_cat but deals with 3 parameters.
  */
-#define ML99_cat3(a, b, c) ML99_call(ML99_cat, a, b, c)
+#define ML99_cat3(a, b, c) ML99_call(ML99_cat3, a, b, c)
 
 /**
  * The same as #ML99_cat but deals with 4 parameters.
  */
-#define ML99_cat4(a, b, c, d) ML99_call(ML99_cat, a, b, c, d)
+#define ML99_cat4(a, b, c, d) ML99_call(ML99_cat4, a, b, c, d)
 
 /**
  * Stringifies provided arguments.

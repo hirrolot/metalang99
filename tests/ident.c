@@ -4,68 +4,75 @@
 
 #define EMPTY
 
-// ML99_DETECT_IDENT {
 #define FOO_x ()
 #define FOO_y ()
 
-ML99_ASSERT_UNEVAL(ML99_DETECT_IDENT(FOO_, x));
-ML99_ASSERT_UNEVAL(ML99_DETECT_IDENT(FOO_, y));
-ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(FOO_, z));
-
-ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(BAR_, x));
-ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(BAR_, abc));
-ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(BAR_, defghi));
-
+// ML99_detectIdent {
 ML99_ASSERT(ML99_detectIdent(v(FOO_), v(x)));
+ML99_ASSERT(ML99_detectIdent(v(FOO_), v(y)));
+ML99_ASSERT(ML99_not(ML99_detectIdent(v(FOO_), v(z))));
+
 ML99_ASSERT(ML99_not(ML99_detectIdent(v(BAR_), v(x))));
+ML99_ASSERT(ML99_not(ML99_detectIdent(v(BAR_), v(abc))));
+ML99_ASSERT(ML99_not(ML99_detectIdent(v(BAR_), v(defghi))));
+// }
+
+// ML99_DETECT_IDENT {
+ML99_ASSERT_UNEVAL(ML99_DETECT_IDENT(FOO_, x));
+ML99_ASSERT_UNEVAL(!ML99_DETECT_IDENT(BAR_, x));
+// }
 
 #undef FOO_x
 #undef FOO_y
-// }
 
-// ML99_IDENT_EQ {
 #define FOO_x_x ()
 #define FOO_y_y ()
 
-ML99_ASSERT_UNEVAL(ML99_IDENT_EQ(FOO_, x, x));
-ML99_ASSERT_UNEVAL(ML99_IDENT_EQ(FOO_, y, y));
-
-ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, x, y));
-ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, abc, d));
-ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, x, EMPTY));
-ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, EMPTY, y));
-ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, EMPTY, EMPTY));
-
+// ML99_identEq {
 ML99_ASSERT(ML99_identEq(v(FOO_), v(x), v(x)));
+ML99_ASSERT(ML99_identEq(v(FOO_), v(y), v(y)));
+
 ML99_ASSERT(ML99_not(ML99_identEq(v(FOO_), v(x), v(y))));
+ML99_ASSERT(ML99_not(ML99_identEq(v(FOO_), v(abc), v(d))));
+ML99_ASSERT(ML99_not(ML99_identEq(v(FOO_), v(x), v(EMPTY))));
+ML99_ASSERT(ML99_not(ML99_identEq(v(FOO_), v(EMPTY), v(y))));
+ML99_ASSERT(ML99_not(ML99_identEq(v(FOO_), v(EMPTY), v(EMPTY))));
+// }
+
+// ML99_IDENT_EQ {
+ML99_ASSERT_UNEVAL(ML99_IDENT_EQ(FOO_, x, x));
+ML99_ASSERT_UNEVAL(!ML99_IDENT_EQ(FOO_, x, y));
+// }
 
 #undef FOO_x_x
 #undef FOO_y_y
+
+// ML99_charEq {
+ML99_ASSERT(ML99_charEq(v(a), v(a)));
+ML99_ASSERT(ML99_charEq(v(x), v(x)));
+ML99_ASSERT(ML99_charEq(v(e), v(e)));
+
+ML99_ASSERT(ML99_charEq(v(T), v(T)));
+ML99_ASSERT(ML99_charEq(v(J), v(J)));
+ML99_ASSERT(ML99_charEq(v(D), v(D)));
+
+ML99_ASSERT(ML99_charEq(v(0), v(0)));
+ML99_ASSERT(ML99_charEq(v(5), v(5)));
+ML99_ASSERT(ML99_charEq(v(9), v(9)));
+
+ML99_ASSERT(ML99_not(ML99_charEq(v(a), v(idf2))));
+ML99_ASSERT(ML99_not(ML99_charEq(v(T), v(abracadabra))));
+ML99_ASSERT(ML99_not(ML99_charEq(v(0), v(123))));
+ML99_ASSERT(ML99_not(ML99_charEq(v(abracadabra), v(abracadabra))));
 // }
 
 // ML99_CHAR_EQ {
-ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(a, a));
 ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(x, x));
-ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(e, e));
-
-ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(T, T));
-ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(J, J));
-ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(D, D));
-
-ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(0, 0));
-ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(5, 5));
-ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(9, 9));
-
-ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(a, idf2));
-ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(T, abracadabra));
-ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(0, 123));
-ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(abracadabra, abracadabra));
-
-ML99_ASSERT(ML99_charEq(v(x), v(x)));
-ML99_ASSERT(ML99_not(ML99_charEq(v(x), v(0))));
+ML99_ASSERT_UNEVAL(!ML99_CHAR_EQ(x, 0));
 // }
 
 // ML99_C_KEYWORD_DETECTOR {
+
 #define TEST(keyword)                                                                              \
     ML99_ASSERT_UNEVAL(                                                                            \
         ML99_IDENT_EQ(ML99_C_KEYWORD_DETECTOR, keyword, keyword) &&                                \
@@ -236,53 +243,57 @@ ML99_ASSERT(ML99_isUppercase(v(Z)));
 ML99_ASSERT(ML99_not(ML99_isUppercase(v(8))));
 // }
 
+// ML99_isDigit {
+ML99_ASSERT(ML99_isDigit(v(0)));
+ML99_ASSERT(ML99_isDigit(v(2)));
+ML99_ASSERT(ML99_isDigit(v(9)));
+
+ML99_ASSERT(ML99_not(ML99_isDigit(v(U))));
+ML99_ASSERT(ML99_not(ML99_isDigit(v(i))));
+ML99_ASSERT(ML99_not(ML99_isDigit(v(_))));
+ML99_ASSERT(ML99_not(ML99_isDigit(v(abracadabra))));
+// }
+
 // ML99_IS_DIGIT {
-ML99_ASSERT_UNEVAL(ML99_IS_DIGIT(0));
-ML99_ASSERT_UNEVAL(ML99_IS_DIGIT(2));
-ML99_ASSERT_UNEVAL(ML99_IS_DIGIT(9));
+ML99_ASSERT_UNEVAL(ML99_IS_DIGIT(7));
+ML99_ASSERT_UNEVAL(!ML99_IS_DIGIT(k));
+// }
 
-ML99_ASSERT_UNEVAL(!ML99_IS_DIGIT(U));
-ML99_ASSERT_UNEVAL(!ML99_IS_DIGIT(i));
-ML99_ASSERT_UNEVAL(!ML99_IS_DIGIT(_));
-ML99_ASSERT_UNEVAL(!ML99_IS_DIGIT(abracadabra));
+// ML99_isChar {
+ML99_ASSERT(ML99_isChar(v(0)));
+ML99_ASSERT(ML99_isChar(v(4)));
+ML99_ASSERT(ML99_isChar(v(8)));
 
-ML99_ASSERT(ML99_isDigit(v(7)));
-ML99_ASSERT(ML99_not(ML99_isDigit(v(k))));
+ML99_ASSERT(ML99_isChar(v(a)));
+ML99_ASSERT(ML99_isChar(v(b)));
+ML99_ASSERT(ML99_isChar(v(c)));
+
+ML99_ASSERT(ML99_isChar(v(A)));
+ML99_ASSERT(ML99_isChar(v(B)));
+ML99_ASSERT(ML99_isChar(v(C)));
+
+ML99_ASSERT(ML99_isChar(v(_)));
+
+ML99_ASSERT(ML99_not(ML99_isChar(v(kk))));
+ML99_ASSERT(ML99_not(ML99_isChar(v(0abc))));
+ML99_ASSERT(ML99_not(ML99_isChar(v(abracadabra))));
 // }
 
 // ML99_IS_CHAR {
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(0));
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(4));
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(8));
-
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(a));
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(b));
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(c));
-
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(A));
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(B));
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(C));
-
-ML99_ASSERT_UNEVAL(ML99_IS_CHAR(_));
-
-ML99_ASSERT_UNEVAL(!ML99_IS_CHAR(kk));
-ML99_ASSERT_UNEVAL(!ML99_IS_CHAR(0abc));
-ML99_ASSERT_UNEVAL(!ML99_IS_CHAR(abracadabra));
-
-ML99_ASSERT(ML99_isChar(v(z)));
-ML99_ASSERT(ML99_not(ML99_isChar(v(xyz))));
+ML99_ASSERT_UNEVAL(ML99_IS_CHAR(z));
+ML99_ASSERT_UNEVAL(!ML99_IS_CHAR(xyz));
 // }
 
-// ML99_LOWERCASE_CHARS, ML99_UPPERCASE_CHARS, ML99_DIGITS {
 #define FST(...)        FST_AUX(__VA_ARGS__)
 #define FST_AUX(x, ...) x
 
+// ML99_LOWERCASE_CHARS, ML99_UPPERCASE_CHARS, ML99_DIGITS {
 ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(a, FST(ML99_LOWERCASE_CHARS(~, ~, ~))));
 ML99_ASSERT_UNEVAL(ML99_CHAR_EQ(A, FST(ML99_UPPERCASE_CHARS(~, ~, ~))));
 ML99_ASSERT_UNEVAL(FST(ML99_DIGITS(~, ~, ~)) == 0);
+// }
 
 #undef FST
 #undef FST_AUX
-// }
 
 int main(void) {}

@@ -10,9 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
  - Tuple counterparts of variadics (`tuple.h`):
-   - `ML99_tupleCount` (`ML99_TUPLE_COUNT`).
-   - `ML99_tupleIsSingle` (`ML99_TUPLE_IS_SINGLE`).
+   - `ML99_tupleCount`, `ML99_TUPLE_COUNT`.
+   - `ML99_tupleIsSingle`, `ML99_TUPLE_IS_SINGLE`.
    - `ML99_tupleForEach(I)`.
+
+### Fixed
+
+ - `ML99_cat3` & `ML99_cat4` to desugar to themselves instead of `ML99_cat`.
 
 ## [1.5.0] - 2021-08-11
 

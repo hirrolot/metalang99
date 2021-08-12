@@ -20,17 +20,17 @@ ML99_ASSERT(ML99_listEq(
                 ML99_cons(v(4), ML99_cons(v(5), ML99_cons(v(6), ML99_cons(v(7), ML99_nil())))))))));
 // }
 
-// ML99_listFromTuples {
 #define F_IMPL(x, y) ML99_add(v(x), v(y))
 #define F_ARITY      1
 
+// ML99_listFromTuples {
 ML99_ASSERT(CMP_NATURALS(ML99_listFromTuples(v(F), v((1, 2))), ML99_list(v(3))));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listFromTuples(v(F), v((1, 2), (3, 4), (5, 6))), ML99_list(v(3, 7, 11))));
+// }
 
 #undef F_IMPL
 #undef F_ARITY
-// }
 
 // ML99_listHead {
 ML99_ASSERT_EQ(ML99_listHead(ML99_list(v(1))), v(1));
@@ -104,33 +104,37 @@ ML99_ASSERT_EMPTY_UNEVAL(ML99_LIST_EVAL(ML99_nil()));
 ML99_ASSERT_UNEVAL(ML99_LIST_EVAL(ML99_list(v(19, +, 6))) == 19 + 6);
 // }
 
-// ML99_LIST_EVAL_COMMA_SEP, ML99_listUnwrapCommaSep {
 #define CHECK(a, b, c) ML99_ASSERT_UNEVAL(a == 1 && b == 2 && c == 3)
 
+// ML99_LIST_EVAL_COMMA_SEP, ML99_listUnwrapCommaSep {
 ML99_ASSERT_EMPTY_UNEVAL(ML99_LIST_EVAL_COMMA_SEP(ML99_nil()));
 ML99_ASSERT_EMPTY(ML99_listUnwrapCommaSep(ML99_nil()));
 
 ML99_EVAL(v(CHECK), ML99_tuple(v(ML99_LIST_EVAL_COMMA_SEP(ML99_list(v(1, 2, 3))))));
 ML99_EVAL(v(CHECK), ML99_tuple(ML99_listUnwrapCommaSep(ML99_list(v(1, 2, 3)))));
-
-#undef CHECK
 // }
 
-// ML99_isNil, ML99_IS_NIL {
+#undef CHECK
+
+// ML99_isNil {
 ML99_ASSERT(ML99_isNil(ML99_nil()));
 ML99_ASSERT(ML99_not(ML99_isNil(ML99_list(v(123)))));
 ML99_ASSERT(ML99_not(ML99_isNil(ML99_list(v(8, 214, 10, 0, 122)))));
+// }
 
+// ML99_IS_NIL {
 ML99_ASSERT_UNEVAL(ML99_IS_NIL(ML99_NIL()));
 ML99_ASSERT_UNEVAL(ML99_NOT(ML99_IS_NIL(ML99_CONS(123, ML99_NIL()))));
 ML99_ASSERT_UNEVAL(ML99_NOT(ML99_IS_NIL(ML99_EVAL(ML99_list(v(8, 214, 10, 0, 122))))));
 // }
 
-// ML99_isCons, ML99_IS_CONS {
+// ML99_isCons {
 ML99_ASSERT(ML99_not(ML99_isCons(ML99_nil())));
 ML99_ASSERT(ML99_isCons(ML99_list(v(123))));
 ML99_ASSERT(ML99_isCons(ML99_list(v(8, 214, 10, 0, 122))));
+// }
 
+// ML99_IS_CONS {
 ML99_ASSERT_UNEVAL(ML99_NOT(ML99_IS_CONS(ML99_NIL())));
 ML99_ASSERT_UNEVAL(ML99_IS_CONS(ML99_CONS(123, ML99_NIL())));
 ML99_ASSERT_UNEVAL(ML99_IS_CONS(ML99_EVAL(ML99_list(v(8, 214, 10, 0, 122)))));
@@ -195,13 +199,13 @@ ML99_ASSERT(ML99_listEq(
     ML99_list(v(7, 9, 28))));
 // }
 
-// ML99_listZip {
 #define EQ_IMPL(x, y)                                                                              \
     v(ML99_AND(                                                                                    \
         ML99_NAT_EQ(ML99_TUPLE_GET(0)(x), ML99_TUPLE_GET(0)(y)),                                   \
         ML99_NAT_EQ(ML99_TUPLE_GET(1)(x), ML99_TUPLE_GET(1)(y))))
 #define EQ_ARITY 2
 
+// ML99_listZip {
 ML99_ASSERT(ML99_listEq(v(EQ), ML99_listZip(ML99_nil(), ML99_nil()), ML99_nil()));
 ML99_ASSERT(ML99_listEq(v(EQ), ML99_listZip(ML99_list(v(1, 2, 3)), ML99_nil()), ML99_nil()));
 ML99_ASSERT(ML99_listEq(v(EQ), ML99_listZip(ML99_nil(), ML99_list(v(1, 2, 3))), ML99_nil()));
@@ -217,12 +221,13 @@ ML99_ASSERT(ML99_listEq(
 ML99_ASSERT(ML99_listEq(
     v(EQ), ML99_listZip(ML99_list(v(1, 2)), ML99_list(v(4, 5, 6))),
     ML99_list(ML99_tuple(v(1, 4)), ML99_tuple(v(2, 5)))));
+// }
 
 #undef EQ_IMPL
 #undef EQ_ARITY
-// }
 
 // ML99_listUnzip & ML99_listZip {
+
 #define UNZIPPED ML99_listUnzip(ML99_nil())
 
 ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(UNZIPPED), ML99_nil()));
@@ -294,34 +299,33 @@ ML99_ASSERT(ML99_listEq(
     ML99_list(v(4, 5, 6))));
 // }
 
-// ML99_listMapI {
 #define A0 19
 #define B1 6
 #define C2 11
 
+// ML99_listMapI {
 ML99_ASSERT(CMP_NATURALS(ML99_listMapI(v(ML99_cat), ML99_nil()), ML99_nil()));
 ML99_ASSERT(ML99_listEq(
     v(ML99_natEq), ML99_listMapI(v(ML99_cat), ML99_list(v(A, B, C))), ML99_list(v(19, 6, 11))));
+// }
 
 #undef A0
 #undef B1
 #undef C2
-// }
 
-// ML99_listMapInPlace {
 #define FOO_x
 #define FOO_y
 #define FOO_z
 
+// ML99_listMapInPlace {
 ML99_ASSERT_EMPTY(ML99_listMapInPlace(v(NonExistingF), ML99_nil()));
 ML99_EVAL(ML99_listMapInPlace(ML99_appl(v(ML99_cat), v(FOO_)), ML99_list(v(x, y, z))))
+// }
 
 #undef FOO_x
 #undef FOO_y
 #undef FOO_z
-// }
 
-// ML99_listMapInPlaceI {
 #define FOO_x0
 #define FOO_y1
 #define FOO_z2
@@ -329,8 +333,10 @@ ML99_EVAL(ML99_listMapInPlace(ML99_appl(v(ML99_cat), v(FOO_)), ML99_list(v(x, y,
 #define MY_CAT_IMPL(x, i) v(FOO_##x##i)
 #define MY_CAT_ARITY      2
 
+// ML99_listMapInPlaceI {
 ML99_ASSERT_EMPTY(ML99_listMapInPlaceI(v(NonExistingF), ML99_nil()));
 ML99_EVAL(ML99_listMapInPlaceI(v(MY_CAT), ML99_list(v(x, y, z))))
+// }
 
 #undef MY_CAT_IMPL
 #undef MY_CAT_ARITY
@@ -338,7 +344,6 @@ ML99_EVAL(ML99_listMapInPlaceI(v(MY_CAT), ML99_list(v(x, y, z))))
 #undef FOO_x
 #undef FOO_y
 #undef FOO_z
-// }
 
 // ML99_listFor {
 ML99_ASSERT(CMP_NATURALS(ML99_listFor(ML99_nil(), ML99_appl(v(ML99_add), v(3))), ML99_nil()));
@@ -390,6 +395,7 @@ ML99_ASSERT(CMP_NATURALS(ML99_listReplicate(v(3), v(7)), ML99_list(v(7, 7, 7))))
 // ML99_listPartition {
 
 // Partitioning ML99_nil() {
+
 #define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_nil())
 
 ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(PARTITIONED), ML99_nil()));
@@ -399,6 +405,7 @@ ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(PARTITIONED), ML99_nil()));
 // }
 
 // Only the second list contains items {
+
 #define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(11, 12, 13)))
 
 ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(PARTITIONED), ML99_nil()));
@@ -408,6 +415,7 @@ ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(PARTITIONED), ML99_list(v(11, 12, 13))
 // }
 
 // Only the first list contains items {
+
 #define PARTITIONED ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(4, 7)))
 
 ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(0)(PARTITIONED), ML99_list(v(4, 7))));
@@ -417,6 +425,7 @@ ML99_ASSERT(CMP_NATURALS(ML99_tupleGet(1)(PARTITIONED), ML99_nil()));
 // }
 
 // Both lists contain items {
+
 #define PARTITIONED                                                                                \
     ML99_listPartition(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(11, 4, 12, 13, 7)))
 

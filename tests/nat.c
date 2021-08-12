@@ -4,27 +4,27 @@
 #include <metalang99/assert.h>
 #include <metalang99/nat.h>
 
-// ML99_natMatch {
 #define MATCH_Z_IMPL(...) v(88) // `...` due to a TCC's bug.
 #define MATCH_S_IMPL(x)   v(x)
 
+// ML99_natMatch {
 ML99_ASSERT_EQ(ML99_natMatch(v(0), v(MATCH_)), v(88));
 ML99_ASSERT_EQ(ML99_natMatch(v(123), v(MATCH_)), v(122));
+// }
 
 #undef MATCH_Z_IMPL
 #undef MATCH_S_IMPL
-// }
 
-// ML99_natMatchWithArgs {
 #define MATCH_Z_IMPL(x, y, z)    v(ML99_ASSERT_UNEVAL(x == 1 && y == 2 && z == 3))
 #define MATCH_S_IMPL(n, x, y, z) v(ML99_ASSERT_UNEVAL(n == 122 && x == 1 && y == 2 && z == 3))
 
+// ML99_natMatchWithArgs {
 ML99_EVAL(ML99_natMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3)));
 ML99_EVAL(ML99_natMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3)));
+// }
 
 #undef MATCH_Z_IMPL
 #undef MATCH_S_IMPL
-// }
 
 // ML99_inc {
 ML99_ASSERT_EQ(ML99_inc(v(0)), v(1));
@@ -34,12 +34,24 @@ ML99_ASSERT_EQ(ML99_inc(v(254)), v(ML99_NAT_MAX));
 ML99_ASSERT_EQ(ML99_inc(v(ML99_NAT_MAX)), v(0));
 // }
 
+// ML99_INC {
+ML99_ASSERT_UNEVAL(ML99_INC(0) == 1);
+ML99_ASSERT_UNEVAL(ML99_INC(15) == 16);
+ML99_ASSERT_UNEVAL(ML99_INC(254) == ML99_NAT_MAX);
+// }
+
 // ML99_dec {
 ML99_ASSERT_EQ(ML99_dec(v(0)), v(ML99_NAT_MAX));
 ML99_ASSERT_EQ(ML99_dec(v(1)), v(0));
 ML99_ASSERT_EQ(ML99_dec(v(71)), v(70));
 ML99_ASSERT_EQ(ML99_dec(v(201)), v(200));
 ML99_ASSERT_EQ(ML99_dec(v(ML99_NAT_MAX)), v(254));
+// }
+
+// ML99_DEC {
+ML99_ASSERT_UNEVAL(ML99_DEC(0) == ML99_NAT_MAX);
+ML99_ASSERT_UNEVAL(ML99_DEC(1) == 0);
+ML99_ASSERT_UNEVAL(ML99_DEC(ML99_NAT_MAX) == 254);
 // }
 
 // ML99_natEq {
@@ -52,12 +64,25 @@ ML99_ASSERT(ML99_not(ML99_natEq(v(0), v(1))));
 ML99_ASSERT(ML99_not(ML99_natEq(v(198), v(91))));
 // }
 
+// ML99_NAT_EQ {
+ML99_ASSERT_UNEVAL(ML99_NAT_EQ(18, 18));
+ML99_ASSERT_UNEVAL(!ML99_NAT_EQ(198, 91));
+// }
+
 // ML99_natNeq {
 ML99_ASSERT(ML99_natNeq(v(0), v(1)));
 ML99_ASSERT(ML99_natNeq(v(0), v(168)));
 ML99_ASSERT(ML99_natNeq(v(1), v(34)));
 ML99_ASSERT(ML99_natNeq(v(184), v(381)));
 ML99_ASSERT(ML99_natNeq(v(3), v(101)));
+
+ML99_ASSERT(ML99_not(ML99_natNeq(v(0), v(0))));
+ML99_ASSERT(ML99_not(ML99_natNeq(v(101), v(101))));
+// }
+
+// ML99_NAT_NEQ {
+ML99_ASSERT_UNEVAL(ML99_NAT_NEQ(0, 168));
+ML99_ASSERT_UNEVAL(!ML99_NAT_NEQ(101, 101));
 // }
 
 // ML99_greater {
@@ -153,6 +178,11 @@ ML99_ASSERT(ML99_maybeEq(v(ML99_natEq), ML99_divChecked(v(4), v(0)), ML99_nothin
 ML99_ASSERT(ML99_maybeEq(v(ML99_natEq), ML99_divChecked(v(3), v(27)), ML99_nothing()));
 ML99_ASSERT(ML99_maybeEq(v(ML99_natEq), ML99_divChecked(v(166), v(9)), ML99_nothing()));
 ML99_ASSERT(ML99_maybeEq(v(ML99_natEq), ML99_divChecked(v(0), v(11)), ML99_nothing()));
+// }
+
+// ML99_DIV_CHECKED {
+ML99_ASSERT(ML99_maybeEq(v(ML99_natEq), v(ML99_DIV_CHECKED(15, 1)), ML99_just(v(15))));
+ML99_ASSERT(ML99_maybeEq(v(ML99_natEq), v(ML99_DIV_CHECKED(4, 0)), ML99_nothing()));
 // }
 
 // ML99_mod {

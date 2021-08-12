@@ -14,5 +14,6 @@ ML99_ASSERT_UNEVAL(COND);
 #undef COND
 
 ML99_ASSERT_EMPTY(v());
+ML99_ASSERT_EMPTY_UNEVAL();
 
 int main(void) {}
