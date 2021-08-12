@@ -5,7 +5,7 @@
  * A tuple is represented as `(x1, ..., xN)`. Tuples are more time and space-efficient than lists,
  * but export less functionality.
  *
- * Tuples is a convenient way to deal with product types. For example:
+ * Tuples are a convenient way to deal with product types. For example:
  *
  * [<a
  * href="https://github.com/Hirrolot/metalang99/blob/master/examples/rectangle.c">examples/rectangle.c</a>]
