@@ -2,8 +2,10 @@
  * @file
  * Static assertions.
  *
- * @note Any of the following assertion macros must **not** appear on the same line number twice
- * with itself as well as with any other Metalang99 assertion macro.
+ * @note [C99] Any of the following assertion macros must **not** appear on the same line number
+ * twice with itself as well as with any other Metalang99 assertion macro.
+ * @note [C11] The following assertion macros expand to `_Static_assert` and, therefore, can be used
+ * on the same line twice.
  */
 
 #ifndef ML99_ASSERT_H
@@ -65,11 +67,7 @@
  * ML99_ASSERT_UNEVAL(123 == 123);
  * @endcode
  */
-#define ML99_ASSERT_UNEVAL(expr)                                                                   \
-    /* How to imitate static assertions in C99: <https://stackoverflow.com/a/3385694/13166656>. */ \
-    static const char ML99_PRIV_CAT(                                                               \
-        ml99_assert_,                                                                              \
-        __LINE__)[(expr) ? 1 : -1] ML99_PRIV_COMPILER_ATTR_UNUSED = {0}
+#define ML99_ASSERT_UNEVAL(expr) ML99_PRIV_ASSERT_UNEVAL_INNER(expr)
 
 /**
  * Asserts that `ML99_EVAL(expr)` is emptiness.
@@ -110,6 +108,16 @@
 
 #define ML99_assert_IMPL(expr)       v(ML99_ASSERT_UNEVAL(expr))
 #define ML99_assertEq_IMPL(lhs, rhs) v(ML99_ASSERT_UNEVAL((lhs) == (rhs)))
+
+#ifdef ML99_PRIV_C11_STATIC_ASSERT_AVAILABLE
+#define ML99_PRIV_ASSERT_UNEVAL_INNER(expr) _Static_assert((expr), "Metalang99 assertion failed")
+#else
+// How to imitate static assertions in C99: <https://stackoverflow.com/a/3385694/13166656>.
+#define ML99_PRIV_ASSERT_UNEVAL_INNER(expr)                                                        \
+    static const char ML99_PRIV_CAT(                                                               \
+        ml99_assert_,                                                                              \
+        __LINE__)[(expr) ? 1 : -1] ML99_PRIV_COMPILER_ATTR_UNUSED = {0}
+#endif
 
 #define ML99_PRIV_ASSERT_EMPTY_ 1
 

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+## [1.6.1] - 2021-08-13
+
+### Changed
+
+ - `assert.h`:
+   - Generate `_Static_assert` from the assertion macros if compiling on C11.
+
 ## [1.6.0] - 2021-08-13
 
 ### Added
