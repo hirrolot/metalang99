@@ -284,6 +284,81 @@ ML99_ASSERT_UNEVAL(ML99_IS_CHAR(z));
 ML99_ASSERT_UNEVAL(!ML99_IS_CHAR(xyz));
 // }
 
+// ML99_charLit {
+ML99_ASSERT_EQ(ML99_charLit(v(a)), v('a'));
+ML99_ASSERT_EQ(ML99_charLit(v(b)), v('b'));
+ML99_ASSERT_EQ(ML99_charLit(v(c)), v('c'));
+ML99_ASSERT_EQ(ML99_charLit(v(d)), v('d'));
+ML99_ASSERT_EQ(ML99_charLit(v(e)), v('e'));
+ML99_ASSERT_EQ(ML99_charLit(v(f)), v('f'));
+ML99_ASSERT_EQ(ML99_charLit(v(g)), v('g'));
+ML99_ASSERT_EQ(ML99_charLit(v(h)), v('h'));
+ML99_ASSERT_EQ(ML99_charLit(v(i)), v('i'));
+ML99_ASSERT_EQ(ML99_charLit(v(j)), v('j'));
+ML99_ASSERT_EQ(ML99_charLit(v(k)), v('k'));
+ML99_ASSERT_EQ(ML99_charLit(v(l)), v('l'));
+ML99_ASSERT_EQ(ML99_charLit(v(m)), v('m'));
+ML99_ASSERT_EQ(ML99_charLit(v(n)), v('n'));
+ML99_ASSERT_EQ(ML99_charLit(v(o)), v('o'));
+ML99_ASSERT_EQ(ML99_charLit(v(p)), v('p'));
+ML99_ASSERT_EQ(ML99_charLit(v(q)), v('q'));
+ML99_ASSERT_EQ(ML99_charLit(v(r)), v('r'));
+ML99_ASSERT_EQ(ML99_charLit(v(s)), v('s'));
+ML99_ASSERT_EQ(ML99_charLit(v(t)), v('t'));
+ML99_ASSERT_EQ(ML99_charLit(v(u)), v('u'));
+ML99_ASSERT_EQ(ML99_charLit(v(v)), v('v'));
+ML99_ASSERT_EQ(ML99_charLit(v(w)), v('w'));
+ML99_ASSERT_EQ(ML99_charLit(v(x)), v('x'));
+ML99_ASSERT_EQ(ML99_charLit(v(y)), v('y'));
+ML99_ASSERT_EQ(ML99_charLit(v(z)), v('z'));
+
+ML99_ASSERT_EQ(ML99_charLit(v(A)), v('A'));
+ML99_ASSERT_EQ(ML99_charLit(v(B)), v('B'));
+ML99_ASSERT_EQ(ML99_charLit(v(C)), v('C'));
+ML99_ASSERT_EQ(ML99_charLit(v(D)), v('D'));
+ML99_ASSERT_EQ(ML99_charLit(v(E)), v('E'));
+ML99_ASSERT_EQ(ML99_charLit(v(F)), v('F'));
+ML99_ASSERT_EQ(ML99_charLit(v(G)), v('G'));
+ML99_ASSERT_EQ(ML99_charLit(v(H)), v('H'));
+ML99_ASSERT_EQ(ML99_charLit(v(I)), v('I'));
+ML99_ASSERT_EQ(ML99_charLit(v(J)), v('J'));
+ML99_ASSERT_EQ(ML99_charLit(v(K)), v('K'));
+ML99_ASSERT_EQ(ML99_charLit(v(L)), v('L'));
+ML99_ASSERT_EQ(ML99_charLit(v(M)), v('M'));
+ML99_ASSERT_EQ(ML99_charLit(v(N)), v('N'));
+ML99_ASSERT_EQ(ML99_charLit(v(O)), v('O'));
+ML99_ASSERT_EQ(ML99_charLit(v(P)), v('P'));
+ML99_ASSERT_EQ(ML99_charLit(v(Q)), v('Q'));
+ML99_ASSERT_EQ(ML99_charLit(v(R)), v('R'));
+ML99_ASSERT_EQ(ML99_charLit(v(S)), v('S'));
+ML99_ASSERT_EQ(ML99_charLit(v(T)), v('T'));
+ML99_ASSERT_EQ(ML99_charLit(v(U)), v('U'));
+ML99_ASSERT_EQ(ML99_charLit(v(V)), v('V'));
+ML99_ASSERT_EQ(ML99_charLit(v(W)), v('W'));
+ML99_ASSERT_EQ(ML99_charLit(v(X)), v('X'));
+ML99_ASSERT_EQ(ML99_charLit(v(Y)), v('Y'));
+ML99_ASSERT_EQ(ML99_charLit(v(Z)), v('Z'));
+
+ML99_ASSERT_EQ(ML99_charLit(v(0)), v('0'));
+ML99_ASSERT_EQ(ML99_charLit(v(1)), v('1'));
+ML99_ASSERT_EQ(ML99_charLit(v(2)), v('2'));
+ML99_ASSERT_EQ(ML99_charLit(v(3)), v('3'));
+ML99_ASSERT_EQ(ML99_charLit(v(4)), v('4'));
+ML99_ASSERT_EQ(ML99_charLit(v(5)), v('5'));
+ML99_ASSERT_EQ(ML99_charLit(v(6)), v('6'));
+ML99_ASSERT_EQ(ML99_charLit(v(7)), v('7'));
+ML99_ASSERT_EQ(ML99_charLit(v(8)), v('8'));
+ML99_ASSERT_EQ(ML99_charLit(v(9)), v('9'));
+
+ML99_ASSERT_EQ(ML99_charLit(v(_)), v('_'));
+// }
+
+// ML99_CHAR_LIT {
+ML99_ASSERT_UNEVAL(ML99_CHAR_LIT(r) == 'r');
+ML99_ASSERT_UNEVAL(ML99_CHAR_LIT(8) == '8');
+ML99_ASSERT_UNEVAL(ML99_CHAR_LIT(_) == '_');
+// }
+
 #define FST(...)        FST_AUX(__VA_ARGS__)
 #define FST_AUX(x, ...) x
 

@@ -137,6 +137,26 @@
 #define ML99_isChar(x) ML99_call(ML99_isChar, x)
 
 /**
+ * Converts the Metalang99 character @p x to a C character literal.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang/ident.h>
+ *
+ * // 't'
+ * ML99_charLit(v(t))
+ *
+ * // '9'
+ * ML99_charLit(v(9))
+ *
+ * // '_'
+ * ML99_charLit(v(_))
+ * @endcode
+ */
+#define ML99_charLit(x) ML99_call(ML99_charLit, x)
+
+/**
  * Expands to all comma-separated lowercase letters.
  *
  * This macro consumes all arguments.
@@ -188,6 +208,7 @@
         ML99_OR(                                                                                   \
             ML99_IS_UPPERCASE(x),                                                                  \
             ML99_OR(ML99_IS_DIGIT(x), ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, x))))
+#define ML99_CHAR_LIT(x) ML99_PRIV_CAT(ML99_PRIV_CHAR_LIT_, x)
 
 #ifndef DOXYGEN_IGNORE
 
@@ -198,6 +219,7 @@
 #define ML99_isUppercase_IMPL(x)             v(ML99_IS_UPPERCASE(x))
 #define ML99_isDigit_IMPL(x)                 v(ML99_IS_DIGIT(x))
 #define ML99_isChar_IMPL(x)                  v(ML99_IS_CHAR(x))
+#define ML99_charLit_IMPL(x)                 v(ML99_CHAR_LIT(x))
 
 #define ML99_UNDERSCORE_DETECTOR ML99_PRIV_UNDERSCORE_DETECTOR_
 #define ML99_C_KEYWORD_DETECTOR  ML99_PRIV_C_KEYWORD_DETECTOR_
@@ -317,6 +339,73 @@
 #define ML99_PRIV_DIGIT_DETECTOR_8_8 ()
 #define ML99_PRIV_DIGIT_DETECTOR_9_9 ()
 
+#define ML99_PRIV_CHAR_LIT_a 'a'
+#define ML99_PRIV_CHAR_LIT_b 'b'
+#define ML99_PRIV_CHAR_LIT_c 'c'
+#define ML99_PRIV_CHAR_LIT_d 'd'
+#define ML99_PRIV_CHAR_LIT_e 'e'
+#define ML99_PRIV_CHAR_LIT_f 'f'
+#define ML99_PRIV_CHAR_LIT_g 'g'
+#define ML99_PRIV_CHAR_LIT_h 'h'
+#define ML99_PRIV_CHAR_LIT_i 'i'
+#define ML99_PRIV_CHAR_LIT_j 'j'
+#define ML99_PRIV_CHAR_LIT_k 'k'
+#define ML99_PRIV_CHAR_LIT_l 'l'
+#define ML99_PRIV_CHAR_LIT_m 'm'
+#define ML99_PRIV_CHAR_LIT_n 'n'
+#define ML99_PRIV_CHAR_LIT_o 'o'
+#define ML99_PRIV_CHAR_LIT_p 'p'
+#define ML99_PRIV_CHAR_LIT_q 'q'
+#define ML99_PRIV_CHAR_LIT_r 'r'
+#define ML99_PRIV_CHAR_LIT_s 's'
+#define ML99_PRIV_CHAR_LIT_t 't'
+#define ML99_PRIV_CHAR_LIT_u 'u'
+#define ML99_PRIV_CHAR_LIT_v 'v'
+#define ML99_PRIV_CHAR_LIT_w 'w'
+#define ML99_PRIV_CHAR_LIT_x 'x'
+#define ML99_PRIV_CHAR_LIT_y 'y'
+#define ML99_PRIV_CHAR_LIT_z 'z'
+
+#define ML99_PRIV_CHAR_LIT_A 'A'
+#define ML99_PRIV_CHAR_LIT_B 'B'
+#define ML99_PRIV_CHAR_LIT_C 'C'
+#define ML99_PRIV_CHAR_LIT_D 'D'
+#define ML99_PRIV_CHAR_LIT_E 'E'
+#define ML99_PRIV_CHAR_LIT_F 'F'
+#define ML99_PRIV_CHAR_LIT_G 'G'
+#define ML99_PRIV_CHAR_LIT_H 'H'
+#define ML99_PRIV_CHAR_LIT_I 'I'
+#define ML99_PRIV_CHAR_LIT_J 'J'
+#define ML99_PRIV_CHAR_LIT_K 'K'
+#define ML99_PRIV_CHAR_LIT_L 'L'
+#define ML99_PRIV_CHAR_LIT_M 'M'
+#define ML99_PRIV_CHAR_LIT_N 'N'
+#define ML99_PRIV_CHAR_LIT_O 'O'
+#define ML99_PRIV_CHAR_LIT_P 'P'
+#define ML99_PRIV_CHAR_LIT_Q 'Q'
+#define ML99_PRIV_CHAR_LIT_R 'R'
+#define ML99_PRIV_CHAR_LIT_S 'S'
+#define ML99_PRIV_CHAR_LIT_T 'T'
+#define ML99_PRIV_CHAR_LIT_U 'U'
+#define ML99_PRIV_CHAR_LIT_V 'V'
+#define ML99_PRIV_CHAR_LIT_W 'W'
+#define ML99_PRIV_CHAR_LIT_X 'X'
+#define ML99_PRIV_CHAR_LIT_Y 'Y'
+#define ML99_PRIV_CHAR_LIT_Z 'Z'
+
+#define ML99_PRIV_CHAR_LIT_0 '0'
+#define ML99_PRIV_CHAR_LIT_1 '1'
+#define ML99_PRIV_CHAR_LIT_2 '2'
+#define ML99_PRIV_CHAR_LIT_3 '3'
+#define ML99_PRIV_CHAR_LIT_4 '4'
+#define ML99_PRIV_CHAR_LIT_5 '5'
+#define ML99_PRIV_CHAR_LIT_6 '6'
+#define ML99_PRIV_CHAR_LIT_7 '7'
+#define ML99_PRIV_CHAR_LIT_8 '8'
+#define ML99_PRIV_CHAR_LIT_9 '9'
+
+#define ML99_PRIV_CHAR_LIT__ '_'
+
 // Arity specifiers {
 #define ML99_detectIdent_ARITY 2
 #define ML99_identEq_ARITY     3
@@ -325,6 +414,7 @@
 #define ML99_isUppercase_ARITY 1
 #define ML99_isDigit_ARITY     1
 #define ML99_isChar_ARITY      1
+#define ML99_charLit_ARITY     1
 // }
 
 #endif // DOXYGEN_IGNORE
