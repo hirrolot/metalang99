@@ -329,6 +329,7 @@
 // clang-format on
 
 // Arity specifiers {
+
 #define ML99_tuple_ARITY          1
 #define ML99_tupleEval_ARITY      1
 #define ML99_untuple_ARITY        1
@@ -353,7 +354,7 @@
 #define ML99_PRIV_tupleGet_5_ARITY 1
 #define ML99_PRIV_tupleGet_6_ARITY 1
 #define ML99_PRIV_tupleGet_7_ARITY 1
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

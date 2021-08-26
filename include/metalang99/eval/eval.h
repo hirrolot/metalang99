@@ -22,18 +22,20 @@
         ~))
 
 // Recursion hooks {
+
 #define ML99_PRIV_EVAL_MATCH_HOOK()         ML99_PRIV_EVAL_MATCH
 #define ML99_PRIV_EVAL_0v_K_HOOK()          ML99_PRIV_EVAL_0v_K
 #define ML99_PRIV_EVAL_0args_K_HOOK()       ML99_PRIV_EVAL_0args_K
 #define ML99_PRIV_EVAL_0op_K_HOOK()         ML99_PRIV_EVAL_0op_K
 #define ML99_PRIV_EVAL_0callUneval_K_HOOK() ML99_PRIV_EVAL_0callUneval_K
-// }
+// } (Recursion hooks)
 
 #define ML99_PRIV_EVAL_MATCH(k, k_cx, folder, acc, head, ...)                                      \
     ML99_PRIV_CHECK_TERM(head, ML99_PRIV_TERM_MATCH)                                               \
     (head, ML99_PRIV_EVAL_)(k, k_cx, folder, acc, (__VA_ARGS__), ML99_PRIV_EVAL_TERM_DATA head)
 
 // Reduction rules {
+
 #define ML99_PRIV_EVAL_0v          ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0v_K)
 #define ML99_PRIV_EVAL_0args       ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0args_K)
 #define ML99_PRIV_EVAL_0op         ML99_PRIV_REC_CONTINUE(ML99_PRIV_EVAL_0op_K)
@@ -61,6 +63,7 @@
 // } (Reduction rules)
 
 // Continuations {
+
 #define ML99_PRIV_EVAL_0v_K(k, k_cx, folder, acc, tail, ...)                                       \
     ML99_PRIV_MACHINE_REDUCE(                                                                      \
         k,                                                                                         \

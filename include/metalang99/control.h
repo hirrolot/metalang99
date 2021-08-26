@@ -115,10 +115,11 @@
 #define ML99_PRIV_times_S_IMPL(i, ...) ML99_TERMS(v(__VA_ARGS__), ML99_times_IMPL(i, __VA_ARGS__))
 
 // Arity specifiers {
+
 #define ML99_if_ARITY     3
 #define ML99_repeat_ARITY 2
 #define ML99_times_ARITY  2
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

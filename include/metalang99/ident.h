@@ -409,6 +409,7 @@
 #define ML99_PRIV_CHAR_LIT__ '_'
 
 // Arity specifiers {
+
 #define ML99_detectIdent_ARITY 2
 #define ML99_identEq_ARITY     3
 #define ML99_charEq_ARITY      2
@@ -417,7 +418,7 @@
 #define ML99_isDigit_ARITY     1
 #define ML99_isChar_ARITY      1
 #define ML99_charLit_ARITY     1
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

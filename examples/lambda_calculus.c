@@ -9,7 +9,7 @@
 
 #include <metalang99.h>
 
-// Grammar: Var(iable), Appl(ication), and Lam(bda abstraction) {
+// Syntactic terms {
 
 #define Var(i)     ML99_call(Var, i)
 #define Appl(M, N) ML99_call(Appl, M, N)
@@ -22,7 +22,7 @@
 #define VAR(i)     ML99_CHOICE(Var, i)
 #define APPL(M, N) ML99_CHOICE(Appl, M, N)
 #define LAM(M)     ML99_CHOICE(Lam, M)
-// }
+// } (Syntactic terms)
 
 // Variable substitution: `M[1=x]` {
 
@@ -40,9 +40,9 @@
     Appl(substAux_IMPL(M, x, depth), substAux_IMPL(N, x, depth))
 #define substAux_Lam_IMPL(M, x, depth)                                                             \
     Lam(ML99_call(substAux, v(M), incFreeVars_IMPL(x), v(ML99_INC(depth))))
-// }
+// } (Variable substitution)
 
-// Increment all free variables in `M` {
+// Increment free variables in `M` {
 
 #define incFreeVars(M) ML99_call(incFreeVars, M)
 
@@ -54,7 +54,7 @@
 #define incFreeVarsAux_Appl_IMPL(M, N, depth)                                                      \
     Appl(incFreeVarsAux_IMPL(M, depth), incFreeVarsAux_IMPL(N, depth))
 #define incFreeVarsAux_Lam_IMPL(M, depth) Lam(incFreeVarsAux_IMPL(M, ML99_INC(depth)))
-// }
+// } (Increment free variables)
 
 // Evaluation {
 
@@ -73,9 +73,9 @@
 #define eval_Appl_Appl_Var_IMPL            eval_Appl_Var_IMPL
 #define eval_Appl_Appl_Appl_IMPL(M, N, N1) Appl(Appl_IMPL(M, N), eval_IMPL(N1))
 #define eval_Appl_Appl_Lam_IMPL            eval_Appl_Lam_IMPL
-// }
+// } (Evaluation)
 
-// Syntactical equality of two terms {
+// Syntactical equality {
 
 #define termEq(lhs, rhs)            ML99_matchWithArgs(lhs, v(termEq_), rhs)
 #define termEq_Var_IMPL(i, rhs)     termEqPropagate(Var, rhs, i)
@@ -95,7 +95,7 @@
 #define TERM_Var_Var   ()
 #define TERM_Appl_Appl ()
 #define TERM_Lam_Lam   ()
-// }
+// } (Syntactical equality)
 
 #define ASSERT_REDUCES_TO(lhs, rhs)                                                                \
     /* Use two interpreter passes: one for `eval(lhs)`, one for `termEq`. Thereby we achieve more  \
@@ -107,7 +107,7 @@
 #define I LAM(VAR(1))
 
 ASSERT_REDUCES_TO(APPL(I, VAR(5)), VAR(5));
-// }
+// } (The identity combinator)
 
 // The K, S combinators {
 
@@ -119,7 +119,7 @@ ASSERT_REDUCES_TO(APPL(APPL(APPL(S, K), S), K), K);
 
 ASSERT_REDUCES_TO(APPL(APPL(APPL(S, K), VAR(5)), VAR(6)), VAR(6));
 ASSERT_REDUCES_TO(APPL(APPL(K, VAR(5)), VAR(6)), VAR(5));
-// }
+// } (The K, S combinators)
 
 // Church booleans {
 
@@ -133,39 +133,28 @@ ASSERT_REDUCES_TO(APPL(APPL(K, VAR(5)), VAR(6)), VAR(5));
 
 #define IF LAM(LAM(LAM(APPL(APPL(VAR(3), VAR(2)), VAR(1)))))
 
-// NOT {
 ASSERT_REDUCES_TO(APPL(NOT, T), F);
 ASSERT_REDUCES_TO(APPL(NOT, F), T);
 ASSERT_REDUCES_TO(APPL(NOT, APPL(NOT, T)), T);
 ASSERT_REDUCES_TO(APPL(NOT, APPL(NOT, F)), F);
-// }
 
-// AND {
 ASSERT_REDUCES_TO(APPL(APPL(AND, T), T), T);
 ASSERT_REDUCES_TO(APPL(APPL(AND, T), F), F);
 ASSERT_REDUCES_TO(APPL(APPL(AND, F), T), F);
 ASSERT_REDUCES_TO(APPL(APPL(AND, F), F), F);
-// }
 
-// OR {
 ASSERT_REDUCES_TO(APPL(APPL(OR, T), T), T);
 ASSERT_REDUCES_TO(APPL(APPL(OR, T), F), T);
 ASSERT_REDUCES_TO(APPL(APPL(OR, F), T), T);
 ASSERT_REDUCES_TO(APPL(APPL(OR, F), F), F);
-// }
 
-// XOR {
 ASSERT_REDUCES_TO(APPL(APPL(XOR, T), T), F);
 ASSERT_REDUCES_TO(APPL(APPL(XOR, T), F), T);
 ASSERT_REDUCES_TO(APPL(APPL(XOR, F), T), T);
 ASSERT_REDUCES_TO(APPL(APPL(XOR, F), F), F);
-// }
 
-// IF {
 ASSERT_REDUCES_TO(APPL(APPL(APPL(IF, T), VAR(5)), VAR(6)), VAR(5));
 ASSERT_REDUCES_TO(APPL(APPL(APPL(IF, F), VAR(5)), VAR(6)), VAR(6));
-// }
-
 // } (Church booleans)
 
 // Church numerals {

@@ -96,11 +96,12 @@
 #define ML99_PRIV_CHOICE_DATA ML99_PRIV_TAIL_AUX
 
 // Arity specifiers {
+
 #define ML99_choice_ARITY        2
 #define ML99_choiceTag_ARITY     1
 #define ML99_match_ARITY         2
 #define ML99_matchWithArgs_ARITY 3
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

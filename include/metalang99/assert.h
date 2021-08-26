@@ -122,9 +122,10 @@
 #define ML99_PRIV_ASSERT_EMPTY_ 1
 
 // Arity specifiers {
+
 #define ML99_assert_ARITY   1
 #define ML99_assertEq_ARITY 2
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

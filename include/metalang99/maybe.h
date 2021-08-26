@@ -108,7 +108,6 @@
 #define ML99_PRIV_IS_JUST(maybe) ML99_DETECT_IDENT(ML99_PRIV_IS_JUST_, ML99_CHOICE_TAG(maybe))
 #define ML99_PRIV_IS_JUST_just   ()
 
-// ML99_maybeEq_IMPL {
 #define ML99_maybeEq_IMPL(cmp, maybe, other)                                                       \
     ML99_PRIV_IF(                                                                                  \
         ML99_AND(ML99_IS_NOTHING(maybe), ML99_IS_NOTHING(other)),                                  \
@@ -117,23 +116,21 @@
             ML99_AND(ML99_IS_JUST(maybe), ML99_IS_JUST(other)),                                    \
             ML99_appl2_IMPL(cmp, ML99_PRIV_CHOICE_DATA maybe, ML99_PRIV_CHOICE_DATA other),        \
             v(ML99_FALSE())))
-// }
 
-// ML99_maybeUnwrap_IMPL {
 #define ML99_maybeUnwrap_IMPL(maybe) ML99_match_IMPL(maybe, ML99_PRIV_maybeUnwrap_)
 #define ML99_PRIV_maybeUnwrap_nothing_IMPL(_)                                                      \
     ML99_fatal(ML99_maybeUnwrap, expected ML99_just but found ML99_nothing)
 #define ML99_PRIV_maybeUnwrap_just_IMPL(x) v(x)
-// }
 
 // Arity specifiers {
+
 #define ML99_just_ARITY        1
 #define ML99_nothing_ARITY     1
 #define ML99_isJust_ARITY      1
 #define ML99_isNothing_ARITY   1
 #define ML99_maybeEq_ARITY     3
 #define ML99_maybeUnwrap_ARITY 1
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

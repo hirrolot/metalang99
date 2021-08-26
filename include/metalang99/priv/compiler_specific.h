@@ -6,15 +6,14 @@
 // GCC 4.6 Release Series: <https://gcc.gnu.org/gcc-4.6/changes.html>.
 #define ML99_PRIV_IS_GCC_4_6_OR_HIGHER ((__GNUC__ == 4 && __GNUC_MINOR__ >= 6) || (__GNUC__ >= 5))
 
-// ML99_PRIV_COMPILER_ATTR_UNUSED {
 #ifdef __GNUC__
 #define ML99_PRIV_COMPILER_ATTR_UNUSED __attribute__((unused))
 #else
 #define ML99_PRIV_COMPILER_ATTR_UNUSED
 #endif
-// } (ML99_PRIV_COMPILER_ATTR_UNUSED)
 
 // ML99_PRIV_C11_STATIC_ASSERT_AVAILABLE {
+
 #if __STDC__ && __STDC_VERSION__ >= ML99_PRIV_C11_VERSION
 
 #define ML99_PRIV_C11_STATIC_ASSERT_AVAILABLE
@@ -32,6 +31,7 @@
 // } (ML99_PRIV_C11_STATIC_ASSERT_AVAILABLE)
 
 // ML99_PRIV_EMIT_ERROR {
+
 #ifdef ML99_PRIV_C11_STATIC_ASSERT_AVAILABLE
 #define ML99_PRIV_EMIT_ERROR ML99_PRIV_STATIC_ASSERT_ERROR
 #elif defined(__clang__)

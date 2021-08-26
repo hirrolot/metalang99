@@ -471,6 +471,7 @@
 // clang-format on
 
 // ML99_indexedParams_IMPL {
+
 #define ML99_indexedParams_IMPL(type_list)                                                         \
     ML99_tuple(ML99_PRIV_IF(                                                                       \
         ML99_IS_NIL(type_list),                                                                    \
@@ -482,9 +483,10 @@
 #define ML99_PRIV_indexedParamsAux_nil_IMPL(...) v(ML99_EMPTY())
 #define ML99_PRIV_indexedParamsAux_cons_IMPL(x, xs, i)                                             \
     ML99_TERMS(v(, x _##i), ML99_PRIV_indexedParamsAux_IMPL(xs, ML99_INC(i)))
-// }
+// } (ML99_indexedParams_IMPL)
 
 // ML99_indexedFields_IMPL {
+
 #define ML99_indexedFields_IMPL(type_list) ML99_PRIV_indexedFieldsAux_IMPL(type_list, 0)
 
 #define ML99_PRIV_indexedFieldsAux_IMPL(type_list, i)                                              \
@@ -492,7 +494,7 @@
 #define ML99_PRIV_indexedFields_nil_IMPL(...) v(ML99_EMPTY())
 #define ML99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                                \
     ML99_TERMS(v(x _##i;), ML99_PRIV_indexedFieldsAux_IMPL(xs, ML99_INC(i)))
-// }
+// } (ML99_indexedFields_IMPL)
 
 #define ML99_indexedInitializerList_IMPL(n) ML99_braced(ML99_PRIV_INDEXED_ITEMS(n, v(0)))
 #define ML99_indexedArgs_IMPL(n)            ML99_PRIV_INDEXED_ITEMS(n, v(ML99_EMPTY()))
@@ -506,6 +508,7 @@
 #define ML99_PRIV_indexedItem_IMPL(i) v(, _##i)
 
 // Arity specifiers {
+
 #define ML99_semicoloned_ARITY               1
 #define ML99_braced_ARITY                    1
 #define ML99_assign_ARITY                    2
@@ -528,7 +531,7 @@
 #define ML99_indexedArgs_ARITY               1
 
 #define ML99_PRIV_indexedItem_ARITY 1
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

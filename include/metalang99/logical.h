@@ -139,6 +139,7 @@
 #define ML99_boolEq_IMPL(x, y) v(ML99_BOOL_EQ(x, y))
 
 // Arity specifiers {
+
 #define ML99_true_ARITY   1
 #define ML99_false_ARITY  1
 #define ML99_not_ARITY    1
@@ -146,7 +147,7 @@
 #define ML99_or_ARITY     2
 #define ML99_xor_ARITY    2
 #define ML99_boolEq_ARITY 2
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

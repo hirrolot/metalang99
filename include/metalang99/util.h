@@ -348,6 +348,7 @@
 #endif
 
 // Arity specifiers {
+
 #define ML99_catEval_ARITY              2
 #define ML99_cat_ARITY                  2
 #define ML99_cat3_ARITY                 3
@@ -366,7 +367,7 @@
 
 #define ML99_PRIV_flip_ARITY  3
 #define ML99_PRIV_reify_ARITY 2
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

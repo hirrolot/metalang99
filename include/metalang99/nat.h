@@ -453,6 +453,7 @@
     ML99_PRIV_IF(ML99_NAT_EQ(y, 0), v(0), ML99_add(v(x), ML99_callUneval(ML99_mul, x, ML99_DEC(y))))
 
 // ML99_mod_IMPL {
+
 #define ML99_mod_IMPL(x, y)                                                                        \
     ML99_PRIV_IF(                                                                                  \
         ML99_NAT_EQ(y, 0),                                                                         \
@@ -464,7 +465,7 @@
         ML99_OR(ML99_NAT_EQ(x, 0), ML99_IS_JUST(ML99_DIV_CHECKED(x, y))),                          \
         v(acc),                                                                                    \
         ML99_callUneval(ML99_PRIV_modAux, ML99_DEC(x), y, ML99_INC(acc)))
-// }
+// } (ML99_mod_IMPL)
 
 #define ML99_divChecked_IMPL(x, y) v(ML99_DIV_CHECKED(x, y))
 
@@ -487,6 +488,7 @@
 // clang-format on
 
 // Arity specifiers {
+
 #define ML99_inc_ARITY              1
 #define ML99_dec_ARITY              1
 #define ML99_natMatch_ARITY         2
@@ -510,7 +512,7 @@
 #define ML99_min_ARITY              2
 #define ML99_max_ARITY              2
 #define ML99_assertIsNat_ARITY      1
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

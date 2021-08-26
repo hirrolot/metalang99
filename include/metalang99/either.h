@@ -125,27 +125,21 @@
 #define ML99_PRIV_IS_LEFT(either) ML99_DETECT_IDENT(ML99_PRIV_IS_LEFT_, ML99_CHOICE_TAG(either))
 #define ML99_PRIV_IS_LEFT_left    ()
 
-// ML99_eitherEq_IMPL {
 #define ML99_eitherEq_IMPL(cmp, either, other)                                                     \
     ML99_PRIV_IF(                                                                                  \
         ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other),                                            \
         ML99_appl2_IMPL(cmp, ML99_PRIV_CHOICE_DATA either, ML99_PRIV_CHOICE_DATA other),           \
         v(ML99_FALSE()))
-// }
 
-// ML99_unwrapLeft_IMPL {
 #define ML99_unwrapLeft_IMPL(either)      ML99_match_IMPL(either, ML99_PRIV_unwrapLeft_)
 #define ML99_PRIV_unwrapLeft_left_IMPL(x) v(x)
 #define ML99_PRIV_unwrapLeft_right_IMPL(_x)                                                        \
     ML99_fatal(ML99_unwrapLeft, expected ML99_left but found ML99_right)
-// }
 
-// ML99_unwrapRight_IMPL {
 #define ML99_unwrapRight_IMPL(either) ML99_match_IMPL(either, ML99_PRIV_unwrapRight_)
 #define ML99_PRIV_unwrapRight_left_IMPL(_x)                                                        \
     ML99_fatal(ML99_unwrapRight, expected ML99_right but found ML99_left)
 #define ML99_PRIV_unwrapRight_right_IMPL(x) v(x)
-// }
 
 #define ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other)                                             \
     ML99_OR(                                                                                       \
@@ -153,6 +147,7 @@
         ML99_AND(ML99_IS_RIGHT(either), ML99_IS_RIGHT(other)))
 
 // Arity specifiers {
+
 #define ML99_left_ARITY        1
 #define ML99_right_ARITY       1
 #define ML99_isLeft_ARITY      1
@@ -160,7 +155,7 @@
 #define ML99_eitherEq_ARITY    3
 #define ML99_unwrapLeft_ARITY  1
 #define ML99_unwrapRight_ARITY 1
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

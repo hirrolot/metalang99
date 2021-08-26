@@ -175,6 +175,7 @@
 #define ML99_variadicsTail_IMPL(...) v(ML99_VARIADICS_TAIL(__VA_ARGS__))
 
 // ML99_variadicsForEach_IMPL {
+
 #define ML99_variadicsForEach_IMPL(f, ...)                                                         \
     ML99_PRIV_variadicsForEachAux_IMPL(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
 
@@ -190,9 +191,10 @@
     ML99_TERMS(                                                                                    \
         ML99_appl_IMPL(f, x),                                                                      \
         ML99_callUneval(ML99_PRIV_variadicsForEachAux, f, ML99_PRIV_DEC(count), __VA_ARGS__))
-// }
+// } (ML99_variadicsForEach_IMPL)
 
 // ML99_variadicsForEachI_IMPL {
+
 #define ML99_variadicsForEachI_IMPL(f, ...)                                                        \
     ML99_PRIV_variadicsForEachIAux_IMPL(                                                           \
         f,                                                                                         \
@@ -218,7 +220,7 @@
             ML99_PRIV_INC(i),                                                                      \
             ML99_PRIV_DEC(count),                                                                  \
             __VA_ARGS__))
-// }
+// } (ML99_variadicsForEachI_IMPL)
 
 /*
  * Proposition: The count of arguments of `ML99_PRIV_VARIADICS_COUNT` is `x` returned from
@@ -264,6 +266,7 @@
 // clang-format on
 
 // Arity specifiers {
+
 #define ML99_variadicsCount_ARITY    1
 #define ML99_variadicsIsSingle_ARITY 1
 #define ML99_variadicsTail_ARITY     1
@@ -278,7 +281,7 @@
 #define ML99_PRIV_variadicsGet_5_ARITY 1
 #define ML99_PRIV_variadicsGet_6_ARITY 1
 #define ML99_PRIV_variadicsGet_7_ARITY 1
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 

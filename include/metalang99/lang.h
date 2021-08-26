@@ -229,6 +229,7 @@
 #define ML99_PRIV_compose_IMPL(f, g, x) ML99_appl(v(f), ML99_appl_IMPL(g, x))
 
 // Arity specifiers {
+
 #define ML99_appl_ARITY    2
 #define ML99_appl2_ARITY   3
 #define ML99_appl3_ARITY   4
@@ -236,7 +237,7 @@
 #define ML99_compose_ARITY 2
 
 #define ML99_PRIV_compose_ARITY 3
-// }
+// } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE
 
