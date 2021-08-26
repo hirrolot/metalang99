@@ -153,6 +153,8 @@
  * // '_'
  * ML99_charLit(v(_))
  * @endcode
+ *
+ * @note The inverse of this function is impossible, i.e., you cannot get `q` from `'q'`.
  */
 #define ML99_charLit(x) ML99_call(ML99_charLit, x)
 
