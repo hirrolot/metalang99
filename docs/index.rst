@@ -36,10 +36,25 @@ Sometimes, there exist two versions of the same macro: one is plain, and the oth
 
 Both metaprograms result in `1, 2, 3`.
 
-Miscellaneous
--------------
+Version manipulation macros
+---------------------------
 
- - `ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` defined by `metalang99.h` denote the major, the minor, and the patch version numbers, respectively.
+*The following macros are defined in metalang99.h*.
+
+`ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` denote the major, the minor, and the patch version numbers, respectively.
+
+`ML99_VERSION_COMPATIBLE(x, y, z)` and `ML99_VERSION_EQ(x, y, z)` are function-like macros that expand to a constant boolean expression:
+
+ - The former holds iff the current Metalang99 version is at least vx.y.z in a `SemVer`_-compatible way. Thus, if the current version is v1.2.3, then `ML99_VERSION_COMPATIBLE` will hold for v1.2.3, v1.2.6, v1.6.0, but not for v2.5.0 or v3.0.0.
+ - The latter one holds iff the version is exactly vx.y.z.
+
+These macros can be used as follows:
+
+.. code:: c
+
+    #if !ML99_VERSION_COMPATIBLE(1, 2, 3)
+    #error Please, update your Metalang99 to v1.2.3 or higher!
+    #endif
 
 .. toctree::
    :hidden:
@@ -84,6 +99,7 @@ Indices and tables
 * :ref:`search`
 
 .. _Metalang99 metalanguage: https://github.com/Hirrolot/metalang99
+.. _SemVer: https://semver.org/
 
 .. _lang.h: lang.html
 .. _choice.h: choice.html

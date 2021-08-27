@@ -15,6 +15,7 @@ endif()
 
 include_directories(../include)
 
+add_executable(metalang99 metalang99.c)
 add_executable(assert assert.c)
 add_executable(choice choice.c)
 add_executable(control control.c)

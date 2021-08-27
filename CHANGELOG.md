@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `metalang99.h`:
+   - `ML99_VERSION_COMPATIBLE` to check for a SemVer-compatible version.
+   - `ML99_VERSION_EQ` to check for an exact version.
+
 ## [1.8.0] - 2021-08-26
 
 ### Added
