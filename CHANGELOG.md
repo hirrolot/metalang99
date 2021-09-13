@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Deprecated
+
+ - `util.h`:
+   - `ML99_(L|R)PAREN` because they result in code that is difficult to reason about.
+
 ## [1.9.0] - 2021-08-27
 
 ### Added

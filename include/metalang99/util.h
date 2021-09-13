@@ -285,11 +285,15 @@
  * `the rest of args...)` in future.
  *
  * This macro consumes all its arguments.
+ *
+ * @deprecated This macro results in code that is difficult to reason about.
  */
 #define ML99_LPAREN(...) (
 
 /**
  * The same as #ML99_LPAREN but emits a closing parenthesis.
+ *
+ * @deprecated This macro results in code that is difficult to reason about.
  */
 #define ML99_RPAREN(...) )
 
