@@ -59,7 +59,7 @@ int main(void) {
 
 (Hint: `v(something)` evaluates to `something`.)
 
-Metalang99 provides a firm foundation for writing declarative, reliable, and maintainable metaprograms in pure C99.
+Metalang99 is a firm foundation for writing reliable and maintainable metaprograms in pure C99.
 
 It is implemented as an interpreted functional language upon preprocessor macros -- just `#include <metalang99.h>` and you are ready to go. Most of the time, you would not use Metalang99 directly but through userland libraries such as [Datatype99] and [Interface99] -- see below.
 
@@ -95,9 +95,9 @@ Or [Interface99]:
 
 #include <interface99.h>
 
-#define State_INTERFACE               \
-    iFn(int, get, void *self);        \
-    iFn(void, set, void *self, int x);
+#define State_INTERFACE(fn, ctx)         \
+    fn(ctx, int,  get, void *self)       \
+    fn(ctx, void, set, void *self, int x)
 
 interface(State);
 
@@ -157,9 +157,11 @@ Happy hacking!
 
 ## Philosophy and origins
 
-My work on [Poica], a research programming language implemented upon [Boost/Preprocessor], has left me unsatisfied with the result. The fundamental limitations of Boost/Preprocessor have overcomplicated reasoning about macros: recursive macro calls was a really hard-to-debug disaster, and the absence of partial application forced me to reify the same patterns each time. The codebase got simply unmaintainable.
+My work on [Poica], a research programming language implemented upon [Boost/Preprocessor], has left me unsatisfied with the result. The fundamental limitations of Boost/Preprocessor have made the codebase simply unmaintainable; these include recursive macro calls (blocked by the preprocessor), which have made debugging a complete nightmare, the absence of partial application that has made context passing utterly awkward, and every single mistake that resulted in megabytes of compiler error messages.
 
-After I realised that the metaprogramming framework lacks abstractions, I started to implement Metalang99. Honestly, it turned out to be a much tougher and fascinating challenge than I expected -- it took half of a year of hard work to release v0.1.0. As a real-world application of Metalang99, I created [Datatype99] exactly of the same form I wanted it to be: the implementation is highly declarative, the syntax is nifty, and the semantics is well-defined.
+Only then I have understood that instead of enriching the preprocessor with various ad-hoc mechanisms, we should really establish a clear paradigm in which to structure metaprograms. With these thoughts in mind, I started to implement Metalang99...
+
+Honestly, it turned out to be a much more tough and fascinating challenge than I expected -- it took half of a year of hard work to release v0.1.0 and almost a year to make it stable. As a real-world application of Metalang99, I created [Datatype99] exactly of the same form I wanted it to be: the implementation is highly declarative, the syntax is nifty, and the semantics is well-defined.
 
 Finally, I want to say that Metalang99 is only about syntax transformations and not about CPU-bound tasks; the preprocessor is just too slow and limited for such kind of abuse.
 
