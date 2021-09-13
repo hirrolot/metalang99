@@ -293,9 +293,37 @@
 /**
  * The same as #ML99_LPAREN but emits a closing parenthesis.
  *
- * @deprecated This macro results in code that is difficult to reason about.
+ * @deprecated For the same reason as #ML99_LPAREN.
  */
 #define ML99_RPAREN(...) )
+
+/**
+ * Expands to a single comma, consuming all arguments.
+ *
+ * # Examples
+ *
+ * Consider this variation of <a href="https://en.wikipedia.org/wiki/X_Macro">X-Macro</a>:
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * #define FOO X(1) X(2, 3) X(4, 5, 6)
+ * #define BAR
+ *
+ * #define X ML99_COMMA
+ *
+ * // , , ,
+ * FOO
+ *
+ * // (No commas.)
+ * BAR
+ * @endcode
+ *
+ * Later, with #ML99_variadicsIsSingle, we can detect whether or not `FOO` and `BAR` result in one
+ * or more invocation of `X`. This technique is used in <a
+ * href="https://github.com/Hirrolot/interface99">Interface99</a> to detect marker interfaces.
+ */
+#define ML99_COMMA(...) ,
 
 /**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
@@ -303,7 +331,7 @@
 #define ML99_GCC_PRAGMA(str) ML99_PRIV_GCC_PRAGMA(str)
 
 /**
- * If you are compiling on Clang, this macro expands to `_Pragma(str)`, otherwise to emptiness.
+ * The same as #ML99_GCC_PRAGMA but for Clang.
  */
 #define ML99_CLANG_PRAGMA(str) ML99_PRIV_CLANG_PRAGMA(str)
 

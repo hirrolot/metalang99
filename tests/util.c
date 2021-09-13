@@ -83,4 +83,13 @@ int main(void) {
 
 #undef F
 #undef G
+
+#define CHECK(x, y, z)     ML99_ASSERT_UNEVAL(x == 5 && y == 6 && z == 7)
+#define CHECK_EXPAND(args) CHECK(args)
+
+    // ML99_COMMA
+    { CHECK_EXPAND(5 ML99_COMMA() 6 ML99_COMMA(~, ~, ~) 7); }
+
+#undef CHECK
+#undef CHECK_EXPAND
 }

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `util.h`:
+   - `ML99_COMMA` that expands to a single comma.
+
 ### Deprecated
 
  - `util.h`:
@@ -100,7 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `list.h`:
    - `ML99_listFromTuples` to transform comma-separated tuples into a list.
  - `util.h`:
-   - `ML99_(L|R)PAREN` which expands to an opening/closing parenthesis.
+   - `ML99_(L|R)PAREN` that expand to an opening/closing parenthesis.
  - `tuple.h`:
    - `ML99_untupleChecked` to emit a fatal error if a provided argument is not a tuple.
  - New module `ident.h`:
@@ -111,8 +116,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `ML99_is(Lower|Upper)case`, `ML99_IS_(LOWER|UPPER)CASE` to check whether a letter is lower/uppercased.
    - `ML99_isDigit`, `ML99_IS_DIGIT` to check whether a character is digit.
    - `ML99_isChar`, `ML99_IS_CHAR` to check whether an identifier is a character.
-   - `ML99_(LOWER|UPPER)CASE_CHARS` which expands to all comma-separated lower/uppercase characters.
-   - `ML99_DIGITS` which expands to all comma-separated digits.
+   - `ML99_(LOWER|UPPER)CASE_CHARS` that expands to all comma-separated lower/uppercase characters.
+   - `ML99_DIGITS` that expands to all comma-separated digits.
 
 ### Changed
 
@@ -135,7 +140,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - Other:
      - `ML99_GEN_SYM` to generate unique identifiers.
      - `ML99_TRAILING_SEMICOLON` to force a trailing semicolon.
-     - `ML99_semicoloned` which puts a semicolon after its argument.
+     - `ML99_semicoloned` that puts a semicolon after its argument.
      - `ML99_assign` to assign something to something.
      - `ML99_assignStmt` to generate an assignment statement.
      - `ML99_invoke` to invoke a macro/function.
