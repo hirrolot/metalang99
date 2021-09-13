@@ -264,10 +264,6 @@ A:
 
 A: See the blog post [_What’s the Point of the C Preprocessor, Actually?_]
 
-### Q: Why formal specification?
-
-A: The interpreter implementation is inherently non-trivial, with plenty of subtle details. Having an abstract picture of what is happening is extremely helpful not to mess up, especially when we are talking about corner cases. Additionally, the specification helps to figure out how the language would behave under some exotic circumstances.
-
 ### Q: Is it Turing-complete?
 
 A: The C/C++ preprocessor is capable to iterate only [up to a certain limit](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete). For Metalang99, this limit is defined in terms of reductions steps: once a fixed amount of reduction steps has exhausted, your metaprogram will not be able to execute anymore.
@@ -280,13 +276,13 @@ A: Metalang99 is primarily targeted at pure C, and C lacks templates. But anyway
 
 A: I am against amalgamated headers because of burden with updating. Instead, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
 
-### Q: What standards are supported?
+### Q: Which standards are supported?
 
 A: C99/C++11 and onwards.
 
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
-### Q: What compilers are tested?
+### Q: Which compilers are tested?
 
 A: Metalang99 is known to work on these compilers:
 
