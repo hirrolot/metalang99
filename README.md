@@ -95,9 +95,9 @@ Or [Interface99]:
 
 #include <interface99.h>
 
-#define State_INTERFACE(fn, ctx)         \
-    fn(ctx, int,  get, void *self)       \
-    fn(ctx, void, set, void *self, int x)
+#define State_INTERFACE(FN, CTX)         \
+    FN(CTX, int,  get, void *self)       \
+    FN(CTX, void, set, void *self, int x)
 
 interface(State);
 
