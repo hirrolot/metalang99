@@ -92,12 +92,13 @@ int sum(const BinaryTree *tree) {
 Or [Interface99]:
 
 ```c
-
 #include <interface99.h>
 
-#define State_INTERFACE(FN, CTX)         \
-    FN(CTX, int,  get, void *self)       \
-    FN(CTX, void, set, void *self, int x)
+#include <stdio.h>
+
+#define State_INTERFACE(OP, CTX)         \
+    OP(CTX,  int, get, void *self)       \
+    OP(CTX, void, set, void *self, int x)
 
 interface(State);
 
@@ -105,15 +106,16 @@ typedef struct {
     int x;
 } Num;
 
-int Num_State_get(void *self) {
-    return ((Num *)self)->x;
-}
-
-void Num_State_set(void *self, int x) {
-    ((Num *)self)->x = x;
-}
+int  Num_get(void *self) { return ((Num *)self)->x; }
+void Num_set(void *self, int x) { ((Num *)self)->x = x; }
 
 impl(State, Num);
+
+void test(State st) {
+    printf("x = %d\n", st.vptr->get(st.self));
+    st.vptr->set(st.self, 5);
+    printf("x = %d\n", st.vptr->get(st.self));
+}
 ```
 
 As you can see, advanced metaprogramming with Metalang99 allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
