@@ -3,7 +3,8 @@
  * Tuple manipulation.
  *
  * A tuple is represented as `(x1, ..., xN)`. Tuples are more time and space-efficient than lists,
- * but export less functionality.
+ * but export less functionality; if a needed function is missed, invoking #ML99_list and then
+ * manipulating with the resulting Cons-list might be helpful.
  *
  * Tuples are a convenient way to deal with product types. For example:
  *

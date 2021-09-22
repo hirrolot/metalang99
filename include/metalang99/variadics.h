@@ -2,21 +2,20 @@
  * @file
  * Variadic arguments manipulation.
  *
- * Metalang99 does not provide a lot of stuff in this module; if a needed function is missed,
- * invoking #ML99_list and then manipulating with the resulting Cons-list might be helpful.
+ * Variadics are more time and space-efficient than lists, but export less functionality; if a
+ * needed function is missed, invoking #ML99_list and then manipulating with the resulting Cons-list
+ * might be helpful.
  */
 
 #ifndef ML99_VARIADICS_H
 #define ML99_VARIADICS_H
 
-#include <metalang99/nat/dec.h>
-#include <metalang99/nat/eq.h>
 #include <metalang99/nat/inc.h>
 
+#include <metalang99/priv/logical.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
-#include <metalang99/logical.h>
 
 /**
  * Computes a count of its arguments.
@@ -91,19 +90,16 @@
  *
  * The result is `ML99_appl(f, x1) ... ML99_appl(f, xN)`.
  *
- * If you already have variadics, using this macro is more efficient than
- * `ML99_listUnwrap(ML99_listMap(v(f), ML99_list(v(...))))`.
- *
  * # Examples
  *
  * @code
- * #include <metalang99/misc.h>
+ * #include <metalang99/variadics.h>
  *
  * #define F_IMPL(x) v(@x)
  * #define F_ARITY   1
  *
- * // @1 @2 @3
- * ML99_variadicsForEach(v(F), v(1, 2, 3))
+ * // @x @y @z
+ * ML99_variadicsForEach(v(F), v(x, y, z))
  * @endcode
  *
  * @note Unlike #ML99_listMap, @p f can evaluate to many commas.
@@ -113,17 +109,24 @@
 /**
  * Applies @p f to each argument with an index.
  *
- * The result is `ML99_appl2(f, x1, 0) ... ML99_appl2(f, xN, N)`.
+ * The result is `ML99_appl2(f, x1, 0) ... ML99_appl2(f, xN, N - 1)`.
  *
- * If you already have variadics, using this macro is more efficient than
- * `ML99_listUnwrap(ML99_listMapI(v(f), ML99_list(v(...))))`.
+ * @code
+ * #include <metalang99/variadics.h>
+ *
+ * #define F_IMPL(x, i) v(@x##i)
+ * #define F_ARITY      2
+ *
+ * // @x0 @y1 @z2
+ * ML99_variadicsForEachI(v(F), v(x, y, z))
+ * @endcode
  *
  * @note Unlike #ML99_listMapI, @p f can evaluate to many commas.
  */
 #define ML99_variadicsForEachI(f, ...) ML99_call(ML99_variadicsForEachI, f, __VA_ARGS__)
 
 #define ML99_VARIADICS_COUNT(...)     ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
-#define ML99_VARIADICS_IS_SINGLE(...) ML99_NOT(ML99_PRIV_CONTAINS_COMMA(__VA_ARGS__))
+#define ML99_VARIADICS_IS_SINGLE(...) ML99_PRIV_NOT(ML99_PRIV_CONTAINS_COMMA(__VA_ARGS__))
 #define ML99_VARIADICS_GET(i)         ML99_PRIV_CAT(ML99_PRIV_VARIADICS_GET_, i)
 #define ML99_VARIADICS_TAIL(...)      ML99_PRIV_TAIL(__VA_ARGS__)
 
