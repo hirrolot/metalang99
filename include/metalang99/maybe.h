@@ -6,9 +6,11 @@
 #ifndef ML99_MAYBE_H
 #define ML99_MAYBE_H
 
+#include <metalang99/priv/util.h>
+
 #include <metalang99/choice.h>
+#include <metalang99/ident.h>
 #include <metalang99/logical.h>
-#include <metalang99/util.h>
 
 /**
  * Some value @p x.

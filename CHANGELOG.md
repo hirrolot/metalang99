@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
- - Remove the requirement that `ML99_variadicsForEach(I)` can accept at most 63 arguments.
+ - `variadics.h`:
+   - Remove the requirement that `ML99_variadicsForEach(I)` can accept at most 63 arguments.
 
 ## [1.10.0] - 2021-09-14
 
