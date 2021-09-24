@@ -163,7 +163,7 @@ My work on [Poica], a research programming language implemented upon [Boost/Prep
 
 Only then I have understood that instead of enriching the preprocessor with various ad-hoc mechanisms, we should really establish a clear paradigm in which to structure metaprograms. With these thoughts in mind, I started to implement Metalang99...
 
-Honestly, it turned out to be a much more tough and fascinating challenge than I expected -- it took half of a year of hard work to release v0.1.0 and almost a year to make it stable. As a real-world application of Metalang99, I created [Datatype99] exactly of the same form I wanted it to be: the implementation is highly declarative, the syntax is nifty, and the semantics is well-defined.
+Long story short, it took half of a year of hard work to release v0.1.0 and almost a year to make it stable. As a real-world application of Metalang99, I created [Datatype99] exactly of the same form I wanted it to be: the implementation is highly declarative, the syntax is nifty, and the semantics is well-defined.
 
 Finally, I want to say that Metalang99 is only about syntax transformations and not about CPU-bound tasks; the preprocessor is just too slow and limited for such kind of abuse.
 
