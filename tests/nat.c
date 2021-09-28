@@ -6,7 +6,7 @@
 
 int main(void) {
 
-#define MATCH_Z_IMPL(...) v(88) // `...` due to a TCC's bug.
+#define MATCH_Z_IMPL(...) v(88) // `...` due to the TCC's bug.
 #define MATCH_S_IMPL(x)   v(x)
 
     // ML99_natMatch

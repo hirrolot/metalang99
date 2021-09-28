@@ -26,6 +26,8 @@
  * # Examples
  *
  * @code
+ * #include <metalang99/logical.h>
+ *
  * // 1
  * ML99_not(v(0))
  *
@@ -41,6 +43,8 @@
  * # Examples
  *
  * @code
+ * #include <metalang99/logical.h>
+ *
  * // 0
  * ML99_and(v(0), v(0))
  *
@@ -60,8 +64,9 @@
  * Logical inclusive OR.
  *
  * # Examples
- *
  * @code
+ * #include <metalang99/logical.h>
+ *
  * // 0
  * ML99_or(v(0), v(0))
  *
@@ -83,6 +88,8 @@
  * # Examples
  *
  * @code
+ * #include <metalang99/logical.h>
+ *
  * // 0
  * ML99_xor(v(0), v(0))
  *
@@ -102,7 +109,10 @@
  * Tests @p x and @p y for equality.
  *
  * # Examples
+ *
  * @code
+ * #include <metalang99/logical.h>
+ *
  * // 1
  * ML99_boolEq(v(0), v(0))
  *
@@ -117,6 +127,50 @@
  * @endcode
  */
 #define ML99_boolEq(x, y) ML99_call(ML99_boolEq, x, y)
+
+/**
+ * Matches @p x against the two cases: if it is 0 or 1.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/logical.h>
+ *
+ * #define MATCH_1_IMPL() v(Billie)
+ * #define MATCH_0_IMPL() v(Jean)
+ *
+ * // Billie
+ * ML99_boolMatch(v(1), v(MATCH_))
+ *
+ * // Jean
+ * ML99_boolMatch(v(0), v(MATCH_))
+ * @endcode
+ *
+ * @note This function calls @p f with #ML99_call, so no partial application occurs, and so
+ * arity specifiers are not needed.
+ */
+#define ML99_boolMatch(x, matcher) ML99_call(ML99_boolMatch, x, matcher)
+
+/**
+ * The same as #ML99_boolMatch but provides additional arguments to all branches.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/logical.h>
+ *
+ * #define MATCH_1_IMPL(x, y, z) v(Billie ~ x y z)
+ * #define MATCH_0_IMPL(x, y, z) v(Jean ~ x y z)
+ *
+ * // Billie ~ 1 2 3
+ * ML99_boolMatchWithArgs(v(1), v(MATCH_), v(1, 2, 3))
+ *
+ * // Jean ~ 1 2 3
+ * ML99_boolMatchWithArgs(v(0), v(MATCH_), v(1, 2, 3))
+ * @endcode
+ */
+#define ML99_boolMatchWithArgs(x, matcher, ...)                                                    \
+    ML99_call(ML99_boolMatchWithArgs, x, matcher, __VA_ARGS__)
 
 #define ML99_TRUE(...)  1
 #define ML99_FALSE(...) 0
@@ -138,15 +192,20 @@
 #define ML99_xor_IMPL(x, y)    v(ML99_XOR(x, y))
 #define ML99_boolEq_IMPL(x, y) v(ML99_BOOL_EQ(x, y))
 
+#define ML99_boolMatch_IMPL(x, matcher)              ML99_callUneval(matcher##x, )
+#define ML99_boolMatchWithArgs_IMPL(x, matcher, ...) ML99_callUneval(matcher##x, __VA_ARGS__)
+
 // Arity specifiers {
 
-#define ML99_true_ARITY   1
-#define ML99_false_ARITY  1
-#define ML99_not_ARITY    1
-#define ML99_and_ARITY    2
-#define ML99_or_ARITY     2
-#define ML99_xor_ARITY    2
-#define ML99_boolEq_ARITY 2
+#define ML99_true_ARITY              1
+#define ML99_false_ARITY             1
+#define ML99_not_ARITY               1
+#define ML99_and_ARITY               2
+#define ML99_or_ARITY                2
+#define ML99_xor_ARITY               2
+#define ML99_boolEq_ARITY            2
+#define ML99_boolMatch_ARITY         2
+#define ML99_boolMatchWithArgs_ARITY 3
 // } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE

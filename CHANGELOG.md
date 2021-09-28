@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `logical.h`:
+   - `ML99_boolMatch(WithArgs)` to perform pattern matching on a boolean value.
+
 ### Changed
 
  - `variadics.h`:

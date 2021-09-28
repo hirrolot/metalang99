@@ -51,7 +51,7 @@
 #define ML99_dec(x) ML99_call(ML99_dec, x)
 
 /**
- * Matches @p x to the two cases: if it is zero or positive.
+ * Matches @p x against the two cases: if it is zero or positive.
  *
  * # Examples
  *
@@ -90,9 +90,6 @@
  * // Jean ~ 122 ~ 1 2 3
  * ML99_natMatchWithArgs(v(123), v(MATCH_), v(1, 2, 3))
  * @endcode
- *
- * @note This function calls @p f with #ML99_call, so no partial application occurs, and so
- * arity specifiers are not needed.
  */
 #define ML99_natMatchWithArgs(x, matcher, ...)                                                     \
     ML99_call(ML99_natMatchWithArgs, x, matcher, __VA_ARGS__)
