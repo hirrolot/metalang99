@@ -192,6 +192,7 @@
 
 #define ML99_DETECT_IDENT(prefix, ident) ML99_PRIV_IS_TUPLE_FAST(ML99_PRIV_CAT(prefix, ident))
 #define ML99_IDENT_EQ(prefix, x, y)      ML99_DETECT_IDENT(ML99_PRIV_CAT3(prefix, x, _), y)
+
 #define ML99_CHAR_EQ(x, y)                                                                         \
     ML99_PRIV_IF(                                                                                  \
         ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, x),                                            \
@@ -201,15 +202,18 @@
             ML99_OR(                                                                               \
                 ML99_IDENT_EQ(ML99_UPPERCASE_DETECTOR, x, y),                                      \
                 ML99_IDENT_EQ(ML99_DIGIT_DETECTOR, x, y))))
+
 #define ML99_IS_LOWERCASE(x) ML99_IDENT_EQ(ML99_LOWERCASE_DETECTOR, x, x)
 #define ML99_IS_UPPERCASE(x) ML99_IDENT_EQ(ML99_UPPERCASE_DETECTOR, x, x)
 #define ML99_IS_DIGIT(x)     ML99_IDENT_EQ(ML99_DIGIT_DETECTOR, x, x)
+
 #define ML99_IS_CHAR(x)                                                                            \
     ML99_OR(                                                                                       \
         ML99_IS_LOWERCASE(x),                                                                      \
         ML99_OR(                                                                                   \
             ML99_IS_UPPERCASE(x),                                                                  \
             ML99_OR(ML99_IS_DIGIT(x), ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, x))))
+
 #define ML99_CHAR_LIT(x) ML99_PRIV_CAT(ML99_PRIV_CHAR_LIT_, x)
 
 #ifndef DOXYGEN_IGNORE

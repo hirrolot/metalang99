@@ -9,7 +9,6 @@
 #include <metalang99/eval/acc.h>
 #include <metalang99/eval/rec.h>
 #include <metalang99/eval/syntax_checker.h>
-#include <metalang99/eval/term.h>
 
 #define ML99_PRIV_EVAL(...)                                                                        \
     ML99_PRIV_REC_UNROLL(ML99_PRIV_EVAL_MATCH(                                                     \
@@ -32,7 +31,11 @@
 
 #define ML99_PRIV_EVAL_MATCH(k, k_cx, folder, acc, head, ...)                                      \
     ML99_PRIV_CHECK_TERM(head, ML99_PRIV_TERM_MATCH)                                               \
-    (head, ML99_PRIV_EVAL_)(k, k_cx, folder, acc, (__VA_ARGS__), ML99_PRIV_EVAL_TERM_DATA head)
+    (head)(k, k_cx, folder, acc, (__VA_ARGS__), ML99_PRIV_TERM_DATA head)
+
+#define ML99_PRIV_TERM_MATCH(term)      ML99_PRIV_CAT(ML99_PRIV_EVAL_, ML99_PRIV_TERM_KIND term)
+#define ML99_PRIV_TERM_KIND(kind, ...)  kind
+#define ML99_PRIV_TERM_DATA(_kind, ...) __VA_ARGS__
 
 // Reduction rules {
 
@@ -93,20 +96,25 @@
         (0end, ~),                                                                                 \
         ~)
 
+/*
+ * In this subroutine, we employ the following optimisation:
+ *
+ *  - If `evaluated_op` expands to many terms, we first evaluate these terms and accumulate them
+ * (`ML99_PRIV_EVAL_0callUneval_K_1`).
+ *  - Otherwise, we just paste a single term with the rest of the tail
+ * (`ML99_PRIV_EVAL_0callUneval_K_0`).
+ */
 #define ML99_PRIV_EVAL_0callUneval_K(k, k_cx, folder, acc, tail, evaluated_op, ...)                \
-    /* If the metafunction `evaluated_op` expands to many terms, we first evaluate these terms and \
-     * accumulate them, otherwise, we just paste the single term with the rest of the tail. This   \
-     * optimisation results in a huge performance improvement. */                                  \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_CONTAINS_COMMA(evaluated_op##_IMPL(__VA_ARGS__)),                                \
-        ML99_PRIV_EVAL_0callUneval_K_REGULAR,                                                      \
-        ML99_PRIV_EVAL_0callUneval_K_OPTIMIZED)                                                    \
-    (k, k_cx, folder, acc, tail, evaluated_op##_IMPL(__VA_ARGS__))
+    ML99_PRIV_EVAL_0callUneval_K_AUX(k, k_cx, folder, acc, tail, evaluated_op##_IMPL(__VA_ARGS__))
 
-#define ML99_PRIV_EVAL_0callUneval_K_OPTIMIZED(k, k_cx, folder, acc, tail, body)                   \
+#define ML99_PRIV_EVAL_0callUneval_K_AUX(k, k_cx, folder, acc, tail, ...)                          \
+    ML99_PRIV_CAT(ML99_PRIV_EVAL_0callUneval_K_, ML99_PRIV_CONTAINS_COMMA(__VA_ARGS__))            \
+    (k, k_cx, folder, acc, tail, __VA_ARGS__)
+
+#define ML99_PRIV_EVAL_0callUneval_K_0(k, k_cx, folder, acc, tail, body)                           \
     ML99_PRIV_MACHINE_REDUCE(k, k_cx, folder, acc, body, ML99_PRIV_EXPAND tail)
 
-#define ML99_PRIV_EVAL_0callUneval_K_REGULAR(k, k_cx, folder, acc, tail, ...)                      \
+#define ML99_PRIV_EVAL_0callUneval_K_1(k, k_cx, folder, acc, tail, ...)                            \
     ML99_PRIV_MACHINE_REDUCE(                                                                      \
         ML99_PRIV_EVAL_0v_K,                                                                       \
         (k, k_cx, folder, acc, tail),                                                              \

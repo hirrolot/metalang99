@@ -10,7 +10,7 @@
     ML99_PRIV_IF(ML99_PRIV_IS_UNTUPLE(term), ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR, default)
 
 // clang-format off
-#define ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR(term, ...) \
+#define ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR(term) \
     ML99_PRIV_REC_CONTINUE(ML99_PRIV_REC_STOP)((~), ML99_PRIV_SYNTAX_ERROR(term)) \
     /* Consume arguments passed to ML99_PRIV_TERM_MATCH, see eval.h. */ \
     ML99_PRIV_EMPTY

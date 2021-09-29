@@ -992,10 +992,10 @@
     ML99_call(                                                                                     \
         ML99_boolMatchWithArgs,                                                                    \
         ML99_appl_IMPL(f, x),                                                                      \
-        v(ML99_PRIV_listPartitionAux_, x, ML99_UNTUPLE(acc)))
+        v(ML99_PRIV_listPartition_, x, ML99_UNTUPLE(acc)))
 
-#define ML99_PRIV_listPartitionAux_1_IMPL(x, fst, snd) v(ML99_TUPLE(ML99_CONS(x, fst), snd))
-#define ML99_PRIV_listPartitionAux_0_IMPL(x, fst, snd) v(ML99_TUPLE(fst, ML99_CONS(x, snd)))
+#define ML99_PRIV_listPartition_1_IMPL(x, fst, snd) v(ML99_TUPLE(ML99_CONS(x, fst), snd))
+#define ML99_PRIV_listPartition_0_IMPL(x, fst, snd) v(ML99_TUPLE(fst, ML99_CONS(x, snd)))
 // } (ML99_listPartition_IMPL)
 
 #define ML99_listAppl_IMPL(f, list) ML99_listFoldl_IMPL(ML99_appl, f, list)
