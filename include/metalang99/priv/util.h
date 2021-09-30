@@ -12,6 +12,7 @@
 #define ML99_PRIV_EXPAND(...) __VA_ARGS__
 #define ML99_PRIV_UNTUPLE(x)  ML99_PRIV_EXPAND x
 #define ML99_PRIV_EMPTY(...)
+#define ML99_PRIV_COMMA(...) ,
 
 #define ML99_PRIV_HEAD(...)        ML99_PRIV_HEAD_AUX(__VA_ARGS__, ~)
 #define ML99_PRIV_HEAD_AUX(x, ...) x
@@ -31,9 +32,12 @@
 
 #define ML99_PRIV_IS_UNTUPLE(x)                                                                    \
     ML99_PRIV_IF(ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING(x), 1, ML99_PRIV_IS_UNTUPLE_FAST(x))
-
 #define ML99_PRIV_IS_UNTUPLE_FAST(x)        ML99_PRIV_SND(ML99_PRIV_IS_UNTUPLE_FAST_TEST x, 1)
 #define ML99_PRIV_IS_UNTUPLE_FAST_TEST(...) ~, 0
+
+#define ML99_PRIV_CONTAINS_COMMA(...)                      ML99_PRIV_X_AS_COMMA(__VA_ARGS__, ML99_PRIV_COMMA(), ~)
+#define ML99_PRIV_X_AS_COMMA(_head, x, ...)                ML99_PRIV_CONTAINS_COMMA_RESULT(x, 0, 1, ~)
+#define ML99_PRIV_CONTAINS_COMMA_RESULT(x, _, result, ...) result
 
 /**
  * Checks whether @p x takes the form `(...) (...) ...`.
@@ -44,15 +48,6 @@
  *  - etc.
  */
 #define ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING(x)                                                     \
-    ML99_PRIV_CONTAINS_COMMA(ML99_PRIV_EXPAND(                                                     \
-        ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_1 ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_0 x))
-#define ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_0(...) ML99_PRIV_EMPTY()
-#define ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_1(...) ,
-
-#define ML99_PRIV_CONTAINS_COMMA(...)                      ML99_PRIV_X_AS_COMMA(__VA_ARGS__, ML99_PRIV_COMMA(), ~)
-#define ML99_PRIV_X_AS_COMMA(_head, x, ...)                ML99_PRIV_CONTAINS_COMMA_RESULT(x, 0, 1, ~)
-#define ML99_PRIV_CONTAINS_COMMA_RESULT(x, _, result, ...) result
-
-#define ML99_PRIV_COMMA(...) ,
+    ML99_PRIV_CONTAINS_COMMA(ML99_PRIV_EXPAND(ML99_PRIV_COMMA ML99_PRIV_EMPTY x))
 
 #endif // ML99_PRIV_UTIL_H
