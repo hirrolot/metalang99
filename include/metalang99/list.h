@@ -120,8 +120,7 @@
  *
  * The result is `ML99_list(ML99_appl(f, ML99_untuple(x1)), ..., ML99_appl(f, ML99_untuple(xN)))`.
  *
- * At most 63 arguments are acceptable. Additionally, all the preconditions of #ML99_isUntuple are
- * inherited for each argument after @p f.
+ * Each variadic argument inherits all the preconditions of #ML99_isUntuple.
  *
  * # Examples
  *
@@ -770,24 +769,19 @@
 
 // ML99_listFromTuples_IMPL {
 
-#define ML99_listFromTuples_IMPL(f, ...)                                                           \
-    ML99_PRIV_listFromTuplesProgress_IMPL(f, ML99_VARIADICS_COUNT(__VA_ARGS__), __VA_ARGS__, ~)
+#define ML99_listFromTuples_IMPL(f, ...) ML99_PRIV_listFromTuplesAux_IMPL(f, __VA_ARGS__, ~)
 
-#define ML99_PRIV_listFromTuplesProgress_IMPL(f, count, x, ...)                                    \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_IS_UNTUPLE(x),                                                                        \
-        ML99_PRIV_listFromTuplesError,                                                             \
-        ML99_PRIV_listFromTuplesProgressAux)                                                       \
-    (f, count, x, __VA_ARGS__)
+#define ML99_PRIV_listFromTuplesAux_IMPL(f, x, ...)                                                \
+    ML99_PRIV_CAT(ML99_PRIV_listFromTuples_, ML99_IS_UNTUPLE(x))(f, x, __VA_ARGS__)
 
-#define ML99_PRIV_listFromTuplesError(_f, _count, x, ...) ML99_PRIV_NOT_TUPLE_ERROR(x)
-#define ML99_PRIV_listFromTuplesProgressAux(f, count, x, ...)                                      \
+#define ML99_PRIV_listFromTuples_1(_f, x, ...) ML99_PRIV_NOT_TUPLE_ERROR(x)
+#define ML99_PRIV_listFromTuples_0(f, x, ...)                                                      \
     ML99_cons(                                                                                     \
         ML99_appl_IMPL(f, ML99_UNTUPLE(x)),                                                        \
         ML99_PRIV_IF(                                                                              \
-            ML99_NAT_EQ(count, 1),                                                                 \
+            ML99_VARIADICS_IS_SINGLE(__VA_ARGS__),                                                 \
             v(ML99_NIL()),                                                                         \
-            ML99_callUneval(ML99_PRIV_listFromTuplesProgress, f, ML99_DEC(count), __VA_ARGS__)))
+            ML99_callUneval(ML99_PRIV_listFromTuplesAux, f, __VA_ARGS__)))
 // } (ML99_listFromTuples_IMPL)
 
 #define ML99_listFromSeq_IMPL(seq)                                                                 \
