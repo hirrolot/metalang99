@@ -30,6 +30,7 @@ add_executable(ident ident.c)
 add_executable(tuple tuple.c)
 add_executable(util util.c)
 add_executable(variadics variadics.c)
+add_executable(seq seq.c)
 add_executable(rec eval/rec.c)
 
 foreach(TARGET ${BUILDSYSTEM_TARGETS})

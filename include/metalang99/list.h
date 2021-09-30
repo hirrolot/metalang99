@@ -1,6 +1,6 @@
 /**
  * @file
- * List manipulation.
+ * Cons-list manipulation.
  */
 
 #ifndef ML99_LIST_H
@@ -12,6 +12,7 @@
 #include <metalang99/control.h>
 #include <metalang99/logical.h>
 #include <metalang99/nat.h>
+#include <metalang99/seq.h>
 #include <metalang99/util.h>
 #include <metalang99/variadics.h>
 
@@ -112,7 +113,7 @@
 #define ML99_list(...) ML99_call(ML99_list, __VA_ARGS__)
 
 /**
- * Constructs a list from comma-separated tuples.
+ * Constructs a list from comma-separated <a href="tuple.html">tuples</a>.
  *
  * It sequentially applies @p f to each untupled argument, thus forming the resulting list. If some
  * argument is not a tuple, a fatal error is emitted.
@@ -135,6 +136,23 @@
  * @endcode
  */
 #define ML99_listFromTuples(f, ...) ML99_call(ML99_listFromTuples, f, __VA_ARGS__)
+
+/**
+ * Constructs a list from the <a href="seq.html">sequence</a> @p seq.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/list.h>
+ *
+ * // ML99_nil()
+ * ML99_listFromSeq(v())
+ *
+ * // ML99_list(v(1, 2, 3))
+ * ML99_listFromSeq(v((1)(2)(3)))
+ * @endcode
+ */
+#define ML99_listFromSeq(seq) ML99_call(ML99_listFromSeq, seq)
 
 /**
  * Computes the length of @p list.
@@ -772,6 +790,12 @@
             ML99_callUneval(ML99_PRIV_listFromTuplesProgress, f, ML99_DEC(count), __VA_ARGS__)))
 // } (ML99_listFromTuples_IMPL)
 
+#define ML99_listFromSeq_IMPL(seq)                                                                 \
+    ML99_PRIV_CAT(ML99_PRIV_listFromSeq_, ML99_SEQ_IS_EMPTY(seq))(seq)
+#define ML99_PRIV_listFromSeq_1(_seq) v(ML99_NIL())
+#define ML99_PRIV_listFromSeq_0(seq)                                                               \
+    ML99_cons(v(ML99_SEQ_GET(0)(seq)), ML99_callUneval(ML99_listFromSeq, ML99_SEQ_TAIL(seq)))
+
 #define ML99_listLen_IMPL(list)             ML99_match_IMPL(list, ML99_PRIV_listLen_)
 #define ML99_PRIV_listLen_nil_IMPL(_)       v(0)
 #define ML99_PRIV_listLen_cons_IMPL(_x, xs) ML99_inc(ML99_listLen_IMPL(xs))
@@ -1032,6 +1056,7 @@
 #define ML99_listInit_ARITY           1
 #define ML99_list_ARITY               1
 #define ML99_listFromTuples_ARITY     2
+#define ML99_listFromSeq_ARITY        1
 #define ML99_listLen_ARITY            1
 #define ML99_listAppend_ARITY         2
 #define ML99_listAppendItem_ARITY     2

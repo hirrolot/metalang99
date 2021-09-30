@@ -6,31 +6,17 @@ int main(void) {
     // ML99_variadicsGet
     {
         ML99_ASSERT_EMPTY(ML99_variadicsGet(0)(v()));
-
         ML99_ASSERT_EQ(ML99_variadicsGet(0)(v(19)), v(19));
         ML99_ASSERT_EQ(ML99_variadicsGet(0)(v(19, 8)), v(19));
         ML99_ASSERT_EQ(ML99_variadicsGet(0)(v(19, 8, 7378)), v(19));
 
         ML99_ASSERT_EQ(ML99_variadicsGet(1)(v(19, 8)), v(8));
-        ML99_ASSERT_EQ(ML99_variadicsGet(1)(v(19, 8, 7378)), v(8));
-
         ML99_ASSERT_EQ(ML99_variadicsGet(2)(v(19, 8, 7378)), v(7378));
-        ML99_ASSERT_EQ(ML99_variadicsGet(2)(v(19, 8, 7378, 10)), v(7378));
-
         ML99_ASSERT_EQ(ML99_variadicsGet(3)(v(19, 8, 7378, 10)), v(10));
-        ML99_ASSERT_EQ(ML99_variadicsGet(3)(v(19, 8, 7378, 10, 121)), v(10));
-
         ML99_ASSERT_EQ(ML99_variadicsGet(4)(v(19, 8, 7378, 10, 121)), v(121));
-        ML99_ASSERT_EQ(ML99_variadicsGet(4)(v(19, 8, 7378, 10, 121, 1)), v(121));
-
         ML99_ASSERT_EQ(ML99_variadicsGet(5)(v(19, 8, 7378, 10, 121, 1)), v(1));
-        ML99_ASSERT_EQ(ML99_variadicsGet(5)(v(19, 8, 7378, 10, 121, 1, 80)), v(1));
-
         ML99_ASSERT_EQ(ML99_variadicsGet(6)(v(19, 8, 7378, 10, 121, 1, 80)), v(80));
-        ML99_ASSERT_EQ(ML99_variadicsGet(6)(v(19, 8, 7378, 10, 121, 1, 80, 23)), v(80));
-
         ML99_ASSERT_EQ(ML99_variadicsGet(7)(v(19, 8, 7378, 10, 121, 1, 80, 23)), v(23));
-        ML99_ASSERT_EQ(ML99_variadicsGet(7)(v(19, 8, 7378, 10, 121, 1, 80, 23, 7)), v(23));
     }
 
     // ML99_VARIADICS_GET
@@ -45,14 +31,14 @@ int main(void) {
         ML99_ASSERT_UNEVAL(ML99_VARIADICS_GET(1)(19, 8, 7378) == 8);
     }
 
-#define CHECK_TAIL(...)            CHECK_TAIL_AUX(__VA_ARGS__)
-#define CHECK_TAIL_AUX(a, b, c, d) ML99_ASSERT_UNEVAL(a == 51 && b == 21 && c == 1 && d == 7378)
+#define CHECK_TAIL(...)         CHECK_TAIL_AUX(__VA_ARGS__)
+#define CHECK_TAIL_AUX(a, b, c) ML99_ASSERT_UNEVAL(a == 51 && b == 3 && c == 9)
 
     // ML99_variadicsTail
-    { CHECK_TAIL(ML99_EVAL(ML99_variadicsTail(v(9191, 51, 21, 1, 7378)))); }
+    { CHECK_TAIL(ML99_EVAL(ML99_variadicsTail(v(9191, 51, 3, 9)))); }
 
     // ML99_VARIADICS_TAIL
-    { CHECK_TAIL(ML99_VARIADICS_TAIL(9191, 51, 21, 1, 7378)); }
+    { CHECK_TAIL(ML99_VARIADICS_TAIL(9191, 51, 3, 9)); }
 
 #undef CHECK_TAIL
 #undef CHECK_TAIL_AUX

@@ -10,6 +10,7 @@
 #define ML99_PRIV_PRIMITIVE_CAT3(x, y, z) x##y##z
 
 #define ML99_PRIV_EXPAND(...) __VA_ARGS__
+#define ML99_PRIV_UNTUPLE(x)  ML99_PRIV_EXPAND x
 #define ML99_PRIV_EMPTY(...)
 
 #define ML99_PRIV_HEAD(...)        ML99_PRIV_HEAD_AUX(__VA_ARGS__, ~)
@@ -48,9 +49,10 @@
 #define ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_0(...) ML99_PRIV_EMPTY()
 #define ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING_TEST_1(...) ,
 
-#define ML99_PRIV_CONTAINS_COMMA(...)                      ML99_PRIV_X_AS_COMMA(__VA_ARGS__, ML99_PRIV_COMMA, ~)
+#define ML99_PRIV_CONTAINS_COMMA(...)                      ML99_PRIV_X_AS_COMMA(__VA_ARGS__, ML99_PRIV_COMMA(), ~)
 #define ML99_PRIV_X_AS_COMMA(_head, x, ...)                ML99_PRIV_CONTAINS_COMMA_RESULT(x, 0, 1, ~)
 #define ML99_PRIV_CONTAINS_COMMA_RESULT(x, _, result, ...) result
-#define ML99_PRIV_COMMA                                    ,
+
+#define ML99_PRIV_COMMA(...) ,
 
 #endif // ML99_PRIV_UTIL_H

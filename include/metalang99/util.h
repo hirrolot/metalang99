@@ -299,29 +299,6 @@
 
 /**
  * Expands to a single comma, consuming all arguments.
- *
- * # Examples
- *
- * Consider this variation of <a href="https://en.wikipedia.org/wiki/X_Macro">X-Macro</a>:
- *
- * @code
- * #include <metalang99/util.h>
- *
- * #define FOO X(1) X(2, 3) X(4, 5, 6)
- * #define BAR
- *
- * #define X ML99_COMMA
- *
- * // , , ,
- * FOO
- *
- * // (No commas.)
- * BAR
- * @endcode
- *
- * Later, with #ML99_variadicsIsSingle, we can detect whether or not `FOO` and `BAR` result in one
- * or more invocation of `X`. This technique is used in <a
- * href="https://github.com/Hirrolot/interface99">Interface99</a> to detect marker interfaces.
  */
 #define ML99_COMMA(...) ,
 

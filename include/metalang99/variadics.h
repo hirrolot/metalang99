@@ -2,7 +2,7 @@
  * @file
  * Variadic arguments manipulation.
  *
- * Variadics are more time and space-efficient than lists, but export less functionality; if a
+ * @note Variadics are more time and space-efficient than lists, but export less functionality; if a
  * needed function is missed, invoking #ML99_list and then manipulating with the resulting Cons-list
  * might be helpful.
  */
@@ -101,8 +101,6 @@
  * // @x @y @z
  * ML99_variadicsForEach(v(F), v(x, y, z))
  * @endcode
- *
- * @note Unlike #ML99_listMap, @p f can evaluate to many commas.
  */
 #define ML99_variadicsForEach(f, ...) ML99_call(ML99_variadicsForEach, f, __VA_ARGS__)
 
@@ -120,8 +118,6 @@
  * // @x0 @y1 @z2
  * ML99_variadicsForEachI(v(F), v(x, y, z))
  * @endcode
- *
- * @note Unlike #ML99_listMapI, @p f can evaluate to many commas.
  */
 #define ML99_variadicsForEachI(f, ...) ML99_call(ML99_variadicsForEachI, f, __VA_ARGS__)
 
@@ -176,14 +172,10 @@
 // ML99_variadicsForEach_IMPL {
 
 #define ML99_variadicsForEach_IMPL(f, ...)                                                         \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_VARIADICS_IS_SINGLE(__VA_ARGS__),                                                     \
-        ML99_PRIV_variadicsForEachDone,                                                            \
-        ML99_PRIV_variadicsForEachProgress)                                                        \
+    ML99_PRIV_CAT(ML99_PRIV_variadicsForEach_, ML99_VARIADICS_IS_SINGLE(__VA_ARGS__))              \
     (f, __VA_ARGS__)
-
-#define ML99_PRIV_variadicsForEachDone(f, x) ML99_appl_IMPL(f, x)
-#define ML99_PRIV_variadicsForEachProgress(f, x, ...)                                              \
+#define ML99_PRIV_variadicsForEach_1(f, x) ML99_appl_IMPL(f, x)
+#define ML99_PRIV_variadicsForEach_0(f, x, ...)                                                    \
     ML99_TERMS(ML99_appl_IMPL(f, x), ML99_callUneval(ML99_variadicsForEach, f, __VA_ARGS__))
 // } (ML99_variadicsForEach_IMPL)
 
@@ -192,14 +184,11 @@
 #define ML99_variadicsForEachI_IMPL(f, ...) ML99_PRIV_variadicsForEachIAux_IMPL(f, 0, __VA_ARGS__)
 
 #define ML99_PRIV_variadicsForEachIAux_IMPL(f, i, ...)                                             \
-    ML99_PRIV_IF(                                                                                  \
-        ML99_VARIADICS_IS_SINGLE(__VA_ARGS__),                                                     \
-        ML99_PRIV_variadicsForEachIDone,                                                           \
-        ML99_PRIV_variadicsForEachIProgress)                                                       \
+    ML99_PRIV_CAT(ML99_PRIV_variadicsForEachI_, ML99_VARIADICS_IS_SINGLE(__VA_ARGS__))             \
     (f, i, __VA_ARGS__)
 
-#define ML99_PRIV_variadicsForEachIDone(f, i, x) ML99_appl2_IMPL(f, x, i)
-#define ML99_PRIV_variadicsForEachIProgress(f, i, x, ...)                                          \
+#define ML99_PRIV_variadicsForEachI_1(f, i, x) ML99_appl2_IMPL(f, x, i)
+#define ML99_PRIV_variadicsForEachI_0(f, i, x, ...)                                                \
     ML99_TERMS(                                                                                    \
         ML99_appl2_IMPL(f, x, i),                                                                  \
         ML99_callUneval(ML99_PRIV_variadicsForEachIAux, f, ML99_PRIV_INC(i), __VA_ARGS__))

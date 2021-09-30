@@ -41,6 +41,14 @@ int main(void) {
 #undef F_IMPL
 #undef F_ARITY
 
+    // ML99_listFromSeq
+    {
+        ML99_ASSERT(ML99_isNil(ML99_listFromSeq(ML99_empty())));
+        ML99_ASSERT(CMP_NATURALS(ML99_listFromSeq(v((1))), ML99_list(v(1))));
+        ML99_ASSERT(CMP_NATURALS(ML99_listFromSeq(v((1)(2))), ML99_list(v(1, 2))));
+        ML99_ASSERT(CMP_NATURALS(ML99_listFromSeq(v((1)(2)(3))), ML99_list(v(1, 2, 3))));
+    }
+
     // ML99_listHead
     {
         ML99_ASSERT_EQ(ML99_listHead(ML99_list(v(1))), v(1));

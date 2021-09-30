@@ -64,6 +64,7 @@ These macros can be used as follows:
    tuple
    variadics
    list
+   seq
    either
    maybe
    nat
@@ -79,9 +80,10 @@ Contents
 
  - `lang.h`_ - The core metalanguage.
  - `choice.h`_ - Choice types.
- - `tuple.h`_ - Tuple manipulation.
+ - `tuple.h`_ - Tuple manipulation: `(x, y, z)`.
  - `variadics.h`_ - Variadic arguments manipulation.
- - `list.h`_ - List manipulation.
+ - `list.h`_ - Cons-list manipulation.
+ - `seq.h`_ - Sequence manipulation: `(x)(y)(z)`.
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
  - `nat.h`_ - Natural numbers ([0; 255]).
@@ -106,6 +108,7 @@ Indices and tables
 .. _tuple.h: tuple.html
 .. _variadics.h: variadics.html
 .. _list.h: list.html
+.. _seq.h: seq.html
 .. _either.h: either.html
 .. _maybe.h: maybe.html
 .. _nat.h: nat.html

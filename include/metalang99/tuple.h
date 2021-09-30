@@ -1,16 +1,17 @@
 /**
  * @file
- * Tuple manipulation.
+ * Tuple manipulation: `(x, y, z)`.
  *
- * A tuple is represented as `(x1, ..., xN)`. Tuples are more time and space-efficient than lists,
- * but export less functionality; if a needed function is missed, invoking #ML99_list and then
- * manipulating with the resulting Cons-list might be helpful.
- *
- * Tuples are a convenient way to deal with product types. For example:
+ * A tuple is represented as `(x1, ..., xN)`. Tuples are a convenient way to deal with product
+ * types. For example:
  *
  * [<a
  * href="https://github.com/Hirrolot/metalang99/blob/master/examples/rectangle.c">examples/rectangle.c</a>]
  * @include rectangle.c
+ *
+ * @note Tuples are more time and space-efficient than lists, but export less functionality; if a
+ * needed function is missed, invoking #ML99_list and then manipulating with the resulting Cons-list
+ * might be helpful.
  */
 
 #ifndef ML99_TUPLE_H
