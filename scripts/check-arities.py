@@ -29,7 +29,7 @@ def gather_metafunctions(root):
         is_metalang99_compliant = re.search("ML99_[a-z]", macro_name)
 
         exceptions = {
-            "ML99_call", "ML99_callUneval", "ML99_fatal", "ML99_abort", "ML99_tupleGet", "ML99_variadicsGet"}
+            "ML99_call", "ML99_callUneval", "ML99_fatal", "ML99_abort", "ML99_tupleGet", "ML99_variadicsGet", "ML99_seqGet"}
         is_exceptional = macro_name in exceptions
 
         if (is_metalang99_compliant and not is_exceptional):
@@ -53,7 +53,7 @@ def gather_arity_specifiers(root):
 
 
 filenames = ["assert", "choice", "control", "either", "gen", "lang",
-             "list", "logical", "maybe", "nat", "ident", "tuple", "util", "variadics"]
+             "list", "logical", "maybe", "nat", "ident", "tuple", "util", "variadics", "seq"]
 
 for filename in filenames:
     check_file(filename)
