@@ -2,7 +2,7 @@
  * @file
  * Sequence manipulation: `(x)(y)(z)`.
  *
- * A sequence is represented as `(...)(...)...`. For example, these are sequences:
+ * A sequence is represented as `(...) (...) ...`. For example, these are sequences:
  *  - `(~, ~, ~)`
  *  - `(1)(2)(3)`
  *  - `(+, -, *, /)(123)(~)`

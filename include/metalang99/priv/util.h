@@ -31,7 +31,12 @@
 #define ML99_PRIV_IS_TUPLE_FAST(x) ML99_PRIV_NOT(ML99_PRIV_IS_UNTUPLE_FAST(x))
 
 #define ML99_PRIV_IS_UNTUPLE(x)                                                                    \
-    ML99_PRIV_IF(ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING(x), 1, ML99_PRIV_IS_UNTUPLE_FAST(x))
+    ML99_PRIV_IF(                                                                                  \
+        ML99_PRIV_IS_DOUBLE_TUPLE_BEGINNING(x),                                                    \
+        ML99_PRIV_TRUE,                                                                            \
+        ML99_PRIV_IS_UNTUPLE_FAST)                                                                 \
+    (x)
+
 #define ML99_PRIV_IS_UNTUPLE_FAST(x)        ML99_PRIV_SND(ML99_PRIV_IS_UNTUPLE_FAST_TEST x, 1)
 #define ML99_PRIV_IS_UNTUPLE_FAST_TEST(...) ~, 0
 
