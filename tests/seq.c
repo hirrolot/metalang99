@@ -66,24 +66,6 @@ int main(void) {
         ML99_ASSERT_UNEVAL(ML99_NOT(ML99_SEQ_IS_EMPTY((~)(~)(~))));
     }
 
-    // ML99_seqIsSingle
-    {
-        ML99_ASSERT(ML99_seqIsSingle(v((~, ~, ~))));
-
-        ML99_ASSERT(ML99_not(ML99_seqIsSingle(v())));
-        ML99_ASSERT(ML99_not(ML99_seqIsSingle(v((~)(~)))));
-        ML99_ASSERT(ML99_not(ML99_seqIsSingle(v((~)(~)(~)))));
-    }
-
-    // ML99_SEQ_IS_SINGLE
-    {
-        ML99_ASSERT_UNEVAL(ML99_SEQ_IS_SINGLE((~, ~, ~)));
-
-        ML99_ASSERT_UNEVAL(ML99_NOT(ML99_SEQ_IS_SINGLE()));
-        ML99_ASSERT_UNEVAL(ML99_NOT(ML99_SEQ_IS_SINGLE((~)(~))));
-        ML99_ASSERT_UNEVAL(ML99_NOT(ML99_SEQ_IS_SINGLE((~)(~)(~))));
-    }
-
 #define CHECK_EXPAND(...) CHECK(__VA_ARGS__)
 
 #define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 1987 && y == 2987 && z == 3987)
@@ -91,7 +73,10 @@ int main(void) {
 #define F_ARITY           1
 
     // ML99_seqForEach
-    { CHECK_EXPAND(ML99_EVAL(ML99_seqForEach(v(F), v((1)(2)(3))))); }
+    {
+        ML99_ASSERT_EMPTY(ML99_seqForEach(v(F), v()));
+        CHECK_EXPAND(ML99_EVAL(ML99_seqForEach(v(F), v((1)(2)(3)))));
+    }
 
 #undef CHECK
 #undef F_IMPL
@@ -102,7 +87,10 @@ int main(void) {
 #define F_ARITY           2
 
     // ML99_seqForEachI
-    { CHECK_EXPAND(ML99_EVAL(ML99_seqForEachI(v(F), v((1)(2)(3))))); }
+    {
+        ML99_ASSERT_EMPTY(ML99_seqForEachI(v(F), v()));
+        CHECK_EXPAND(ML99_EVAL(ML99_seqForEachI(v(F), v((1)(2)(3)))));
+    }
 
 #undef CHECK
 #undef F_IMPL

@@ -45,26 +45,6 @@
 #define ML99_seqIsEmpty(seq) ML99_call(ML99_seqIsEmpty, seq)
 
 /**
- * True iff @p seq contains only one element.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/seq.h>
- *
- * // 1
- * ML99_seqIsSingle(v((~)))
- *
- * // 0
- * ML99_seqIsSingle(v())
- *
- * // 0
- * ML99_seqIsSingle(v((~)(~)(~)))
- * @endcode
- */
-#define ML99_seqIsSingle(seq) ML99_call(ML99_seqIsSingle, seq)
-
-/**
  * Expands to a metafunction extracting the @p i -indexed element of @p seq.
  *
  * @p i can range from 0 to 7, inclusively.
@@ -133,19 +113,13 @@
  */
 #define ML99_seqForEachI(f, seq) ML99_call(ML99_seqForEachI, f, seq)
 
-#define ML99_SEQ_IS_EMPTY(seq)  ML99_NOT(ML99_PRIV_CONTAINS_COMMA(ML99_PRIV_COMMA seq))
-#define ML99_SEQ_IS_SINGLE(seq) ML99_PRIV_SEQ_IS_SINGLE(seq)
-#define ML99_SEQ_GET(i)         ML99_PRIV_CAT(ML99_PRIV_SEQ_GET_, i)
-#define ML99_SEQ_TAIL(seq)      ML99_PRIV_TAIL(ML99_PRIV_COMMA seq)
+#define ML99_SEQ_IS_EMPTY(seq) ML99_NOT(ML99_PRIV_CONTAINS_COMMA(ML99_PRIV_COMMA seq))
+#define ML99_SEQ_GET(i)        ML99_PRIV_CAT(ML99_PRIV_SEQ_GET_, i)
+#define ML99_SEQ_TAIL(seq)     ML99_PRIV_TAIL(ML99_PRIV_COMMA seq)
 
 #ifndef DOXYGEN_IGNORE
 
-#define ML99_PRIV_SEQ_IS_SINGLE(seq)                                                               \
-    ML99_PRIV_IF(ML99_SEQ_IS_EMPTY(seq), ML99_FALSE, ML99_PRIV_SEQ_IS_SINGLE_AUX)(seq)
-#define ML99_PRIV_SEQ_IS_SINGLE_AUX(seq) ML99_SEQ_IS_EMPTY(ML99_SEQ_TAIL(seq))
-
-#define ML99_seqIsEmpty_IMPL(seq)  v(ML99_SEQ_IS_EMPTY(seq))
-#define ML99_seqIsSingle_IMPL(seq) v(ML99_SEQ_IS_SINGLE(seq))
+#define ML99_seqIsEmpty_IMPL(seq) v(ML99_SEQ_IS_EMPTY(seq))
 
 #define ML99_PRIV_seqGet_0(seq) ML99_call(ML99_PRIV_seqGet_0, seq)
 #define ML99_PRIV_seqGet_1(seq) ML99_call(ML99_PRIV_seqGet_1, seq)
@@ -178,35 +152,26 @@
 
 #define ML99_seqTail_IMPL(seq) v(ML99_SEQ_TAIL(seq))
 
-// ML99_seqForEach_IMPL {
-
 #define ML99_seqForEach_IMPL(f, seq)                                                               \
-    ML99_PRIV_CAT(ML99_PRIV_seqForEach_, ML99_SEQ_IS_SINGLE(seq))(f, seq)
-#define ML99_PRIV_seqForEach_1(f, seq) ML99_appl_IMPL(f, ML99_SEQ_GET(0)(seq))
+    ML99_PRIV_CAT(ML99_PRIV_seqForEach_, ML99_SEQ_IS_EMPTY(seq))(f, seq)
+#define ML99_PRIV_seqForEach_1(...) v(ML99_PRIV_EMPTY())
 #define ML99_PRIV_seqForEach_0(f, seq)                                                             \
     ML99_TERMS(                                                                                    \
         ML99_appl_IMPL(f, ML99_SEQ_GET(0)(seq)),                                                   \
         ML99_callUneval(ML99_seqForEach, f, ML99_SEQ_TAIL(seq)))
-// } (ML99_seqForEach_IMPL)
-
-// ML99_seqForEachI_IMPL {
 
 #define ML99_seqForEachI_IMPL(f, seq) ML99_PRIV_seqForEachIAux_IMPL(f, 0, seq)
-
 #define ML99_PRIV_seqForEachIAux_IMPL(f, i, seq)                                                   \
-    ML99_PRIV_CAT(ML99_PRIV_seqForEachI_, ML99_SEQ_IS_SINGLE(seq))(f, i, seq)
-
-#define ML99_PRIV_seqForEachI_1(f, i, seq) ML99_appl2_IMPL(f, i, ML99_SEQ_GET(0)(seq))
+    ML99_PRIV_CAT(ML99_PRIV_seqForEachI_, ML99_SEQ_IS_EMPTY(seq))(f, i, seq)
+#define ML99_PRIV_seqForEachI_1(...) v(ML99_PRIV_EMPTY())
 #define ML99_PRIV_seqForEachI_0(f, i, seq)                                                         \
     ML99_TERMS(                                                                                    \
         ML99_appl2_IMPL(f, i, ML99_SEQ_GET(0)(seq)),                                               \
         ML99_callUneval(ML99_PRIV_seqForEachIAux, f, ML99_PRIV_INC(i), ML99_SEQ_TAIL(seq)))
-// } (ML99_seqForEachI_IMPL)
 
 // Arity specifiers {
 
 #define ML99_seqIsEmpty_ARITY  1
-#define ML99_seqIsSingle_ARITY 1
 #define ML99_seqTail_ARITY     1
 #define ML99_seqForEach_ARITY  2
 #define ML99_seqForEachI_ARITY 2

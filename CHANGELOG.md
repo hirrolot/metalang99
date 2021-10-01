@@ -11,7 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - New module `seq.h`:
    - `ML99_seqIsEmpty`, `ML99_SEQ_IS_EMPTY` to check for the empty sequence.
-   - `ML99_seqIsSingle`, `ML99_SEQ_IS_SINGLE` to check for a sequence with only one element.
    - `ML99_seqGet`, `ML99_SEQ_GET` to get an `i`-indexed element.
    - `ML99_seqTail`, `ML99_SEQ_TAIL` to get a tail.
    - `ML99_seqForEach(I)` to iterate through each element.
