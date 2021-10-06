@@ -96,9 +96,9 @@ Or [Interface99]:
 
 #include <stdio.h>
 
-#define State_IFACE                     \
-    method( int, get, void *self)       \
-    method(void, set, void *self, int x)
+#define State_IFACE                      \
+    iMethod( int, get, void *self)       \
+    iMethod(void, set, void *self, int x)
 
 interface(State);
 
