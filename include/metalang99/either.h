@@ -124,9 +124,6 @@
 #define ML99_isLeft_IMPL(either)  v(ML99_IS_LEFT(either))
 #define ML99_isRight_IMPL(either) v(ML99_IS_RIGHT(either))
 
-#define ML99_PRIV_IS_LEFT(either) ML99_DETECT_IDENT(ML99_PRIV_IS_LEFT_, ML99_CHOICE_TAG(either))
-#define ML99_PRIV_IS_LEFT_left    ()
-
 #define ML99_eitherEq_IMPL(cmp, either, other)                                                     \
     ML99_PRIV_IF(                                                                                  \
         ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other),                                            \
@@ -147,6 +144,9 @@
     ML99_OR(                                                                                       \
         ML99_AND(ML99_IS_LEFT(either), ML99_IS_LEFT(other)),                                       \
         ML99_AND(ML99_IS_RIGHT(either), ML99_IS_RIGHT(other)))
+
+#define ML99_PRIV_IS_LEFT(either) ML99_DETECT_IDENT(ML99_PRIV_IS_LEFT_, ML99_CHOICE_TAG(either))
+#define ML99_PRIV_IS_LEFT_left    ()
 
 // Arity specifiers {
 

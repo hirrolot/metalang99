@@ -107,9 +107,6 @@
 #define ML99_isJust_IMPL(maybe)    v(ML99_IS_JUST(maybe))
 #define ML99_isNothing_IMPL(maybe) v(ML99_IS_NOTHING(maybe))
 
-#define ML99_PRIV_IS_JUST(maybe) ML99_DETECT_IDENT(ML99_PRIV_IS_JUST_, ML99_CHOICE_TAG(maybe))
-#define ML99_PRIV_IS_JUST_just   ()
-
 #define ML99_maybeEq_IMPL(cmp, maybe, other)                                                       \
     ML99_PRIV_IF(                                                                                  \
         ML99_AND(ML99_IS_NOTHING(maybe), ML99_IS_NOTHING(other)),                                  \
@@ -123,6 +120,9 @@
 #define ML99_PRIV_maybeUnwrap_nothing_IMPL(_)                                                      \
     ML99_fatal(ML99_maybeUnwrap, expected ML99_just but found ML99_nothing)
 #define ML99_PRIV_maybeUnwrap_just_IMPL(x) v(x)
+
+#define ML99_PRIV_IS_JUST(maybe) ML99_DETECT_IDENT(ML99_PRIV_IS_JUST_, ML99_CHOICE_TAG(maybe))
+#define ML99_PRIV_IS_JUST_just   ()
 
 // Arity specifiers {
 

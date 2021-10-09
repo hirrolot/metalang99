@@ -35,6 +35,40 @@
 #define ML99_nil(...) ML99_callUneval(ML99_nil, )
 
 /**
+ * Checks @p list for non-emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/list.h>
+ *
+ * // 1
+ * ML99_isCons(ML99_list(v(1, 2, 3)))
+ *
+ * // 0
+ * ML99_isCons(ML99_nil())
+ * @endcode
+ */
+#define ML99_isCons(list) ML99_call(ML99_isCons, list)
+
+/**
+ * Checks @p list for emptiness.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/list.h>
+ *
+ * // 0
+ * ML99_isNil(ML99_list(v(1, 2, 3)))
+ *
+ * // 1
+ * ML99_isNil(ML99_nil())
+ * @endcode
+ */
+#define ML99_isNil(list) ML99_call(ML99_isNil, list)
+
+/**
  * Extracts the head from the non-empty list @p list.
  *
  * # Examples
@@ -284,40 +318,6 @@
  * @endcode
  */
 #define ML99_listReverse(list) ML99_call(ML99_listReverse, list)
-
-/**
- * Checks @p list for non-emptiness.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/list.h>
- *
- * // 1
- * ML99_isCons(ML99_list(v(1, 2, 3)))
- *
- * // 0
- * ML99_isCons(ML99_nil())
- * @endcode
- */
-#define ML99_isCons(list) ML99_call(ML99_isCons, list)
-
-/**
- * Checks @p list for emptiness.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/list.h>
- *
- * // 0
- * ML99_isNil(ML99_list(v(1, 2, 3)))
- *
- * // 1
- * ML99_isNil(ML99_nil())
- * @endcode
- */
-#define ML99_isNil(list) ML99_call(ML99_isNil, list)
 
 /**
  * Extracts the @p i -indexed element.
@@ -712,6 +712,9 @@
 #define ML99_cons_IMPL(x, xs) v(ML99_CONS(x, xs))
 #define ML99_nil_IMPL(...)    v(ML99_NIL())
 
+#define ML99_isCons_IMPL(list) v(ML99_IS_CONS(list))
+#define ML99_isNil_IMPL(list)  v(ML99_IS_NIL(list))
+
 #define ML99_listHead_IMPL(list)             ML99_match_IMPL(list, ML99_PRIV_listHead_)
 #define ML99_PRIV_listHead_nil_IMPL(_)       ML99_PRIV_EMPTY_LIST_ERROR(listHead)
 #define ML99_PRIV_listHead_cons_IMPL(x, _xs) v(x)
@@ -801,9 +804,6 @@
     ML99_cons(v(x), ML99_listAppend_IMPL(xs, other))
 
 #define ML99_listAppendItem_IMPL(item, list) ML99_listAppend_IMPL(list, ML99_CONS(item, ML99_NIL()))
-
-#define ML99_isCons_IMPL(list) v(ML99_IS_CONS(list))
-#define ML99_isNil_IMPL(list)  v(ML99_IS_NIL(list))
 
 #define ML99_listUnwrap_IMPL(list)            ML99_match_IMPL(list, ML99_PRIV_listUnwrap_)
 #define ML99_PRIV_listUnwrap_nil_IMPL(_)      v(ML99_EMPTY())
@@ -1044,6 +1044,8 @@
 
 #define ML99_cons_ARITY               2
 #define ML99_nil_ARITY                1
+#define ML99_isCons_ARITY             1
+#define ML99_isNil_ARITY              1
 #define ML99_listHead_ARITY           1
 #define ML99_listTail_ARITY           1
 #define ML99_listLast_ARITY           1
@@ -1057,8 +1059,6 @@
 #define ML99_listUnwrap_ARITY         1
 #define ML99_listUnwrapCommaSep_ARITY 1
 #define ML99_listReverse_ARITY        1
-#define ML99_isCons_ARITY             1
-#define ML99_isNil_ARITY              1
 #define ML99_listGet_ARITY            2
 #define ML99_listFoldr_ARITY          3
 #define ML99_listFoldl_ARITY          3
