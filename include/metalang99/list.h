@@ -207,8 +207,7 @@
 /**
  * Evaluates a metaprogram that reduces to a list, then unwraps it.
  *
- * It behaves the same as the composition of <a href="#c.ML99_EVAL">ML99_EVAL</a> and
- * #ML99_listUnwrap.
+ * It behaves the same as the composition of #ML99_EVAL and #ML99_listUnwrap.
  *
  * # Examples
  *
