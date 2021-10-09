@@ -32,6 +32,20 @@
 #define ML99_if(cond, x, y) ML99_call(ML99_if, cond, x, y)
 
 /**
+ * Pastes provided arguments @p n times.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/control.h>
+ *
+ * // ~ ~ ~ ~ ~
+ * ML99_times(v(5), v(~))
+ * @endcode
+ */
+#define ML99_times(n, ...) ML99_call(ML99_times, n, __VA_ARGS__)
+
+/**
  * Invokes @p f @p n times, providing an iteration index each time.
  *
  * # Examples
@@ -45,20 +59,6 @@
  * @endcode
  */
 #define ML99_repeat(n, f) ML99_call(ML99_repeat, n, f)
-
-/**
- * Pastes provided arguments @p n times.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/control.h>
- *
- * // ~ ~ ~ ~ ~
- * ML99_times(v(5), v(~))
- * @endcode
- */
-#define ML99_times(n, ...) ML99_call(ML99_times, n, __VA_ARGS__)
 
 /**
  * Overloads @p f on a number of arguments.
@@ -107,13 +107,13 @@
 
 #define ML99_if_IMPL(cond, x, y) v(ML99_PRIV_IF(cond, x, y))
 
-#define ML99_repeat_IMPL(n, f)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_repeat_, f)
-#define ML99_PRIV_repeat_Z_IMPL       ML99_empty_IMPL
-#define ML99_PRIV_repeat_S_IMPL(i, f) ML99_TERMS(ML99_repeat_IMPL(i, f), ML99_appl_IMPL(f, i))
-
 #define ML99_times_IMPL(n, ...)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_times_, __VA_ARGS__)
 #define ML99_PRIV_times_Z_IMPL         ML99_empty_IMPL
 #define ML99_PRIV_times_S_IMPL(i, ...) ML99_TERMS(v(__VA_ARGS__), ML99_times_IMPL(i, __VA_ARGS__))
+
+#define ML99_repeat_IMPL(n, f)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_repeat_, f)
+#define ML99_PRIV_repeat_Z_IMPL       ML99_empty_IMPL
+#define ML99_PRIV_repeat_S_IMPL(i, f) ML99_TERMS(ML99_repeat_IMPL(i, f), ML99_appl_IMPL(f, i))
 
 // Arity specifiers {
 
