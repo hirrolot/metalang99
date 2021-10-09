@@ -480,7 +480,7 @@
 
 #define ML99_PRIV_indexedParamsAux_IMPL(type_list, i)                                              \
     ML99_matchWithArgs_IMPL(type_list, ML99_PRIV_indexedParams_, i)
-#define ML99_PRIV_indexedParams_nil_IMPL(...) v(ML99_EMPTY())
+#define ML99_PRIV_indexedParams_nil_IMPL ML99_empty_IMPL
 #define ML99_PRIV_indexedParams_cons_IMPL(x, xs, i)                                                \
     ML99_TERMS(v(, x _##i), ML99_PRIV_indexedParamsAux_IMPL(xs, ML99_INC(i)))
 // } (ML99_indexedParams_IMPL)
@@ -491,7 +491,7 @@
 
 #define ML99_PRIV_indexedFieldsAux_IMPL(type_list, i)                                              \
     ML99_matchWithArgs_IMPL(type_list, ML99_PRIV_indexedFields_, i)
-#define ML99_PRIV_indexedFields_nil_IMPL(...) v(ML99_EMPTY())
+#define ML99_PRIV_indexedFields_nil_IMPL ML99_empty_IMPL
 #define ML99_PRIV_indexedFields_cons_IMPL(x, xs, i)                                                \
     ML99_TERMS(v(x _##i;), ML99_PRIV_indexedFieldsAux_IMPL(xs, ML99_INC(i)))
 // } (ML99_indexedFields_IMPL)
