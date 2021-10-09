@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Changed
+
+ - `choice.h`:
+   - Define the representation of choice types as `(tag, ...)`.
+
 ## [1.11.0] - 2021-10-02
 
 ### Added

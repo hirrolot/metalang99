@@ -1,6 +1,6 @@
 /**
  * @file
- * Tuple manipulation: `(x, y, z)`.
+ * Tuples: `(x, y, z)`.
  *
  * A tuple is represented as `(x1, ..., xN)`. Tuples are a convenient way to deal with product
  * types. For example:

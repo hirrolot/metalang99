@@ -1,13 +1,16 @@
 /**
  * @file
- * Choice types.
+ * Choice types: `(tag, ...)`.
  *
- * A choice type is a type with several alternatives. Perhaps the most common example of a choice
- * type is a binary tree:
+ * A choice type, also known as [tagged union], is represented as `(tag, ...)`, where `tag` is the
+ * type of a value and `...` is the value. Perhaps the most common example of a choice type is a
+ * binary tree:
  *
  * [<a
  * href="https://github.com/Hirrolot/metalang99/blob/master/examples/binary_tree.c">examples/binary_tree.c</a>]
  * @include binary_tree.c
+ *
+ * [tagged union]: https://en.wikipedia.org/wiki/Tagged_union
  */
 
 #ifndef ML99_CHOICE_H

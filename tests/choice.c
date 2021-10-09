@@ -42,4 +42,13 @@ int main(void) {
 
     // ML99_CHOICE, ML99_CHOICE_TAG
     { ML99_ASSERT_UNEVAL(ML99_CHOICE_TAG(ML99_CHOICE(5, 1, 2, 3)) == 5); }
+
+    // Representation
+    {
+#define CHECK(tag, x, y, z) tag == 5 && x == 1 && y == 2 && z == 3
+
+        ML99_ASSERT_UNEVAL(CHECK ML99_CHOICE(5, 1, 2, 3));
+
+#undef CHECK
+    }
 }

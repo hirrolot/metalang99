@@ -1,6 +1,6 @@
 /**
  * @file
- * Sequence manipulation: `(x)(y)(z)`.
+ * Sequences: `(x)(y)(z)`.
  *
  * A sequence is represented as `(...) (...) ...`. For example, these are sequences:
  *  - `(~, ~, ~)`

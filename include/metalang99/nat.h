@@ -1,6 +1,6 @@
 /**
  * @file
- * Natural numbers ([0; 255]).
+ * Natural numbers: [0; 255].
  *
  * Most of the time, natural numbers are used for iteration; they are not meant for CPU-bound tasks
  * such as Fibonacci numbers or factorials.

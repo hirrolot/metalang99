@@ -1,6 +1,6 @@
 /**
  * @file
- * Identifier manipulation.
+ * Identifiers: `[a-zA-Z0-9_]+`.
  *
  * An identifier is a sequence of characters. A character is one of:
  *

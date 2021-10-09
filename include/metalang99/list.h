@@ -1,6 +1,6 @@
 /**
  * @file
- * Cons-list manipulation.
+ * Cons-lists.
  */
 
 #ifndef ML99_LIST_H

@@ -79,20 +79,20 @@ Contents
 ====================================
 
  - `lang.h`_ - The core metalanguage.
- - `choice.h`_ - Choice types.
- - `tuple.h`_ - Tuple manipulation: `(x, y, z)`.
- - `variadics.h`_ - Variadic arguments manipulation.
- - `list.h`_ - Cons-list manipulation.
- - `seq.h`_ - Sequence manipulation: `(x)(y)(z)`.
+ - `choice.h`_ - Choice types: `(tag, ...)`.
+ - `tuple.h`_ - Tuples: `(x, y, z)`.
+ - `variadics.h`_ - Variadic arguments: `x, y, z`.
+ - `list.h`_ - Cons-lists.
+ - `seq.h`_ - Sequences: `(x)(y)(z)`.
  - `either.h`_ - A choice type with two cases.
  - `maybe.h`_ - An optional value.
- - `nat.h`_ - Natural numbers ([0; 255]).
- - `ident.h`_ - Identifier manipulation.
+ - `nat.h`_ - Natural numbers: [0; 255].
+ - `ident.h`_ - Identifiers: `[a-zA-Z0-9_]+`.
  - `logical.h`_ - Boolean algebra.
  - `control.h`_ - Control flow operators.
- - `assert.h`_ - Static assertions.
  - `util.h`_ - Utilitary stuff.
  - `gen.h`_ - Support for C language constructions.
+ - `assert.h`_ - Static assertions.
 
 Indices and tables
 ====================================

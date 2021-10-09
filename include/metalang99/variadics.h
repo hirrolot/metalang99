@@ -1,6 +1,6 @@
 /**
  * @file
- * Variadic arguments manipulation.
+ * Variadic arguments: `x, y, z`.
  *
  * @note Variadics are more time and space-efficient than lists, but export less functionality; if a
  * needed function is missed, invoking #ML99_list and then manipulating with the resulting Cons-list
