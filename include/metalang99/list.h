@@ -6,10 +6,11 @@
 #ifndef ML99_LIST_H
 #define ML99_LIST_H
 
+#include <metalang99/priv/bool.h>
 #include <metalang99/priv/util.h>
 
+#include <metalang99/bool.h>
 #include <metalang99/choice.h>
-#include <metalang99/logical.h>
 #include <metalang99/nat.h>
 #include <metalang99/seq.h>
 #include <metalang99/util.h>

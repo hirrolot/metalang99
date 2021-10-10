@@ -1,6 +1,7 @@
 #ifndef ML99_EVAL_SYNTAX_CHECKER_H
 #define ML99_EVAL_SYNTAX_CHECKER_H
 
+#include <metalang99/priv/bool.h>
 #include <metalang99/priv/compiler_specific.h>
 #include <metalang99/priv/util.h>
 

@@ -6,11 +6,11 @@
 #ifndef ML99_MAYBE_H
 #define ML99_MAYBE_H
 
+#include <metalang99/priv/bool.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/choice.h>
 #include <metalang99/ident.h>
-#include <metalang99/logical.h>
 
 /**
  * Some value @p x.
@@ -97,7 +97,7 @@
 #define ML99_JUST(x)           ML99_CHOICE(just, x)
 #define ML99_NOTHING(...)      ML99_CHOICE(nothing, ~)
 #define ML99_IS_JUST(maybe)    ML99_PRIV_IS_JUST(maybe)
-#define ML99_IS_NOTHING(maybe) ML99_NOT(ML99_IS_JUST(maybe))
+#define ML99_IS_NOTHING(maybe) ML99_PRIV_NOT(ML99_IS_JUST(maybe))
 
 #ifndef DOXYGEN_IGNORE
 
@@ -109,12 +109,12 @@
 
 #define ML99_maybeEq_IMPL(cmp, maybe, other)                                                       \
     ML99_PRIV_IF(                                                                                  \
-        ML99_AND(ML99_IS_NOTHING(maybe), ML99_IS_NOTHING(other)),                                  \
-        v(ML99_TRUE()),                                                                            \
+        ML99_PRIV_AND(ML99_IS_NOTHING(maybe), ML99_IS_NOTHING(other)),                             \
+        v(ML99_PRIV_TRUE()),                                                                       \
         ML99_PRIV_IF(                                                                              \
-            ML99_AND(ML99_IS_JUST(maybe), ML99_IS_JUST(other)),                                    \
+            ML99_PRIV_AND(ML99_IS_JUST(maybe), ML99_IS_JUST(other)),                               \
             ML99_appl2_IMPL(cmp, ML99_PRIV_CHOICE_DATA maybe, ML99_PRIV_CHOICE_DATA other),        \
-            v(ML99_FALSE())))
+            v(ML99_PRIV_FALSE())))
 
 #define ML99_maybeUnwrap_IMPL(maybe) ML99_match_IMPL(maybe, ML99_PRIV_maybeUnwrap_)
 #define ML99_PRIV_maybeUnwrap_nothing_IMPL(_)                                                      \

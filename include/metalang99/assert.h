@@ -13,8 +13,8 @@
 
 #include <metalang99/priv/compiler_specific.h>
 
+#include <metalang99/bool.h>
 #include <metalang99/lang.h>
-#include <metalang99/logical.h>
 
 /**
  * The same as #ML99_ASSERT but results in a Metalang99 term.

@@ -1,6 +1,7 @@
 #ifndef ML99_LANG_CLOSURE_H
 #define ML99_LANG_CLOSURE_H
 
+#include <metalang99/priv/bool.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/nat/dec.h>

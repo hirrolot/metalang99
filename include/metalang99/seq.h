@@ -35,11 +35,9 @@
 #define ML99_SEQ_H
 
 #include <metalang99/nat/inc.h>
-
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
-#include <metalang99/logical.h>
 
 /**
  * True iff @p seq contains no elements (which means an empty preprocessing lexeme).
@@ -127,7 +125,7 @@
  */
 #define ML99_seqForEachI(f, seq) ML99_call(ML99_seqForEachI, f, seq)
 
-#define ML99_SEQ_IS_EMPTY(seq) ML99_NOT(ML99_PRIV_CONTAINS_COMMA(ML99_PRIV_COMMA seq))
+#define ML99_SEQ_IS_EMPTY(seq) ML99_PRIV_NOT(ML99_PRIV_CONTAINS_COMMA(ML99_PRIV_COMMA seq))
 #define ML99_SEQ_GET(i)        ML99_PRIV_CAT(ML99_PRIV_SEQ_GET_, i)
 #define ML99_SEQ_TAIL(seq)     ML99_PRIV_TAIL(ML99_PRIV_COMMA seq)
 

@@ -11,11 +11,9 @@
 #define ML99_VARIADICS_H
 
 #include <metalang99/nat/inc.h>
-
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
-#include <metalang99/logical.h>
 
 /**
  * Computes a count of its arguments.
@@ -151,7 +149,7 @@
 #define ML99_OVERLOAD(f, ...) ML99_PRIV_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
 
 #define ML99_VARIADICS_COUNT(...)     ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
-#define ML99_VARIADICS_IS_SINGLE(...) ML99_NOT(ML99_PRIV_CONTAINS_COMMA(__VA_ARGS__))
+#define ML99_VARIADICS_IS_SINGLE(...) ML99_PRIV_NOT(ML99_PRIV_CONTAINS_COMMA(__VA_ARGS__))
 #define ML99_VARIADICS_GET(i)         ML99_PRIV_CAT(ML99_PRIV_VARIADICS_GET_, i)
 #define ML99_VARIADICS_TAIL(...)      ML99_PRIV_TAIL(__VA_ARGS__)
 

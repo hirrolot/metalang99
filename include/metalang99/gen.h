@@ -35,6 +35,8 @@
 #ifndef ML99_GEN_H
 #define ML99_GEN_H
 
+#include <metalang99/priv/bool.h>
+
 #include <metalang99/choice.h>
 #include <metalang99/lang.h>
 #include <metalang99/list.h>

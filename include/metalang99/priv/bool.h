@@ -20,6 +20,9 @@
 #define ML99_PRIV_OR_10    1
 #define ML99_PRIV_OR_11    1
 
+#define ML99_PRIV_OR3(a, b, c)    ML99_PRIV_OR(a, ML99_PRIV_OR(b, c))
+#define ML99_PRIV_OR4(a, b, c, d) ML99_PRIV_OR3(a, b, ML99_PRIV_OR(c, d))
+
 #define ML99_PRIV_XOR(x, y) ML99_PRIV_LOGICAL_OVERLOAD(ML99_PRIV_XOR_, x, y)
 #define ML99_PRIV_XOR_00    0
 #define ML99_PRIV_XOR_01    1
@@ -34,5 +37,10 @@
 
 #define ML99_PRIV_LOGICAL_OVERLOAD(op, x, y)     op##x##y
 #define ML99_PRIV_LOGICAL_OVERLOAD_SINGLE(op, b) op##b
+
+#define ML99_PRIV_IF(cond, x, y)        ML99_PRIV_IF_EXPAND(cond, x, y)
+#define ML99_PRIV_IF_EXPAND(cond, x, y) ML99_PRIV_IF_##cond(x, y)
+#define ML99_PRIV_IF_0(_x, y)           y
+#define ML99_PRIV_IF_1(x, _y)           x
 
 #endif // ML99_PRIV_LOGICAL_H

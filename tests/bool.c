@@ -1,5 +1,5 @@
 #include <metalang99/assert.h>
-#include <metalang99/logical.h>
+#include <metalang99/bool.h>
 
 int main(void) {
 

@@ -14,9 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Deprecated
 
+ - `logical.h`:
+   - Move all functions to `bool.h`.
+
  - `control.h`:
-   - Move `ML99_if`, `ML99_IF` to `logical.h`.
-   - Move `ML99_overload`, `ML99_times` to `gen.h`.
+   - Move `ML99_if`, `ML99_IF` to `bool.h`.
+   - Move `ML99_repeat`, `ML99_times` to `gen.h`.
    - Move `ML99_OVERLOAD` to `variadics.h`.
 
 ## [1.11.0] - 2021-10-02

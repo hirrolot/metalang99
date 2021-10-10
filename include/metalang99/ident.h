@@ -16,10 +16,10 @@
 #ifndef ML99_IDENT_H
 #define ML99_IDENT_H
 
+#include <metalang99/priv/bool.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>
-#include <metalang99/logical.h>
 
 /**
  * Tells whether @p ident belongs to a set of identifiers defined by @p prefix.
@@ -197,22 +197,21 @@
     ML99_PRIV_IF(                                                                                  \
         ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, x),                                            \
         ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, y),                                            \
-        ML99_OR(                                                                                   \
+        ML99_PRIV_OR3(                                                                             \
             ML99_IDENT_EQ(ML99_LOWERCASE_DETECTOR, x, y),                                          \
-            ML99_OR(                                                                               \
-                ML99_IDENT_EQ(ML99_UPPERCASE_DETECTOR, x, y),                                      \
-                ML99_IDENT_EQ(ML99_DIGIT_DETECTOR, x, y))))
+            ML99_IDENT_EQ(ML99_UPPERCASE_DETECTOR, x, y),                                          \
+            ML99_IDENT_EQ(ML99_DIGIT_DETECTOR, x, y)))
 
 #define ML99_IS_LOWERCASE(x) ML99_IDENT_EQ(ML99_LOWERCASE_DETECTOR, x, x)
 #define ML99_IS_UPPERCASE(x) ML99_IDENT_EQ(ML99_UPPERCASE_DETECTOR, x, x)
 #define ML99_IS_DIGIT(x)     ML99_IDENT_EQ(ML99_DIGIT_DETECTOR, x, x)
 
 #define ML99_IS_CHAR(x)                                                                            \
-    ML99_OR(                                                                                       \
+    ML99_PRIV_OR4(                                                                                 \
         ML99_IS_LOWERCASE(x),                                                                      \
-        ML99_OR(                                                                                   \
-            ML99_IS_UPPERCASE(x),                                                                  \
-            ML99_OR(ML99_IS_DIGIT(x), ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, x))))
+        ML99_IS_UPPERCASE(x),                                                                      \
+        ML99_IS_DIGIT(x),                                                                          \
+        ML99_DETECT_IDENT(ML99_UNDERSCORE_DETECTOR, x))
 
 #define ML99_CHAR_LIT(x) ML99_PRIV_CAT(ML99_PRIV_CHAR_LIT_, x)
 

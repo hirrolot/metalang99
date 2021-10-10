@@ -6,8 +6,9 @@
 #endif
 
 #include <metalang99/assert.h>
+#include <metalang99/bool.h>
 #include <metalang99/choice.h>
-#include <metalang99/control.h>
+#include <metalang99/either.h>
 #include <metalang99/gen.h>
 #include <metalang99/ident.h>
 #include <metalang99/lang.h>

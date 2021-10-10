@@ -6,11 +6,11 @@
 #ifndef ML99_EITHER_H
 #define ML99_EITHER_H
 
+#include <metalang99/priv/bool.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/choice.h>
 #include <metalang99/ident.h>
-#include <metalang99/logical.h>
 
 /**
  * The left value @p x.
@@ -114,7 +114,7 @@
 #define ML99_LEFT(x)          ML99_CHOICE(left, x)
 #define ML99_RIGHT(x)         ML99_CHOICE(right, x)
 #define ML99_IS_LEFT(either)  ML99_PRIV_IS_LEFT(either)
-#define ML99_IS_RIGHT(either) ML99_NOT(ML99_IS_LEFT(either))
+#define ML99_IS_RIGHT(either) ML99_PRIV_NOT(ML99_IS_LEFT(either))
 
 #ifndef DOXYGEN_IGNORE
 
@@ -128,7 +128,7 @@
     ML99_PRIV_IF(                                                                                  \
         ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other),                                            \
         ML99_appl2_IMPL(cmp, ML99_PRIV_CHOICE_DATA either, ML99_PRIV_CHOICE_DATA other),           \
-        v(ML99_FALSE()))
+        v(ML99_PRIV_FALSE()))
 
 #define ML99_unwrapLeft_IMPL(either)      ML99_match_IMPL(either, ML99_PRIV_unwrapLeft_)
 #define ML99_PRIV_unwrapLeft_left_IMPL(x) v(x)
@@ -141,9 +141,9 @@
 #define ML99_PRIV_unwrapRight_right_IMPL(x) v(x)
 
 #define ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other)                                             \
-    ML99_OR(                                                                                       \
-        ML99_AND(ML99_IS_LEFT(either), ML99_IS_LEFT(other)),                                       \
-        ML99_AND(ML99_IS_RIGHT(either), ML99_IS_RIGHT(other)))
+    ML99_PRIV_OR(                                                                                  \
+        ML99_PRIV_AND(ML99_IS_LEFT(either), ML99_IS_LEFT(other)),                                  \
+        ML99_PRIV_AND(ML99_IS_RIGHT(either), ML99_IS_RIGHT(other)))
 
 #define ML99_PRIV_IS_LEFT(either) ML99_DETECT_IDENT(ML99_PRIV_IS_LEFT_, ML99_CHOICE_TAG(either))
 #define ML99_PRIV_IS_LEFT_left    ()

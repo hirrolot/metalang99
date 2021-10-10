@@ -1,7 +1,7 @@
 #ifndef ML99_PRIV_UTIL_H
 #define ML99_PRIV_UTIL_H
 
-#include <metalang99/priv/logical.h>
+#include <metalang99/priv/bool.h>
 
 #define ML99_PRIV_CAT(x, y)           ML99_PRIV_PRIMITIVE_CAT(x, y)
 #define ML99_PRIV_PRIMITIVE_CAT(x, y) x##y
@@ -22,10 +22,6 @@
 
 #define ML99_PRIV_SND(...)            ML99_PRIV_SND_AUX(__VA_ARGS__, ~)
 #define ML99_PRIV_SND_AUX(_x, y, ...) y
-
-#define ML99_PRIV_IF(cond, x, y) ML99_PRIV_PRIMITIVE_CAT(ML99_PRIV_IF_, cond)(x, y)
-#define ML99_PRIV_IF_0(_x, y)    y
-#define ML99_PRIV_IF_1(x, _y)    x
 
 #define ML99_PRIV_IS_TUPLE(x)      ML99_PRIV_NOT(ML99_PRIV_IS_UNTUPLE(x))
 #define ML99_PRIV_IS_TUPLE_FAST(x) ML99_PRIV_NOT(ML99_PRIV_IS_UNTUPLE_FAST(x))

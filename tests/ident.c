@@ -1,6 +1,6 @@
 #include <metalang99/assert.h>
+#include <metalang99/bool.h>
 #include <metalang99/ident.h>
-#include <metalang99/logical.h>
 
 int main(void) {
 

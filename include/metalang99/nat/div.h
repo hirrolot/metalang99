@@ -1,6 +1,7 @@
 #ifndef ML99_NAT_DIV_H
 #define ML99_NAT_DIV_H
 
+#include <metalang99/priv/bool.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/maybe.h>
