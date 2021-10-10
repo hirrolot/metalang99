@@ -1,5 +1,5 @@
-#ifndef ML99_PRIV_LOGICAL_H
-#define ML99_PRIV_LOGICAL_H
+#ifndef ML99_PRIV_BOOL_H
+#define ML99_PRIV_BOOL_H
 
 #define ML99_PRIV_TRUE(...)  1
 #define ML99_PRIV_FALSE(...) 0
@@ -38,9 +38,9 @@
 #define ML99_PRIV_LOGICAL_OVERLOAD(op, x, y)     op##x##y
 #define ML99_PRIV_LOGICAL_OVERLOAD_SINGLE(op, b) op##b
 
-#define ML99_PRIV_IF(cond, x, y)        ML99_PRIV_IF_EXPAND(cond, x, y)
-#define ML99_PRIV_IF_EXPAND(cond, x, y) ML99_PRIV_IF_##cond(x, y)
-#define ML99_PRIV_IF_0(_x, y)           y
-#define ML99_PRIV_IF_1(x, _y)           x
+#define ML99_PRIV_IF(cond, x, y)    ML99_PRIV_IF_OVERLOAD(cond)(x, y)
+#define ML99_PRIV_IF_OVERLOAD(cond) ML99_PRIV_IF_##cond
+#define ML99_PRIV_IF_0(_x, y)       y
+#define ML99_PRIV_IF_1(x, _y)       x
 
-#endif // ML99_PRIV_LOGICAL_H
+#endif // ML99_PRIV_BOOL_H

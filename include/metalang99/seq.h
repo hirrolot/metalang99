@@ -35,6 +35,7 @@
 #define ML99_SEQ_H
 
 #include <metalang99/nat/inc.h>
+#include <metalang99/priv/tuple.h>
 #include <metalang99/priv/util.h>
 
 #include <metalang99/lang.h>

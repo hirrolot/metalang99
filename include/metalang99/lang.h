@@ -7,7 +7,7 @@
 #define ML99_LANG_H
 
 #include <metalang99/priv/bool.h>
-#include <metalang99/priv/util.h>
+#include <metalang99/priv/tuple.h>
 
 #include <metalang99/eval/eval.h>
 #include <metalang99/lang/closure.h>

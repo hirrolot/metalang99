@@ -1,7 +1,7 @@
 #ifndef ML99_NAT_EQ_H
 #define ML99_NAT_EQ_H
 
-#include <metalang99/priv/util.h>
+#include <metalang99/priv/tuple.h>
 
 #define ML99_PRIV_NAT_EQ(x, y)     ML99_PRIV_NAT_EQ_AUX(x, y)
 #define ML99_PRIV_NAT_EQ_AUX(x, y) ML99_PRIV_IS_TUPLE_FAST(ML99_PRIV_NAT_EQ_##x##_##y)

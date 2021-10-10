@@ -7,6 +7,7 @@
 #define ML99_BOOL_H
 
 #include <metalang99/priv/bool.h>
+#include <metalang99/priv/tuple.h>
 
 #include <metalang99/lang.h>
 
