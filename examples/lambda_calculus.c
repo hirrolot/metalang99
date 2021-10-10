@@ -11,17 +11,17 @@
 
 // Syntactic terms {
 
-#define Var(i)     ML99_call(Var, i)
-#define Appl(M, N) ML99_call(Appl, M, N)
-#define Lam(M)     ML99_call(Lam, M)
+#define var(i)     ML99_call(var, i)
+#define appl(M, N) ML99_call(appl, M, N)
+#define lam(M)     ML99_call(lam, M)
 
-#define Var_IMPL(i)     v(VAR(i))
-#define Appl_IMPL(M, N) v(APPL(M, N))
-#define Lam_IMPL(M)     v(LAM(M))
+#define var_IMPL(i)     v(VAR(i))
+#define appl_IMPL(M, N) v(APPL(M, N))
+#define lam_IMPL(M)     v(LAM(M))
 
-#define VAR(i)     ML99_CHOICE(Var, i)
-#define APPL(M, N) ML99_CHOICE(Appl, M, N)
-#define LAM(M)     ML99_CHOICE(Lam, M)
+#define VAR(i)     ML99_CHOICE(var, i)
+#define APPL(M, N) ML99_CHOICE(appl, M, N)
+#define LAM(M)     ML99_CHOICE(lam, M)
 // } (Syntactic terms)
 
 // Variable substitution: `M[1=x]` {
@@ -31,15 +31,15 @@
 #define subst_IMPL(M, x)           substAux_IMPL(M, x, 1)
 #define substAux_IMPL(M, x, depth) ML99_callUneval(ML99_matchWithArgs, M, substAux_, x, depth)
 
-#define substAux_Var_IMPL(i, x, depth)                                                             \
+#define substAux_var_IMPL(i, x, depth)                                                             \
     ML99_IF(                                                                                       \
         ML99_NAT_EQ(i, depth),                                                                     \
         v(x),                                                                                      \
         ML99_call(ML99_if, ML99_callUneval(ML99_greater, i, depth), v(VAR(ML99_DEC(i)), VAR(i))))
-#define substAux_Appl_IMPL(M, N, x, depth)                                                         \
-    Appl(substAux_IMPL(M, x, depth), substAux_IMPL(N, x, depth))
-#define substAux_Lam_IMPL(M, x, depth)                                                             \
-    Lam(ML99_call(substAux, v(M), incFreeVars_IMPL(x), v(ML99_INC(depth))))
+#define substAux_appl_IMPL(M, N, x, depth)                                                         \
+    appl(substAux_IMPL(M, x, depth), substAux_IMPL(N, x, depth))
+#define substAux_lam_IMPL(M, x, depth)                                                             \
+    lam(ML99_call(substAux, v(M), incFreeVars_IMPL(x), v(ML99_INC(depth))))
 // } (Variable substitution)
 
 // Increment free variables in `M` {
@@ -49,11 +49,11 @@
 #define incFreeVars_IMPL(M)           incFreeVarsAux_IMPL(M, 1)
 #define incFreeVarsAux_IMPL(M, depth) ML99_callUneval(ML99_matchWithArgs, M, incFreeVarsAux_, depth)
 
-#define incFreeVarsAux_Var_IMPL(i, depth)                                                          \
+#define incFreeVarsAux_var_IMPL(i, depth)                                                          \
     ML99_call(ML99_if, ML99_callUneval(ML99_greaterEq, i, depth), v(VAR(ML99_INC(i)), VAR(i)))
-#define incFreeVarsAux_Appl_IMPL(M, N, depth)                                                      \
-    Appl(incFreeVarsAux_IMPL(M, depth), incFreeVarsAux_IMPL(N, depth))
-#define incFreeVarsAux_Lam_IMPL(M, depth) Lam(incFreeVarsAux_IMPL(M, ML99_INC(depth)))
+#define incFreeVarsAux_appl_IMPL(M, N, depth)                                                      \
+    appl(incFreeVarsAux_IMPL(M, depth), incFreeVarsAux_IMPL(N, depth))
+#define incFreeVarsAux_lam_IMPL(M, depth) lam(incFreeVarsAux_IMPL(M, ML99_INC(depth)))
 // } (Increment free variables)
 
 // Evaluation {
@@ -61,26 +61,26 @@
 #define eval(M) ML99_call(eval, M)
 
 #define eval_IMPL(M)         ML99_callUneval(ML99_match, M, eval_)
-#define eval_Var_IMPL(i)     v(VAR(i))
-#define eval_Appl_IMPL(M, N) ML99_callUneval(ML99_matchWithArgs, M, eval_Appl_, N)
-#define eval_Lam_IMPL(M)     Lam(eval_IMPL(M))
+#define eval_var_IMPL(i)     v(VAR(i))
+#define eval_appl_IMPL(M, N) ML99_callUneval(ML99_matchWithArgs, M, eval_appl_, N)
+#define eval_lam_IMPL(M)     lam(eval_IMPL(M))
 
-#define eval_Appl_Var_IMPL(i, N) Appl(v(VAR(i)), eval_IMPL(N))
-#define eval_Appl_Appl_IMPL(M, N, N1)                                                              \
-    ML99_call(ML99_matchWithArgs, eval(Appl_IMPL(M, N)), v(eval_Appl_Appl_, N1))
-#define eval_Appl_Lam_IMPL(M, N) eval(subst_IMPL(M, N))
+#define eval_appl_var_IMPL(i, N) appl(v(VAR(i)), eval_IMPL(N))
+#define eval_appl_appl_IMPL(M, N, N1)                                                              \
+    ML99_call(ML99_matchWithArgs, eval(appl_IMPL(M, N)), v(eval_appl_appl_, N1))
+#define eval_appl_lam_IMPL(M, N) eval(subst_IMPL(M, N))
 
-#define eval_Appl_Appl_Var_IMPL            eval_Appl_Var_IMPL
-#define eval_Appl_Appl_Appl_IMPL(M, N, N1) Appl(Appl_IMPL(M, N), eval_IMPL(N1))
-#define eval_Appl_Appl_Lam_IMPL            eval_Appl_Lam_IMPL
+#define eval_appl_appl_var_IMPL            eval_appl_var_IMPL
+#define eval_appl_appl_appl_IMPL(M, N, N1) appl(appl_IMPL(M, N), eval_IMPL(N1))
+#define eval_appl_appl_lam_IMPL            eval_appl_lam_IMPL
 // } (Evaluation)
 
 // Syntactical equality {
 
 #define termEq(lhs, rhs)            ML99_matchWithArgs(lhs, v(termEq_), rhs)
-#define termEq_Var_IMPL(i, rhs)     termEqPropagate(Var, rhs, i)
-#define termEq_Appl_IMPL(M, N, rhs) termEqPropagate(Appl, rhs, M, N)
-#define termEq_Lam_IMPL(M, rhs)     termEqPropagate(Lam, rhs, M)
+#define termEq_var_IMPL(i, rhs)     termEqPropagate(var, rhs, i)
+#define termEq_appl_IMPL(M, N, rhs) termEqPropagate(appl, rhs, M, N)
+#define termEq_lam_IMPL(M, rhs)     termEqPropagate(lam, rhs, M)
 
 #define termEqPropagate(term_kind, rhs, ...)                                                       \
     ML99_IF(                                                                                       \
@@ -88,13 +88,13 @@
         ML99_matchWithArgs(v(rhs), v(termEq_##term_kind##_), v(__VA_ARGS__)),                      \
         ML99_false())
 
-#define termEq_Var_Var_IMPL(j, i)           v(ML99_NAT_EQ(i, j))
-#define termEq_Appl_Appl_IMPL(M, N, M1, N1) ML99_and(termEq(v(M), v(M1)), termEq(v(N), v(N1)))
-#define termEq_Lam_Lam_IMPL(M, M1)          termEq(v(M), v(M1))
+#define termEq_var_var_IMPL(j, i)           v(ML99_NAT_EQ(i, j))
+#define termEq_appl_appl_IMPL(M, N, M1, N1) ML99_and(termEq(v(M), v(M1)), termEq(v(N), v(N1)))
+#define termEq_lam_lam_IMPL(M, M1)          termEq(v(M), v(M1))
 
-#define TERM_Var_Var   ()
-#define TERM_Appl_Appl ()
-#define TERM_Lam_Lam   ()
+#define TERM_var_var   ()
+#define TERM_appl_appl ()
+#define TERM_lam_lam   ()
 // } (Syntactical equality)
 
 #define ASSERT_REDUCES_TO(lhs, rhs)                                                                \

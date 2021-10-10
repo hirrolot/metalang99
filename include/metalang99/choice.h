@@ -36,7 +36,7 @@
 /**
  * Evaluates to the tag of @p choice.
  *
- * It is essentially the same as `ML99_tupleGet(0)`.
+ * This macro is essentially the same as `ML99_tupleGet(0)`.
  *
  * # Examples
  *
@@ -52,7 +52,7 @@
 /**
  * Evaluates to the data of @p choice.
  *
- * It is essentially the same as #ML99_tupleTail.
+ * This macro is essentially the same as #ML99_tupleTail.
  *
  * # Examples
  *
