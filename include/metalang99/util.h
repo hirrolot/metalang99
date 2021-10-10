@@ -8,7 +8,7 @@
 
 #include <metalang99/priv/util.h>
 
-#include <metalang99/ident.h> // For backward compatibility.
+#include <metalang99/ident.h> // For backwards compatibility.
 #include <metalang99/lang.h>
 
 /**
