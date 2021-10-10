@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
+### Added
+
+ - `choice.h`:
+   - `ML99_choiceData`, `ML99_CHOICE_DATA` to extract a choice value data.
+
 ### Changed
 
  - `choice.h`:

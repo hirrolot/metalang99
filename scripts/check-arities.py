@@ -52,8 +52,8 @@ def gather_arity_specifiers(root):
     return arity_specifiers
 
 
-filenames = ["assert", "choice", "control", "either", "gen", "lang",
-             "list", "logical", "maybe", "nat", "ident", "tuple", "util", "variadics", "seq"]
+filenames = ["assert", "choice", "either", "gen", "lang", "list",
+             "bool", "maybe", "nat", "ident", "tuple", "util", "variadics", "seq"]
 
 for filename in filenames:
     check_file(filename)

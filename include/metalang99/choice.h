@@ -36,16 +36,34 @@
 /**
  * Evaluates to the tag of @p choice.
  *
+ * It is essentially the same as `ML99_tupleGet(0)`.
+ *
  * # Examples
  *
  * @code
  * #include <metalang99/choice.h>
  *
- * // Foo
- * ML99_choiceTag(ML99_choice(v(Foo), v(1, 2, 3)))
+ * // foo
+ * ML99_choiceTag(ML99_choice(v(foo), v(1, 2, 3)))
  * @endcode
  */
 #define ML99_choiceTag(choice) ML99_call(ML99_choiceTag, choice)
+
+/**
+ * Evaluates to the data of @p choice.
+ *
+ * It is essentially the same as #ML99_tupleTail.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/choice.h>
+ *
+ * // 1, 2, 3
+ * ML99_choiceData(ML99_choice(v(foo), v(1, 2, 3)))
+ * @endcode
+ */
+#define ML99_choiceData(choice) ML99_call(ML99_choiceData, choice)
 
 /**
  * Matches the instance @p choice of a choice type.
@@ -79,29 +97,30 @@
 #define ML99_matchWithArgs(choice, matcher, ...)                                                   \
     ML99_call(ML99_matchWithArgs, choice, matcher, __VA_ARGS__)
 
-#define ML99_CHOICE(tag, ...)   (tag, __VA_ARGS__)
-#define ML99_CHOICE_TAG(choice) ML99_PRIV_HEAD_AUX choice
+#define ML99_CHOICE(tag, ...)    (tag, __VA_ARGS__)
+#define ML99_CHOICE_TAG(choice)  ML99_PRIV_HEAD_AUX choice
+#define ML99_CHOICE_DATA(choice) ML99_PRIV_TAIL_AUX choice
 
 #ifndef DOXYGEN_IGNORE
 
-#define ML99_choice_IMPL(tag, ...)  v(ML99_CHOICE(tag, __VA_ARGS__))
-#define ML99_choiceTag_IMPL(choice) v(ML99_CHOICE_TAG(choice))
+#define ML99_choice_IMPL(tag, ...)   v(ML99_CHOICE(tag, __VA_ARGS__))
+#define ML99_choiceTag_IMPL(choice)  v(ML99_CHOICE_TAG(choice))
+#define ML99_choiceData_IMPL(choice) v(ML99_CHOICE_DATA(choice))
 
 #define ML99_match_IMPL(choice, matcher)                                                           \
-    ML99_callUneval(ML99_PRIV_CAT(matcher, ML99_PRIV_HEAD_AUX choice), ML99_PRIV_CHOICE_DATA choice)
+    ML99_callUneval(ML99_PRIV_CAT(matcher, ML99_PRIV_HEAD_AUX choice), ML99_PRIV_TAIL_AUX choice)
 
 #define ML99_matchWithArgs_IMPL(choice, matcher, ...)                                              \
     ML99_callUneval(                                                                               \
         ML99_PRIV_CAT(matcher, ML99_PRIV_HEAD_AUX choice),                                         \
-        ML99_PRIV_CHOICE_DATA choice,                                                              \
+        ML99_PRIV_TAIL_AUX choice,                                                                 \
         __VA_ARGS__)
-
-#define ML99_PRIV_CHOICE_DATA ML99_PRIV_TAIL_AUX
 
 // Arity specifiers {
 
 #define ML99_choice_ARITY        2
 #define ML99_choiceTag_ARITY     1
+#define ML99_choiceData_ARITY    1
 #define ML99_match_ARITY         2
 #define ML99_matchWithArgs_ARITY 3
 // } (Arity specifiers)

@@ -113,7 +113,7 @@
         v(ML99_PRIV_TRUE()),                                                                       \
         ML99_PRIV_IF(                                                                              \
             ML99_PRIV_AND(ML99_IS_JUST(maybe), ML99_IS_JUST(other)),                               \
-            ML99_appl2_IMPL(cmp, ML99_PRIV_CHOICE_DATA maybe, ML99_PRIV_CHOICE_DATA other),        \
+            ML99_appl2_IMPL(cmp, ML99_CHOICE_DATA(maybe), ML99_CHOICE_DATA(other)),                \
             v(ML99_PRIV_FALSE())))
 
 #define ML99_maybeUnwrap_IMPL(maybe) ML99_match_IMPL(maybe, ML99_PRIV_maybeUnwrap_)

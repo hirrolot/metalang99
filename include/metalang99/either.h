@@ -127,7 +127,7 @@
 #define ML99_eitherEq_IMPL(cmp, either, other)                                                     \
     ML99_PRIV_IF(                                                                                  \
         ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other),                                            \
-        ML99_appl2_IMPL(cmp, ML99_PRIV_CHOICE_DATA either, ML99_PRIV_CHOICE_DATA other),           \
+        ML99_appl2_IMPL(cmp, ML99_CHOICE_DATA(either), ML99_CHOICE_DATA(other)),                   \
         v(ML99_PRIV_FALSE()))
 
 #define ML99_unwrapLeft_IMPL(either)      ML99_match_IMPL(either, ML99_PRIV_unwrapLeft_)

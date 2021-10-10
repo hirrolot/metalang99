@@ -37,18 +37,28 @@ int main(void) {
 #undef MATCH_FooB_IMPL
 #undef MATCH_FooC_IMPL
 
-    // ML99_choiceTag
-    { ML99_ASSERT_EQ(ML99_choiceTag(ML99_choice(v(5), v(1, 2, 3))), v(5)); }
+#define CHECK(x, y, z)     ML99_ASSERT_UNEVAL(x == 1 && y == 2 && z == 3)
+#define CHECK_EXPAND(args) CHECK(args)
 
-    // ML99_CHOICE, ML99_CHOICE_TAG
-    { ML99_ASSERT_UNEVAL(ML99_CHOICE_TAG(ML99_CHOICE(5, 1, 2, 3)) == 5); }
-
-    // Representation
+    // ML99_choiceTag, ML99_choiceData
     {
-#define CHECK(tag, x, y, z) tag == 5 && x == 1 && y == 2 && z == 3
+        ML99_ASSERT_EQ(ML99_choiceTag(ML99_choice(v(5), v(1, 2, 3))), v(5));
+        CHECK_EXPAND(ML99_EVAL(ML99_choiceData(ML99_choice(v(5), v(1, 2, 3)))));
+    }
 
-        ML99_ASSERT_UNEVAL(CHECK ML99_CHOICE(5, 1, 2, 3));
+    // ML99_CHOICE, ML99_CHOICE_TAG, ML99_CHOICE_DATA
+    {
+        ML99_ASSERT_UNEVAL(ML99_CHOICE_TAG(ML99_CHOICE(5, 1, 2, 3)) == 5);
+        CHECK_EXPAND(ML99_CHOICE_DATA(ML99_CHOICE(5, 1, 2, 3)));
+    }
 
 #undef CHECK
-    }
+#undef CHECK_EXPAND
+
+#define CHECK(tag, x, y, z) tag == 5 && x == 1 && y == 2 && z == 3
+
+    // Representation
+    { ML99_ASSERT_UNEVAL(CHECK ML99_CHOICE(5, 1, 2, 3)); }
+
+#undef CHECK
 }

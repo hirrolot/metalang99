@@ -155,6 +155,7 @@ int main(void) {
     }
 
 #undef CHECK
+#undef CHECK_EXPAND
 
     // ML99_isNil
     {
