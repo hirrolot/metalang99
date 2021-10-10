@@ -126,7 +126,7 @@
 
 #define ML99_eitherEq_IMPL(cmp, either, other)                                                     \
     ML99_PRIV_IF(                                                                                  \
-        ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other),                                            \
+        ML99_PRIV_EITHER_TAGS_EQ(either, other),                                                   \
         ML99_appl2_IMPL(cmp, ML99_CHOICE_DATA(either), ML99_CHOICE_DATA(other)),                   \
         v(ML99_PRIV_FALSE()))
 
@@ -140,7 +140,7 @@
     ML99_fatal(ML99_unwrapRight, expected ML99_right but found ML99_left)
 #define ML99_PRIV_unwrapRight_right_IMPL(x) v(x)
 
-#define ML99_PRIV_EITHER_TAGS_ARE_EQUAL(either, other)                                             \
+#define ML99_PRIV_EITHER_TAGS_EQ(either, other)                                                    \
     ML99_PRIV_OR(                                                                                  \
         ML99_PRIV_AND(ML99_IS_LEFT(either), ML99_IS_LEFT(other)),                                  \
         ML99_PRIV_AND(ML99_IS_RIGHT(either), ML99_IS_RIGHT(other)))
