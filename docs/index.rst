@@ -71,7 +71,6 @@ These macros can be used as follows:
    ident
    logical
    util
-   control
    assert
    gen
 
@@ -89,7 +88,6 @@ Contents
  - `nat.h`_ - Natural numbers: [0; 255].
  - `ident.h`_ - Identifiers: `[a-zA-Z0-9_]+`.
  - `logical.h`_ - Boolean algebra.
- - `control.h`_ - Control flow operators.
  - `util.h`_ - Utilitary stuff.
  - `gen.h`_ - Support for C language constructions.
  - `assert.h`_ - Static assertions.
@@ -114,7 +112,6 @@ Indices and tables
 .. _nat.h: nat.html
 .. _ident.h: ident.html
 .. _logical.h: logical.html
-.. _control.h: control.html
-.. _assert.h: assert.html
 .. _util.h: util.html
 .. _gen.h: gen.html
+.. _assert.h: assert.html

@@ -9,7 +9,6 @@
 #include <metalang99/priv/util.h>
 
 #include <metalang99/choice.h>
-#include <metalang99/control.h>
 #include <metalang99/logical.h>
 #include <metalang99/nat.h>
 #include <metalang99/seq.h>

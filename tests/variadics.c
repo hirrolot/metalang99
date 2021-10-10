@@ -64,6 +64,24 @@ int main(void) {
         ML99_ASSERT_EQ(ML99_variadicsCount(_50_ARGS, _10_ARGS, v(~, ~, ~)), v(63));
     }
 
+#define X(...)    ML99_OVERLOAD(X_, __VA_ARGS__)
+#define X_1(a)    ML99_ASSERT_UNEVAL(a == 123)
+#define X_2(a, b) ML99_ASSERT_UNEVAL(a == 93145 && b == 456)
+#define X_7(a, b, c, d, e, f, g)                                                                   \
+    ML99_ASSERT_UNEVAL(a == 1516 && b == 1 && c == 9 && d == 111 && e == 119 && f == 677 && g == 62)
+
+    // ML99_OVERLOAD
+    {
+        X(123);
+        X(93145, 456);
+        X(1516, 1, 9, 111, 119, 677, 62);
+    }
+
+#undef X_IMPL
+#undef X_1_IMPL
+#undef X_2_IMPL
+#undef X_7_IMPL
+
     // ML99_VARIADICS_COUNT
     {
         ML99_ASSERT_EQ(v(ML99_VARIADICS_COUNT()), v(1));

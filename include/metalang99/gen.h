@@ -36,7 +36,6 @@
 #define ML99_GEN_H
 
 #include <metalang99/choice.h>
-#include <metalang99/control.h>
 #include <metalang99/lang.h>
 #include <metalang99/list.h>
 #include <metalang99/nat.h>
@@ -260,6 +259,35 @@
 #define ML99_anonEnum(...) ML99_call(ML99_anonEnum, __VA_ARGS__)
 
 /**
+ * Pastes provided arguments @p n times.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * // ~ ~ ~ ~ ~
+ * ML99_times(v(5), v(~))
+ * @endcode
+ */
+#define ML99_times(n, ...) ML99_call(ML99_times, n, __VA_ARGS__)
+
+/**
+ * Invokes @p f @p n times, providing an iteration index each time.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ * #include <metalang99/util.h>
+ *
+ * // _0 _1 _2
+ * ML99_repeat(v(3), ML99_appl(v(ML99_cat), v(_)))
+ * @endcode
+ */
+#define ML99_repeat(n, f) ML99_call(ML99_repeat, n, f)
+
+/**
  * Generates \f$(T_0 \ \_0, ..., T_n \ \_n)\f$.
  *
  * If @p type_list is empty, this macro results in `(void)`.
@@ -470,6 +498,14 @@
 #define ML99_anonEnum_IMPL(...) v(enum {__VA_ARGS__})
 // clang-format on
 
+#define ML99_times_IMPL(n, ...)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_times_, __VA_ARGS__)
+#define ML99_PRIV_times_Z_IMPL         ML99_empty_IMPL
+#define ML99_PRIV_times_S_IMPL(i, ...) ML99_TERMS(v(__VA_ARGS__), ML99_times_IMPL(i, __VA_ARGS__))
+
+#define ML99_repeat_IMPL(n, f)        ML99_natMatchWithArgs_IMPL(n, ML99_PRIV_repeat_, f)
+#define ML99_PRIV_repeat_Z_IMPL       ML99_empty_IMPL
+#define ML99_PRIV_repeat_S_IMPL(i, f) ML99_TERMS(ML99_repeat_IMPL(i, f), ML99_appl_IMPL(f, i))
+
 // ML99_indexedParams_IMPL {
 
 #define ML99_indexedParams_IMPL(type_list)                                                         \
@@ -525,6 +561,8 @@
 #define ML99_anonUnion_ARITY                 1
 #define ML99_enum_ARITY                      2
 #define ML99_anonEnum_ARITY                  1
+#define ML99_repeat_ARITY                    2
+#define ML99_times_ARITY                     2
 #define ML99_indexedParams_ARITY             1
 #define ML99_indexedFields_ARITY             1
 #define ML99_indexedInitializerList_ARITY    1

@@ -121,6 +121,35 @@
  */
 #define ML99_variadicsForEachI(f, ...) ML99_call(ML99_variadicsForEachI, f, __VA_ARGS__)
 
+/**
+ * Overloads @p f on a number of arguments.
+ *
+ * This function counts the number of provided arguments, appends it to @p f and calls the resulting
+ * macro identifier with provided arguments.
+ *
+ * At most 63 variadic arguments are acceptable.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/variadics.h>
+ *
+ * #define X(...)    ML99_OVERLOAD(X_, __VA_ARGS__)
+ * #define X_1(a)    Billie & a
+ * #define X_2(a, b) Jean & a & b
+ *
+ * // Billie & 4
+ * X(4)
+ *
+ * // Jean & 5 & 6
+ * X(5, 6)
+ * @endcode
+ *
+ * @note @p f need not be postfixed with `_IMPL`. It is literally invoked as `ML99_CAT(f,
+ * ML99_VARIADICS_COUNT(...))(...)`.
+ */
+#define ML99_OVERLOAD(f, ...) ML99_PRIV_CAT(f, ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__))(__VA_ARGS__)
+
 #define ML99_VARIADICS_COUNT(...)     ML99_PRIV_VARIADICS_COUNT(__VA_ARGS__)
 #define ML99_VARIADICS_IS_SINGLE(...) ML99_NOT(ML99_PRIV_CONTAINS_COMMA(__VA_ARGS__))
 #define ML99_VARIADICS_GET(i)         ML99_PRIV_CAT(ML99_PRIV_VARIADICS_GET_, i)

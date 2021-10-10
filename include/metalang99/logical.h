@@ -172,6 +172,34 @@
 #define ML99_boolMatchWithArgs(x, matcher, ...)                                                    \
     ML99_call(ML99_boolMatchWithArgs, x, matcher, __VA_ARGS__)
 
+/**
+ * If @p cond is true, evaluates to @p x, otherwise @p y.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/logical.h>
+ *
+ * // 123
+ * ML99_if(v(1), v(123), v(18))
+ *
+ * // 18
+ * ML99_if(v(0), v(123), v(18))
+ * @endcode
+ */
+#define ML99_if(cond, x, y) ML99_call(ML99_if, cond, x, y)
+
+/**
+ * The plain version of #ML99_if.
+ *
+ * This macro can be used to imitate lazy evaluation: `ML99_IF(<cond>, <term>, <another-term>)` will
+ * expand to one of the terms, which can be evaluated further.
+ *
+ * @note @p x and @p y can possibly expand to commas. It means that you can supply `ML99_TERMS(...)`
+ * as a branch, for example.
+ */
+#define ML99_IF(cond, x, y) ML99_PRIV_UNTUPLE(ML99_PRIV_IF(cond, (x), (y)))
+
 #define ML99_TRUE(...)  1
 #define ML99_FALSE(...) 0
 
@@ -195,6 +223,8 @@
 #define ML99_boolMatch_IMPL(x, matcher)              ML99_callUneval(matcher##x, )
 #define ML99_boolMatchWithArgs_IMPL(x, matcher, ...) ML99_callUneval(matcher##x, __VA_ARGS__)
 
+#define ML99_if_IMPL(cond, x, y) v(ML99_PRIV_IF(cond, x, y))
+
 // Arity specifiers {
 
 #define ML99_true_ARITY              1
@@ -206,6 +236,7 @@
 #define ML99_boolEq_ARITY            2
 #define ML99_boolMatch_ARITY         2
 #define ML99_boolMatchWithArgs_ARITY 3
+#define ML99_if_ARITY                3
 // } (Arity specifiers)
 
 #endif // DOXYGEN_IGNORE

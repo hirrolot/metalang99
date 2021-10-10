@@ -297,6 +297,28 @@ int main(void) {
         (void)bar;
     }
 
+#define CHECK_EXPAND(args) CHECK(args)
+
+#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 0 && y == 1 && z == 2)
+#define F_IMPL(x)         v(, x)
+#define F_ARITY           1
+
+    // ML99_repeat
+    { CHECK_EXPAND(ML99_EVAL(ML99_repeat(v(3), v(F)))); }
+
+#undef CHECK
+#undef F_IMPL
+#undef F_ARITY
+
+#define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 5 && y == 5 && z == 5)
+
+    // ML99_times
+    { CHECK_EXPAND(ML99_EVAL(ML99_times(v(3), v(, 5)))); }
+
+#undef CHECK
+
+#undef CHECK_EXPAND
+
     // ML99_indexedParams
     {
         ML99_ASSERT_UNEVAL(ML99_IDENT_EQ(

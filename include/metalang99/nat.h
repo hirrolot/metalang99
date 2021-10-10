@@ -14,7 +14,6 @@
 #include <metalang99/nat/eq.h>
 #include <metalang99/nat/inc.h>
 
-#include <metalang99/control.h>
 #include <metalang99/lang.h>
 #include <metalang99/logical.h>
 
