@@ -206,7 +206,7 @@ See [`optimization_tips.md`](optimization_tips.md).
 
 ### Q: What about compile-time errors?
 
-A: Most of the time, Metalang99 reports syntax mismatches:
+A: Metalang99 is a big step towards understandable compiler diagnostics. It has a built-in syntax checker that tests all incoming terms for validity:
 
 [`playground.c`]
 ```c
@@ -229,14 +229,37 @@ playground.c:5:1: error: static assertion failed: "invalid term `(0v, Billie) (0
       | ^~~~~~~~~
 ```
 
-However, compile-time errors can be still quite obscured:
+Metalang99 can even check for macro preconditions and report an error:
+
+[`playground.c`]
+```c
+ML99_EVAL(ML99_listHead(ML99_nil()))
+ML99_EVAL(ML99_unwrapLeft(ML99_right(v(123))))
+ML99_EVAL(ML99_div(v(18), v(4)))
+```
+
+[`/bin/sh`]
+```
+$ gcc playground.c -Imetalang99/include -ftrack-macro-expansion=0
+playground.c:3:1: error: static assertion failed: "ML99_listHead: expected a non-empty list"
+    3 | ML99_EVAL(ML99_listHead(ML99_nil()))
+      | ^~~~~~~~~
+playground.c:4:1: error: static assertion failed: "ML99_unwrapLeft: expected ML99_left but found ML99_right"
+    4 | ML99_EVAL(ML99_unwrapLeft(ML99_right(v(123))))
+      | ^~~~~~~~~
+playground.c:5:1: error: static assertion failed: "ML99_div: 18 is not divisible by 4"
+    5 | ML99_EVAL(ML99_div(v(18), v(4)))
+      | ^~~~~~~~~
+```
+
+However, if you do something awkward, compile-time errors can become quite obscured:
 
 ```c
 // ML99_PRIV_REC_NEXT_ML99_PRIV_IF_0 blah(ML99_PRIV_SYNTAX_CHECKER_EMIT_ERROR, ML99_PRIV_TERM_MATCH) ((~, ~, ~) blah, ML99_PRIV_EVAL_)(ML99_PRIV_REC_STOP, (~), 0fspace, (, ), ((0end, ~), ~), ~, ~ blah)(0)()
 ML99_EVAL((~, ~, ~) blah)
 ```
 
-In this case, the best thing you can do is [iteratively debug your metaprogram](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
+In either case, you can try to [iteratively debug your metaprogram](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
 ### Q: What about debugging?
 
