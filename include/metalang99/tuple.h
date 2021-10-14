@@ -49,6 +49,9 @@
  * // (v(1, 2, 3))
  * ML99_tupleEval(v(1, 2, 3))
  * @endcode
+ *
+ * @deprecated I have seen no single use case over time. Please, [open an
+ * issue](https://github.com/Hirrolot/metalang99/issues/new/choose) if you need this function.
  */
 #define ML99_tupleEval(...) ML99_call(ML99_tupleEval, __VA_ARGS__)
 
@@ -86,6 +89,8 @@
  * // 1, 2, 3
  * ML99_untupleEval(v((v(1, 2, 3))))
  * @endcode
+ *
+ * @deprecated For the same reason as #ML99_tupleEval.
  */
 #define ML99_untupleEval(x) ML99_call(ML99_untupleEval, x)
 

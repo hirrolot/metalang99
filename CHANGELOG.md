@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `tuple.h`:
    - `ML99_untupleChecked` because it is the same as `ML99_untuple`.
+   - `ML99_tupleEval`, `ML99_untupleEval` because there were no use cases over time.
  - `logical.h`:
    - Move all functions to `bool.h`.
  - `control.h`:
