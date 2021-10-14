@@ -16,9 +16,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - `choice.h`:
    - Define the representation of choice types as `(tag, ...)`.
+ - `tuple.h`:
+   - Emit a fatal error in `ML99_untuple` if an argument is not a tuple.
 
 ### Deprecated
 
+ - `tuple.h`:
+   - `ML99_untupleChecked` because it is the same as `ML99_untuple`.
  - `logical.h`:
    - Move all functions to `bool.h`.
  - `control.h`:

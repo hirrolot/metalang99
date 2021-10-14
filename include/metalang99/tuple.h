@@ -55,6 +55,8 @@
 /**
  * Untuples the tuple @p x, leaving the result unevaluated.
  *
+ * If @p x is not a tuple, it emits a fatal error.
+ *
  * # Examples
  *
  * @code
@@ -67,9 +69,9 @@
 #define ML99_untuple(x) ML99_call(ML99_untuple, x)
 
 /**
- * The same as #ML99_untuple, except that it emits a fatal error if @p x is not a tuple.
+ * The same as #ML99_untuple.
  *
- * The preconditions are the same as of #ML99_isUntuple.
+ * @deprecated Use #ML99_untuple instead.
  */
 #define ML99_untupleChecked(x) ML99_call(ML99_untupleChecked, x)
 
@@ -276,16 +278,16 @@
 
 #define ML99_tuple_IMPL(...)     v(ML99_TUPLE(__VA_ARGS__))
 #define ML99_tupleEval_IMPL(...) v((v(__VA_ARGS__)))
-#define ML99_untuple_IMPL(x)     v(ML99_UNTUPLE(x))
-#define ML99_untupleChecked_IMPL(x)                                                                \
-    ML99_PRIV_IF(ML99_IS_TUPLE(x), ML99_PRIV_UNTUPLE_CHECKED_AUX, ML99_PRIV_NOT_TUPLE_ERROR)(x)
-#define ML99_untupleEval_IMPL(x)   ML99_PRIV_EXPAND x
-#define ML99_isTuple_IMPL(x)       v(ML99_IS_TUPLE(x))
-#define ML99_isUntuple_IMPL(x)     v(ML99_IS_UNTUPLE(x))
-#define ML99_tupleCount_IMPL(x)    v(ML99_TUPLE_COUNT(x))
-#define ML99_tupleIsSingle_IMPL(x) v(ML99_TUPLE_IS_SINGLE(x))
+#define ML99_untuple_IMPL(x)                                                                       \
+    ML99_PRIV_IF(ML99_IS_TUPLE(x), ML99_PRIV_UNTUPLE_TERM, ML99_PRIV_NOT_TUPLE_ERROR)(x)
+#define ML99_untupleChecked_IMPL(x) ML99_untuple_IMPL(x)
+#define ML99_untupleEval_IMPL(x)    ML99_PRIV_EXPAND x
+#define ML99_isTuple_IMPL(x)        v(ML99_IS_TUPLE(x))
+#define ML99_isUntuple_IMPL(x)      v(ML99_IS_UNTUPLE(x))
+#define ML99_tupleCount_IMPL(x)     v(ML99_TUPLE_COUNT(x))
+#define ML99_tupleIsSingle_IMPL(x)  v(ML99_TUPLE_IS_SINGLE(x))
 
-#define ML99_PRIV_UNTUPLE_CHECKED_AUX(x) v(ML99_UNTUPLE(x))
+#define ML99_PRIV_UNTUPLE_TERM(x) v(ML99_UNTUPLE(x))
 
 #define ML99_PRIV_tupleGet_0(x) ML99_call(ML99_PRIV_tupleGet_0, x)
 #define ML99_PRIV_tupleGet_1(x) ML99_call(ML99_PRIV_tupleGet_1, x)
