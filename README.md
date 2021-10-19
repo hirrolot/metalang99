@@ -118,10 +118,12 @@ void test(State st) {
 }
 ```
 
-The key point of Metalang99 is to reify informal patterns into utterly formal programmatic abstractions, thereby improving the quality of your code -- making it safer, cleaner, and more maintainable.
+Unlike the vague techniques, such as [tagged unions] or [virtual method tables], the above metaprograms leverage type safety, syntax conciseness, and maintain the exact memory layout of generated code.
 
 Looks interesting? Check out the [motivational post] for more information.
 
+[tagged unions]: https://en.wikipedia.org/wiki/Tagged_union
+[virtual method tables]: https://en.wikipedia.org/wiki/Virtual_method_table
 [motivational post]: https://hirrolot.github.io/posts/macros-on-steroids-or-how-can-pure-c-benefit-from-metaprogramming.html
 
 ## Getting started
