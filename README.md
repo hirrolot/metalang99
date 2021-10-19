@@ -118,7 +118,7 @@ void test(State st) {
 }
 ```
 
-As you can see, advanced metaprogramming with Metalang99 allows to drastically improve quality of your code -- make it safer, cleaner, and more maintainable.
+The key point of Metalang99 is to reify informal patterns into utterly formal programmatic abstractions, thereby improving the quality of your code -- making it safer, cleaner, and more maintainable.
 
 Looks interesting? Check out the [motivational post] for more information.
 
