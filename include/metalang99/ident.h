@@ -63,8 +63,8 @@
  *
  * # Predefined detectors
  *
- *  - `ML99_C_KEYWORD_DETECTOR` detects all the <a
- * href="https://en.cppreference.com/w/c/keyword">C11 keywords</a>.
+ *  - `ML99_C_KEYWORD_DETECTOR` detects all the [C11
+ * keywords](https://en.cppreference.com/w/c/keyword).
  *  - `ML99_LOWERCASE_DETECTOR` detects lowercase letters (`abcdefghijklmnopqrstuvwxyz`).
  *  - `ML99_UPPERCASE_DETECTOR` detects uppercase letters (`ABCDEFGHIJKLMNOPQRSTUVWXYZ`).
  *  - `ML99_DIGIT_DETECTOR` detects digits (`0123456789`).

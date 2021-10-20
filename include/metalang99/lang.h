@@ -44,11 +44,12 @@
 /**
  * Applies arguments to @p f.
  *
- * This function implements <a href="https://en.wikipedia.org/wiki/Partial_application">partial
- * application</a>: instead of invoking a metafunction with all arguments at once, you specify each
- * argument separately. This concept allows better re-use of metafunctions by specifying some
- * arguments immediately, and the other arguments later, even in different execution contexts (for
- * example, see this <a href="https://stackoverflow.com/a/12414292/13166656">SO answer</a>).
+ * This function implements [partial
+ * application](https://en.wikipedia.org/wiki/Partial_application): instead of invoking a
+ * metafunction with all arguments at once, you specify each argument separately. This concept
+ * allows better re-use of metafunctions by specifying some arguments immediately, and the other
+ * arguments later, even in different execution contexts (for example, see this [SO
+ * answer](https://stackoverflow.com/a/12414292/13166656)).
  *
  * @p f must be either a term reducing to a macro name or a term obtained via another call to
  * #ML99_appl. If @p f is a macro name, then a macro named `<f>_ARITY` (its arity specifier)

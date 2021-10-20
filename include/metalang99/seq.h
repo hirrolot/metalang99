@@ -8,9 +8,9 @@
  *  - `(+, -, *, /)(123)(~)`
  *
  * Sequences can represent syntax like `X(...) Y(...) Z(...)`, where `X`, `Y`, and `Z` expand to a
- * <a href="tuple.html">tuple</a>, thereby forming a sequence. A perfect example is <a
- * href="https://github.com/Hirrolot/interface99">Interface99</a>, which allows a user to define a
- * software interface via a number of `iMethod(...)` macro invocations:
+ * [tuple](tuple.html), thereby forming a sequence. A perfect example is
+ * [Interface99](https://github.com/Hirrolot/interface99), which allows a user to define a software
+ * interface via a number of `iMethod(...)` macro invocations:
  *
  * @code
  * #define State_IFACE                      \

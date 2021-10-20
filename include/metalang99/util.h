@@ -176,8 +176,7 @@
  * ML99_todo(v(F))
  * @endcode
  *
- * @see <a href="https://doc.rust-lang.org/core/macro.todo.html">Rust's std::todo\!</a> (thanks for
- * the idea!)
+ * @see [Rust's std::todo\!](https://doc.rust-lang.org/core/macro.todo.html) (thanks for the idea!)
  */
 #define ML99_todo(f) ML99_call(ML99_todo, f)
 
@@ -212,8 +211,8 @@
  * ML99_unimplemented(v(F))
  * @endcode
  *
- * @see <a href="https://doc.rust-lang.org/core/macro.unimplemented.html">Rust's
- * std::unimplemented\!</a> (thanks for the idea!)
+ * @see [Rust's std::unimplemented\!](https://doc.rust-lang.org/core/macro.unimplemented.html)
+ * (thanks for the idea!)
  */
 #define ML99_unimplemented(f) ML99_call(ML99_unimplemented, f)
 

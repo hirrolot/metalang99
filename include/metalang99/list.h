@@ -147,7 +147,7 @@
 #define ML99_list(...) ML99_call(ML99_list, __VA_ARGS__)
 
 /**
- * Constructs a list from comma-separated <a href="tuple.html">tuples</a>.
+ * Constructs a list from comma-separated [tuples](tuple.html).
  *
  * It sequentially applies @p f to each untupled argument, thus forming the resulting list. If some
  * argument is not a tuple, a fatal error is emitted.
@@ -171,7 +171,7 @@
 #define ML99_listFromTuples(f, ...) ML99_call(ML99_listFromTuples, f, __VA_ARGS__)
 
 /**
- * Constructs a list from the <a href="seq.html">sequence</a> @p seq.
+ * Constructs a list from the [sequence](seq.html) @p seq.
  *
  * # Examples
  *

@@ -56,8 +56,8 @@
 #define ML99_ASSERT_EQ(lhs, rhs) ML99_ASSERT_UNEVAL((ML99_EVAL(lhs)) == (ML99_EVAL(rhs)))
 
 /**
- * Asserts the C constant expression @p expr; <a
- * href="https://en.cppreference.com/w/c/error/static_assert">static_assert</a> in pure C99.
+ * Asserts the C constant expression @p expr;
+ * [static_assert](https://en.cppreference.com/w/c/error/static_assert) in pure C99.
  *
  * # Examples
  *
