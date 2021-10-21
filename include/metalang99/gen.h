@@ -19,7 +19,7 @@
 #include <metalang99/variadics.h>
 
 #include <metalang99/stmt.h> // For backwards compatibility.
-#include <metalang99/util.h> // For backwards compatibility: ML99_GEN_SYM.
+#include <metalang99/util.h> // For backwards compatibility: ML99_GEN_SYM, ML99_TRAILING_SEMICOLON.
 
 /**
  * Puts a semicolon after provided arguments.
