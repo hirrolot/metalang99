@@ -2,9 +2,9 @@
  * @file
  * Statement chaining.
  *
- * This module exports a bunch of so-called _statement chaining macros_: most of them expect a
- * statement right after their invocation, and moreover, an invocation of such a macro with a
- * statement afterwards altogether form a single statement.
+ * This module exports a bunch of so-called _statement chaining macros_: they expect a statement
+ * right after their invocation, and moreover, an invocation of such a macro with a statement
+ * afterwards altogether form a single statement.
  *
  * How can this be helpful? Imagine you are writing a macro with the following syntax:
  *
@@ -23,8 +23,8 @@
  *             // and so on...
  * @endcode
  *
- * Here `ML99_INTRODUCE_VAR_TO_STMT` accepts the statement formed by `ML99_CHAIN_EXPR_STMT`, which
- * in turn accepts the next statement and so on, until a caller of `MY_MACRO` specifies the final
+ * Here #ML99_INTRODUCE_VAR_TO_STMT accepts the statement formed by #ML99_CHAIN_EXPR_STMT, which, in
+ * turn, accepts the next statement and so on, until a caller of `MY_MACRO` specifies the final
  * statement, thus completing the chain.
  *
  * @see https://www.chiark.greenend.org.uk/~sgtatham/mp/ for a more involved explanation.
@@ -141,28 +141,6 @@
  * @deprecated Use `ML99_CHAIN_EXPR_STMT((void)expr)` instead.
  */
 #define ML99_SUPPRESS_UNUSED_BEFORE_STMT(expr) ML99_CHAIN_EXPR_STMT((void)expr)
-
-/**
- * Forces a caller to put a trailing semicolon.
- *
- * It is useful when defining macros, to make them formatted as complete statements.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/stmt.h>
- *
- * #define MY_MACRO(fn_name, val_ty, val) \
- *     inline static val_ty fn_name(void) { return val; } \
- *     ML99_TRAILING_SEMICOLON()
- *
- * // Defines a function that always returns 0.
- * MY_MACRO(zero, int, 0);
- * @endcode
- *
- * @note This macro expands to a C declaration, therefore, it can be used outside of functions too.
- */
-#define ML99_TRAILING_SEMICOLON(...) struct ml99_priv_trailing_semicolon
 
 #ifndef DOXYGEN_IGNORE
 

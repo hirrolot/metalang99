@@ -109,10 +109,4 @@ int main(void) {
     { STMT_CHAINING }
 
 #undef STMT_CHAINING
-
-    // ML99_TRAILING_SEMICOLON
-    {
-        ML99_TRAILING_SEMICOLON();
-        ML99_TRAILING_SEMICOLON(~, ~, ~);
-    }
 }

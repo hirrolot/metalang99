@@ -338,6 +338,28 @@
 #endif // __COUNTER__
 
 /**
+ * Forces a caller to put a trailing semicolon.
+ *
+ * It is useful when defining macros, to make them formatted as complete statements.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * #define MY_MACRO(fn_name, val_ty, val) \
+ *     inline static val_ty fn_name(void) { return val; } \
+ *     ML99_TRAILING_SEMICOLON()
+ *
+ * // Defines a function that always returns 0.
+ * MY_MACRO(zero, int, 0);
+ * @endcode
+ *
+ * @note This macro expands to a C declaration, therefore, it can be used outside of functions too.
+ */
+#define ML99_TRAILING_SEMICOLON(...) struct ml99_priv_trailing_semicolon
+
+/**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
  */
 #define ML99_GCC_PRAGMA(str) ML99_PRIV_GCC_PRAGMA(str)

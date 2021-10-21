@@ -122,4 +122,10 @@ int main(void) {
 
 #undef TEST
     }
+
+    // ML99_TRAILING_SEMICOLON
+    {
+        ML99_TRAILING_SEMICOLON();
+        ML99_TRAILING_SEMICOLON(~, ~, ~);
+    }
 }

@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `choice.h`:
    - `ML99_choiceData`, `ML99_CHOICE_DATA` to extract a choice value data.
  - New module `stmt.h`:
-   - Take `ML99_INTRODUCE_VAR_TO_STMT`, `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`, `ML99_CHAIN_EXPR_STMT`, `ML99_CHAIN_EXPR_STMT_AFTER`, `ML99_SUPPRESS_UNUSED_BEFORE_STMT`, `ML99_TRAILING_SEMICOLON` from `gen.h`.
+   - Take `ML99_INTRODUCE_VAR_TO_STMT`, `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`, `ML99_CHAIN_EXPR_STMT`, `ML99_CHAIN_EXPR_STMT_AFTER`, and `ML99_SUPPRESS_UNUSED_BEFORE_STMT` from `gen.h`.
 
 ### Changed
 
@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - Emit a fatal error in `ML99_untuple` if an argument is not a tuple.
  - `gen.h`:
    - Move all statement chaining macros to `stmt.h` (see above).
-   - Move `ML99_GEN_SYM` to `util.h`.
+   - Move `ML99_GEN_SYM` and `ML99_TRAILING_SEMICOLON` to `util.h`.
 
 ### Deprecated
 
