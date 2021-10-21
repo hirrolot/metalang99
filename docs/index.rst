@@ -73,6 +73,7 @@ These macros can be used as follows:
    util
    assert
    gen
+   stmt
 
 Contents
 ====================================
@@ -89,8 +90,9 @@ Contents
  - `ident.h`_ - Identifiers: `[a-zA-Z0-9_]+`.
  - `bool.h`_ - Boolean algebra.
  - `util.h`_ - Utilitary stuff.
- - `gen.h`_ - Support for C language constructions.
  - `assert.h`_ - Static assertions.
+ - `gen.h`_ - Support for C language constructions.
+ - `stmt.h`_ - Statement chaining.
 
 Indices and tables
 ====================================
@@ -113,5 +115,6 @@ Indices and tables
 .. _ident.h: ident.html
 .. _bool.h: bool.html
 .. _util.h: util.html
-.. _gen.h: gen.html
 .. _assert.h: assert.html
+.. _gen.h: gen.html
+.. _stmt.h: stmt.html

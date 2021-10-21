@@ -92,4 +92,34 @@ int main(void) {
 
 #undef CHECK
 #undef CHECK_EXPAND
+
+    // ML99_GEN_SYM
+    {
+
+#define TEST(...) TEST_NAMED(ML99_GEN_SYM(TEST_, x), __VA_ARGS__)
+#define TEST_NAMED(x_sym, ...)                                                                     \
+    do {                                                                                           \
+        int x_sym = 5;                                                                             \
+        (void)x_sym;                                                                               \
+        __VA_ARGS__                                                                                \
+    } while (0)
+
+        // `x` here will not conflict the the `x` inside `TEST`.
+        TEST(int x = 123; (void)x;);
+
+#undef TEST
+#undef TEST_NAMED
+
+// Two identical calls to `ML99_GEN_SYM` must yield different identifiers.
+#define TEST(x1_sym, x2_sym)                                                                       \
+    do {                                                                                           \
+        int x1_sym, x2_sym;                                                                        \
+        (void)x1_sym;                                                                              \
+        (void)x2_sym;                                                                              \
+    } while (0)
+
+        TEST(ML99_GEN_SYM(TEST_, x), ML99_GEN_SYM(TEST_, x));
+
+#undef TEST
+    }
 }
