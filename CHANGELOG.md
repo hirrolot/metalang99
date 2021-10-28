@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `choice.h`:
    - `ML99_choiceData`, `ML99_CHOICE_DATA` to extract a choice value data.
  - `gen.h`:
-   - Add `ML99_fnPtr` to generate a function pointer.
+   - Add `ML99_fnPtr(Stmt)` to generate a function pointer.
  - New module `stmt.h`:
    - Take `ML99_INTRODUCE_VAR_TO_STMT`, `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT`, `ML99_CHAIN_EXPR_STMT`, `ML99_CHAIN_EXPR_STMT_AFTER`, and `ML99_SUPPRESS_UNUSED_BEFORE_STMT` from `gen.h`.
 

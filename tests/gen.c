@@ -159,11 +159,19 @@ int main(void) {
         (void)bar;
     }
 
-    // ML99_fnPtr
+    // ML99_fnPtr(Stmt)
     {
-        ML99_EVAL(ML99_fnPtr(v(int), v(ptr), v(const char *str), v(long long x)))
-        = test_fn_ptr;
-        assert(test_fn_ptr == ptr);
+        {
+            ML99_EVAL(ML99_fnPtr(v(int), v(ptr), v(const char *str), v(long long x)))
+            = test_fn_ptr;
+            assert(test_fn_ptr == ptr);
+        }
+
+        {
+            ML99_EVAL(ML99_fnPtrStmt(v(int), v(ptr), v(const char *str), v(long long x)))
+            ptr = test_fn_ptr;
+            (void)ptr;
+        }
     }
 
 #define CHECK_EXPAND(args) CHECK(args)

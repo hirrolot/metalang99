@@ -194,6 +194,11 @@
 #define ML99_fnPtr(ret_ty, name, ...) ML99_call(ML99_fnPtr, ret_ty, name, __VA_ARGS__)
 
 /**
+ * A shortcut for `ML99_semicoloned(ML99_fnPtrStmt(ret_ty, name, ...))`.
+ */
+#define ML99_fnPtrStmt(ret_ty, name, ...) ML99_call(ML99_fnPtrStmt, ret_ty, name, __VA_ARGS__)
+
+/**
  * Pastes provided arguments @p n times.
  *
  * # Examples
@@ -310,6 +315,7 @@
 #define ML99_invokeStmt_IMPL(f, ...)                  v(f(__VA_ARGS__);)
 #define ML99_typedef_IMPL(ident, ...)                 v(typedef __VA_ARGS__ ident;)
 #define ML99_fnPtr_IMPL(ret_ty, name, ...)            v(ret_ty (*name)(__VA_ARGS__))
+#define ML99_fnPtrStmt_IMPL(ret_ty, name, ...)        v(ret_ty (*name)(__VA_ARGS__);)
 
 // clang-format off
 #define ML99_prefixedBlock_IMPL(prefix, ...) v(prefix {__VA_ARGS__})
@@ -385,6 +391,7 @@
 #define ML99_enum_ARITY                      2
 #define ML99_anonEnum_ARITY                  1
 #define ML99_fnPtr_ARITY                     3
+#define ML99_fnPtrStmt_ARITY                 3
 #define ML99_repeat_ARITY                    2
 #define ML99_times_ARITY                     2
 #define ML99_indexedParams_ARITY             1
