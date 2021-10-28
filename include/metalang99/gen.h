@@ -194,7 +194,7 @@
 #define ML99_fnPtr(ret_ty, name, ...) ML99_call(ML99_fnPtr, ret_ty, name, __VA_ARGS__)
 
 /**
- * A shortcut for `ML99_semicoloned(ML99_fnPtrStmt(ret_ty, name, ...))`.
+ * A shortcut for `ML99_semicoloned(ML99_fnPtr(ret_ty, name, ...))`.
  */
 #define ML99_fnPtrStmt(ret_ty, name, ...) ML99_call(ML99_fnPtrStmt, ret_ty, name, __VA_ARGS__)
 
