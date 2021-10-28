@@ -94,7 +94,7 @@
 #define ML99_invoke(f, ...) ML99_call(ML99_invoke, f, __VA_ARGS__)
 
 /**
- * A shortcut for `ML99_semicoloned(ML99_invoked(f, ...))`.
+ * A shortcut for `ML99_semicoloned(ML99_invoke(f, ...))`.
  */
 #define ML99_invokeStmt(f, ...) ML99_call(ML99_invokeStmt, f, __VA_ARGS__)
 
@@ -106,12 +106,10 @@
  * @code
  * #include <metalang99/gen.h>
  *
- * // ML99_INTRODUCE_VAR_TO_STMT(int x = 5) {
+ * // if (1 == 1) {
  * //     printf("x = %d\n", x);
  * // }
- * ML99_prefixedBlock(
- *     v(ML99_INTRODUCE_VAR_TO_STMT(int x = 5)),
- *     v(printf("x = %d\n", x);))
+ * ML99_prefixedBlock(v(if (1 == 1)), v(printf("x = %d\n", x);))
  * @endcode
  */
 #define ML99_prefixedBlock(prefix, ...) ML99_call(ML99_prefixedBlock, prefix, __VA_ARGS__)
@@ -177,6 +175,23 @@
  * The same as #ML99_anonStruct but generates an enumeration.
  */
 #define ML99_anonEnum(...) ML99_call(ML99_anonEnum, __VA_ARGS__)
+
+/**
+ * Generates a function pointer.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/gen.h>
+ *
+ * // int (*add)(int x, int y)
+ * ML99_fnPtr(v(int), v(add), v(int x), v(int y))
+ *
+ * // const char *(*title)(void)
+ * ML99_fnPtr(v(const char *), v(title), v(void))
+ * @endcode
+ */
+#define ML99_fnPtr(ret_ty, name, ...) ML99_call(ML99_fnPtr, ret_ty, name, __VA_ARGS__)
 
 /**
  * Pastes provided arguments @p n times.
@@ -294,6 +309,7 @@
 #define ML99_invoke_IMPL(f, ...)                      v(f(__VA_ARGS__))
 #define ML99_invokeStmt_IMPL(f, ...)                  v(f(__VA_ARGS__);)
 #define ML99_typedef_IMPL(ident, ...)                 v(typedef __VA_ARGS__ ident;)
+#define ML99_fnPtr_IMPL(ret_ty, name, ...)            v(ret_ty (*name)(__VA_ARGS__))
 
 // clang-format off
 #define ML99_prefixedBlock_IMPL(prefix, ...) v(prefix {__VA_ARGS__})
@@ -368,6 +384,7 @@
 #define ML99_anonUnion_ARITY                 1
 #define ML99_enum_ARITY                      2
 #define ML99_anonEnum_ARITY                  1
+#define ML99_fnPtr_ARITY                     3
 #define ML99_repeat_ARITY                    2
 #define ML99_times_ARITY                     2
 #define ML99_indexedParams_ARITY             1

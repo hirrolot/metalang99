@@ -18,6 +18,12 @@ static void
     (void)str;
 }
 
+static int test_fn_ptr(const char *str, long long x) {
+    (void)str;
+    (void)x;
+    return 123;
+}
+
 int main(void) {
 
     // ML99_braced
@@ -151,6 +157,13 @@ int main(void) {
         MyEnum foo = Foo, bar = Bar;
         (void)foo;
         (void)bar;
+    }
+
+    // ML99_fnPtr
+    {
+        ML99_EVAL(ML99_fnPtr(v(int), v(ptr), v(const char *str), v(long long x)))
+        = test_fn_ptr;
+        assert(test_fn_ptr == ptr);
     }
 
 #define CHECK_EXPAND(args) CHECK(args)
