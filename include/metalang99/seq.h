@@ -10,20 +10,20 @@
  * Sequences can represent syntax like `X(...) Y(...) Z(...)`, where `X`, `Y`, and `Z` expand to a
  * [tuple](tuple.html), thereby forming a sequence. A perfect example is
  * [Interface99](https://github.com/Hirrolot/interface99), which allows a user to define a software
- * interface via a number of `iMethod(...)` macro invocations:
+ * interface via a number of `vfunc(...)` macro invocations:
  *
  * @code
- * #define State_IFACE                      \
- *     iMethod( int, get, void *self)       \
- *     iMethod(void, set, void *self, int x)
+ * #define Shape_IFACE                      \
+ *     vfunc( int, perim, const VSelf)      \
+ *     vfunc(void, scale, VSelf, int factor)
  *
- * interface(State);
+ * interface(Shape);
  * @endcode
  *
- * With `iMethod` being defined as follows (simplified):
+ * With `vfunc` being defined as follows (simplified):
  *
  * @code
- * #define iMethod(ret_ty, name, ...) (ret_ty, name, __VA_ARGS__)
+ * #define vfunc(ret_ty, name, ...) (ret_ty, name, __VA_ARGS__)
  * @endcode
  *
  * @note Sequences are more time and space-efficient than lists, but export less functionality; if a

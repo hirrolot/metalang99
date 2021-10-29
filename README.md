@@ -96,25 +96,34 @@ Or [Interface99]:
 
 #include <stdio.h>
 
-#define State_IFACE                      \
-    iMethod( int, get, void *self)       \
-    iMethod(void, set, void *self, int x)
+#define Shape_IFACE                      \
+    vfunc( int, perim, const VSelf)      \
+    vfunc(void, scale, VSelf, int factor)
 
-interface(State);
+interface(Shape);
 
 typedef struct {
-    int x;
-} Num;
+    int a, b;
+} Rect;
 
-int  Num_get(void *self) { return ((Num *)self)->x; }
-void Num_set(void *self, int x) { ((Num *)self)->x = x; }
+int  Rect_perim(const VSelf) { /* ... */ }
+void Rect_scale(VSelf, int factor) { /* ... */ }
 
-impl(State, Num);
+impl(Shape, Rect);
 
-void test(State st) {
-    printf("x = %d\n", st.vptr->get(st.self));
-    st.vptr->set(st.self, 5);
-    printf("x = %d\n", st.vptr->get(st.self));
+typedef struct {
+    int a, b, c;
+} Triangle;
+
+int  Triangle_perim(const VSelf) { /* ... */ }
+void Triangle_scale(VSelf, int factor) { /* ... */ }
+
+impl(Shape, Triangle);
+
+void test(Shape shape) {
+    printf("perim = %d\n", VCALL(shape, perim));
+    VCALL(shape, scale, 5);
+    printf("perim = %d\n", VCALL(shape, perim));
 }
 ```
 
