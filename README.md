@@ -8,12 +8,15 @@
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp; &emsp; <b>-- Darth Sidious</b>
 
-[ [`examples/demo.c`](examples/demo.c) ]
+Based on [`examples/demo.c`](examples/demo.c):
+
+<table>
+<tr><td><b>Compile-time list manipulation</b></td></tr>
+
+<tr>
+<td>
+
 ```c
-#include <metalang99.h>
-
-// Compile-time list manipulation:
-
 // 3, 3, 3, 3, 3
 static int five_threes[] = {
     ML99_LIST_EVAL_COMMA_SEP(ML99_listReplicate(v(5), v(3))),
@@ -29,15 +32,37 @@ static int lesser_than_10[] = {
     ML99_LIST_EVAL_COMMA_SEP(
         ML99_listFilter(ML99_appl(v(ML99_greater), v(10)), ML99_list(v(9, 2, 11, 13, 5)))),
 };
+```
 
-// Macro recursion:
+</td>
+</tr>
+</table>
+
+<table>
+<tr><td><b>Macro recursion</b></td></tr>
+
+<tr>
+<td>
+
+```c
 #define factorial(n)          ML99_natMatch(n, v(factorial_))
 #define factorial_Z_IMPL(...) v(1)
 #define factorial_S_IMPL(n)   ML99_mul(ML99_inc(v(n)), factorial(v(n)))
 
 ML99_ASSERT_EQ(factorial(v(4)), v(24));
+```
 
-// Overloading on a number of arguments:
+</td>
+</tr>
+</table>
+
+<table>
+<tr><td><b>Overloading on a number of arguments</b></td></tr>
+
+<tr>
+<td>
+
+```c
 typedef struct {
     double width, height;
 } Rect;
@@ -57,9 +82,13 @@ int main(void) {
 }
 ```
 
+</td>
+</tr>
+</table>
+
 (Hint: `v(something)` evaluates to `something`.)
 
-Metalang99 is a firm foundation for writing reliable and maintainable metaprograms in pure C99. It is implemented as an interpreted functional language upon preprocessor macros -- `#include <metalang99.h>` and a standard-conforming compiler is all you need. Metalang99 features algebraic data types, pattern matching, recursion, currying, and collections; in addition, it provides a means for compile-time error reporting and debugging.
+Metalang99 is a firm foundation for writing reliable and maintainable metaprograms in pure C99. It is implemented as an interpreted FP language upon preprocessor macros: just `#include <metalang99.h>` and you are ready to go. Metalang99 features algebraic data types, pattern matching, recursion, currying, and collections; in addition, it provides a means for compile-time error reporting and debugging.
 
 _Note: most of the time, you would not use Metalang99 directly but through userland libraries such as [Datatype99] and [Interface99] (see below)._
 
