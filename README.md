@@ -104,12 +104,12 @@ interface(Shape);
 
 typedef struct {
     int a, b;
-} Rect;
+} Rectangle;
 
-int  Rect_perim(const VSelf) { /* ... */ }
-void Rect_scale(VSelf, int factor) { /* ... */ }
+int  Rectangle_perim(const VSelf) { /* ... */ }
+void Rectangle_scale(VSelf, int factor) { /* ... */ }
 
-impl(Shape, Rect);
+impl(Shape, Rectangle);
 
 typedef struct {
     int a, b, c;
