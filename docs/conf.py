@@ -25,7 +25,7 @@ copyright = '2021, Hirrolot'
 author = 'Hirrolot'
 
 # The full version, including alpha/beta/rc tags
-release = '1.11.0'
+release = '1.12.0'
 
 
 # -- General configuration ---------------------------------------------------
