@@ -2,6 +2,7 @@
 
 # Make sure that arity specifiers of public metafunctions are consistent with their signatures.
 
+import os
 import re
 import xml.etree.ElementTree as ET
 import subprocess
@@ -9,8 +10,10 @@ import subprocess
 subprocess.call("doxygen > /dev/null 2> /dev/null", shell=True)
 
 
-def check_file(filename):
-    tree = ET.parse(f"xml/{filename}_8h.xml")
+def check_module(module):
+    print(f"Checking {module}.h ...")
+
+    tree = ET.parse(f"xml/{module}_8h.xml")
     root = tree.getroot()
 
     arity_specifiers = gather_arity_specifiers(root)
@@ -52,8 +55,7 @@ def gather_arity_specifiers(root):
     return arity_specifiers
 
 
-filenames = ["assert", "choice", "either", "gen", "lang", "list",
-             "bool", "maybe", "nat", "ident", "tuple", "util", "variadics", "seq"]
-
-for filename in filenames:
-    check_file(filename)
+for path in os.listdir("include/metalang99"):
+    if path.endswith(".h"):
+        module = path.replace(".h", "")
+        check_module(module)
