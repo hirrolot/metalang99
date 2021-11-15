@@ -307,7 +307,7 @@ A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.
 
 ### Q: What about IDE support?
 
-A: I use VS Code for development. It enables pop-up suggestments of macro-generated constructions but, of course, it does not support macro syntax highlightment.
+A: I use VS Code for development. It enables pop-up suggestments of macro-generated constructions but, of course, it does not support macro syntax highlighting.
 
 ### Q: Compilation times?
 
