@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), 
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [unreleased]
+## unreleased
 
-## [1.12.0] - 2021-11-09
+## 1.12.0 - 2021-11-09
 
 ### Added
 
@@ -40,7 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - Move `ML99_if`, `ML99_IF` to `bool.h`.
    - Move `ML99_repeat`, `ML99_times` to `gen.h`.
 
-## [1.11.0] - 2021-10-02
+## 1.11.0 - 2021-10-02
 
 ### Added
 
@@ -57,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `list.h`, `variadics.h`:
    - Remove the requirement that `ML99_listFromTuples` and `ML99_variadicsForEach(I)` can accept at most 63 arguments.
 
-## [1.10.0] - 2021-09-14
+## 1.10.0 - 2021-09-14
 
 ### Added
 
@@ -69,7 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `util.h`:
    - `ML99_(L|R)PAREN` because they result in code that is difficult to reason about.
 
-## [1.9.0] - 2021-08-27
+## 1.9.0 - 2021-08-27
 
 ### Added
 
@@ -77,21 +77,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - `ML99_VERSION_COMPATIBLE` to check for a SemVer-compatible version.
    - `ML99_VERSION_EQ` to check for an exact version.
 
-## [1.8.0] - 2021-08-26
+## 1.8.0 - 2021-08-26
 
 ### Added
 
  - `ident.h`:
    - `ML99_charLit`, `ML99_CHAR_LIT` to convert a Metalang99 character to a C character literal.
 
-## [1.7.0] - 2021-08-13
+## 1.7.0 - 2021-08-13
 
 ### Changed
 
  - `assert.h`:
    - Generate `_Static_assert` from the assertion macros if compiling on C11.
 
-## [1.6.0] - 2021-08-13
+## 1.6.0 - 2021-08-13
 
 ### Added
 
@@ -107,20 +107,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `variadics.h`:
    - Make `variadics.h` work without including `nat.h` & `util.h`.
 
-## [1.5.0] - 2021-08-11
+## 1.5.0 - 2021-08-11
 
 ### Added
 
  - `ML99_assignInitializerList(Stmt)` as `ML99_assign(Stmt)` counterparts for initialiser lists.
 
-## [1.4.1] - 2021-08-05
+## 1.4.1 - 2021-08-05
 
 ### Fixed
 
  - Invalid C11 standard detection for `_Static_assert` ([issue 15](https://github.com/Hirrolot/metalang99/issues/15)).
  - Invalid C11 standard detection for `_Static_assert` on MSVC ([issue 16](https://github.com/Hirrolot/metalang99/issues/16)).
 
-## [1.4.0] - 2021-08-02
+## 1.4.0 - 2021-08-02
 
 ### Added
 
@@ -133,7 +133,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - Clang if `__has_extension(c_static_assert)`.
    - GCC if newer than [4.6](https://gcc.gnu.org/gcc-4.6/changes.html).
 
-## [1.3.0] - 2021-07-24
+## 1.3.0 - 2021-07-24
 
 ### Added
 
@@ -150,7 +150,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - Emit syntax errors and errors from `ML99_fatal` right to a console if compiling on GCC.
 
-## [1.2.0] - 2021-06-06
+## 1.2.0 - 2021-06-06
 
 ### Added
 
@@ -180,7 +180,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - Make Metalang99 work on TCC (see [datatype99/issues/10](https://github.com/Hirrolot/datatype99/issues/10)).
 
-## [1.1.0] - 2021-04-24
+## 1.1.0 - 2021-04-24
 
 ### Added
 
@@ -232,7 +232,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `gen.h`:
    - `ML99_SUPPRESS_UNUSED_BEFORE_STMT` (use `ML99_CHAIN_EXPR_STMT((void)expr)` instead).
 
-## [1.0.0] - 2021-03-27
+## 1.0.0 - 2021-03-27
 
 ### Added
 
@@ -254,7 +254,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - Emit the correct metafunction name in case of an error in `ML99_listGet`.
  - Remove a precondition that metafunctions passed to `ML99_listFoldl`, `ML99_listFolr`, `ML99_listFoldl1`, `ML99_listMap`, `ML99_listMapI`, `ML99_listFor`, `ML99_listMapInitLast`, and `ML99_listForInitLast` must evaluate to a single term.
 
-## [0.5.0] - 2021-03-22
+## 0.5.0 - 2021-03-22
 
 ### Added
 
@@ -309,7 +309,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [`/Zc:preprocessor`]: https://docs.microsoft.com/en-us/cpp/build/reference/zc-preprocessor?view=msvc-160
 
-## [0.4.2] - 2021-02-28
+## 0.4.2 - 2021-02-28
 
 ### Added
 
@@ -321,7 +321,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - Suppress Clang's `-Wshadow` for a variable produced by `M_INTRODUCE_VAR_TO_STMT`.
 
-## [0.4.1] - 2021-02-28
+## 0.4.1 - 2021-02-28
 
 ### Added
 
@@ -338,7 +338,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - Initialise variables produced by `M_semicolon` and `M_assertPlain` to suppress warnings.
 
-## [0.4.0] - 2021-02-26
+## 0.4.0 - 2021-02-26
 
 ### Added
 
@@ -348,7 +348,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - Move the corresponding functions from `util.h` and `variadics.h` to `tuple.h`.
 
-## [0.3.0] - 2021-02-26
+## 0.3.0 - 2021-02-26
 
 ### Added
 
@@ -396,7 +396,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  - `M_variadicsMapCommaSep`, `M_variadicsMapICommaSep` (better use lists).
  - `M_const2`, `M_const3`.
 
-## [0.2.0] - 2021-02-05
+## 0.2.0 - 2021-02-05
 
 ### Changed
 
@@ -406,7 +406,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
  - Reporting about syntactic mismatches.
 
-## [0.1.0] - 2021-02-04
+## 0.1.0 - 2021-02-04
 
 ### Added
 
