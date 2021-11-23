@@ -345,6 +345,9 @@
  *
  * It is useful when defining macros, to make them formatted as complete statements.
  *
+ * #ML99_TRAILING_SEMICOLON is to be used outside of functions: unlike the `do { ... } while (0)`
+ * idiom, this macro expands to a C declaration.
+ *
  * # Examples
  *
  * @code
@@ -357,8 +360,6 @@
  * // Defines a function that always returns 0.
  * MY_MACRO(zero, int, 0);
  * @endcode
- *
- * @note This macro expands to a C declaration, therefore, it can be used outside of functions too.
  */
 #define ML99_TRAILING_SEMICOLON(...) struct ml99_priv_trailing_semicolon
 
