@@ -27,6 +27,9 @@
  * // ERROR: 123ABC is not a valid Metalang99 term.
  * ML99_catEval(v(123), v(ABC))
  * @endcode
+ *
+ * @deprecated I have seen no single use case over time. Please, [open an
+ * issue](https://github.com/Hirrolot/metalang99/issues/new/choose) if you need this function.
  */
 #define ML99_catEval(a, b) ML99_call(ML99_catEval, a, b)
 

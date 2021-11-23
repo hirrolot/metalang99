@@ -3,11 +3,17 @@
 
 int main(void) {
 
-    // ML99_cat, ML99_cat(3|4)
+    // ML99_cat(Eval), ML99_cat(3|4)
     {
         ML99_ASSERT_EQ(ML99_cat(v(12), v(345)), v(12345));
         ML99_ASSERT_EQ(ML99_cat3(v(12), v(3), v(45)), v(12345));
         ML99_ASSERT_EQ(ML99_cat4(v(12), v(3), v(4), v(5)), v(12345));
+
+#define ABC v(123)
+
+        ML99_ASSERT_EQ(ML99_catEval(v(A), v(BC)), v(123));
+
+#undef ABC
     }
 
     // ML99_CAT, ML99_CAT(3|4)
@@ -39,10 +45,10 @@ int main(void) {
     // ML99_const
     { ML99_ASSERT_EQ(ML99_appl2(v(ML99_const), v(1810), v(~)), v(1810)); }
 
-#define ABC ML99_true()
+#define ABC ML99_TRUE()
 
     // ML99_flip
-    { ML99_ASSERT(ML99_appl2(ML99_flip(v(ML99_catEval)), v(C), v(AB))); }
+    { ML99_ASSERT(ML99_appl2(ML99_flip(v(ML99_cat)), v(C), v(AB))); }
 
 #undef ABC
 

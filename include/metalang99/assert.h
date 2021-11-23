@@ -2,6 +2,8 @@
  * @file
  * Static assertions.
  *
+ * For the sake of convenience, this header automatically includes `metalang99/bool.h`.
+ *
  * @note [C99] Any of the following assertion macros must **not** appear on the same line number
  * twice with itself as well as with any other Metalang99 assertion macro.
  * @note [C11] The following assertion macros expand to `_Static_assert` and, therefore, can be used
