@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## unreleased
 
+## 1.12.1 - 2021-11-23
+
 ### Deprecated
 
  - Deprecate `ML99_catEval` because there were no use cases over time.
