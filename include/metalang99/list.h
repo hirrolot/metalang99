@@ -276,7 +276,7 @@
  * @code
  * #include <metalang99/list.h>
  *
- * // 1 2 3
+ * // Literally 1 2 3
  * ML99_listUnwrap(ML99_list(v(1, 2, 3)))
  * @endcode
  *
@@ -294,8 +294,8 @@
  * @code
  * #include <metalang99/list.h>
  *
- * // 1, 2, 3
- * ML99_listUnwrap(ML99_list(v(1, 2, 3)))
+ * // Literally 1, 2, 3
+ * ML99_listUnwrapCommaSep(ML99_list(v(1, 2, 3)))
  * @endcode
  *
  * @note The resulting value is still a valid Metalang99 term that need to be evaluated further.
