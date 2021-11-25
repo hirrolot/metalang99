@@ -235,6 +235,65 @@
  */
 #define ML99_unimplementedWithMsg(f, message) ML99_call(ML99_unimplementedWithMsg, f, message)
 
+#ifdef __COUNTER__
+
+/**
+ * Generates a unique identifier @p id in the namespace @p prefix.
+ *
+ * Let `FOO` be the name of an enclosing macro. Then `FOO_` must be specified for @p prefix, and @p
+ * id should be given any meaningful name (this makes debugging easier).
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * #define FOO(...) FOO_NAMED(ML99_GEN_SYM(FOO_, x), __VA_ARGS__)
+ * #define FOO_NAMED(x_sym, ...) \
+ *      do { int x_sym = 5; __VA_ARGS__ } while (0)
+ *
+ * // `x` here will not conflict with the `x` inside `FOO`.
+ * FOO({
+ *     int x = 7;
+ *     printf("x is %d\n", x); // x is 7
+ * });
+ * @endcode
+ *
+ * @note Two identical calls to #ML99_GEN_SYM will yield different identifiers, therefore, to refer
+ * to the result later, you must save it in an auxiliary macro's parameter, as shown in the example
+ * above.
+ * @note #ML99_GEN_SYM is defined only if `__COUNTER__` is defined, which must be a macro yielding
+ * integral literals starting from 0 incremented by 1 each time it is called. Currently, it is
+ * supported at least by Clang, GCC, TCC, and MSVC.
+ * @see https://en.wikipedia.org/wiki/Hygienic_macro
+ */
+#define ML99_GEN_SYM(prefix, id) ML99_CAT4(prefix, id, _, __COUNTER__)
+
+#endif // __COUNTER__
+
+/**
+ * Forces a caller to put a trailing semicolon.
+ *
+ * It is useful when defining macros, to make them formatted as complete statements.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/util.h>
+ *
+ * #define MY_MACRO(fn_name, val_ty, val) \
+ *     inline static val_ty fn_name(void) { return val; } \
+ *     ML99_TRAILING_SEMICOLON()
+ *
+ * // Defines a function that always returns 0.
+ * MY_MACRO(zero, int, 0);
+ * @endcode
+ *
+ * @note #ML99_TRAILING_SEMICOLON is to be used outside of functions: unlike the `do { ... } while
+ * (0)` idiom, this macro expands to a C declaration.
+ */
+#define ML99_TRAILING_SEMICOLON(...) struct ml99_priv_trailing_semicolon
+
 /**
  * Concatenates @p a with @p b as-is, without expanding them.
  *
@@ -303,65 +362,6 @@
  * Expands to a single comma, consuming all arguments.
  */
 #define ML99_COMMA(...) ,
-
-#ifdef __COUNTER__
-
-/**
- * Generates a unique identifier @p id in the namespace @p prefix.
- *
- * Let `FOO` be the name of an enclosing macro. Then `FOO_` must be specified for @p prefix, and @p
- * id should be given any meaningful name (this makes debugging easier).
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * #define FOO(...) FOO_NAMED(ML99_GEN_SYM(FOO_, x), __VA_ARGS__)
- * #define FOO_NAMED(x_sym, ...) \
- *      do { int x_sym = 5; __VA_ARGS__ } while (0)
- *
- * // `x` here will not conflict with the `x` inside `FOO`.
- * FOO({
- *     int x = 7;
- *     printf("x is %d\n", x); // x is 7
- * });
- * @endcode
- *
- * @note Two identical calls to #ML99_GEN_SYM will yield different identifiers, therefore, to refer
- * to the result later, you must save it in an auxiliary macro's parameter, as shown in the example
- * above.
- * @note #ML99_GEN_SYM is defined only if `__COUNTER__` is defined, which must be a macro yielding
- * integral literals starting from 0 incremented by 1 each time it is called. Currently, it is
- * supported at least by Clang, GCC, TCC, and MSVC.
- * @see https://en.wikipedia.org/wiki/Hygienic_macro
- */
-#define ML99_GEN_SYM(prefix, id) ML99_CAT4(prefix, id, _, __COUNTER__)
-
-#endif // __COUNTER__
-
-/**
- * Forces a caller to put a trailing semicolon.
- *
- * It is useful when defining macros, to make them formatted as complete statements.
- *
- * #ML99_TRAILING_SEMICOLON is to be used outside of functions: unlike the `do { ... } while (0)`
- * idiom, this macro expands to a C declaration.
- *
- * # Examples
- *
- * @code
- * #include <metalang99/util.h>
- *
- * #define MY_MACRO(fn_name, val_ty, val) \
- *     inline static val_ty fn_name(void) { return val; } \
- *     ML99_TRAILING_SEMICOLON()
- *
- * // Defines a function that always returns 0.
- * MY_MACRO(zero, int, 0);
- * @endcode
- */
-#define ML99_TRAILING_SEMICOLON(...) struct ml99_priv_trailing_semicolon
 
 /**
  * If you are compiling on GCC, this macro expands to `_Pragma(str)`, otherwise to emptiness.
