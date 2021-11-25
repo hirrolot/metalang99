@@ -1,5 +1,6 @@
 #include <metalang99/assert.h>
 #include <metalang99/list.h>
+#include <metalang99/maybe.h>
 #include <metalang99/nat.h>
 #include <metalang99/tuple.h>
 #include <metalang99/util.h>
@@ -32,8 +33,7 @@ int main(void) {
     // ML99_listFromTuples
     {
         ML99_ASSERT(CMP_NATURALS(ML99_listFromTuples(v(F), v((1, 2))), ML99_list(v(3))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listFromTuples(v(F), v((1, 2), (3, 4), (5, 6))),
             ML99_list(v(3, 7, 11))));
     }
@@ -88,17 +88,14 @@ int main(void) {
     // ML99_listAppend
     {
         ML99_ASSERT(CMP_NATURALS(ML99_listAppend(ML99_nil(), ML99_nil()), ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listAppend(ML99_nil(), ML99_list(v(1, 2, 3))),
             ML99_list(v(1, 2, 3))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listAppend(ML99_list(v(1, 2, 3)), ML99_nil()),
             ML99_list(v(1, 2, 3))));
 
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listAppend(ML99_list(v(1, 2, 3)), ML99_list(v(4, 5, 6))),
             ML99_list(v(1, 2, 3, 4, 5, 6))));
     }
@@ -106,8 +103,7 @@ int main(void) {
     // ML99_listAppendItem
     {
         ML99_ASSERT(CMP_NATURALS(ML99_listAppendItem(v(123), ML99_nil()), ML99_list(v(123))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listAppendItem(v(222), ML99_list(v(1, 2, 3))),
             ML99_list(v(1, 2, 3, 222))));
     }
@@ -204,24 +200,19 @@ int main(void) {
 
     // ML99_listTakeWhile
     {
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listTakeWhile(ML99_appl(v(ML99_lesser), v(5)), ML99_nil()),
             ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listTakeWhile(ML99_appl(v(ML99_greater), v(5)), ML99_list(v(7))),
             ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listTakeWhile(ML99_appl(v(ML99_greater), v(5)), ML99_list(v(1, 9, 7))),
             ML99_list(v(1))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listTakeWhile(ML99_appl(v(ML99_greater), v(5)), ML99_list(v(4, 9, 2, 3))),
             ML99_list(v(4))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listTakeWhile(ML99_appl(v(ML99_greater), v(5)), ML99_list(v(2, 4, 7, 9, 28))),
             ML99_list(v(2, 4))));
     }
@@ -238,24 +229,19 @@ int main(void) {
 
     // ML99_listDropWhile
     {
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listDropWhile(ML99_appl(v(ML99_lesser), v(5)), ML99_nil()),
             ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listDropWhile(ML99_appl(v(ML99_greater), v(5)), ML99_list(v(7))),
             ML99_list(v(7))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listDropWhile(ML99_appl(v(ML99_greater), v(5)), ML99_list(v(1, 9, 7))),
             ML99_list(v(9, 7))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listDropWhile(ML99_appl(v(ML99_greater), v(5)), ML99_list(v(4, 9, 2, 3))),
             ML99_list(v(9, 2, 3))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listDropWhile(ML99_appl(v(ML99_greater), v(5)), ML99_list(v(2, 4, 7, 9, 28))),
             ML99_list(v(7, 9, 28))));
     }
@@ -332,8 +318,7 @@ int main(void) {
     // ML99_listPrependToAll
     {
         ML99_ASSERT(CMP_NATURALS(ML99_listPrependToAll(v(+), ML99_nil()), ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listPrependToAll(v(111), ML99_list(v(5, 9, 22))),
             ML99_list(v(111, 5, 111, 9, 111, 22))));
     }
@@ -341,8 +326,7 @@ int main(void) {
     // ML99_listIntersperse
     {
         ML99_ASSERT(CMP_NATURALS(ML99_listIntersperse(v(+), ML99_nil()), ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listIntersperse(v(111), ML99_list(v(5, 9, 22))),
             ML99_list(v(5, 111, 9, 111, 22))));
     }
@@ -371,8 +355,7 @@ int main(void) {
     {
         ML99_ASSERT(
             CMP_NATURALS(ML99_listMap(ML99_appl(v(ML99_add), v(3)), ML99_nil()), ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listMap(ML99_appl(v(ML99_add), v(3)), ML99_list(v(1, 2, 3))),
             ML99_list(v(4, 5, 6))));
     }
@@ -384,8 +367,7 @@ int main(void) {
     // ML99_listMapI
     {
         ML99_ASSERT(CMP_NATURALS(ML99_listMapI(v(ML99_cat), ML99_nil()), ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listMapI(v(ML99_cat), ML99_list(v(A, B, C))),
             ML99_list(v(19, 6, 11))));
     }
@@ -432,23 +414,20 @@ int main(void) {
     {
         ML99_ASSERT(
             CMP_NATURALS(ML99_listFor(ML99_nil(), ML99_appl(v(ML99_add), v(3))), ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listFor(ML99_list(v(1, 2, 3)), ML99_appl(v(ML99_add), v(3))),
             ML99_list(v(4, 5, 6))));
     }
 
     // ML99_listMapInitLast
     {
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listMapInitLast(
                 ML99_appl(v(ML99_add), v(3)),
                 ML99_appl(v(ML99_add), v(19)),
                 ML99_list(v(4))),
             ML99_list(v(23))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listMapInitLast(
                 ML99_appl(v(ML99_add), v(3)),
                 ML99_appl(v(ML99_add), v(7)),
@@ -458,15 +437,13 @@ int main(void) {
 
     // ML99_listForInitLast
     {
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listForInitLast(
                 ML99_list(v(4)),
                 ML99_appl(v(ML99_add), v(3)),
                 ML99_appl(v(ML99_add), v(19))),
             ML99_list(v(23))));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listForInitLast(
                 ML99_list(v(1, 2, 3)),
                 ML99_appl(v(ML99_add), v(3)),
@@ -476,14 +453,26 @@ int main(void) {
 
     // ML99_listFilter
     {
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
-            ML99_listFilter(ML99_appl(v(ML99_add), v(3)), ML99_nil()),
-            ML99_nil()));
-        ML99_ASSERT(ML99_listEq(
-            v(ML99_natEq),
+        ML99_ASSERT(
+            CMP_NATURALS(ML99_listFilter(ML99_appl(v(ML99_add), v(3)), ML99_nil()), ML99_nil()));
+        ML99_ASSERT(CMP_NATURALS(
             ML99_listFilter(ML99_appl(v(ML99_lesser), v(3)), ML99_list(v(14, 0, 1, 7, 2, 65, 3))),
             ML99_list(v(14, 7, 65))));
+    }
+
+    // ML99_listFilterMap
+    {
+#define LIST ML99_list(v(5, 7, 3, 12))
+
+#define F_IMPL(x) ML99_if(ML99_lesserEq(v(x), v(5)), ML99_just(v(x)), ML99_nothing())
+#define F_ARITY   1
+
+        ML99_ASSERT(CMP_NATURALS(ML99_listFilterMap(v(F), LIST), ML99_list(v(5, 3))));
+
+#undef F_IMPL
+#undef F_ARITY
+
+#undef LIST
     }
 
     // ML99_listReplicate

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## unreleased
 
+### Added
+
+ - `list.h`:
+   - `ML99_listFilterMap` to filter a list with a maybe-returning function.
+
 ## 1.12.1 - 2021-11-23
 
 ### Deprecated

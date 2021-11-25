@@ -520,6 +520,26 @@
 #define ML99_listFilter(f, list) ML99_call(ML99_listFilter, f, list)
 
 /**
+ * A combination of #ML99_listFilter and #ML99_listMap.
+ *
+ * It builds a new list by applying @p f to each element in @p list: if @p f yields `ML99_just(x)`,
+ * `x` is passed to the new list, otherwise (`ML99_nothing()`), the value is neglected.
+ *
+ * # Examples
+ *
+ * @code
+ * #include <metalang99/list.h>
+ * #include <metalang99/maybe.h>
+ *
+ * #define MAYBE_LIST ML99_list(ML99_just(v(5)), ML99_nothing(), ML99_just(v(7)))
+ *
+ * // 5, 7
+ * ML99_listFilterMap(v(ML99_id), MAYBE_LIST)
+ * @endcode
+ */
+#define ML99_listFilterMap(f, list) ML99_call(ML99_listFilterMap, f, list)
+
+/**
  * Tests @p list and @p other for equality.
  *
  * # Examples
@@ -896,6 +916,19 @@
 #define ML99_PRIV_listFilter_cons_0_IMPL(_x, rest) v(rest)
 // } (ML99_listFilter_IMPL)
 
+// ML99_listFilterMap_IMPL {
+
+#define ML99_listFilterMap_IMPL(f, list) ML99_matchWithArgs_IMPL(list, ML99_PRIV_listFilterMap_, f)
+
+#define ML99_PRIV_listFilterMap_nil_IMPL ML99_nil_IMPL
+#define ML99_PRIV_listFilterMap_cons_IMPL(x, xs, f)                                                \
+    ML99_call(ML99_matchWithArgs, ML99_appl_IMPL(f, x), v(ML99_PRIV_listFilterMap_cons_, f, xs))
+
+#define ML99_PRIV_listFilterMap_cons_just_IMPL(y, f, xs)                                           \
+    ML99_cons(v(y), ML99_listFilterMap_IMPL(f, xs))
+#define ML99_PRIV_listFilterMap_cons_nothing_IMPL(_, f, xs) ML99_listFilterMap_IMPL(f, xs)
+// } (ML99_listFilterMap_IMPL)
+
 // ML99_listEq_IMPL {
 
 #define ML99_listEq_IMPL(cmp, list, other)                                                         \
@@ -1072,6 +1105,7 @@
 #define ML99_listMapInitLast_ARITY    3
 #define ML99_listForInitLast_ARITY    3
 #define ML99_listFilter_ARITY         2
+#define ML99_listFilterMap_ARITY      2
 #define ML99_listEq_ARITY             3
 #define ML99_listContains_ARITY       3
 #define ML99_listTake_ARITY           2
