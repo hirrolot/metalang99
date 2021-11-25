@@ -88,7 +88,7 @@ int main(void) {
 
 (Hint: `v(something)` evaluates to `something`.)
 
-Metalang99 is a firm foundation for writing reliable and maintainable metaprograms in pure C99. It is implemented as an interpreted FP language upon preprocessor macros: just `#include <metalang99.h>` and you are ready to go. Metalang99 features algebraic data types, pattern matching, recursion, currying, and collections; in addition, it provides a means for compile-time error reporting and debugging.
+Metalang99 is a firm foundation for writing reliable and maintainable metaprograms in pure C99. It is implemented as an interpreted FP language upon preprocessor macros: just `#include <metalang99.h>` and you are ready to go. Metalang99 features algebraic data types, pattern matching, recursion, currying, and collections; in addition, it provides means for compile-time error reporting and debugging.
 
 _Note: most of the time, you would not use Metalang99 directly but through userland libraries such as [Datatype99] and [Interface99] (see below)._
 
