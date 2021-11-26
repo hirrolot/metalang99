@@ -166,9 +166,38 @@ Looks interesting? Check out the [motivational post] for more information.
 
 ## Getting started
 
- 1. Download this repository.
- 2. Add `metalang99/include` to your include paths.
- 3. `#include <metalang99.h>` beforehand (or use separate headers described in the docs).
+Metalang99 is just a set of header files and nothing else; therefore, the only thing you need to tell your compiler is to add `metalang99/include` to include directories.
+
+If you use CMake, the recommended way is either [`FetchContent`] or [`add_subdirectory`], e.g.:
+
+[`FetchContent`]: https://cmake.org/cmake/help/latest/module/FetchContent.html
+[`add_subdirectory`]: https://cmake.org/cmake/help/latest/command/add_subdirectory.html
+
+```cmake
+include(FetchContent)
+
+FetchContent_Declare(
+    metalang99
+    GIT_REPOSITORY https://github.com/Hirrolot/metalang99.git
+    # Always use version numbers instead of pulling directly from master!
+    GIT_TAG v1.2.3
+)
+
+FetchContent_MakeAvailable(metalang99)
+
+target_link_libraries(MyProject metalang99)
+```
+
+Using [`add_subdirectory`]:
+
+```cmake
+add_subdirectory(metalang99)
+target_link_libraries(MyProject metalang99)
+```
+
+In the latter case, I encourage you to download Metalang99 as a [Git submodule] to be able to update it with `git submodule update --remote` when necessary.
+
+[Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
 Some handy advices:
 

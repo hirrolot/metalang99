@@ -9,8 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+ - Add the root `CMakeLists.txt` to be able to use CMake with [`FetchContent`] or [`add_subdirectory`] ([PR #20](https://github.com/Hirrolot/metalang99/pull/20)).
  - `list.h`:
    - `ML99_listFilterMap` to filter a list with a maybe-returning function.
+
+[`FetchContent`]: https://cmake.org/cmake/help/latest/module/FetchContent.html
+[`add_subdirectory`]: https://cmake.org/cmake/help/latest/command/add_subdirectory.html
 
 ## 1.12.1 - 2021-11-23
 
@@ -128,8 +132,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
- - Invalid C11 standard detection for `_Static_assert` ([issue 15](https://github.com/Hirrolot/metalang99/issues/15)).
- - Invalid C11 standard detection for `_Static_assert` on MSVC ([issue 16](https://github.com/Hirrolot/metalang99/issues/16)).
+ - Invalid C11 standard detection for `_Static_assert` ([issue #15](https://github.com/Hirrolot/metalang99/issues/15)).
+ - Invalid C11 standard detection for `_Static_assert` on MSVC ([issue #16](https://github.com/Hirrolot/metalang99/issues/16)).
 
 ## 1.4.0 - 2021-08-02
 
