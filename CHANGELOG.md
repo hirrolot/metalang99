@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## unreleased
 
+## 1.13.0 - 2021-12-01
+
 ### Added
 
  - Add the root `CMakeLists.txt` to be able to use CMake with [`FetchContent`] or [`add_subdirectory`] ([PR #20](https://github.com/Hirrolot/metalang99/pull/20)).
