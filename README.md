@@ -90,7 +90,10 @@ int main(void) {
 
 Metalang99 is a firm foundation for writing reliable and maintainable metaprograms in pure C99. It is implemented as an interpreted FP language upon preprocessor macros: just `#include <metalang99.h>` and you are ready to go. Metalang99 features algebraic data types, pattern matching, recursion, currying, and collections; in addition, it provides means for compile-time error reporting and debugging.
 
-_Note: most of the time, you would not use Metalang99 directly but through userland libraries such as [Datatype99] and [Interface99] (see below)._
+Currently, Metalang99 is used at [OpenIPC] as an indirect dependency of [Datatype99] and [Interface99]; this includes an [RTSP 1.0 implementation] along with ~50k lines of private code.
+
+[OpenIPC]: https://openipc.org/
+[RTSP 1.0 implementation]: https://github.com/OpenIPC/smolrtsp/
 
 [Datatype99]: https://github.com/Hirrolot/Datatype99
 [Interface99]: https://github.com/Hirrolot/Interface99
