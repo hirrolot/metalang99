@@ -88,7 +88,9 @@ int main(void) {
 
 (Hint: `v(something)` evaluates to `something`.)
 
-Metalang99 is a firm foundation for writing reliable and maintainable metaprograms in pure C99. It is implemented as an interpreted FP language upon preprocessor macros: just `#include <metalang99.h>` and you are ready to go. Metalang99 features algebraic data types, pattern matching, recursion, currying, and collections; in addition, it provides means for compile-time error reporting and debugging.
+Metalang99 is a firm foundation for writing reliable and maintainable metaprograms in pure C99. It is implemented as an interpreted FP language atop of preprocessor macros: just `#include <metalang99.h>` and you are ready to go. Metalang99 features algebraic data types, pattern matching, recursion, currying, and collections; in addition, it provides means for compile-time error reporting and debugging. With our [built-in syntax checker], macro errors should be perfectly comprehensible, enabling you for convenient development.
+
+[built-in syntax checker]: #q-what-about-compile-time-errors
 
 Currently, Metalang99 is used at [OpenIPC] as an indirect dependency of [Datatype99] and [Interface99]; this includes an [RTSP 1.0 implementation] along with ~50k lines of private code.
 
@@ -329,7 +331,7 @@ However, if you do something awkward, compile-time errors can become quite obscu
 ML99_EVAL((~, ~, ~) blah)
 ```
 
-In either case, you can try to [iteratively debug your metaprogram](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
+In either case, you can try to [iteratively debug your metaprogram](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting). From my experience, 95% of errors are comprehensible -- Metalang99 is built for humans, not for macro monsters.
 
 ### Q: What about debugging?
 
