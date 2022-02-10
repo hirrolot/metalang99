@@ -1,3 +1,3 @@
 #!/bin/bash
 
-firefox spec/spec.pdf
+xdg-open spec/spec.pdf
