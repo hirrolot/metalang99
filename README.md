@@ -205,7 +205,7 @@ Another approach is downloading Metalang99 as a [Git submodule]; in this case, y
 
 To reduce compilation times, you can try [precompiling headers] that rely on Metalang99 so that they will not be compiled each time they are included. And **PLEASE**, do not forget to specify [`-ftrack-macro-expansion=0`] (GCC), [`-fmacro-backtrace-limit=1`] (Clang), or something similar to limit macro expansion backtraces; otherwise, Metalang99 will throw your compiler to the moon.
 
-[precompile headers]: https://en.wikipedia.org/wiki/Precompiled_header
+[precompiling headers]: https://en.wikipedia.org/wiki/Precompiled_header
 [`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
 [`-fmacro-backtrace-limit=1`]: https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-fmacro-backtrace-limit
 
