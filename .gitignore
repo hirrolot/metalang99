@@ -56,3 +56,6 @@ xml
 
 # Sphinx output
 _build
+
+# Cmake
+build/
