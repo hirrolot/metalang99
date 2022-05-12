@@ -205,7 +205,10 @@ Another approach is downloading Metalang99 as a [Git submodule]; in this case, y
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 [`add_subdirectory`]: https://cmake.org/cmake/help/latest/command/add_subdirectory.html
 
-To reduce compilation times, you can try [precompiling headers] that rely on Metalang99 so that they will not be compiled each time they are included. And **PLEASE**, do not forget to specify [`-ftrack-macro-expansion=0`] (GCC), [`-fmacro-backtrace-limit=1`] (Clang), or something similar to limit macro expansion backtraces; otherwise, Metalang99 will throw your compiler to the moon.
+A few useful tips:
+
+ - To reduce compilation times, you can try [precompiling headers] that rely on Metalang99 so that they will not be compiled each time they are included.
+ - **PLEASE**, do not forget to specify [`-ftrack-macro-expansion=0`] (GCC), [`-fmacro-backtrace-limit=1`] (Clang), or something similar; otherwise, Metalang99 will throw your compiler to the moon.
 
 [precompiling headers]: https://en.wikipedia.org/wiki/Precompiled_header
 [`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
