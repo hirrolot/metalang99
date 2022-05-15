@@ -54,10 +54,7 @@
  *             printf("i = %d, x = %f, y = %f\n", i, x, y);
  * @endcode
  */
-#define ML99_INTRODUCE_VAR_TO_STMT(...)                                                            \
-    ML99_PRIV_SHADOWS(for (__VA_ARGS__, *ml99_priv_break = (void *)0;                              \
-                           ml99_priv_break != (void *)1;                                           \
-                           ml99_priv_break = (void *)1))
+#define ML99_INTRODUCE_VAR_TO_STMT(...) ML99_PRIV_INTRODUCE_VAR_TO_STMT_INNER(__VA_ARGS__)
 
 /**
  * The same as #ML99_INTRODUCE_VAR_TO_STMT but deals with a single non-`NULL` pointer.
@@ -85,7 +82,7 @@
  * @note @p init is guaranteed to be executed only once.
  */
 #define ML99_INTRODUCE_NON_NULL_PTR_TO_STMT(ty, name, init)                                        \
-    ML99_PRIV_SHADOWS(for (ty *name = (init); name != (void *)0; name = (void *)0))
+    ML99_PRIV_SHADOWS(for (ty *name = (init); name != 0; name = 0))
 
 /**
  * A statement chaining macro that executes an expression statement derived from @p expr right
@@ -143,6 +140,21 @@
 #define ML99_SUPPRESS_UNUSED_BEFORE_STMT(expr) ML99_CHAIN_EXPR_STMT((void)expr)
 
 #ifndef DOXYGEN_IGNORE
+
+// See <https://github.com/Hirrolot/metalang99/issues/25>.
+#ifdef __cplusplus
+#define ML99_PRIV_INTRODUCE_VAR_TO_STMT_INNER(...)                                                 \
+    ML99_PRIV_SHADOWS(for (__VA_ARGS__,                                                            \
+                           *ml99_priv_break_arr[] = {0, 0},                                        \
+                           **ml99_priv_break = &ml99_priv_break_arr[0];                            \
+                           ml99_priv_break == &ml99_priv_break_arr[0];                             \
+                           ml99_priv_break++))
+#else
+#define ML99_PRIV_INTRODUCE_VAR_TO_STMT_INNER(...)                                                 \
+    ML99_PRIV_SHADOWS(for (__VA_ARGS__, *ml99_priv_break = (void *)0;                              \
+                           ml99_priv_break != (void *)1;                                           \
+                           ml99_priv_break = (void *)1))
+#endif
 
 #define ML99_PRIV_SHADOWS(...)                                                                     \
     ML99_CLANG_PRAGMA("clang diagnostic push")                                                     \

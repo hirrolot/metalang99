@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## unreleased
 
+### Fixed
+
+ - Fix C++ compilation for `ML99_INTRODUCE_VAR_TO_STMT` and `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT` ([issue #25](https://github.com/Hirrolot/metalang99/issues/25)).
+
 ## 1.13.1 - 2021-12-09
 
 ### Fixed
