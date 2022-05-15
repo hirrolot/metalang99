@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Test
-        run: bash scripts/test-all.sh
+        run: ./scripts/test-all.sh
 
   test-tcc:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
         run: sudo apt install tcc
 
       - name: Test
-        run: bash scripts/test-all.sh
+        run: ./scripts/test-all.sh
 
   test-cxx-stmt:
     runs-on: ubuntu-latest
@@ -61,7 +61,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Bench
-        run: bash scripts/bench.sh
+        run: ./scripts/bench.sh
 
   check-arities:
     runs-on: ubuntu-latest
@@ -85,4 +85,4 @@ jobs:
         run: git submodule update --init run-clang-format
 
       - name: Check code formatting
-        run: bash scripts/check-fmt.sh
+        run: ./scripts/check-fmt.sh
