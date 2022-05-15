@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 cd spec
 
 pdflatex -shell-escape spec.tex

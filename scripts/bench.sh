@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 bench() {
     echo $1
     time gcc bench/$1 -ftrack-macro-expansion=0 -Iinclude -E -P >/dev/null
