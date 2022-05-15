@@ -2,5 +2,5 @@
 
 set -e
 
-bash scripts/test.sh
-bash scripts/test-examples.sh
+./scripts/test.sh
+./scripts/test-examples.sh
