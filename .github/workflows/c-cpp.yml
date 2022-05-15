@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   test:
@@ -24,10 +24,10 @@ jobs:
       CC: ${{ matrix.compiler }}
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Test
-      run: bash scripts/test-all.sh
+      - name: Test
+        run: bash scripts/test-all.sh
 
   test-tcc:
     runs-on: ubuntu-latest
@@ -42,6 +42,15 @@ jobs:
 
       - name: Test
         run: bash scripts/test-all.sh
+
+  test-cxx-stmt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Test C++ statement chaining
+        run: g++ tests/stmt.c -Iinclude -Wall -Wextra -pedantic -std=c++11 -ftrack-macro-expansion=0
 
   bench:
     runs-on: ubuntu-latest
