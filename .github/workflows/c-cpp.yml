@@ -50,7 +50,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Test C++ statement chaining
-        run: g++ tests/stmt.c -Iinclude -Wall -Wextra -pedantic -std=c++11 -ftrack-macro-expansion=0
+        run: |
+          g++ tests/stmt.c -o stmt -Iinclude -Wall -Wextra -pedantic -std=c++11 -ftrack-macro-expansion=0
+          ./stmt
 
   bench:
     runs-on: ubuntu-latest

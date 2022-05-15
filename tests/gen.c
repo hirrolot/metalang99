@@ -6,8 +6,8 @@
 
 #include <assert.h>
 
-static void
-    test_indexed_params ML99_EVAL(ML99_indexedParams(ML99_list(v(int, long long, const char *))))
+static void test_indexed_params
+ML99_EVAL(ML99_indexedParams(ML99_list(v(int, long long, const char *))))
 {
     int i = _0;
     long long ll = _1;
@@ -276,4 +276,6 @@ int main(void) {
     }
 
 // clang-format on
+
+return 0;
 }

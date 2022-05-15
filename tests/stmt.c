@@ -109,4 +109,6 @@ int main(void) {
     { STMT_CHAINING }
 
 #undef STMT_CHAINING
+
+    return 0;
 }
