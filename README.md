@@ -173,7 +173,13 @@ Looks interesting? Check out the [motivational post] for more information.
 
 ## Getting started
 
-Metalang99 is just a set of header files and nothing else; therefore, the only thing you need to tell your compiler is to add `metalang99/include` to include directories.
+Metalang99 is just a set of header files and nothing else. To use it as a dependency, you need to:
+
+ 1. Add `metalang99/include` to include directories.
+ 2. Specify [`-ftrack-macro-expansion=0`] (GCC) or [`-fmacro-backtrace-limit=1`] (Clang) to avoid useless macro expansion errors.
+
+[`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
+[`-fmacro-backtrace-limit=1`]: https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-fmacro-backtrace-limit
 
 If you use CMake, the recommended way is [`FetchContent`]:
 
@@ -191,8 +197,7 @@ FetchContent_MakeAvailable(metalang99)
 
 target_link_libraries(MyProject metalang99)
 
-# Metalang99 relies on heavy macro machinery. To avoid useleless macro expansion
-# errors, please write this:
+# Disable full macro expansion backtraces for Metalang99.
 if(CMAKE_C_COMPILER_ID STREQUAL "Clang")
   target_compile_options(MyProject PRIVATE -fmacro-backtrace-limit=1)
 elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
@@ -200,19 +205,9 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
 endif()
 ```
 
-Another approach is downloading Metalang99 as a [Git submodule]; in this case, you can use CMake's [`add_subdirectory`]. Please, avoid directly copy-pasting `metalang99/include` to your project, because it will complicate updating to new versions of Metalang99 in the future.
+Optionally, you can [precompile headers] in your project that rely on Metalang99. This will decrease compilation time because the headers will not be compiled each time they are included.
 
-[Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
-[`add_subdirectory`]: https://cmake.org/cmake/help/latest/command/add_subdirectory.html
-
-A few useful tips:
-
- - To reduce compilation times, you can try [precompiling headers] that rely on Metalang99 so that they will not be compiled each time they are included.
- - **PLEASE**, do not forget to specify [`-ftrack-macro-expansion=0`] (GCC), [`-fmacro-backtrace-limit=1`] (Clang), or something similar; otherwise, Metalang99 will throw your compiler to the moon.
-
-[precompiling headers]: https://en.wikipedia.org/wiki/Precompiled_header
-[`-ftrack-macro-expansion=0`]: https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html
-[`-fmacro-backtrace-limit=1`]: https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-fmacro-backtrace-limit
+[precompile headers]: https://en.wikipedia.org/wiki/Precompiled_header
 
 [Tutorial](https://hirrolot.gitbook.io/metalang99/) | [Examples](examples/) | [User documentation](https://metalang99.readthedocs.io/en/latest/)
 
