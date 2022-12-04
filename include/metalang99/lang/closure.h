@@ -11,7 +11,7 @@
  * A closure has the form `(arity, f, ...)`, where `arity` is how many times `ML99_appl` can
  * be called for this closure, and `...` denotes the closure's environment.
  *
- * `METALANG_appl` is described by the following algorithm:
+ * `ML99_appl` is described by the following algorithm:
  *  - If `f` is an identifier (like `FOO`):
  *    - If `f##_ARITY` is 1, then just call this function with provided arguments.
  *    - Otherwise, return `(f##_ARITY - 1, f, provided args...)`.
