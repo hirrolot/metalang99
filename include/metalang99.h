@@ -23,7 +23,7 @@
 
 #define ML99_MAJOR 1
 #define ML99_MINOR 13
-#define ML99_PATCH 2
+#define ML99_PATCH 3
 
 #define ML99_VERSION_COMPATIBLE(x, y, z)                                                           \
     (ML99_MAJOR == (x) && ((ML99_MINOR == (y) && ML99_PATCH >= (z)) || (ML99_MINOR > (y))))
