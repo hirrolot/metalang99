@@ -173,6 +173,9 @@
 /**
  * Constructs a list from the [sequence](seq.html) @p seq.
  *
+ * Note that @p seq items must **not** contain commas. If you want commas in items, such as `(+, -,
+ * *, /)`, consider wrapping an item in parentheses: `((+, -, *, /))`.
+ *
  * # Examples
  *
  * @code
