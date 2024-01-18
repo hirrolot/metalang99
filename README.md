@@ -333,7 +333,7 @@ In either case, you can try to [iteratively debug your metaprogram](https://hirr
 
 ### Q: What about debugging?
 
-A: See the chapter [_Testing, debugging, and error reporting_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
+A: See the chapter [_"Testing, debugging, and error reporting"_](https://hirrolot.gitbook.io/metalang99/testing-debugging-and-error-reporting).
 
 ### Q: What about IDE support?
 
@@ -357,7 +357,7 @@ A:
 
 ### Q: Why not third-party code generators?
 
-A: See the blog post [_What’s the Point of the C Preprocessor, Actually?_]
+A: See the blog post [_"What’s the Point of the C Preprocessor, Actually?"_](https://hirrolot.github.io/posts/whats-the-point-of-the-c-preprocessor-actually.html)
 
 ### Q: Is it Turing-complete?
 
