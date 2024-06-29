@@ -97,7 +97,7 @@
         ~)
 
 /*
- * In this subroutine, we employ the following optimisation:
+ * In this subroutine, we employ the following optimization:
  *
  *  - If `evaluated_op` expands to many terms, we first evaluate these terms and accumulate them
  * (`ML99_PRIV_EVAL_0callUneval_K_1`).

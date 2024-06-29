@@ -60,7 +60,7 @@
  * The same as #ML99_INTRODUCE_VAR_TO_STMT but deals with a single non-`NULL` pointer.
  *
  * In comparison with #ML99_INTRODUCE_VAR_TO_STMT, this macro generates a little less code. It
- * introduces a pointer to @p ty identified by @p name and initialised to @p init.
+ * introduces a pointer to @p ty identified by @p name and initialized to @p init.
  *
  * Top-level `break`/`continue` inside a user-provided statement are prohibited.
  *

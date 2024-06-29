@@ -191,7 +191,7 @@
 #define ML99_abort(...) (0abort, __VA_ARGS__)
 
 /**
- * A convenience macro to emphasise that your metafunction expands to more than one term.
+ * A convenience macro to emphasize that your metafunction expands to more than one term.
  *
  * This macro just expands to provided arguments.
  *

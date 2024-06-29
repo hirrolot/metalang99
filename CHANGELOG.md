@@ -146,7 +146,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
- - `ML99_assignInitializerList(Stmt)` as `ML99_assign(Stmt)` counterparts for initialiser lists.
+ - `ML99_assignInitializerList(Stmt)` as `ML99_assign(Stmt)` counterparts for initializer lists.
 
 ## 1.4.1 - 2021-08-05
 
@@ -255,7 +255,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
  - `assert.h`:
-   - Parenthesise expressions passed to `ML99_ASSERT`, `ML99_ASSERT_EQ`.
+   - Parenthesize expressions passed to `ML99_ASSERT`, `ML99_ASSERT_EQ`.
 
 ### Changed
 
@@ -371,7 +371,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
- - Initialise variables produced by `M_semicolon` and `M_assertPlain` to suppress warnings.
+ - Initialize variables produced by `M_semicolon` and `M_assertPlain` to suppress warnings.
 
 ## 0.4.0 - 2021-02-26
 

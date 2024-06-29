@@ -1,6 +1,6 @@
 # Optimization tips
 
-_This document describes a few optimisation tips when using Metalang99._
+_This document describes a few optimization tips when using Metalang99._
 
 Generally speaking, the fewer reduction steps you perform, the faster you become. A reduction step is a concept defined formally by the [specification]. Here is its informal (and imprecise) description:
 
@@ -11,7 +11,7 @@ To perform fewer reduction steps, you can:
 
  - use `ML99_callUneval`,
  - use plain macros (e.g., `ML99_CAT` instead of `ML99_cat`),
- - use optimised versions (e.g., `ML99_listMapInPlace`),
+ - use optimized versions (e.g., `ML99_listMapInPlace`),
  - use tuples/variadics instead of lists,
  - call a macro as `<X>_IMPL(...)`, if all the arguments are already evaluated.
 

@@ -268,7 +268,7 @@ See [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 See [`idioms.md`](idioms.md).
 
-## Optimisation tips
+## Optimization tips
 
 See [`optimization_tips.md`](optimization_tips.md).
 
