@@ -215,11 +215,11 @@ Happy hacking!
 
 ## Highlights
 
- - **Macro recursion.** Recursive calls behave as expected. In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on a built-in deduction; Metalang99 is free from such drawbacks.
+ - **Macro recursion.** Recursive calls behave as expected. In particular, to implement recursion, [Boost/Preprocessor] just copy-pastes all recursive functions up to a certain limit and forces to either keep track of recursion depth or rely on their built-in deduction. Being an interpreter, Metalang99 is free from such drawbacks.
 
  - **Almost the same syntax.** Metalang99 does not look too alien in comparison with [Order PP] because the syntax differs insignificantly from usual preprocessor code.
 
- - **Partial application.** Instead of tracking auxiliary arguments here and there (as it is done in Boost/Preprocessor), partial application allows to capture an environment by applying constant values first. Besides that, partial application facilitates better reuse of metafunctions.
+ - **Partial application.** Instead of tracking auxiliary arguments here and there (as it is done in Boost/Preprocessor), Metalang99's partial application allows to capture an environment by applying constant values first. Besides that, partial application facilitates better reuse of metafunctions; see `ML99_const`, `ML99_compose`, etc.
 
  - **Debugging and error reporting.** You can conveniently debug your macros with `ML99_abort` and report fatal errors with `ML99_fatal`. The interpreter will immediately finish its work and do the trick.
 
@@ -361,7 +361,7 @@ A: See the blog post [_"What’s the Point of the C Preprocessor, Actually?"_](h
 
 ### Q: Is it Turing-complete?
 
-A: The C/C++ preprocessor is capable to iterate only [up to a certain limit](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete). For Metalang99, this limit is defined in terms of reductions steps: once a fixed amount of reduction steps has exhausted, your metaprogram will not be able to execute anymore.
+A: The C/C++ preprocessor is capable to iterate only [up to a certain limit](https://stackoverflow.com/questions/3136686/is-the-c99-preprocessor-turing-complete). For Metalang99, this limit is defined in terms of reductions steps: once a fixed amount of reduction steps is exhausted, your metaprogram will not be able to execute anymore.
 
 ### Q: Why macros if we have templates?
 
