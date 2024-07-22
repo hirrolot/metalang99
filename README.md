@@ -221,7 +221,7 @@ Happy hacking!
 
  - **Partial application.** Instead of tracking auxiliary arguments here and there (as it is done in Boost/Preprocessor), Metalang99's partial application allows to capture an environment by applying constant values first. Besides that, partial application facilitates better reuse of metafunctions; see `ML99_const`, `ML99_compose`, etc.
 
- - **Debugging and error reporting.** You can conveniently debug your macros with `ML99_abort` and report fatal errors with `ML99_fatal`. The interpreter will immediately finish its work and do the trick.
+ - **Debugging and error reporting.** You can conveniently debug your macros with `ML99_abort` and report unrecoverable errors with `ML99_fatal`. The interpreter will immediately halt and do the trick. To the best of our knowledge, no other macro framework provides such a mechanism for debugging and error reporting.
 
 [Boost/Preprocessor]: http://boost.org/libs/preprocessor
 [Order PP]: https://github.com/rofl0r/order-pp
