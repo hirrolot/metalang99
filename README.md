@@ -249,10 +249,10 @@ Finally, I want to say that Metalang99 is only about syntax transformations and 
 
 ## Publications
 
- - [_Pretty-Printable Enumerations in Pure C_](https://hirrolot.github.io/posts/pretty-printable-enumerations-in-pure-c.html) by Hirrolot.
- - [_What’s the Point of the C Preprocessor, Actually?_] by Hirrolot.
- - [_Macros on Steroids, Or: How Can Pure C Benefit From Metaprogramming_](https://hirrolot.github.io/posts/macros-on-steroids-or-how-can-pure-c-benefit-from-metaprogramming.html) by Hirrolot.
- - [_Extend Your Language, Don’t Alter It_](https://hirrolot.github.io/posts/extend-your-language-dont-alter-it.html) by Hirrolot.
+ - [_Pretty-Printable Enumerations in Pure C_](https://hirrolot.github.io/posts/pretty-printable-enumerations-in-pure-c.html)
+ - [_What’s the Point of the C Preprocessor, Actually?_]
+ - [_Macros on Steroids, Or: How Can Pure C Benefit From Metaprogramming_](https://hirrolot.github.io/posts/macros-on-steroids-or-how-can-pure-c-benefit-from-metaprogramming.html)
+ - [_Extend Your Language, Don’t Alter It_](https://hirrolot.github.io/posts/extend-your-language-dont-alter-it.html)
 
 [_What’s the Point of the C Preprocessor, Actually?_]: https://hirrolot.github.io/posts/whats-the-point-of-the-c-preprocessor-actually.html
 
