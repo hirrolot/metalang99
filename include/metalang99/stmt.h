@@ -141,7 +141,7 @@
 
 #ifndef DOXYGEN_IGNORE
 
-// See <https://github.com/Hirrolot/metalang99/issues/25>.
+// See <https://github.com/hirrolot/metalang99/issues/25>.
 #ifdef __cplusplus
 #define ML99_PRIV_INTRODUCE_VAR_TO_STMT_INNER(...)                                                 \
     ML99_PRIV_SHADOWS(for (__VA_ARGS__,                                                            \

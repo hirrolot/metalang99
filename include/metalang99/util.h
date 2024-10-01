@@ -29,7 +29,7 @@
  * @endcode
  *
  * @deprecated I have seen no single use case over time. Please, [open an
- * issue](https://github.com/Hirrolot/metalang99/issues/new/choose) if you need this function.
+ * issue](https://github.com/hirrolot/metalang99/issues/new/choose) if you need this function.
  */
 #define ML99_catEval(a, b) ML99_call(ML99_catEval, a, b)
 

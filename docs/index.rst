@@ -100,7 +100,7 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`search`
 
-.. _Metalang99 metalanguage: https://github.com/Hirrolot/metalang99
+.. _Metalang99 metalanguage: https://github.com/hirrolot/metalang99
 .. _SemVer: https://semver.org/
 
 .. _lang.h: lang.html

@@ -9,7 +9,7 @@
  *
  * Sequences can represent syntax like `X(...) Y(...) Z(...)`, where `X`, `Y`, and `Z` expand to a
  * [tuple](tuple.html), thereby forming a sequence. A perfect example is
- * [Interface99](https://github.com/Hirrolot/interface99), which allows a user to define a software
+ * [Interface99](https://github.com/hirrolot/interface99), which allows a user to define a software
  * interface via a number of `vfunc(...)` macro invocations:
  *
  * @code

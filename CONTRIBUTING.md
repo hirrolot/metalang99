@@ -40,4 +40,4 @@ Happy hacking!
  5. Update `CHANGELOG.md`.
  6. Release the project in [GitHub Releases].
 
-[GitHub Releases]: https://github.com/Hirrolot/metalang99/releases
+[GitHub Releases]: https://github.com/hirrolot/metalang99/releases

@@ -6,7 +6,7 @@ _This document describes the high-level architecture of Metalang99._
 
 The interpreter interprets the core metalanguage described in the [specification].
 
-[specification]: https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf
+[specification]: https://github.com/hirrolot/metalang99/blob/master/spec/spec.pdf
 
 ### `eval/eval.h`
 

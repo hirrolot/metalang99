@@ -1,5 +1,5 @@
 // `...` is sometimes used to workaround a TCC bug, see
-// <https://github.com/Hirrolot/datatype99/issues/10#issuecomment-830813172>.
+// <https://github.com/hirrolot/datatype99/issues/10#issuecomment-830813172>.
 
 #include <metalang99/assert.h>
 #include <metalang99/util.h>

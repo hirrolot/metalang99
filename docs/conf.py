@@ -21,8 +21,8 @@ import subprocess
 subprocess.call("cd .. ; doxygen", shell=True)
 
 project = 'Metalang99'
-copyright = '2021, Hirrolot'
-author = 'Hirrolot'
+copyright = '2021, hirrolot'
+author = 'hirrolot'
 
 # The full version, including alpha/beta/rc tags
 release = '1.13.3'

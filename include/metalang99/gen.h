@@ -3,7 +3,7 @@
  * Support for C language constructions.
  *
  * Some decent usage examples can be found in
- * [datatype99/examples/derive](https://github.com/Hirrolot/datatype99/tree/master/examples/derive).
+ * [datatype99/examples/derive](https://github.com/hirrolot/datatype99/tree/master/examples/derive).
  */
 
 #ifndef ML99_GEN_H

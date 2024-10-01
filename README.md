@@ -1,9 +1,9 @@
 # Metalang99
 
-[![CI](https://github.com/Hirrolot/metalang99/workflows/C/C++%20CI/badge.svg)](https://github.com/Hirrolot/metalang99/actions)
+[![CI](https://github.com/hirrolot/metalang99/workflows/C/C++%20CI/badge.svg)](https://github.com/hirrolot/metalang99/actions)
 [![docs](https://img.shields.io/badge/docs-readthedocs.io-blue)](https://metalang99.readthedocs.io/en/latest/)
 [![book](https://img.shields.io/badge/book-gitbook.io-pink)](https://hirrolot.gitbook.io/metalang99/)
-[![spec](https://img.shields.io/badge/spec-PDF-green)](https://github.com/Hirrolot/metalang99/blob/master/spec/spec.pdf)
+[![spec](https://img.shields.io/badge/spec-PDF-green)](https://github.com/hirrolot/metalang99/blob/master/spec/spec.pdf)
 [![mailing list](https://img.shields.io/badge/mailing%20list-lists.sr.ht-orange)](https://lists.sr.ht/~hirrolot/metalang99)
 
 > The dark side of the force is a pathway to many abilities, some considered to be unnatural.<br>&emsp; &emsp; <b>-- Darth Sidious</b>
@@ -97,8 +97,8 @@ Currently, Metalang99 is used at [OpenIPC] as an indirect dependency of [Datatyp
 [OpenIPC]: https://openipc.org/
 [RTSP 1.0 implementation]: https://github.com/OpenIPC/smolrtsp/
 
-[Datatype99]: https://github.com/Hirrolot/Datatype99
-[Interface99]: https://github.com/Hirrolot/Interface99
+[Datatype99]: https://github.com/hirrolot/Datatype99
+[Interface99]: https://github.com/hirrolot/Interface99
 
 ## Motivation
 
@@ -190,7 +190,7 @@ include(FetchContent)
 
 FetchContent_Declare(
     metalang99
-    URL https://github.com/Hirrolot/metalang99/archive/refs/tags/v1.2.3.tar.gz # v1.2.3
+    URL https://github.com/hirrolot/metalang99/archive/refs/tags/v1.2.3.tar.gz # v1.2.3
 )
 
 FetchContent_MakeAvailable(metalang99)
@@ -236,7 +236,7 @@ Long story short, it took half of a year of hard work to release v0.1.0 and almo
 
 Finally, I want to say that Metalang99 is only about syntax transformations and not about CPU-bound tasks; the preprocessor is just too slow and limited for such kind of abuse.
 
-[Poica]: https://github.com/Hirrolot/poica
+[Poica]: https://github.com/hirrolot/poica
 
 ## Guidelines
 

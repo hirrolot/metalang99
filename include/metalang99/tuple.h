@@ -5,7 +5,7 @@
  * A tuple is represented as `(x1, ..., xN)`. Tuples are a convenient way to deal with product
  * types. For example:
  *
- * [[examples/rectangle.c](https://github.com/Hirrolot/metalang99/blob/master/examples/rectangle.c)]
+ * [[examples/rectangle.c](https://github.com/hirrolot/metalang99/blob/master/examples/rectangle.c)]
  * @include rectangle.c
  *
  * @note Tuples are more time and space-efficient than lists, but export less functionality; if a
@@ -50,7 +50,7 @@
  * @endcode
  *
  * @deprecated I have seen no single use case over time. Please, [open an
- * issue](https://github.com/Hirrolot/metalang99/issues/new/choose) if you need this function.
+ * issue](https://github.com/hirrolot/metalang99/issues/new/choose) if you need this function.
  */
 #define ML99_tupleEval(...) ML99_call(ML99_tupleEval, __VA_ARGS__)
 

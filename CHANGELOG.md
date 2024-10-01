@@ -11,13 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
- - Fix the `DOWNLOAD_EXTRACT_TIMESTAMP` CMake warning (see [datatype99/issues/15](https://github.com/Hirrolot/datatype99/issues/15)).
+ - Fix the `DOWNLOAD_EXTRACT_TIMESTAMP` CMake warning (see [datatype99/issues/15](https://github.com/hirrolot/datatype99/issues/15)).
 
 ## 1.13.2 - 2022-05-15
 
 ### Fixed
 
- - Fix C++ compilation for `ML99_INTRODUCE_VAR_TO_STMT` and `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT` ([issue #25](https://github.com/Hirrolot/metalang99/issues/25)).
+ - Fix C++ compilation for `ML99_INTRODUCE_VAR_TO_STMT` and `ML99_INTRODUCE_NON_NULL_PTR_TO_STMT` ([issue #25](https://github.com/hirrolot/metalang99/issues/25)).
 
 ## 1.13.1 - 2021-12-09
 
@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
- - Add the root `CMakeLists.txt` to be able to use CMake with [`FetchContent`] or [`add_subdirectory`] ([PR #20](https://github.com/Hirrolot/metalang99/pull/20)).
+ - Add the root `CMakeLists.txt` to be able to use CMake with [`FetchContent`] or [`add_subdirectory`] ([PR #20](https://github.com/hirrolot/metalang99/pull/20)).
  - `list.h`:
    - `ML99_listFilterMap` to filter a list with a maybe-returning function.
 
@@ -152,8 +152,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
- - Invalid C11 standard detection for `_Static_assert` ([issue #15](https://github.com/Hirrolot/metalang99/issues/15)).
- - Invalid C11 standard detection for `_Static_assert` on MSVC ([issue #16](https://github.com/Hirrolot/metalang99/issues/16)).
+ - Invalid C11 standard detection for `_Static_assert` ([issue #15](https://github.com/hirrolot/metalang99/issues/15)).
+ - Invalid C11 standard detection for `_Static_assert` on MSVC ([issue #16](https://github.com/hirrolot/metalang99/issues/16)).
 
 ## 1.4.0 - 2021-08-02
 
@@ -213,7 +213,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
- - Make Metalang99 work on TCC (see [datatype99/issues/10](https://github.com/Hirrolot/datatype99/issues/10)).
+ - Make Metalang99 work on TCC (see [datatype99/issues/10](https://github.com/hirrolot/datatype99/issues/10)).
 
 ## 1.1.0 - 2021-04-24
 
@@ -308,7 +308,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
  - `M_choiceEmpty(Plain)` (this allows a more optimal choice representation).
- - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/Hirrolot/metalang99/commit/f17f06adf1a747a8897bbc90c598b2be21c945c8)).
+ - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/hirrolot/metalang99/commit/f17f06adf1a747a8897bbc90c598b2be21c945c8)).
  - `M_tupleHead`, `M_variadicsHead`.
  - `M_overload`.
  - `M_when(Plain)`, `M_whenLazy(Plain)`.

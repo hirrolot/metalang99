@@ -6,7 +6,7 @@
  * type of a value and `...` is the value. Perhaps the most common example of a choice type is a
  * binary tree:
  *
- * [[examples/binary_tree.c](https://github.com/Hirrolot/metalang99/blob/master/examples/binary_tree.c)]
+ * [[examples/binary_tree.c](https://github.com/hirrolot/metalang99/blob/master/examples/binary_tree.c)]
  * @include binary_tree.c
  *
  * [tagged union]: https://en.wikipedia.org/wiki/Tagged_union
@@ -25,7 +25,7 @@
  * # Examples
  *
  * See
- * [examples/binary_tree.c](https://github.com/Hirrolot/metalang99/blob/master/examples/binary_tree.c).
+ * [examples/binary_tree.c](https://github.com/hirrolot/metalang99/blob/master/examples/binary_tree.c).
  *
  * @note Specify `~` if you do not want to supply data; then, to match it, write a `_` parameter to
  * ignore.
@@ -72,7 +72,7 @@
  * # Examples
  *
  * See
- * [examples/binary_tree.c](https://github.com/Hirrolot/metalang99/blob/master/examples/binary_tree.c).
+ * [examples/binary_tree.c](https://github.com/hirrolot/metalang99/blob/master/examples/binary_tree.c).
  */
 #define ML99_match(choice, matcher) ML99_call(ML99_match, choice, matcher)
 
