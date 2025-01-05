@@ -308,7 +308,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
  - `M_choiceEmpty(Plain)` (this allows a more optimal choice representation).
- - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/hirrolot/metalang99/commit/f17f06adf1a747a8897bbc90c598b2be21c945c8)).
+ - `M_semicolon` (this macro turned out to be [dangerous](https://github.com/hirrolot/metalang99/commit/f12ba642b1fcf313e291fc0e353b01f666a980f8)).
  - `M_tupleHead`, `M_variadicsHead`.
  - `M_overload`.
  - `M_when(Plain)`, `M_whenLazy(Plain)`.
