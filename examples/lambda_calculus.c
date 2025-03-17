@@ -2,9 +2,9 @@
  * An untyped lambda calculus [1] interpreter using De Bruijn indices [2] and normal order
  * evaluation strategy [3].
  *
- * [1]: https://en.wikipedia.org/wiki/Lambda_calculus
- * [2]: https://en.wikipedia.org/wiki/De_Bruijn_index
- * [3]: https://en.wikipedia.org/wiki/Evaluation_strategy#Normal_order
+ * [1] https://en.wikipedia.org/wiki/Lambda_calculus
+ * [2] https://en.wikipedia.org/wiki/De_Bruijn_index
+ * [3] https://en.wikipedia.org/wiki/Evaluation_strategy#Normal_order
  */
 
 #include <metalang99.h>

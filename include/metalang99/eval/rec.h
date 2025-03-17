@@ -21,9 +21,9 @@
  *
  * The minimal usage example is located at `tests/eval/rec.c`.
  *
- * [1]: https://github.com/swansontec/map-macro
- * [2]: https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms#recursion
- * [3]: https://en.wikipedia.org/wiki/Continuation-passing_style
+ * [1] https://github.com/swansontec/map-macro
+ * [2] https://github.com/pfultz2/Cloak/wiki/C-Preprocessor-tricks,-tips,-and-idioms#recursion
+ * [3] https://en.wikipedia.org/wiki/Continuation-passing_style
  */
 
 #ifndef ML99_EVAL_REC_H
