@@ -246,7 +246,7 @@ Finally, I want to say that Metalang99 is only about syntax transformations and 
 [Metalang99-compliant macros]: https://metalang99.readthedocs.io/en/latest/#definitions
 [`ML99_todo` and its friends]: https://metalang99.readthedocs.io/en/latest/util.html#c.ML99_todo
 
-## Publications
+## Blog posts
 
  - [_Pretty-Printable Enumerations in Pure C_](https://hirrolot.github.io/posts/pretty-printable-enumerations-in-pure-c.html)
  - [_What’s the Point of the C Preprocessor, Actually?_]
