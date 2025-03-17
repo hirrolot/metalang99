@@ -2,11 +2,11 @@
 
 To introduce changes:
 
- 1. fork this repository,
- 2. create your own branch from `master`,
- 3. make required changes,
- 4. open a PR to `master` from your branch,
- 5. wait until it gets reviewed.
+ 1. Fork this repository.
+ 2. Create your own branch `xxx` from `master`.
+ 3. Make required changes.
+ 4. Open a PR to `master` from your `xxx`.
+ 5. Wait until it gets reviewed.
 
 To be able to work with low-level stuff such as the interpreter, I highly recommend to first observe the [Cloak Wiki].
 
