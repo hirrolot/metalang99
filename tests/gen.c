@@ -29,7 +29,9 @@ static int test_fn_ptr(const char *str, long long x) {
 int main(void) {
 
     // ML99_braced
-    { struct TestBraced ML99_EVAL(ML99_braced(v(int a, b, c;))); }
+    {
+        struct TestBraced ML99_EVAL(ML99_braced(v(int a, b, c;)));
+    }
 
     // ML99_semicoloned
     {
@@ -183,7 +185,9 @@ int main(void) {
 #define F_ARITY           1
 
     // ML99_repeat
-    { CHECK_EXPAND(ML99_EVAL(ML99_repeat(v(3), v(F)))); }
+    {
+        CHECK_EXPAND(ML99_EVAL(ML99_repeat(v(3), v(F))));
+    }
 
 #undef CHECK
 #undef F_IMPL
@@ -192,7 +196,9 @@ int main(void) {
 #define CHECK(_, x, y, z) ML99_ASSERT_UNEVAL(x == 5 && y == 5 && z == 5)
 
     // ML99_times
-    { CHECK_EXPAND(ML99_EVAL(ML99_times(v(3), v(, 5)))); }
+    {
+        CHECK_EXPAND(ML99_EVAL(ML99_times(v(3), v(, 5))));
+    }
 
 #undef CHECK
 
@@ -277,7 +283,7 @@ int main(void) {
         assert(test.str == _2);
     }
 
-// clang-format on
+    // clang-format on
 
-return 0;
+    return 0;
 }
