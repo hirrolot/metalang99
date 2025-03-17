@@ -366,15 +366,9 @@ A: The C/C++ preprocessor is capable to iterate only [up to a certain limit](htt
 
 A: Metalang99 is primarily targeted at pure C, and C lacks templates. But anyway, you can find the argumentation for C++ at the website of [Boost/Preprocessor].
 
-### Q: Where is an amalgamated header?
-
-A: I am against amalgamated headers because of burden with updating. Instead, you can just add Metalang99 as a [Git submodule] and update it with `git submodule update --remote`.
-
 ### Q: Which standards are supported?
 
 A: C99/C++11 and onwards.
-
-[Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
 ### Q: Which compilers are tested?
 
