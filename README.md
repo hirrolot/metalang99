@@ -271,6 +271,17 @@ See [`idioms.md`](idioms.md).
 
 See [`optimization_tips.md`](optimization_tips.md).
 
+## Release procedure
+
+ 1. Update the `PROJECT_NUMBER` field in `Doxyfile`.
+ 2. Update the `release` field in `docs/conf.py`.
+ 3. Update `ML99_MAJOR`, `ML99_MINOR`, and `ML99_PATCH` in `include/metalang99.h`.
+ 4. Update the version number in `spec/spec.tex` & `spec/spec.pdf`.
+ 5. Update `CHANGELOG.md`.
+ 6. Release the project in [GitHub Releases].
+
+[GitHub Releases]: https://github.com/hirrolot/metalang99/releases
+
 ## FAQ
 
 ### Q: What about compile-time errors?
