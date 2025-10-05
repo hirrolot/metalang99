@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## unreleased
 
+### Fixed
+
+ - Remove outdated Doxygen configuration options ([issue #34](https://github.com/hirrolot/metalang99/issues/34)).
+
 ## 1.13.5 - 2025-03-17
 
 ### Fixed
